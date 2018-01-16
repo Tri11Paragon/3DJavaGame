@@ -1,0 +1,57 @@
+/*    */ 
+/*    */ public class og
+/*    */   implements lw
+/*    */ {
+/*    */   private String a;
+/*    */   private lw b;
+/*    */   private lw c;
+/*    */   
+/*    */   public og(String paramString, lw paramlw1, lw paramlw2)
+/*    */   {
+/* 11 */     this.a = paramString;
+/* 12 */     this.b = paramlw1;
+/* 13 */     this.c = paramlw2;
+/*    */   }
+/*    */   
+/*    */   public int a() {
+/* 17 */     return this.b.a() + this.c.a();
+/*    */   }
+/*    */   
+/*    */   public String c() {
+/* 21 */     return this.a;
+/*    */   }
+/*    */   
+/*    */   public iz f_(int paramInt) {
+/* 25 */     if (paramInt >= this.b.a()) return this.c.f_(paramInt - this.b.a());
+/* 26 */     return this.b.f_(paramInt);
+/*    */   }
+/*    */   
+/*    */   public iz a(int paramInt1, int paramInt2) {
+/* 30 */     if (paramInt1 >= this.b.a()) return this.c.a(paramInt1 - this.b.a(), paramInt2);
+/* 31 */     return this.b.a(paramInt1, paramInt2);
+/*    */   }
+/*    */   
+/*    */   public void a(int paramInt, iz paramiz) {
+/* 35 */     if (paramInt >= this.b.a()) this.c.a(paramInt - this.b.a(), paramiz); else
+/* 36 */       this.b.a(paramInt, paramiz);
+/*    */   }
+/*    */   
+/*    */   public int d() {
+/* 40 */     return this.b.d();
+/*    */   }
+/*    */   
+/*    */   public void y_() {
+/* 44 */     this.b.y_();
+/* 45 */     this.c.y_();
+/*    */   }
+/*    */   
+/*    */   public boolean a_(gs paramgs) {
+/* 49 */     return (this.b.a_(paramgs)) && (this.c.a_(paramgs));
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\og.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

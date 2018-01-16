@@ -1,0 +1,47 @@
+/*    */ import java.io.DataInputStream;
+/*    */ import java.io.DataOutputStream;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class nm
+/*    */   extends ki
+/*    */ {
+/*    */   public int a;
+/*    */   public int b;
+/*    */   
+/*    */   public nm() {}
+/*    */   
+/*    */   public nm(sn paramsn, int paramInt)
+/*    */   {
+/* 20 */     this.a = paramsn.aD;
+/* 21 */     this.b = paramInt;
+/*    */   }
+/*    */   
+/*    */   public void a(DataInputStream paramDataInputStream) {
+/* 25 */     this.a = paramDataInputStream.readInt();
+/* 26 */     this.b = paramDataInputStream.readByte();
+/*    */   }
+/*    */   
+/*    */   public void a(DataOutputStream paramDataOutputStream) {
+/* 30 */     paramDataOutputStream.writeInt(this.a);
+/* 31 */     paramDataOutputStream.writeByte(this.b);
+/*    */   }
+/*    */   
+/*    */   public void a(ti paramti) {
+/* 35 */     paramti.a(this);
+/*    */   }
+/*    */   
+/*    */   public int a() {
+/* 39 */     return 5;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\nm.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

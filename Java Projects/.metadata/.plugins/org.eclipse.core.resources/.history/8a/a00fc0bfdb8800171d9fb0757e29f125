@@ -1,0 +1,105 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class ro
+/*    */   extends ub
+/*    */ {
+/*    */   private final sj c;
+/*    */   private final int d;
+/*    */   private final int e;
+/*    */   private final int f;
+/*    */   private final int g;
+/*    */   private String h;
+/*    */   private int i;
+/*    */   private int j;
+/* 18 */   public boolean a = false;
+/* 19 */   public boolean b = true;
+/*    */   private da l;
+/*    */   
+/*    */   public ro(da paramda, sj paramsj, int paramInt1, int paramInt2, int paramInt3, int paramInt4, String paramString) {
+/* 23 */     this.l = paramda;
+/* 24 */     this.c = paramsj;
+/* 25 */     this.d = paramInt1;
+/* 26 */     this.e = paramInt2;
+/* 27 */     this.f = paramInt3;
+/* 28 */     this.g = paramInt4;
+/* 29 */     a(paramString);
+/*    */   }
+/*    */   
+/*    */   public void a(String paramString) {
+/* 33 */     this.h = paramString;
+/*    */   }
+/*    */   
+/*    */   public String a() {
+/* 37 */     return this.h;
+/*    */   }
+/*    */   
+/*    */   public void b() {
+/* 41 */     this.j += 1;
+/*    */   }
+/*    */   
+/*    */   public void a(char paramChar, int paramInt) {
+/* 45 */     if ((!this.b) || (!this.a)) {
+/* 46 */       return;
+/*    */     }
+/*    */     
+/*    */ 
+/* 50 */     if (paramChar == '\t') {
+/* 51 */       this.l.j();
+/*    */     }
+/* 53 */     if (paramChar == '\026') {
+/* 54 */       String str = da.d();
+/* 55 */       if (str == null) str = "";
+/* 56 */       int k = 32 - this.h.length();
+/* 57 */       if (k > str.length()) k = str.length();
+/* 58 */       if (k > 0) {
+/* 59 */         this.h += str.substring(0, k);
+/*    */       }
+/*    */     }
+/*    */     
+/* 63 */     if ((paramInt == 14) && (this.h.length() > 0)) {
+/* 64 */       this.h = this.h.substring(0, this.h.length() - 1);
+/*    */     }
+/* 66 */     if ((fp.a.indexOf(paramChar) >= 0) && ((this.h.length() < this.i) || (this.i == 0))) {
+/* 67 */       this.h += paramChar;
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public void a(int paramInt1, int paramInt2, int paramInt3) {
+/* 72 */     boolean bool = (this.b) && (paramInt1 >= this.d) && (paramInt1 < this.d + this.f) && (paramInt2 >= this.e) && (paramInt2 < this.e + this.g);
+/* 73 */     a(bool);
+/*    */   }
+/*    */   
+/*    */   public void a(boolean paramBoolean) {
+/* 77 */     if ((paramBoolean) && (!this.a))
+/*    */     {
+/* 79 */       this.j = 0;
+/*    */     }
+/* 81 */     this.a = paramBoolean;
+/*    */   }
+/*    */   
+/*    */   public void c() {
+/* 85 */     a(this.d - 1, this.e - 1, this.d + this.f + 1, this.e + this.g + 1, -6250336);
+/* 86 */     a(this.d, this.e, this.d + this.f, this.e + this.g, -16777216);
+/*    */     
+/* 88 */     if (this.b) {
+/* 89 */       int k = (this.a) && (this.j / 6 % 2 == 0) ? 1 : 0;
+/* 90 */       b(this.c, this.h + (k != 0 ? "_" : ""), this.d + 4, this.e + (this.g - 8) / 2, 14737632);
+/*    */     } else {
+/* 92 */       b(this.c, this.h, this.d + 4, this.e + (this.g - 8) / 2, 7368816);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public void a(int paramInt) {
+/* 97 */     this.i = paramInt;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ro.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,565 @@
+/*     */ package com.jcraft.jorbis;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ class Floor1$InfoFloor1
+/*     */ {
+/*     */   static final int VIF_POSIT = 63;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   static final int VIF_CLASS = 16;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   static final int VIF_PARTS = 31;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   int partitions;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 487 */   int[] partitionclass = new int[31];
+/*     */   
+/* 489 */   int[] class_dim = new int[16];
+/* 490 */   int[] class_subs = new int[16];
+/* 491 */   int[] class_book = new int[16];
+/* 492 */   int[][] class_subbook = new int[16][];
+/*     */   
+/*     */   int mult;
+/* 495 */   int[] postlist = new int[65];
+/*     */   
+/*     */   float maxover;
+/*     */   
+/*     */   float maxunder;
+/*     */   
+/*     */   float maxerr;
+/*     */   int twofitminsize;
+/*     */   int twofitminused;
+/*     */   int twofitweight;
+/*     */   float twofitatten;
+/*     */   int unusedminsize;
+/*     */   int unusedmin_n;
+/*     */   int n;
+/*     */   
+/*     */   Floor1$InfoFloor1(Floor1 paramFloor1)
+/*     */   {
+/* 512 */     for (int i = 0; i < this.class_subbook.length; i++) {
+/* 513 */       this.class_subbook[i] = new int[8];
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   void free() {
+/* 518 */     this.partitionclass = null;
+/* 519 */     this.class_dim = null;
+/* 520 */     this.class_subs = null;
+/* 521 */     this.class_book = null;
+/* 522 */     this.class_subbook = ((int[][])null);
+/* 523 */     this.postlist = null;
+/*     */   }
+/*     */   
+/*     */   Object copy_info() {
+/* 527 */     InfoFloor1 localInfoFloor11 = this;
+/* 528 */     InfoFloor1 localInfoFloor12 = new InfoFloor1(this.this$0);
+/*     */     
+/* 530 */     localInfoFloor12.partitions = localInfoFloor11.partitions;
+/* 531 */     System.arraycopy(localInfoFloor11.partitionclass, 0, localInfoFloor12.partitionclass, 0, 31);
+/*     */     
+/* 533 */     System.arraycopy(localInfoFloor11.class_dim, 0, localInfoFloor12.class_dim, 0, 16);
+/* 534 */     System.arraycopy(localInfoFloor11.class_subs, 0, localInfoFloor12.class_subs, 0, 16);
+/* 535 */     System.arraycopy(localInfoFloor11.class_book, 0, localInfoFloor12.class_book, 0, 16);
+/*     */     
+/* 537 */     for (int i = 0; i < 16; i++) {
+/* 538 */       System.arraycopy(localInfoFloor11.class_subbook[i], 0, localInfoFloor12.class_subbook[i], 0, 8);
+/*     */     }
+/*     */     
+/* 541 */     localInfoFloor12.mult = localInfoFloor11.mult;
+/* 542 */     System.arraycopy(localInfoFloor11.postlist, 0, localInfoFloor12.postlist, 0, 65);
+/*     */     
+/* 544 */     localInfoFloor12.maxover = localInfoFloor11.maxover;
+/* 545 */     localInfoFloor12.maxunder = localInfoFloor11.maxunder;
+/* 546 */     localInfoFloor12.maxerr = localInfoFloor11.maxerr;
+/*     */     
+/* 548 */     localInfoFloor12.twofitminsize = localInfoFloor11.twofitminsize;
+/* 549 */     localInfoFloor12.twofitminused = localInfoFloor11.twofitminused;
+/* 550 */     localInfoFloor12.twofitweight = localInfoFloor11.twofitweight;
+/* 551 */     localInfoFloor12.twofitatten = localInfoFloor11.twofitatten;
+/* 552 */     localInfoFloor12.unusedminsize = localInfoFloor11.unusedminsize;
+/* 553 */     localInfoFloor12.unusedmin_n = localInfoFloor11.unusedmin_n;
+/*     */     
+/* 555 */     localInfoFloor12.n = localInfoFloor11.n;
+/*     */     
+/* 557 */     return localInfoFloor12;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\com\jcraft\jorbis\Floor1$InfoFloor1.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

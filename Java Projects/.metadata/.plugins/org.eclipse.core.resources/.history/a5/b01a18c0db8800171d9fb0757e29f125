@@ -1,0 +1,34 @@
+/*    */ import java.util.Comparator;
+/*    */ 
+/*    */ public class jo
+/*    */   implements Comparator
+/*    */ {
+/*    */   private double a;
+/*    */   private double b;
+/*    */   private double c;
+/*    */   
+/*    */   public jo(sn paramsn)
+/*    */   {
+/* 12 */     this.a = (-paramsn.aM);
+/* 13 */     this.b = (-paramsn.aN);
+/* 14 */     this.c = (-paramsn.aO);
+/*    */   }
+/*    */   
+/*    */   public int a(dk paramdk1, dk paramdk2) {
+/* 18 */     double d1 = paramdk1.q + this.a;
+/* 19 */     double d2 = paramdk1.r + this.b;
+/* 20 */     double d3 = paramdk1.s + this.c;
+/*    */     
+/* 22 */     double d4 = paramdk2.q + this.a;
+/* 23 */     double d5 = paramdk2.r + this.b;
+/* 24 */     double d6 = paramdk2.s + this.c;
+/*    */     
+/* 26 */     return (int)((d1 * d1 + d2 * d2 + d3 * d3 - (d4 * d4 + d5 * d5 + d6 * d6)) * 1024.0D);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\jo.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

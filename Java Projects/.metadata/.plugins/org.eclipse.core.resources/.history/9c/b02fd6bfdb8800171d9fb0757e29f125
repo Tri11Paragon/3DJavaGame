@@ -1,0 +1,90 @@
+/*    */ import java.io.File;
+/*    */ import java.util.Iterator;
+/*    */ import java.util.List;
+/*    */ import java.util.Map;
+/*    */ import net.minecraft.client.Minecraft;
+/*    */ 
+/*    */ public class ik
+/*    */ {
+/*  9 */   private List b = new java.util.ArrayList();
+/* 10 */   private i c = new pa();
+/*    */   
+/*    */   public i a;
+/* 13 */   private Map d = new java.util.HashMap();
+/*    */   private Minecraft e;
+/*    */   private File f;
+/*    */   private String g;
+/*    */   
+/*    */   public ik(Minecraft paramMinecraft, File paramFile)
+/*    */   {
+/* 20 */     this.e = paramMinecraft;
+/* 21 */     this.f = new File(paramFile, "texturepacks");
+/* 22 */     if (!this.f.exists()) this.f.mkdirs();
+/* 23 */     this.g = paramMinecraft.z.l;
+/* 24 */     a();
+/* 25 */     this.a.a();
+/*    */   }
+/*    */   
+/*    */   public boolean a(i parami) {
+/* 29 */     if (parami == this.a) { return false;
+/*    */     }
+/* 31 */     this.a.b();
+/* 32 */     this.g = parami.a;
+/* 33 */     this.a = parami;
+/* 34 */     this.e.z.l = this.g;
+/* 35 */     this.e.z.b();
+/* 36 */     this.a.a();
+/* 37 */     return true;
+/*    */   }
+/*    */   
+/*    */   public void a() {
+/* 41 */     java.util.ArrayList localArrayList = new java.util.ArrayList();
+/* 42 */     this.a = null;
+/*    */     
+/* 44 */     localArrayList.add(this.c);
+/* 45 */     if ((this.f.exists()) && (this.f.isDirectory())) {
+/* 46 */       localObject1 = this.f.listFiles();
+/* 47 */       for (File localFile : localObject1) {
+/* 48 */         if ((localFile.isFile()) && (localFile.getName().toLowerCase().endsWith(".zip"))) {
+/* 49 */           String str = localFile.getName() + ":" + localFile.length() + ":" + localFile.lastModified();
+/*    */           try
+/*    */           {
+/* 52 */             if (!this.d.containsKey(str)) {
+/* 53 */               localObject3 = new vp(localFile);
+/* 54 */               ((i)localObject3).d = str;
+/* 55 */               this.d.put(str, localObject3);
+/* 56 */               ((i)localObject3).a(this.e);
+/*    */             }
+/* 58 */             Object localObject3 = (i)this.d.get(str);
+/* 59 */             if (((i)localObject3).a.equals(this.g)) {
+/* 60 */               this.a = ((i)localObject3);
+/*    */             }
+/* 62 */             localArrayList.add(localObject3);
+/*    */           } catch (java.io.IOException localIOException) {
+/* 64 */             localIOException.printStackTrace();
+/*    */           }
+/*    */         }
+/*    */       }
+/*    */     }
+/*    */     
+/* 70 */     if (this.a == null) { this.a = this.c;
+/*    */     }
+/* 72 */     this.b.removeAll(localArrayList);
+/* 73 */     for (Object localObject1 = this.b.iterator(); ((Iterator)localObject1).hasNext();) { ??? = (i)((Iterator)localObject1).next();
+/* 74 */       ((i)???).b(this.e);
+/* 75 */       this.d.remove(((i)???).d);
+/*    */     }
+/*    */     
+/* 78 */     this.b = localArrayList;
+/*    */   }
+/*    */   
+/*    */   public List b() {
+/* 82 */     return new java.util.ArrayList(this.b);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ik.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

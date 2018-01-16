@@ -1,0 +1,81 @@
+/*    */ import net.minecraft.client.Minecraft;
+/*    */ import org.lwjgl.opengl.GL11;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class hy
+/*    */   extends je
+/*    */ {
+/*    */   private cv b;
+/*    */   
+/*    */   public void a(uk paramuk, double paramDouble1, double paramDouble2, double paramDouble3, float paramFloat)
+/*    */   {
+/* 26 */     uu localuu = uu.m[paramuk.a()];
+/* 27 */     if ((localuu != null) && (paramuk.a(paramFloat) < 1.0F)) {
+/* 28 */       nw localnw = nw.a;
+/*    */       
+/* 30 */       a("/terrain.png");
+/*    */       
+/* 32 */       u.a();
+/*    */       
+/* 34 */       GL11.glBlendFunc(770, 771);
+/* 35 */       GL11.glEnable(3042);
+/* 36 */       GL11.glDisable(2884);
+/* 37 */       if (Minecraft.v()) {
+/* 38 */         GL11.glShadeModel(7425);
+/*    */       } else {
+/* 40 */         GL11.glShadeModel(7424);
+/*    */       }
+/*    */       
+/* 43 */       localnw.b();
+/*    */       
+/* 45 */       localnw.b((float)paramDouble1 - paramuk.e + paramuk.b(paramFloat), (float)paramDouble2 - paramuk.f + paramuk.c(paramFloat), (float)paramDouble3 - paramuk.g + paramuk.d(paramFloat));
+/* 46 */       localnw.a(1, 1, 1);
+/* 47 */       if ((localuu == uu.ab) && (paramuk.a(paramFloat) < 0.5F))
+/*    */       {
+/* 49 */         this.b.a(localuu, paramuk.e, paramuk.f, paramuk.g, false);
+/* 50 */       } else if ((paramuk.k()) && (!paramuk.b()))
+/*    */       {
+/* 52 */         uu.ab.a_(((jq)localuu).i());
+/* 53 */         this.b.a(uu.ab, paramuk.e, paramuk.f, paramuk.g, paramuk.a(paramFloat) < 0.5F);
+/* 54 */         uu.ab.a();
+/*    */         
+/* 56 */         localnw.b((float)paramDouble1 - paramuk.e, (float)paramDouble2 - paramuk.f, (float)paramDouble3 - paramuk.g);
+/* 57 */         this.b.d(localuu, paramuk.e, paramuk.f, paramuk.g);
+/*    */       } else {
+/* 59 */         this.b.a(localuu, paramuk.e, paramuk.f, paramuk.g);
+/*    */       }
+/* 61 */       localnw.b(0.0D, 0.0D, 0.0D);
+/* 62 */       localnw.a();
+/*    */       
+/* 64 */       u.b();
+/*    */     }
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public void a(fd paramfd)
+/*    */   {
+/* 73 */     this.b = new cv(paramfd);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\hy.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

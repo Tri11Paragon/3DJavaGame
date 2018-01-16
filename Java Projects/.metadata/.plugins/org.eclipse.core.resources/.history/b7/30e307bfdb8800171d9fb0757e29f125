@@ -1,0 +1,123 @@
+/*     */ import java.util.List;
+/*     */ import java.util.Random;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class cy
+/*     */   extends ow
+/*     */ {
+/*  10 */   public int a = -1;
+/*     */   private String i;
+/*  12 */   public double b; public double c = 0.0D;
+/*     */   
+/*     */   public cy()
+/*     */   {
+/*  16 */     this.i = "Pig";
+/*  17 */     this.a = 20;
+/*     */   }
+/*     */   
+/*     */   public String a() {
+/*  21 */     return this.i;
+/*     */   }
+/*     */   
+/*     */   public void a(String paramString) {
+/*  25 */     this.i = paramString;
+/*     */   }
+/*     */   
+/*     */   public boolean b() {
+/*  29 */     return this.d.a(this.e + 0.5D, this.f + 0.5D, this.g + 0.5D, 16.0D) != null;
+/*     */   }
+/*     */   
+/*     */   public void n_()
+/*     */   {
+/*  34 */     this.c = this.b;
+/*     */     
+/*  36 */     if (!b()) {
+/*  37 */       return;
+/*     */     }
+/*     */     
+/*  40 */     double d1 = this.e + this.d.r.nextFloat();
+/*  41 */     double d2 = this.f + this.d.r.nextFloat();
+/*  42 */     double d3 = this.g + this.d.r.nextFloat();
+/*  43 */     this.d.a("smoke", d1, d2, d3, 0.0D, 0.0D, 0.0D);
+/*  44 */     this.d.a("flame", d1, d2, d3, 0.0D, 0.0D, 0.0D);
+/*     */     
+/*     */ 
+/*  47 */     this.b += 1000.0F / (this.a + 200.0F);
+/*  48 */     while (this.b > 360.0D) {
+/*  49 */       this.b -= 360.0D;
+/*  50 */       this.c -= 360.0D;
+/*     */     }
+/*     */     
+/*  53 */     if (!this.d.B) {
+/*  54 */       if (this.a == -1) { d();
+/*     */       }
+/*  56 */       if (this.a > 0) {
+/*  57 */         this.a -= 1;
+/*  58 */         return;
+/*     */       }
+/*     */       
+/*  61 */       int j = 4;
+/*  62 */       for (int k = 0; k < j; k++) {
+/*  63 */         ls localls = (ls)jc.a(this.i, this.d);
+/*  64 */         if (localls == null) { return;
+/*     */         }
+/*  66 */         int m = this.d.a(localls.getClass(), eq.b(this.e, this.f, this.g, this.e + 1, this.f + 1, this.g + 1).b(8.0D, 4.0D, 8.0D)).size();
+/*  67 */         if (m >= 6) {
+/*  68 */           d();
+/*  69 */           return;
+/*     */         }
+/*     */         
+/*  72 */         if (localls != null) {
+/*  73 */           double d4 = this.e + (this.d.r.nextDouble() - this.d.r.nextDouble()) * 4.0D;
+/*  74 */           double d5 = this.f + this.d.r.nextInt(3) - 1;
+/*  75 */           double d6 = this.g + (this.d.r.nextDouble() - this.d.r.nextDouble()) * 4.0D;
+/*     */           
+/*  77 */           localls.c(d4, d5, d6, this.d.r.nextFloat() * 360.0F, 0.0F);
+/*     */           
+/*  79 */           if (localls.d()) {
+/*  80 */             this.d.b(localls);
+/*     */             
+/*  82 */             for (int n = 0; n < 20; n++)
+/*     */             {
+/*  84 */               d1 = this.e + 0.5D + (this.d.r.nextFloat() - 0.5D) * 2.0D;
+/*  85 */               d2 = this.f + 0.5D + (this.d.r.nextFloat() - 0.5D) * 2.0D;
+/*  86 */               d3 = this.g + 0.5D + (this.d.r.nextFloat() - 0.5D) * 2.0D;
+/*     */               
+/*  88 */               this.d.a("smoke", d1, d2, d3, 0.0D, 0.0D, 0.0D);
+/*  89 */               this.d.a("flame", d1, d2, d3, 0.0D, 0.0D, 0.0D);
+/*     */             }
+/*     */             
+/*  92 */             localls.V();
+/*  93 */             d();
+/*     */           }
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */     
+/*  99 */     super.n_();
+/*     */   }
+/*     */   
+/*     */   private void d() {
+/* 103 */     this.a = (200 + this.d.r.nextInt(600));
+/*     */   }
+/*     */   
+/*     */   public void a(nu paramnu) {
+/* 107 */     super.a(paramnu);
+/* 108 */     this.i = paramnu.i("EntityId");
+/* 109 */     this.a = paramnu.d("Delay");
+/*     */   }
+/*     */   
+/*     */   public void b(nu paramnu) {
+/* 113 */     super.b(paramnu);
+/* 114 */     paramnu.a("EntityId", this.i);
+/* 115 */     paramnu.a("Delay", (short)this.a);
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\cy.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

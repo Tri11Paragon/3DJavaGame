@@ -1,0 +1,66 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class ru
+/*    */   extends wb
+/*    */ {
+/*    */   protected ru(int paramInt1, int paramInt2)
+/*    */   {
+/* 16 */     super(paramInt1, paramInt2);
+/* 17 */     float f = 0.4F;
+/* 18 */     a(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.8F, 0.5F + f);
+/*    */   }
+/*    */   
+/*    */   public int a(int paramInt1, int paramInt2) {
+/* 22 */     if (paramInt2 == 1) return this.bm;
+/* 23 */     if (paramInt2 == 2) return this.bm + 16 + 1;
+/* 24 */     if (paramInt2 == 0) return this.bm + 16;
+/* 25 */     return this.bm;
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public int b(xp paramxp, int paramInt1, int paramInt2, int paramInt3)
+/*    */   {
+/* 36 */     int i = paramxp.e(paramInt1, paramInt2, paramInt3);
+/* 37 */     if (i == 0) { return 16777215;
+/*    */     }
+/* 39 */     long l = paramInt1 * 3129871 + paramInt3 * 6129781 + paramInt2;
+/* 40 */     l = l * l * 42317861L + l * 11L;
+/*    */     
+/* 42 */     paramInt1 = (int)(paramInt1 + (l >> 14 & 0x1F));
+/* 43 */     paramInt2 = (int)(paramInt2 + (l >> 19 & 0x1F));
+/* 44 */     paramInt3 = (int)(paramInt3 + (l >> 24 & 0x1F));
+/*    */     
+/* 46 */     paramxp.a().a(paramInt1, paramInt3, 1, 1);
+/* 47 */     double d1 = paramxp.a().a[0];
+/* 48 */     double d2 = paramxp.a().b[0];
+/*    */     
+/* 50 */     return ia.a(d1, d2);
+/*    */   }
+/*    */   
+/*    */   public int a(int paramInt, Random paramRandom) {
+/* 54 */     if (paramRandom.nextInt(8) == 0) {
+/* 55 */       return gm.Q.bf;
+/*    */     }
+/*    */     
+/* 58 */     return -1;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ru.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

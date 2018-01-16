@@ -1,0 +1,61 @@
+/*    */ import java.io.DataInputStream;
+/*    */ import java.io.DataOutputStream;
+/*    */ 
+/*    */ 
+/*    */ public class gj
+/*    */   extends ki
+/*    */ {
+/*    */   public int a;
+/*    */   public int b;
+/*    */   public int c;
+/*    */   public int d;
+/*    */   
+/*    */   public gj() {}
+/*    */   
+/*    */   public gj(sn paramsn)
+/*    */   {
+/* 17 */     this(paramsn.aD, paramsn.aP, paramsn.aQ, paramsn.aR);
+/*    */   }
+/*    */   
+/*    */   public gj(int paramInt, double paramDouble1, double paramDouble2, double paramDouble3) {
+/* 21 */     this.a = paramInt;
+/* 22 */     double d1 = 3.9D;
+/* 23 */     if (paramDouble1 < -d1) paramDouble1 = -d1;
+/* 24 */     if (paramDouble2 < -d1) paramDouble2 = -d1;
+/* 25 */     if (paramDouble3 < -d1) paramDouble3 = -d1;
+/* 26 */     if (paramDouble1 > d1) paramDouble1 = d1;
+/* 27 */     if (paramDouble2 > d1) paramDouble2 = d1;
+/* 28 */     if (paramDouble3 > d1) paramDouble3 = d1;
+/* 29 */     this.b = ((int)(paramDouble1 * 8000.0D));
+/* 30 */     this.c = ((int)(paramDouble2 * 8000.0D));
+/* 31 */     this.d = ((int)(paramDouble3 * 8000.0D));
+/*    */   }
+/*    */   
+/*    */   public void a(DataInputStream paramDataInputStream) {
+/* 35 */     this.a = paramDataInputStream.readInt();
+/* 36 */     this.b = paramDataInputStream.readShort();
+/* 37 */     this.c = paramDataInputStream.readShort();
+/* 38 */     this.d = paramDataInputStream.readShort();
+/*    */   }
+/*    */   
+/*    */   public void a(DataOutputStream paramDataOutputStream) {
+/* 42 */     paramDataOutputStream.writeInt(this.a);
+/* 43 */     paramDataOutputStream.writeShort(this.b);
+/* 44 */     paramDataOutputStream.writeShort(this.c);
+/* 45 */     paramDataOutputStream.writeShort(this.d);
+/*    */   }
+/*    */   
+/*    */   public void a(ti paramti) {
+/* 49 */     paramti.a(this);
+/*    */   }
+/*    */   
+/*    */   public int a() {
+/* 53 */     return 10;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\gj.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

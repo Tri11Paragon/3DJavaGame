@@ -1,0 +1,50 @@
+/*    */ import java.io.DataInputStream;
+/*    */ import java.io.DataOutputStream;
+/*    */ 
+/*    */ public class ai
+/*    */   extends ki
+/*    */ {
+/*    */   public short a;
+/*    */   public short b;
+/*    */   public byte[] c;
+/*    */   
+/*    */   public ai()
+/*    */   {
+/* 13 */     this.k = true;
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public void a(DataInputStream paramDataInputStream)
+/*    */   {
+/* 24 */     this.a = paramDataInputStream.readShort();
+/* 25 */     this.b = paramDataInputStream.readShort();
+/* 26 */     this.c = new byte[paramDataInputStream.readByte() & 0xFF];
+/* 27 */     paramDataInputStream.readFully(this.c);
+/*    */   }
+/*    */   
+/*    */   public void a(DataOutputStream paramDataOutputStream) {
+/* 31 */     paramDataOutputStream.writeShort(this.a);
+/* 32 */     paramDataOutputStream.writeShort(this.b);
+/* 33 */     paramDataOutputStream.writeByte(this.c.length);
+/* 34 */     paramDataOutputStream.write(this.c);
+/*    */   }
+/*    */   
+/*    */   public void a(ti paramti) {
+/* 38 */     paramti.a(this);
+/*    */   }
+/*    */   
+/*    */   public int a() {
+/* 42 */     return 4 + this.c.length;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ai.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

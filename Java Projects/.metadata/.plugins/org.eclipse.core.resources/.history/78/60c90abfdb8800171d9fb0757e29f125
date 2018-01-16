@@ -1,0 +1,77 @@
+/*    */ import java.io.DataInputStream;
+/*    */ import java.io.DataOutputStream;
+/*    */ import java.util.HashSet;
+/*    */ import java.util.Set;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class rm
+/*    */   extends ki
+/*    */ {
+/*    */   public double a;
+/*    */   public double b;
+/*    */   public double c;
+/*    */   public float d;
+/*    */   public Set e;
+/*    */   
+/*    */   public void a(DataInputStream paramDataInputStream)
+/*    */   {
+/* 25 */     this.a = paramDataInputStream.readDouble();
+/* 26 */     this.b = paramDataInputStream.readDouble();
+/* 27 */     this.c = paramDataInputStream.readDouble();
+/* 28 */     this.d = paramDataInputStream.readFloat();
+/* 29 */     int i = paramDataInputStream.readInt();
+/*    */     
+/* 31 */     this.e = new HashSet();
+/*    */     
+/* 33 */     int j = (int)this.a;
+/* 34 */     int k = (int)this.b;
+/* 35 */     int m = (int)this.c;
+/* 36 */     for (int n = 0; n < i; n++) {
+/* 37 */       int i1 = paramDataInputStream.readByte() + j;
+/* 38 */       int i2 = paramDataInputStream.readByte() + k;
+/* 39 */       int i3 = paramDataInputStream.readByte() + m;
+/* 40 */       this.e.add(new wf(i1, i2, i3));
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public void a(DataOutputStream paramDataOutputStream) {
+/* 45 */     paramDataOutputStream.writeDouble(this.a);
+/* 46 */     paramDataOutputStream.writeDouble(this.b);
+/* 47 */     paramDataOutputStream.writeDouble(this.c);
+/* 48 */     paramDataOutputStream.writeFloat(this.d);
+/* 49 */     paramDataOutputStream.writeInt(this.e.size());
+/*    */     
+/* 51 */     int i = (int)this.a;
+/* 52 */     int j = (int)this.b;
+/* 53 */     int k = (int)this.c;
+/* 54 */     for (wf localwf : this.e) {
+/* 55 */       int m = localwf.a - i;
+/* 56 */       int n = localwf.b - j;
+/* 57 */       int i1 = localwf.c - k;
+/* 58 */       paramDataOutputStream.writeByte(m);
+/* 59 */       paramDataOutputStream.writeByte(n);
+/* 60 */       paramDataOutputStream.writeByte(i1);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public void a(ti paramti) {
+/* 65 */     paramti.a(this);
+/*    */   }
+/*    */   
+/*    */   public int a() {
+/* 69 */     return 32 + this.e.size() * 3;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\rm.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

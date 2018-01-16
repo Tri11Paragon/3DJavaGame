@@ -1,0 +1,60 @@
+/*    */ import org.lwjgl.opengl.GL11;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class v
+/*    */   extends gv
+/*    */ {
+/*    */   protected fh a;
+/*    */   
+/*    */   public v(fh paramfh, float paramFloat)
+/*    */   {
+/* 15 */     super(paramfh, paramFloat);
+/* 16 */     this.a = paramfh;
+/*    */   }
+/*    */   
+/*    */   protected void b(ls paramls, float paramFloat) {
+/* 20 */     iz localiz = paramls.r_();
+/*    */     
+/* 22 */     if (localiz != null) {
+/* 23 */       GL11.glPushMatrix();
+/* 24 */       this.a.d.c(0.0625F);
+/* 25 */       GL11.glTranslatef(-0.0625F, 0.4375F, 0.0625F);
+/*    */       float f;
+/* 27 */       if ((localiz.c < 256) && (cv.a(uu.m[localiz.c].b()))) {
+/* 28 */         f = 0.5F;
+/* 29 */         GL11.glTranslatef(0.0F, 0.1875F, -0.3125F);
+/* 30 */         f *= 0.75F;
+/* 31 */         GL11.glRotatef(20.0F, 1.0F, 0.0F, 0.0F);
+/* 32 */         GL11.glRotatef(45.0F, 0.0F, 1.0F, 0.0F);
+/* 33 */         GL11.glScalef(f, -f, f);
+/* 34 */       } else if (gm.c[localiz.c].b()) {
+/* 35 */         f = 0.625F;
+/* 36 */         GL11.glTranslatef(0.0F, 0.1875F, 0.0F);
+/* 37 */         GL11.glScalef(f, -f, f);
+/* 38 */         GL11.glRotatef(-100.0F, 1.0F, 0.0F, 0.0F);
+/* 39 */         GL11.glRotatef(45.0F, 0.0F, 1.0F, 0.0F);
+/*    */       } else {
+/* 41 */         f = 0.375F;
+/* 42 */         GL11.glTranslatef(0.25F, 0.1875F, -0.1875F);
+/* 43 */         GL11.glScalef(f, f, f);
+/* 44 */         GL11.glRotatef(60.0F, 0.0F, 0.0F, 1.0F);
+/* 45 */         GL11.glRotatef(-90.0F, 1.0F, 0.0F, 0.0F);
+/* 46 */         GL11.glRotatef(20.0F, 0.0F, 0.0F, 1.0F);
+/*    */       }
+/*    */       
+/*    */ 
+/* 50 */       this.b.f.a(paramls, localiz);
+/* 51 */       GL11.glPopMatrix();
+/*    */     }
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\v.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

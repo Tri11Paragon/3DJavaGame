@@ -1,0 +1,112 @@
+/*     */ package com.jcraft.jorbis;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ class Lsp
+/*     */ {
+/*     */   static final float M_PI = 3.1415927F;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   static void lsp_to_curve(float[] paramArrayOfFloat1, int[] paramArrayOfInt, int paramInt1, int paramInt2, float[] paramArrayOfFloat2, int paramInt3, float paramFloat1, float paramFloat2)
+/*     */   {
+/*  46 */     float f1 = 3.1415927F / paramInt2;
+/*  47 */     for (int i = 0; i < paramInt3; i++)
+/*  48 */       paramArrayOfFloat2[i] = Lookup.coslook(paramArrayOfFloat2[i]);
+/*  49 */     int j = paramInt3 / 2 * 2;
+/*     */     
+/*  51 */     i = 0;
+/*  52 */     while (i < paramInt1) {
+/*  53 */       int k = paramArrayOfInt[i];
+/*  54 */       float f2 = 0.70710677F;
+/*  55 */       float f3 = 0.70710677F;
+/*  56 */       float f4 = Lookup.coslook(f1 * k);
+/*     */       
+/*  58 */       for (int m = 0; m < j; m += 2) {
+/*  59 */         f3 *= (paramArrayOfFloat2[m] - f4);
+/*  60 */         f2 *= (paramArrayOfFloat2[(m + 1)] - f4);
+/*     */       }
+/*     */       
+/*  63 */       if ((paramInt3 & 0x1) != 0)
+/*     */       {
+/*     */ 
+/*  66 */         f3 *= (paramArrayOfFloat2[(paramInt3 - 1)] - f4);
+/*  67 */         f3 *= f3;
+/*  68 */         f2 *= f2 * (1.0F - f4 * f4);
+/*     */       }
+/*     */       else
+/*     */       {
+/*  72 */         f3 *= f3 * (1.0F + f4);
+/*  73 */         f2 *= f2 * (1.0F - f4);
+/*     */       }
+/*     */       
+/*     */ 
+/*  77 */       f3 = f2 + f3;
+/*  78 */       m = Float.floatToIntBits(f3);
+/*  79 */       int n = 0x7FFFFFFF & m;
+/*  80 */       int i1 = 0;
+/*     */       
+/*  82 */       if ((n < 2139095040) && (n != 0))
+/*     */       {
+/*     */ 
+/*     */ 
+/*  86 */         if (n < 8388608) {
+/*  87 */           f3 = (float)(f3 * 3.3554432E7D);
+/*  88 */           m = Float.floatToIntBits(f3);
+/*  89 */           n = 0x7FFFFFFF & m;
+/*  90 */           i1 = -25;
+/*     */         }
+/*  92 */         i1 += (n >>> 23) - 126;
+/*  93 */         m = m & 0x807FFFFF | 0x3F000000;
+/*  94 */         f3 = Float.intBitsToFloat(m);
+/*     */       }
+/*     */       
+/*  97 */       f3 = Lookup.fromdBlook(paramFloat1 * Lookup.invsqlook(f3) * Lookup.invsq2explook(i1 + paramInt3) - paramFloat2);
+/*     */       
+/*     */       do
+/*     */       {
+/* 101 */         paramArrayOfFloat1[(i++)] *= f3;
+/*     */       }
+/* 103 */       while ((i < paramInt1) && (paramArrayOfInt[i] == k));
+/*     */     }
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\com\jcraft\jorbis\Lsp.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

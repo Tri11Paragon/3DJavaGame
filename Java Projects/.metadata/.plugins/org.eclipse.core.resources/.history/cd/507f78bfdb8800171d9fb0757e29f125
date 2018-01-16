@@ -1,0 +1,35 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public abstract class rw
+/*    */   extends uu
+/*    */ {
+/*    */   protected rw(int paramInt, ln paramln)
+/*    */   {
+/*  9 */     super(paramInt, paramln);
+/* 10 */     p[paramInt] = true;
+/*    */   }
+/*    */   
+/*    */   protected rw(int paramInt1, int paramInt2, ln paramln) {
+/* 14 */     super(paramInt1, paramInt2, paramln);
+/* 15 */     p[paramInt1] = true;
+/*    */   }
+/*    */   
+/*    */   public void c(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/* 19 */     super.c(paramfd, paramInt1, paramInt2, paramInt3);
+/* 20 */     paramfd.a(paramInt1, paramInt2, paramInt3, a_());
+/*    */   }
+/*    */   
+/*    */   public void b(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/* 24 */     super.b(paramfd, paramInt1, paramInt2, paramInt3);
+/* 25 */     paramfd.p(paramInt1, paramInt2, paramInt3);
+/*    */   }
+/*    */   
+/*    */   protected abstract ow a_();
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\rw.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

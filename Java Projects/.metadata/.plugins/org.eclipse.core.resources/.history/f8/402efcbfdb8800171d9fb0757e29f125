@@ -1,0 +1,56 @@
+/*    */ import java.util.List;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class qt
+/*    */   extends da
+/*    */ {
+/*    */   private da a;
+/*    */   private String i;
+/*    */   private String j;
+/*    */   private String l;
+/*    */   private String m;
+/*    */   private int n;
+/*    */   
+/*    */   public qt(da paramda, String paramString1, String paramString2, String paramString3, String paramString4, int paramInt)
+/*    */   {
+/* 25 */     this.a = paramda;
+/* 26 */     this.i = paramString1;
+/* 27 */     this.j = paramString2;
+/* 28 */     this.l = paramString3;
+/* 29 */     this.m = paramString4;
+/* 30 */     this.n = paramInt;
+/*    */   }
+/*    */   
+/*    */   public void b() {
+/* 34 */     this.e.add(new ab(0, this.c / 2 - 155 + 0, this.d / 6 + 96, this.l));
+/* 35 */     this.e.add(new ab(1, this.c / 2 - 155 + 160, this.d / 6 + 96, this.m));
+/*    */   }
+/*    */   
+/*    */   protected void a(ke paramke) {
+/* 39 */     this.a.a(paramke.f == 0, this.n);
+/*    */   }
+/*    */   
+/*    */   public void a(int paramInt1, int paramInt2, float paramFloat) {
+/* 43 */     i();
+/*    */     
+/* 45 */     a(this.g, this.i, this.c / 2, 70, 16777215);
+/* 46 */     a(this.g, this.j, this.c / 2, 90, 16777215);
+/*    */     
+/* 48 */     super.a(paramInt1, paramInt2, paramFloat);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\qt.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,29 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class rx
+/*    */   extends gm
+/*    */ {
+/*    */   public rx(int paramInt)
+/*    */   {
+/*  9 */     super(paramInt);
+/*    */     
+/* 11 */     a(true);
+/* 12 */     e(0);
+/*    */   }
+/*    */   
+/*    */ 
+/*    */   public String a(iz paramiz)
+/*    */   {
+/* 18 */     if (paramiz.i() == 1) {
+/* 19 */       return "item.charcoal";
+/*    */     }
+/* 21 */     return "item.coal";
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\rx.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

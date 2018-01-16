@@ -1,0 +1,61 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ final class kk
+/*    */   extends ba
+/*    */ {
+/*    */   public boolean a(gu paramgu)
+/*    */   {
+/* 40 */     return at.c == paramgu.a();
+/*    */   }
+/*    */   
+/*    */   public String a() {
+/* 44 */     return "A short form string";
+/*    */   }
+/*    */   
+/*    */   public String b(gu paramgu) {
+/* 48 */     return paramgu.b();
+/*    */   }
+/*    */   
+/*    */   public String toString()
+/*    */   {
+/* 53 */     return "a value that is a string";
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\kk.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

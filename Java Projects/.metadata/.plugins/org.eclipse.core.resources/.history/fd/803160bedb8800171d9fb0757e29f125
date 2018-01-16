@@ -1,0 +1,192 @@
+/*     */ import java.util.Random;
+/*     */ 
+/*     */ 
+/*     */ public class ii
+/*     */   extends ls
+/*     */ {
+/*     */   private dh a;
+/*     */   protected sn d;
+/*     */   
+/*     */   public ii(fd paramfd)
+/*     */   {
+/*  12 */     super(paramfd);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*  17 */   protected boolean e = false;
+/*     */   
+/*     */   protected boolean e_() {
+/*  20 */     return false;
+/*     */   }
+/*     */   
+/*     */   protected void f_() {
+/*  24 */     this.e = e_();
+/*  25 */     float f1 = 16.0F;
+/*     */     
+/*  27 */     if (this.d == null) {
+/*  28 */       this.d = g_();
+/*  29 */       if (this.d != null) {
+/*  30 */         this.a = this.aI.a(this, this.d, f1);
+/*     */       }
+/*     */     }
+/*  33 */     else if (!this.d.W()) {
+/*  34 */       this.d = null;
+/*     */     } else {
+/*  36 */       float f2 = this.d.f(this);
+/*  37 */       if (e(this.d)) {
+/*  38 */         a(this.d, f2);
+/*     */       } else {
+/*  40 */         b(this.d, f2);
+/*     */       }
+/*     */     }
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*  49 */     if ((!this.e) && (this.d != null) && ((this.a == null) || (this.bs.nextInt(20) == 0))) {
+/*  50 */       this.a = this.aI.a(this, this.d, f1);
+/*  51 */     } else if ((!this.e) && (((this.a == null) && (this.bs.nextInt(80) == 0)) || (this.bs.nextInt(80) == 0))) {
+/*  52 */       E();
+/*     */     }
+/*     */     
+/*  55 */     int i = in.b(this.aW.b + 0.5D);
+/*     */     
+/*  57 */     boolean bool1 = ag();
+/*  58 */     boolean bool2 = ah();
+/*  59 */     this.aT = 0.0F;
+/*  60 */     if ((this.a == null) || (this.bs.nextInt(100) == 0)) {
+/*  61 */       super.f_();
+/*  62 */       this.a = null;
+/*  63 */       return;
+/*     */     }
+/*     */     
+/*  66 */     bt localbt = this.a.a(this);
+/*  67 */     double d1 = this.bg * 2.0F;
+/*  68 */     while ((localbt != null) && (localbt.d(this.aM, localbt.b, this.aO) < d1 * d1)) {
+/*  69 */       this.a.a();
+/*  70 */       if (this.a.b()) {
+/*  71 */         localbt = null;
+/*  72 */         this.a = null;
+/*  73 */       } else { localbt = this.a.a(this);
+/*     */       }
+/*     */     }
+/*  76 */     this.az = false;
+/*  77 */     if (localbt != null) {
+/*  78 */       double d2 = localbt.a - this.aM;
+/*  79 */       double d3 = localbt.c - this.aO;
+/*  80 */       double d4 = localbt.b - i;
+/*     */       
+/*  82 */       float f3 = (float)(Math.atan2(d3, d2) * 180.0D / 3.1415927410125732D) - 90.0F;
+/*  83 */       float f4 = f3 - this.aS;
+/*  84 */       this.ax = this.aB;
+/*  85 */       while (f4 < -180.0F)
+/*  86 */         f4 += 360.0F;
+/*  87 */       while (f4 >= 180.0F)
+/*  88 */         f4 -= 360.0F;
+/*  89 */       if (f4 > 30.0F) {
+/*  90 */         f4 = 30.0F;
+/*     */       }
+/*     */       
+/*  93 */       if (f4 < -30.0F) {
+/*  94 */         f4 = -30.0F;
+/*     */       }
+/*     */       
+/*  97 */       this.aS += f4;
+/*     */       
+/*  99 */       if ((this.e) && 
+/* 100 */         (this.d != null)) {
+/* 101 */         double d5 = this.d.aM - this.aM;
+/* 102 */         double d6 = this.d.aO - this.aO;
+/*     */         
+/* 104 */         float f5 = this.aS;
+/* 105 */         this.aS = ((float)(Math.atan2(d6, d5) * 180.0D / 3.1415927410125732D) - 90.0F);
+/*     */         
+/* 107 */         f4 = (f5 - this.aS + 90.0F) * 3.1415927F / 180.0F;
+/* 108 */         this.aw = (-in.a(f4) * this.ax * 1.0F);
+/* 109 */         this.ax = (in.b(f4) * this.ax * 1.0F);
+/*     */       }
+/*     */       
+/* 112 */       if (d4 > 0.0D) {
+/* 113 */         this.az = true;
+/*     */       }
+/*     */     }
+/*     */     
+/* 117 */     if (this.d != null) {
+/* 118 */       a(this.d, 30.0F, 30.0F);
+/*     */     }
+/*     */     
+/* 121 */     if ((this.aY) && (!F())) this.az = true;
+/* 122 */     if ((this.bs.nextFloat() < 0.8F) && ((bool1) || (bool2))) this.az = true;
+/*     */   }
+/*     */   
+/*     */   protected void E() {
+/* 126 */     int i = 0;
+/* 127 */     int j = -1;
+/* 128 */     int k = -1;
+/* 129 */     int m = -1;
+/* 130 */     float f1 = -99999.0F;
+/* 131 */     for (int n = 0; n < 10; n++) {
+/* 132 */       int i1 = in.b(this.aM + this.bs.nextInt(13) - 6.0D);
+/* 133 */       int i2 = in.b(this.aN + this.bs.nextInt(7) - 3.0D);
+/* 134 */       int i3 = in.b(this.aO + this.bs.nextInt(13) - 6.0D);
+/* 135 */       float f2 = a(i1, i2, i3);
+/* 136 */       if (f2 > f1) {
+/* 137 */         f1 = f2;
+/* 138 */         j = i1;
+/* 139 */         k = i2;
+/* 140 */         m = i3;
+/* 141 */         i = 1;
+/*     */       }
+/*     */     }
+/*     */     
+/* 145 */     if (i != 0) {
+/* 146 */       this.a = this.aI.a(this, j, k, m, 10.0F);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   protected void a(sn paramsn, float paramFloat) {}
+/*     */   
+/*     */   protected void b(sn paramsn, float paramFloat) {}
+/*     */   
+/*     */   protected float a(int paramInt1, int paramInt2, int paramInt3)
+/*     */   {
+/* 157 */     return 0.0F;
+/*     */   }
+/*     */   
+/*     */   protected sn g_() {
+/* 161 */     return null;
+/*     */   }
+/*     */   
+/*     */   public boolean d() {
+/* 165 */     int i = in.b(this.aM);
+/* 166 */     int j = in.b(this.aW.b);
+/* 167 */     int k = in.b(this.aO);
+/* 168 */     return (super.d()) && (a(i, j, k) >= 0.0F);
+/*     */   }
+/*     */   
+/*     */   public boolean F() {
+/* 172 */     return this.a != null;
+/*     */   }
+/*     */   
+/*     */   public void a(dh paramdh) {
+/* 176 */     this.a = paramdh;
+/*     */   }
+/*     */   
+/*     */   public sn G() {
+/* 180 */     return this.d;
+/*     */   }
+/*     */   
+/*     */   public void c(sn paramsn) {
+/* 184 */     this.d = paramsn;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ii.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,48 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class xc
+/*    */ {
+/*  7 */   private String[][] a = { { "X", "X", "#" } };
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/* 13 */   private Object[][] b = { { uu.y, uu.x, gm.m, gm.l, gm.n }, { gm.p, gm.t, gm.o, gm.x, gm.E } };
+/*    */   
+/*    */ 
+/*    */ 
+/*    */   public void a(hk paramhk)
+/*    */   {
+/* 19 */     for (int i = 0; i < this.b[0].length; i++) {
+/* 20 */       Object localObject = this.b[0][i];
+/*    */       
+/* 22 */       for (int j = 0; j < this.b.length - 1; j++) {
+/* 23 */         gm localgm = (gm)this.b[(j + 1)][i];
+/* 24 */         paramhk.a(new iz(localgm), new Object[] { this.a[j], Character.valueOf('#'), gm.B, Character.valueOf('X'), localObject });
+/*    */       }
+/*    */     }
+/*    */     
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/* 32 */     paramhk.a(new iz(gm.i, 1), new Object[] { " #X", "# X", " #X", Character.valueOf('X'), gm.I, Character.valueOf('#'), gm.B });
+/*    */     
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/* 40 */     paramhk.a(new iz(gm.j, 4), new Object[] { "X", "#", "Y", Character.valueOf('Y'), gm.J, Character.valueOf('X'), gm.an, Character.valueOf('#'), gm.B });
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\xc.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

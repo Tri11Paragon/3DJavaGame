@@ -1,0 +1,213 @@
+/*     */ import java.util.ArrayList;
+/*     */ import java.util.Collection;
+/*     */ import java.util.HashMap;
+/*     */ import java.util.HashSet;
+/*     */ import java.util.Iterator;
+/*     */ import java.util.List;
+/*     */ import java.util.Map;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class jl
+/*     */ {
+/*  24 */   protected static Map a = new HashMap();
+/*     */   
+/*  26 */   public static List b = new ArrayList();
+/*  27 */   public static List c = new ArrayList();
+/*  28 */   public static List d = new ArrayList();
+/*  29 */   public static List e = new ArrayList();
+/*     */   
+/*  31 */   public static vr f = new yd(1000, do.a("stat.startGame")).h().g();
+/*  32 */   public static vr g = new yd(1001, do.a("stat.createWorld")).h().g();
+/*  33 */   public static vr h = new yd(1002, do.a("stat.loadWorld")).h().g();
+/*  34 */   public static vr i = new yd(1003, do.a("stat.joinMultiplayer")).h().g();
+/*  35 */   public static vr j = new yd(1004, do.a("stat.leaveGame")).h().g();
+/*     */   
+/*  37 */   public static vr k = new yd(1100, do.a("stat.playOneMinute"), vr.j).h().g();
+/*     */   
+/*  39 */   public static vr l = new yd(2000, do.a("stat.walkOneCm"), vr.k).h().g();
+/*  40 */   public static vr m = new yd(2001, do.a("stat.swimOneCm"), vr.k).h().g();
+/*  41 */   public static vr n = new yd(2002, do.a("stat.fallOneCm"), vr.k).h().g();
+/*  42 */   public static vr o = new yd(2003, do.a("stat.climbOneCm"), vr.k).h().g();
+/*  43 */   public static vr p = new yd(2004, do.a("stat.flyOneCm"), vr.k).h().g();
+/*  44 */   public static vr q = new yd(2005, do.a("stat.diveOneCm"), vr.k).h().g();
+/*  45 */   public static vr r = new yd(2006, do.a("stat.minecartOneCm"), vr.k).h().g();
+/*  46 */   public static vr s = new yd(2007, do.a("stat.boatOneCm"), vr.k).h().g();
+/*  47 */   public static vr t = new yd(2008, do.a("stat.pigOneCm"), vr.k).h().g();
+/*     */   
+/*  49 */   public static vr u = new yd(2010, do.a("stat.jump")).h().g();
+/*  50 */   public static vr v = new yd(2011, do.a("stat.drop")).h().g();
+/*     */   
+/*  52 */   public static vr w = new yd(2020, do.a("stat.damageDealt")).g();
+/*  53 */   public static vr x = new yd(2021, do.a("stat.damageTaken")).g();
+/*  54 */   public static vr y = new yd(2022, do.a("stat.deaths")).g();
+/*  55 */   public static vr z = new yd(2023, do.a("stat.mobKills")).g();
+/*  56 */   public static vr A = new yd(2024, do.a("stat.playerKills")).g();
+/*  57 */   public static vr B = new yd(2025, do.a("stat.fishCaught")).g();
+/*     */   
+/*  59 */   public static vr[] C = a("stat.mineBlock", 16777216);
+/*     */   public static vr[] D;
+/*     */   public static vr[] E;
+/*     */   public static vr[] F;
+/*     */   
+/*     */   static {
+/*  65 */     ep.a();
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*  75 */   private static boolean G = false;
+/*     */   
+/*     */   public static void b() {
+/*  78 */     E = a(E, "stat.useItem", 16908288, 0, uu.m.length);
+/*  79 */     F = b(F, "stat.breakItem", 16973824, 0, uu.m.length);
+/*     */     
+/*  81 */     G = true;
+/*  82 */     d();
+/*     */   }
+/*     */   
+/*  85 */   private static boolean H = false;
+/*     */   
+/*     */   public static void c() {
+/*  88 */     E = a(E, "stat.useItem", 16908288, uu.m.length, 32000);
+/*  89 */     F = b(F, "stat.breakItem", 16973824, uu.m.length, 32000);
+/*     */     
+/*  91 */     H = true;
+/*  92 */     d();
+/*     */   }
+/*     */   
+/*     */   public static void d() {
+/*  96 */     if ((!G) || (!H))
+/*     */     {
+/*  98 */       return;
+/*     */     }
+/*     */     
+/* 101 */     HashSet localHashSet = new HashSet();
+/*     */     
+/* 103 */     for (Iterator localIterator = hk.a().b().iterator(); localIterator.hasNext();) { localObject = (dt)localIterator.next();
+/* 104 */       localHashSet.add(Integer.valueOf(((dt)localObject).b().c)); }
+/*     */     Object localObject;
+/* 106 */     for (localIterator = ey.a().b().values().iterator(); localIterator.hasNext();) { localObject = (iz)localIterator.next();
+/* 107 */       localHashSet.add(Integer.valueOf(((iz)localObject).c));
+/*     */     }
+/*     */     
+/* 110 */     D = new vr['紀'];
+/* 111 */     for (localIterator = localHashSet.iterator(); localIterator.hasNext();) { localObject = (Integer)localIterator.next();
+/* 112 */       if (gm.c[localObject.intValue()] != null) {
+/* 113 */         String str = do.a("stat.craftItem", new Object[] { gm.c[localObject.intValue()].k() });
+/* 114 */         D[localObject.intValue()] = new tw(16842752 + ((Integer)localObject).intValue(), str, ((Integer)localObject).intValue()).g();
+/*     */       }
+/*     */     }
+/*     */     
+/* 118 */     a(D);
+/*     */   }
+/*     */   
+/*     */   private static vr[] a(String paramString, int paramInt) {
+/* 122 */     vr[] arrayOfvr = new vr['Ā'];
+/* 123 */     for (int i1 = 0; i1 < 256; i1++) {
+/* 124 */       if ((uu.m[i1] != null) && (uu.m[i1].p())) {
+/* 125 */         String str = do.a(paramString, new Object[] { uu.m[i1].n() });
+/* 126 */         arrayOfvr[i1] = new tw(paramInt + i1, str, i1).g();
+/* 127 */         e.add((tw)arrayOfvr[i1]);
+/*     */       }
+/*     */     }
+/*     */     
+/* 131 */     a(arrayOfvr);
+/* 132 */     return arrayOfvr;
+/*     */   }
+/*     */   
+/*     */   private static vr[] a(vr[] paramArrayOfvr, String paramString, int paramInt1, int paramInt2, int paramInt3) {
+/* 136 */     if (paramArrayOfvr == null) {
+/* 137 */       paramArrayOfvr = new vr['紀'];
+/*     */     }
+/* 139 */     for (int i1 = paramInt2; i1 < paramInt3; i1++) {
+/* 140 */       if (gm.c[i1] != null) {
+/* 141 */         String str = do.a(paramString, new Object[] { gm.c[i1].k() });
+/* 142 */         paramArrayOfvr[i1] = new tw(paramInt1 + i1, str, i1).g();
+/*     */         
+/* 144 */         if (i1 >= uu.m.length) {
+/* 145 */           d.add((tw)paramArrayOfvr[i1]);
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */     
+/* 150 */     a(paramArrayOfvr);
+/* 151 */     return paramArrayOfvr;
+/*     */   }
+/*     */   
+/*     */   private static vr[] b(vr[] paramArrayOfvr, String paramString, int paramInt1, int paramInt2, int paramInt3) {
+/* 155 */     if (paramArrayOfvr == null) {
+/* 156 */       paramArrayOfvr = new vr['紀'];
+/*     */     }
+/* 158 */     for (int i1 = paramInt2; i1 < paramInt3; i1++) {
+/* 159 */       if ((gm.c[i1] != null) && (gm.c[i1].g())) {
+/* 160 */         String str = do.a(paramString, new Object[] { gm.c[i1].k() });
+/* 161 */         paramArrayOfvr[i1] = new tw(paramInt1 + i1, str, i1).g();
+/*     */       }
+/*     */     }
+/*     */     
+/* 165 */     a(paramArrayOfvr);
+/* 166 */     return paramArrayOfvr;
+/*     */   }
+/*     */   
+/*     */   private static void a(vr[] paramArrayOfvr)
+/*     */   {
+/* 171 */     a(paramArrayOfvr, uu.C.bn, uu.B.bn);
+/* 172 */     a(paramArrayOfvr, uu.E.bn, uu.E.bn);
+/*     */     
+/* 174 */     a(paramArrayOfvr, uu.bg.bn, uu.bb.bn);
+/* 175 */     a(paramArrayOfvr, uu.aD.bn, uu.aC.bn);
+/* 176 */     a(paramArrayOfvr, uu.aP.bn, uu.aO.bn);
+/*     */     
+/* 178 */     a(paramArrayOfvr, uu.bj.bn, uu.bi.bn);
+/* 179 */     a(paramArrayOfvr, uu.aR.bn, uu.aQ.bn);
+/*     */     
+/* 181 */     a(paramArrayOfvr, uu.ah.bn, uu.ag.bn);
+/* 182 */     a(paramArrayOfvr, uu.ak.bn, uu.al.bn);
+/*     */     
+/* 184 */     a(paramArrayOfvr, uu.v.bn, uu.w.bn);
+/* 185 */     a(paramArrayOfvr, uu.aB.bn, uu.w.bn);
+/*     */   }
+/*     */   
+/*     */   private static void a(vr[] paramArrayOfvr, int paramInt1, int paramInt2)
+/*     */   {
+/* 190 */     if ((paramArrayOfvr[paramInt1] != null) && (paramArrayOfvr[paramInt2] == null))
+/*     */     {
+/* 192 */       paramArrayOfvr[paramInt2] = paramArrayOfvr[paramInt1];
+/* 193 */       return;
+/*     */     }
+/*     */     
+/* 196 */     b.remove(paramArrayOfvr[paramInt1]);
+/* 197 */     e.remove(paramArrayOfvr[paramInt1]);
+/* 198 */     c.remove(paramArrayOfvr[paramInt1]);
+/* 199 */     paramArrayOfvr[paramInt1] = paramArrayOfvr[paramInt2];
+/*     */   }
+/*     */   
+/*     */   public static vr a(int paramInt) {
+/* 203 */     return (vr)a.get(Integer.valueOf(paramInt));
+/*     */   }
+/*     */   
+/*     */   public static void a() {}
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\jl.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,48 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class tn
+/*    */   extends ow
+/*    */ {
+/*  9 */   public byte a = 0;
+/* 10 */   public boolean b = false;
+/*    */   
+/*    */   public void b(nu paramnu) {
+/* 13 */     super.b(paramnu);
+/* 14 */     paramnu.a("note", this.a);
+/*    */   }
+/*    */   
+/*    */   public void a(nu paramnu) {
+/* 18 */     super.a(paramnu);
+/* 19 */     this.a = paramnu.c("note");
+/* 20 */     if (this.a < 0) this.a = 0;
+/* 21 */     if (this.a > 24) this.a = 24;
+/*    */   }
+/*    */   
+/*    */   public void a() {
+/* 25 */     this.a = ((byte)((this.a + 1) % 25));
+/* 26 */     y_();
+/*    */   }
+/*    */   
+/*    */   public void a(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/* 30 */     if (paramfd.f(paramInt1, paramInt2 + 1, paramInt3) != ln.a) { return;
+/*    */     }
+/* 32 */     ln localln = paramfd.f(paramInt1, paramInt2 - 1, paramInt3);
+/*    */     
+/* 34 */     int i = 0;
+/* 35 */     if (localln == ln.e) i = 1;
+/* 36 */     if (localln == ln.n) i = 2;
+/* 37 */     if (localln == ln.p) i = 3;
+/* 38 */     if (localln == ln.d) { i = 4;
+/*    */     }
+/* 40 */     paramfd.d(paramInt1, paramInt2, paramInt3, i, this.a);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\tn.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

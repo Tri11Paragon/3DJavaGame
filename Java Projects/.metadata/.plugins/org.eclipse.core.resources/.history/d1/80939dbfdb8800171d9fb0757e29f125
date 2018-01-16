@@ -1,0 +1,177 @@
+/*     */ import java.util.Random;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class ut
+/*     */   extends rw
+/*     */ {
+/*     */   public ut(int paramInt)
+/*     */   {
+/*  16 */     super(paramInt, ln.B);
+/*  17 */     c(-1.0F);
+/*     */   }
+/*     */   
+/*     */   protected ow a_()
+/*     */   {
+/*  22 */     return null;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   public void c(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {}
+/*     */   
+/*     */ 
+/*     */   public void b(fd paramfd, int paramInt1, int paramInt2, int paramInt3)
+/*     */   {
+/*  31 */     ow localow = paramfd.b(paramInt1, paramInt2, paramInt3);
+/*  32 */     if ((localow != null) && ((localow instanceof uk))) {
+/*  33 */       ((uk)localow).l();
+/*     */     } else {
+/*  35 */       super.b(paramfd, paramInt1, paramInt2, paramInt3);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public boolean a(fd paramfd, int paramInt1, int paramInt2, int paramInt3)
+/*     */   {
+/*  41 */     return false;
+/*     */   }
+/*     */   
+/*     */   public boolean a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+/*     */   {
+/*  46 */     return false;
+/*     */   }
+/*     */   
+/*     */   public int b()
+/*     */   {
+/*  51 */     return -1;
+/*     */   }
+/*     */   
+/*     */   public boolean c()
+/*     */   {
+/*  56 */     return false;
+/*     */   }
+/*     */   
+/*     */   public boolean d()
+/*     */   {
+/*  61 */     return false;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   public boolean a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, gs paramgs)
+/*     */   {
+/*  67 */     if ((!paramfd.B) && (paramfd.b(paramInt1, paramInt2, paramInt3) == null))
+/*     */     {
+/*  69 */       paramfd.f(paramInt1, paramInt2, paramInt3, 0);
+/*  70 */       return true;
+/*     */     }
+/*  72 */     return false;
+/*     */   }
+/*     */   
+/*     */   public int a(int paramInt, Random paramRandom)
+/*     */   {
+/*  77 */     return 0;
+/*     */   }
+/*     */   
+/*     */   public void a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4, float paramFloat)
+/*     */   {
+/*  82 */     if (paramfd.B) { return;
+/*     */     }
+/*  84 */     uk localuk = c(paramfd, paramInt1, paramInt2, paramInt3);
+/*  85 */     if (localuk == null) {
+/*  86 */       return;
+/*     */     }
+/*     */     
+/*  89 */     uu.m[localuk.a()].g(paramfd, paramInt1, paramInt2, paramInt3, localuk.e());
+/*     */   }
+/*     */   
+/*     */   public void b(fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+/*     */   {
+/*  94 */     if ((!paramfd.B) && (paramfd.b(paramInt1, paramInt2, paramInt3) == null)) {}
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   public static ow a(int paramInt1, int paramInt2, int paramInt3, boolean paramBoolean1, boolean paramBoolean2)
+/*     */   {
+/* 101 */     return new uk(paramInt1, paramInt2, paramInt3, paramBoolean1, paramBoolean2);
+/*     */   }
+/*     */   
+/*     */   public eq e(fd paramfd, int paramInt1, int paramInt2, int paramInt3)
+/*     */   {
+/* 106 */     uk localuk = c(paramfd, paramInt1, paramInt2, paramInt3);
+/* 107 */     if (localuk == null) {
+/* 108 */       return null;
+/*     */     }
+/*     */     
+/*     */ 
+/* 112 */     float f = localuk.a(0.0F);
+/* 113 */     if (localuk.b()) {
+/* 114 */       f = 1.0F - f;
+/*     */     }
+/* 116 */     return a(paramfd, paramInt1, paramInt2, paramInt3, localuk.a(), f, localuk.d());
+/*     */   }
+/*     */   
+/*     */   public void a(xp paramxp, int paramInt1, int paramInt2, int paramInt3)
+/*     */   {
+/* 121 */     uk localuk = c(paramxp, paramInt1, paramInt2, paramInt3);
+/* 122 */     if (localuk != null) {
+/* 123 */       uu localuu = uu.m[localuk.a()];
+/* 124 */       if ((localuu == null) || (localuu == this)) {
+/* 125 */         return;
+/*     */       }
+/* 127 */       localuu.a(paramxp, paramInt1, paramInt2, paramInt3);
+/*     */       
+/* 129 */       float f = localuk.a(0.0F);
+/* 130 */       if (localuk.b()) {
+/* 131 */         f = 1.0F - f;
+/*     */       }
+/* 133 */       int i = localuk.d();
+/* 134 */       this.bs = (localuu.bs - wj.b[i] * f);
+/* 135 */       this.bt = (localuu.bt - wj.c[i] * f);
+/* 136 */       this.bu = (localuu.bu - wj.d[i] * f);
+/* 137 */       this.bv = (localuu.bv - wj.b[i] * f);
+/* 138 */       this.bw = (localuu.bw - wj.c[i] * f);
+/* 139 */       this.bx = (localuu.bx - wj.d[i] * f);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public eq a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4, float paramFloat, int paramInt5)
+/*     */   {
+/* 145 */     if ((paramInt4 == 0) || (paramInt4 == this.bn)) {
+/* 146 */       return null;
+/*     */     }
+/* 148 */     eq localeq = uu.m[paramInt4].e(paramfd, paramInt1, paramInt2, paramInt3);
+/*     */     
+/* 150 */     if (localeq == null) {
+/* 151 */       return null;
+/*     */     }
+/*     */     
+/*     */ 
+/* 155 */     localeq.a -= wj.b[paramInt5] * paramFloat;
+/* 156 */     localeq.d -= wj.b[paramInt5] * paramFloat;
+/* 157 */     localeq.b -= wj.c[paramInt5] * paramFloat;
+/* 158 */     localeq.e -= wj.c[paramInt5] * paramFloat;
+/* 159 */     localeq.c -= wj.d[paramInt5] * paramFloat;
+/* 160 */     localeq.f -= wj.d[paramInt5] * paramFloat;
+/* 161 */     return localeq;
+/*     */   }
+/*     */   
+/*     */   private uk c(xp paramxp, int paramInt1, int paramInt2, int paramInt3) {
+/* 165 */     ow localow = paramxp.b(paramInt1, paramInt2, paramInt3);
+/* 166 */     if ((localow != null) && ((localow instanceof uk))) {
+/* 167 */       return (uk)localow;
+/*     */     }
+/* 169 */     return null;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ut.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

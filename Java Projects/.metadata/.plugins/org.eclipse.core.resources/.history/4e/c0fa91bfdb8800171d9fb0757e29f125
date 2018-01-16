@@ -1,0 +1,141 @@
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class ew
+/*     */   implements xp
+/*     */ {
+/*     */   private int a;
+/*     */   private int b;
+/*     */   private lm[][] c;
+/*     */   private fd d;
+/*     */   
+/*     */   public ew(fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5, int paramInt6)
+/*     */   {
+/*  17 */     this.d = paramfd;
+/*     */     
+/*  19 */     this.a = (paramInt1 >> 4);
+/*  20 */     this.b = (paramInt3 >> 4);
+/*  21 */     int i = paramInt4 >> 4;
+/*  22 */     int j = paramInt6 >> 4;
+/*     */     
+/*  24 */     this.c = new lm[i - this.a + 1][j - this.b + 1];
+/*     */     
+/*  26 */     for (int k = this.a; k <= i; k++) {
+/*  27 */       for (int m = this.b; m <= j; m++) {
+/*  28 */         this.c[(k - this.a)][(m - this.b)] = paramfd.c(k, m);
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public int a(int paramInt1, int paramInt2, int paramInt3) {
+/*  34 */     if (paramInt2 < 0) return 0;
+/*  35 */     if (paramInt2 >= 128) { return 0;
+/*     */     }
+/*  37 */     int i = (paramInt1 >> 4) - this.a;
+/*  38 */     int j = (paramInt3 >> 4) - this.b;
+/*     */     
+/*  40 */     if ((i < 0) || (i >= this.c.length) || (j < 0) || (j >= this.c[i].length)) {
+/*  41 */       return 0;
+/*     */     }
+/*     */     
+/*  44 */     lm locallm = this.c[i][j];
+/*  45 */     if (locallm == null) { return 0;
+/*     */     }
+/*  47 */     return locallm.a(paramInt1 & 0xF, paramInt2, paramInt3 & 0xF);
+/*     */   }
+/*     */   
+/*     */   public ow b(int paramInt1, int paramInt2, int paramInt3) {
+/*  51 */     int i = (paramInt1 >> 4) - this.a;
+/*  52 */     int j = (paramInt3 >> 4) - this.b;
+/*     */     
+/*  54 */     return this.c[i][j].d(paramInt1 & 0xF, paramInt2, paramInt3 & 0xF);
+/*     */   }
+/*     */   
+/*     */   public float a(int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/*  58 */     int i = d(paramInt1, paramInt2, paramInt3);
+/*  59 */     if (i < paramInt4) i = paramInt4;
+/*  60 */     return this.d.t.f[i];
+/*     */   }
+/*     */   
+/*     */   public float c(int paramInt1, int paramInt2, int paramInt3) {
+/*  64 */     return this.d.t.f[d(paramInt1, paramInt2, paramInt3)];
+/*     */   }
+/*     */   
+/*     */   public int d(int paramInt1, int paramInt2, int paramInt3) {
+/*  68 */     return a(paramInt1, paramInt2, paramInt3, true);
+/*     */   }
+/*     */   
+/*     */   public int a(int paramInt1, int paramInt2, int paramInt3, boolean paramBoolean) {
+/*  72 */     if ((paramInt1 < -32000000) || (paramInt3 < -32000000) || (paramInt1 >= 32000000) || (paramInt3 > 32000000)) {
+/*  73 */       return 15;
+/*     */     }
+/*     */     
+/*  76 */     if (paramBoolean) {
+/*  77 */       i = a(paramInt1, paramInt2, paramInt3);
+/*  78 */       if ((i == uu.al.bn) || (i == uu.aB.bn) || (i == uu.au.bn) || (i == uu.aI.bn)) {
+/*  79 */         j = a(paramInt1, paramInt2 + 1, paramInt3, false);
+/*  80 */         int k = a(paramInt1 + 1, paramInt2, paramInt3, false);
+/*  81 */         int m = a(paramInt1 - 1, paramInt2, paramInt3, false);
+/*  82 */         int n = a(paramInt1, paramInt2, paramInt3 + 1, false);
+/*  83 */         int i1 = a(paramInt1, paramInt2, paramInt3 - 1, false);
+/*  84 */         if (k > j) j = k;
+/*  85 */         if (m > j) j = m;
+/*  86 */         if (n > j) j = n;
+/*  87 */         if (i1 > j) j = i1;
+/*  88 */         return j;
+/*     */       }
+/*     */     }
+/*     */     
+/*  92 */     if (paramInt2 < 0) return 0;
+/*  93 */     if (paramInt2 >= 128) {
+/*  94 */       i = 15 - this.d.f;
+/*  95 */       if (i < 0) i = 0;
+/*  96 */       return i;
+/*     */     }
+/*     */     
+/*  99 */     int i = (paramInt1 >> 4) - this.a;
+/* 100 */     int j = (paramInt3 >> 4) - this.b;
+/*     */     
+/* 102 */     return this.c[i][j].c(paramInt1 & 0xF, paramInt2, paramInt3 & 0xF, this.d.f);
+/*     */   }
+/*     */   
+/*     */   public int e(int paramInt1, int paramInt2, int paramInt3) {
+/* 106 */     if (paramInt2 < 0) return 0;
+/* 107 */     if (paramInt2 >= 128) return 0;
+/* 108 */     int i = (paramInt1 >> 4) - this.a;
+/* 109 */     int j = (paramInt3 >> 4) - this.b;
+/*     */     
+/* 111 */     return this.c[i][j].b(paramInt1 & 0xF, paramInt2, paramInt3 & 0xF);
+/*     */   }
+/*     */   
+/*     */   public ln f(int paramInt1, int paramInt2, int paramInt3) {
+/* 115 */     int i = a(paramInt1, paramInt2, paramInt3);
+/* 116 */     if (i == 0) return ln.a;
+/* 117 */     return uu.m[i].bA;
+/*     */   }
+/*     */   
+/*     */   public xv a() {
+/* 121 */     return this.d.a();
+/*     */   }
+/*     */   
+/*     */   public boolean g(int paramInt1, int paramInt2, int paramInt3) {
+/* 125 */     uu localuu = uu.m[a(paramInt1, paramInt2, paramInt3)];
+/* 126 */     if (localuu == null) return false;
+/* 127 */     return localuu.c();
+/*     */   }
+/*     */   
+/*     */   public boolean h(int paramInt1, int paramInt2, int paramInt3) {
+/* 131 */     uu localuu = uu.m[a(paramInt1, paramInt2, paramInt3)];
+/* 132 */     if (localuu == null) return false;
+/* 133 */     return (localuu.bA.c()) && (localuu.d());
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ew.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,110 @@
+/*     */ import org.lwjgl.opengl.GL11;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class pl
+/*     */   extends bw
+/*     */ {
+/*     */   public void a(lx paramlx, double paramDouble1, double paramDouble2, double paramDouble3, float paramFloat1, float paramFloat2)
+/*     */   {
+/*  12 */     GL11.glPushMatrix();
+/*     */     
+/*  14 */     GL11.glTranslatef((float)paramDouble1, (float)paramDouble2, (float)paramDouble3);
+/*  15 */     GL11.glEnable(32826);
+/*  16 */     GL11.glScalef(0.5F, 0.5F, 0.5F);
+/*  17 */     int i = 1;
+/*  18 */     int j = 2;
+/*  19 */     a("/particles.png");
+/*  20 */     nw localnw = nw.a;
+/*     */     
+/*  22 */     float f1 = (i * 8 + 0) / 128.0F;
+/*  23 */     float f2 = (i * 8 + 8) / 128.0F;
+/*  24 */     float f3 = (j * 8 + 0) / 128.0F;
+/*  25 */     float f4 = (j * 8 + 8) / 128.0F;
+/*     */     
+/*     */ 
+/*  28 */     float f5 = 1.0F;
+/*  29 */     float f6 = 0.5F;
+/*  30 */     float f7 = 0.5F;
+/*     */     
+/*     */ 
+/*     */ 
+/*  34 */     GL11.glRotatef(180.0F - this.b.i, 0.0F, 1.0F, 0.0F);
+/*  35 */     GL11.glRotatef(-this.b.j, 1.0F, 0.0F, 0.0F);
+/*  36 */     localnw.b();
+/*  37 */     localnw.b(0.0F, 1.0F, 0.0F);
+/*  38 */     localnw.a(0.0F - f6, 0.0F - f7, 0.0D, f1, f4);
+/*  39 */     localnw.a(f5 - f6, 0.0F - f7, 0.0D, f2, f4);
+/*  40 */     localnw.a(f5 - f6, 1.0F - f7, 0.0D, f2, f3);
+/*  41 */     localnw.a(0.0F - f6, 1.0F - f7, 0.0D, f1, f3);
+/*  42 */     localnw.a();
+/*     */     
+/*  44 */     GL11.glDisable(32826);
+/*  45 */     GL11.glPopMatrix();
+/*     */     
+/*     */ 
+/*  48 */     if (paramlx.b != null) {
+/*  49 */       float f8 = (paramlx.b.aU + (paramlx.b.aS - paramlx.b.aU) * paramFloat2) * 3.1415927F / 180.0F;
+/*     */       
+/*  51 */       double d1 = in.a(f8);
+/*  52 */       double d2 = in.b(f8);
+/*     */       
+/*     */ 
+/*  55 */       float f9 = paramlx.b.d(paramFloat2);
+/*  56 */       float f10 = in.a(in.c(f9) * 3.1415927F);
+/*     */       
+/*     */ 
+/*  59 */       bt localbt = bt.b(-0.5D, 0.03D, 0.8D);
+/*  60 */       localbt.a(-(paramlx.b.aV + (paramlx.b.aT - paramlx.b.aV) * paramFloat2) * 3.1415927F / 180.0F);
+/*  61 */       localbt.b(-(paramlx.b.aU + (paramlx.b.aS - paramlx.b.aU) * paramFloat2) * 3.1415927F / 180.0F);
+/*  62 */       localbt.b(f10 * 0.5F);
+/*  63 */       localbt.a(-f10 * 0.7F);
+/*     */       
+/*     */ 
+/*     */ 
+/*     */ 
+/*  68 */       double d3 = paramlx.b.aJ + (paramlx.b.aM - paramlx.b.aJ) * paramFloat2 + localbt.a;
+/*  69 */       double d4 = paramlx.b.aK + (paramlx.b.aN - paramlx.b.aK) * paramFloat2 + localbt.b;
+/*  70 */       double d5 = paramlx.b.aL + (paramlx.b.aO - paramlx.b.aL) * paramFloat2 + localbt.c;
+/*     */       
+/*     */ 
+/*  73 */       if (this.b.k.A) {
+/*  74 */         f8 = (paramlx.b.I + (paramlx.b.H - paramlx.b.I) * paramFloat2) * 3.1415927F / 180.0F;
+/*  75 */         d1 = in.a(f8);
+/*  76 */         d2 = in.b(f8);
+/*  77 */         d3 = paramlx.b.aJ + (paramlx.b.aM - paramlx.b.aJ) * paramFloat2 - d2 * 0.35D - d1 * 0.85D;
+/*  78 */         d4 = paramlx.b.aK + (paramlx.b.aN - paramlx.b.aK) * paramFloat2 - 0.45D;
+/*  79 */         d5 = paramlx.b.aL + (paramlx.b.aO - paramlx.b.aL) * paramFloat2 - d1 * 0.35D + d2 * 0.85D;
+/*     */       }
+/*     */       
+/*  82 */       double d6 = paramlx.aJ + (paramlx.aM - paramlx.aJ) * paramFloat2;
+/*  83 */       double d7 = paramlx.aK + (paramlx.aN - paramlx.aK) * paramFloat2 + 0.25D;
+/*  84 */       double d8 = paramlx.aL + (paramlx.aO - paramlx.aL) * paramFloat2;
+/*     */       
+/*  86 */       double d9 = (float)(d3 - d6);
+/*  87 */       double d10 = (float)(d4 - d7);
+/*  88 */       double d11 = (float)(d5 - d8);
+/*     */       
+/*  90 */       GL11.glDisable(3553);
+/*  91 */       GL11.glDisable(2896);
+/*  92 */       localnw.a(3);
+/*  93 */       localnw.b(0);
+/*  94 */       int k = 16;
+/*  95 */       for (int m = 0; m <= k; m++) {
+/*  96 */         float f11 = m / k;
+/*  97 */         localnw.a(paramDouble1 + d9 * f11, paramDouble2 + d10 * (f11 * f11 + f11) * 0.5D + 0.25D, paramDouble3 + d11 * f11);
+/*     */       }
+/*  99 */       localnw.a();
+/* 100 */       GL11.glEnable(2896);
+/* 101 */       GL11.glEnable(3553);
+/*     */     }
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\pl.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

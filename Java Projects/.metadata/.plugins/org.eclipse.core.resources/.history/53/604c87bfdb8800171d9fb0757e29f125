@@ -1,0 +1,45 @@
+/*    */ import java.net.HttpURLConnection;
+/*    */ import java.net.URL;
+/*    */ import javax.imageio.ImageIO;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ class tj
+/*    */   extends Thread
+/*    */ {
+/*    */   tj(ek paramek, String paramString, nf paramnf) {}
+/*    */   
+/*    */   public void run()
+/*    */   {
+/* 18 */     HttpURLConnection localHttpURLConnection = null;
+/*    */     try {
+/* 20 */       URL localURL = new URL(this.a);
+/* 21 */       localHttpURLConnection = (HttpURLConnection)localURL.openConnection();
+/* 22 */       localHttpURLConnection.setDoInput(true);
+/* 23 */       localHttpURLConnection.setDoOutput(false);
+/* 24 */       localHttpURLConnection.connect();
+/* 25 */       if (localHttpURLConnection.getResponseCode() / 100 == 4) {
+/*    */         return;
+/*    */       }
+/*    */       
+/* 29 */       if (this.b == null) {
+/* 30 */         this.c.a = ImageIO.read(localHttpURLConnection.getInputStream());
+/*    */       } else
+/* 32 */         this.c.a = this.b.a(ImageIO.read(localHttpURLConnection.getInputStream()));
+/*    */     } catch (Exception localException) {
+/* 34 */       localException.printStackTrace();
+/*    */     } finally {
+/* 36 */       localHttpURLConnection.disconnect();
+/*    */     }
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\tj.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

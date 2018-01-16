@@ -1,0 +1,245 @@
+/*     */ import java.util.List;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class ei
+/*     */ {
+/*     */   private long a;
+/*     */   private int b;
+/*     */   private int c;
+/*     */   private int d;
+/*     */   private long e;
+/*     */   private long f;
+/*     */   private long g;
+/*     */   private nu h;
+/*     */   private int i;
+/*     */   private String j;
+/*     */   private int k;
+/*     */   private boolean l;
+/*     */   private int m;
+/*     */   private boolean n;
+/*     */   private int o;
+/*     */   
+/*     */   public ei(nu paramnu)
+/*     */   {
+/*  31 */     this.a = paramnu.f("RandomSeed");
+/*  32 */     this.b = paramnu.e("SpawnX");
+/*  33 */     this.c = paramnu.e("SpawnY");
+/*  34 */     this.d = paramnu.e("SpawnZ");
+/*  35 */     this.e = paramnu.f("Time");
+/*  36 */     this.f = paramnu.f("LastPlayed");
+/*  37 */     this.g = paramnu.f("SizeOnDisk");
+/*  38 */     this.j = paramnu.i("LevelName");
+/*  39 */     this.k = paramnu.e("version");
+/*  40 */     this.m = paramnu.e("rainTime");
+/*  41 */     this.l = paramnu.m("raining");
+/*  42 */     this.o = paramnu.e("thunderTime");
+/*  43 */     this.n = paramnu.m("thundering");
+/*     */     
+/*  45 */     if (paramnu.b("Player")) {
+/*  46 */       this.h = paramnu.k("Player");
+/*  47 */       this.i = this.h.e("Dimension");
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public ei(long paramLong, String paramString) {
+/*  52 */     this.a = paramLong;
+/*  53 */     this.j = paramString;
+/*     */   }
+/*     */   
+/*     */   public ei(ei paramei) {
+/*  57 */     this.a = paramei.a;
+/*  58 */     this.b = paramei.b;
+/*  59 */     this.c = paramei.c;
+/*  60 */     this.d = paramei.d;
+/*  61 */     this.e = paramei.e;
+/*  62 */     this.f = paramei.f;
+/*  63 */     this.g = paramei.g;
+/*  64 */     this.h = paramei.h;
+/*  65 */     this.i = paramei.i;
+/*  66 */     this.j = paramei.j;
+/*  67 */     this.k = paramei.k;
+/*  68 */     this.m = paramei.m;
+/*  69 */     this.l = paramei.l;
+/*  70 */     this.o = paramei.o;
+/*  71 */     this.n = paramei.n;
+/*     */   }
+/*     */   
+/*     */   public nu a() {
+/*  75 */     nu localnu = new nu();
+/*     */     
+/*  77 */     a(localnu, this.h);
+/*     */     
+/*  79 */     return localnu;
+/*     */   }
+/*     */   
+/*     */   public nu a(List paramList) {
+/*  83 */     nu localnu1 = new nu();
+/*     */     
+/*  85 */     gs localgs = null;
+/*  86 */     nu localnu2 = null;
+/*     */     
+/*  88 */     if (paramList.size() > 0) localgs = (gs)paramList.get(0);
+/*  89 */     if (localgs != null) {
+/*  90 */       localnu2 = new nu();
+/*  91 */       localgs.d(localnu2);
+/*     */     }
+/*  93 */     a(localnu1, localnu2);
+/*     */     
+/*  95 */     return localnu1;
+/*     */   }
+/*     */   
+/*     */   private void a(nu paramnu1, nu paramnu2) {
+/*  99 */     paramnu1.a("RandomSeed", this.a);
+/* 100 */     paramnu1.a("SpawnX", this.b);
+/* 101 */     paramnu1.a("SpawnY", this.c);
+/* 102 */     paramnu1.a("SpawnZ", this.d);
+/* 103 */     paramnu1.a("Time", this.e);
+/* 104 */     paramnu1.a("SizeOnDisk", this.g);
+/* 105 */     paramnu1.a("LastPlayed", System.currentTimeMillis());
+/* 106 */     paramnu1.a("LevelName", this.j);
+/* 107 */     paramnu1.a("version", this.k);
+/* 108 */     paramnu1.a("rainTime", this.m);
+/* 109 */     paramnu1.a("raining", this.l);
+/* 110 */     paramnu1.a("thunderTime", this.o);
+/* 111 */     paramnu1.a("thundering", this.n);
+/*     */     
+/* 113 */     if (paramnu2 != null) {
+/* 114 */       paramnu1.a("Player", paramnu2);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public long b() {
+/* 119 */     return this.a;
+/*     */   }
+/*     */   
+/*     */   public int c() {
+/* 123 */     return this.b;
+/*     */   }
+/*     */   
+/*     */   public int d() {
+/* 127 */     return this.c;
+/*     */   }
+/*     */   
+/*     */   public int e() {
+/* 131 */     return this.d;
+/*     */   }
+/*     */   
+/*     */   public long f() {
+/* 135 */     return this.e;
+/*     */   }
+/*     */   
+/*     */   public long g() {
+/* 139 */     return this.g;
+/*     */   }
+/*     */   
+/*     */   public nu h() {
+/* 143 */     return this.h;
+/*     */   }
+/*     */   
+/*     */   public int i() {
+/* 147 */     return this.i;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void a(int paramInt)
+/*     */   {
+/* 155 */     this.b = paramInt;
+/*     */   }
+/*     */   
+/*     */   public void b(int paramInt) {
+/* 159 */     this.c = paramInt;
+/*     */   }
+/*     */   
+/*     */   public void c(int paramInt) {
+/* 163 */     this.d = paramInt;
+/*     */   }
+/*     */   
+/*     */   public void a(long paramLong) {
+/* 167 */     this.e = paramLong;
+/*     */   }
+/*     */   
+/*     */   public void b(long paramLong) {
+/* 171 */     this.g = paramLong;
+/*     */   }
+/*     */   
+/*     */   public void a(nu paramnu) {
+/* 175 */     this.h = paramnu;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void a(int paramInt1, int paramInt2, int paramInt3)
+/*     */   {
+/* 183 */     this.b = paramInt1;
+/* 184 */     this.c = paramInt2;
+/* 185 */     this.d = paramInt3;
+/*     */   }
+/*     */   
+/*     */   public String j() {
+/* 189 */     return this.j;
+/*     */   }
+/*     */   
+/*     */   public void a(String paramString) {
+/* 193 */     this.j = paramString;
+/*     */   }
+/*     */   
+/*     */   public int k() {
+/* 197 */     return this.k;
+/*     */   }
+/*     */   
+/*     */   public void d(int paramInt) {
+/* 201 */     this.k = paramInt;
+/*     */   }
+/*     */   
+/*     */   public long l() {
+/* 205 */     return this.f;
+/*     */   }
+/*     */   
+/*     */   public boolean m() {
+/* 209 */     return this.n;
+/*     */   }
+/*     */   
+/*     */   public void a(boolean paramBoolean) {
+/* 213 */     this.n = paramBoolean;
+/*     */   }
+/*     */   
+/*     */   public int n() {
+/* 217 */     return this.o;
+/*     */   }
+/*     */   
+/*     */   public void e(int paramInt) {
+/* 221 */     this.o = paramInt;
+/*     */   }
+/*     */   
+/*     */   public boolean o() {
+/* 225 */     return this.l;
+/*     */   }
+/*     */   
+/*     */   public void b(boolean paramBoolean) {
+/* 229 */     this.l = paramBoolean;
+/*     */   }
+/*     */   
+/*     */   public int p() {
+/* 233 */     return this.m;
+/*     */   }
+/*     */   
+/*     */   public void f(int paramInt) {
+/* 237 */     this.m = paramInt;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ei.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

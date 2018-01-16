@@ -1,0 +1,28 @@
+public abstract interface pm
+{
+  public abstract void a(int paramInt1, int paramInt2, int paramInt3);
+  
+  public abstract void b(int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5, int paramInt6);
+  
+  public abstract void a(String paramString, double paramDouble1, double paramDouble2, double paramDouble3, float paramFloat1, float paramFloat2);
+  
+  public abstract void a(String paramString, double paramDouble1, double paramDouble2, double paramDouble3, double paramDouble4, double paramDouble5, double paramDouble6);
+  
+  public abstract void a(sn paramsn);
+  
+  public abstract void b(sn paramsn);
+  
+  public abstract void e();
+  
+  public abstract void a(String paramString, int paramInt1, int paramInt2, int paramInt3);
+  
+  public abstract void a(int paramInt1, int paramInt2, int paramInt3, ow paramow);
+  
+  public abstract void a(gs paramgs, int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5);
+}
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\pm.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

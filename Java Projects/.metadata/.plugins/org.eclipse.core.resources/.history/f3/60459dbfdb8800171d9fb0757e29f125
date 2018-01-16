@@ -1,0 +1,37 @@
+/*    */ import org.lwjgl.opengl.GL11;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class aw
+/*    */ {
+/* 10 */   public byte[] a = new byte['Ѐ'];
+/*    */   public int b;
+/* 12 */   public boolean c = false;
+/* 13 */   public int d = 0;
+/* 14 */   public int e = 1;
+/* 15 */   public int f = 0;
+/*    */   
+/*    */   public aw(int paramInt) {
+/* 18 */     this.b = paramInt;
+/*    */   }
+/*    */   
+/*    */   public void a() {}
+/*    */   
+/*    */   public void a(ji paramji)
+/*    */   {
+/* 25 */     if (this.f == 0) {
+/* 26 */       GL11.glBindTexture(3553, paramji.b("/terrain.png"));
+/* 27 */     } else if (this.f == 1) {
+/* 28 */       GL11.glBindTexture(3553, paramji.b("/gui/items.png"));
+/*    */     }
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\aw.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

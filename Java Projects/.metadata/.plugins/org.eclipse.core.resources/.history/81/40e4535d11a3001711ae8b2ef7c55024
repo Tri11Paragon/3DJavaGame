@@ -1,0 +1,14 @@
+package main;
+
+import javax.swing.JPanel;
+
+public class Panel extends JPanel {
+
+	private static final long serialVersionUID = 1L;
+	public static JPanel panel;
+	
+	public static void startup() {
+		panel = new JPanel();
+	}
+	
+}

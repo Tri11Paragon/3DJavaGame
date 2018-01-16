@@ -1,0 +1,125 @@
+/*     */ import java.io.DataInputStream;
+/*     */ import java.io.DataOutputStream;
+/*     */ import java.io.File;
+/*     */ import java.net.URL;
+/*     */ import net.minecraft.client.Minecraft;
+/*     */ import org.w3c.dom.Element;
+/*     */ import org.w3c.dom.NodeList;
+/*     */ 
+/*     */ public class cz extends Thread
+/*     */ {
+/*     */   public File a;
+/*     */   private Minecraft b;
+/*  13 */   private boolean c = false;
+/*     */   
+/*     */   public cz(File paramFile, Minecraft paramMinecraft) {
+/*  16 */     this.b = paramMinecraft;
+/*  17 */     setName("Resource download thread");
+/*  18 */     setDaemon(true);
+/*  19 */     this.a = new File(paramFile, "resources/");
+/*  20 */     if ((!this.a.exists()) && (!this.a.mkdirs())) throw new RuntimeException("The working directory could not be created: " + this.a);
+/*     */   }
+/*     */   
+/*     */   public void run() {
+/*     */     try {
+/*  25 */       URL localURL = new URL("http://s3.amazonaws.com/MinecraftResources/");
+/*  26 */       javax.xml.parsers.DocumentBuilderFactory localDocumentBuilderFactory = javax.xml.parsers.DocumentBuilderFactory.newInstance();
+/*  27 */       javax.xml.parsers.DocumentBuilder localDocumentBuilder = localDocumentBuilderFactory.newDocumentBuilder();
+/*  28 */       org.w3c.dom.Document localDocument = localDocumentBuilder.parse(localURL.openStream());
+/*  29 */       NodeList localNodeList = localDocument.getElementsByTagName("Contents");
+/*     */       
+/*  31 */       for (int i = 0; i < 2; i++) {
+/*  32 */         for (int j = 0; j < localNodeList.getLength(); j++) {
+/*  33 */           org.w3c.dom.Node localNode = localNodeList.item(j);
+/*  34 */           if (localNode.getNodeType() == 1) {
+/*  35 */             Element localElement = (Element)localNode;
+/*     */             
+/*  37 */             String str = ((Element)localElement.getElementsByTagName("Key").item(0)).getChildNodes().item(0).getNodeValue();
+/*     */             
+/*  39 */             long l = Long.parseLong(((Element)localElement.getElementsByTagName("Size").item(0)).getChildNodes().item(0).getNodeValue());
+/*     */             
+/*  41 */             if (l > 0L) {
+/*  42 */               a(localURL, str, l, i);
+/*  43 */               if (this.c) return;
+/*     */             }
+/*     */           }
+/*     */         }
+/*     */       }
+/*     */     } catch (Exception localException) {
+/*  49 */       a(this.a, "");
+/*  50 */       localException.printStackTrace();
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a() {
+/*  55 */     a(this.a, "");
+/*     */   }
+/*     */   
+/*     */   private void a(File paramFile, String paramString) {
+/*  59 */     File[] arrayOfFile = paramFile.listFiles();
+/*  60 */     for (int i = 0; i < arrayOfFile.length; i++) {
+/*  61 */       if (arrayOfFile[i].isDirectory()) {
+/*  62 */         a(arrayOfFile[i], paramString + arrayOfFile[i].getName() + "/");
+/*     */       } else {
+/*     */         try {
+/*  65 */           this.b.a(paramString + arrayOfFile[i].getName(), arrayOfFile[i]);
+/*     */         } catch (Exception localException) {
+/*  67 */           System.out.println("Failed to add " + paramString + arrayOfFile[i].getName());
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   private void a(URL paramURL, String paramString, long paramLong, int paramInt)
+/*     */   {
+/*     */     try
+/*     */     {
+/*  78 */       int i = paramString.indexOf("/");
+/*  79 */       String str1 = paramString.substring(0, i);
+/*     */       
+/*  81 */       if ((str1.equals("sound")) || (str1.equals("newsound"))) {
+/*  82 */         if (paramInt == 0) {}
+/*     */       }
+/*  84 */       else if (paramInt != 1) { return;
+/*     */       }
+/*     */       
+/*     */ 
+/*     */ 
+/*  89 */       File localFile = new File(this.a, paramString);
+/*  90 */       if ((!localFile.exists()) || (localFile.length() != paramLong)) {
+/*  91 */         localFile.getParentFile().mkdirs();
+/*  92 */         String str2 = paramString.replaceAll(" ", "%20");
+/*  93 */         a(new URL(paramURL, str2), localFile, paramLong);
+/*  94 */         if (this.c) return;
+/*     */       }
+/*  96 */       this.b.a(paramString, localFile);
+/*     */     } catch (Exception localException) {
+/*  98 */       localException.printStackTrace();
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   private void a(URL paramURL, File paramFile, long paramLong) {
+/* 103 */     byte[] arrayOfByte = new byte['က'];
+/* 104 */     DataInputStream localDataInputStream = new DataInputStream(paramURL.openStream());
+/* 105 */     DataOutputStream localDataOutputStream = new DataOutputStream(new java.io.FileOutputStream(paramFile));
+/*     */     
+/* 107 */     int i = 0;
+/* 108 */     while ((i = localDataInputStream.read(arrayOfByte)) >= 0) {
+/* 109 */       localDataOutputStream.write(arrayOfByte, 0, i);
+/* 110 */       if (this.c) return;
+/*     */     }
+/* 112 */     localDataInputStream.close();
+/* 113 */     localDataOutputStream.close();
+/*     */   }
+/*     */   
+/*     */   public void b() {
+/* 117 */     this.c = true;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\cz.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,54 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class yv
+/*    */   extends gp
+/*    */ {
+/*    */   private final lw d;
+/*    */   private gs e;
+/*    */   
+/*    */   public yv(gs paramgs, lw paramlw1, lw paramlw2, int paramInt1, int paramInt2, int paramInt3)
+/*    */   {
+/* 15 */     super(paramlw2, paramInt1, paramInt2, paramInt3);
+/* 16 */     this.e = paramgs;
+/* 17 */     this.d = paramlw1;
+/*    */   }
+/*    */   
+/*    */   public boolean b(iz paramiz) {
+/* 21 */     return false;
+/*    */   }
+/*    */   
+/*    */   public void a(iz paramiz) {
+/* 25 */     paramiz.b(this.e.aI, this.e);
+/*    */     
+/* 27 */     if (paramiz.c == uu.az.bn) { this.e.a(ep.h, 1);
+/* 28 */     } else if (paramiz.c == gm.r.bf) { this.e.a(ep.i, 1);
+/* 29 */     } else if (paramiz.c == uu.aC.bn) { this.e.a(ep.j, 1);
+/* 30 */     } else if (paramiz.c == gm.L.bf) { this.e.a(ep.l, 1);
+/* 31 */     } else if (paramiz.c == gm.S.bf) { this.e.a(ep.m, 1);
+/* 32 */     } else if (paramiz.c == gm.aX.bf) { this.e.a(ep.n, 1);
+/* 33 */     } else if (paramiz.c == gm.v.bf) { this.e.a(ep.o, 1);
+/* 34 */     } else if (paramiz.c == gm.p.bf) { this.e.a(ep.r, 1);
+/*    */     }
+/* 36 */     for (int i = 0; i < this.d.a(); i++) {
+/* 37 */       iz localiz = this.d.f_(i);
+/* 38 */       if (localiz != null) {
+/* 39 */         this.d.a(i, 1);
+/*    */         
+/* 41 */         if (localiz.a().j())
+/*    */         {
+/* 43 */           this.d.a(i, new iz(localiz.a().i()));
+/*    */         }
+/*    */       }
+/*    */     }
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\yv.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

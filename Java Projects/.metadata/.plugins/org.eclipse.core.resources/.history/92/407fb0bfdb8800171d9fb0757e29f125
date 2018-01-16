@@ -1,0 +1,78 @@
+/*    */ import java.io.DataInputStream;
+/*    */ import java.io.DataOutputStream;
+/*    */ import java.util.List;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class jm
+/*    */   extends ki
+/*    */ {
+/*    */   public int a;
+/*    */   public byte b;
+/*    */   public int c;
+/*    */   public int d;
+/*    */   public int e;
+/*    */   public byte f;
+/*    */   public byte g;
+/*    */   private ud h;
+/*    */   private List i;
+/*    */   
+/*    */   public jm() {}
+/*    */   
+/*    */   public jm(ls paramls)
+/*    */   {
+/* 27 */     this.a = paramls.aD;
+/*    */     
+/* 29 */     this.b = ((byte)jc.a(paramls));
+/* 30 */     this.c = in.b(paramls.aM * 32.0D);
+/* 31 */     this.d = in.b(paramls.aN * 32.0D);
+/* 32 */     this.e = in.b(paramls.aO * 32.0D);
+/* 33 */     this.f = ((byte)(int)(paramls.aS * 256.0F / 360.0F));
+/* 34 */     this.g = ((byte)(int)(paramls.aT * 256.0F / 360.0F));
+/*    */     
+/* 36 */     this.h = paramls.ad();
+/*    */   }
+/*    */   
+/*    */   public void a(DataInputStream paramDataInputStream) {
+/* 40 */     this.a = paramDataInputStream.readInt();
+/* 41 */     this.b = paramDataInputStream.readByte();
+/* 42 */     this.c = paramDataInputStream.readInt();
+/* 43 */     this.d = paramDataInputStream.readInt();
+/* 44 */     this.e = paramDataInputStream.readInt();
+/* 45 */     this.f = paramDataInputStream.readByte();
+/* 46 */     this.g = paramDataInputStream.readByte();
+/* 47 */     this.i = ud.a(paramDataInputStream);
+/*    */   }
+/*    */   
+/*    */   public void a(DataOutputStream paramDataOutputStream) {
+/* 51 */     paramDataOutputStream.writeInt(this.a);
+/* 52 */     paramDataOutputStream.writeByte(this.b);
+/* 53 */     paramDataOutputStream.writeInt(this.c);
+/* 54 */     paramDataOutputStream.writeInt(this.d);
+/* 55 */     paramDataOutputStream.writeInt(this.e);
+/* 56 */     paramDataOutputStream.writeByte(this.f);
+/* 57 */     paramDataOutputStream.writeByte(this.g);
+/* 58 */     this.h.a(paramDataOutputStream);
+/*    */   }
+/*    */   
+/*    */   public void a(ti paramti) {
+/* 62 */     paramti.a(this);
+/*    */   }
+/*    */   
+/*    */   public int a() {
+/* 66 */     return 20;
+/*    */   }
+/*    */   
+/*    */   public List b() {
+/* 70 */     return this.i;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\jm.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

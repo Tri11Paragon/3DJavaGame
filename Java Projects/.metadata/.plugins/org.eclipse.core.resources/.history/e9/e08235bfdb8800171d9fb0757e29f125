@@ -1,0 +1,205 @@
+/*     */ import java.io.File;
+/*     */ import java.io.FileInputStream;
+/*     */ import java.io.FileOutputStream;
+/*     */ import java.io.PrintStream;
+/*     */ import java.util.Collection;
+/*     */ import java.util.Iterator;
+/*     */ import java.util.List;
+/*     */ import java.util.Map;
+/*     */ 
+/*     */ public class to
+/*     */   implements bf
+/*     */ {
+/*     */   private File a;
+/*     */   private boolean b;
+/*     */   
+/*     */   public to(File paramFile, boolean paramBoolean)
+/*     */   {
+/*  18 */     this.a = paramFile;
+/*  19 */     this.b = paramBoolean;
+/*     */   }
+/*     */   
+/*     */   private File a(int paramInt1, int paramInt2) {
+/*  23 */     String str1 = "c." + Integer.toString(paramInt1, 36) + "." + Integer.toString(paramInt2, 36) + ".dat";
+/*  24 */     String str2 = Integer.toString(paramInt1 & 0x3F, 36);
+/*  25 */     String str3 = Integer.toString(paramInt2 & 0x3F, 36);
+/*  26 */     File localFile = new File(this.a, str2);
+/*  27 */     if (!localFile.exists()) {
+/*  28 */       if (this.b) localFile.mkdir(); else
+/*  29 */         return null;
+/*     */     }
+/*  31 */     localFile = new File(localFile, str3);
+/*  32 */     if (!localFile.exists()) {
+/*  33 */       if (this.b) localFile.mkdir(); else
+/*  34 */         return null;
+/*     */     }
+/*  36 */     localFile = new File(localFile, str1);
+/*  37 */     if ((!localFile.exists()) && 
+/*  38 */       (!this.b)) { return null;
+/*     */     }
+/*  40 */     return localFile;
+/*     */   }
+/*     */   
+/*     */   public lm a(fd paramfd, int paramInt1, int paramInt2) {
+/*  44 */     File localFile = a(paramInt1, paramInt2);
+/*  45 */     if ((localFile != null) && (localFile.exists())) {
+/*     */       try
+/*     */       {
+/*  48 */         FileInputStream localFileInputStream = new FileInputStream(localFile);
+/*  49 */         nu localnu = as.a(localFileInputStream);
+/*  50 */         if (!localnu.b("Level")) {
+/*  51 */           System.out.println("Chunk file at " + paramInt1 + "," + paramInt2 + " is missing level data, skipping");
+/*  52 */           return null;
+/*     */         }
+/*  54 */         if (!localnu.k("Level").b("Blocks")) {
+/*  55 */           System.out.println("Chunk file at " + paramInt1 + "," + paramInt2 + " is missing block data, skipping");
+/*  56 */           return null;
+/*     */         }
+/*  58 */         lm locallm = a(paramfd, localnu.k("Level"));
+/*  59 */         if (!locallm.a(paramInt1, paramInt2)) {
+/*  60 */           System.out.println("Chunk file at " + paramInt1 + "," + paramInt2 + " is in the wrong location; relocating. (Expected " + paramInt1 + ", " + paramInt2 + ", got " + locallm.j + ", " + locallm.k + ")");
+/*  61 */           localnu.a("xPos", paramInt1);
+/*  62 */           localnu.a("zPos", paramInt2);
+/*  63 */           locallm = a(paramfd, localnu.k("Level"));
+/*     */         }
+/*  65 */         locallm.i();
+/*  66 */         return locallm;
+/*     */       } catch (Exception localException) {
+/*  68 */         localException.printStackTrace();
+/*     */       }
+/*     */     }
+/*  71 */     return null;
+/*     */   }
+/*     */   
+/*     */   public void a(fd paramfd, lm paramlm) {
+/*  75 */     paramfd.r();
+/*  76 */     File localFile = a(paramlm.j, paramlm.k);
+/*  77 */     Object localObject; if (localFile.exists()) {
+/*  78 */       localObject = paramfd.x();
+/*  79 */       ((ei)localObject).b(((ei)localObject).g() - localFile.length());
+/*     */     }
+/*     */     try
+/*     */     {
+/*  83 */       localObject = new File(this.a, "tmp_chunk.dat");
+/*     */       
+/*     */ 
+/*  86 */       FileOutputStream localFileOutputStream = new FileOutputStream((File)localObject);
+/*  87 */       nu localnu1 = new nu();
+/*  88 */       nu localnu2 = new nu();
+/*  89 */       localnu1.a("Level", localnu2);
+/*  90 */       a(paramlm, paramfd, localnu2);
+/*  91 */       as.a(localnu1, localFileOutputStream);
+/*  92 */       localFileOutputStream.close();
+/*     */       
+/*  94 */       if (localFile.exists()) {
+/*  95 */         localFile.delete();
+/*     */       }
+/*  97 */       ((File)localObject).renameTo(localFile);
+/*     */       
+/*  99 */       ei localei = paramfd.x();
+/* 100 */       localei.b(localei.g() + localFile.length());
+/*     */     } catch (Exception localException) {
+/* 102 */       localException.printStackTrace();
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public static void a(lm paramlm, fd paramfd, nu paramnu) {
+/* 107 */     paramfd.r();
+/* 108 */     paramnu.a("xPos", paramlm.j);
+/* 109 */     paramnu.a("zPos", paramlm.k);
+/* 110 */     paramnu.a("LastUpdate", paramfd.t());
+/* 111 */     paramnu.a("Blocks", paramlm.b);
+/* 112 */     paramnu.a("Data", paramlm.e.a);
+/* 113 */     paramnu.a("SkyLight", paramlm.f.a);
+/* 114 */     paramnu.a("BlockLight", paramlm.g.a);
+/* 115 */     paramnu.a("HeightMap", paramlm.h);
+/* 116 */     paramnu.a("TerrainPopulated", paramlm.n);
+/*     */     
+/* 118 */     paramlm.q = false;
+/* 119 */     sp localsp1 = new sp();
+/* 120 */     Object localObject; nu localnu; for (int i = 0; i < paramlm.m.length; i++) {
+/* 121 */       for (localIterator = paramlm.m[i].iterator(); localIterator.hasNext();) { localObject = (sn)localIterator.next();
+/* 122 */         paramlm.q = true;
+/* 123 */         localnu = new nu();
+/* 124 */         if (((sn)localObject).c(localnu)) {
+/* 125 */           localsp1.a(localnu);
+/*     */         }
+/*     */       }
+/*     */     }
+/* 129 */     paramnu.a("Entities", localsp1);
+/*     */     
+/* 131 */     sp localsp2 = new sp();
+/* 132 */     for (Iterator localIterator = paramlm.l.values().iterator(); localIterator.hasNext();) { localObject = (ow)localIterator.next();
+/* 133 */       localnu = new nu();
+/* 134 */       ((ow)localObject).b(localnu);
+/* 135 */       localsp2.a(localnu);
+/*     */     }
+/* 137 */     paramnu.a("TileEntities", localsp2);
+/*     */   }
+/*     */   
+/*     */   public static lm a(fd paramfd, nu paramnu)
+/*     */   {
+/* 142 */     int i = paramnu.e("xPos");
+/* 143 */     int j = paramnu.e("zPos");
+/*     */     
+/* 145 */     lm locallm = new lm(paramfd, i, j);
+/* 146 */     locallm.b = paramnu.j("Blocks");
+/* 147 */     locallm.e = new wi(paramnu.j("Data"));
+/* 148 */     locallm.f = new wi(paramnu.j("SkyLight"));
+/* 149 */     locallm.g = new wi(paramnu.j("BlockLight"));
+/* 150 */     locallm.h = paramnu.j("HeightMap");
+/* 151 */     locallm.n = paramnu.m("TerrainPopulated");
+/*     */     
+/* 153 */     if (!locallm.e.a()) {
+/* 154 */       locallm.e = new wi(locallm.b.length);
+/*     */     }
+/*     */     
+/* 157 */     if ((locallm.h == null) || (!locallm.f.a())) {
+/* 158 */       locallm.h = new byte['Ā'];
+/* 159 */       locallm.f = new wi(locallm.b.length);
+/* 160 */       locallm.c();
+/*     */     }
+/*     */     
+/* 163 */     if (!locallm.g.a()) {
+/* 164 */       locallm.g = new wi(locallm.b.length);
+/* 165 */       locallm.a();
+/*     */     }
+/*     */     
+/* 168 */     sp localsp1 = paramnu.l("Entities");
+/* 169 */     Object localObject; if (localsp1 != null) {
+/* 170 */       for (int k = 0; k < localsp1.c(); k++) {
+/* 171 */         nu localnu = (nu)localsp1.a(k);
+/* 172 */         localObject = jc.a(localnu, paramfd);
+/* 173 */         locallm.q = true;
+/* 174 */         if (localObject != null) {
+/* 175 */           locallm.a((sn)localObject);
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */     
+/* 180 */     sp localsp2 = paramnu.l("TileEntities");
+/* 181 */     if (localsp2 != null) {
+/* 182 */       for (int m = 0; m < localsp2.c(); m++) {
+/* 183 */         localObject = (nu)localsp2.a(m);
+/* 184 */         ow localow = ow.c((nu)localObject);
+/* 185 */         if (localow != null) {
+/* 186 */           locallm.a(localow);
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */     
+/* 191 */     return locallm;
+/*     */   }
+/*     */   
+/*     */   public void a() {}
+/*     */   
+/*     */   public void b() {}
+/*     */   
+/*     */   public void b(fd paramfd, lm paramlm) {}
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\to.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

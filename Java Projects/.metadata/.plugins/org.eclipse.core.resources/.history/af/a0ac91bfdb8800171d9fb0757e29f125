@@ -1,0 +1,30 @@
+/*    */ 
+/*    */ 
+/*    */ public class mr
+/*    */   extends ck
+/*    */ {
+/*    */   public mr(int paramInt)
+/*    */   {
+/*  8 */     super(paramInt);
+/*    */     
+/* 10 */     e(0);
+/* 11 */     a(true);
+/*    */   }
+/*    */   
+/*    */   public int b(int paramInt)
+/*    */   {
+/* 16 */     return paramInt;
+/*    */   }
+/*    */   
+/*    */ 
+/*    */   public int a(int paramInt)
+/*    */   {
+/* 22 */     return uu.z.a(0, paramInt);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\mr.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

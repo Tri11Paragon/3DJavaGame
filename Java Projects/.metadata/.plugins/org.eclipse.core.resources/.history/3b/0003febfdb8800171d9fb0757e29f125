@@ -1,0 +1,106 @@
+/*    */ import java.awt.image.BufferedImage;
+/*    */ import java.io.IOException;
+/*    */ import javax.imageio.ImageIO;
+/*    */ import net.minecraft.client.Minecraft;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class ku
+/*    */   extends aw
+/*    */ {
+/*    */   private Minecraft g;
+/* 14 */   private int[] h = new int['Ā'];
+/* 15 */   private int[] i = new int['Ā'];
+/*    */   private double j;
+/*    */   private double k;
+/*    */   
+/*    */   public ku(Minecraft paramMinecraft) {
+/* 20 */     super(gm.aQ.a(0));
+/* 21 */     this.g = paramMinecraft;
+/* 22 */     this.f = 1;
+/*    */     try
+/*    */     {
+/* 25 */       BufferedImage localBufferedImage = ImageIO.read(Minecraft.class.getResource("/gui/items.png"));
+/* 26 */       int m = this.b % 16 * 16;
+/* 27 */       int n = this.b / 16 * 16;
+/* 28 */       localBufferedImage.getRGB(m, n, 16, 16, this.h, 0, 16);
+/*    */       
+/* 30 */       localBufferedImage = ImageIO.read(Minecraft.class.getResource("/misc/dial.png"));
+/* 31 */       localBufferedImage.getRGB(0, 0, 16, 16, this.i, 0, 16);
+/*    */     } catch (IOException localIOException) {
+/* 33 */       localIOException.printStackTrace();
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public void a() {
+/* 38 */     double d1 = 0.0D;
+/* 39 */     if ((this.g.f != null) && (this.g.h != null)) {
+/* 40 */       float f = this.g.f.b(1.0F);
+/* 41 */       d1 = -f * 3.1415927F * 2.0F;
+/* 42 */       if (this.g.f.t.c) {
+/* 43 */         d1 = Math.random() * 3.1415927410125732D * 2.0D;
+/*    */       }
+/*    */     }
+/*    */     
+/* 47 */     double d2 = d1 - this.j;
+/* 48 */     while (d2 < -3.141592653589793D)
+/* 49 */       d2 += 6.283185307179586D;
+/* 50 */     while (d2 >= 3.141592653589793D)
+/* 51 */       d2 -= 6.283185307179586D;
+/* 52 */     if (d2 < -1.0D) d2 = -1.0D;
+/* 53 */     if (d2 > 1.0D) d2 = 1.0D;
+/* 54 */     this.k += d2 * 0.1D;
+/* 55 */     this.k *= 0.8D;
+/*    */     
+/* 57 */     this.j += this.k;
+/*    */     
+/* 59 */     double d3 = Math.sin(this.j);
+/* 60 */     double d4 = Math.cos(this.j);
+/*    */     
+/*    */ 
+/* 63 */     for (int m = 0; m < 256; m++) {
+/* 64 */       int n = this.h[m] >> 24 & 0xFF;
+/* 65 */       int i1 = this.h[m] >> 16 & 0xFF;
+/* 66 */       int i2 = this.h[m] >> 8 & 0xFF;
+/* 67 */       int i3 = this.h[m] >> 0 & 0xFF;
+/*    */       
+/* 69 */       if ((i1 == i3) && (i2 == 0) && (i3 > 0)) {
+/* 70 */         double d5 = -(m % 16 / 15.0D - 0.5D);
+/* 71 */         double d6 = m / 16 / 15.0D - 0.5D;
+/* 72 */         int i7 = i1;
+/*    */         
+/* 74 */         int i8 = (int)((d5 * d4 + d6 * d3 + 0.5D) * 16.0D);
+/* 75 */         int i9 = (int)((d6 * d4 - d5 * d3 + 0.5D) * 16.0D);
+/*    */         
+/* 77 */         int i10 = (i8 & 0xF) + (i9 & 0xF) * 16;
+/* 78 */         n = this.i[i10] >> 24 & 0xFF;
+/* 79 */         i1 = (this.i[i10] >> 16 & 0xFF) * i7 / 255;
+/* 80 */         i2 = (this.i[i10] >> 8 & 0xFF) * i7 / 255;
+/* 81 */         i3 = (this.i[i10] >> 0 & 0xFF) * i7 / 255;
+/*    */       }
+/*    */       
+/* 84 */       if (this.c) {
+/* 85 */         int i4 = (i1 * 30 + i2 * 59 + i3 * 11) / 100;
+/* 86 */         int i5 = (i1 * 30 + i2 * 70) / 100;
+/* 87 */         int i6 = (i1 * 30 + i3 * 70) / 100;
+/*    */         
+/* 89 */         i1 = i4;
+/* 90 */         i2 = i5;
+/* 91 */         i3 = i6;
+/*    */       }
+/*    */       
+/* 94 */       this.a[(m * 4 + 0)] = ((byte)i1);
+/* 95 */       this.a[(m * 4 + 1)] = ((byte)i2);
+/* 96 */       this.a[(m * 4 + 2)] = ((byte)i3);
+/* 97 */       this.a[(m * 4 + 3)] = ((byte)n);
+/*    */     }
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ku.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

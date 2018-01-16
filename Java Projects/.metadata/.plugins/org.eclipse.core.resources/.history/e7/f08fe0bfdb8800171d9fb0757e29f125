@@ -1,0 +1,66 @@
+/*    */ import java.io.DataInputStream;
+/*    */ import java.io.DataOutputStream;
+/*    */ 
+/*    */ public class rg
+/*    */   extends ki
+/*    */ {
+/*    */   public int a;
+/*    */   public int b;
+/*    */   public int c;
+/*    */   public int d;
+/*    */   public byte e;
+/*    */   public byte f;
+/*    */   
+/*    */   public rg() {}
+/*    */   
+/*    */   public rg(sn paramsn)
+/*    */   {
+/* 18 */     this.a = paramsn.aD;
+/* 19 */     this.b = in.b(paramsn.aM * 32.0D);
+/* 20 */     this.c = in.b(paramsn.aN * 32.0D);
+/* 21 */     this.d = in.b(paramsn.aO * 32.0D);
+/* 22 */     this.e = ((byte)(int)(paramsn.aS * 256.0F / 360.0F));
+/* 23 */     this.f = ((byte)(int)(paramsn.aT * 256.0F / 360.0F));
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public void a(DataInputStream paramDataInputStream)
+/*    */   {
+/* 36 */     this.a = paramDataInputStream.readInt();
+/* 37 */     this.b = paramDataInputStream.readInt();
+/* 38 */     this.c = paramDataInputStream.readInt();
+/* 39 */     this.d = paramDataInputStream.readInt();
+/* 40 */     this.e = ((byte)paramDataInputStream.read());
+/* 41 */     this.f = ((byte)paramDataInputStream.read());
+/*    */   }
+/*    */   
+/*    */   public void a(DataOutputStream paramDataOutputStream) {
+/* 45 */     paramDataOutputStream.writeInt(this.a);
+/* 46 */     paramDataOutputStream.writeInt(this.b);
+/* 47 */     paramDataOutputStream.writeInt(this.c);
+/* 48 */     paramDataOutputStream.writeInt(this.d);
+/* 49 */     paramDataOutputStream.write(this.e);
+/* 50 */     paramDataOutputStream.write(this.f);
+/*    */   }
+/*    */   
+/*    */   public void a(ti paramti) {
+/* 54 */     paramti.a(this);
+/*    */   }
+/*    */   
+/*    */   public int a() {
+/* 58 */     return 34;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\rg.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

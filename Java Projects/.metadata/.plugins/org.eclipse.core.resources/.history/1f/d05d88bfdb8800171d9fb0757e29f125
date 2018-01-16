@@ -1,0 +1,37 @@
+/*    */ 
+/*    */ 
+/*    */ public class yw
+/*    */   extends gm
+/*    */ {
+/*    */   private int a;
+/*    */   private boolean bk;
+/*    */   
+/*    */   public yw(int paramInt1, int paramInt2, boolean paramBoolean)
+/*    */   {
+/* 11 */     super(paramInt1);
+/* 12 */     this.a = paramInt2;
+/* 13 */     this.bk = paramBoolean;
+/*    */     
+/* 15 */     this.bg = 1;
+/*    */   }
+/*    */   
+/*    */   public iz a(iz paramiz, fd paramfd, gs paramgs) {
+/* 19 */     paramiz.a -= 1;
+/* 20 */     paramgs.c(this.a);
+/* 21 */     return paramiz;
+/*    */   }
+/*    */   
+/*    */   public int l() {
+/* 25 */     return this.a;
+/*    */   }
+/*    */   
+/*    */   public boolean m() {
+/* 29 */     return this.bk;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\yw.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

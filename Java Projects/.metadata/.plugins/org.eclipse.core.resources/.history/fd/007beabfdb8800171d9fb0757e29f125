@@ -1,0 +1,289 @@
+/*     */ import java.util.List;
+/*     */ import java.util.Random;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class vv
+/*     */   extends sn
+/*     */ {
+/*  20 */   private int b = -1;
+/*  21 */   private int c = -1;
+/*  22 */   private int d = -1;
+/*  23 */   private int e = 0;
+/*  24 */   private boolean f = false;
+/*  25 */   public int a = 0;
+/*     */   private ls g;
+/*     */   private int h;
+/*  28 */   private int i = 0;
+/*     */   
+/*     */   public vv(fd paramfd) {
+/*  31 */     super(paramfd);
+/*  32 */     b(0.25F, 0.25F);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   protected void b() {}
+/*     */   
+/*     */ 
+/*     */   public boolean a(double paramDouble)
+/*     */   {
+/*  41 */     double d1 = this.aW.c() * 4.0D;
+/*  42 */     d1 *= 64.0D;
+/*  43 */     return paramDouble < d1 * d1;
+/*     */   }
+/*     */   
+/*     */   public vv(fd paramfd, ls paramls)
+/*     */   {
+/*  48 */     super(paramfd);
+/*  49 */     this.g = paramls;
+/*     */     
+/*  51 */     b(0.25F, 0.25F);
+/*     */     
+/*  53 */     c(paramls.aM, paramls.aN + paramls.w(), paramls.aO, paramls.aS, paramls.aT);
+/*     */     
+/*     */ 
+/*  56 */     this.aM -= in.b(this.aS / 180.0F * 3.1415927F) * 0.16F;
+/*  57 */     this.aN -= 0.10000000149011612D;
+/*  58 */     this.aO -= in.a(this.aS / 180.0F * 3.1415927F) * 0.16F;
+/*  59 */     e(this.aM, this.aN, this.aO);
+/*  60 */     this.bf = 0.0F;
+/*     */     
+/*     */ 
+/*  63 */     float f1 = 0.4F;
+/*  64 */     this.aP = (-in.a(this.aS / 180.0F * 3.1415927F) * in.b(this.aT / 180.0F * 3.1415927F) * f1);
+/*  65 */     this.aR = (in.b(this.aS / 180.0F * 3.1415927F) * in.b(this.aT / 180.0F * 3.1415927F) * f1);
+/*  66 */     this.aQ = (-in.a(this.aT / 180.0F * 3.1415927F) * f1);
+/*     */     
+/*  68 */     a(this.aP, this.aQ, this.aR, 1.5F, 1.0F);
+/*     */   }
+/*     */   
+/*     */   public vv(fd paramfd, double paramDouble1, double paramDouble2, double paramDouble3) {
+/*  72 */     super(paramfd);
+/*  73 */     this.h = 0;
+/*     */     
+/*  75 */     b(0.25F, 0.25F);
+/*     */     
+/*  77 */     e(paramDouble1, paramDouble2, paramDouble3);
+/*  78 */     this.bf = 0.0F;
+/*     */   }
+/*     */   
+/*     */   public void a(double paramDouble1, double paramDouble2, double paramDouble3, float paramFloat1, float paramFloat2) {
+/*  82 */     float f1 = in.a(paramDouble1 * paramDouble1 + paramDouble2 * paramDouble2 + paramDouble3 * paramDouble3);
+/*     */     
+/*  84 */     paramDouble1 /= f1;
+/*  85 */     paramDouble2 /= f1;
+/*  86 */     paramDouble3 /= f1;
+/*     */     
+/*  88 */     paramDouble1 += this.bs.nextGaussian() * 0.007499999832361937D * paramFloat2;
+/*  89 */     paramDouble2 += this.bs.nextGaussian() * 0.007499999832361937D * paramFloat2;
+/*  90 */     paramDouble3 += this.bs.nextGaussian() * 0.007499999832361937D * paramFloat2;
+/*     */     
+/*  92 */     paramDouble1 *= paramFloat1;
+/*  93 */     paramDouble2 *= paramFloat1;
+/*  94 */     paramDouble3 *= paramFloat1;
+/*     */     
+/*  96 */     this.aP = paramDouble1;
+/*  97 */     this.aQ = paramDouble2;
+/*  98 */     this.aR = paramDouble3;
+/*     */     
+/* 100 */     float f2 = in.a(paramDouble1 * paramDouble1 + paramDouble3 * paramDouble3);
+/*     */     
+/* 102 */     this.aU = (this.aS = (float)(Math.atan2(paramDouble1, paramDouble3) * 180.0D / 3.1415927410125732D));
+/* 103 */     this.aV = (this.aT = (float)(Math.atan2(paramDouble2, f2) * 180.0D / 3.1415927410125732D));
+/* 104 */     this.h = 0;
+/*     */   }
+/*     */   
+/*     */   public void a(double paramDouble1, double paramDouble2, double paramDouble3) {
+/* 108 */     this.aP = paramDouble1;
+/* 109 */     this.aQ = paramDouble2;
+/* 110 */     this.aR = paramDouble3;
+/* 111 */     if ((this.aV == 0.0F) && (this.aU == 0.0F)) {
+/* 112 */       float f1 = in.a(paramDouble1 * paramDouble1 + paramDouble3 * paramDouble3);
+/* 113 */       this.aU = (this.aS = (float)(Math.atan2(paramDouble1, paramDouble3) * 180.0D / 3.1415927410125732D));
+/* 114 */       this.aV = (this.aT = (float)(Math.atan2(paramDouble2, f1) * 180.0D / 3.1415927410125732D));
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void w_() {
+/* 119 */     this.bl = this.aM;
+/* 120 */     this.bm = this.aN;
+/* 121 */     this.bn = this.aO;
+/* 122 */     super.w_();
+/*     */     
+/* 124 */     if (this.a > 0) { this.a -= 1;
+/*     */     }
+/* 126 */     if (this.f)
+/*     */     {
+/*     */ 
+/*     */ 
+/* 130 */       int j = this.aI.a(this.b, this.c, this.d);
+/* 131 */       if (j != this.e) {
+/* 132 */         this.f = false;
+/*     */         
+/* 134 */         this.aP *= this.bs.nextFloat() * 0.2F;
+/* 135 */         this.aQ *= this.bs.nextFloat() * 0.2F;
+/* 136 */         this.aR *= this.bs.nextFloat() * 0.2F;
+/* 137 */         this.h = 0;
+/* 138 */         this.i = 0;
+/*     */       } else {
+/* 140 */         this.h += 1;
+/* 141 */         if (this.h == 1200) K();
+/* 142 */         return;
+/*     */       }
+/*     */     } else {
+/* 145 */       this.i += 1;
+/*     */     }
+/*     */     
+/* 148 */     bt localbt1 = bt.b(this.aM, this.aN, this.aO);
+/* 149 */     bt localbt2 = bt.b(this.aM + this.aP, this.aN + this.aQ, this.aO + this.aR);
+/* 150 */     vf localvf1 = this.aI.a(localbt1, localbt2);
+/*     */     
+/* 152 */     localbt1 = bt.b(this.aM, this.aN, this.aO);
+/* 153 */     localbt2 = bt.b(this.aM + this.aP, this.aN + this.aQ, this.aO + this.aR);
+/* 154 */     if (localvf1 != null) {
+/* 155 */       localbt2 = bt.b(localvf1.f.a, localvf1.f.b, localvf1.f.c);
+/*     */     }
+/*     */     
+/* 158 */     if (!this.aI.B) {
+/* 159 */       Object localObject = null;
+/* 160 */       List localList = this.aI.b(this, this.aW.a(this.aP, this.aQ, this.aR).b(1.0D, 1.0D, 1.0D));
+/* 161 */       double d1 = 0.0D;
+/* 162 */       for (int i1 = 0; i1 < localList.size(); i1++) {
+/* 163 */         sn localsn = (sn)localList.get(i1);
+/* 164 */         if ((localsn.h_()) && ((localsn != this.g) || (this.i >= 5)))
+/*     */         {
+/* 166 */           float f5 = 0.3F;
+/* 167 */           eq localeq = localsn.aW.b(f5, f5, f5);
+/* 168 */           vf localvf2 = localeq.a(localbt1, localbt2);
+/* 169 */           if (localvf2 != null) {
+/* 170 */             double d2 = localbt1.c(localvf2.f);
+/* 171 */             if ((d2 < d1) || (d1 == 0.0D)) {
+/* 172 */               localObject = localsn;
+/* 173 */               d1 = d2;
+/*     */             }
+/*     */           }
+/*     */         }
+/*     */       }
+/* 178 */       if (localObject != null) {
+/* 179 */         localvf1 = new vf((sn)localObject);
+/*     */       }
+/*     */     }
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 192 */     if (localvf1 != null) {
+/* 193 */       if (((localvf1.g == null) || 
+/* 194 */         (!localvf1.g.a(this.g, 0))) || (
+/*     */         
+/*     */ 
+/*     */ 
+/* 198 */         (!this.aI.B) && (this.bs.nextInt(8) == 0))) {
+/* 199 */         k = 1;
+/* 200 */         if (this.bs.nextInt(32) == 0) k = 4;
+/* 201 */         for (int m = 0; m < k; m++) {
+/* 202 */           ww localww = new ww(this.aI);
+/* 203 */           localww.c(this.aM, this.aN, this.aO, this.aS, 0.0F);
+/* 204 */           this.aI.b(localww);
+/*     */         }
+/*     */       }
+/* 207 */       for (int k = 0; k < 8; k++)
+/* 208 */         this.aI.a("snowballpoof", this.aM, this.aN, this.aO, 0.0D, 0.0D, 0.0D);
+/* 209 */       K();
+/*     */     }
+/* 211 */     this.aM += this.aP;
+/* 212 */     this.aN += this.aQ;
+/* 213 */     this.aO += this.aR;
+/*     */     
+/* 215 */     float f1 = in.a(this.aP * this.aP + this.aR * this.aR);
+/* 216 */     this.aS = ((float)(Math.atan2(this.aP, this.aR) * 180.0D / 3.1415927410125732D));
+/* 217 */     this.aT = ((float)(Math.atan2(this.aQ, f1) * 180.0D / 3.1415927410125732D));
+/*     */     
+/* 219 */     while (this.aT - this.aV < -180.0F)
+/* 220 */       this.aV -= 360.0F;
+/* 221 */     while (this.aT - this.aV >= 180.0F) {
+/* 222 */       this.aV += 360.0F;
+/*     */     }
+/* 224 */     while (this.aS - this.aU < -180.0F)
+/* 225 */       this.aU -= 360.0F;
+/* 226 */     while (this.aS - this.aU >= 180.0F) {
+/* 227 */       this.aU += 360.0F;
+/*     */     }
+/* 229 */     this.aT = (this.aV + (this.aT - this.aV) * 0.2F);
+/* 230 */     this.aS = (this.aU + (this.aS - this.aU) * 0.2F);
+/*     */     
+/*     */ 
+/* 233 */     float f2 = 0.99F;
+/* 234 */     float f3 = 0.03F;
+/*     */     
+/* 236 */     if (ag()) {
+/* 237 */       for (int n = 0; n < 4; n++) {
+/* 238 */         float f4 = 0.25F;
+/* 239 */         this.aI.a("bubble", this.aM - this.aP * f4, this.aN - this.aQ * f4, this.aO - this.aR * f4, this.aP, this.aQ, this.aR);
+/*     */       }
+/* 241 */       f2 = 0.8F;
+/*     */     }
+/*     */     
+/* 244 */     this.aP *= f2;
+/* 245 */     this.aQ *= f2;
+/* 246 */     this.aR *= f2;
+/* 247 */     this.aQ -= f3;
+/*     */     
+/* 249 */     e(this.aM, this.aN, this.aO);
+/*     */   }
+/*     */   
+/*     */   public void b(nu paramnu) {
+/* 253 */     paramnu.a("xTile", (short)this.b);
+/* 254 */     paramnu.a("yTile", (short)this.c);
+/* 255 */     paramnu.a("zTile", (short)this.d);
+/* 256 */     paramnu.a("inTile", (byte)this.e);
+/* 257 */     paramnu.a("shake", (byte)this.a);
+/* 258 */     paramnu.a("inGround", (byte)(this.f ? 1 : 0));
+/*     */   }
+/*     */   
+/*     */   public void a(nu paramnu) {
+/* 262 */     this.b = paramnu.d("xTile");
+/* 263 */     this.c = paramnu.d("yTile");
+/* 264 */     this.d = paramnu.d("zTile");
+/* 265 */     this.e = (paramnu.c("inTile") & 0xFF);
+/* 266 */     this.a = (paramnu.c("shake") & 0xFF);
+/* 267 */     this.f = (paramnu.c("inGround") == 1);
+/*     */   }
+/*     */   
+/*     */   public void b(gs paramgs) {
+/* 271 */     if ((this.f) && (this.g == paramgs) && (this.a <= 0) && 
+/* 272 */       (paramgs.c.a(new iz(gm.j, 1)))) {
+/* 273 */       this.aI.a(this, "random.pop", 0.2F, ((this.bs.nextFloat() - this.bs.nextFloat()) * 0.7F + 1.0F) * 2.0F);
+/* 274 */       paramgs.b(this, 1);
+/* 275 */       K();
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public float x_()
+/*     */   {
+/* 281 */     return 0.0F;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\vv.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

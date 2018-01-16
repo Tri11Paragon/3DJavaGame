@@ -1,0 +1,110 @@
+/*     */ import java.awt.image.BufferedImage;
+/*     */ import java.io.BufferedReader;
+/*     */ import java.io.File;
+/*     */ import java.io.InputStream;
+/*     */ import java.io.InputStreamReader;
+/*     */ import java.util.zip.ZipEntry;
+/*     */ import java.util.zip.ZipFile;
+/*     */ import javax.imageio.ImageIO;
+/*     */ import net.minecraft.client.Minecraft;
+/*     */ import org.lwjgl.opengl.GL11;
+/*     */ 
+/*     */ public class vp extends i
+/*     */ {
+/*     */   private ZipFile e;
+/*  15 */   private int f = -1;
+/*     */   private BufferedImage g;
+/*     */   private File h;
+/*     */   
+/*     */   public vp(File paramFile) {
+/*  20 */     this.a = paramFile.getName();
+/*  21 */     this.h = paramFile;
+/*     */   }
+/*     */   
+/*     */   private String b(String paramString) {
+/*  25 */     if ((paramString != null) && (paramString.length() > 34)) paramString = paramString.substring(0, 34);
+/*  26 */     return paramString;
+/*     */   }
+/*     */   
+/*     */   public void a(Minecraft paramMinecraft) {
+/*  30 */     ZipFile localZipFile = null;
+/*  31 */     InputStream localInputStream = null;
+/*     */     try {
+/*  33 */       localZipFile = new ZipFile(this.h);
+/*     */       try
+/*     */       {
+/*  36 */         localInputStream = localZipFile.getInputStream(localZipFile.getEntry("pack.txt"));
+/*  37 */         BufferedReader localBufferedReader = new BufferedReader(new InputStreamReader(localInputStream));
+/*  38 */         this.b = b(localBufferedReader.readLine());
+/*  39 */         this.c = b(localBufferedReader.readLine());
+/*  40 */         localBufferedReader.close();
+/*  41 */         localInputStream.close();
+/*     */       }
+/*     */       catch (Exception localException1) {}
+/*     */       try
+/*     */       {
+/*  46 */         localInputStream = localZipFile.getInputStream(localZipFile.getEntry("pack.png"));
+/*  47 */         this.g = ImageIO.read(localInputStream);
+/*  48 */         localInputStream.close();
+/*     */       }
+/*     */       catch (Exception localException2) {}
+/*     */       
+/*  52 */       localZipFile.close(); return;
+/*     */     } catch (Exception localException5) {
+/*  54 */       localException5.printStackTrace();
+/*     */     } finally {
+/*     */       try {
+/*  57 */         localInputStream.close();
+/*     */       }
+/*     */       catch (Exception localException8) {}
+/*     */       try {
+/*  61 */         localZipFile.close();
+/*     */       }
+/*     */       catch (Exception localException9) {}
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void b(Minecraft paramMinecraft) {
+/*  68 */     if (this.g != null) paramMinecraft.p.a(this.f);
+/*  69 */     b();
+/*     */   }
+/*     */   
+/*     */   public void c(Minecraft paramMinecraft) {
+/*  73 */     if ((this.g != null) && (this.f < 0)) this.f = paramMinecraft.p.a(this.g);
+/*  74 */     if (this.g != null) paramMinecraft.p.b(this.f); else
+/*  75 */       GL11.glBindTexture(3553, paramMinecraft.p.b("/gui/unknown_pack.png"));
+/*     */   }
+/*     */   
+/*     */   public void a() {
+/*     */     try {
+/*  80 */       this.e = new ZipFile(this.h);
+/*     */     }
+/*     */     catch (Exception localException) {}
+/*     */   }
+/*     */   
+/*     */   public void b() {
+/*     */     try {
+/*  87 */       this.e.close();
+/*     */     }
+/*     */     catch (Exception localException) {}
+/*  90 */     this.e = null;
+/*     */   }
+/*     */   
+/*     */   public InputStream a(String paramString) {
+/*     */     try {
+/*  95 */       ZipEntry localZipEntry = this.e.getEntry(paramString.substring(1));
+/*  96 */       if (localZipEntry != null) {
+/*  97 */         return this.e.getInputStream(localZipEntry);
+/*     */       }
+/*     */     }
+/*     */     catch (Exception localException) {}
+/*     */     
+/* 102 */     return i.class.getResourceAsStream(paramString);
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\vp.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

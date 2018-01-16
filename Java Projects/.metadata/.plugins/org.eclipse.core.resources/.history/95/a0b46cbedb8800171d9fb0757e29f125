@@ -1,0 +1,108 @@
+/*     */ import java.util.List;
+/*     */ import java.util.Random;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class ya
+/*     */   extends uz
+/*     */ {
+/*  16 */   private int a = 0;
+/*  17 */   private int b = 0;
+/*     */   
+/*     */   public ya(fd paramfd) {
+/*  20 */     super(paramfd);
+/*  21 */     this.O = "/mob/pigzombie.png";
+/*  22 */     this.aB = 0.5F;
+/*  23 */     this.c = 5;
+/*  24 */     this.bC = true;
+/*     */   }
+/*     */   
+/*     */   public void w_() {
+/*  28 */     this.aB = (this.d != null ? 0.95F : 0.5F);
+/*  29 */     if ((this.b > 0) && 
+/*  30 */       (--this.b == 0)) {
+/*  31 */       this.aI.a(this, "mob.zombiepig.zpigangry", k() * 2.0F, ((this.bs.nextFloat() - this.bs.nextFloat()) * 0.2F + 1.0F) * 1.8F);
+/*     */     }
+/*     */     
+/*  34 */     super.w_();
+/*     */   }
+/*     */   
+/*     */   public boolean d() {
+/*  38 */     return (this.aI.q > 0) && (this.aI.a(this.aW)) && (this.aI.a(this, this.aW).size() == 0) && (!this.aI.b(this.aW));
+/*     */   }
+/*     */   
+/*     */   public void b(nu paramnu) {
+/*  42 */     super.b(paramnu);
+/*  43 */     paramnu.a("Anger", (short)this.a);
+/*     */   }
+/*     */   
+/*     */   public void a(nu paramnu) {
+/*  47 */     super.a(paramnu);
+/*  48 */     this.a = paramnu.d("Anger");
+/*     */   }
+/*     */   
+/*     */   protected sn g_() {
+/*  52 */     if (this.a == 0) return null;
+/*  53 */     return super.g_();
+/*     */   }
+/*     */   
+/*     */   public void o() {
+/*  57 */     super.o();
+/*     */   }
+/*     */   
+/*     */   public boolean a(sn paramsn, int paramInt) {
+/*  61 */     if ((paramsn instanceof gs)) {
+/*  62 */       List localList = this.aI.b(this, this.aW.b(32.0D, 32.0D, 32.0D));
+/*  63 */       for (int i = 0; i < localList.size(); i++) {
+/*  64 */         sn localsn = (sn)localList.get(i);
+/*  65 */         if ((localsn instanceof ya)) {
+/*  66 */           ya localya = (ya)localsn;
+/*  67 */           localya.d(paramsn);
+/*     */         }
+/*     */       }
+/*  70 */       d(paramsn);
+/*     */     }
+/*  72 */     return super.a(paramsn, paramInt);
+/*     */   }
+/*     */   
+/*     */   private void d(sn paramsn) {
+/*  76 */     this.d = paramsn;
+/*  77 */     this.a = (400 + this.bs.nextInt(400));
+/*  78 */     this.b = this.bs.nextInt(40);
+/*     */   }
+/*     */   
+/*     */   protected String g() {
+/*  82 */     return "mob.zombiepig.zpig";
+/*     */   }
+/*     */   
+/*     */   protected String j_() {
+/*  86 */     return "mob.zombiepig.zpighurt";
+/*     */   }
+/*     */   
+/*     */   protected String i() {
+/*  90 */     return "mob.zombiepig.zpigdeath";
+/*     */   }
+/*     */   
+/*     */   protected int j() {
+/*  94 */     return gm.ap.bf;
+/*     */   }
+/*     */   
+/*  97 */   private static final iz f = new iz(gm.E, 1);
+/*     */   
+/*     */   public iz r_() {
+/* 100 */     return f;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ya.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

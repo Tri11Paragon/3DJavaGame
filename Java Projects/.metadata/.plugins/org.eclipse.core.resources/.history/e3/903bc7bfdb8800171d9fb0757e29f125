@@ -1,0 +1,166 @@
+/*     */ import net.minecraft.client.Minecraft;
+/*     */ import org.lwjgl.opengl.GL11;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class vu
+/*     */   extends ub
+/*     */ {
+/*     */   private Minecraft a;
+/*     */   private int b;
+/*     */   private int c;
+/*     */   private String d;
+/*     */   private String e;
+/*     */   private ny f;
+/*     */   private long g;
+/*     */   private bb h;
+/*     */   private boolean i;
+/*     */   
+/*     */   public vu(Minecraft paramMinecraft)
+/*     */   {
+/*  44 */     this.a = paramMinecraft;
+/*  45 */     this.h = new bb();
+/*     */   }
+/*     */   
+/*     */   public void a(ny paramny) {
+/*  49 */     this.d = do.a("achievement.get");
+/*  50 */     this.e = paramny.f;
+/*  51 */     this.g = System.currentTimeMillis();
+/*  52 */     this.f = paramny;
+/*  53 */     this.i = false;
+/*     */   }
+/*     */   
+/*     */   public void b(ny paramny) {
+/*  57 */     this.d = paramny.f;
+/*  58 */     this.e = paramny.e();
+/*     */     
+/*  60 */     this.g = (System.currentTimeMillis() - 2500L);
+/*  61 */     this.f = paramny;
+/*  62 */     this.i = true;
+/*     */   }
+/*     */   
+/*     */   private void b() {
+/*  66 */     GL11.glViewport(0, 0, this.a.d, this.a.e);
+/*  67 */     GL11.glMatrixMode(5889);
+/*  68 */     GL11.glLoadIdentity();
+/*  69 */     GL11.glMatrixMode(5888);
+/*  70 */     GL11.glLoadIdentity();
+/*     */     
+/*  72 */     this.b = this.a.d;
+/*  73 */     this.c = this.a.e;
+/*     */     
+/*  75 */     qq localqq = new qq(this.a.z, this.a.d, this.a.e);
+/*  76 */     this.b = localqq.a();
+/*  77 */     this.c = localqq.b();
+/*     */     
+/*  79 */     GL11.glClear(256);
+/*  80 */     GL11.glMatrixMode(5889);
+/*  81 */     GL11.glLoadIdentity();
+/*  82 */     GL11.glOrtho(0.0D, this.b, this.c, 0.0D, 1000.0D, 3000.0D);
+/*  83 */     GL11.glMatrixMode(5888);
+/*  84 */     GL11.glLoadIdentity();
+/*  85 */     GL11.glTranslatef(0.0F, 0.0F, -2000.0F);
+/*     */   }
+/*     */   
+/*     */   public void a() {
+/*  89 */     if (Minecraft.H > 0L) {
+/*  90 */       GL11.glDisable(2929);
+/*  91 */       GL11.glDepthMask(false);
+/*  92 */       u.a();
+/*  93 */       b();
+/*     */       
+/*  95 */       String str1 = "Minecraft Beta 1.7.3   Unlicensed Copy :(";
+/*  96 */       String str2 = "(Or logged in from another location)";
+/*  97 */       String str3 = "Purchase at minecraft.net";
+/*     */       
+/*  99 */       this.a.q.a(str1, 2, 2, 16777215);
+/* 100 */       this.a.q.a(str2, 2, 11, 16777215);
+/* 101 */       this.a.q.a(str3, 2, 20, 16777215);
+/*     */       
+/* 103 */       GL11.glDepthMask(true);
+/* 104 */       GL11.glEnable(2929);
+/*     */     }
+/* 106 */     if ((this.f == null) || (this.g == 0L)) { return;
+/*     */     }
+/* 108 */     double d1 = (System.currentTimeMillis() - this.g) / 3000.0D;
+/* 109 */     if ((!this.i) && 
+/* 110 */       (!this.i) && ((d1 < 0.0D) || (d1 > 1.0D))) {
+/* 111 */       this.g = 0L;
+/* 112 */       return;
+/*     */     }
+/*     */     
+/*     */ 
+/* 116 */     b();
+/* 117 */     GL11.glDisable(2929);
+/* 118 */     GL11.glDepthMask(false);
+/*     */     
+/* 120 */     double d2 = d1 * 2.0D;
+/* 121 */     if (d2 > 1.0D) d2 = 2.0D - d2;
+/* 122 */     d2 *= 4.0D;
+/* 123 */     d2 = 1.0D - d2;
+/* 124 */     if (d2 < 0.0D) d2 = 0.0D;
+/* 125 */     d2 *= d2;
+/* 126 */     d2 *= d2;
+/*     */     
+/* 128 */     int j = this.b - 160;
+/* 129 */     int k = 0 - (int)(d2 * 36.0D);
+/* 130 */     int m = this.a.p.b("/achievement/bg.png");
+/* 131 */     GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+/* 132 */     GL11.glEnable(3553);
+/* 133 */     GL11.glBindTexture(3553, m);
+/* 134 */     GL11.glDisable(2896);
+/*     */     
+/* 136 */     b(j, k, 96, 202, 160, 32);
+/*     */     
+/* 138 */     if (this.i) {
+/* 139 */       this.a.q.a(this.e, j + 30, k + 7, 120, -1);
+/*     */     } else {
+/* 141 */       this.a.q.b(this.d, j + 30, k + 7, 65280);
+/* 142 */       this.a.q.b(this.e, j + 30, k + 18, -1);
+/*     */     }
+/*     */     
+/* 145 */     GL11.glPushMatrix();
+/* 146 */     GL11.glRotatef(180.0F, 1.0F, 0.0F, 0.0F);
+/* 147 */     u.b();
+/* 148 */     GL11.glPopMatrix();
+/* 149 */     GL11.glDisable(2896);
+/* 150 */     GL11.glEnable(32826);
+/* 151 */     GL11.glEnable(2903);
+/*     */     
+/* 153 */     GL11.glEnable(2896);
+/* 154 */     this.h.a(this.a.q, this.a.p, this.f.d, j + 8, k + 8);
+/* 155 */     GL11.glDisable(2896);
+/*     */     
+/* 157 */     GL11.glDepthMask(true);
+/* 158 */     GL11.glEnable(2929);
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\vu.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

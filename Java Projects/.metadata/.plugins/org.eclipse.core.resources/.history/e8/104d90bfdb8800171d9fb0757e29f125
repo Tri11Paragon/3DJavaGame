@@ -1,0 +1,52 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class ar
+/*    */   extends ii
+/*    */ {
+/*    */   public ar(fd paramfd)
+/*    */   {
+/* 22 */     super(paramfd);
+/*    */   }
+/*    */   
+/*    */ 
+/*    */   public boolean d_()
+/*    */   {
+/* 28 */     return true;
+/*    */   }
+/*    */   
+/*    */   public void b(nu paramnu) {
+/* 32 */     super.b(paramnu);
+/*    */   }
+/*    */   
+/*    */   public void a(nu paramnu) {
+/* 36 */     super.a(paramnu);
+/*    */   }
+/*    */   
+/*    */   public boolean d() {
+/* 40 */     return this.aI.a(this.aW);
+/*    */   }
+/*    */   
+/*    */   public int e() {
+/* 44 */     return 120;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ar.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

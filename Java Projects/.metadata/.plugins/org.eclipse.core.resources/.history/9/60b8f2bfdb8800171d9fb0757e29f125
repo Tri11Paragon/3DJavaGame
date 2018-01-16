@@ -1,0 +1,94 @@
+/*    */ import org.lwjgl.opengl.GL11;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class tb
+/*    */   extends bw
+/*    */ {
+/*    */   protected ko a;
+/*    */   
+/*    */   public tb()
+/*    */   {
+/* 19 */     this.c = 0.5F;
+/* 20 */     this.a = new nq();
+/*    */   }
+/*    */   
+/*    */   public void a(yl paramyl, double paramDouble1, double paramDouble2, double paramDouble3, float paramFloat1, float paramFloat2) {
+/* 24 */     GL11.glPushMatrix();
+/*    */     
+/* 26 */     double d1 = paramyl.bl + (paramyl.aM - paramyl.bl) * paramFloat2;
+/* 27 */     double d2 = paramyl.bm + (paramyl.aN - paramyl.bm) * paramFloat2;
+/* 28 */     double d3 = paramyl.bn + (paramyl.aO - paramyl.bn) * paramFloat2;
+/*    */     
+/* 30 */     double d4 = 0.30000001192092896D;
+/*    */     
+/* 32 */     bt localbt1 = paramyl.i(d1, d2, d3);
+/*    */     
+/* 34 */     float f1 = paramyl.aV + (paramyl.aT - paramyl.aV) * paramFloat2;
+/*    */     
+/* 36 */     if (localbt1 != null) {
+/* 37 */       bt localbt2 = paramyl.a(d1, d2, d3, d4);
+/* 38 */       bt localbt3 = paramyl.a(d1, d2, d3, -d4);
+/* 39 */       if (localbt2 == null) localbt2 = localbt1;
+/* 40 */       if (localbt3 == null) { localbt3 = localbt1;
+/*    */       }
+/* 42 */       paramDouble1 += localbt1.a - d1;
+/* 43 */       paramDouble2 += (localbt2.b + localbt3.b) / 2.0D - d2;
+/* 44 */       paramDouble3 += localbt1.c - d3;
+/*    */       
+/* 46 */       bt localbt4 = localbt3.c(-localbt2.a, -localbt2.b, -localbt2.c);
+/* 47 */       if (localbt4.d() != 0.0D)
+/*    */       {
+/* 49 */         localbt4 = localbt4.c();
+/* 50 */         paramFloat1 = (float)(Math.atan2(localbt4.c, localbt4.a) * 180.0D / 3.141592653589793D);
+/* 51 */         f1 = (float)(Math.atan(localbt4.b) * 73.0D);
+/*    */       }
+/*    */     }
+/* 54 */     GL11.glTranslatef((float)paramDouble1, (float)paramDouble2, (float)paramDouble3);
+/*    */     
+/* 56 */     GL11.glRotatef(180.0F - paramFloat1, 0.0F, 1.0F, 0.0F);
+/* 57 */     GL11.glRotatef(-f1, 0.0F, 0.0F, 1.0F);
+/* 58 */     float f2 = paramyl.b - paramFloat2;
+/* 59 */     float f3 = paramyl.a - paramFloat2;
+/* 60 */     if (f3 < 0.0F) f3 = 0.0F;
+/* 61 */     if (f2 > 0.0F) {
+/* 62 */       GL11.glRotatef(in.a(f2) * f2 * f3 / 10.0F * paramyl.c, 1.0F, 0.0F, 0.0F);
+/*    */     }
+/*    */     
+/* 65 */     if (paramyl.d != 0) {
+/* 66 */       a("/terrain.png");
+/* 67 */       float f4 = 0.75F;
+/* 68 */       GL11.glScalef(f4, f4, f4);
+/* 69 */       GL11.glTranslatef(0.0F, 0.3125F, 0.0F);
+/* 70 */       GL11.glRotatef(90.0F, 0.0F, 1.0F, 0.0F);
+/* 71 */       if (paramyl.d == 1) {
+/* 72 */         new cv().a(uu.av, 0, paramyl.a(paramFloat2));
+/* 73 */       } else if (paramyl.d == 2) {
+/* 74 */         new cv().a(uu.aC, 0, paramyl.a(paramFloat2));
+/*    */       }
+/* 76 */       GL11.glRotatef(-90.0F, 0.0F, 1.0F, 0.0F);
+/* 77 */       GL11.glTranslatef(0.0F, -0.3125F, 0.0F);
+/* 78 */       GL11.glScalef(1.0F / f4, 1.0F / f4, 1.0F / f4);
+/*    */     }
+/*    */     
+/* 81 */     a("/item/cart.png");
+/* 82 */     GL11.glScalef(-1.0F, -1.0F, 1.0F);
+/*    */     
+/*    */ 
+/* 85 */     this.a.a(0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
+/* 86 */     GL11.glPopMatrix();
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\tb.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

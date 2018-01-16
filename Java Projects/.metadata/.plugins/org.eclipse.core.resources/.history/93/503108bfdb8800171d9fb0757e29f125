@@ -1,0 +1,36 @@
+/*    */ import java.io.InputStream;
+/*    */ import net.minecraft.client.Minecraft;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public abstract class i
+/*    */ {
+/*    */   public String a;
+/*    */   public String b;
+/*    */   public String c;
+/*    */   public String d;
+/*    */   
+/*    */   public void a() {}
+/*    */   
+/*    */   public void b() {}
+/*    */   
+/*    */   public void a(Minecraft paramMinecraft) {}
+/*    */   
+/*    */   public void b(Minecraft paramMinecraft) {}
+/*    */   
+/*    */   public void c(Minecraft paramMinecraft) {}
+/*    */   
+/*    */   public InputStream a(String paramString)
+/*    */   {
+/* 28 */     return i.class.getResourceAsStream(paramString);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\i.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

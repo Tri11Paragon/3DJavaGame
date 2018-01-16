@@ -1,0 +1,105 @@
+/*    */ import java.text.DecimalFormat;
+/*    */ import java.text.NumberFormat;
+/*    */ import java.util.List;
+/*    */ import java.util.Locale;
+/*    */ import java.util.Map;
+/*    */ 
+/*    */ public class vr
+/*    */ {
+/*    */   public final int e;
+/*    */   public final String f;
+/* 11 */   public boolean g = false;
+/*    */   public String h;
+/*    */   private final wk a;
+/*    */   
+/*    */   public vr(int paramInt, String paramString, wk paramwk) {
+/* 16 */     this.e = paramInt;
+/* 17 */     this.f = paramString;
+/* 18 */     this.a = paramwk;
+/*    */   }
+/*    */   
+/*    */   public vr(int paramInt, String paramString) {
+/* 22 */     this(paramInt, paramString, i);
+/*    */   }
+/*    */   
+/*    */   public vr h() {
+/* 26 */     this.g = true;
+/* 27 */     return this;
+/*    */   }
+/*    */   
+/*    */   public vr g() {
+/* 31 */     if (jl.a.containsKey(Integer.valueOf(this.e))) {
+/* 32 */       throw new RuntimeException("Duplicate stat id: \"" + ((vr)jl.a.get(Integer.valueOf(this.e))).f + "\" and \"" + this.f + "\" at id " + this.e);
+/*    */     }
+/* 34 */     jl.b.add(this);
+/* 35 */     jl.a.put(Integer.valueOf(this.e), this);
+/*    */     
+/* 37 */     this.h = b.a(this.e);
+/*    */     
+/* 39 */     return this;
+/*    */   }
+/*    */   
+/*    */   public boolean d() {
+/* 43 */     return false;
+/*    */   }
+/*    */   
+/*    */   public String a(int paramInt) {
+/* 47 */     return this.a.a(paramInt);
+/*    */   }
+/*    */   
+/* 50 */   private static NumberFormat b = NumberFormat.getIntegerInstance(Locale.US);
+/* 51 */   public static wk i = new bq();
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/* 57 */   private static DecimalFormat c = new DecimalFormat("########0.00");
+/* 58 */   public static wk j = new bo();
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/* 80 */   public static wk k = new bn();
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public String toString()
+/*    */   {
+/* 97 */     return this.f;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\vr.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

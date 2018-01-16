@@ -1,0 +1,70 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class wp
+/*    */   extends uu
+/*    */ {
+/*    */   protected wp(int paramInt)
+/*    */   {
+/* 14 */     super(paramInt, ln.b);
+/* 15 */     this.bm = 3;
+/* 16 */     b(true);
+/*    */   }
+/*    */   
+/*    */   public int a(xp paramxp, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/* 20 */     if (paramInt4 == 1) return 0;
+/* 21 */     if (paramInt4 == 0) return 2;
+/* 22 */     ln localln = paramxp.f(paramInt1, paramInt2 + 1, paramInt3);
+/* 23 */     if ((localln == ln.t) || (localln == ln.u)) return 68;
+/* 24 */     return 3;
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public int b(xp paramxp, int paramInt1, int paramInt2, int paramInt3)
+/*    */   {
+/* 35 */     paramxp.a().a(paramInt1, paramInt3, 1, 1);
+/* 36 */     double d1 = paramxp.a().a[0];
+/* 37 */     double d2 = paramxp.a().b[0];
+/*    */     
+/* 39 */     return ia.a(d1, d2);
+/*    */   }
+/*    */   
+/*    */   public void a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, Random paramRandom) {
+/* 43 */     if (paramfd.B) { return;
+/*    */     }
+/* 45 */     if ((paramfd.n(paramInt1, paramInt2 + 1, paramInt3) < 4) && (uu.q[paramfd.a(paramInt1, paramInt2 + 1, paramInt3)] > 2)) {
+/* 46 */       if (paramRandom.nextInt(4) != 0) return;
+/* 47 */       paramfd.f(paramInt1, paramInt2, paramInt3, uu.w.bn);
+/*    */     }
+/* 49 */     else if (paramfd.n(paramInt1, paramInt2 + 1, paramInt3) >= 9) {
+/* 50 */       int i = paramInt1 + paramRandom.nextInt(3) - 1;
+/* 51 */       int j = paramInt2 + paramRandom.nextInt(5) - 3;
+/* 52 */       int k = paramInt3 + paramRandom.nextInt(3) - 1;
+/* 53 */       int m = paramfd.a(i, j + 1, k);
+/* 54 */       if ((paramfd.a(i, j, k) == uu.w.bn) && (paramfd.n(i, j + 1, k) >= 4) && (uu.q[m] <= 2)) {
+/* 55 */         paramfd.f(i, j, k, uu.v.bn);
+/*    */       }
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public int a(int paramInt, Random paramRandom)
+/*    */   {
+/* 62 */     return uu.w.a(0, paramRandom);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\wp.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

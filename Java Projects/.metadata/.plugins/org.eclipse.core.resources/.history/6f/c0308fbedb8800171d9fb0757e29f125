@@ -1,0 +1,64 @@
+/*    */ import java.util.List;
+/*    */ 
+/*    */ 
+/*    */ public class cd
+/*    */   extends dw
+/*    */ {
+/*    */   private lw a;
+/*    */   private int b;
+/*    */   
+/*    */   public cd(lw paramlw1, lw paramlw2)
+/*    */   {
+/* 12 */     this.a = paramlw2;
+/* 13 */     this.b = (paramlw2.a() / 9);
+/*    */     
+/* 15 */     int i = (this.b - 4) * 18;
+/*    */     int k;
+/* 17 */     for (int j = 0; j < this.b; j++) {
+/* 18 */       for (k = 0; k < 9; k++) {
+/* 19 */         a(new gp(paramlw2, k + j * 9, 8 + k * 18, 18 + j * 18));
+/*    */       }
+/*    */     }
+/*    */     
+/* 23 */     for (j = 0; j < 3; j++) {
+/* 24 */       for (k = 0; k < 9; k++) {
+/* 25 */         a(new gp(paramlw1, k + j * 9 + 9, 8 + k * 18, 103 + j * 18 + i));
+/*    */       }
+/*    */     }
+/* 28 */     for (j = 0; j < 9; j++) {
+/* 29 */       a(new gp(paramlw1, j, 8 + j * 18, 161 + i));
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public boolean b(gs paramgs) {
+/* 34 */     return this.a.a_(paramgs);
+/*    */   }
+/*    */   
+/*    */   public iz a(int paramInt)
+/*    */   {
+/* 39 */     iz localiz1 = null;
+/* 40 */     gp localgp = (gp)this.e.get(paramInt);
+/* 41 */     if ((localgp != null) && (localgp.b())) {
+/* 42 */       iz localiz2 = localgp.a();
+/* 43 */       localiz1 = localiz2.k();
+/*    */       
+/* 45 */       if (paramInt < this.b * 9) {
+/* 46 */         a(localiz2, this.b * 9, this.e.size(), true);
+/*    */       } else {
+/* 48 */         a(localiz2, 0, this.b * 9, false);
+/*    */       }
+/* 50 */       if (localiz2.a == 0) {
+/* 51 */         localgp.c(null);
+/*    */       } else {
+/* 53 */         localgp.c();
+/*    */       }
+/*    */     }
+/* 56 */     return localiz1;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\cd.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

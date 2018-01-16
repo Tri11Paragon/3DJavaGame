@@ -1,0 +1,22 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ public class ne
+/*    */   extends gk
+/*    */ {
+/*    */   public ne(int paramInt1, int paramInt2)
+/*    */   {
+/*  9 */     super(paramInt1, paramInt2);
+/*    */   }
+/*    */   
+/*    */   public int a(int paramInt, Random paramRandom) {
+/* 13 */     if (paramRandom.nextInt(10) == 0) return gm.an.bf;
+/* 14 */     return this.bn;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ne.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

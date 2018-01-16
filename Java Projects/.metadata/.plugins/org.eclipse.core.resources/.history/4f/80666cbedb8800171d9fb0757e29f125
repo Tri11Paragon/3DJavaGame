@@ -1,0 +1,36 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class bi
+/*    */   extends ck
+/*    */ {
+/*    */   public bi(int paramInt)
+/*    */   {
+/*  9 */     super(paramInt);
+/*    */     
+/* 11 */     e(0);
+/* 12 */     a(true);
+/*    */   }
+/*    */   
+/*    */   public int a(int paramInt)
+/*    */   {
+/* 17 */     return uu.ac.a(2, ee.d(paramInt));
+/*    */   }
+/*    */   
+/*    */ 
+/*    */   public int b(int paramInt)
+/*    */   {
+/* 23 */     return paramInt;
+/*    */   }
+/*    */   
+/*    */   public String a(iz paramiz)
+/*    */   {
+/* 28 */     return super.a() + "." + km.a[ee.d(paramiz.i())];
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\bi.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

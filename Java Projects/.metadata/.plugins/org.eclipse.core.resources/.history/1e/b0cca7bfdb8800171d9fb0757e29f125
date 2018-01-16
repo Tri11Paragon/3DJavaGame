@@ -1,0 +1,119 @@
+/*     */ import net.minecraft.client.Minecraft;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class ob
+/*     */ {
+/*     */   protected final Minecraft a;
+/*  15 */   public boolean b = false;
+/*     */   
+/*     */   public ob(Minecraft paramMinecraft) {
+/*  18 */     this.a = paramMinecraft;
+/*     */   }
+/*     */   
+/*     */   public void a(fd paramfd) {}
+/*     */   
+/*     */   public void a(int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+/*     */   {
+/*  25 */     this.a.f.a(this.a.h, paramInt1, paramInt2, paramInt3, paramInt4);
+/*  26 */     b(paramInt1, paramInt2, paramInt3, paramInt4);
+/*     */   }
+/*     */   
+/*     */   public boolean b(int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/*  30 */     fd localfd = this.a.f;
+/*  31 */     uu localuu = uu.m[localfd.a(paramInt1, paramInt2, paramInt3)];
+/*  32 */     localfd.e(2001, paramInt1, paramInt2, paramInt3, localuu.bn + localfd.e(paramInt1, paramInt2, paramInt3) * 256);
+/*  33 */     int i = localfd.e(paramInt1, paramInt2, paramInt3);
+/*  34 */     boolean bool = localfd.f(paramInt1, paramInt2, paramInt3, 0);
+/*  35 */     if ((localuu != null) && (bool)) {
+/*  36 */       localuu.c(localfd, paramInt1, paramInt2, paramInt3, i);
+/*     */     }
+/*  38 */     return bool;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   public void c(int paramInt1, int paramInt2, int paramInt3, int paramInt4) {}
+/*     */   
+/*     */ 
+/*     */   public void a() {}
+/*     */   
+/*     */   public void a(float paramFloat) {}
+/*     */   
+/*     */   public float b()
+/*     */   {
+/*  51 */     return 5.0F;
+/*     */   }
+/*     */   
+/*     */   public boolean a(gs paramgs, fd paramfd, iz paramiz) {
+/*  55 */     int i = paramiz.a;
+/*  56 */     iz localiz = paramiz.a(paramfd, paramgs);
+/*  57 */     if ((localiz != paramiz) || ((localiz != null) && (localiz.a != i))) {
+/*  58 */       paramgs.c.a[paramgs.c.c] = localiz;
+/*  59 */       if (localiz.a == 0) {
+/*  60 */         paramgs.c.a[paramgs.c.c] = null;
+/*     */       }
+/*  62 */       return true;
+/*     */     }
+/*  64 */     return false;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   public void a(gs paramgs) {}
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   public void c() {}
+/*     */   
+/*     */ 
+/*     */   public boolean d()
+/*     */   {
+/*  78 */     return true;
+/*     */   }
+/*     */   
+/*     */   public void b(gs paramgs) {}
+/*     */   
+/*     */   public boolean a(gs paramgs, fd paramfd, iz paramiz, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+/*     */   {
+/*  85 */     int i = paramfd.a(paramInt1, paramInt2, paramInt3);
+/*  86 */     if ((i > 0) && 
+/*  87 */       (uu.m[i].a(paramfd, paramInt1, paramInt2, paramInt3, paramgs))) { return true;
+/*     */     }
+/*  89 */     if (paramiz == null) return false;
+/*  90 */     return paramiz.a(paramgs, paramfd, paramInt1, paramInt2, paramInt3, paramInt4);
+/*     */   }
+/*     */   
+/*     */   public gs b(fd paramfd) {
+/*  94 */     return new dc(this.a, paramfd, this.a.k, paramfd.t.g);
+/*     */   }
+/*     */   
+/*     */   public void a(gs paramgs, sn paramsn) {
+/*  98 */     paramgs.c(paramsn);
+/*     */   }
+/*     */   
+/*     */   public void b(gs paramgs, sn paramsn) {
+/* 102 */     paramgs.d(paramsn);
+/*     */   }
+/*     */   
+/*     */   public iz a(int paramInt1, int paramInt2, int paramInt3, boolean paramBoolean, gs paramgs) {
+/* 106 */     return paramgs.e.a(paramInt2, paramInt3, paramBoolean, paramgs);
+/*     */   }
+/*     */   
+/*     */   public void a(int paramInt, gs paramgs) {
+/* 110 */     paramgs.e.a(paramgs);
+/* 111 */     paramgs.e = paramgs.d;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ob.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

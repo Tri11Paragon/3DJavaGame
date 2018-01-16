@@ -1,0 +1,39 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public final class xe
+/*    */   extends Exception
+/*    */ {
+/*    */   private final int a;
+/*    */   private final int b;
+/*    */   
+/*    */   xe(String paramString, et paramet)
+/*    */   {
+/* 23 */     super("At line " + paramet.b() + ", column " + paramet.a() + ":  " + paramString);
+/* 24 */     this.a = paramet.a();
+/* 25 */     this.b = paramet.b();
+/*    */   }
+/*    */   
+/*    */   xe(String paramString, Throwable paramThrowable, et paramet) {
+/* 29 */     super("At line " + paramet.b() + ", column " + paramet.a() + ":  " + paramString, paramThrowable);
+/* 30 */     this.a = paramet.a();
+/* 31 */     this.b = paramet.b();
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\xe.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

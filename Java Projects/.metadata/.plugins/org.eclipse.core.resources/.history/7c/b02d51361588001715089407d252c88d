@@ -1,0 +1,56 @@
+package Entities;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.lwjgl.util.vector.Vector3f;
+
+import Entities.Components.ComponentBase;
+import Models.TexturedModel;
+import Toolbox.TranslationMatrix;
+import Toolbox.VelocityMatrix;
+
+public class EntityLiving extends Entity {
+	
+	TexturedModel model;
+	Vector3f position;
+	float rotX, rotY, rotZ;
+	float scale;
+	
+	public List<ComponentBase> componentsArrtibsList = new ArrayList<ComponentBase>();
+	private List<VelocityMatrix> velocityMaxtrixList = new ArrayList<VelocityMatrix>();
+	private List<TranslationMatrix> translationMatrixList = new ArrayList<TranslationMatrix>();
+	
+	public EntityLiving(TexturedModel model, Vector3f position, float rotX, float rotY, float rotZ, float scale) {
+		super(model, position, rotX, rotY, rotZ, scale);
+		this.model = model;
+		this.position = position;
+		this.rotX = rotX;
+		this.rotY = rotY;
+		this.rotZ = rotZ;
+		this.scale = scale;
+	}
+	
+	public void addComponent(ComponentBase comp) {
+		componentsArrtibsList.add(comp);
+	}
+	
+	public List<ComponentBase> getComponent(){
+		return componentsArrtibsList;
+	}
+	
+	public void update() {
+		for (ComponentBase base : componentsArrtibsList) {
+			base.update();
+		}
+	}
+	
+	public void addVelocity(Vector3f dir, float vel, float drag) {
+		
+	}
+	
+	public void addTranslation(Vector3f startPoint, Vector3f endPos, float deltaSpeed) {
+		
+	}
+	
+}

@@ -1,0 +1,45 @@
+/*    */ import java.net.ConnectException;
+/*    */ import java.net.UnknownHostException;
+/*    */ import net.minecraft.client.Minecraft;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ class wz
+/*    */   extends Thread
+/*    */ {
+/*    */   wz(vx paramvx, Minecraft paramMinecraft, String paramString, int paramInt) {}
+/*    */   
+/*    */   public void run()
+/*    */   {
+/*    */     try
+/*    */     {
+/* 24 */       vx.a(this.d, new nb(this.a, this.b, this.c));
+/* 25 */       if (vx.a(this.d)) return;
+/* 26 */       vx.b(this.d).b(new mp(this.a.k.b));
+/*    */     } catch (UnknownHostException localUnknownHostException) {
+/* 28 */       if (vx.a(this.d)) return;
+/* 29 */       this.a.a(new ex("connect.failed", "disconnect.genericReason", new Object[] { "Unknown host '" + this.b + "'" }));
+/*    */     } catch (ConnectException localConnectException) {
+/* 31 */       if (vx.a(this.d)) return;
+/* 32 */       this.a.a(new ex("connect.failed", "disconnect.genericReason", new Object[] { localConnectException.getMessage() }));
+/*    */     } catch (Exception localException) {
+/* 34 */       if (vx.a(this.d)) return;
+/* 35 */       localException.printStackTrace();
+/* 36 */       this.a.a(new ex("connect.failed", "disconnect.genericReason", new Object[] { localException.toString() }));
+/*    */     }
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\wz.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

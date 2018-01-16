@@ -1,0 +1,43 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class la
+/*    */   extends gm
+/*    */ {
+/*    */   public la(int paramInt, bu parambu)
+/*    */   {
+/*  9 */     super(paramInt);
+/* 10 */     this.bg = 1;
+/* 11 */     e(parambu.a());
+/*    */   }
+/*    */   
+/*    */   public boolean a(iz paramiz, gs paramgs, fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+/*    */   {
+/* 16 */     int i = paramfd.a(paramInt1, paramInt2, paramInt3);
+/*    */     
+/* 18 */     int j = paramfd.a(paramInt1, paramInt2 + 1, paramInt3);
+/*    */     
+/* 20 */     if (((paramInt4 != 0) && (j == 0) && (i == uu.v.bn)) || (i == uu.w.bn)) {
+/* 21 */       uu localuu = uu.aB;
+/* 22 */       paramfd.a(paramInt1 + 0.5F, paramInt2 + 0.5F, paramInt3 + 0.5F, localuu.by.d(), (localuu.by.b() + 1.0F) / 2.0F, localuu.by.c() * 0.8F);
+/*    */       
+/* 24 */       if (paramfd.B) return true;
+/* 25 */       paramfd.f(paramInt1, paramInt2, paramInt3, localuu.bn);
+/* 26 */       paramiz.a(1, paramgs);
+/*    */       
+/* 28 */       return true;
+/*    */     }
+/*    */     
+/* 31 */     return false;
+/*    */   }
+/*    */   
+/*    */   public boolean b() {
+/* 35 */     return true;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\la.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

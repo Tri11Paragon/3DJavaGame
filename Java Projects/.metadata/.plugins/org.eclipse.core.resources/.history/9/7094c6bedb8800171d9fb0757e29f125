@@ -1,0 +1,154 @@
+/*     */ import java.util.ArrayList;
+/*     */ import java.util.List;
+/*     */ import java.util.Random;
+/*     */ import org.lwjgl.opengl.GL11;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class dn
+/*     */ {
+/*     */   protected fd a;
+/*  28 */   private List[] b = new List[4];
+/*     */   private ji c;
+/*  30 */   private Random d = new Random();
+/*     */   
+/*     */   public dn(fd paramfd, ji paramji) {
+/*  33 */     if (paramfd != null) {
+/*  34 */       this.a = paramfd;
+/*     */     }
+/*  36 */     this.c = paramji;
+/*  37 */     for (int i = 0; i < 4; i++) {
+/*  38 */       this.b[i] = new ArrayList();
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(xw paramxw) {
+/*  43 */     int i = paramxw.c_();
+/*  44 */     if (this.b[i].size() >= 4000) this.b[i].remove(0);
+/*  45 */     this.b[i].add(paramxw);
+/*     */   }
+/*     */   
+/*     */   public void a() {
+/*  49 */     for (int i = 0; i < 4; i++) {
+/*  50 */       for (int j = 0; j < this.b[i].size(); j++) {
+/*  51 */         xw localxw = (xw)this.b[i].get(j);
+/*  52 */         localxw.w_();
+/*  53 */         if (localxw.be) {
+/*  54 */           this.b[i].remove(j--);
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(sn paramsn, float paramFloat) {
+/*  61 */     float f1 = in.b(paramsn.aS * 3.1415927F / 180.0F);
+/*  62 */     float f2 = in.a(paramsn.aS * 3.1415927F / 180.0F);
+/*     */     
+/*  64 */     float f3 = -f2 * in.a(paramsn.aT * 3.1415927F / 180.0F);
+/*  65 */     float f4 = f1 * in.a(paramsn.aT * 3.1415927F / 180.0F);
+/*  66 */     float f5 = in.b(paramsn.aT * 3.1415927F / 180.0F);
+/*     */     
+/*  68 */     xw.l = paramsn.bl + (paramsn.aM - paramsn.bl) * paramFloat;
+/*  69 */     xw.m = paramsn.bm + (paramsn.aN - paramsn.bm) * paramFloat;
+/*  70 */     xw.n = paramsn.bn + (paramsn.aO - paramsn.bn) * paramFloat;
+/*  71 */     for (int i = 0; i < 3; i++) {
+/*  72 */       if (this.b[i].size() != 0)
+/*     */       {
+/*  74 */         int j = 0;
+/*  75 */         if (i == 0) j = this.c.b("/particles.png");
+/*  76 */         if (i == 1) j = this.c.b("/terrain.png");
+/*  77 */         if (i == 2) j = this.c.b("/gui/items.png");
+/*  78 */         GL11.glBindTexture(3553, j);
+/*  79 */         nw localnw = nw.a;
+/*     */         
+/*  81 */         localnw.b();
+/*  82 */         for (int k = 0; k < this.b[i].size(); k++) {
+/*  83 */           xw localxw = (xw)this.b[i].get(k);
+/*     */           
+/*  85 */           localxw.a(localnw, paramFloat, f1, f5, f2, f3, f4);
+/*     */         }
+/*  87 */         localnw.a();
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void b(sn paramsn, float paramFloat) {
+/*  93 */     int i = 3;
+/*  94 */     if (this.b[i].size() == 0) { return;
+/*     */     }
+/*  96 */     nw localnw = nw.a;
+/*  97 */     for (int j = 0; j < this.b[i].size(); j++) {
+/*  98 */       xw localxw = (xw)this.b[i].get(j);
+/*  99 */       localxw.a(localnw, paramFloat, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(fd paramfd) {
+/* 104 */     this.a = paramfd;
+/*     */     
+/* 106 */     for (int i = 0; i < 4; i++) {
+/* 107 */       this.b[i].clear();
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5)
+/*     */   {
+/* 113 */     if (paramInt4 == 0) { return;
+/*     */     }
+/* 115 */     uu localuu = uu.m[paramInt4];
+/* 116 */     int i = 4;
+/* 117 */     for (int j = 0; j < i; j++)
+/* 118 */       for (int k = 0; k < i; k++)
+/* 119 */         for (int m = 0; m < i; m++) {
+/* 120 */           double d1 = paramInt1 + (j + 0.5D) / i;
+/* 121 */           double d2 = paramInt2 + (k + 0.5D) / i;
+/* 122 */           double d3 = paramInt3 + (m + 0.5D) / i;
+/* 123 */           int n = this.d.nextInt(6);
+/* 124 */           a(new qm(this.a, d1, d2, d3, d1 - paramInt1 - 0.5D, d2 - paramInt2 - 0.5D, d3 - paramInt3 - 0.5D, localuu, n, paramInt5).a(paramInt1, paramInt2, paramInt3));
+/*     */         }
+/*     */   }
+/*     */   
+/*     */   public void a(int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/* 129 */     int i = this.a.a(paramInt1, paramInt2, paramInt3);
+/* 130 */     if (i == 0) return;
+/* 131 */     uu localuu = uu.m[i];
+/* 132 */     float f = 0.1F;
+/* 133 */     double d1 = paramInt1 + this.d.nextDouble() * (localuu.bv - localuu.bs - f * 2.0F) + f + localuu.bs;
+/* 134 */     double d2 = paramInt2 + this.d.nextDouble() * (localuu.bw - localuu.bt - f * 2.0F) + f + localuu.bt;
+/* 135 */     double d3 = paramInt3 + this.d.nextDouble() * (localuu.bx - localuu.bu - f * 2.0F) + f + localuu.bu;
+/* 136 */     if (paramInt4 == 0) d2 = paramInt2 + localuu.bt - f;
+/* 137 */     if (paramInt4 == 1) d2 = paramInt2 + localuu.bw + f;
+/* 138 */     if (paramInt4 == 2) d3 = paramInt3 + localuu.bu - f;
+/* 139 */     if (paramInt4 == 3) d3 = paramInt3 + localuu.bx + f;
+/* 140 */     if (paramInt4 == 4) d1 = paramInt1 + localuu.bs - f;
+/* 141 */     if (paramInt4 == 5) d1 = paramInt1 + localuu.bv + f;
+/* 142 */     a(new qm(this.a, d1, d2, d3, 0.0D, 0.0D, 0.0D, localuu, paramInt4, this.a.e(paramInt1, paramInt2, paramInt3)).a(paramInt1, paramInt2, paramInt3).c(0.2F).d(0.6F));
+/*     */   }
+/*     */   
+/*     */   public String b() {
+/* 146 */     return "" + (this.b[0].size() + this.b[1].size() + this.b[2].size());
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\dn.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

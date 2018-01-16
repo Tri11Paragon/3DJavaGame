@@ -1,0 +1,42 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class ap
+/*    */   extends pg
+/*    */ {
+/*    */   private int a;
+/*    */   private int b;
+/*    */   
+/*    */   public ap(int paramInt1, int paramInt2)
+/*    */   {
+/* 14 */     this.a = paramInt1;
+/* 15 */     this.b = paramInt2;
+/*    */   }
+/*    */   
+/*    */   public boolean a(fd paramfd, Random paramRandom, int paramInt1, int paramInt2, int paramInt3) {
+/* 19 */     int i = 0;
+/* 20 */     while ((((i = paramfd.a(paramInt1, paramInt2, paramInt3)) == 0) || (i == uu.L.bn)) && (paramInt2 > 0)) {
+/* 21 */       paramInt2--;
+/*    */     }
+/* 23 */     for (int j = 0; j < 128; j++) {
+/* 24 */       int k = paramInt1 + paramRandom.nextInt(8) - paramRandom.nextInt(8);
+/* 25 */       int m = paramInt2 + paramRandom.nextInt(4) - paramRandom.nextInt(4);
+/* 26 */       int n = paramInt3 + paramRandom.nextInt(8) - paramRandom.nextInt(8);
+/* 27 */       if ((paramfd.d(k, m, n)) && 
+/* 28 */         (((wb)uu.m[this.a]).g(paramfd, k, m, n))) {
+/* 29 */         paramfd.a(k, m, n, this.a, this.b);
+/*    */       }
+/*    */     }
+/*    */     
+/*    */ 
+/* 34 */     return true;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ap.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

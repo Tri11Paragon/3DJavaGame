@@ -1,0 +1,81 @@
+/*    */ import net.minecraft.client.Minecraft;
+/*    */ import org.lwjgl.opengl.GL11;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class ke
+/*    */   extends ub
+/*    */ {
+/* 10 */   protected int a = 200;
+/* 11 */   protected int b = 20;
+/*    */   public int c;
+/*    */   public int d;
+/*    */   public String e;
+/* 15 */   public int f; public boolean g = true;
+/* 16 */   public boolean h = true;
+/*    */   
+/*    */   public ke(int paramInt1, int paramInt2, int paramInt3, String paramString) {
+/* 19 */     this(paramInt1, paramInt2, paramInt3, 200, 20, paramString);
+/*    */   }
+/*    */   
+/*    */   public ke(int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5, String paramString) {
+/* 23 */     this.f = paramInt1;
+/* 24 */     this.c = paramInt2;
+/* 25 */     this.d = paramInt3;
+/* 26 */     this.a = paramInt4;
+/* 27 */     this.b = paramInt5;
+/* 28 */     this.e = paramString;
+/*    */   }
+/*    */   
+/*    */   protected int a(boolean paramBoolean) {
+/* 32 */     int i = 1;
+/* 33 */     if (!this.g) { i = 0;
+/* 34 */     } else if (paramBoolean) i = 2;
+/* 35 */     return i;
+/*    */   }
+/*    */   
+/*    */   public void a(Minecraft paramMinecraft, int paramInt1, int paramInt2) {
+/* 39 */     if (!this.h) { return;
+/*    */     }
+/* 41 */     sj localsj = paramMinecraft.q;
+/*    */     
+/* 43 */     GL11.glBindTexture(3553, paramMinecraft.p.b("/gui/gui.png"));
+/* 44 */     GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+/*    */     
+/*    */ 
+/* 47 */     boolean bool = (paramInt1 >= this.c) && (paramInt2 >= this.d) && (paramInt1 < this.c + this.a) && (paramInt2 < this.d + this.b);
+/* 48 */     int i = a(bool);
+/*    */     
+/* 50 */     b(this.c, this.d, 0, 46 + i * 20, this.a / 2, this.b);
+/* 51 */     b(this.c + this.a / 2, this.d, 200 - this.a / 2, 46 + i * 20, this.a / 2, this.b);
+/*    */     
+/* 53 */     b(paramMinecraft, paramInt1, paramInt2);
+/*    */     
+/* 55 */     if (!this.g) {
+/* 56 */       a(localsj, this.e, this.c + this.a / 2, this.d + (this.b - 8) / 2, -6250336);
+/*    */     }
+/* 58 */     else if (bool) {
+/* 59 */       a(localsj, this.e, this.c + this.a / 2, this.d + (this.b - 8) / 2, 16777120);
+/*    */     } else {
+/* 61 */       a(localsj, this.e, this.c + this.a / 2, this.d + (this.b - 8) / 2, 14737632);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */ 
+/*    */   protected void b(Minecraft paramMinecraft, int paramInt1, int paramInt2) {}
+/*    */   
+/*    */ 
+/*    */   public void a(int paramInt1, int paramInt2) {}
+/*    */   
+/*    */   public boolean c(Minecraft paramMinecraft, int paramInt1, int paramInt2)
+/*    */   {
+/* 73 */     return (this.g) && (paramInt1 >= this.c) && (paramInt2 >= this.d) && (paramInt1 < this.c + this.a) && (paramInt2 < this.d + this.b);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ke.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

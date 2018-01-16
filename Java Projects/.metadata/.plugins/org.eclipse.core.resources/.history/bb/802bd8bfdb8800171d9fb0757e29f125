@@ -1,0 +1,17 @@
+/*   */ 
+/*   */ 
+/*   */ public enum eb
+/*   */ {
+/*   */   public final int c;
+/*   */   
+/*   */   private eb(int paramInt1)
+/*   */   {
+/* 9 */     this.c = paramInt1;
+/*   */   }
+/*   */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\eb.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

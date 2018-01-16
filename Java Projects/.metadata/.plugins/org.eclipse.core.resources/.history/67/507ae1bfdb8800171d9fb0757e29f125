@@ -1,0 +1,47 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class vc
+/*    */   extends gm
+/*    */ {
+/*    */   public vc(int paramInt)
+/*    */   {
+/* 11 */     super(paramInt);
+/* 12 */     this.bg = 1;
+/*    */   }
+/*    */   
+/*    */   public boolean a(iz paramiz, gs paramgs, fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/* 16 */     if (paramInt4 == 0) return false;
+/* 17 */     if (!paramfd.f(paramInt1, paramInt2, paramInt3).a()) { return false;
+/*    */     }
+/*    */     
+/* 20 */     if (paramInt4 == 1) { paramInt2++;
+/*    */     }
+/* 22 */     if (paramInt4 == 2) paramInt3--;
+/* 23 */     if (paramInt4 == 3) paramInt3++;
+/* 24 */     if (paramInt4 == 4) paramInt1--;
+/* 25 */     if (paramInt4 == 5) { paramInt1++;
+/*    */     }
+/* 27 */     if (!uu.aE.a(paramfd, paramInt1, paramInt2, paramInt3)) { return false;
+/*    */     }
+/*    */     
+/* 30 */     if (paramInt4 == 1) {
+/* 31 */       paramfd.b(paramInt1, paramInt2, paramInt3, uu.aE.bn, in.b((paramgs.aS + 180.0F) * 16.0F / 360.0F + 0.5D) & 0xF);
+/*    */     } else {
+/* 33 */       paramfd.b(paramInt1, paramInt2, paramInt3, uu.aJ.bn, paramInt4);
+/*    */     }
+/*    */     
+/* 36 */     paramiz.a -= 1;
+/* 37 */     yk localyk = (yk)paramfd.b(paramInt1, paramInt2, paramInt3);
+/* 38 */     if (localyk != null) paramgs.a(localyk);
+/* 39 */     return true;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\vc.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

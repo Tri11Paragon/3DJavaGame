@@ -1,0 +1,77 @@
+/*    */ import java.util.List;
+/*    */ import net.minecraft.client.Minecraft;
+/*    */ 
+/*    */ 
+/*    */ public class up
+/*    */   extends da
+/*    */ {
+/*    */   private da i;
+/*  9 */   protected String a = "Controls";
+/*    */   private kv j;
+/* 11 */   private int l = -1;
+/*    */   
+/*    */ 
+/*    */ 
+/*    */   public up(da paramda, kv paramkv)
+/*    */   {
+/* 17 */     this.i = paramda;
+/* 18 */     this.j = paramkv;
+/*    */   }
+/*    */   
+/*    */   private int k() {
+/* 22 */     return this.c / 2 - 155;
+/*    */   }
+/*    */   
+/*    */   public void b()
+/*    */   {
+/* 27 */     nh localnh = nh.a();
+/*    */     
+/* 29 */     int k = k();
+/* 30 */     for (int m = 0; m < this.j.w.length; m++) {
+/* 31 */       this.e.add(new ab(m, k + m % 2 * 160, this.d / 6 + 24 * (m >> 1), 70, 20, this.j.b(m)));
+/*    */     }
+/*    */     
+/* 34 */     this.e.add(new ke(200, this.c / 2 - 100, this.d / 6 + 168, localnh.a("gui.done")));
+/* 35 */     this.a = localnh.a("controls.title");
+/*    */   }
+/*    */   
+/*    */   protected void a(ke paramke) {
+/* 39 */     for (int k = 0; k < this.j.w.length; k++) {
+/* 40 */       ((ke)this.e.get(k)).e = this.j.b(k);
+/*    */     }
+/* 42 */     if (paramke.f == 200) {
+/* 43 */       this.b.a(this.i);
+/*    */     } else {
+/* 45 */       this.l = paramke.f;
+/* 46 */       paramke.e = ("> " + this.j.b(paramke.f) + " <");
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   protected void a(char paramChar, int paramInt) {
+/* 51 */     if (this.l >= 0) {
+/* 52 */       this.j.a(this.l, paramInt);
+/* 53 */       ((ke)this.e.get(this.l)).e = this.j.b(this.l);
+/* 54 */       this.l = -1;
+/*    */     } else {
+/* 56 */       super.a(paramChar, paramInt);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public void a(int paramInt1, int paramInt2, float paramFloat) {
+/* 61 */     i();
+/* 62 */     a(this.g, this.a, this.c / 2, 20, 16777215);
+/*    */     
+/* 64 */     int k = k();
+/* 65 */     for (int m = 0; m < this.j.w.length; m++) {
+/* 66 */       b(this.g, this.j.a(m), k + m % 2 * 160 + 70 + 6, this.d / 6 + 24 * (m >> 1) + 7, -1);
+/*    */     }
+/*    */     
+/* 69 */     super.a(paramInt1, paramInt2, paramFloat);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\up.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,24 @@
+public abstract interface cl
+{
+  public abstract boolean a(int paramInt1, int paramInt2);
+  
+  public abstract lm b(int paramInt1, int paramInt2);
+  
+  public abstract lm c(int paramInt1, int paramInt2);
+  
+  public abstract void a(cl paramcl, int paramInt1, int paramInt2);
+  
+  public abstract boolean a(boolean paramBoolean, yb paramyb);
+  
+  public abstract boolean a();
+  
+  public abstract boolean b();
+  
+  public abstract String c();
+}
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\cl.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

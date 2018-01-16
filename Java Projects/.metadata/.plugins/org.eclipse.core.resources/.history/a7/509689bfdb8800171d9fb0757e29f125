@@ -1,0 +1,22 @@
+/*    */ import java.util.List;
+/*    */ 
+/*    */ 
+/*    */ public class t
+/*    */   extends kd
+/*    */ {
+/*    */   public t()
+/*    */   {
+/*  9 */     this.s.clear();
+/* 10 */     this.t.clear();
+/* 11 */     this.u.clear();
+/*    */     
+/* 13 */     this.s.add(new bj(bp.class, 10));
+/* 14 */     this.s.add(new bj(ya.class, 10));
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\t.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,76 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ public class op extends xw
+/*    */ {
+/*    */   private float a;
+/*    */   private double o;
+/*    */   private double p;
+/*    */   private double q;
+/*    */   
+/*    */   public op(fd paramfd, double paramDouble1, double paramDouble2, double paramDouble3, double paramDouble4, double paramDouble5, double paramDouble6)
+/*    */   {
+/* 12 */     super(paramfd, paramDouble1, paramDouble2, paramDouble3, paramDouble4, paramDouble5, paramDouble6);
+/*    */     
+/* 14 */     this.aP = paramDouble4;
+/* 15 */     this.aQ = paramDouble5;
+/* 16 */     this.aR = paramDouble6;
+/* 17 */     this.o = (this.aM = paramDouble1);
+/* 18 */     this.p = (this.aN = paramDouble2);
+/* 19 */     this.q = (this.aO = paramDouble3);
+/*    */     
+/* 21 */     float f = this.bs.nextFloat() * 0.6F + 0.4F;
+/* 22 */     this.a = (this.g = this.bs.nextFloat() * 0.2F + 0.5F);
+/* 23 */     this.i = (this.j = this.k = 1.0F * f);
+/* 24 */     this.j *= 0.3F;
+/* 25 */     this.i *= 0.9F;
+/*    */     
+/* 27 */     this.f = ((int)(Math.random() * 10.0D) + 40);
+/* 28 */     this.bq = true;
+/* 29 */     this.b = ((int)(Math.random() * 8.0D));
+/*    */   }
+/*    */   
+/*    */   public void a(nw paramnw, float paramFloat1, float paramFloat2, float paramFloat3, float paramFloat4, float paramFloat5, float paramFloat6) {
+/* 33 */     float f = (this.e + paramFloat1) / this.f;
+/* 34 */     f = 1.0F - f;
+/* 35 */     f *= f;
+/* 36 */     f = 1.0F - f;
+/* 37 */     this.g = (this.a * f);
+/* 38 */     super.a(paramnw, paramFloat1, paramFloat2, paramFloat3, paramFloat4, paramFloat5, paramFloat6);
+/*    */   }
+/*    */   
+/*    */   public float a(float paramFloat) {
+/* 42 */     float f1 = super.a(paramFloat);
+/* 43 */     float f2 = this.e / this.f;
+/* 44 */     f2 *= f2;
+/* 45 */     f2 *= f2;
+/* 46 */     return f1 * (1.0F - f2) + f2;
+/*    */   }
+/*    */   
+/*    */   public void w_() {
+/* 50 */     this.aJ = this.aM;
+/* 51 */     this.aK = this.aN;
+/* 52 */     this.aL = this.aO;
+/*    */     
+/* 54 */     float f1 = this.e / this.f;
+/* 55 */     float f2 = f1;
+/* 56 */     f1 = -f1 + f1 * f1 * 2.0F;
+/*    */     
+/*    */ 
+/* 59 */     f1 = 1.0F - f1;
+/*    */     
+/* 61 */     this.aM = (this.o + this.aP * f1);
+/* 62 */     this.aN = (this.p + this.aQ * f1 + (1.0F - f2));
+/* 63 */     this.aO = (this.q + this.aR * f1);
+/*    */     
+/*    */ 
+/*    */ 
+/*    */ 
+/* 68 */     if (this.e++ >= this.f) K();
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\op.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

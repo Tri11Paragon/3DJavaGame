@@ -1,0 +1,50 @@
+/*    */ import java.io.DataInputStream;
+/*    */ import java.io.DataOutputStream;
+/*    */ import java.util.List;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class ux
+/*    */   extends ki
+/*    */ {
+/*    */   public int a;
+/*    */   private List b;
+/*    */   
+/*    */   public void a(DataInputStream paramDataInputStream)
+/*    */   {
+/* 24 */     this.a = paramDataInputStream.readInt();
+/* 25 */     this.b = ud.a(paramDataInputStream);
+/*    */   }
+/*    */   
+/*    */   public void a(DataOutputStream paramDataOutputStream) {
+/* 29 */     paramDataOutputStream.writeInt(this.a);
+/* 30 */     ud.a(this.b, paramDataOutputStream);
+/*    */   }
+/*    */   
+/*    */   public void a(ti paramti) {
+/* 34 */     paramti.a(this);
+/*    */   }
+/*    */   
+/*    */   public int a() {
+/* 38 */     return 5;
+/*    */   }
+/*    */   
+/*    */   public List b() {
+/* 42 */     return this.b;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ux.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

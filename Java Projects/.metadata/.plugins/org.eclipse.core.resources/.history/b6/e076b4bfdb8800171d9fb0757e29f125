@@ -1,0 +1,21 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ public class eo
+/*    */   extends uu
+/*    */ {
+/*    */   public eo(int paramInt1, int paramInt2)
+/*    */   {
+/*  9 */     super(paramInt1, paramInt2, ln.e);
+/*    */   }
+/*    */   
+/*    */   public int a(int paramInt, Random paramRandom) {
+/* 13 */     return uu.x.bn;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\eo.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

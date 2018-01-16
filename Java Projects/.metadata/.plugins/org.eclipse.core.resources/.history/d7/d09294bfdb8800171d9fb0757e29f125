@@ -1,0 +1,125 @@
+/*     */ import java.util.Random;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class km
+/*     */   extends gm
+/*     */ {
+/*  11 */   public static final String[] a = { "black", "red", "green", "brown", "blue", "purple", "cyan", "silver", "gray", "pink", "lime", "yellow", "lightBlue", "magenta", "orange", "white" };
+/*     */   
+/*     */ 
+/*     */ 
+/*  15 */   public static final int[] bk = { 1973019, 11743532, 3887386, 5320730, 2437522, 8073150, 2651799, 2651799, 4408131, 14188952, 4312372, 14602026, 6719955, 12801229, 15435844, 15790320 };
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public km(int paramInt)
+/*     */   {
+/*  37 */     super(paramInt);
+/*     */     
+/*  39 */     a(true);
+/*  40 */     e(0);
+/*     */   }
+/*     */   
+/*     */   public int a(int paramInt)
+/*     */   {
+/*  45 */     int i = paramInt;
+/*  46 */     return this.bh + i % 8 * 16 + i / 8;
+/*     */   }
+/*     */   
+/*     */   public String a(iz paramiz)
+/*     */   {
+/*  51 */     return super.a() + "." + a[paramiz.i()];
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   public boolean a(iz paramiz, gs paramgs, fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+/*     */   {
+/*  57 */     if (paramiz.i() == 15)
+/*     */     {
+/*     */ 
+/*  60 */       int i = paramfd.a(paramInt1, paramInt2, paramInt3);
+/*  61 */       if (i == uu.z.bn) {
+/*  62 */         if (!paramfd.B) {
+/*  63 */           ((he)uu.z).c(paramfd, paramInt1, paramInt2, paramInt3, paramfd.r);
+/*  64 */           paramiz.a -= 1;
+/*     */         }
+/*  66 */         return true; }
+/*  67 */       if (i == uu.aA.bn) {
+/*  68 */         if (!paramfd.B) {
+/*  69 */           ((ni)uu.aA).d_(paramfd, paramInt1, paramInt2, paramInt3);
+/*  70 */           paramiz.a -= 1;
+/*     */         }
+/*  72 */         return true; }
+/*  73 */       if (i == uu.v.bn) {
+/*  74 */         if (!paramfd.B) {
+/*  75 */           paramiz.a -= 1;
+/*  76 */           label370: for (int j = 0; j < 128; j++) {
+/*  77 */             int k = paramInt1;
+/*  78 */             int m = paramInt2 + 1;
+/*  79 */             int n = paramInt3;
+/*  80 */             for (int i1 = 0; i1 < j / 16; i1++) {
+/*  81 */               k += b.nextInt(3) - 1;
+/*  82 */               m += (b.nextInt(3) - 1) * b.nextInt(3) / 2;
+/*  83 */               n += b.nextInt(3) - 1;
+/*  84 */               if ((paramfd.a(k, m - 1, n) != uu.v.bn) || (paramfd.h(k, m, n))) {
+/*     */                 break label370;
+/*     */               }
+/*     */             }
+/*     */             
+/*  89 */             if (paramfd.a(k, m, n) == 0) {
+/*  90 */               if (b.nextInt(10) != 0) {
+/*  91 */                 paramfd.b(k, m, n, uu.Y.bn, 1);
+/*  92 */               } else if (b.nextInt(3) != 0) {
+/*  93 */                 paramfd.f(k, m, n, uu.ae.bn);
+/*     */               } else {
+/*  95 */                 paramfd.f(k, m, n, uu.af.bn);
+/*     */               }
+/*     */             }
+/*     */           }
+/*     */         }
+/* 100 */         return true;
+/*     */       }
+/*     */     }
+/*     */     
+/* 104 */     return false;
+/*     */   }
+/*     */   
+/*     */   public void a(iz paramiz, ls paramls)
+/*     */   {
+/* 109 */     if ((paramls instanceof dl)) {
+/* 110 */       dl localdl = (dl)paramls;
+/*     */       
+/* 112 */       int i = ee.d(paramiz.i());
+/* 113 */       if ((!localdl.s()) && (localdl.r() != i)) {
+/* 114 */         localdl.e_(i);
+/* 115 */         paramiz.a -= 1;
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\km.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

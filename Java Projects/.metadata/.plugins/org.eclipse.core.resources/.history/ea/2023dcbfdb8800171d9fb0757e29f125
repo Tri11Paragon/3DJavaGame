@@ -1,0 +1,84 @@
+/*    */ import java.text.DecimalFormat;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ final class bo
+/*    */   implements wk
+/*    */ {
+/*    */   public String a(int paramInt)
+/*    */   {
+/* 61 */     double d1 = paramInt / 20.0D;
+/* 62 */     double d2 = d1 / 60.0D;
+/* 63 */     double d3 = d2 / 60.0D;
+/* 64 */     double d4 = d3 / 24.0D;
+/* 65 */     double d5 = d4 / 365.0D;
+/*    */     
+/* 67 */     if (d5 > 0.5D)
+/* 68 */       return vr.j().format(d5) + " y";
+/* 69 */     if (d4 > 0.5D)
+/* 70 */       return vr.j().format(d4) + " d";
+/* 71 */     if (d3 > 0.5D)
+/* 72 */       return vr.j().format(d3) + " h";
+/* 73 */     if (d2 > 0.5D) {
+/* 74 */       return vr.j().format(d2) + " m";
+/*    */     }
+/* 76 */     return d1 + " s";
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\bo.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

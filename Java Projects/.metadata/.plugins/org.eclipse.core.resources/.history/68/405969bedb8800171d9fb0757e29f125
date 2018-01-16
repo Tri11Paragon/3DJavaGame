@@ -1,0 +1,35 @@
+/*    */ public class _tmi_MgButton extends _tmi_MgWidget
+/*    */ {
+/*    */   public String label;
+/*    */   public _tmi_MgButtonHandler controller;
+/*    */   public Object data;
+/*    */   
+/*    */   public _tmi_MgButton(String paramString, _tmi_MgButtonHandler param_tmi_MgButtonHandler, Object paramObject) {
+/*  8 */     this(0, 0, 0, 0, 0, paramString, param_tmi_MgButtonHandler, paramObject);
+/*    */   }
+/*    */   
+/*    */   public _tmi_MgButton(int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5, String paramString, _tmi_MgButtonHandler param_tmi_MgButtonHandler, Object paramObject) {
+/* 12 */     super(paramInt1, paramInt2, paramInt3, paramInt4, paramInt5);
+/* 13 */     this.label = paramString;
+/* 14 */     this.controller = param_tmi_MgButtonHandler;
+/* 15 */     this.data = paramObject;
+/*    */   }
+/*    */   
+/*    */   public void draw(_tmi_MgCanvas param_tmi_MgCanvas, int paramInt1, int paramInt2) {
+/* 19 */     param_tmi_MgCanvas.drawRect(this.x, this.y, this.width, this.height, contains(paramInt1, paramInt2) ? -297791480 : -301989888);
+/* 20 */     param_tmi_MgCanvas.drawTextCentered(this.x, this.y, this.width, this.height, this.label, -1);
+/*    */   }
+/*    */   
+/*    */   public boolean click(int paramInt1, int paramInt2, int paramInt3) {
+/* 24 */     if (paramInt3 == 0) {
+/* 25 */       return this.controller.onButtonPress(this.data);
+/*    */     }
+/* 27 */     return true;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\_tmi_MgButton.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

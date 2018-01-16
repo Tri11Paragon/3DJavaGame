@@ -1,0 +1,121 @@
+/*     */ import java.io.PrintStream;
+/*     */ import java.util.HashMap;
+/*     */ import java.util.Map;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class ow
+/*     */ {
+/*  13 */   private static Map a = new HashMap();
+/*  14 */   private static Map b = new HashMap();
+/*     */   public fd d;
+/*     */   
+/*  17 */   private static void a(Class paramClass, String paramString) { if (b.containsKey(paramString)) throw new IllegalArgumentException("Duplicate id: " + paramString);
+/*  18 */     a.put(paramString, paramClass);
+/*  19 */     b.put(paramClass, paramString);
+/*     */   }
+/*     */   
+/*     */   public int e;
+/*  23 */   static { a(sk.class, "Furnace");
+/*  24 */     a(js.class, "Chest");
+/*  25 */     a(eg.class, "RecordPlayer");
+/*  26 */     a(az.class, "Trap");
+/*  27 */     a(yk.class, "Sign");
+/*  28 */     a(cy.class, "MobSpawner");
+/*  29 */     a(tn.class, "Music");
+/*  30 */     a(uk.class, "Piston");
+/*     */   }
+/*     */   
+/*     */   public int f;
+/*     */   public int g;
+/*     */   protected boolean h;
+/*     */   public void a(nu paramnu)
+/*     */   {
+/*  38 */     this.e = paramnu.e("x");
+/*  39 */     this.f = paramnu.e("y");
+/*  40 */     this.g = paramnu.e("z");
+/*     */   }
+/*     */   
+/*     */   public void b(nu paramnu) {
+/*  44 */     String str = (String)b.get(getClass());
+/*  45 */     if (str == null) {
+/*  46 */       throw new RuntimeException(getClass() + " is missing a mapping! This is a bug!");
+/*     */     }
+/*  48 */     paramnu.a("id", str);
+/*  49 */     paramnu.a("x", this.e);
+/*  50 */     paramnu.a("y", this.f);
+/*  51 */     paramnu.a("z", this.g);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   public static ow c(nu paramnu)
+/*     */   {
+/*  58 */     ow localow = null;
+/*     */     try {
+/*  60 */       Class localClass = (Class)a.get(paramnu.i("id"));
+/*  61 */       if (localClass != null) localow = (ow)localClass.newInstance();
+/*     */     } catch (Exception localException) {
+/*  63 */       localException.printStackTrace();
+/*     */     }
+/*  65 */     if (localow != null) {
+/*  66 */       localow.a(paramnu);
+/*     */     } else {
+/*  68 */       System.out.println("Skipping TileEntity with id " + paramnu.i("id"));
+/*     */     }
+/*  70 */     return localow;
+/*     */   }
+/*     */   
+/*     */   public int e() {
+/*  74 */     return this.d.e(this.e, this.f, this.g);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void y_()
+/*     */   {
+/*  82 */     if (this.d != null) {
+/*  83 */       this.d.b(this.e, this.f, this.g, this);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public double a(double paramDouble1, double paramDouble2, double paramDouble3) {
+/*  88 */     double d1 = this.e + 0.5D - paramDouble1;
+/*  89 */     double d2 = this.f + 0.5D - paramDouble2;
+/*  90 */     double d3 = this.g + 0.5D - paramDouble3;
+/*  91 */     return d1 * d1 + d2 * d2 + d3 * d3;
+/*     */   }
+/*     */   
+/*     */   public uu f() {
+/*  95 */     return uu.m[this.d.a(this.e, this.f, this.g)];
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public boolean g()
+/*     */   {
+/* 103 */     return this.h;
+/*     */   }
+/*     */   
+/*     */   public void i() {
+/* 107 */     this.h = true;
+/*     */   }
+/*     */   
+/*     */   public void j() {
+/* 111 */     this.h = false;
+/*     */   }
+/*     */   
+/*     */   public void n_() {}
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ow.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

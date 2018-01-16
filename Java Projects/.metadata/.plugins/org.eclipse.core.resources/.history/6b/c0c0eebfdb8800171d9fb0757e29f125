@@ -1,0 +1,26 @@
+/*    */ import java.io.DataInput;
+/*    */ import java.io.DataOutput;
+/*    */ 
+/*    */ 
+/*    */ public class lh
+/*    */   extends ij
+/*    */ {
+/*    */   void a(DataInput paramDataInput) {}
+/*    */   
+/*    */   void a(DataOutput paramDataOutput) {}
+/*    */   
+/*    */   public byte a()
+/*    */   {
+/* 14 */     return 0;
+/*    */   }
+/*    */   
+/*    */   public String toString() {
+/* 18 */     return "END";
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\lh.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

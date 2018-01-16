@@ -1,0 +1,13 @@
+/*   */ import java.util.Comparator;
+/*   */ 
+/*   */ public class _tmi_MgZOrder implements Comparator<_tmi_MgWidget> {
+/*   */   public int compare(_tmi_MgWidget param_tmi_MgWidget1, _tmi_MgWidget param_tmi_MgWidget2) {
+/* 5 */     return param_tmi_MgWidget1.z < param_tmi_MgWidget2.z ? -1 : param_tmi_MgWidget1.z > param_tmi_MgWidget2.z ? 1 : 0;
+/*   */   }
+/*   */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\_tmi_MgZOrder.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

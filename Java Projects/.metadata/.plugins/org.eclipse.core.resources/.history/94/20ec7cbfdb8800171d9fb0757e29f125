@@ -1,0 +1,86 @@
+/*    */ import java.util.ArrayList;
+/*    */ import java.util.List;
+/*    */ import java.util.Map;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ final class oe
+/*    */   extends qe
+/*    */ {
+/*    */   private final List a;
+/*    */   
+/*    */   oe(Iterable paramIterable)
+/*    */   {
+/* 22 */     this.a = a(paramIterable);
+/*    */   }
+/*    */   
+/*    */   public at a() {
+/* 26 */     return at.b;
+/*    */   }
+/*    */   
+/*    */   public List d() {
+/* 30 */     return new ArrayList(this.a);
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public String b()
+/*    */   {
+/* 38 */     throw new IllegalStateException("Attempt to get text on a JsonNode without text.");
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public Map c()
+/*    */   {
+/* 46 */     throw new IllegalStateException("Attempt to get fields on a JsonNode without fields.");
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public boolean equals(Object paramObject)
+/*    */   {
+/* 55 */     if (this == paramObject) return true;
+/* 56 */     if ((paramObject == null) || (getClass() != paramObject.getClass())) { return false;
+/*    */     }
+/* 58 */     oe localoe = (oe)paramObject;
+/* 59 */     return this.a.equals(localoe.a);
+/*    */   }
+/*    */   
+/*    */   public int hashCode()
+/*    */   {
+/* 64 */     return this.a.hashCode();
+/*    */   }
+/*    */   
+/*    */   public String toString()
+/*    */   {
+/* 69 */     return "JsonArray elements:[" + this.a + "]";
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   private static List a(Iterable paramIterable)
+/*    */   {
+/* 78 */     return new y(paramIterable);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\oe.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

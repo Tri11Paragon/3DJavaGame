@@ -1,0 +1,36 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class jy
+/*    */ {
+/*    */   public void a(hk paramhk)
+/*    */   {
+/*  8 */     paramhk.a(new iz(uu.av), new Object[] { "###", "# #", "###", Character.valueOf('#'), uu.y });
+/*    */     
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/* 15 */     paramhk.a(new iz(uu.aC), new Object[] { "###", "# #", "###", Character.valueOf('#'), uu.x });
+/*    */     
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/* 22 */     paramhk.a(new iz(uu.az), new Object[] { "##", "##", Character.valueOf('#'), uu.y });
+/*    */     
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/* 28 */     paramhk.a(new iz(uu.R), new Object[] { "##", "##", Character.valueOf('#'), uu.F });
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\jy.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

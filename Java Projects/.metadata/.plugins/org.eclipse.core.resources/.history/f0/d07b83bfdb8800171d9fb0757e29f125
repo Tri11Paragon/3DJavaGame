@@ -1,0 +1,45 @@
+/*    */ import java.io.DataInputStream;
+/*    */ 
+/*    */ public class se extends ki
+/*    */ {
+/*    */   public int a;
+/*    */   public int b;
+/*    */   public boolean c;
+/*    */   
+/*    */   public se() {
+/* 10 */     this.k = false;
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public void a(DataInputStream paramDataInputStream)
+/*    */   {
+/* 21 */     this.a = paramDataInputStream.readInt();
+/* 22 */     this.b = paramDataInputStream.readInt();
+/* 23 */     this.c = (paramDataInputStream.read() != 0);
+/*    */   }
+/*    */   
+/*    */   public void a(java.io.DataOutputStream paramDataOutputStream) {
+/* 27 */     paramDataOutputStream.writeInt(this.a);
+/* 28 */     paramDataOutputStream.writeInt(this.b);
+/* 29 */     paramDataOutputStream.write(this.c ? 1 : 0);
+/*    */   }
+/*    */   
+/*    */   public void a(ti paramti) {
+/* 33 */     paramti.a(this);
+/*    */   }
+/*    */   
+/*    */   public int a() {
+/* 37 */     return 9;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\se.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

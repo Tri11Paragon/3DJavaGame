@@ -1,0 +1,174 @@
+/*     */ 
+/*     */ 
+/*     */ public class lf
+/*     */ {
+/*   5 */   private d[] a = new d['Ѐ'];
+/*     */   
+/*   7 */   private int b = 0;
+/*     */   
+/*     */   public d a(d paramd)
+/*     */   {
+/*  11 */     if (paramd.d >= 0) { throw new IllegalStateException("OW KNOWS!");
+/*     */     }
+/*  13 */     if (this.b == this.a.length)
+/*     */     {
+/*  15 */       d[] arrayOfd = new d[this.b << 1];
+/*  16 */       System.arraycopy(this.a, 0, arrayOfd, 0, this.b);
+/*  17 */       this.a = arrayOfd;
+/*     */     }
+/*     */     
+/*     */ 
+/*  21 */     this.a[this.b] = paramd;
+/*  22 */     paramd.d = this.b;
+/*  23 */     a(this.b++);
+/*     */     
+/*  25 */     return paramd;
+/*     */   }
+/*     */   
+/*     */   public void a() {
+/*  29 */     this.b = 0;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public d b()
+/*     */   {
+/*  39 */     d locald = this.a[0];
+/*  40 */     this.a[0] = this.a[(--this.b)];
+/*  41 */     this.a[this.b] = null;
+/*  42 */     if (this.b > 0) b(0);
+/*  43 */     locald.d = -1;
+/*  44 */     return locald;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void a(d paramd, float paramFloat)
+/*     */   {
+/*  69 */     float f = paramd.g;
+/*  70 */     paramd.g = paramFloat;
+/*  71 */     if (paramFloat < f)
+/*     */     {
+/*  73 */       a(paramd.d);
+/*     */     }
+/*     */     else
+/*     */     {
+/*  77 */       b(paramd.d);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   private void a(int paramInt)
+/*     */   {
+/*  88 */     d locald1 = this.a[paramInt];
+/*  89 */     float f = locald1.g;
+/*  90 */     while (paramInt > 0)
+/*     */     {
+/*  92 */       int i = paramInt - 1 >> 1;
+/*  93 */       d locald2 = this.a[i];
+/*  94 */       if (f >= locald2.g)
+/*     */         break;
+/*  96 */       this.a[paramInt] = locald2;
+/*  97 */       locald2.d = paramInt;
+/*  98 */       paramInt = i;
+/*     */     }
+/*     */     
+/*     */ 
+/* 102 */     this.a[paramInt] = locald1;
+/* 103 */     locald1.d = paramInt;
+/*     */   }
+/*     */   
+/*     */   private void b(int paramInt)
+/*     */   {
+/* 108 */     d locald1 = this.a[paramInt];
+/* 109 */     float f1 = locald1.g;
+/*     */     
+/*     */     for (;;)
+/*     */     {
+/* 113 */       int i = 1 + (paramInt << 1);
+/* 114 */       int j = i + 1;
+/*     */       
+/* 116 */       if (i >= this.b) {
+/*     */         break;
+/*     */       }
+/* 119 */       d locald2 = this.a[i];
+/* 120 */       float f2 = locald2.g;
+/*     */       
+/*     */       d locald3;
+/*     */       
+/*     */       float f3;
+/* 125 */       if (j >= this.b)
+/*     */       {
+/*     */ 
+/* 128 */         locald3 = null;
+/* 129 */         f3 = Float.POSITIVE_INFINITY;
+/*     */       }
+/*     */       else
+/*     */       {
+/* 133 */         locald3 = this.a[j];
+/* 134 */         f3 = locald3.g;
+/*     */       }
+/*     */       
+/*     */ 
+/*     */ 
+/* 139 */       if (f2 < f3)
+/*     */       {
+/* 141 */         if (f2 >= f1)
+/*     */           break;
+/* 143 */         this.a[paramInt] = locald2;
+/* 144 */         locald2.d = paramInt;
+/* 145 */         paramInt = i;
+/*     */ 
+/*     */       }
+/*     */       else
+/*     */       {
+/*     */ 
+/* 151 */         if (f3 >= f1)
+/*     */           break;
+/* 153 */         this.a[paramInt] = locald3;
+/* 154 */         locald3.d = paramInt;
+/* 155 */         paramInt = j;
+/*     */       }
+/*     */     }
+/*     */     
+/*     */ 
+/*     */ 
+/* 161 */     this.a[paramInt] = locald1;
+/* 162 */     locald1.d = paramInt;
+/*     */   }
+/*     */   
+/*     */   public boolean c() {
+/* 166 */     return this.b == 0;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\lf.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

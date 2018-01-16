@@ -1,0 +1,48 @@
+/*    */ import java.io.InputStream;
+/*    */ import java.net.URLConnection;
+/*    */ import paulscode.sound.codecs.CodecJOrbis;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class io
+/*    */   extends CodecJOrbis
+/*    */ {
+/*    */   protected InputStream openInputStream()
+/*    */   {
+/* 40 */     return new np(this, this.url, this.urlConnection.getInputStream());
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\io.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

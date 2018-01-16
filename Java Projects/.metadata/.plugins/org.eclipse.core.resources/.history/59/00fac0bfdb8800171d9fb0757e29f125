@@ -1,0 +1,79 @@
+/*    */ import java.awt.image.BufferedImage;
+/*    */ import java.io.File;
+/*    */ import java.nio.ByteBuffer;
+/*    */ import java.text.DateFormat;
+/*    */ import java.text.SimpleDateFormat;
+/*    */ import java.util.Date;
+/*    */ import javax.imageio.ImageIO;
+/*    */ import org.lwjgl.BufferUtils;
+/*    */ import org.lwjgl.opengl.GL11;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class hj
+/*    */ {
+/* 20 */   private static DateFormat a = new SimpleDateFormat("yyyy-MM-dd_HH.mm.ss");
+/*    */   private static ByteBuffer b;
+/*    */   private static byte[] c;
+/*    */   private static int[] d;
+/*    */   
+/*    */   public static String a(File paramFile, int paramInt1, int paramInt2) {
+/*    */     try {
+/* 27 */       File localFile1 = new File(paramFile, "screenshots");
+/* 28 */       localFile1.mkdir();
+/*    */       
+/* 30 */       if ((b == null) || (b.capacity() < paramInt1 * paramInt2)) {
+/* 31 */         b = BufferUtils.createByteBuffer(paramInt1 * paramInt2 * 3);
+/*    */       }
+/*    */       
+/* 34 */       if ((d == null) || (d.length < paramInt1 * paramInt2 * 3)) {
+/* 35 */         c = new byte[paramInt1 * paramInt2 * 3];
+/* 36 */         d = new int[paramInt1 * paramInt2];
+/*    */       }
+/* 38 */       GL11.glPixelStorei(3333, 1);
+/* 39 */       GL11.glPixelStorei(3317, 1);
+/*    */       
+/* 41 */       b.clear();
+/* 42 */       GL11.glReadPixels(0, 0, paramInt1, paramInt2, 6407, 5121, b);
+/* 43 */       b.clear();
+/*    */       
+/* 45 */       String str = "" + a.format(new Date());
+/*    */       
+/* 47 */       int i = 1;
+/* 48 */       File localFile2; while ((localFile2 = new File(localFile1, str + (i == 1 ? "" : new StringBuilder().append("_").append(i).toString()) + ".png")).exists()) {
+/* 49 */         i++;
+/*    */       }
+/*    */       
+/* 52 */       b.get(c);
+/* 53 */       for (int j = 0; j < paramInt1; j++) {
+/* 54 */         for (int k = 0; k < paramInt2; k++) {
+/* 55 */           int m = j + (paramInt2 - k - 1) * paramInt1;
+/* 56 */           int n = c[(m * 3 + 0)] & 0xFF;
+/* 57 */           int i1 = c[(m * 3 + 1)] & 0xFF;
+/* 58 */           int i2 = c[(m * 3 + 2)] & 0xFF;
+/* 59 */           int i3 = 0xFF000000 | n << 16 | i1 << 8 | i2;
+/* 60 */           d[(j + k * paramInt1)] = i3;
+/*    */         }
+/*    */       }
+/* 63 */       BufferedImage localBufferedImage = new BufferedImage(paramInt1, paramInt2, 1);
+/* 64 */       localBufferedImage.setRGB(0, 0, paramInt1, paramInt2, d, 0, paramInt1);
+/* 65 */       ImageIO.write(localBufferedImage, "png", localFile2);
+/*    */       
+/* 67 */       return "Saved screenshot as " + localFile2.getName();
+/*    */     } catch (Exception localException) {
+/* 69 */       localException.printStackTrace();
+/* 70 */       return "Failed to save: " + localException;
+/*    */     }
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\hj.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

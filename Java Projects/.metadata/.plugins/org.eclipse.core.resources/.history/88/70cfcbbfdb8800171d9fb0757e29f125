@@ -1,0 +1,73 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class py
+/*    */ {
+/*    */   public float a;
+/*    */   private double f;
+/*    */   public int b;
+/*    */   public float c;
+/* 12 */   public float d = 1.0F;
+/* 13 */   public float e = 0.0F;
+/*    */   
+/*    */   private long g;
+/*    */   private long h;
+/*    */   private long i;
+/* 18 */   private double j = 1.0D;
+/*    */   
+/*    */   public py(float paramFloat) {
+/* 21 */     this.a = paramFloat;
+/* 22 */     this.g = System.currentTimeMillis();
+/* 23 */     this.h = (System.nanoTime() / 1000000L);
+/*    */   }
+/*    */   
+/*    */   public void a() {
+/* 27 */     long l1 = System.currentTimeMillis();
+/* 28 */     long l2 = l1 - this.g;
+/* 29 */     long l3 = System.nanoTime() / 1000000L;
+/* 30 */     double d1 = l3 / 1000.0D;
+/*    */     
+/*    */ 
+/* 33 */     if (l2 > 1000L) {
+/* 34 */       this.f = d1;
+/* 35 */     } else if (l2 < 0L) {
+/* 36 */       this.f = d1;
+/*    */     } else {
+/* 38 */       this.i += l2;
+/* 39 */       if (this.i > 1000L) {
+/* 40 */         long l4 = l3 - this.h;
+/*    */         
+/* 42 */         double d3 = this.i / l4;
+/* 43 */         this.j += (d3 - this.j) * 0.20000000298023224D;
+/*    */         
+/* 45 */         this.h = l3;
+/* 46 */         this.i = 0L;
+/*    */       }
+/* 48 */       if (this.i < 0L) {
+/* 49 */         this.h = l3;
+/*    */       }
+/*    */     }
+/* 52 */     this.g = l1;
+/*    */     
+/* 54 */     double d2 = (d1 - this.f) * this.j;
+/* 55 */     this.f = d1;
+/*    */     
+/* 57 */     if (d2 < 0.0D) d2 = 0.0D;
+/* 58 */     if (d2 > 1.0D) { d2 = 1.0D;
+/*    */     }
+/* 60 */     this.e = ((float)(this.e + d2 * this.d * this.a));
+/*    */     
+/* 62 */     this.b = ((int)this.e);
+/* 63 */     this.e -= this.b;
+/* 64 */     if (this.b > 10) this.b = 10;
+/* 65 */     this.c = this.e;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\py.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

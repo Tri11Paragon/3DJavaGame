@@ -1,0 +1,61 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ class pv
+/*    */   extends gp
+/*    */ {
+/* 41 */   pv(aa paramaa, lw paramlw, int paramInt1, int paramInt2, int paramInt3, int paramInt4) { super(paramlw, paramInt1, paramInt2, paramInt3); }
+/*    */   
+/* 43 */   public int d() { return 1; }
+/*    */   
+/*    */   public boolean b(iz paramiz)
+/*    */   {
+/* 47 */     if ((paramiz.a() instanceof wa)) {
+/* 48 */       return ((wa)paramiz.a()).bk == this.d;
+/*    */     }
+/* 50 */     if (paramiz.a().bf == uu.bb.bn) {
+/* 51 */       return this.d == 0;
+/*    */     }
+/* 53 */     return false;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\pv.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

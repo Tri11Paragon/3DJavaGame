@@ -1,0 +1,76 @@
+/*    */ import net.minecraft.client.Minecraft;
+/*    */ import org.lwjgl.input.Keyboard;
+/*    */ 
+/*    */ 
+/*    */ public class gc
+/*    */   extends da
+/*    */ {
+/*  8 */   protected String a = "";
+/*  9 */   private int i = 0;
+/*    */   
+/*    */   public void b() {
+/* 12 */     Keyboard.enableRepeatEvents(true);
+/*    */   }
+/*    */   
+/*    */   public void h() {
+/* 16 */     Keyboard.enableRepeatEvents(false);
+/*    */   }
+/*    */   
+/*    */   public void a() {
+/* 20 */     this.i += 1;
+/*    */   }
+/*    */   
+/* 23 */   private static final String j = fp.a;
+/*    */   
+/*    */   protected void a(char paramChar, int paramInt) {
+/* 26 */     if (paramInt == 1) {
+/* 27 */       this.b.a(null);
+/* 28 */       return;
+/*    */     }
+/* 30 */     if (paramInt == 28) {
+/* 31 */       String str1 = this.a.trim();
+/* 32 */       if (str1.length() > 0) {
+/* 33 */         String str2 = this.a.trim();
+/* 34 */         if (!this.b.b(str2)) {
+/* 35 */           this.b.h.a(str2);
+/*    */         }
+/*    */       }
+/* 38 */       this.b.a(null);
+/* 39 */       return;
+/*    */     }
+/* 41 */     if ((paramInt == 14) && (this.a.length() > 0)) this.a = this.a.substring(0, this.a.length() - 1);
+/* 42 */     if ((j.indexOf(paramChar) >= 0) && (this.a.length() < 100)) {
+/* 43 */       this.a += paramChar;
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public void a(int paramInt1, int paramInt2, float paramFloat) {
+/* 48 */     a(2, this.d - 14, this.c - 2, this.d - 2, Integer.MIN_VALUE);
+/* 49 */     b(this.g, "> " + this.a + (this.i / 6 % 2 == 0 ? "_" : ""), 4, this.d - 12, 14737632);
+/*    */     
+/* 51 */     super.a(paramInt1, paramInt2, paramFloat);
+/*    */   }
+/*    */   
+/*    */   protected void a(int paramInt1, int paramInt2, int paramInt3) {
+/* 55 */     if (paramInt3 == 0) {
+/* 56 */       if (this.b.v.a != null) {
+/* 57 */         if ((this.a.length() > 0) && (!this.a.endsWith(" "))) {
+/* 58 */           this.a += " ";
+/*    */         }
+/* 60 */         this.a += this.b.v.a;
+/* 61 */         int k = 100;
+/* 62 */         if (this.a.length() > k) {
+/* 63 */           this.a = this.a.substring(0, k);
+/*    */         }
+/*    */       } else {
+/* 66 */         super.a(paramInt1, paramInt2, paramInt3);
+/*    */       }
+/*    */     }
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\gc.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

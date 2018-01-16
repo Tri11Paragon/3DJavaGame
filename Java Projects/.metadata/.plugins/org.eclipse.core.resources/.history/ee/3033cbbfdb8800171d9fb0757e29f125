@@ -1,0 +1,66 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ class my
+/*    */   implements pu
+/*    */ {
+/*    */   my(lt paramlt, sx paramsx) {}
+/*    */   
+/*    */   public void a(lb paramlb)
+/*    */   {
+/* 56 */     throw new RuntimeException("Coding failure in Argo:  Attempt to add a node to an object.");
+/*    */   }
+/*    */   
+/* 59 */   public void a(pn parampn) { this.a.a(parampn); }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\my.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

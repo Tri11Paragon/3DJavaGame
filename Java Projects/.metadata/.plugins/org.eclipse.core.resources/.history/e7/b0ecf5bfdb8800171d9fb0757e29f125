@@ -1,0 +1,63 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class gy
+/*    */   extends xw
+/*    */ {
+/*    */   public gy(fd paramfd, double paramDouble1, double paramDouble2, double paramDouble3, double paramDouble4, double paramDouble5, double paramDouble6)
+/*    */   {
+/* 11 */     super(paramfd, paramDouble1, paramDouble2, paramDouble3, paramDouble4, paramDouble5, paramDouble6);
+/* 12 */     this.aP = (paramDouble4 + (float)(Math.random() * 2.0D - 1.0D) * 0.05F);
+/* 13 */     this.aQ = (paramDouble5 + (float)(Math.random() * 2.0D - 1.0D) * 0.05F);
+/* 14 */     this.aR = (paramDouble6 + (float)(Math.random() * 2.0D - 1.0D) * 0.05F);
+/*    */     
+/* 16 */     this.i = (this.j = this.k = this.bs.nextFloat() * 0.3F + 0.7F);
+/* 17 */     this.g = (this.bs.nextFloat() * this.bs.nextFloat() * 6.0F + 1.0F);
+/*    */     
+/* 19 */     this.f = ((int)(16.0D / (this.bs.nextFloat() * 0.8D + 0.2D)) + 2);
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public void a(nw paramnw, float paramFloat1, float paramFloat2, float paramFloat3, float paramFloat4, float paramFloat5, float paramFloat6)
+/*    */   {
+/* 32 */     super.a(paramnw, paramFloat1, paramFloat2, paramFloat3, paramFloat4, paramFloat5, paramFloat6);
+/*    */   }
+/*    */   
+/*    */   public void w_()
+/*    */   {
+/* 37 */     this.aJ = this.aM;
+/* 38 */     this.aK = this.aN;
+/* 39 */     this.aL = this.aO;
+/*    */     
+/* 41 */     if (this.e++ >= this.f) { K();
+/*    */     }
+/* 43 */     this.b = (7 - this.e * 8 / this.f);
+/*    */     
+/* 45 */     this.aQ += 0.004D;
+/* 46 */     b(this.aP, this.aQ, this.aR);
+/* 47 */     this.aP *= 0.8999999761581421D;
+/* 48 */     this.aQ *= 0.8999999761581421D;
+/* 49 */     this.aR *= 0.8999999761581421D;
+/*    */     
+/* 51 */     if (this.aX)
+/*    */     {
+/* 53 */       this.aP *= 0.699999988079071D;
+/* 54 */       this.aR *= 0.699999988079071D;
+/*    */     }
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\gy.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

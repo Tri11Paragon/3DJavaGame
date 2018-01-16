@@ -1,0 +1,330 @@
+/*     */ package com.jcraft.jorbis;
+/*     */ 
+/*     */ import com.jcraft.jogg.Buffer;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ class Residue0
+/*     */   extends FuncResidue
+/*     */ {
+/*     */   void pack(Object paramObject, Buffer paramBuffer)
+/*     */   {
+/*  33 */     Residue0.InfoResidue0 localInfoResidue0 = (Residue0.InfoResidue0)paramObject;
+/*  34 */     int i = 0;
+/*  35 */     paramBuffer.write(localInfoResidue0.begin, 24);
+/*  36 */     paramBuffer.write(localInfoResidue0.end, 24);
+/*     */     
+/*  38 */     paramBuffer.write(localInfoResidue0.grouping - 1, 24);
+/*     */     
+/*  40 */     paramBuffer.write(localInfoResidue0.partitions - 1, 6);
+/*  41 */     paramBuffer.write(localInfoResidue0.groupbook, 8);
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*  46 */     for (int j = 0; j < localInfoResidue0.partitions; j++) {
+/*  47 */       int k = localInfoResidue0.secondstages[j];
+/*  48 */       if (Util.ilog(k) > 3)
+/*     */       {
+/*  50 */         paramBuffer.write(k, 3);
+/*  51 */         paramBuffer.write(1, 1);
+/*  52 */         paramBuffer.write(k >>> 3, 5);
+/*     */       }
+/*     */       else {
+/*  55 */         paramBuffer.write(k, 4);
+/*     */       }
+/*  57 */       i += Util.icount(k);
+/*     */     }
+/*  59 */     for (j = 0; j < i; j++) {
+/*  60 */       paramBuffer.write(localInfoResidue0.booklist[j], 8);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   Object unpack(Info paramInfo, Buffer paramBuffer) {
+/*  65 */     int i = 0;
+/*  66 */     Residue0.InfoResidue0 localInfoResidue0 = new Residue0.InfoResidue0(this);
+/*  67 */     localInfoResidue0.begin = paramBuffer.read(24);
+/*  68 */     localInfoResidue0.end = paramBuffer.read(24);
+/*  69 */     localInfoResidue0.grouping = (paramBuffer.read(24) + 1);
+/*  70 */     localInfoResidue0.partitions = (paramBuffer.read(6) + 1);
+/*  71 */     localInfoResidue0.groupbook = paramBuffer.read(8);
+/*     */     
+/*  73 */     for (int j = 0; j < localInfoResidue0.partitions; j++) {
+/*  74 */       int k = paramBuffer.read(3);
+/*  75 */       if (paramBuffer.read(1) != 0) {
+/*  76 */         k |= paramBuffer.read(5) << 3;
+/*     */       }
+/*  78 */       localInfoResidue0.secondstages[j] = k;
+/*  79 */       i += Util.icount(k);
+/*     */     }
+/*     */     
+/*  82 */     for (j = 0; j < i; j++) {
+/*  83 */       localInfoResidue0.booklist[j] = paramBuffer.read(8);
+/*     */     }
+/*     */     
+/*  86 */     if (localInfoResidue0.groupbook >= paramInfo.books) {
+/*  87 */       free_info(localInfoResidue0);
+/*  88 */       return null;
+/*     */     }
+/*     */     
+/*  91 */     for (j = 0; j < i; j++) {
+/*  92 */       if (localInfoResidue0.booklist[j] >= paramInfo.books) {
+/*  93 */         free_info(localInfoResidue0);
+/*  94 */         return null;
+/*     */       }
+/*     */     }
+/*  97 */     return localInfoResidue0;
+/*     */   }
+/*     */   
+/*     */   Object look(DspState paramDspState, InfoMode paramInfoMode, Object paramObject) {
+/* 101 */     Residue0.InfoResidue0 localInfoResidue0 = (Residue0.InfoResidue0)paramObject;
+/* 102 */     Residue0.LookResidue0 localLookResidue0 = new Residue0.LookResidue0(this);
+/* 103 */     int i = 0;
+/*     */     
+/* 105 */     int k = 0;
+/* 106 */     localLookResidue0.info = localInfoResidue0;
+/* 107 */     localLookResidue0.map = paramInfoMode.mapping;
+/*     */     
+/* 109 */     localLookResidue0.parts = localInfoResidue0.partitions;
+/* 110 */     localLookResidue0.fullbooks = paramDspState.fullbooks;
+/* 111 */     localLookResidue0.phrasebook = paramDspState.fullbooks[localInfoResidue0.groupbook];
+/*     */     
+/* 113 */     int j = localLookResidue0.phrasebook.dim;
+/*     */     
+/* 115 */     localLookResidue0.partbooks = new int[localLookResidue0.parts][];
+/*     */     int n;
+/* 117 */     int i1; int i2; for (int m = 0; m < localLookResidue0.parts; m++) {
+/* 118 */       n = localInfoResidue0.secondstages[m];
+/* 119 */       i1 = Util.ilog(n);
+/* 120 */       if (i1 != 0) {
+/* 121 */         if (i1 > k)
+/* 122 */           k = i1;
+/* 123 */         localLookResidue0.partbooks[m] = new int[i1];
+/* 124 */         for (i2 = 0; i2 < i1; i2++) {
+/* 125 */           if ((n & 1 << i2) != 0) {
+/* 126 */             localLookResidue0.partbooks[m][i2] = localInfoResidue0.booklist[(i++)];
+/*     */           }
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */     
+/* 132 */     localLookResidue0.partvals = ((int)Math.rint(Math.pow(localLookResidue0.parts, j)));
+/* 133 */     localLookResidue0.stages = k;
+/* 134 */     localLookResidue0.decodemap = new int[localLookResidue0.partvals][];
+/* 135 */     for (m = 0; m < localLookResidue0.partvals; m++) {
+/* 136 */       n = m;
+/* 137 */       i1 = localLookResidue0.partvals / localLookResidue0.parts;
+/* 138 */       localLookResidue0.decodemap[m] = new int[j];
+/*     */       
+/* 140 */       for (i2 = 0; i2 < j; i2++) {
+/* 141 */         int i3 = n / i1;
+/* 142 */         n -= i3 * i1;
+/* 143 */         i1 /= localLookResidue0.parts;
+/* 144 */         localLookResidue0.decodemap[m][i2] = i3;
+/*     */       }
+/*     */     }
+/* 147 */     return localLookResidue0;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 156 */   private static int[][][] _01inverse_partword = new int[2][][];
+/*     */   
+/*     */   void free_info(Object paramObject) {}
+/*     */   
+/*     */   void free_look(Object paramObject) {}
+/*     */   
+/* 162 */   static synchronized int _01inverse(Block paramBlock, Object paramObject, float[][] paramArrayOfFloat, int paramInt1, int paramInt2) { Residue0.LookResidue0 localLookResidue0 = (Residue0.LookResidue0)paramObject;
+/* 163 */     Residue0.InfoResidue0 localInfoResidue0 = localLookResidue0.info;
+/*     */     
+/*     */ 
+/* 166 */     int i1 = localInfoResidue0.grouping;
+/* 167 */     int i2 = localLookResidue0.phrasebook.dim;
+/* 168 */     int i3 = localInfoResidue0.end - localInfoResidue0.begin;
+/*     */     
+/* 170 */     int i4 = i3 / i1;
+/* 171 */     int i5 = (i4 + i2 - 1) / i2;
+/*     */     
+/* 173 */     if (_01inverse_partword.length < paramInt1) {
+/* 174 */       _01inverse_partword = new int[paramInt1][][];
+/*     */     }
+/*     */     
+/* 177 */     for (int j = 0; j < paramInt1; j++) {
+/* 178 */       if ((_01inverse_partword[j] == null) || (_01inverse_partword[j].length < i5)) {
+/* 179 */         _01inverse_partword[j] = new int[i5][];
+/*     */       }
+/*     */     }
+/*     */     
+/* 183 */     for (int n = 0; n < localLookResidue0.stages; n++)
+/*     */     {
+/*     */ 
+/* 186 */       int i = 0; for (int m = 0; i < i4; m++) { int i6;
+/* 187 */         if (n == 0)
+/*     */         {
+/* 189 */           for (j = 0; j < paramInt1; j++) {
+/* 190 */             i6 = localLookResidue0.phrasebook.decode(paramBlock.opb);
+/* 191 */             if (i6 == -1) {
+/* 192 */               return 0;
+/*     */             }
+/* 194 */             _01inverse_partword[j][m] = localLookResidue0.decodemap[i6];
+/* 195 */             if (_01inverse_partword[j][m] == null) {
+/* 196 */               return 0;
+/*     */             }
+/*     */           }
+/*     */         }
+/*     */         
+/*     */ 
+/* 202 */         for (int k = 0; (k < i2) && (i < i4); i++) {
+/* 203 */           for (j = 0; j < paramInt1; j++) {
+/* 204 */             i6 = localInfoResidue0.begin + i * i1;
+/* 205 */             int i7 = _01inverse_partword[j][m][k];
+/* 206 */             if ((localInfoResidue0.secondstages[i7] & 1 << n) != 0) {
+/* 207 */               CodeBook localCodeBook = localLookResidue0.fullbooks[localLookResidue0.partbooks[i7][n]];
+/* 208 */               if (localCodeBook != null) {
+/* 209 */                 if (paramInt2 == 0) {
+/* 210 */                   if (localCodeBook.decodevs_add(paramArrayOfFloat[j], i6, paramBlock.opb, i1) == -1)
+/*     */                   {
+/* 212 */                     return 0;
+/*     */                   }
+/*     */                 }
+/* 215 */                 else if ((paramInt2 == 1) && 
+/* 216 */                   (localCodeBook.decodev_add(paramArrayOfFloat[j], i6, paramBlock.opb, i1) == -1))
+/*     */                 {
+/* 218 */                   return 0;
+/*     */                 }
+/*     */               }
+/*     */             }
+/*     */           }
+/* 202 */           k++;
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 226 */     return 0;
+/*     */   }
+/*     */   
+/* 229 */   static int[][] _2inverse_partword = (int[][])null;
+/*     */   
+/*     */   static synchronized int _2inverse(Block paramBlock, Object paramObject, float[][] paramArrayOfFloat, int paramInt)
+/*     */   {
+/* 233 */     Residue0.LookResidue0 localLookResidue0 = (Residue0.LookResidue0)paramObject;
+/* 234 */     Residue0.InfoResidue0 localInfoResidue0 = localLookResidue0.info;
+/*     */     
+/*     */ 
+/* 237 */     int n = localInfoResidue0.grouping;
+/* 238 */     int i1 = localLookResidue0.phrasebook.dim;
+/* 239 */     int i2 = localInfoResidue0.end - localInfoResidue0.begin;
+/*     */     
+/* 241 */     int i3 = i2 / n;
+/* 242 */     int i4 = (i3 + i1 - 1) / i1;
+/*     */     
+/* 244 */     if ((_2inverse_partword == null) || (_2inverse_partword.length < i4)) {
+/* 245 */       _2inverse_partword = new int[i4][];
+/*     */     }
+/* 247 */     for (int m = 0; m < localLookResidue0.stages; m++) {
+/* 248 */       int i = 0; for (int k = 0; i < i3; k++) { int i5;
+/* 249 */         if (m == 0)
+/*     */         {
+/* 251 */           i5 = localLookResidue0.phrasebook.decode(paramBlock.opb);
+/* 252 */           if (i5 == -1) {
+/* 253 */             return 0;
+/*     */           }
+/* 255 */           _2inverse_partword[k] = localLookResidue0.decodemap[i5];
+/* 256 */           if (_2inverse_partword[k] == null) {
+/* 257 */             return 0;
+/*     */           }
+/*     */         }
+/*     */         
+/*     */ 
+/* 262 */         for (int j = 0; (j < i1) && (i < i3); i++) {
+/* 263 */           i5 = localInfoResidue0.begin + i * n;
+/* 264 */           int i6 = _2inverse_partword[k][j];
+/* 265 */           if ((localInfoResidue0.secondstages[i6] & 1 << m) != 0) {
+/* 266 */             CodeBook localCodeBook = localLookResidue0.fullbooks[localLookResidue0.partbooks[i6][m]];
+/* 267 */             if ((localCodeBook != null) && 
+/* 268 */               (localCodeBook.decodevv_add(paramArrayOfFloat, i5, paramInt, paramBlock.opb, n) == -1))
+/*     */             {
+/* 270 */               return 0;
+/*     */             }
+/*     */           }
+/* 262 */           j++;
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 277 */     return 0;
+/*     */   }
+/*     */   
+/*     */   int inverse(Block paramBlock, Object paramObject, float[][] paramArrayOfFloat, int[] paramArrayOfInt, int paramInt) {
+/* 281 */     int i = 0;
+/* 282 */     for (int j = 0; j < paramInt; j++) {
+/* 283 */       if (paramArrayOfInt[j] != 0) {
+/* 284 */         paramArrayOfFloat[(i++)] = paramArrayOfFloat[j];
+/*     */       }
+/*     */     }
+/* 287 */     if (i != 0) {
+/* 288 */       return _01inverse(paramBlock, paramObject, paramArrayOfFloat, i, 0);
+/*     */     }
+/* 290 */     return 0;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\com\jcraft\jorbis\Residue0.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

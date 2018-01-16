@@ -1,0 +1,39 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ final class yt
+/*    */ {
+/*    */   private final String a;
+/*    */   
+/*    */   yt(String paramString)
+/*    */   {
+/* 18 */     this.a = paramString.replace("\\", "\\\\").replace("\"", "\\\"").replace("\b", "\\b").replace("\f", "\\f").replace("\n", "\\n").replace("\r", "\\r").replace("\t", "\\t");
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public String toString()
+/*    */   {
+/* 31 */     return this.a;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\yt.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

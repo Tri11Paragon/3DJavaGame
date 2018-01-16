@@ -1,0 +1,56 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class rn
+/*    */   extends uu
+/*    */ {
+/*    */   public rn(int paramInt1, int paramInt2)
+/*    */   {
+/* 14 */     super(paramInt1, paramInt2, ln.A);
+/*    */   }
+/*    */   
+/*    */   public void a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, sn paramsn)
+/*    */   {
+/* 19 */     paramsn.bc = true;
+/*    */   }
+/*    */   
+/*    */   public boolean c()
+/*    */   {
+/* 24 */     return false;
+/*    */   }
+/*    */   
+/*    */   public eq e(fd paramfd, int paramInt1, int paramInt2, int paramInt3)
+/*    */   {
+/* 29 */     return null;
+/*    */   }
+/*    */   
+/*    */   public int b()
+/*    */   {
+/* 34 */     return 1;
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public boolean d()
+/*    */   {
+/* 42 */     return false;
+/*    */   }
+/*    */   
+/*    */ 
+/*    */   public int a(int paramInt, Random paramRandom)
+/*    */   {
+/* 48 */     return gm.I.bf;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\rn.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

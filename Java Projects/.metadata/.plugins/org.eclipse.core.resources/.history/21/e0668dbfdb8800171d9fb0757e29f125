@@ -1,0 +1,74 @@
+/*    */ 
+/*    */ public class im
+/*    */   extends xw
+/*    */ {
+/*    */   float a;
+/*    */   
+/*    */   public im(fd paramfd, double paramDouble1, double paramDouble2, double paramDouble3, float paramFloat1, float paramFloat2, float paramFloat3)
+/*    */   {
+/*  9 */     this(paramfd, paramDouble1, paramDouble2, paramDouble3, 1.0F, paramFloat1, paramFloat2, paramFloat3);
+/*    */   }
+/*    */   
+/*    */ 
+/*    */   public im(fd paramfd, double paramDouble1, double paramDouble2, double paramDouble3, float paramFloat1, float paramFloat2, float paramFloat3, float paramFloat4)
+/*    */   {
+/* 15 */     super(paramfd, paramDouble1, paramDouble2, paramDouble3, 0.0D, 0.0D, 0.0D);
+/* 16 */     this.aP *= 0.10000000149011612D;
+/* 17 */     this.aQ *= 0.10000000149011612D;
+/* 18 */     this.aR *= 0.10000000149011612D;
+/*    */     
+/* 20 */     if (paramFloat2 == 0.0F) {
+/* 21 */       paramFloat2 = 1.0F;
+/*    */     }
+/* 23 */     float f = (float)Math.random() * 0.4F + 0.6F;
+/* 24 */     this.i = (((float)(Math.random() * 0.20000000298023224D) + 0.8F) * paramFloat2 * f);
+/* 25 */     this.j = (((float)(Math.random() * 0.20000000298023224D) + 0.8F) * paramFloat3 * f);
+/* 26 */     this.k = (((float)(Math.random() * 0.20000000298023224D) + 0.8F) * paramFloat4 * f);
+/* 27 */     this.g *= 0.75F;
+/* 28 */     this.g *= paramFloat1;
+/* 29 */     this.a = this.g;
+/*    */     
+/* 31 */     this.f = ((int)(8.0D / (Math.random() * 0.8D + 0.2D)));
+/* 32 */     this.f = ((int)(this.f * paramFloat1));
+/* 33 */     this.bq = false;
+/*    */   }
+/*    */   
+/*    */   public void a(nw paramnw, float paramFloat1, float paramFloat2, float paramFloat3, float paramFloat4, float paramFloat5, float paramFloat6) {
+/* 37 */     float f = (this.e + paramFloat1) / this.f * 32.0F;
+/* 38 */     if (f < 0.0F) f = 0.0F;
+/* 39 */     if (f > 1.0F) { f = 1.0F;
+/*    */     }
+/* 41 */     this.g = (this.a * f);
+/* 42 */     super.a(paramnw, paramFloat1, paramFloat2, paramFloat3, paramFloat4, paramFloat5, paramFloat6);
+/*    */   }
+/*    */   
+/*    */   public void w_() {
+/* 46 */     this.aJ = this.aM;
+/* 47 */     this.aK = this.aN;
+/* 48 */     this.aL = this.aO;
+/*    */     
+/* 50 */     if (this.e++ >= this.f) { K();
+/*    */     }
+/* 52 */     this.b = (7 - this.e * 8 / this.f);
+/*    */     
+/* 54 */     b(this.aP, this.aQ, this.aR);
+/* 55 */     if (this.aN == this.aK) {
+/* 56 */       this.aP *= 1.1D;
+/* 57 */       this.aR *= 1.1D;
+/*    */     }
+/* 59 */     this.aP *= 0.9599999785423279D;
+/* 60 */     this.aQ *= 0.9599999785423279D;
+/* 61 */     this.aR *= 0.9599999785423279D;
+/*    */     
+/* 63 */     if (this.aX) {
+/* 64 */       this.aP *= 0.699999988079071D;
+/* 65 */       this.aR *= 0.699999988079071D;
+/*    */     }
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\im.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

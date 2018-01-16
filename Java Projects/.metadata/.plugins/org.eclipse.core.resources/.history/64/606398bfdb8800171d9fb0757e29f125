@@ -1,0 +1,83 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class ww
+/*    */   extends bg
+/*    */ {
+/*  9 */   public boolean a = false;
+/* 10 */   public float b = 0.0F;
+/* 11 */   public float c = 0.0F;
+/*    */   public float f;
+/* 13 */   public float g; public float h = 1.0F;
+/*    */   public int i;
+/*    */   
+/*    */   public ww(fd paramfd) {
+/* 17 */     super(paramfd);
+/* 18 */     this.O = "/mob/chicken.png";
+/* 19 */     b(0.3F, 0.4F);
+/* 20 */     this.Y = 4;
+/* 21 */     this.i = (this.bs.nextInt(6000) + 6000);
+/*    */   }
+/*    */   
+/*    */   public void o() {
+/* 25 */     super.o();
+/*    */     
+/* 27 */     this.g = this.b;
+/* 28 */     this.f = this.c;
+/*    */     
+/* 30 */     this.c = ((float)(this.c + (this.aX ? -1 : 4) * 0.3D));
+/* 31 */     if (this.c < 0.0F) this.c = 0.0F;
+/* 32 */     if (this.c > 1.0F) { this.c = 1.0F;
+/*    */     }
+/* 34 */     if ((!this.aX) && (this.h < 1.0F)) this.h = 1.0F;
+/* 35 */     this.h = ((float)(this.h * 0.9D));
+/*    */     
+/* 37 */     if ((!this.aX) && (this.aQ < 0.0D)) {
+/* 38 */       this.aQ *= 0.6D;
+/*    */     }
+/*    */     
+/* 41 */     this.b += this.h * 2.0F;
+/*    */     
+/* 43 */     if ((!this.aI.B) && (--this.i <= 0)) {
+/* 44 */       this.aI.a(this, "mob.chickenplop", 1.0F, (this.bs.nextFloat() - this.bs.nextFloat()) * 0.2F + 1.0F);
+/* 45 */       b(gm.aN.bf, 1);
+/* 46 */       this.i = (this.bs.nextInt(6000) + 6000);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */ 
+/*    */   protected void b(float paramFloat) {}
+/*    */   
+/*    */   public void b(nu paramnu)
+/*    */   {
+/* 55 */     super.b(paramnu);
+/*    */   }
+/*    */   
+/*    */   public void a(nu paramnu) {
+/* 59 */     super.a(paramnu);
+/*    */   }
+/*    */   
+/*    */   protected String g() {
+/* 63 */     return "mob.chicken";
+/*    */   }
+/*    */   
+/*    */   protected String j_() {
+/* 67 */     return "mob.chickenhurt";
+/*    */   }
+/*    */   
+/*    */   protected String i() {
+/* 71 */     return "mob.chickenhurt";
+/*    */   }
+/*    */   
+/*    */   protected int j() {
+/* 75 */     return gm.J.bf;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ww.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

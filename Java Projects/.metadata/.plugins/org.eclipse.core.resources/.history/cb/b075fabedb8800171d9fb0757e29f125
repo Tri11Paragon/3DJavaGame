@@ -1,0 +1,68 @@
+/*    */ 
+/*    */ public class mu
+/*    */   extends xw
+/*    */ {
+/*    */   float a;
+/*    */   
+/*    */   public mu(fd paramfd, double paramDouble1, double paramDouble2, double paramDouble3, double paramDouble4, double paramDouble5, double paramDouble6)
+/*    */   {
+/*  9 */     this(paramfd, paramDouble1, paramDouble2, paramDouble3, paramDouble4, paramDouble5, paramDouble6, 1.0F);
+/*    */   }
+/*    */   
+/*    */ 
+/*    */   public mu(fd paramfd, double paramDouble1, double paramDouble2, double paramDouble3, double paramDouble4, double paramDouble5, double paramDouble6, float paramFloat)
+/*    */   {
+/* 15 */     super(paramfd, paramDouble1, paramDouble2, paramDouble3, paramDouble4, paramDouble5, paramDouble6);
+/* 16 */     this.aP *= 0.10000000149011612D;
+/* 17 */     this.aQ *= 0.10000000149011612D;
+/* 18 */     this.aR *= 0.10000000149011612D;
+/* 19 */     this.aP += paramDouble4;
+/* 20 */     this.aQ += paramDouble5;
+/* 21 */     this.aR += paramDouble6;
+/*    */     
+/* 23 */     this.i = (this.j = this.k = 1.0F - (float)(Math.random() * 0.30000001192092896D));
+/* 24 */     this.g *= 0.75F;
+/* 25 */     this.g *= paramFloat;
+/* 26 */     this.a = this.g;
+/*    */     
+/* 28 */     this.f = ((int)(8.0D / (Math.random() * 0.8D + 0.2D)));
+/* 29 */     this.f = ((int)(this.f * paramFloat));
+/* 30 */     this.bq = false;
+/*    */   }
+/*    */   
+/*    */   public void a(nw paramnw, float paramFloat1, float paramFloat2, float paramFloat3, float paramFloat4, float paramFloat5, float paramFloat6) {
+/* 34 */     float f = (this.e + paramFloat1) / this.f * 32.0F;
+/* 35 */     if (f < 0.0F) f = 0.0F;
+/* 36 */     if (f > 1.0F) { f = 1.0F;
+/*    */     }
+/* 38 */     this.g = (this.a * f);
+/* 39 */     super.a(paramnw, paramFloat1, paramFloat2, paramFloat3, paramFloat4, paramFloat5, paramFloat6);
+/*    */   }
+/*    */   
+/*    */   public void w_() {
+/* 43 */     this.aJ = this.aM;
+/* 44 */     this.aK = this.aN;
+/* 45 */     this.aL = this.aO;
+/*    */     
+/* 47 */     if (this.e++ >= this.f) { K();
+/*    */     }
+/* 49 */     this.b = (7 - this.e * 8 / this.f);
+/*    */     
+/* 51 */     this.aQ -= 0.03D;
+/* 52 */     b(this.aP, this.aQ, this.aR);
+/* 53 */     this.aP *= 0.9900000095367432D;
+/* 54 */     this.aQ *= 0.9900000095367432D;
+/* 55 */     this.aR *= 0.9900000095367432D;
+/*    */     
+/* 57 */     if (this.aX) {
+/* 58 */       this.aP *= 0.699999988079071D;
+/* 59 */       this.aR *= 0.699999988079071D;
+/*    */     }
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\mu.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

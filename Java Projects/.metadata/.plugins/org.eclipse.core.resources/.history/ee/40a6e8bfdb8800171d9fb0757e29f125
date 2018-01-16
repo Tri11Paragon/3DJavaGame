@@ -1,0 +1,67 @@
+/*    */ import java.io.DataInputStream;
+/*    */ import java.io.DataOutputStream;
+/*    */ 
+/*    */ public class mf
+/*    */   extends ki
+/*    */ {
+/*    */   public int a;
+/*    */   public String b;
+/*    */   public int c;
+/*    */   public int d;
+/*    */   public int e;
+/*    */   public byte f;
+/*    */   public byte g;
+/*    */   public int h;
+/*    */   
+/*    */   public mf() {}
+/*    */   
+/*    */   public mf(gs paramgs)
+/*    */   {
+/* 20 */     this.a = paramgs.aD;
+/* 21 */     this.b = paramgs.l;
+/* 22 */     this.c = in.b(paramgs.aM * 32.0D);
+/* 23 */     this.d = in.b(paramgs.aN * 32.0D);
+/* 24 */     this.e = in.b(paramgs.aO * 32.0D);
+/* 25 */     this.f = ((byte)(int)(paramgs.aS * 256.0F / 360.0F));
+/* 26 */     this.g = ((byte)(int)(paramgs.aT * 256.0F / 360.0F));
+/*    */     
+/* 28 */     iz localiz = paramgs.c.b();
+/* 29 */     this.h = (localiz == null ? 0 : localiz.c);
+/*    */   }
+/*    */   
+/*    */   public void a(DataInputStream paramDataInputStream) {
+/* 33 */     this.a = paramDataInputStream.readInt();
+/* 34 */     this.b = a(paramDataInputStream, 16);
+/* 35 */     this.c = paramDataInputStream.readInt();
+/* 36 */     this.d = paramDataInputStream.readInt();
+/* 37 */     this.e = paramDataInputStream.readInt();
+/* 38 */     this.f = paramDataInputStream.readByte();
+/* 39 */     this.g = paramDataInputStream.readByte();
+/* 40 */     this.h = paramDataInputStream.readShort();
+/*    */   }
+/*    */   
+/*    */   public void a(DataOutputStream paramDataOutputStream) {
+/* 44 */     paramDataOutputStream.writeInt(this.a);
+/* 45 */     a(this.b, paramDataOutputStream);
+/* 46 */     paramDataOutputStream.writeInt(this.c);
+/* 47 */     paramDataOutputStream.writeInt(this.d);
+/* 48 */     paramDataOutputStream.writeInt(this.e);
+/* 49 */     paramDataOutputStream.writeByte(this.f);
+/* 50 */     paramDataOutputStream.writeByte(this.g);
+/* 51 */     paramDataOutputStream.writeShort(this.h);
+/*    */   }
+/*    */   
+/*    */   public void a(ti paramti) {
+/* 55 */     paramti.a(this);
+/*    */   }
+/*    */   
+/*    */   public int a() {
+/* 59 */     return 28;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\mf.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

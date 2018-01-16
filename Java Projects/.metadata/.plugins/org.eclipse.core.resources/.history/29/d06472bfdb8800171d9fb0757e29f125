@@ -1,0 +1,33 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class vi
+/*    */ {
+/*  6 */   private static byte[] a = new byte['Ā'];
+/*    */   
+/*    */   static {
+/*    */     try {
+/* 10 */       for (int i = 0; i < 256; i++) {
+/* 11 */         int j = (byte)i;
+/* 12 */         if ((j != 0) && (uu.m[(j & 0xFF)] == null)) {
+/* 13 */           j = 0;
+/*    */         }
+/* 15 */         a[i] = j;
+/*    */       }
+/*    */     } catch (Exception localException) {
+/* 18 */       localException.printStackTrace();
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public static void a(byte[] paramArrayOfByte) {
+/* 23 */     for (int i = 0; i < paramArrayOfByte.length; i++) {
+/* 24 */       paramArrayOfByte[i] = a[(paramArrayOfByte[i] & 0xFF)];
+/*    */     }
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\vi.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

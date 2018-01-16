@@ -1,0 +1,55 @@
+/*    */ import java.io.DataInputStream;
+/*    */ import java.io.DataOutputStream;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class s
+/*    */   extends ki
+/*    */ {
+/*    */   public int a;
+/*    */   public int b;
+/*    */   public int c;
+/*    */   public int d;
+/*    */   
+/*    */   public void a(DataInputStream paramDataInputStream)
+/*    */   {
+/* 29 */     this.a = paramDataInputStream.readInt();
+/* 30 */     this.b = paramDataInputStream.readShort();
+/* 31 */     this.c = paramDataInputStream.readShort();
+/* 32 */     this.d = paramDataInputStream.readShort();
+/*    */   }
+/*    */   
+/*    */   public void a(DataOutputStream paramDataOutputStream) {
+/* 36 */     paramDataOutputStream.writeInt(this.a);
+/* 37 */     paramDataOutputStream.writeShort(this.b);
+/* 38 */     paramDataOutputStream.writeShort(this.c);
+/* 39 */     paramDataOutputStream.writeShort(this.d);
+/*    */   }
+/*    */   
+/*    */   public void a(ti paramti) {
+/* 43 */     paramti.a(this);
+/*    */   }
+/*    */   
+/*    */   public int a() {
+/* 47 */     return 8;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\s.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

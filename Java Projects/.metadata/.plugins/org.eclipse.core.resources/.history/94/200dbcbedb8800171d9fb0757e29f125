@@ -1,0 +1,55 @@
+/*    */ import java.util.HashMap;
+/*    */ import java.util.Map;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class ey
+/*    */ {
+/* 10 */   private static final ey a = new ey();
+/*    */   
+/* 12 */   private Map b = new HashMap();
+/*    */   
+/*    */   public static final ey a() {
+/* 15 */     return a;
+/*    */   }
+/*    */   
+/*    */   private ey()
+/*    */   {
+/* 20 */     a(uu.I.bn, new iz(gm.m));
+/* 21 */     a(uu.H.bn, new iz(gm.n));
+/* 22 */     a(uu.ax.bn, new iz(gm.l));
+/* 23 */     a(uu.F.bn, new iz(uu.N));
+/* 24 */     a(gm.ao.bf, new iz(gm.ap));
+/* 25 */     a(gm.aS.bf, new iz(gm.aT));
+/* 26 */     a(uu.x.bn, new iz(uu.u));
+/* 27 */     a(gm.aG.bf, new iz(gm.aF));
+/* 28 */     a(uu.aW.bn, new iz(gm.aU, 1, 2));
+/* 29 */     a(uu.K.bn, new iz(gm.k, 1, 1));
+/*    */   }
+/*    */   
+/*    */ 
+/*    */   public void a(int paramInt, iz paramiz)
+/*    */   {
+/* 35 */     this.b.put(Integer.valueOf(paramInt), paramiz);
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public iz a(int paramInt)
+/*    */   {
+/* 43 */     return (iz)this.b.get(Integer.valueOf(paramInt));
+/*    */   }
+/*    */   
+/*    */   public Map b() {
+/* 47 */     return this.b;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ey.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

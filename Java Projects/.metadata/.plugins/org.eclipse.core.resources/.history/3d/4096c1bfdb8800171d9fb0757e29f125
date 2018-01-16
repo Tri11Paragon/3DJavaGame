@@ -1,0 +1,54 @@
+/*    */ public class vb
+/*    */   implements Comparable
+/*    */ {
+/*    */   private final String a;
+/*    */   private final String b;
+/*    */   private final long c;
+/*    */   private final long d;
+/*    */   private final boolean e;
+/*    */   
+/*    */   public vb(String paramString1, String paramString2, long paramLong1, long paramLong2, boolean paramBoolean)
+/*    */   {
+/* 12 */     this.a = paramString1;
+/* 13 */     this.b = paramString2;
+/* 14 */     this.c = paramLong1;
+/* 15 */     this.d = paramLong2;
+/* 16 */     this.e = paramBoolean;
+/*    */   }
+/*    */   
+/*    */   public String a() {
+/* 20 */     return this.a;
+/*    */   }
+/*    */   
+/*    */   public String b() {
+/* 24 */     return this.b;
+/*    */   }
+/*    */   
+/*    */   public long c() {
+/* 28 */     return this.d;
+/*    */   }
+/*    */   
+/*    */   public boolean d() {
+/* 32 */     return this.e;
+/*    */   }
+/*    */   
+/*    */   public long e() {
+/* 36 */     return this.c;
+/*    */   }
+/*    */   
+/*    */   public int a(vb paramvb) {
+/* 40 */     if (this.c < paramvb.c) {
+/* 41 */       return 1;
+/*    */     }
+/* 43 */     if (this.c > paramvb.c) {
+/* 44 */       return -1;
+/*    */     }
+/* 46 */     return this.a.compareTo(paramvb.a);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\vb.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

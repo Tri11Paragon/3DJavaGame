@@ -1,0 +1,27 @@
+/*    */ import java.util.List;
+/*    */ 
+/*    */ 
+/*    */ public class ry
+/*    */   extends kd
+/*    */ {
+/*    */   public ry()
+/*    */   {
+/*  9 */     this.s.clear();
+/* 10 */     this.t.clear();
+/* 11 */     this.u.clear();
+/*    */     
+/*    */ 
+/*    */ 
+/* 15 */     this.t.add(new bj(ww.class, 10));
+/*    */   }
+/*    */   
+/*    */   public int a(float paramFloat) {
+/* 19 */     return 12632319;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ry.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

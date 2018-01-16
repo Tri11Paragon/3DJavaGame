@@ -1,0 +1,15 @@
+/*   */ public class qk
+/*   */   extends yw
+/*   */ {
+/*   */   public qk(int paramInt1, int paramInt2, boolean paramBoolean, int paramInt3)
+/*   */   {
+/* 6 */     super(paramInt1, paramInt2, paramBoolean);
+/* 7 */     this.bg = paramInt3;
+/*   */   }
+/*   */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\qk.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,1120 @@
+/*      */ import java.nio.FloatBuffer;
+/*      */ import java.util.List;
+/*      */ import java.util.Random;
+/*      */ import net.minecraft.client.Minecraft;
+/*      */ import org.lwjgl.input.Mouse;
+/*      */ import org.lwjgl.opengl.ContextCapabilities;
+/*      */ import org.lwjgl.opengl.Display;
+/*      */ import org.lwjgl.opengl.GL11;
+/*      */ import org.lwjgl.opengl.GLContext;
+/*      */ import org.lwjgl.util.glu.GLU;
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ public class px
+/*      */ {
+/*   46 */   public static boolean a = false;
+/*      */   
+/*      */   public static int b;
+/*      */   private Minecraft j;
+/*   50 */   private float k = 0.0F;
+/*      */   public ra c;
+/*      */   private int l;
+/*   53 */   private sn m = null;
+/*      */   
+/*      */ 
+/*   56 */   private cu n = new cu();
+/*   57 */   private cu o = new cu();
+/*      */   
+/*      */ 
+/*   60 */   private cu p = new cu();
+/*   61 */   private cu q = new cu();
+/*   62 */   private cu r = new cu();
+/*   63 */   private cu s = new cu();
+/*   64 */   private float t = 4.0F;
+/*   65 */   private float u = 4.0F;
+/*   66 */   private float v = 0.0F;
+/*   67 */   private float w = 0.0F;
+/*   68 */   private float x = 0.0F;
+/*   69 */   private float y = 0.0F;
+/*      */   
+/*      */ 
+/*   72 */   private float z = 0.0F;
+/*   73 */   private float A = 0.0F;
+/*      */   
+/*      */ 
+/*   76 */   private float B = 0.0F;
+/*   77 */   private float C = 0.0F;
+/*      */   
+/*      */ 
+/*   80 */   private boolean D = false;
+/*      */   
+/*      */   public px(Minecraft paramMinecraft) {
+/*   83 */     this.j = paramMinecraft;
+/*   84 */     this.c = new ra(paramMinecraft);
+/*      */   }
+/*      */   
+/*      */   public void a() {
+/*   88 */     this.L = this.M;
+/*   89 */     this.u = this.t;
+/*   90 */     this.w = this.v;
+/*   91 */     this.y = this.x;
+/*   92 */     this.A = this.z;
+/*   93 */     this.C = this.B;
+/*      */     
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*  145 */     if (this.j.i == null) {
+/*  146 */       this.j.i = this.j.h;
+/*      */     }
+/*      */     
+/*  149 */     float f1 = this.j.f.c(in.b(this.j.i.aM), in.b(this.j.i.aN), in.b(this.j.i.aO));
+/*  150 */     float f2 = (3 - this.j.z.e) / 3.0F;
+/*  151 */     float f3 = f1 * (1.0F - f2) + f2;
+/*  152 */     this.M += (f3 - this.M) * 0.1F;
+/*      */     
+/*  154 */     this.l += 1;
+/*      */     
+/*  156 */     this.c.a();
+/*  157 */     c();
+/*      */   }
+/*      */   
+/*      */   public void a(float paramFloat)
+/*      */   {
+/*  162 */     if (this.j.i == null) return;
+/*  163 */     if (this.j.f == null) { return;
+/*      */     }
+/*  165 */     double d1 = this.j.c.b();
+/*  166 */     this.j.y = this.j.i.a(d1, paramFloat);
+/*      */     
+/*  168 */     double d2 = d1;
+/*  169 */     bt localbt1 = this.j.i.e(paramFloat);
+/*  170 */     if (this.j.y != null) {
+/*  171 */       d2 = this.j.y.f.c(localbt1);
+/*      */     }
+/*      */     
+/*  174 */     if ((this.j.c instanceof pj)) {
+/*  175 */       d2 = d1 = 32.0D;
+/*      */     } else {
+/*  177 */       if (d2 > 3.0D) d2 = 3.0D;
+/*  178 */       d1 = d2;
+/*      */     }
+/*      */     
+/*  181 */     bt localbt2 = this.j.i.f(paramFloat);
+/*  182 */     bt localbt3 = localbt1.c(localbt2.a * d1, localbt2.b * d1, localbt2.c * d1);
+/*  183 */     this.m = null;
+/*  184 */     float f1 = 1.0F;
+/*  185 */     List localList = this.j.f.b(this.j.i, this.j.i.aW.a(localbt2.a * d1, localbt2.b * d1, localbt2.c * d1).b(f1, f1, f1));
+/*  186 */     double d3 = 0.0D;
+/*  187 */     for (int i1 = 0; i1 < localList.size(); i1++) {
+/*  188 */       sn localsn = (sn)localList.get(i1);
+/*  189 */       if (localsn.h_())
+/*      */       {
+/*  191 */         float f2 = localsn.m_();
+/*  192 */         eq localeq = localsn.aW.b(f2, f2, f2);
+/*  193 */         vf localvf = localeq.a(localbt1, localbt3);
+/*  194 */         if (localeq.a(localbt1)) {
+/*  195 */           if ((0.0D < d3) || (d3 == 0.0D)) {
+/*  196 */             this.m = localsn;
+/*  197 */             d3 = 0.0D;
+/*      */           }
+/*  199 */         } else if (localvf != null) {
+/*  200 */           double d4 = localbt1.c(localvf.f);
+/*  201 */           if ((d4 < d3) || (d3 == 0.0D)) {
+/*  202 */             this.m = localsn;
+/*  203 */             d3 = d4;
+/*      */           }
+/*      */         }
+/*      */       }
+/*      */     }
+/*  208 */     if ((this.m != null) && 
+/*  209 */       (!(this.j.c instanceof pj)))
+/*      */     {
+/*  211 */       this.j.y = new vf(this.m);
+/*      */     }
+/*      */   }
+/*      */   
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */   private float d(float paramFloat)
+/*      */   {
+/*  224 */     ls localls = this.j.i;
+/*  225 */     float f1 = 70.0F;
+/*  226 */     if (localls.a(ln.g)) f1 = 60.0F;
+/*  227 */     if (localls.Y <= 0) {
+/*  228 */       float f2 = localls.ad + paramFloat;
+/*      */       
+/*  230 */       f1 /= ((1.0F - 500.0F / (f2 + 500.0F)) * 2.0F + 1.0F);
+/*      */     }
+/*      */     
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*  237 */     return f1 + this.A + (this.z - this.A) * paramFloat;
+/*      */   }
+/*      */   
+/*      */   private void e(float paramFloat) {
+/*  241 */     ls localls = this.j.i;
+/*      */     
+/*  243 */     float f1 = localls.aa - paramFloat;
+/*      */     
+/*  245 */     if (localls.Y <= 0) {
+/*  246 */       f2 = localls.ad + paramFloat;
+/*      */       
+/*  248 */       GL11.glRotatef(40.0F - 8000.0F / (f2 + 200.0F), 0.0F, 0.0F, 1.0F);
+/*      */     }
+/*      */     
+/*  251 */     if (f1 < 0.0F) return;
+/*  252 */     f1 /= localls.ab;
+/*  253 */     f1 = in.a(f1 * f1 * f1 * f1 * 3.1415927F);
+/*      */     
+/*  255 */     float f2 = localls.ac;
+/*      */     
+/*      */ 
+/*  258 */     GL11.glRotatef(-f2, 0.0F, 1.0F, 0.0F);
+/*  259 */     GL11.glRotatef(-f1 * 14.0F, 0.0F, 0.0F, 1.0F);
+/*  260 */     GL11.glRotatef(f2, 0.0F, 1.0F, 0.0F);
+/*      */   }
+/*      */   
+/*      */   private void f(float paramFloat)
+/*      */   {
+/*  265 */     if (!(this.j.i instanceof gs)) {
+/*  266 */       return;
+/*      */     }
+/*  268 */     gs localgs = (gs)this.j.i;
+/*      */     
+/*  270 */     float f1 = localgs.bj - localgs.bi;
+/*  271 */     float f2 = -(localgs.bj + f1 * paramFloat);
+/*  272 */     float f3 = localgs.h + (localgs.i - localgs.h) * paramFloat;
+/*  273 */     float f4 = localgs.af + (localgs.ag - localgs.af) * paramFloat;
+/*  274 */     GL11.glTranslatef(in.a(f2 * 3.1415927F) * f3 * 0.5F, -Math.abs(in.b(f2 * 3.1415927F) * f3), 0.0F);
+/*  275 */     GL11.glRotatef(in.a(f2 * 3.1415927F) * f3 * 3.0F, 0.0F, 0.0F, 1.0F);
+/*  276 */     GL11.glRotatef(Math.abs(in.b(f2 * 3.1415927F - 0.2F) * f3) * 5.0F, 1.0F, 0.0F, 0.0F);
+/*  277 */     GL11.glRotatef(f4, 1.0F, 0.0F, 0.0F);
+/*      */   }
+/*      */   
+/*      */   private void g(float paramFloat) {
+/*  281 */     ls localls = this.j.i;
+/*      */     
+/*  283 */     float f1 = localls.bf - 1.62F;
+/*      */     
+/*  285 */     double d1 = localls.aJ + (localls.aM - localls.aJ) * paramFloat;
+/*  286 */     double d2 = localls.aK + (localls.aN - localls.aK) * paramFloat - f1;
+/*  287 */     double d3 = localls.aL + (localls.aO - localls.aL) * paramFloat;
+/*      */     
+/*      */ 
+/*  290 */     GL11.glRotatef(this.C + (this.B - this.C) * paramFloat, 0.0F, 0.0F, 1.0F);
+/*      */     
+/*  292 */     if (localls.N()) {
+/*  293 */       f1 = (float)(f1 + 1.0D);
+/*  294 */       GL11.glTranslatef(0.0F, 0.3F, 0.0F);
+/*  295 */       if (!this.j.z.F) {
+/*  296 */         int i1 = this.j.f.a(in.b(localls.aM), in.b(localls.aN), in.b(localls.aO));
+/*  297 */         if (i1 == uu.T.bn) {
+/*  298 */           int i2 = this.j.f.e(in.b(localls.aM), in.b(localls.aN), in.b(localls.aO));
+/*      */           
+/*  300 */           int i3 = i2 & 0x3;
+/*  301 */           GL11.glRotatef(i3 * 90, 0.0F, 1.0F, 0.0F);
+/*      */         }
+/*  303 */         GL11.glRotatef(localls.aU + (localls.aS - localls.aU) * paramFloat + 180.0F, 0.0F, -1.0F, 0.0F);
+/*  304 */         GL11.glRotatef(localls.aV + (localls.aT - localls.aV) * paramFloat, -1.0F, 0.0F, 0.0F);
+/*      */       }
+/*  306 */     } else if (this.j.z.A) {
+/*  307 */       double d4 = this.u + (this.t - this.u) * paramFloat;
+/*      */       float f2;
+/*  309 */       float f3; if (this.j.z.F)
+/*      */       {
+/*  311 */         f2 = this.w + (this.v - this.w) * paramFloat;
+/*  312 */         f3 = this.y + (this.x - this.y) * paramFloat;
+/*      */         
+/*  314 */         GL11.glTranslatef(0.0F, 0.0F, (float)-d4);
+/*  315 */         GL11.glRotatef(f3, 1.0F, 0.0F, 0.0F);
+/*  316 */         GL11.glRotatef(f2, 0.0F, 1.0F, 0.0F);
+/*      */       } else {
+/*  318 */         f2 = localls.aS;
+/*  319 */         f3 = localls.aT;
+/*      */         
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*  326 */         double d5 = -in.a(f2 / 180.0F * 3.1415927F) * in.b(f3 / 180.0F * 3.1415927F) * d4;
+/*  327 */         double d6 = in.b(f2 / 180.0F * 3.1415927F) * in.b(f3 / 180.0F * 3.1415927F) * d4;
+/*  328 */         double d7 = -in.a(f3 / 180.0F * 3.1415927F) * d4;
+/*      */         
+/*  330 */         for (int i4 = 0; i4 < 8; i4++) {
+/*  331 */           float f4 = (i4 & 0x1) * 2 - 1;
+/*  332 */           float f5 = (i4 >> 1 & 0x1) * 2 - 1;
+/*  333 */           float f6 = (i4 >> 2 & 0x1) * 2 - 1;
+/*      */           
+/*  335 */           f4 *= 0.1F;
+/*  336 */           f5 *= 0.1F;
+/*  337 */           f6 *= 0.1F;
+/*      */           
+/*  339 */           vf localvf = this.j.f.a(bt.b(d1 + f4, d2 + f5, d3 + f6), bt.b(d1 - d5 + f4 + f6, d2 - d7 + f5, d3 - d6 + f6));
+/*  340 */           if (localvf != null) {
+/*  341 */             double d8 = localvf.f.c(bt.b(d1, d2, d3));
+/*  342 */             if (d8 < d4) { d4 = d8;
+/*      */             }
+/*      */           }
+/*      */         }
+/*      */         
+/*      */ 
+/*      */ 
+/*      */ 
+/*  350 */         GL11.glRotatef(localls.aT - f3, 1.0F, 0.0F, 0.0F);
+/*  351 */         GL11.glRotatef(localls.aS - f2, 0.0F, 1.0F, 0.0F);
+/*  352 */         GL11.glTranslatef(0.0F, 0.0F, (float)-d4);
+/*  353 */         GL11.glRotatef(f2 - localls.aS, 0.0F, 1.0F, 0.0F);
+/*  354 */         GL11.glRotatef(f3 - localls.aT, 1.0F, 0.0F, 0.0F);
+/*      */       }
+/*      */     } else {
+/*  357 */       GL11.glTranslatef(0.0F, 0.0F, -0.1F);
+/*      */     }
+/*      */     
+/*  360 */     if (!this.j.z.F) {
+/*  361 */       GL11.glRotatef(localls.aV + (localls.aT - localls.aV) * paramFloat, 1.0F, 0.0F, 0.0F);
+/*  362 */       GL11.glRotatef(localls.aU + (localls.aS - localls.aU) * paramFloat + 180.0F, 0.0F, 1.0F, 0.0F);
+/*      */     }
+/*      */     
+/*      */ 
+/*  366 */     GL11.glTranslatef(0.0F, f1, 0.0F);
+/*      */     
+/*  368 */     d1 = localls.aJ + (localls.aM - localls.aJ) * paramFloat;
+/*  369 */     d2 = localls.aK + (localls.aN - localls.aK) * paramFloat - f1;
+/*  370 */     d3 = localls.aL + (localls.aO - localls.aL) * paramFloat;
+/*      */     
+/*  372 */     this.D = this.j.g.a(d1, d2, d3, paramFloat);
+/*      */   }
+/*      */   
+/*      */ 
+/*  376 */   private double E = 1.0D;
+/*  377 */   private double F = 0.0D;
+/*  378 */   private double G = 0.0D;
+/*      */   
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */   private void a(float paramFloat, int paramInt)
+/*      */   {
+/*  391 */     this.k = (256 >> this.j.z.e);
+/*  392 */     GL11.glMatrixMode(5889);
+/*  393 */     GL11.glLoadIdentity();
+/*      */     
+/*  395 */     float f1 = 0.07F;
+/*  396 */     if (this.j.z.g) GL11.glTranslatef(-(paramInt * 2 - 1) * f1, 0.0F, 0.0F);
+/*  397 */     if (this.E != 1.0D) {
+/*  398 */       GL11.glTranslatef((float)this.F, (float)-this.G, 0.0F);
+/*  399 */       GL11.glScaled(this.E, this.E, 1.0D);
+/*  400 */       GLU.gluPerspective(d(paramFloat), this.j.d / this.j.e, 0.05F, this.k * 2.0F);
+/*      */     } else {
+/*  402 */       GLU.gluPerspective(d(paramFloat), this.j.d / this.j.e, 0.05F, this.k * 2.0F);
+/*      */     }
+/*      */     
+/*  405 */     GL11.glMatrixMode(5888);
+/*  406 */     GL11.glLoadIdentity();
+/*  407 */     if (this.j.z.g) { GL11.glTranslatef((paramInt * 2 - 1) * 0.1F, 0.0F, 0.0F);
+/*      */     }
+/*  409 */     e(paramFloat);
+/*  410 */     if (this.j.z.f) f(paramFloat);
+/*  411 */     float f2 = this.j.h.C + (this.j.h.B - this.j.h.C) * paramFloat;
+/*  412 */     if (f2 > 0.0F) {
+/*  413 */       float f3 = 5.0F / (f2 * f2 + 5.0F) - f2 * 0.04F;
+/*  414 */       f3 *= f3;
+/*  415 */       GL11.glRotatef((this.l + paramFloat) * 20.0F, 0.0F, 1.0F, 1.0F);
+/*  416 */       GL11.glScalef(1.0F / f3, 1.0F, 1.0F);
+/*  417 */       GL11.glRotatef(-(this.l + paramFloat) * 20.0F, 0.0F, 1.0F, 1.0F);
+/*      */     }
+/*      */     
+/*      */ 
+/*  421 */     g(paramFloat);
+/*      */   }
+/*      */   
+/*      */   private void b(float paramFloat, int paramInt) {
+/*      */     
+/*  426 */     if (this.j.z.g) { GL11.glTranslatef((paramInt * 2 - 1) * 0.1F, 0.0F, 0.0F);
+/*      */     }
+/*  428 */     GL11.glPushMatrix();
+/*  429 */     e(paramFloat);
+/*  430 */     if (this.j.z.f) { f(paramFloat);
+/*      */     }
+/*  432 */     if ((!this.j.z.A) && (!this.j.i.N()) && 
+/*  433 */       (!this.j.z.z)) {
+/*  434 */       this.c.a(paramFloat);
+/*      */     }
+/*      */     
+/*  437 */     GL11.glPopMatrix();
+/*  438 */     if ((!this.j.z.A) && (!this.j.i.N())) {
+/*  439 */       this.c.b(paramFloat);
+/*  440 */       e(paramFloat);
+/*      */     }
+/*  442 */     if (this.j.z.f) f(paramFloat);
+/*      */   }
+/*      */   
+/*  445 */   private long H = System.currentTimeMillis();
+/*      */   
+/*  447 */   private long I = 0L;
+/*      */   
+/*      */   public void b(float paramFloat) {
+/*  450 */     if (!Display.isActive()) {
+/*  451 */       if (System.currentTimeMillis() - this.H > 500L) {
+/*  452 */         this.j.i();
+/*      */       }
+/*      */     } else {
+/*  455 */       this.H = System.currentTimeMillis();
+/*      */     }
+/*      */     
+/*  458 */     if (this.j.N) {
+/*  459 */       this.j.C.c();
+/*      */       
+/*  461 */       float f1 = this.j.z.c * 0.6F + 0.2F;
+/*  462 */       float f2 = f1 * f1 * f1 * 8.0F;
+/*  463 */       float f3 = this.j.C.a * f2;
+/*  464 */       float f4 = this.j.C.b * f2;
+/*      */       
+/*  466 */       i4 = 1;
+/*  467 */       if (this.j.z.d) { i4 = -1;
+/*      */       }
+/*      */       
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*  484 */       if (this.j.z.E)
+/*      */       {
+/*  486 */         f3 = this.n.a(f3, 0.05F * f2);
+/*  487 */         f4 = this.o.a(f4, 0.05F * f2);
+/*      */       }
+/*      */       
+/*      */ 
+/*  491 */       this.j.h.d(f3, f4 * i4);
+/*      */     }
+/*      */     
+/*  494 */     if (this.j.w) return;
+/*  495 */     a = this.j.z.g;
+/*      */     
+/*  497 */     qq localqq = new qq(this.j.z, this.j.d, this.j.e);
+/*  498 */     int i1 = localqq.a();
+/*  499 */     int i2 = localqq.b();
+/*  500 */     int i3 = Mouse.getX() * i1 / this.j.d;
+/*  501 */     int i4 = i2 - Mouse.getY() * i2 / this.j.e - 1;
+/*      */     
+/*  503 */     int i5 = 200;
+/*  504 */     if (this.j.z.i == 1) i5 = 120;
+/*  505 */     if (this.j.z.i == 2) i5 = 40;
+/*      */     long l1;
+/*  507 */     if (this.j.f != null) {
+/*  508 */       if (this.j.z.i == 0) {
+/*  509 */         a(paramFloat, 0L);
+/*      */       } else {
+/*  511 */         a(paramFloat, this.I + 1000000000 / i5);
+/*      */       }
+/*      */       
+/*      */ 
+/*  515 */       if (this.j.z.i == 2) {
+/*  516 */         l1 = (this.I + 1000000000 / i5 - System.nanoTime()) / 1000000L;
+/*  517 */         if ((l1 > 0L) && (l1 < 500L))
+/*  518 */           try { Thread.sleep(l1);
+/*      */           } catch (InterruptedException localInterruptedException1) {
+/*  520 */             localInterruptedException1.printStackTrace();
+/*      */           }
+/*      */       }
+/*  523 */       this.I = System.nanoTime();
+/*      */       
+/*      */ 
+/*  526 */       if ((!this.j.z.z) || (this.j.r != null)) {
+/*  527 */         this.j.v.a(paramFloat, this.j.r != null, i3, i4);
+/*      */       }
+/*      */     } else {
+/*  530 */       GL11.glViewport(0, 0, this.j.d, this.j.e);
+/*  531 */       GL11.glMatrixMode(5889);
+/*  532 */       GL11.glLoadIdentity();
+/*  533 */       GL11.glMatrixMode(5888);
+/*  534 */       GL11.glLoadIdentity();
+/*  535 */       b();
+/*      */       
+/*  537 */       if (this.j.z.i == 2) {
+/*  538 */         l1 = (this.I + 1000000000 / i5 - System.nanoTime()) / 1000000L;
+/*  539 */         if (l1 < 0L) l1 += 10L;
+/*  540 */         if ((l1 > 0L) && (l1 < 500L)) {
+/*  541 */           try { Thread.sleep(l1);
+/*      */           } catch (InterruptedException localInterruptedException2) {
+/*  543 */             localInterruptedException2.printStackTrace();
+/*      */           }
+/*      */         }
+/*      */       }
+/*  547 */       this.I = System.nanoTime();
+/*      */     }
+/*      */     
+/*      */ 
+/*  551 */     if (this.j.r != null) {
+/*  552 */       GL11.glClear(256);
+/*  553 */       this.j.r.a(i3, i4, paramFloat);
+/*  554 */       if ((this.j.r != null) && (this.j.r.h != null)) { this.j.r.h.a(paramFloat);
+/*      */       }
+/*      */     }
+/*      */   }
+/*      */   
+/*      */ 
+/*      */ 
+/*      */   public void a(float paramFloat, long paramLong)
+/*      */   {
+/*  563 */     GL11.glEnable(2884);
+/*  564 */     GL11.glEnable(2929);
+/*      */     
+/*  566 */     if (this.j.i == null) {
+/*  567 */       this.j.i = this.j.h;
+/*      */     }
+/*      */     
+/*  570 */     a(paramFloat);
+/*      */     
+/*  572 */     ls localls = this.j.i;
+/*  573 */     n localn = this.j.g;
+/*  574 */     dn localdn = this.j.j;
+/*  575 */     double d1 = localls.bl + (localls.aM - localls.bl) * paramFloat;
+/*  576 */     double d2 = localls.bm + (localls.aN - localls.bm) * paramFloat;
+/*  577 */     double d3 = localls.bn + (localls.aO - localls.bn) * paramFloat;
+/*      */     
+/*  579 */     cl localcl = this.j.f.w();
+/*  580 */     if ((localcl instanceof kx)) {
+/*  581 */       kx localkx = (kx)localcl;
+/*      */       
+/*  583 */       int i2 = in.d((int)d1) >> 4;
+/*  584 */       int i3 = in.d((int)d3) >> 4;
+/*  585 */       localkx.d(i2, i3);
+/*      */     }
+/*      */     
+/*  588 */     for (int i1 = 0; i1 < 2; i1++) {
+/*  589 */       if (this.j.z.g) {
+/*  590 */         b = i1;
+/*  591 */         if (b == 0) GL11.glColorMask(false, true, true, false); else {
+/*  592 */           GL11.glColorMask(true, false, false, false);
+/*      */         }
+/*      */       }
+/*      */       
+/*  596 */       GL11.glViewport(0, 0, this.j.d, this.j.e);
+/*  597 */       h(paramFloat);
+/*  598 */       GL11.glClear(16640);
+/*  599 */       GL11.glEnable(2884);
+/*      */       
+/*  601 */       a(paramFloat, i1);
+/*      */       
+/*  603 */       w.a();
+/*  604 */       if (this.j.z.e < 2) {
+/*  605 */         a(-1, paramFloat);
+/*  606 */         localn.a(paramFloat);
+/*      */       }
+/*  608 */       GL11.glEnable(2912);
+/*  609 */       a(1, paramFloat);
+/*      */       
+/*  611 */       if (this.j.z.k) {
+/*  612 */         GL11.glShadeModel(7425);
+/*      */       }
+/*      */       
+/*  615 */       sr localsr = new sr();
+/*  616 */       localsr.a(d1, d2, d3);
+/*      */       
+/*  618 */       this.j.g.a(localsr, paramFloat);
+/*  619 */       if (i1 == 0)
+/*      */       {
+/*  621 */         while (!this.j.g.a(localls, false))
+/*      */         {
+/*  623 */           if (paramLong == 0L)
+/*      */             break;
+/*  625 */           long l1 = paramLong - System.nanoTime();
+/*  626 */           if ((l1 < 0L) || 
+/*  627 */             (l1 > 1000000000L))
+/*      */             break;
+/*      */         }
+/*      */       }
+/*  631 */       a(0, paramFloat);
+/*  632 */       GL11.glEnable(2912);
+/*  633 */       GL11.glBindTexture(3553, this.j.p.b("/terrain.png"));
+/*  634 */       u.a();
+/*  635 */       localn.a(localls, 0, paramFloat);
+/*      */       
+/*  637 */       GL11.glShadeModel(7424);
+/*      */       
+/*  639 */       u.b();
+/*  640 */       localn.a(localls.e(paramFloat), localsr, paramFloat);
+/*  641 */       localdn.b(localls, paramFloat);
+/*  642 */       u.a();
+/*  643 */       a(0, paramFloat);
+/*  644 */       localdn.a(localls, paramFloat);
+/*      */       
+/*  646 */       if ((this.j.y != null) && (localls.a(ln.g)) && ((localls instanceof gs))) {
+/*  647 */         gs localgs1 = (gs)localls;
+/*  648 */         GL11.glDisable(3008);
+/*  649 */         localn.a(localgs1, this.j.y, 0, localgs1.c.b(), paramFloat);
+/*  650 */         localn.b(localgs1, this.j.y, 0, localgs1.c.b(), paramFloat);
+/*  651 */         GL11.glEnable(3008);
+/*      */       }
+/*      */       
+/*  654 */       GL11.glBlendFunc(770, 771);
+/*  655 */       a(0, paramFloat);
+/*      */       
+/*  657 */       GL11.glEnable(3042);
+/*  658 */       GL11.glDisable(2884);
+/*  659 */       GL11.glBindTexture(3553, this.j.p.b("/terrain.png"));
+/*  660 */       if (this.j.z.j)
+/*      */       {
+/*  662 */         if (this.j.z.k) {
+/*  663 */           GL11.glShadeModel(7425);
+/*      */         }
+/*      */         
+/*  666 */         GL11.glColorMask(false, false, false, false);
+/*  667 */         int i4 = localn.a(localls, 1, paramFloat);
+/*  668 */         if (this.j.z.g) {
+/*  669 */           if (b == 0) GL11.glColorMask(false, true, true, true); else
+/*  670 */             GL11.glColorMask(true, false, false, true);
+/*      */         } else {
+/*  672 */           GL11.glColorMask(true, true, true, true);
+/*      */         }
+/*      */         
+/*  675 */         if (i4 > 0) {
+/*  676 */           localn.a(1, paramFloat);
+/*      */         }
+/*      */         
+/*  679 */         GL11.glShadeModel(7424);
+/*      */       } else {
+/*  681 */         localn.a(localls, 1, paramFloat);
+/*      */       }
+/*      */       
+/*      */ 
+/*  685 */       GL11.glDepthMask(true);
+/*  686 */       GL11.glEnable(2884);
+/*  687 */       GL11.glDisable(3042);
+/*      */       
+/*  689 */       if ((this.E == 1.0D) && ((localls instanceof gs)) && 
+/*  690 */         (this.j.y != null) && (!localls.a(ln.g))) {
+/*  691 */         gs localgs2 = (gs)localls;
+/*  692 */         GL11.glDisable(3008);
+/*  693 */         localn.a(localgs2, this.j.y, 0, localgs2.c.b(), paramFloat);
+/*  694 */         localn.b(localgs2, this.j.y, 0, localgs2.c.b(), paramFloat);
+/*  695 */         GL11.glEnable(3008);
+/*      */       }
+/*      */       
+/*      */ 
+/*      */ 
+/*      */ 
+/*  701 */       c(paramFloat);
+/*  702 */       GL11.glDisable(2912);
+/*      */       
+/*  704 */       if (this.m != null) {}
+/*      */       
+/*      */ 
+/*      */ 
+/*  708 */       a(0, paramFloat);
+/*  709 */       GL11.glEnable(2912);
+/*  710 */       localn.b(paramFloat);
+/*  711 */       GL11.glDisable(2912);
+/*  712 */       a(1, paramFloat);
+/*      */       
+/*  714 */       if (this.E == 1.0D) {
+/*  715 */         GL11.glClear(256);
+/*  716 */         b(paramFloat, i1);
+/*      */       }
+/*      */       
+/*      */ 
+/*  720 */       if (!this.j.z.g) {
+/*  721 */         return;
+/*      */       }
+/*      */     }
+/*  724 */     GL11.glColorMask(true, true, true, false);
+/*      */   }
+/*      */   
+/*  727 */   private Random J = new Random();
+/*  728 */   private int K = 0;
+/*      */   
+/*      */   private void c() {
+/*  731 */     float f1 = this.j.f.g(1.0F);
+/*  732 */     if (!this.j.z.j) f1 /= 2.0F;
+/*  733 */     if (f1 == 0.0F) { return;
+/*      */     }
+/*  735 */     this.J.setSeed(this.l * 312987231L);
+/*  736 */     ls localls = this.j.i;
+/*  737 */     fd localfd = this.j.f;
+/*      */     
+/*  739 */     int i1 = in.b(localls.aM);
+/*  740 */     int i2 = in.b(localls.aN);
+/*  741 */     int i3 = in.b(localls.aO);
+/*      */     
+/*  743 */     int i4 = 10;
+/*      */     
+/*  745 */     double d1 = 0.0D;
+/*  746 */     double d2 = 0.0D;
+/*  747 */     double d3 = 0.0D;
+/*  748 */     int i5 = 0;
+/*  749 */     for (int i6 = 0; i6 < (int)(100.0F * f1 * f1); i6++) {
+/*  750 */       int i7 = i1 + this.J.nextInt(i4) - this.J.nextInt(i4);
+/*  751 */       int i8 = i3 + this.J.nextInt(i4) - this.J.nextInt(i4);
+/*  752 */       int i9 = localfd.e(i7, i8);
+/*  753 */       int i10 = localfd.a(i7, i9 - 1, i8);
+/*  754 */       if ((i9 <= i2 + i4) && (i9 >= i2 - i4) && (localfd.a().a(i7, i8).d())) {
+/*  755 */         float f2 = this.J.nextFloat();
+/*  756 */         float f3 = this.J.nextFloat();
+/*  757 */         if (i10 > 0) {
+/*  758 */           if (uu.m[i10].bA == ln.h) {
+/*  759 */             this.j.j.a(new xn(localfd, i7 + f2, i9 + 0.1F - uu.m[i10].bt, i8 + f3, 0.0D, 0.0D, 0.0D));
+/*      */           } else {
+/*  761 */             if (this.J.nextInt(++i5) == 0) {
+/*  762 */               d1 = i7 + f2;
+/*  763 */               d2 = i9 + 0.1F - uu.m[i10].bt;
+/*  764 */               d3 = i8 + f3;
+/*      */             }
+/*  766 */             this.j.j.a(new xd(localfd, i7 + f2, i9 + 0.1F - uu.m[i10].bt, i8 + f3));
+/*      */           }
+/*      */         }
+/*      */       }
+/*      */     }
+/*      */     
+/*      */ 
+/*  773 */     if ((i5 > 0) && (this.J.nextInt(3) < this.K++)) {
+/*  774 */       this.K = 0;
+/*  775 */       if ((d2 > localls.aN + 1.0D) && (localfd.e(in.b(localls.aM), in.b(localls.aO)) > in.b(localls.aN))) {
+/*  776 */         this.j.f.a(d1, d2, d3, "ambient.weather.rain", 0.1F, 0.5F);
+/*      */       } else {
+/*  778 */         this.j.f.a(d1, d2, d3, "ambient.weather.rain", 0.2F, 1.0F);
+/*      */       }
+/*      */     }
+/*      */   }
+/*      */   
+/*      */   protected void c(float paramFloat)
+/*      */   {
+/*  785 */     float f1 = this.j.f.g(paramFloat);
+/*  786 */     if (f1 <= 0.0F) { return;
+/*      */     }
+/*  788 */     ls localls = this.j.i;
+/*  789 */     fd localfd = this.j.f;
+/*      */     
+/*  791 */     int i1 = in.b(localls.aM);
+/*  792 */     int i2 = in.b(localls.aN);
+/*  793 */     int i3 = in.b(localls.aO);
+/*      */     
+/*      */ 
+/*  796 */     nw localnw = nw.a;
+/*  797 */     GL11.glDisable(2884);
+/*  798 */     GL11.glNormal3f(0.0F, 1.0F, 0.0F);
+/*  799 */     GL11.glEnable(3042);
+/*  800 */     GL11.glBlendFunc(770, 771);
+/*  801 */     GL11.glAlphaFunc(516, 0.01F);
+/*      */     
+/*  803 */     GL11.glBindTexture(3553, this.j.p.b("/environment/snow.png"));
+/*      */     
+/*  805 */     double d1 = localls.bl + (localls.aM - localls.bl) * paramFloat;
+/*  806 */     double d2 = localls.bm + (localls.aN - localls.bm) * paramFloat;
+/*  807 */     double d3 = localls.bn + (localls.aO - localls.bn) * paramFloat;
+/*      */     
+/*  809 */     int i4 = in.b(d2);
+/*      */     
+/*      */ 
+/*  812 */     int i5 = 5;
+/*  813 */     if (this.j.z.j) { i5 = 10;
+/*      */     }
+/*  815 */     kd[] arrayOfkd = localfd.a().a(i1 - i5, i3 - i5, i5 * 2 + 1, i5 * 2 + 1);
+/*  816 */     int i6 = 0;
+/*      */     int i8;
+/*  818 */     kd localkd; int i9; int i10; int i11; float f3; for (int i7 = i1 - i5; i7 <= i1 + i5; i7++) {
+/*  819 */       for (i8 = i3 - i5; i8 <= i3 + i5; i8++) {
+/*  820 */         localkd = arrayOfkd[(i6++)];
+/*  821 */         if (localkd.c())
+/*      */         {
+/*  823 */           i9 = localfd.e(i7, i8);
+/*  824 */           if (i9 < 0) { i9 = 0;
+/*      */           }
+/*  826 */           i10 = i9;
+/*  827 */           if (i10 < i4) { i10 = i4;
+/*      */           }
+/*  829 */           i11 = i2 - i5;
+/*  830 */           int i12 = i2 + i5;
+/*      */           
+/*  832 */           if (i11 < i9) i11 = i9;
+/*  833 */           if (i12 < i9) i12 = i9;
+/*  834 */           f3 = 1.0F;
+/*  835 */           if (i11 != i12) {
+/*  836 */             this.J.setSeed(i7 * i7 * 3121 + i7 * 45238971 + i8 * i8 * 418711 + i8 * 13761);
+/*      */             
+/*  838 */             float f4 = this.l + paramFloat;
+/*  839 */             float f5 = ((this.l & 0x1FF) + paramFloat) / 512.0F;
+/*      */             
+/*  841 */             float f6 = this.J.nextFloat() + f4 * 0.01F * (float)this.J.nextGaussian();
+/*  842 */             float f7 = this.J.nextFloat() + f4 * (float)this.J.nextGaussian() * 0.001F;
+/*      */             
+/*  844 */             double d6 = i7 + 0.5F - localls.aM;
+/*  845 */             double d7 = i8 + 0.5F - localls.aO;
+/*  846 */             float f10 = in.a(d6 * d6 + d7 * d7) / i5;
+/*      */             
+/*  848 */             localnw.b();
+/*  849 */             float f11 = localfd.c(i7, i10, i8);
+/*  850 */             GL11.glColor4f(f11, f11, f11, ((1.0F - f10 * f10) * 0.3F + 0.5F) * f1);
+/*  851 */             localnw.b(-d1 * 1.0D, -d2 * 1.0D, -d3 * 1.0D);
+/*      */             
+/*  853 */             localnw.a(i7 + 0, i11, i8 + 0.5D, 0.0F * f3 + f6, i11 * f3 / 4.0F + f5 * f3 + f7);
+/*  854 */             localnw.a(i7 + 1, i11, i8 + 0.5D, 1.0F * f3 + f6, i11 * f3 / 4.0F + f5 * f3 + f7);
+/*  855 */             localnw.a(i7 + 1, i12, i8 + 0.5D, 1.0F * f3 + f6, i12 * f3 / 4.0F + f5 * f3 + f7);
+/*  856 */             localnw.a(i7 + 0, i12, i8 + 0.5D, 0.0F * f3 + f6, i12 * f3 / 4.0F + f5 * f3 + f7);
+/*      */             
+/*  858 */             localnw.a(i7 + 0.5D, i11, i8 + 0, 0.0F * f3 + f6, i11 * f3 / 4.0F + f5 * f3 + f7);
+/*  859 */             localnw.a(i7 + 0.5D, i11, i8 + 1, 1.0F * f3 + f6, i11 * f3 / 4.0F + f5 * f3 + f7);
+/*  860 */             localnw.a(i7 + 0.5D, i12, i8 + 1, 1.0F * f3 + f6, i12 * f3 / 4.0F + f5 * f3 + f7);
+/*  861 */             localnw.a(i7 + 0.5D, i12, i8 + 0, 0.0F * f3 + f6, i12 * f3 / 4.0F + f5 * f3 + f7);
+/*      */             
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*  870 */             localnw.b(0.0D, 0.0D, 0.0D);
+/*  871 */             localnw.a();
+/*      */           }
+/*      */         }
+/*      */       }
+/*      */     }
+/*      */     
+/*  877 */     GL11.glBindTexture(3553, this.j.p.b("/environment/rain.png"));
+/*      */     
+/*  879 */     if (this.j.z.j) i5 = 10;
+/*  880 */     i6 = 0;
+/*  881 */     for (i7 = i1 - i5; i7 <= i1 + i5; i7++) {
+/*  882 */       for (i8 = i3 - i5; i8 <= i3 + i5; i8++) {
+/*  883 */         localkd = arrayOfkd[(i6++)];
+/*  884 */         if (localkd.d())
+/*      */         {
+/*  886 */           i9 = localfd.e(i7, i8);
+/*      */           
+/*  888 */           i10 = i2 - i5;
+/*  889 */           i11 = i2 + i5;
+/*      */           
+/*  891 */           if (i10 < i9) i10 = i9;
+/*  892 */           if (i11 < i9) i11 = i9;
+/*  893 */           float f2 = 1.0F;
+/*  894 */           if (i10 != i11) {
+/*  895 */             this.J.setSeed(i7 * i7 * 3121 + i7 * 45238971 + i8 * i8 * 418711 + i8 * 13761);
+/*      */             
+/*      */ 
+/*  898 */             f3 = ((this.l + i7 * i7 * 3121 + i7 * 45238971 + i8 * i8 * 418711 + i8 * 13761 & 0x1F) + paramFloat) / 32.0F * (3.0F + this.J.nextFloat());
+/*      */             
+/*  900 */             double d4 = i7 + 0.5F - localls.aM;
+/*  901 */             double d5 = i8 + 0.5F - localls.aO;
+/*  902 */             float f8 = in.a(d4 * d4 + d5 * d5) / i5;
+/*      */             
+/*      */ 
+/*  905 */             localnw.b();
+/*  906 */             float f9 = localfd.c(i7, 128, i8) * 0.85F + 0.15F;
+/*  907 */             GL11.glColor4f(f9, f9, f9, ((1.0F - f8 * f8) * 0.5F + 0.5F) * f1);
+/*  908 */             localnw.b(-d1 * 1.0D, -d2 * 1.0D, -d3 * 1.0D);
+/*  909 */             localnw.a(i7 + 0, i10, i8 + 0.5D, 0.0F * f2, i10 * f2 / 4.0F + f3 * f2);
+/*  910 */             localnw.a(i7 + 1, i10, i8 + 0.5D, 1.0F * f2, i10 * f2 / 4.0F + f3 * f2);
+/*  911 */             localnw.a(i7 + 1, i11, i8 + 0.5D, 1.0F * f2, i11 * f2 / 4.0F + f3 * f2);
+/*  912 */             localnw.a(i7 + 0, i11, i8 + 0.5D, 0.0F * f2, i11 * f2 / 4.0F + f3 * f2);
+/*      */             
+/*  914 */             localnw.a(i7 + 0.5D, i10, i8 + 0, 0.0F * f2, i10 * f2 / 4.0F + f3 * f2);
+/*  915 */             localnw.a(i7 + 0.5D, i10, i8 + 1, 1.0F * f2, i10 * f2 / 4.0F + f3 * f2);
+/*  916 */             localnw.a(i7 + 0.5D, i11, i8 + 1, 1.0F * f2, i11 * f2 / 4.0F + f3 * f2);
+/*  917 */             localnw.a(i7 + 0.5D, i11, i8 + 0, 0.0F * f2, i11 * f2 / 4.0F + f3 * f2);
+/*  918 */             localnw.b(0.0D, 0.0D, 0.0D);
+/*  919 */             localnw.a();
+/*      */           }
+/*      */         }
+/*      */       }
+/*      */     }
+/*      */     
+/*  925 */     GL11.glEnable(2884);
+/*  926 */     GL11.glDisable(3042);
+/*  927 */     GL11.glAlphaFunc(516, 0.1F);
+/*      */   }
+/*      */   
+/*  930 */   volatile int d = 0;
+/*  931 */   volatile int e = 0;
+/*      */   
+/*      */   public void b() {
+/*  934 */     qq localqq = new qq(this.j.z, this.j.d, this.j.e);
+/*      */     
+/*  936 */     GL11.glClear(256);
+/*  937 */     GL11.glMatrixMode(5889);
+/*  938 */     GL11.glLoadIdentity();
+/*  939 */     GL11.glOrtho(0.0D, localqq.a, localqq.b, 0.0D, 1000.0D, 3000.0D);
+/*  940 */     GL11.glMatrixMode(5888);
+/*  941 */     GL11.glLoadIdentity();
+/*  942 */     GL11.glTranslatef(0.0F, 0.0F, -2000.0F);
+/*      */   }
+/*      */   
+/*  945 */   FloatBuffer f = ge.e(16);
+/*      */   float g;
+/*      */   float h;
+/*      */   
+/*      */   private void h(float paramFloat)
+/*      */   {
+/*  951 */     fd localfd = this.j.f;
+/*  952 */     ls localls = this.j.i;
+/*      */     
+/*  954 */     float f1 = 1.0F / (4 - this.j.z.e);
+/*  955 */     f1 = 1.0F - (float)Math.pow(f1, 0.25D);
+/*      */     
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*  962 */     bt localbt1 = localfd.a(this.j.i, paramFloat);
+/*  963 */     float f2 = (float)localbt1.a;
+/*  964 */     float f3 = (float)localbt1.b;
+/*  965 */     float f4 = (float)localbt1.c;
+/*      */     
+/*  967 */     bt localbt2 = localfd.d(paramFloat);
+/*  968 */     this.g = ((float)localbt2.a);
+/*  969 */     this.h = ((float)localbt2.b);
+/*  970 */     this.i = ((float)localbt2.c);
+/*      */     
+/*  972 */     this.g += (f2 - this.g) * f1;
+/*  973 */     this.h += (f3 - this.h) * f1;
+/*  974 */     this.i += (f4 - this.i) * f1;
+/*      */     
+/*  976 */     float f5 = localfd.g(paramFloat);
+/*  977 */     float f7; if (f5 > 0.0F) {
+/*  978 */       f6 = 1.0F - f5 * 0.5F;
+/*  979 */       f7 = 1.0F - f5 * 0.4F;
+/*  980 */       this.g *= f6;
+/*  981 */       this.h *= f6;
+/*  982 */       this.i *= f7;
+/*      */     }
+/*  984 */     float f6 = localfd.f(paramFloat);
+/*  985 */     if (f6 > 0.0F) {
+/*  986 */       f7 = 1.0F - f6 * 0.5F;
+/*  987 */       this.g *= f7;
+/*  988 */       this.h *= f7;
+/*  989 */       this.i *= f7;
+/*      */     }
+/*      */     
+/*  992 */     if (this.D) {
+/*  993 */       bt localbt3 = localfd.c(paramFloat);
+/*  994 */       this.g = ((float)localbt3.a);
+/*  995 */       this.h = ((float)localbt3.b);
+/*  996 */       this.i = ((float)localbt3.c);
+/*  997 */     } else if (localls.a(ln.g)) {
+/*  998 */       this.g = 0.02F;
+/*  999 */       this.h = 0.02F;
+/* 1000 */       this.i = 0.2F;
+/* 1001 */     } else if (localls.a(ln.h)) {
+/* 1002 */       this.g = 0.6F;
+/* 1003 */       this.h = 0.1F;
+/* 1004 */       this.i = 0.0F;
+/*      */     }
+/*      */     
+/* 1007 */     float f8 = this.L + (this.M - this.L) * paramFloat;
+/* 1008 */     this.g *= f8;
+/* 1009 */     this.h *= f8;
+/* 1010 */     this.i *= f8;
+/*      */     
+/*      */ 
+/* 1013 */     if (this.j.z.g) {
+/* 1014 */       float f9 = (this.g * 30.0F + this.h * 59.0F + this.i * 11.0F) / 100.0F;
+/* 1015 */       float f10 = (this.g * 30.0F + this.h * 70.0F) / 100.0F;
+/* 1016 */       float f11 = (this.g * 30.0F + this.i * 70.0F) / 100.0F;
+/*      */       
+/* 1018 */       this.g = f9;
+/* 1019 */       this.h = f10;
+/* 1020 */       this.i = f11;
+/*      */     }
+/*      */     
+/* 1023 */     GL11.glClearColor(this.g, this.h, this.i, 0.0F);
+/*      */   }
+/*      */   
+/*      */   float i;
+/*      */   private float L;
+/*      */   private float M;
+/* 1029 */   private void a(int paramInt, float paramFloat) { ls localls = this.j.i;
+/*      */     
+/* 1031 */     GL11.glFog(2918, a(this.g, this.h, this.i, 1.0F));
+/* 1032 */     GL11.glNormal3f(0.0F, -1.0F, 0.0F);
+/* 1033 */     GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+/*      */     float f1;
+/*      */     float f2;
+/*      */     float f3;
+/* 1037 */     float f4; float f5; float f6; if (this.D) {
+/* 1038 */       GL11.glFogi(2917, 2048);
+/* 1039 */       GL11.glFogf(2914, 0.1F);
+/*      */       
+/* 1041 */       f1 = 1.0F;
+/* 1042 */       f2 = 1.0F;
+/* 1043 */       f3 = 1.0F;
+/*      */       
+/* 1045 */       if (this.j.z.g) {
+/* 1046 */         f4 = (f1 * 30.0F + f2 * 59.0F + f3 * 11.0F) / 100.0F;
+/* 1047 */         f5 = (f1 * 30.0F + f2 * 70.0F) / 100.0F;
+/* 1048 */         f6 = (f1 * 30.0F + f3 * 70.0F) / 100.0F;
+/*      */         
+/* 1050 */         f1 = f4;
+/* 1051 */         f2 = f5;
+/* 1052 */         f3 = f6;
+/*      */       }
+/* 1054 */     } else if (localls.a(ln.g)) {
+/* 1055 */       GL11.glFogi(2917, 2048);
+/* 1056 */       GL11.glFogf(2914, 0.1F);
+/*      */       
+/* 1058 */       f1 = 0.4F;
+/* 1059 */       f2 = 0.4F;
+/* 1060 */       f3 = 0.9F;
+/*      */       
+/* 1062 */       if (this.j.z.g) {
+/* 1063 */         f4 = (f1 * 30.0F + f2 * 59.0F + f3 * 11.0F) / 100.0F;
+/* 1064 */         f5 = (f1 * 30.0F + f2 * 70.0F) / 100.0F;
+/* 1065 */         f6 = (f1 * 30.0F + f3 * 70.0F) / 100.0F;
+/*      */         
+/* 1067 */         f1 = f4;
+/* 1068 */         f2 = f5;
+/* 1069 */         f3 = f6;
+/*      */       }
+/* 1071 */     } else if (localls.a(ln.h)) {
+/* 1072 */       GL11.glFogi(2917, 2048);
+/* 1073 */       GL11.glFogf(2914, 2.0F);
+/* 1074 */       f1 = 0.4F;
+/* 1075 */       f2 = 0.3F;
+/* 1076 */       f3 = 0.3F;
+/*      */       
+/* 1078 */       if (this.j.z.g) {
+/* 1079 */         f4 = (f1 * 30.0F + f2 * 59.0F + f3 * 11.0F) / 100.0F;
+/* 1080 */         f5 = (f1 * 30.0F + f2 * 70.0F) / 100.0F;
+/* 1081 */         f6 = (f1 * 30.0F + f3 * 70.0F) / 100.0F;
+/*      */         
+/* 1083 */         f1 = f4;
+/* 1084 */         f2 = f5;
+/* 1085 */         f3 = f6;
+/*      */       }
+/*      */     } else {
+/* 1088 */       GL11.glFogi(2917, 9729);
+/* 1089 */       GL11.glFogf(2915, this.k * 0.25F);
+/* 1090 */       GL11.glFogf(2916, this.k);
+/* 1091 */       if (paramInt < 0) {
+/* 1092 */         GL11.glFogf(2915, 0.0F);
+/* 1093 */         GL11.glFogf(2916, this.k * 0.8F);
+/*      */       }
+/* 1095 */       if (GLContext.getCapabilities().GL_NV_fog_distance) {
+/* 1096 */         GL11.glFogi(34138, 34139);
+/*      */       }
+/*      */       
+/* 1099 */       if (this.j.f.t.c) {
+/* 1100 */         GL11.glFogf(2915, 0.0F);
+/*      */       }
+/*      */     }
+/*      */     
+/* 1104 */     GL11.glEnable(2903);
+/* 1105 */     GL11.glColorMaterial(1028, 4608);
+/*      */   }
+/*      */   
+/*      */   private FloatBuffer a(float paramFloat1, float paramFloat2, float paramFloat3, float paramFloat4) {
+/* 1109 */     this.f.clear();
+/* 1110 */     this.f.put(paramFloat1).put(paramFloat2).put(paramFloat3).put(paramFloat4);
+/* 1111 */     this.f.flip();
+/* 1112 */     return this.f;
+/*      */   }
+/*      */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\px.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

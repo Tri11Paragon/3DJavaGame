@@ -1,0 +1,29 @@
+/*    */ 
+/*    */ 
+/*    */ public class nr
+/*    */   extends uu
+/*    */ {
+/*    */   protected boolean b;
+/*    */   
+/*    */   protected nr(int paramInt1, int paramInt2, ln paramln, boolean paramBoolean)
+/*    */   {
+/* 10 */     super(paramInt1, paramInt2, paramln);
+/* 11 */     this.b = paramBoolean;
+/*    */   }
+/*    */   
+/*    */   public boolean c() {
+/* 15 */     return false;
+/*    */   }
+/*    */   
+/*    */   public boolean b(xp paramxp, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/* 19 */     int i = paramxp.a(paramInt1, paramInt2, paramInt3);
+/* 20 */     if ((!this.b) && (i == this.bn)) return false;
+/* 21 */     return super.b(paramxp, paramInt1, paramInt2, paramInt3, paramInt4);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\nr.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

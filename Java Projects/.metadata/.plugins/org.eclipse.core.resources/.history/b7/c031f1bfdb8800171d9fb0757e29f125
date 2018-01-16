@@ -1,0 +1,29 @@
+/*    */ 
+/*    */ 
+/*    */ public class go
+/*    */   extends ck
+/*    */ {
+/*    */   public go(int paramInt)
+/*    */   {
+/*  8 */     super(paramInt);
+/*    */     
+/* 10 */     e(0);
+/* 11 */     a(true);
+/*    */   }
+/*    */   
+/*    */   public int a(int paramInt)
+/*    */   {
+/* 16 */     return uu.K.a(2, paramInt);
+/*    */   }
+/*    */   
+/*    */   public int b(int paramInt)
+/*    */   {
+/* 21 */     return paramInt;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\go.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

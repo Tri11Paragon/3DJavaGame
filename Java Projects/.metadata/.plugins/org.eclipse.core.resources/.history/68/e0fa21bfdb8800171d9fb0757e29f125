@@ -1,0 +1,84 @@
+/*    */ import java.util.List;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class qo
+/*    */   implements lw
+/*    */ {
+/*    */   private String a;
+/*    */   private int b;
+/*    */   private iz[] c;
+/*    */   private List d;
+/*    */   
+/*    */   public qo(String paramString, int paramInt)
+/*    */   {
+/* 16 */     this.a = paramString;
+/* 17 */     this.b = paramInt;
+/* 18 */     this.c = new iz[paramInt];
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public iz f_(int paramInt)
+/*    */   {
+/* 31 */     return this.c[paramInt];
+/*    */   }
+/*    */   
+/*    */   public iz a(int paramInt1, int paramInt2) {
+/* 35 */     if (this.c[paramInt1] != null) {
+/* 36 */       if (this.c[paramInt1].a <= paramInt2) {
+/* 37 */         localiz = this.c[paramInt1];
+/* 38 */         this.c[paramInt1] = null;
+/* 39 */         y_();
+/* 40 */         return localiz;
+/*    */       }
+/* 42 */       iz localiz = this.c[paramInt1].a(paramInt2);
+/* 43 */       if (this.c[paramInt1].a == 0) this.c[paramInt1] = null;
+/* 44 */       y_();
+/* 45 */       return localiz;
+/*    */     }
+/*    */     
+/* 48 */     return null;
+/*    */   }
+/*    */   
+/*    */   public void a(int paramInt, iz paramiz) {
+/* 52 */     this.c[paramInt] = paramiz;
+/* 53 */     if ((paramiz != null) && (paramiz.a > d())) paramiz.a = d();
+/* 54 */     y_();
+/*    */   }
+/*    */   
+/*    */   public int a() {
+/* 58 */     return this.b;
+/*    */   }
+/*    */   
+/*    */   public String c() {
+/* 62 */     return this.a;
+/*    */   }
+/*    */   
+/*    */   public int d() {
+/* 66 */     return 64;
+/*    */   }
+/*    */   
+/*    */   public void y_() {
+/* 70 */     if (this.d != null) for (int i = 0; i < this.d.size(); i++) {
+/* 71 */         ((hv)this.d.get(i)).a(this);
+/*    */       }
+/*    */   }
+/*    */   
+/*    */   public boolean a_(gs paramgs) {
+/* 76 */     return true;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\qo.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

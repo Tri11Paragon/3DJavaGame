@@ -1,0 +1,60 @@
+/*    */ import java.io.DataInputStream;
+/*    */ import java.io.DataOutputStream;
+/*    */ 
+/*    */ public class as
+/*    */ {
+/*    */   public static nu a(java.io.InputStream paramInputStream)
+/*    */   {
+/*  8 */     DataInputStream localDataInputStream = new DataInputStream(new java.util.zip.GZIPInputStream(paramInputStream));
+/*    */     try {
+/* 10 */       return a(localDataInputStream);
+/*    */     } finally {
+/* 12 */       localDataInputStream.close();
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public static void a(nu paramnu, java.io.OutputStream paramOutputStream) {
+/* 17 */     DataOutputStream localDataOutputStream = new DataOutputStream(new java.util.zip.GZIPOutputStream(paramOutputStream));
+/*    */     try {
+/* 19 */       a(paramnu, localDataOutputStream);
+/*    */     } finally {
+/* 21 */       localDataOutputStream.close();
+/*    */     }
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public static nu a(java.io.DataInput paramDataInput)
+/*    */   {
+/* 46 */     ij localij = ij.b(paramDataInput);
+/* 47 */     if ((localij instanceof nu)) return (nu)localij;
+/* 48 */     throw new java.io.IOException("Root tag must be a named compound tag");
+/*    */   }
+/*    */   
+/*    */   public static void a(nu paramnu, java.io.DataOutput paramDataOutput) {
+/* 52 */     ij.a(paramnu, paramDataOutput);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\as.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

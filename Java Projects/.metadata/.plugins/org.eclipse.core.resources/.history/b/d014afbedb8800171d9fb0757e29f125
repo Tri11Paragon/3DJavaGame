@@ -1,0 +1,31 @@
+/*    */ import java.math.BigInteger;
+/*    */ import java.security.MessageDigest;
+/*    */ import java.security.NoSuchAlgorithmException;
+/*    */ 
+/*    */ public class hf
+/*    */ {
+/*    */   private String a;
+/*    */   
+/*    */   public hf(String paramString)
+/*    */   {
+/* 11 */     this.a = paramString;
+/*    */   }
+/*    */   
+/*    */   public String a(String paramString) {
+/*    */     try {
+/* 16 */       String str = this.a + paramString;
+/*    */       
+/* 18 */       MessageDigest localMessageDigest = MessageDigest.getInstance("MD5");
+/* 19 */       localMessageDigest.update(str.getBytes(), 0, str.length());
+/* 20 */       return new BigInteger(1, localMessageDigest.digest()).toString(16);
+/*    */     } catch (NoSuchAlgorithmException localNoSuchAlgorithmException) {
+/* 22 */       throw new RuntimeException(localNoSuchAlgorithmException);
+/*    */     }
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\hf.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

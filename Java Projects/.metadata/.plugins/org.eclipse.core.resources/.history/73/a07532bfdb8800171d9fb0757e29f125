@@ -1,0 +1,95 @@
+/*    */ import java.util.List;
+/*    */ import net.minecraft.client.Minecraft;
+/*    */ import org.lwjgl.input.Keyboard;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class jk
+/*    */   extends da
+/*    */ {
+/*    */   private da a;
+/*    */   private ro i;
+/*    */   private final String j;
+/*    */   
+/*    */   public jk(da paramda, String paramString)
+/*    */   {
+/* 16 */     this.a = paramda;
+/* 17 */     this.j = paramString;
+/*    */   }
+/*    */   
+/*    */   public void a() {
+/* 21 */     this.i.b();
+/*    */   }
+/*    */   
+/*    */   public void b()
+/*    */   {
+/* 26 */     nh localnh = nh.a();
+/*    */     
+/* 28 */     Keyboard.enableRepeatEvents(true);
+/* 29 */     this.e.clear();
+/* 30 */     this.e.add(new ke(0, this.c / 2 - 100, this.d / 4 + 96 + 12, localnh.a("selectWorld.renameButton")));
+/* 31 */     this.e.add(new ke(1, this.c / 2 - 100, this.d / 4 + 120 + 12, localnh.a("gui.cancel")));
+/*    */     
+/* 33 */     nl localnl = this.b.c();
+/* 34 */     ei localei = localnl.b(this.j);
+/* 35 */     String str = localei.j();
+/*    */     
+/* 37 */     this.i = new ro(this, this.g, this.c / 2 - 100, 60, 200, 20, str);
+/* 38 */     this.i.a = true;
+/* 39 */     this.i.a(32);
+/*    */   }
+/*    */   
+/*    */   public void h() {
+/* 43 */     Keyboard.enableRepeatEvents(false);
+/*    */   }
+/*    */   
+/*    */   protected void a(ke paramke) {
+/* 47 */     if (!paramke.g) return;
+/* 48 */     if (paramke.f == 1) {
+/* 49 */       this.b.a(this.a);
+/* 50 */     } else if (paramke.f == 0)
+/*    */     {
+/* 52 */       nl localnl = this.b.c();
+/* 53 */       localnl.a(this.j, this.i.a().trim());
+/*    */       
+/* 55 */       this.b.a(this.a);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   protected void a(char paramChar, int paramInt) {
+/* 60 */     this.i.a(paramChar, paramInt);
+/* 61 */     ((ke)this.e.get(0)).g = (this.i.a().trim().length() > 0);
+/*    */     
+/* 63 */     if (paramChar == '\r') {
+/* 64 */       a((ke)this.e.get(0));
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   protected void a(int paramInt1, int paramInt2, int paramInt3)
+/*    */   {
+/* 70 */     super.a(paramInt1, paramInt2, paramInt3);
+/*    */     
+/* 72 */     this.i.a(paramInt1, paramInt2, paramInt3);
+/*    */   }
+/*    */   
+/*    */   public void a(int paramInt1, int paramInt2, float paramFloat)
+/*    */   {
+/* 77 */     nh localnh = nh.a();
+/*    */     
+/*    */ 
+/* 80 */     i();
+/*    */     
+/* 82 */     a(this.g, localnh.a("selectWorld.renameTitle"), this.c / 2, this.d / 4 - 60 + 20, 16777215);
+/* 83 */     b(this.g, localnh.a("selectWorld.enterName"), this.c / 2 - 100, 47, 10526880);
+/*    */     
+/* 85 */     this.i.c();
+/*    */     
+/* 87 */     super.a(paramInt1, paramInt2, paramFloat);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\jk.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

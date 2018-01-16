@@ -1,0 +1,38 @@
+/*    */ import java.io.DataInputStream;
+/*    */ import java.io.DataOutputStream;
+/*    */ 
+/*    */ 
+/*    */ public class yr
+/*    */   extends ki
+/*    */ {
+/*    */   public String a;
+/*    */   
+/*    */   public yr() {}
+/*    */   
+/*    */   public yr(String paramString)
+/*    */   {
+/* 14 */     this.a = paramString;
+/*    */   }
+/*    */   
+/*    */   public void a(DataInputStream paramDataInputStream) {
+/* 18 */     this.a = a(paramDataInputStream, 100);
+/*    */   }
+/*    */   
+/*    */   public void a(DataOutputStream paramDataOutputStream) {
+/* 22 */     a(this.a, paramDataOutputStream);
+/*    */   }
+/*    */   
+/*    */   public void a(ti paramti) {
+/* 26 */     paramti.a(this);
+/*    */   }
+/*    */   
+/*    */   public int a() {
+/* 30 */     return this.a.length();
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\yr.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

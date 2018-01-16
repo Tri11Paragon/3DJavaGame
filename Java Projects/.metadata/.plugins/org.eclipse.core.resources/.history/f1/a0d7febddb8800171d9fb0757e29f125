@@ -1,0 +1,299 @@
+/*     */ package paulscode.sound;
+/*     */ 
+/*     */ import java.util.LinkedList;
+/*     */ import java.util.List;
+/*     */ import java.util.ListIterator;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class StreamThread
+/*     */   extends SimpleThread
+/*     */ {
+/*     */   private SoundSystemLogger logger;
+/*     */   private List streamingSources;
+/*  53 */   private final Object listLock = new Object();
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public StreamThread()
+/*     */   {
+/*  61 */     this.logger = SoundSystemConfig.getLogger();
+/*     */     
+/*  63 */     this.streamingSources = new LinkedList();
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   protected void cleanup()
+/*     */   {
+/*  73 */     kill();
+/*  74 */     super.cleanup();
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void run()
+/*     */   {
+/*     */     try
+/*     */     {
+/*  88 */       snooze(3600000L);
+/*  90 */       for (; 
+/*  90 */           !dying(); 
+/*     */           
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 149 */           snooze(3600000L))
+/*     */       {
+/*     */         label7:
+/*  91 */         while ((!dying()) && (!this.streamingSources.isEmpty()))
+/*     */         {
+/*  93 */           synchronized (this.listLock) {
+/*  94 */             ListIterator localListIterator = this.streamingSources.listIterator();
+/*  95 */             while ((!dying()) && (localListIterator.hasNext())) {
+/*  96 */               Source localSource = (Source)localListIterator.next();
+/*  97 */               if (localSource == null) {
+/*  98 */                 localListIterator.remove();
+/*  99 */               } else if (localSource.stopped()) {
+/* 100 */                 if (!localSource.rawDataStream) localListIterator.remove();
+/* 101 */               } else if (!localSource.active()) {
+/* 102 */                 if ((localSource.toLoop) || (localSource.rawDataStream)) localSource.toPlay = true;
+/* 103 */                 localListIterator.remove();
+/* 104 */               } else if (!localSource.paused()) {
+/* 105 */                 localSource.checkFadeOut();
+/* 106 */                 if ((!localSource.stream()) && (!localSource.rawDataStream) && (
+/* 107 */                   (localSource.channel == null) || (!localSource.channel.processBuffer())))
+/*     */                 {
+/* 109 */                   if (localSource.toLoop)
+/*     */                   {
+/* 111 */                     if (!localSource.playing())
+/*     */                     {
+/*     */ 
+/* 114 */                       if (localSource.checkFadeOut())
+/*     */                       {
+/*     */ 
+/*     */ 
+/* 118 */                         localSource.preLoad = true;
+/*     */ 
+/*     */                       }
+/*     */                       else
+/*     */                       {
+/*     */ 
+/* 124 */                         localSource.incrementSoundSequence();
+/* 125 */                         localSource.preLoad = true;
+/*     */                       }
+/*     */                       
+/*     */                     }
+/*     */                   }
+/* 130 */                   else if ((!localSource.playing()) && 
+/*     */                   
+/*     */ 
+/* 133 */                     (!localSource.checkFadeOut()))
+/*     */                   {
+/*     */ 
+/*     */ 
+/* 137 */                     if (localSource.incrementSoundSequence()) localSource.preLoad = true; else {
+/* 138 */                       localListIterator.remove();
+/*     */                     }
+/*     */                   }
+/*     */                 }
+/*     */               }
+/*     */             }
+/*     */           }
+/*     */           
+/*     */ 
+/* 147 */           if ((!dying()) && (!this.streamingSources.isEmpty())) snooze(20L);
+/*     */         }
+/* 149 */         if ((dying()) || (!this.streamingSources.isEmpty()))
+/*     */           break label7;
+/*     */       }
+/*     */     } finally {
+/* 153 */       cleanup();
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void watch(Source paramSource)
+/*     */   {
+/* 166 */     if (paramSource == null) { return;
+/*     */     }
+/*     */     
+/* 169 */     if (this.streamingSources.contains(paramSource)) { return;
+/*     */     }
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/* 175 */     synchronized (this.listLock)
+/*     */     {
+/*     */ 
+/*     */ 
+/* 179 */       ListIterator localListIterator = this.streamingSources.listIterator();
+/* 180 */       while (localListIterator.hasNext()) {
+/* 181 */         Source localSource = (Source)localListIterator.next();
+/* 182 */         if (localSource == null) {
+/* 183 */           localListIterator.remove();
+/* 184 */         } else if (paramSource.channel == localSource.channel) {
+/* 185 */           localSource.stop();
+/* 186 */           localListIterator.remove();
+/*     */         }
+/*     */       }
+/*     */       
+/*     */ 
+/* 191 */       this.streamingSources.add(paramSource);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   private void message(String paramString)
+/*     */   {
+/* 201 */     this.logger.message(paramString, 0);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   private void importantMessage(String paramString)
+/*     */   {
+/* 210 */     this.logger.importantMessage(paramString, 0);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   private boolean errorCheck(boolean paramBoolean, String paramString)
+/*     */   {
+/* 221 */     return this.logger.errorCheck(paramBoolean, "StreamThread", paramString, 0);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   private void errorMessage(String paramString)
+/*     */   {
+/* 230 */     this.logger.errorMessage("StreamThread", paramString, 0);
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\paulscode\sound\StreamThread.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

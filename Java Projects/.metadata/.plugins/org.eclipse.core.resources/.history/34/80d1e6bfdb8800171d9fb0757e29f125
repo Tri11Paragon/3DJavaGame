@@ -1,0 +1,45 @@
+/*    */ import java.io.DataInputStream;
+/*    */ import java.io.DataOutputStream;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class ca
+/*    */   extends ki
+/*    */ {
+/* 11 */   public static final String[] a = { "tile.bed.notValid", null, null };
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public int b;
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public void a(DataInputStream paramDataInputStream)
+/*    */   {
+/* 25 */     this.b = paramDataInputStream.readByte();
+/*    */   }
+/*    */   
+/*    */   public void a(DataOutputStream paramDataOutputStream) {
+/* 29 */     paramDataOutputStream.writeByte(this.b);
+/*    */   }
+/*    */   
+/*    */   public void a(ti paramti) {
+/* 33 */     paramti.a(this);
+/*    */   }
+/*    */   
+/*    */   public int a() {
+/* 37 */     return 1;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ca.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

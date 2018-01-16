@@ -1,0 +1,94 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class gz
+/*    */   extends ii
+/*    */   implements ff
+/*    */ {
+/* 14 */   protected int c = 2;
+/*    */   
+/*    */   public gz(fd paramfd) {
+/* 17 */     super(paramfd);
+/* 18 */     this.Y = 20;
+/*    */   }
+/*    */   
+/*    */   public void o() {
+/* 22 */     float f = a(1.0F);
+/* 23 */     if (f > 0.5F) {
+/* 24 */       this.av += 2;
+/*    */     }
+/* 26 */     super.o();
+/*    */   }
+/*    */   
+/*    */   public void w_() {
+/* 30 */     super.w_();
+/* 31 */     if ((!this.aI.B) && (this.aI.q == 0)) K();
+/*    */   }
+/*    */   
+/*    */   protected sn g_() {
+/* 35 */     gs localgs = this.aI.a(this, 16.0D);
+/* 36 */     if ((localgs != null) && (e(localgs))) return localgs;
+/* 37 */     return null;
+/*    */   }
+/*    */   
+/*    */   public boolean a(sn paramsn, int paramInt) {
+/* 41 */     if (super.a(paramsn, paramInt)) {
+/* 42 */       if ((this.aG == paramsn) || (this.aH == paramsn)) { return true;
+/*    */       }
+/* 44 */       if (paramsn != this) {
+/* 45 */         this.d = paramsn;
+/*    */       }
+/* 47 */       return true;
+/*    */     }
+/* 49 */     return false;
+/*    */   }
+/*    */   
+/*    */   protected void a(sn paramsn, float paramFloat) {
+/* 53 */     if ((this.ae <= 0) && (paramFloat < 2.0F) && (paramsn.aW.e > this.aW.b) && (paramsn.aW.b < this.aW.e)) {
+/* 54 */       this.ae = 20;
+/* 55 */       paramsn.a(this, this.c);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   protected float a(int paramInt1, int paramInt2, int paramInt3) {
+/* 60 */     return 0.5F - this.aI.c(paramInt1, paramInt2, paramInt3);
+/*    */   }
+/*    */   
+/*    */   public void b(nu paramnu) {
+/* 64 */     super.b(paramnu);
+/*    */   }
+/*    */   
+/*    */   public void a(nu paramnu) {
+/* 68 */     super.a(paramnu);
+/*    */   }
+/*    */   
+/*    */   public boolean d() {
+/* 72 */     int i = in.b(this.aM);
+/* 73 */     int j = in.b(this.aW.b);
+/* 74 */     int k = in.b(this.aO);
+/* 75 */     if (this.aI.a(eb.a, i, j, k) > this.bs.nextInt(32)) { return false;
+/*    */     }
+/* 77 */     int m = this.aI.n(i, j, k);
+/*    */     
+/* 79 */     if (this.aI.B()) {
+/* 80 */       int n = this.aI.f;
+/* 81 */       this.aI.f = 10;
+/* 82 */       m = this.aI.n(i, j, k);
+/* 83 */       this.aI.f = n;
+/*    */     }
+/*    */     
+/* 86 */     return (m <= this.bs.nextInt(8)) && (super.d());
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\gz.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

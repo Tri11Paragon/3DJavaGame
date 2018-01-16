@@ -1,0 +1,53 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class lo
+/*    */   extends ko
+/*    */ {
+/*    */   ps a;
+/*  9 */   ps[] b = new ps[9];
+/*    */   
+/*    */   public lo() {
+/* 12 */     int i = -16;
+/* 13 */     this.a = new ps(0, 0);
+/* 14 */     this.a.a(-8.0F, -8.0F, -8.0F, 16, 16, 16);
+/* 15 */     this.a.b += 24 + i;
+/*    */     
+/* 17 */     Random localRandom = new Random(1660L);
+/* 18 */     for (int j = 0; j < this.b.length; j++) {
+/* 19 */       this.b[j] = new ps(0, 0);
+/*    */       
+/* 21 */       float f1 = ((j % 3 - j / 3 % 2 * 0.5F + 0.25F) / 2.0F * 2.0F - 1.0F) * 5.0F;
+/* 22 */       float f2 = (j / 3 / 2.0F * 2.0F - 1.0F) * 5.0F;
+/* 23 */       int k = localRandom.nextInt(7) + 8;
+/* 24 */       this.b[j].a(-1.0F, 0.0F, -1.0F, 2, k, 2);
+/*    */       
+/* 26 */       this.b[j].a = f1;
+/* 27 */       this.b[j].c = f2;
+/* 28 */       this.b[j].b = (31 + i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public void b(float paramFloat1, float paramFloat2, float paramFloat3, float paramFloat4, float paramFloat5, float paramFloat6) {
+/* 33 */     for (int i = 0; i < this.b.length; i++)
+/*    */     {
+/* 35 */       this.b[i].d = (0.2F * in.a(paramFloat3 * 0.3F + i) + 0.4F);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public void a(float paramFloat1, float paramFloat2, float paramFloat3, float paramFloat4, float paramFloat5, float paramFloat6) {
+/* 40 */     b(paramFloat1, paramFloat2, paramFloat3, paramFloat4, paramFloat5, paramFloat6);
+/*    */     
+/* 42 */     this.a.a(paramFloat6);
+/* 43 */     for (int i = 0; i < this.b.length; i++) {
+/* 44 */       this.b[i].a(paramFloat6);
+/*    */     }
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\lo.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

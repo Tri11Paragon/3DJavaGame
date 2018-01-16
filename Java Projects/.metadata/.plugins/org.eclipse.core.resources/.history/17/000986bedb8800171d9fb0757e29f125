@@ -1,0 +1,49 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ class na
+/*    */   implements pu
+/*    */ {
+/*    */   na(lt paramlt, ed paramed) {}
+/*    */   
+/*    */   public void a(lb paramlb)
+/*    */   {
+/* 39 */     this.a.a(paramlb);
+/*    */   }
+/*    */   
+/* 42 */   public void a(pn parampn) { throw new RuntimeException("Coding failure in Argo:  Attempt to add a field to an array."); }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\na.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

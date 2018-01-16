@@ -1,0 +1,151 @@
+/*     */ import java.util.Random;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class gb
+/*     */   extends gz
+/*     */ {
+/*     */   int a;
+/*     */   int b;
+/*     */   
+/*     */   public gb(fd paramfd)
+/*     */   {
+/*  20 */     super(paramfd);
+/*  21 */     this.O = "/mob/creeper.png";
+/*     */   }
+/*     */   
+/*     */   protected void b()
+/*     */   {
+/*  26 */     super.b();
+/*     */     
+/*  28 */     this.bD.a(16, Byte.valueOf((byte)-1));
+/*  29 */     this.bD.a(17, Byte.valueOf((byte)0));
+/*     */   }
+/*     */   
+/*     */   public void b(nu paramnu) {
+/*  33 */     super.b(paramnu);
+/*  34 */     if (this.bD.a(17) == 1) paramnu.a("powered", true);
+/*     */   }
+/*     */   
+/*     */   public void a(nu paramnu) {
+/*  38 */     super.a(paramnu);
+/*  39 */     this.bD.b(17, Byte.valueOf((byte)(paramnu.m("powered") ? 1 : 0)));
+/*     */   }
+/*     */   
+/*     */   protected void b(sn paramsn, float paramFloat) {
+/*  43 */     if (this.aI.B) return;
+/*  44 */     if (this.a > 0) {
+/*  45 */       e(-1);
+/*  46 */       this.a -= 1;
+/*  47 */       if (this.a < 0) {
+/*  48 */         this.a = 0;
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void w_() {
+/*  54 */     this.b = this.a;
+/*  55 */     if (this.aI.B) {
+/*  56 */       int i = v();
+/*  57 */       if ((i > 0) && (this.a == 0)) {
+/*  58 */         this.aI.a(this, "random.fuse", 1.0F, 0.5F);
+/*     */       }
+/*  60 */       this.a += i;
+/*  61 */       if (this.a < 0) this.a = 0;
+/*  62 */       if (this.a >= 30) this.a = 30;
+/*     */     }
+/*  64 */     super.w_();
+/*     */     
+/*  66 */     if ((this.d == null) && 
+/*  67 */       (this.a > 0)) {
+/*  68 */       e(-1);
+/*  69 */       this.a -= 1;
+/*  70 */       if (this.a < 0) {
+/*  71 */         this.a = 0;
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   protected String j_()
+/*     */   {
+/*  78 */     return "mob.creeper";
+/*     */   }
+/*     */   
+/*     */   protected String i() {
+/*  82 */     return "mob.creeperdeath";
+/*     */   }
+/*     */   
+/*     */   public void b(sn paramsn) {
+/*  86 */     super.b(paramsn);
+/*     */     
+/*  88 */     if ((paramsn instanceof fr)) {
+/*  89 */       b(gm.bd.bf + this.bs.nextInt(2), 1);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   protected void a(sn paramsn, float paramFloat) {
+/*  94 */     if (this.aI.B) return;
+/*  95 */     int i = v();
+/*  96 */     if (((i <= 0) && (paramFloat < 3.0F)) || ((i > 0) && (paramFloat < 7.0F))) {
+/*  97 */       if (this.a == 0) {
+/*  98 */         this.aI.a(this, "random.fuse", 1.0F, 0.5F);
+/*     */       }
+/* 100 */       e(1);
+/* 101 */       this.a += 1;
+/*     */       
+/* 103 */       if (this.a >= 30) {
+/* 104 */         if (s()) {
+/* 105 */           this.aI.a(this, this.aM, this.aN, this.aO, 6.0F);
+/*     */         } else {
+/* 107 */           this.aI.a(this, this.aM, this.aN, this.aO, 3.0F);
+/*     */         }
+/* 109 */         K();
+/*     */       }
+/* 111 */       this.e = true;
+/*     */     } else {
+/* 113 */       e(-1);
+/* 114 */       this.a -= 1;
+/* 115 */       if (this.a < 0) {
+/* 116 */         this.a = 0;
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public boolean s() {
+/* 122 */     return this.bD.a(17) == 1;
+/*     */   }
+/*     */   
+/*     */   public float a_(float paramFloat) {
+/* 126 */     return (this.b + (this.a - this.b) * paramFloat) / 28.0F;
+/*     */   }
+/*     */   
+/*     */   protected int j() {
+/* 130 */     return gm.K.bf;
+/*     */   }
+/*     */   
+/*     */   private int v() {
+/* 134 */     return this.bD.a(16);
+/*     */   }
+/*     */   
+/*     */   private void e(int paramInt) {
+/* 138 */     this.bD.b(16, Byte.valueOf((byte)paramInt));
+/*     */   }
+/*     */   
+/*     */   public void a(c paramc) {
+/* 142 */     super.a(paramc);
+/* 143 */     this.bD.b(17, Byte.valueOf((byte)1));
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\gb.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

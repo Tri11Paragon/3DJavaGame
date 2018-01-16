@@ -1,0 +1,19 @@
+/*    */ 
+/*    */ 
+/*    */ public class ta
+/*    */   extends dq
+/*    */ {
+/*  6 */   private static uu[] bk = { uu.y, uu.ao, uu.K, uu.av };
+/*    */   
+/*    */ 
+/*    */   protected ta(int paramInt, bu parambu)
+/*    */   {
+/* 11 */     super(paramInt, 3, parambu, bk);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ta.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

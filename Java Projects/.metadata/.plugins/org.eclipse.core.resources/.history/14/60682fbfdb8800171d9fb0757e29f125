@@ -1,0 +1,257 @@
+/*     */ import java.io.PrintStream;
+/*     */ import java.util.ArrayList;
+/*     */ import java.util.HashSet;
+/*     */ import java.util.LinkedHashMap;
+/*     */ import java.util.List;
+/*     */ import java.util.Map;
+/*     */ import net.minecraft.client.Minecraft;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class TMIConfig
+/*     */ {
+/*     */   public static final String VERSION = "1.7.2 2011-07-01";
+/*     */   public static final int NUM_SAVES = 7;
+/*     */   public static final int INVENTORY_SIZE = 44;
+/*  24 */   public static boolean isModloaderEnabled = false;
+/*     */   
+/*     */ 
+/*     */   private static TMIConfig instance;
+/*     */   
+/*     */ 
+/*  30 */   private static List<iz> items = new ArrayList();
+/*     */   
+/*     */ 
+/*  33 */   private static HashSet<Integer> toolIds = new HashSet();
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   private static HashSet<Integer> nonUnlimitedIds;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*  48 */   private Map<String, String> settings = new LinkedHashMap();
+/*     */   private static iz[][] states;
+/*     */   private static boolean[] statesSaved;
+/*     */   private static HashSet<Integer> excludeIds;
+/*     */   
+/*     */   static
+/*     */   {
+/*  35 */     for (int i = 1; i <= 3; i++) toolIds.add(Integer.valueOf(i + 256));
+/*  36 */     for (i = 11; i <= 23; i++) toolIds.add(Integer.valueOf(i + 256));
+/*  37 */     for (i = 27; i <= 30; i++) toolIds.add(Integer.valueOf(i + 256));
+/*  38 */     for (i = 42; i <= 61; i++) { toolIds.add(Integer.valueOf(i + 256));
+/*     */     }
+/*     */     
+/*     */ 
+/*  42 */     nonUnlimitedIds = new HashSet();
+/*     */     
+/*  44 */     nonUnlimitedIds.add(Integer.valueOf(358));
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*  49 */     states = new iz[7][44];
+/*  50 */     statesSaved = new boolean[7];
+/*     */     
+/*     */ 
+/*     */ 
+/*  54 */     excludeIds = new HashSet();
+/*     */     
+/*  56 */     excludeIds.add(Integer.valueOf(9));
+/*  57 */     excludeIds.add(Integer.valueOf(11));
+/*  58 */     excludeIds.add(Integer.valueOf(63));
+/*  59 */     excludeIds.add(Integer.valueOf(64));
+/*  60 */     excludeIds.add(Integer.valueOf(68));
+/*  61 */     excludeIds.add(Integer.valueOf(71));
+/*     */     
+/*  63 */     excludeIds.add(Integer.valueOf(74));
+/*  64 */     excludeIds.add(Integer.valueOf(75));
+/*  65 */     excludeIds.add(Integer.valueOf(59));
+/*  66 */     excludeIds.add(Integer.valueOf(83));
+/*  67 */     excludeIds.add(Integer.valueOf(55));
+/*     */     
+/*  69 */     excludeIds.add(Integer.valueOf(26));
+/*  70 */     excludeIds.add(Integer.valueOf(93));
+/*  71 */     excludeIds.add(Integer.valueOf(94));
+/*     */   }
+/*     */   
+/*     */   public TMIConfig() {
+/*  75 */     this.settings.put("enable", "true");
+/*  76 */     this.settings.put("enablemp", "false");
+/*  77 */     this.settings.put("give-command", "/give {0} {1} {2}");
+/*  78 */     for (int i = 0; i < getNumSaves(); i++) {
+/*  79 */       this.settings.put("save-name" + (i + 1), "" + (i + 1));
+/*     */     }
+/*  81 */     for (i = 0; i < getNumSaves(); i++) {
+/*  82 */       this.settings.put("save" + (i + 1), "");
+/*     */     }
+/*  84 */     instance = this;
+/*     */   }
+/*     */   
+/*     */   public static boolean isMultiplayer()
+/*     */   {
+/*  89 */     return TMIUtils.getMinecraft().f.B;
+/*     */   }
+/*     */   
+/*     */   public static TMIConfig getInstance() {
+/*  93 */     if (instance == null) {
+/*  94 */       new TMIConfig();
+/*     */     }
+/*  96 */     return instance;
+/*     */   }
+/*     */   
+/*     */   public Map<String, String> getSettings() {
+/* 100 */     return this.settings;
+/*     */   }
+/*     */   
+/*     */   public List<iz> getItems() {
+/* 104 */     return items;
+/*     */   }
+/*     */   
+/*     */   public int getNumSaves() {
+/* 108 */     return 7;
+/*     */   }
+/*     */   
+/*     */   public boolean isStateSaved(int paramInt) {
+/* 112 */     return statesSaved[paramInt];
+/*     */   }
+/*     */   
+/*     */   public iz[] getState(int paramInt) {
+/* 116 */     return states[paramInt];
+/*     */   }
+/*     */   
+/*     */   public boolean getBooleanSetting(String paramString)
+/*     */   {
+/* 121 */     return Boolean.parseBoolean((String)this.settings.get(paramString));
+/*     */   }
+/*     */   
+/*     */   public boolean isEnabled() {
+/* 125 */     return ((isMultiplayer()) && (getBooleanSetting("enablemp"))) || ((!isMultiplayer()) && (getBooleanSetting("enable")));
+/*     */   }
+/*     */   
+/*     */   public void toggleEnabled()
+/*     */   {
+/* 130 */     String str = isMultiplayer() ? "enablemp" : "enable";
+/* 131 */     this.settings.put(str, Boolean.toString(!getBooleanSetting(str)));
+/*     */   }
+/*     */   
+/*     */   public void setEnabled(boolean paramBoolean) {
+/* 135 */     String str = isMultiplayer() ? "enablemp" : "enable";
+/* 136 */     this.settings.put(str, Boolean.toString(paramBoolean));
+/*     */   }
+/*     */   
+/*     */   public static boolean isItemIncluded(int paramInt)
+/*     */   {
+/* 141 */     return !excludeIds.contains(Integer.valueOf(paramInt));
+/*     */   }
+/*     */   
+/*     */   public static boolean isTool(gm paramgm)
+/*     */   {
+/* 146 */     return toolIds.contains(Integer.valueOf(paramgm.bf));
+/*     */   }
+/*     */   
+/*     */   public static boolean canItemBeUnlimited(gm paramgm)
+/*     */   {
+/* 151 */     return !nonUnlimitedIds.contains(Integer.valueOf(paramgm.bf));
+/*     */   }
+/*     */   
+/*     */   public boolean areDamageVariantsShown()
+/*     */   {
+/* 156 */     if (isMultiplayer()) {
+/* 157 */       String str = (String)getSettings().get("give-command");
+/* 158 */       return str.contains("{3}");
+/*     */     }
+/* 160 */     return true;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   public void clearState(int paramInt)
+/*     */   {
+/* 166 */     for (int i = 0; i < 44; i++) {
+/* 167 */       states[paramInt][i] = null;
+/* 168 */       statesSaved[paramInt] = false;
+/*     */     }
+/* 170 */     this.settings.put("save" + (paramInt + 1), "");
+/*     */   }
+/*     */   
+/*     */   public void loadState(int paramInt)
+/*     */   {
+/* 175 */     if (statesSaved[paramInt] == 0) { return;
+/*     */     }
+/* 177 */     List localList = TMIUtils.getMinecraft().h.d.e;
+/* 178 */     for (int i = 0; i < 44; i++) {
+/* 179 */       gp localgp = (gp)localList.get(i + 1);
+/* 180 */       localgp.c(null);
+/* 181 */       iz localiz = TMIUtils.copyStack(states[paramInt][i]);
+/* 182 */       if ((localiz != null) && (localiz.c >= 0) && (localiz.c < gm.c.length) && (gm.c[localiz.c] != null)) {
+/* 183 */         localgp.c(localiz);
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void saveState(int paramInt)
+/*     */   {
+/* 190 */     List localList = TMIUtils.getMinecraft().h.d.e;
+/* 191 */     for (int i = 0; i < 44; i++) {
+/* 192 */       states[paramInt][i] = TMIUtils.copyStack(((gp)localList.get(i + 1)).a());
+/*     */     }
+/* 194 */     this.settings.put("save" + (paramInt + 1), encodeState(paramInt));
+/* 195 */     statesSaved[paramInt] = true;
+/*     */   }
+/*     */   
+/*     */   public String encodeState(int paramInt) {
+/* 199 */     StringBuilder localStringBuilder = new StringBuilder();
+/* 200 */     for (int i = 0; i < 44; i++) {
+/* 201 */       if (states[paramInt][i] != null) {
+/* 202 */         localStringBuilder.append(states[paramInt][i].c);
+/* 203 */         localStringBuilder.append(":");
+/* 204 */         localStringBuilder.append(states[paramInt][i].a);
+/* 205 */         localStringBuilder.append(":");
+/* 206 */         localStringBuilder.append(states[paramInt][i].i());
+/*     */       }
+/* 208 */       localStringBuilder.append(",");
+/*     */     }
+/* 210 */     return localStringBuilder.toString();
+/*     */   }
+/*     */   
+/*     */   public void decodeState(int paramInt, String paramString) {
+/* 214 */     if (paramString.trim().equals("")) {
+/* 215 */       statesSaved[paramInt] = false;
+/*     */     } else {
+/* 217 */       String[] arrayOfString1 = paramString.split(",", 0);
+/* 218 */       for (int i = 0; (i < arrayOfString1.length) && (i < states[paramInt].length); i++) {
+/* 219 */         String[] arrayOfString2 = arrayOfString1[i].split(":");
+/* 220 */         if (arrayOfString2.length == 3) {
+/*     */           try {
+/* 222 */             states[paramInt][i] = new iz(Integer.parseInt(arrayOfString2[0]), Integer.parseInt(arrayOfString2[1]), Integer.parseInt(arrayOfString2[2]));
+/*     */           } catch (Exception localException) {
+/* 224 */             System.out.println(localException);
+/*     */           }
+/*     */         }
+/*     */       }
+/* 228 */       statesSaved[paramInt] = true;
+/*     */     }
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\TMIConfig.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,96 @@
+/*    */ import java.util.Random;
+/*    */ import org.lwjgl.opengl.GL11;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class pi
+/*    */   extends bw
+/*    */ {
+/*    */   public void a(c paramc, double paramDouble1, double paramDouble2, double paramDouble3, float paramFloat1, float paramFloat2)
+/*    */   {
+/* 12 */     nw localnw = nw.a;
+/*    */     
+/* 14 */     GL11.glDisable(3553);
+/* 15 */     GL11.glDisable(2896);
+/* 16 */     GL11.glEnable(3042);
+/* 17 */     GL11.glBlendFunc(770, 1);
+/*    */     
+/*    */ 
+/* 20 */     double[] arrayOfDouble1 = new double[8];
+/* 21 */     double[] arrayOfDouble2 = new double[8];
+/* 22 */     double d1 = 0.0D;
+/* 23 */     double d2 = 0.0D;
+/*    */     
+/* 25 */     Random localRandom1 = new Random(paramc.a);
+/* 26 */     for (int j = 7; j >= 0; j--) {
+/* 27 */       arrayOfDouble1[j] = d1;
+/* 28 */       arrayOfDouble2[j] = d2;
+/* 29 */       d1 += localRandom1.nextInt(11) - 5;
+/* 30 */       d2 += localRandom1.nextInt(11) - 5;
+/*    */     }
+/*    */     
+/*    */ 
+/* 34 */     for (int i = 0; i < 4; i++) {
+/* 35 */       Random localRandom2 = new Random(paramc.a);
+/* 36 */       for (int k = 0; k < 3; k++) {
+/* 37 */         int m = 7;
+/* 38 */         int n = 0;
+/* 39 */         if (k > 0) m = 7 - k;
+/* 40 */         if (k > 0) n = m - 2;
+/* 41 */         double d3 = arrayOfDouble1[m] - d1;
+/* 42 */         double d4 = arrayOfDouble2[m] - d2;
+/* 43 */         for (int i1 = m; i1 >= n; i1--) {
+/* 44 */           double d5 = d3;
+/* 45 */           double d6 = d4;
+/* 46 */           if (k == 0) {
+/* 47 */             d3 += localRandom2.nextInt(11) - 5;
+/* 48 */             d4 += localRandom2.nextInt(11) - 5;
+/*    */           } else {
+/* 50 */             d3 += localRandom2.nextInt(31) - 15;
+/* 51 */             d4 += localRandom2.nextInt(31) - 15;
+/*    */           }
+/*    */           
+/* 54 */           localnw.a(5);
+/* 55 */           float f = 0.5F;
+/* 56 */           localnw.a(0.9F * f, 0.9F * f, 1.0F * f, 0.3F);
+/*    */           
+/* 58 */           double d7 = 0.1D + i * 0.2D;
+/* 59 */           if (k == 0) { d7 *= (i1 * 0.1D + 1.0D);
+/*    */           }
+/* 61 */           double d8 = 0.1D + i * 0.2D;
+/* 62 */           if (k == 0) { d8 *= ((i1 - 1) * 0.1D + 1.0D);
+/*    */           }
+/* 64 */           for (int i2 = 0; i2 < 5; i2++) {
+/* 65 */             double d9 = paramDouble1 + 0.5D - d7;
+/* 66 */             double d10 = paramDouble3 + 0.5D - d7;
+/* 67 */             if ((i2 == 1) || (i2 == 2)) d9 += d7 * 2.0D;
+/* 68 */             if ((i2 == 2) || (i2 == 3)) { d10 += d7 * 2.0D;
+/*    */             }
+/* 70 */             double d11 = paramDouble1 + 0.5D - d8;
+/* 71 */             double d12 = paramDouble3 + 0.5D - d8;
+/* 72 */             if ((i2 == 1) || (i2 == 2)) d11 += d8 * 2.0D;
+/* 73 */             if ((i2 == 2) || (i2 == 3)) { d12 += d8 * 2.0D;
+/*    */             }
+/* 75 */             localnw.a(d11 + d3, paramDouble2 + i1 * 16, d12 + d4);
+/* 76 */             localnw.a(d9 + d5, paramDouble2 + (i1 + 1) * 16, d10 + d6);
+/*    */           }
+/*    */           
+/*    */ 
+/* 80 */           localnw.a();
+/*    */         }
+/*    */       }
+/*    */     }
+/*    */     
+/*    */ 
+/* 86 */     GL11.glDisable(3042);
+/* 87 */     GL11.glEnable(2896);
+/* 88 */     GL11.glEnable(3553);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\pi.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

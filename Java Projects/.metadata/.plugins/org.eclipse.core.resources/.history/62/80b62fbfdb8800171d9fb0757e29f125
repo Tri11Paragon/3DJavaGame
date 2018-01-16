@@ -1,0 +1,174 @@
+/*     */ import java.util.Random;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class dl
+/*     */   extends bg
+/*     */ {
+/*  21 */   public static final float[][] a = { { 1.0F, 1.0F, 1.0F }, { 0.95F, 0.7F, 0.2F }, { 0.9F, 0.5F, 0.85F }, { 0.6F, 0.7F, 0.95F }, { 0.9F, 0.9F, 0.2F }, { 0.5F, 0.8F, 0.1F }, { 0.95F, 0.7F, 0.8F }, { 0.3F, 0.3F, 0.3F }, { 0.6F, 0.6F, 0.6F }, { 0.3F, 0.6F, 0.7F }, { 0.7F, 0.4F, 0.9F }, { 0.2F, 0.4F, 0.8F }, { 0.5F, 0.4F, 0.3F }, { 0.4F, 0.5F, 0.2F }, { 0.8F, 0.3F, 0.3F }, { 0.1F, 0.1F, 0.1F } };
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public dl(fd paramfd)
+/*     */   {
+/*  44 */     super(paramfd);
+/*  45 */     this.O = "/mob/sheep.png";
+/*  46 */     b(0.9F, 1.3F);
+/*     */   }
+/*     */   
+/*     */   protected void b()
+/*     */   {
+/*  51 */     super.b();
+/*     */     
+/*     */ 
+/*  54 */     this.bD.a(16, new Byte((byte)0));
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public boolean a(sn paramsn, int paramInt)
+/*     */   {
+/*  68 */     return super.a(paramsn, paramInt);
+/*     */   }
+/*     */   
+/*     */   protected void q()
+/*     */   {
+/*  73 */     if (!s())
+/*     */     {
+/*  75 */       a(new iz(uu.ac.bn, 1, r()), 0.0F);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   protected int j()
+/*     */   {
+/*  81 */     return uu.ac.bn;
+/*     */   }
+/*     */   
+/*     */   public boolean a(gs paramgs)
+/*     */   {
+/*  86 */     iz localiz = paramgs.c.b();
+/*     */     
+/*  88 */     if ((localiz != null) && (localiz.c == gm.bc.bf) && (!s())) {
+/*  89 */       if (!this.aI.B) {
+/*  90 */         a(true);
+/*  91 */         int i = 2 + this.bs.nextInt(3);
+/*  92 */         for (int j = 0; j < i; j++) {
+/*  93 */           hl localhl = a(new iz(uu.ac.bn, 1, r()), 1.0F);
+/*  94 */           localhl.aQ += this.bs.nextFloat() * 0.05F;
+/*  95 */           localhl.aP += (this.bs.nextFloat() - this.bs.nextFloat()) * 0.1F;
+/*  96 */           localhl.aR += (this.bs.nextFloat() - this.bs.nextFloat()) * 0.1F;
+/*     */         }
+/*     */       }
+/*  99 */       localiz.a(1, paramgs);
+/*     */     }
+/*     */     
+/* 102 */     return false;
+/*     */   }
+/*     */   
+/*     */   public void b(nu paramnu) {
+/* 106 */     super.b(paramnu);
+/* 107 */     paramnu.a("Sheared", s());
+/* 108 */     paramnu.a("Color", (byte)r());
+/*     */   }
+/*     */   
+/*     */   public void a(nu paramnu) {
+/* 112 */     super.a(paramnu);
+/* 113 */     a(paramnu.m("Sheared"));
+/* 114 */     e_(paramnu.c("Color"));
+/*     */   }
+/*     */   
+/*     */   protected String g() {
+/* 118 */     return "mob.sheep";
+/*     */   }
+/*     */   
+/*     */   protected String j_() {
+/* 122 */     return "mob.sheep";
+/*     */   }
+/*     */   
+/*     */   protected String i() {
+/* 126 */     return "mob.sheep";
+/*     */   }
+/*     */   
+/*     */   public int r() {
+/* 130 */     return this.bD.a(16) & 0xF;
+/*     */   }
+/*     */   
+/*     */   public void e_(int paramInt) {
+/* 134 */     int i = this.bD.a(16);
+/* 135 */     this.bD.b(16, Byte.valueOf((byte)(i & 0xF0 | paramInt & 0xF)));
+/*     */   }
+/*     */   
+/*     */   public boolean s() {
+/* 139 */     return (this.bD.a(16) & 0x10) != 0;
+/*     */   }
+/*     */   
+/*     */   public void a(boolean paramBoolean) {
+/* 143 */     int i = this.bD.a(16);
+/* 144 */     if (paramBoolean) {
+/* 145 */       this.bD.b(16, Byte.valueOf((byte)(i | 0x10)));
+/*     */     } else {
+/* 147 */       this.bD.b(16, Byte.valueOf((byte)(i & 0xFFFFFFEF)));
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public static int a(Random paramRandom) {
+/* 152 */     int i = paramRandom.nextInt(100);
+/* 153 */     if (i < 5) {
+/* 154 */       return 15;
+/*     */     }
+/* 156 */     if (i < 10) {
+/* 157 */       return 7;
+/*     */     }
+/* 159 */     if (i < 15) {
+/* 160 */       return 8;
+/*     */     }
+/* 162 */     if (i < 18) {
+/* 163 */       return 12;
+/*     */     }
+/* 165 */     if (paramRandom.nextInt(500) == 0) return 6;
+/* 166 */     return 0;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\dl.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

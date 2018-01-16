@@ -1,0 +1,73 @@
+/*    */ import java.util.LinkedList;
+/*    */ import java.util.List;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public final class mz
+/*    */   extends ad
+/*    */ {
+/*    */   final yp a;
+/*    */   final List b;
+/*    */   
+/*    */   static ad a(yp paramyp)
+/*    */   {
+/* 21 */     return new mz(paramyp, new LinkedList());
+/*    */   }
+/*    */   
+/*    */ 
+/*    */   static ad a(mz parammz, jt paramjt)
+/*    */   {
+/* 27 */     LinkedList localLinkedList = new LinkedList(parammz.b);
+/* 28 */     localLinkedList.add(paramjt);
+/* 29 */     return new mz(parammz.a, localLinkedList);
+/*    */   }
+/*    */   
+/*    */ 
+/*    */   static ad b(mz parammz, jt paramjt)
+/*    */   {
+/* 35 */     LinkedList localLinkedList = new LinkedList();
+/* 36 */     localLinkedList.add(paramjt);
+/* 37 */     return new mz(parammz.a, localLinkedList);
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   private mz(yp paramyp, List paramList)
+/*    */   {
+/* 46 */     super("Failed to match any JSON node at [" + a(paramList) + "]");
+/* 47 */     this.a = paramyp;
+/* 48 */     this.b = paramList;
+/*    */   }
+/*    */   
+/*    */   static String a(List paramList)
+/*    */   {
+/* 53 */     StringBuilder localStringBuilder = new StringBuilder();
+/* 54 */     for (int i = paramList.size() - 1; i >= 0; i--) {
+/* 55 */       localStringBuilder.append(((jt)paramList.get(i)).a());
+/* 56 */       if (i != 0) {
+/* 57 */         localStringBuilder.append(".");
+/*    */       }
+/*    */     }
+/* 60 */     return localStringBuilder.toString();
+/*    */   }
+/*    */   
+/*    */   public String toString()
+/*    */   {
+/* 65 */     return "JsonNodeDoesNotMatchJsonNodeSelectorException{failedNode=" + this.a + ", failPath=" + this.b + '}';
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\mz.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

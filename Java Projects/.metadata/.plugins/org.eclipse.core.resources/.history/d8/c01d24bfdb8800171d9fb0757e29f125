@@ -1,0 +1,115 @@
+/*     */ import org.lwjgl.opengl.GL11;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class ub
+/*     */ {
+/*   8 */   protected float k = 0.0F;
+/*     */   
+/*     */   protected void a(int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/*  11 */     if (paramInt2 < paramInt1) {
+/*  12 */       int i = paramInt1;
+/*  13 */       paramInt1 = paramInt2;
+/*  14 */       paramInt2 = i;
+/*     */     }
+/*  16 */     a(paramInt1, paramInt3, paramInt2 + 1, paramInt3 + 1, paramInt4);
+/*     */   }
+/*     */   
+/*     */   protected void b(int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/*  20 */     if (paramInt3 < paramInt2) {
+/*  21 */       int i = paramInt2;
+/*  22 */       paramInt2 = paramInt3;
+/*  23 */       paramInt3 = i;
+/*     */     }
+/*  25 */     a(paramInt1, paramInt2 + 1, paramInt1 + 1, paramInt3, paramInt4);
+/*     */   }
+/*     */   
+/*     */   protected void a(int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5) { int i;
+/*  29 */     if (paramInt1 < paramInt3) {
+/*  30 */       i = paramInt1;
+/*  31 */       paramInt1 = paramInt3;
+/*  32 */       paramInt3 = i;
+/*     */     }
+/*  34 */     if (paramInt2 < paramInt4) {
+/*  35 */       i = paramInt2;
+/*  36 */       paramInt2 = paramInt4;
+/*  37 */       paramInt4 = i;
+/*     */     }
+/*  39 */     float f1 = (paramInt5 >> 24 & 0xFF) / 255.0F;
+/*  40 */     float f2 = (paramInt5 >> 16 & 0xFF) / 255.0F;
+/*  41 */     float f3 = (paramInt5 >> 8 & 0xFF) / 255.0F;
+/*  42 */     float f4 = (paramInt5 & 0xFF) / 255.0F;
+/*  43 */     nw localnw = nw.a;
+/*  44 */     GL11.glEnable(3042);
+/*  45 */     GL11.glDisable(3553);
+/*  46 */     GL11.glBlendFunc(770, 771);
+/*  47 */     GL11.glColor4f(f2, f3, f4, f1);
+/*  48 */     localnw.b();
+/*  49 */     localnw.a(paramInt1, paramInt4, 0.0D);
+/*  50 */     localnw.a(paramInt3, paramInt4, 0.0D);
+/*  51 */     localnw.a(paramInt3, paramInt2, 0.0D);
+/*  52 */     localnw.a(paramInt1, paramInt2, 0.0D);
+/*  53 */     localnw.a();
+/*  54 */     GL11.glEnable(3553);
+/*  55 */     GL11.glDisable(3042);
+/*     */   }
+/*     */   
+/*     */   protected void a(int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5, int paramInt6) {
+/*  59 */     float f1 = (paramInt5 >> 24 & 0xFF) / 255.0F;
+/*  60 */     float f2 = (paramInt5 >> 16 & 0xFF) / 255.0F;
+/*  61 */     float f3 = (paramInt5 >> 8 & 0xFF) / 255.0F;
+/*  62 */     float f4 = (paramInt5 & 0xFF) / 255.0F;
+/*     */     
+/*  64 */     float f5 = (paramInt6 >> 24 & 0xFF) / 255.0F;
+/*  65 */     float f6 = (paramInt6 >> 16 & 0xFF) / 255.0F;
+/*  66 */     float f7 = (paramInt6 >> 8 & 0xFF) / 255.0F;
+/*  67 */     float f8 = (paramInt6 & 0xFF) / 255.0F;
+/*  68 */     GL11.glDisable(3553);
+/*  69 */     GL11.glEnable(3042);
+/*  70 */     GL11.glDisable(3008);
+/*  71 */     GL11.glBlendFunc(770, 771);
+/*  72 */     GL11.glShadeModel(7425);
+/*     */     
+/*  74 */     nw localnw = nw.a;
+/*  75 */     localnw.b();
+/*  76 */     localnw.a(f2, f3, f4, f1);
+/*  77 */     localnw.a(paramInt3, paramInt2, 0.0D);
+/*  78 */     localnw.a(paramInt1, paramInt2, 0.0D);
+/*  79 */     localnw.a(f6, f7, f8, f5);
+/*  80 */     localnw.a(paramInt1, paramInt4, 0.0D);
+/*  81 */     localnw.a(paramInt3, paramInt4, 0.0D);
+/*  82 */     localnw.a();
+/*     */     
+/*  84 */     GL11.glShadeModel(7424);
+/*  85 */     GL11.glDisable(3042);
+/*  86 */     GL11.glEnable(3008);
+/*  87 */     GL11.glEnable(3553);
+/*     */   }
+/*     */   
+/*     */   public void a(sj paramsj, String paramString, int paramInt1, int paramInt2, int paramInt3) {
+/*  91 */     paramsj.a(paramString, paramInt1 - paramsj.a(paramString) / 2, paramInt2, paramInt3);
+/*     */   }
+/*     */   
+/*     */   public void b(sj paramsj, String paramString, int paramInt1, int paramInt2, int paramInt3) {
+/*  95 */     paramsj.a(paramString, paramInt1, paramInt2, paramInt3);
+/*     */   }
+/*     */   
+/*     */   public void b(int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5, int paramInt6) {
+/*  99 */     float f1 = 0.00390625F;
+/* 100 */     float f2 = 0.00390625F;
+/* 101 */     nw localnw = nw.a;
+/* 102 */     localnw.b();
+/* 103 */     localnw.a(paramInt1 + 0, paramInt2 + paramInt6, this.k, (paramInt3 + 0) * f1, (paramInt4 + paramInt6) * f2);
+/* 104 */     localnw.a(paramInt1 + paramInt5, paramInt2 + paramInt6, this.k, (paramInt3 + paramInt5) * f1, (paramInt4 + paramInt6) * f2);
+/* 105 */     localnw.a(paramInt1 + paramInt5, paramInt2 + 0, this.k, (paramInt3 + paramInt5) * f1, (paramInt4 + 0) * f2);
+/* 106 */     localnw.a(paramInt1 + 0, paramInt2 + 0, this.k, (paramInt3 + 0) * f1, (paramInt4 + 0) * f2);
+/* 107 */     localnw.a();
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ub.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

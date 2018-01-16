@@ -1,0 +1,124 @@
+/*     */ import java.util.HashMap;
+/*     */ import java.util.Map;
+/*     */ import org.lwjgl.opengl.GL11;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class ll
+/*     */ {
+/*  15 */   private Map m = new HashMap();
+/*     */   
+/*  17 */   public static ll a = new ll();
+/*     */   private sj n;
+/*     */   public static double b;
+/*     */   public static double c;
+/*     */   public static double d;
+/*     */   public ji e;
+/*     */   public fd f;
+/*     */   public ls g;
+/*     */   public float h;
+/*     */   public float i;
+/*     */   public double j;
+/*     */   public double k;
+/*     */   public double l;
+/*     */   
+/*  31 */   private ll() { this.m.put(yk.class, new po());
+/*  32 */     this.m.put(cy.class, new ag());
+/*  33 */     this.m.put(uk.class, new hy());
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*  43 */     for (je localje : this.m.values()) {
+/*  44 */       localje.a(this);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public je a(Class paramClass)
+/*     */   {
+/*  50 */     je localje = (je)this.m.get(paramClass);
+/*  51 */     if ((localje == null) && (paramClass != ow.class)) {
+/*  52 */       localje = a(paramClass.getSuperclass());
+/*  53 */       this.m.put(paramClass, localje);
+/*     */     }
+/*  55 */     return localje;
+/*     */   }
+/*     */   
+/*     */   public boolean a(ow paramow) {
+/*  59 */     return b(paramow) != null;
+/*     */   }
+/*     */   
+/*     */   public je b(ow paramow) {
+/*  63 */     if (paramow == null) return null;
+/*  64 */     return a(paramow.getClass());
+/*     */   }
+/*     */   
+/*     */   public void a(fd paramfd, ji paramji, sj paramsj, ls paramls, float paramFloat) {
+/*  68 */     if (this.f != paramfd) {
+/*  69 */       a(paramfd);
+/*     */     }
+/*  71 */     this.e = paramji;
+/*  72 */     this.g = paramls;
+/*  73 */     this.n = paramsj;
+/*     */     
+/*  75 */     this.h = (paramls.aU + (paramls.aS - paramls.aU) * paramFloat);
+/*  76 */     this.i = (paramls.aV + (paramls.aT - paramls.aV) * paramFloat);
+/*     */     
+/*  78 */     this.j = (paramls.bl + (paramls.aM - paramls.bl) * paramFloat);
+/*  79 */     this.k = (paramls.bm + (paramls.aN - paramls.bm) * paramFloat);
+/*  80 */     this.l = (paramls.bn + (paramls.aO - paramls.bn) * paramFloat);
+/*     */   }
+/*     */   
+/*     */   public void a(ow paramow, float paramFloat) {
+/*  84 */     if (paramow.a(this.j, this.k, this.l) < 4096.0D) {
+/*  85 */       float f1 = this.f.c(paramow.e, paramow.f, paramow.g);
+/*  86 */       GL11.glColor3f(f1, f1, f1);
+/*  87 */       a(paramow, paramow.e - b, paramow.f - c, paramow.g - d, paramFloat);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(ow paramow, double paramDouble1, double paramDouble2, double paramDouble3, float paramFloat) {
+/*  92 */     je localje = b(paramow);
+/*  93 */     if (localje != null) {
+/*  94 */       localje.a(paramow, paramDouble1, paramDouble2, paramDouble3, paramFloat);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(fd paramfd) {
+/*  99 */     this.f = paramfd;
+/*     */     
+/* 101 */     for (je localje : this.m.values()) {
+/* 102 */       if (localje != null) {
+/* 103 */         localje.a(paramfd);
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public sj a()
+/*     */   {
+/* 116 */     return this.n;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ll.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

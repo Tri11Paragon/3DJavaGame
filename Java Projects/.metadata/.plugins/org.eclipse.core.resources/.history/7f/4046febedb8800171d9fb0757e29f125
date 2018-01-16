@@ -1,0 +1,71 @@
+/*    */ import java.util.Arrays;
+/*    */ import java.util.Map;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public final class ol
+/*    */ {
+/*    */   public static gu a()
+/*    */   {
+/* 27 */     return vn.a;
+/*    */   }
+/*    */   
+/*    */   public static gu b() {
+/* 31 */     return vn.b;
+/*    */   }
+/*    */   
+/*    */   public static gu c() {
+/* 35 */     return vn.c;
+/*    */   }
+/*    */   
+/*    */   public static qa a(String paramString) {
+/* 39 */     return new qa(paramString);
+/*    */   }
+/*    */   
+/*    */   public static gu b(String paramString) {
+/* 43 */     return new ja(paramString);
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public static qe a(Iterable paramIterable)
+/*    */   {
+/* 55 */     return new oe(paramIterable);
+/*    */   }
+/*    */   
+/*    */   public static qe a(gu... paramVarArgs) {
+/* 59 */     return a(Arrays.asList(paramVarArgs));
+/*    */   }
+/*    */   
+/*    */   public static qe a(Map paramMap) {
+/* 63 */     return new kr(paramMap);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ol.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

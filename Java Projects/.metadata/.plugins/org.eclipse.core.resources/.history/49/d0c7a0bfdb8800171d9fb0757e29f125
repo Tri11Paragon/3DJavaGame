@@ -1,0 +1,150 @@
+/*     */ import java.io.BufferedReader;
+/*     */ import java.io.InputStreamReader;
+/*     */ import java.nio.charset.Charset;
+/*     */ import java.util.ArrayList;
+/*     */ import java.util.Calendar;
+/*     */ import java.util.Date;
+/*     */ import java.util.List;
+/*     */ import java.util.Random;
+/*     */ import net.minecraft.client.Minecraft;
+/*     */ import org.lwjgl.opengl.GL11;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class fu
+/*     */   extends da
+/*     */ {
+/*  26 */   private static final Random a = new Random();
+/*     */   
+/*  28 */   private float i = 0.0F;
+/*     */   private String j;
+/*     */   private ke l;
+/*     */   
+/*     */   public fu()
+/*     */   {
+/*  34 */     this.j = "missingno";
+/*     */     try {
+/*  36 */       ArrayList localArrayList = new ArrayList();
+/*  37 */       BufferedReader localBufferedReader = new BufferedReader(new InputStreamReader(fu.class.getResourceAsStream("/title/splashes.txt"), Charset.forName("UTF-8")));
+/*  38 */       String str = "";
+/*  39 */       while ((str = localBufferedReader.readLine()) != null) {
+/*  40 */         str = str.trim();
+/*  41 */         if (str.length() > 0) {
+/*  42 */           localArrayList.add(str);
+/*     */         }
+/*     */       }
+/*  45 */       this.j = ((String)localArrayList.get(a.nextInt(localArrayList.size())));
+/*     */     }
+/*     */     catch (Exception localException) {}
+/*     */   }
+/*     */   
+/*     */   public void a() {
+/*  51 */     this.i += 1.0F;
+/*     */   }
+/*     */   
+/*     */   protected void a(char paramChar, int paramInt) {}
+/*     */   
+/*     */   public void b()
+/*     */   {
+/*  58 */     Calendar localCalendar = Calendar.getInstance();
+/*  59 */     localCalendar.setTime(new Date());
+/*     */     
+/*  61 */     if ((localCalendar.get(2) + 1 == 11) && (localCalendar.get(5) == 9)) {
+/*  62 */       this.j = "Happy birthday, ez!";
+/*  63 */     } else if ((localCalendar.get(2) + 1 == 6) && (localCalendar.get(5) == 1)) {
+/*  64 */       this.j = "Happy birthday, Notch!";
+/*  65 */     } else if ((localCalendar.get(2) + 1 == 12) && (localCalendar.get(5) == 24)) {
+/*  66 */       this.j = "Merry X-mas!";
+/*  67 */     } else if ((localCalendar.get(2) + 1 == 1) && (localCalendar.get(5) == 1)) {
+/*  68 */       this.j = "Happy new year!";
+/*     */     }
+/*     */     
+/*  71 */     nh localnh = nh.a();
+/*     */     
+/*     */ 
+/*  74 */     int k = this.d / 4 + 48;
+/*     */     
+/*  76 */     this.e.add(new ke(1, this.c / 2 - 100, k, localnh.a("menu.singleplayer")));
+/*  77 */     this.e.add(this.l = new ke(2, this.c / 2 - 100, k + 24, localnh.a("menu.multiplayer")));
+/*  78 */     this.e.add(new ke(3, this.c / 2 - 100, k + 48, localnh.a("menu.mods")));
+/*     */     
+/*  80 */     if (this.b.n) {
+/*  81 */       this.e.add(new ke(0, this.c / 2 - 100, k + 72, localnh.a("menu.options")));
+/*     */     } else {
+/*  83 */       this.e.add(new ke(0, this.c / 2 - 100, k + 72 + 12, 98, 20, localnh.a("menu.options")));
+/*  84 */       this.e.add(new ke(4, this.c / 2 + 2, k + 72 + 12, 98, 20, localnh.a("menu.quit")));
+/*     */     }
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*  91 */     if (this.b.k == null) {
+/*  92 */       this.l.g = false;
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   protected void a(ke paramke) {
+/*  97 */     if (paramke.f == 0) {
+/*  98 */       this.b.a(new co(this, this.b.z));
+/*     */     }
+/* 100 */     if (paramke.f == 1) {
+/* 101 */       this.b.a(new rq(this));
+/*     */     }
+/* 103 */     if (paramke.f == 2) {
+/* 104 */       this.b.a(new lq(this));
+/*     */     }
+/* 106 */     if (paramke.f == 3) {
+/* 107 */       this.b.a(new ft(this));
+/*     */     }
+/* 109 */     if (paramke.f == 4) {
+/* 110 */       this.b.f();
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(int paramInt1, int paramInt2, float paramFloat) {
+/* 115 */     i();
+/* 116 */     nw localnw = nw.a;
+/*     */     
+/* 118 */     int k = 274;
+/* 119 */     int m = this.c / 2 - k / 2;
+/* 120 */     int n = 30;
+/*     */     
+/* 122 */     GL11.glBindTexture(3553, this.b.p.b("/title/mclogo.png"));
+/* 123 */     GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+/* 124 */     b(m + 0, n + 0, 0, 0, 155, 44);
+/* 125 */     b(m + 155, n + 0, 0, 45, 155, 44);
+/* 126 */     localnw.b(16777215);
+/* 127 */     GL11.glPushMatrix();
+/* 128 */     GL11.glTranslatef(this.c / 2 + 90, 70.0F, 0.0F);
+/*     */     
+/* 130 */     GL11.glRotatef(-20.0F, 0.0F, 0.0F, 1.0F);
+/* 131 */     float f = 1.8F - in.e(in.a((float)(System.currentTimeMillis() % 1000L) / 1000.0F * 3.1415927F * 2.0F) * 0.1F);
+/*     */     
+/* 133 */     f = f * 100.0F / (this.g.a(this.j) + 32);
+/* 134 */     GL11.glScalef(f, f, f);
+/* 135 */     a(this.g, this.j, 0, -8, 16776960);
+/* 136 */     GL11.glPopMatrix();
+/*     */     
+/* 138 */     b(this.g, "Minecraft Beta 1.7.3", 2, 2, 5263440);
+/* 139 */     String str = "Copyright Mojang AB. Do not distribute.";
+/* 140 */     b(this.g, str, this.c - this.g.a(str) - 2, this.d - 10, 16777215);
+/*     */     
+/* 142 */     super.a(paramInt1, paramInt2, paramFloat);
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\fu.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

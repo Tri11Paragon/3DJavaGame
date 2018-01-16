@@ -1,0 +1,149 @@
+/*     */ import java.io.File;
+/*     */ import java.io.FileInputStream;
+/*     */ import java.io.FileOutputStream;
+/*     */ import java.util.ArrayList;
+/*     */ import java.util.List;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class tq
+/*     */   implements nl
+/*     */ {
+/*     */   protected final File a;
+/*     */   
+/*     */   public tq(File paramFile)
+/*     */   {
+/*  19 */     if (!paramFile.exists()) paramFile.mkdirs();
+/*  20 */     this.a = paramFile;
+/*     */   }
+/*     */   
+/*     */   public String a() {
+/*  24 */     return "Old Format";
+/*     */   }
+/*     */   
+/*     */   public List b()
+/*     */   {
+/*  29 */     ArrayList localArrayList = new ArrayList();
+/*     */     
+/*  31 */     for (int i = 0; i < 5; i++)
+/*     */     {
+/*  33 */       String str = "World" + (i + 1);
+/*     */       
+/*  35 */       ei localei = b(str);
+/*  36 */       if (localei != null) {
+/*  37 */         localArrayList.add(new vb(str, "", localei.l(), localei.g(), false));
+/*     */       }
+/*     */     }
+/*     */     
+/*  41 */     return localArrayList;
+/*     */   }
+/*     */   
+/*     */   public void c() {}
+/*     */   
+/*     */   public ei b(String paramString)
+/*     */   {
+/*  48 */     File localFile1 = new File(this.a, paramString);
+/*  49 */     if (!localFile1.exists()) { return null;
+/*     */     }
+/*  51 */     File localFile2 = new File(localFile1, "level.dat");
+/*  52 */     nu localnu3; if (localFile2.exists()) {
+/*     */       try {
+/*  54 */         nu localnu1 = as.a(new FileInputStream(localFile2));
+/*  55 */         localnu3 = localnu1.k("Data");
+/*  56 */         return new ei(localnu3);
+/*     */       } catch (Exception localException1) {
+/*  58 */         localException1.printStackTrace();
+/*     */       }
+/*     */     }
+/*     */     
+/*  62 */     localFile2 = new File(localFile1, "level.dat_old");
+/*  63 */     if (localFile2.exists()) {
+/*     */       try {
+/*  65 */         nu localnu2 = as.a(new FileInputStream(localFile2));
+/*  66 */         localnu3 = localnu2.k("Data");
+/*  67 */         return new ei(localnu3);
+/*     */       } catch (Exception localException2) {
+/*  69 */         localException2.printStackTrace();
+/*     */       }
+/*     */     }
+/*  72 */     return null;
+/*     */   }
+/*     */   
+/*     */   public void a(String paramString1, String paramString2) {
+/*  76 */     File localFile1 = new File(this.a, paramString1);
+/*  77 */     if (!localFile1.exists()) { return;
+/*     */     }
+/*  79 */     File localFile2 = new File(localFile1, "level.dat");
+/*  80 */     if (localFile2.exists()) {
+/*     */       try {
+/*  82 */         nu localnu1 = as.a(new FileInputStream(localFile2));
+/*  83 */         nu localnu2 = localnu1.k("Data");
+/*  84 */         localnu2.a("LevelName", paramString2);
+/*     */         
+/*  86 */         as.a(localnu1, new FileOutputStream(localFile2));
+/*     */       } catch (Exception localException) {
+/*  88 */         localException.printStackTrace();
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void c(String paramString)
+/*     */   {
+/* 112 */     File localFile = new File(this.a, paramString);
+/* 113 */     if (!localFile.exists()) { return;
+/*     */     }
+/* 115 */     a(localFile.listFiles());
+/* 116 */     localFile.delete();
+/*     */   }
+/*     */   
+/*     */   protected static void a(File[] paramArrayOfFile) {
+/* 120 */     for (int i = 0; i < paramArrayOfFile.length; i++) {
+/* 121 */       if (paramArrayOfFile[i].isDirectory()) {
+/* 122 */         a(paramArrayOfFile[i].listFiles());
+/*     */       }
+/* 124 */       paramArrayOfFile[i].delete();
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public wt a(String paramString, boolean paramBoolean) {
+/* 129 */     return new fm(this.a, paramString, paramBoolean);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public boolean a(String paramString)
+/*     */   {
+/* 137 */     return false;
+/*     */   }
+/*     */   
+/*     */   public boolean a(String paramString, yb paramyb) {
+/* 141 */     return false;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\tq.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

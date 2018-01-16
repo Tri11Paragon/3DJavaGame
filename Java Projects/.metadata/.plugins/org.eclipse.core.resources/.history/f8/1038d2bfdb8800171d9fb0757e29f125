@@ -1,0 +1,75 @@
+/*    */ import java.io.PrintStream;
+/*    */ import java.lang.reflect.Field;
+/*    */ import java.lang.reflect.InvocationTargetException;
+/*    */ import net.minecraft.client.Minecraft;
+/*    */ 
+/*    */ public class TMICompatibility
+/*    */ {
+/*  8 */   private static boolean prevZanEnabled = false;
+/*    */   
+/*    */   public static void disableCompetingMods() {
+/* 11 */     prevZanEnabled = setZanMinimapEnabled(false);
+/*    */   }
+/*    */   
+/*    */   public static void restoreCompetingMods() {
+/* 15 */     setZanMinimapEnabled(prevZanEnabled);
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */   public static boolean setZanMinimapEnabled(boolean paramBoolean)
+/*    */   {
+/*    */     try
+/*    */     {
+/* 24 */       boolean bool = true;
+/* 25 */       Class localClass = Class.forName("mod_ZanMinimap");
+/* 26 */       Field localField1 = localClass.getField("instance");
+/* 27 */       Object localObject = localField1.get(null);
+/* 28 */       Field[] arrayOfField1 = localClass.getDeclaredFields();
+/* 29 */       for (Field localField2 : arrayOfField1) {
+/* 30 */         if (localField2.getName().equals("hide")) {
+/* 31 */           localField2.setAccessible(true);
+/* 32 */           bool = !localField2.getBoolean(localObject);
+/* 33 */           localField2.setBoolean(localObject, !paramBoolean);
+/*    */         }
+/*    */       }
+/* 36 */       return bool;
+/*    */     }
+/*    */     catch (ClassNotFoundException localClassNotFoundException) {}catch (IllegalAccessException localIllegalAccessException)
+/*    */     {
+/* 40 */       System.out.println("IllegalAccessException in setZanMinimapEnabled.");
+/*    */     } catch (NoSuchFieldException localNoSuchFieldException) {
+/* 42 */       System.out.println("NoSuchFieldException in setZanMinimapEnabled.");
+/*    */     }
+/* 44 */     return true;
+/*    */   }
+/*    */   
+/*    */ 
+/*    */   public static boolean callConvenientInventoryHandler(int paramInt1, int paramInt2, boolean paramBoolean, Minecraft paramMinecraft, dw paramdw)
+/*    */   {
+/*    */     try
+/*    */     {
+/* 52 */       Class localClass = Class.forName("ConvenientInventory");
+/* 53 */       Class[] arrayOfClass = { Integer.TYPE, Integer.TYPE, Boolean.TYPE, Minecraft.class, dw.class };
+/* 54 */       java.lang.reflect.Method localMethod = localClass.getMethod("mod_convenientInventory_handleClickOnSlot", arrayOfClass);
+/* 55 */       Object[] arrayOfObject = { Integer.valueOf(paramInt1), Integer.valueOf(paramInt2), Boolean.valueOf(paramBoolean), paramMinecraft, paramdw };
+/* 56 */       localMethod.invoke(null, arrayOfObject);
+/* 57 */       return true;
+/*    */     } catch (ClassNotFoundException localClassNotFoundException) {
+/* 59 */       return false;
+/*    */     } catch (NoSuchMethodException localNoSuchMethodException) {
+/* 61 */       return false;
+/*    */     } catch (InvocationTargetException localInvocationTargetException) {
+/* 63 */       System.out.println("callConvenientInventoryHandler: " + localInvocationTargetException.getCause());
+/* 64 */       return false;
+/*    */     } catch (IllegalAccessException localIllegalAccessException) {
+/* 66 */       System.out.println("callConvenientInventoryHandler: " + localIllegalAccessException); }
+/* 67 */     return false;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\TMICompatibility.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

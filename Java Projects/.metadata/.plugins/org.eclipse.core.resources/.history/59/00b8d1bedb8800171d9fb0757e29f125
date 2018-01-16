@@ -1,0 +1,384 @@
+/*     */ import java.lang.reflect.Constructor;
+/*     */ import java.util.HashSet;
+/*     */ import java.util.Iterator;
+/*     */ import java.util.List;
+/*     */ import java.util.Random;
+/*     */ import java.util.Set;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public final class cq
+/*     */ {
+/*     */   protected static wf a(fd paramfd, int paramInt1, int paramInt2)
+/*     */   {
+/*  44 */     int i = paramInt1 + paramfd.r.nextInt(16);
+/*  45 */     int j = paramfd.r.nextInt(128);
+/*  46 */     int k = paramInt2 + paramfd.r.nextInt(16);
+/*     */     
+/*  48 */     return new wf(i, j, k);
+/*     */   }
+/*     */   
+/*  51 */   private static Set b = new HashSet();
+/*     */   
+/*     */   public static final int a(fd paramfd, boolean paramBoolean1, boolean paramBoolean2)
+/*     */   {
+/*  55 */     if ((!paramBoolean1) && (!paramBoolean2)) {
+/*  56 */       return 0;
+/*     */     }
+/*     */     
+/*  59 */     b.clear();
+/*     */     int k;
+/*  61 */     int m; for (int i = 0; i < paramfd.d.size(); i++) {
+/*  62 */       localObject1 = (gs)paramfd.d.get(i);
+/*  63 */       int j = in.b(((gs)localObject1).aM / 16.0D);
+/*  64 */       k = in.b(((gs)localObject1).aO / 16.0D);
+/*     */       
+/*  66 */       m = 8;
+/*  67 */       for (int n = -m; n <= m; n++) {
+/*  68 */         for (int i1 = -m; i1 <= m; i1++) {
+/*  69 */           b.add(new yy(n + j, i1 + k));
+/*     */         }
+/*     */       }
+/*     */     }
+/*  73 */     i = 0;
+/*  74 */     Object localObject1 = paramfd.u();
+/*     */     lk locallk;
+/*  76 */     label872: label878: for (locallk : lk.values())
+/*     */     {
+/*  78 */       if (((!locallk.d()) || (paramBoolean2)) && ((locallk.d()) || (paramBoolean1)))
+/*     */       {
+/*     */ 
+/*     */ 
+/*  82 */         if (paramfd.b(locallk.a()) <= locallk.b() * b.size() / 256)
+/*     */         {
+/*     */ 
+/*     */ 
+/*  86 */           for (yy localyy : b)
+/*     */           {
+/*  88 */             kd localkd = paramfd.a().a(localyy);
+/*  89 */             List localList = localkd.a(locallk);
+/*  90 */             if ((localList != null) && (!localList.isEmpty()))
+/*     */             {
+/*  92 */               int i2 = 0;
+/*  93 */               for (Iterator localIterator2 = localList.iterator(); localIterator2.hasNext();) { localObject2 = (bj)localIterator2.next();
+/*  94 */                 i2 += ((bj)localObject2).b;
+/*     */               }
+/*  96 */               int i3 = paramfd.r.nextInt(i2);
+/*  97 */               Object localObject2 = (bj)localList.get(0);
+/*  98 */               for (Object localObject3 = localList.iterator(); ((Iterator)localObject3).hasNext();) { bj localbj = (bj)((Iterator)localObject3).next();
+/*  99 */                 i3 -= localbj.b;
+/* 100 */                 if (i3 < 0) {
+/* 101 */                   localObject2 = localbj;
+/* 102 */                   break;
+/*     */                 }
+/*     */               }
+/*     */               
+/*     */ 
+/* 107 */               localObject3 = a(paramfd, localyy.a * 16, localyy.b * 16);
+/* 108 */               int i4 = ((wf)localObject3).a;
+/* 109 */               int i5 = ((wf)localObject3).b;
+/* 110 */               int i6 = ((wf)localObject3).c;
+/*     */               
+/* 112 */               if ((!paramfd.h(i4, i5, i6)) && 
+/* 113 */                 (paramfd.f(i4, i5, i6) == locallk.c())) {
+/* 114 */                 int i7 = 0;
+/*     */                 
+/* 116 */                 for (int i8 = 0;; i8++) { if (i8 >= 3) break label878;
+/* 117 */                   int i9 = i4;
+/* 118 */                   int i10 = i5;
+/* 119 */                   int i11 = i6;
+/* 120 */                   int i12 = 6;
+/* 121 */                   for (int i13 = 0;; i13++) { if (i13 >= 4) break label872;
+/* 122 */                     i9 += paramfd.r.nextInt(i12) - paramfd.r.nextInt(i12);
+/* 123 */                     i10 += paramfd.r.nextInt(1) - paramfd.r.nextInt(1);
+/* 124 */                     i11 += paramfd.r.nextInt(i12) - paramfd.r.nextInt(i12);
+/*     */                     
+/*     */ 
+/* 127 */                     if (a(locallk, paramfd, i9, i10, i11)) {
+/* 128 */                       float f1 = i9 + 0.5F;
+/* 129 */                       float f2 = i10;
+/* 130 */                       float f3 = i11 + 0.5F;
+/* 131 */                       if (paramfd.a(f1, f2, f3, 24.0D) == null)
+/*     */                       {
+/*     */ 
+/* 134 */                         float f4 = f1 - ((br)localObject1).a;
+/* 135 */                         float f5 = f2 - ((br)localObject1).b;
+/* 136 */                         float f6 = f3 - ((br)localObject1).c;
+/* 137 */                         float f7 = f4 * f4 + f5 * f5 + f6 * f6;
+/* 138 */                         if (f7 >= 576.0F)
+/*     */                         {
+/*     */                           ls localls;
+/*     */                           
+/*     */ 
+/*     */                           try
+/*     */                           {
+/* 145 */                             localls = (ls)((bj)localObject2).a.getConstructor(new Class[] { fd.class }).newInstance(new Object[] { paramfd });
+/*     */                           } catch (Exception localException) {
+/* 147 */                             localException.printStackTrace();
+/* 148 */                             return i;
+/*     */                           }
+/*     */                           
+/* 151 */                           localls.c(f1, f2, f3, paramfd.r.nextFloat() * 360.0F, 0.0F);
+/*     */                           
+/* 153 */                           if (localls.d()) {
+/* 154 */                             i7++;
+/* 155 */                             paramfd.b(localls);
+/* 156 */                             a(localls, paramfd, f1, f2, f3);
+/* 157 */                             if (i7 >= localls.l()) break;
+/*     */                           }
+/* 159 */                           i += i7;
+/*     */                         }
+/*     */                       }
+/*     */                     }
+/*     */                   }
+/*     */                 } } } } } } }
+/* 165 */     return i;
+/*     */   }
+/*     */   
+/*     */   private static boolean a(lk paramlk, fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/* 169 */     if (paramlk.c() == ln.g) {
+/* 170 */       return (paramfd.f(paramInt1, paramInt2, paramInt3).d()) && (!paramfd.h(paramInt1, paramInt2 + 1, paramInt3));
+/*     */     }
+/* 172 */     return (paramfd.h(paramInt1, paramInt2 - 1, paramInt3)) && (!paramfd.h(paramInt1, paramInt2, paramInt3)) && (!paramfd.f(paramInt1, paramInt2, paramInt3).d()) && (!paramfd.h(paramInt1, paramInt2 + 1, paramInt3));
+/*     */   }
+/*     */   
+/*     */   private static void a(ls paramls, fd paramfd, float paramFloat1, float paramFloat2, float paramFloat3)
+/*     */   {
+/* 177 */     if (((paramls instanceof cn)) && (paramfd.r.nextInt(100) == 0)) {
+/* 178 */       fr localfr = new fr(paramfd);
+/* 179 */       localfr.c(paramFloat1, paramFloat2, paramFloat3, paramls.aS, 0.0F);
+/* 180 */       paramfd.b(localfr);
+/* 181 */       localfr.i(paramls);
+/* 182 */     } else if ((paramls instanceof dl)) {
+/* 183 */       ((dl)paramls).e_(dl.a(paramfd.r));
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/* 188 */   protected static final Class[] a = { cn.class, uz.class, fr.class };
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   public static boolean a(fd paramfd, List paramList)
+/*     */   {
+/* 194 */     boolean bool = false;
+/*     */     
+/* 196 */     fw localfw = new fw(paramfd);
+/*     */     
+/* 198 */     for (Iterator localIterator = paramList.iterator(); localIterator.hasNext(); 
+/*     */         
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 206 */         goto 66)
+/*     */     {
+/*     */       label19:
+/* 198 */       gs localgs = (gs)localIterator.next();
+/*     */       
+/*     */ 
+/* 201 */       Class[] arrayOfClass = a;
+/* 202 */       if ((arrayOfClass == null) || (arrayOfClass.length == 0))
+/*     */         break label19;
+/* 204 */       int i = 0;
+/*     */       
+/* 206 */       int j = 0; if ((j < 20) && (i == 0))
+/*     */       {
+/*     */ 
+/*     */ 
+/* 210 */         int k = in.b(localgs.aM) + paramfd.r.nextInt(32) - paramfd.r.nextInt(32);
+/* 211 */         int m = in.b(localgs.aO) + paramfd.r.nextInt(32) - paramfd.r.nextInt(32);
+/* 212 */         int n = in.b(localgs.aN) + paramfd.r.nextInt(16) - paramfd.r.nextInt(16);
+/* 213 */         if (n < 1) {
+/* 214 */           n = 1;
+/* 215 */         } else if (n > 128) {
+/* 216 */           n = 128;
+/*     */         }
+/*     */         
+/*     */ 
+/* 220 */         int i1 = paramfd.r.nextInt(arrayOfClass.length);
+/* 221 */         int i2 = n;
+/*     */         
+/* 223 */         while ((i2 > 2) && (!paramfd.h(k, i2 - 1, m))) {
+/* 224 */           i2--;
+/*     */         }
+/*     */         
+/* 227 */         while ((!a(lk.a, paramfd, k, i2, m)) && (i2 < n + 16) && (i2 < 128)) {
+/* 228 */           i2++;
+/*     */         }
+/* 230 */         if ((i2 >= n + 16) || (i2 >= 128)) {
+/* 231 */           i2 = n;
+/*     */         }
+/*     */         else {
+/* 234 */           float f1 = k + 0.5F;
+/* 235 */           float f2 = i2;
+/* 236 */           float f3 = m + 0.5F;
+/*     */           ls localls;
+/*     */           try
+/*     */           {
+/* 240 */             localls = (ls)arrayOfClass[i1].getConstructor(new Class[] { fd.class }).newInstance(new Object[] { paramfd });
+/*     */           } catch (Exception localException) {
+/* 242 */             localException.printStackTrace();
+/* 243 */             return bool;
+/*     */           }
+/*     */           
+/*     */ 
+/* 247 */           localls.c(f1, f2, f3, paramfd.r.nextFloat() * 360.0F, 0.0F);
+/*     */           
+/* 249 */           if (localls.d())
+/*     */           {
+/*     */ 
+/*     */ 
+/* 253 */             dh localdh = localfw.a(localls, localgs, 32.0F);
+/* 254 */             if ((localdh != null) && (localdh.a > 1)) {
+/* 255 */               d locald = localdh.c();
+/*     */               
+/* 257 */               if ((Math.abs(locald.a - localgs.aM) < 1.5D) && (Math.abs(locald.c - localgs.aO) < 1.5D) && (Math.abs(locald.b - localgs.aN) < 1.5D))
+/*     */               {
+/*     */ 
+/* 260 */                 br localbr = ve.f(paramfd, in.b(localgs.aM), in.b(localgs.aN), in.b(localgs.aO), 1);
+/* 261 */                 if (localbr == null)
+/*     */                 {
+/*     */ 
+/* 264 */                   localbr = new br(k, i2 + 1, m);
+/*     */                 }
+/* 266 */                 localls.c(localbr.a + 0.5F, localbr.b, localbr.c + 0.5F, 0.0F, 0.0F);
+/*     */                 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 271 */                 paramfd.b(localls);
+/* 272 */                 a(localls, paramfd, localbr.a + 0.5F, localbr.b, localbr.c + 0.5F);
+/* 273 */                 localgs.a(true, false, false);
+/*     */                 
+/* 275 */                 localls.T();
+/* 276 */                 bool = true;
+/* 277 */                 i = 1;
+/*     */               }
+/*     */             }
+/*     */           }
+/*     */         }
+/* 206 */         j++;
+/*     */       }
+/*     */     }
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 289 */     return bool;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\cq.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

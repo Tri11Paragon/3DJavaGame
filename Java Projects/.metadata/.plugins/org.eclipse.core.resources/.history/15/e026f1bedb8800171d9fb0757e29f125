@@ -1,0 +1,38 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class mt
+/*    */   extends uu
+/*    */ {
+/*    */   public mt(int paramInt1, int paramInt2)
+/*    */   {
+/* 11 */     super(paramInt1, paramInt2, ln.e);
+/*    */   }
+/*    */   
+/*    */   public int a(int paramInt, Random paramRandom) {
+/* 15 */     if (this.bn == uu.J.bn) return gm.k.bf;
+/* 16 */     if (this.bn == uu.ax.bn) return gm.l.bf;
+/* 17 */     if (this.bn == uu.O.bn) return gm.aU.bf;
+/* 18 */     return this.bn;
+/*    */   }
+/*    */   
+/*    */   public int a(Random paramRandom) {
+/* 22 */     if (this.bn == uu.O.bn) return 4 + paramRandom.nextInt(5);
+/* 23 */     return 1;
+/*    */   }
+/*    */   
+/*    */ 
+/*    */   protected int b_(int paramInt)
+/*    */   {
+/* 29 */     if (this.bn == uu.O.bn) return 4;
+/* 30 */     return 0;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\mt.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

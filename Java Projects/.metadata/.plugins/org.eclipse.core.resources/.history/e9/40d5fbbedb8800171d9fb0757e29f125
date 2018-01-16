@@ -1,0 +1,411 @@
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class ix
+/*     */   implements lw
+/*     */ {
+/*  17 */   public iz[] a = new iz[36];
+/*  18 */   public iz[] b = new iz[4];
+/*     */   
+/*  20 */   public int c = 0;
+/*     */   public gs d;
+/*     */   private iz f;
+/*  23 */   public boolean e = false;
+/*     */   
+/*     */   public ix(gs paramgs) {
+/*  26 */     this.d = paramgs;
+/*     */   }
+/*     */   
+/*     */   public iz b()
+/*     */   {
+/*  31 */     if ((this.c < 9) && (this.c >= 0)) {
+/*  32 */       return this.a[this.c];
+/*     */     }
+/*  34 */     return null;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   private int f(int paramInt)
+/*     */   {
+/*  42 */     for (int i = 0; i < this.a.length; i++) {
+/*  43 */       if ((this.a[i] != null) && (this.a[i].c == paramInt)) return i;
+/*     */     }
+/*  45 */     return -1;
+/*     */   }
+/*     */   
+/*     */   private int d(iz paramiz) {
+/*  49 */     for (int i = 0; i < this.a.length; i++) {
+/*  50 */       if ((this.a[i] != null) && (this.a[i].c == paramiz.c) && (this.a[i].d()) && (this.a[i].a < this.a[i].c()) && (this.a[i].a < d()) && ((!this.a[i].f()) || (this.a[i].i() == paramiz.i())))
+/*     */       {
+/*  52 */         return i;
+/*     */       }
+/*     */     }
+/*  55 */     return -1;
+/*     */   }
+/*     */   
+/*     */   private int j() {
+/*  59 */     for (int i = 0; i < this.a.length; i++) {
+/*  60 */       if (this.a[i] == null) return i;
+/*     */     }
+/*  62 */     return -1;
+/*     */   }
+/*     */   
+/*     */   public void a(int paramInt, boolean paramBoolean) {
+/*  66 */     int i = f(paramInt);
+/*  67 */     if ((i >= 0) && (i < 9)) {
+/*  68 */       this.c = i;
+/*  69 */       return;
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void b(int paramInt)
+/*     */   {
+/*  80 */     if (paramInt > 0) paramInt = 1;
+/*  81 */     if (paramInt < 0) { paramInt = -1;
+/*     */     }
+/*  83 */     this.c -= paramInt;
+/*     */     
+/*  85 */     while (this.c < 0)
+/*  86 */       this.c += 9;
+/*  87 */     while (this.c >= 9) {
+/*  88 */       this.c -= 9;
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   private int e(iz paramiz)
+/*     */   {
+/* 119 */     int i = paramiz.c;
+/* 120 */     int j = paramiz.a;
+/*     */     
+/* 122 */     int k = d(paramiz);
+/* 123 */     if (k < 0) k = j();
+/* 124 */     if (k < 0) return j;
+/* 125 */     if (this.a[k] == null) {
+/* 126 */       this.a[k] = new iz(i, 0, paramiz.i());
+/*     */     }
+/*     */     
+/* 129 */     int m = j;
+/* 130 */     if (m > this.a[k].c() - this.a[k].a) {
+/* 131 */       m = this.a[k].c() - this.a[k].a;
+/*     */     }
+/* 133 */     if (m > d() - this.a[k].a) {
+/* 134 */       m = d() - this.a[k].a;
+/*     */     }
+/*     */     
+/* 137 */     if (m == 0) { return j;
+/*     */     }
+/* 139 */     j -= m;
+/* 140 */     this.a[k].a += m;
+/* 141 */     this.a[k].b = 5;
+/*     */     
+/* 143 */     return j;
+/*     */   }
+/*     */   
+/*     */   public void e() {
+/* 147 */     for (int i = 0; i < this.a.length; i++) {
+/* 148 */       if (this.a[i] != null) {
+/* 149 */         this.a[i].a(this.d.aI, this.d, i, this.c == i);
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public boolean c(int paramInt) {
+/* 155 */     int i = f(paramInt);
+/* 156 */     if (i < 0) return false;
+/* 157 */     if (--this.a[i].a <= 0) { this.a[i] = null;
+/*     */     }
+/* 159 */     return true;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public boolean a(iz paramiz)
+/*     */   {
+/* 169 */     if (!paramiz.g())
+/*     */     {
+/*     */       do {
+/* 172 */         i = paramiz.a;
+/* 173 */         paramiz.a = e(paramiz);
+/* 174 */       } while ((paramiz.a > 0) && (paramiz.a < i));
+/* 175 */       return paramiz.a < i;
+/*     */     }
+/*     */     
+/* 178 */     int i = j();
+/* 179 */     if (i >= 0) {
+/* 180 */       this.a[i] = iz.b(paramiz);
+/*     */       
+/* 182 */       this.a[i].b = 5;
+/* 183 */       paramiz.a = 0;
+/* 184 */       return true;
+/*     */     }
+/* 186 */     return false;
+/*     */   }
+/*     */   
+/*     */   public iz a(int paramInt1, int paramInt2) {
+/* 190 */     iz[] arrayOfiz = this.a;
+/* 191 */     if (paramInt1 >= this.a.length) {
+/* 192 */       arrayOfiz = this.b;
+/* 193 */       paramInt1 -= this.a.length;
+/*     */     }
+/*     */     
+/* 196 */     if (arrayOfiz[paramInt1] != null) {
+/* 197 */       if (arrayOfiz[paramInt1].a <= paramInt2) {
+/* 198 */         localiz = arrayOfiz[paramInt1];
+/* 199 */         arrayOfiz[paramInt1] = null;
+/* 200 */         return localiz;
+/*     */       }
+/* 202 */       iz localiz = arrayOfiz[paramInt1].a(paramInt2);
+/* 203 */       if (arrayOfiz[paramInt1].a == 0) arrayOfiz[paramInt1] = null;
+/* 204 */       return localiz;
+/*     */     }
+/*     */     
+/* 207 */     return null;
+/*     */   }
+/*     */   
+/*     */   public void a(int paramInt, iz paramiz) {
+/* 211 */     iz[] arrayOfiz = this.a;
+/* 212 */     if (paramInt >= arrayOfiz.length) {
+/* 213 */       paramInt -= arrayOfiz.length;
+/* 214 */       arrayOfiz = this.b;
+/*     */     }
+/*     */     
+/* 217 */     arrayOfiz[paramInt] = paramiz;
+/*     */   }
+/*     */   
+/*     */   public float a(uu paramuu) {
+/* 221 */     float f1 = 1.0F;
+/* 222 */     if (this.a[this.c] != null) f1 *= this.a[this.c].a(paramuu);
+/* 223 */     return f1;
+/*     */   }
+/*     */   
+/*     */   public sp a(sp paramsp) { nu localnu;
+/* 227 */     for (int i = 0; i < this.a.length; i++) {
+/* 228 */       if (this.a[i] != null) {
+/* 229 */         localnu = new nu();
+/* 230 */         localnu.a("Slot", (byte)i);
+/* 231 */         this.a[i].a(localnu);
+/* 232 */         paramsp.a(localnu);
+/*     */       }
+/*     */     }
+/* 235 */     for (i = 0; i < this.b.length; i++) {
+/* 236 */       if (this.b[i] != null) {
+/* 237 */         localnu = new nu();
+/* 238 */         localnu.a("Slot", (byte)(i + 100));
+/* 239 */         this.b[i].a(localnu);
+/* 240 */         paramsp.a(localnu);
+/*     */       }
+/*     */     }
+/* 243 */     return paramsp;
+/*     */   }
+/*     */   
+/*     */   public void b(sp paramsp) {
+/* 247 */     this.a = new iz[36];
+/* 248 */     this.b = new iz[4];
+/* 249 */     for (int i = 0; i < paramsp.c(); i++) {
+/* 250 */       nu localnu = (nu)paramsp.a(i);
+/* 251 */       int j = localnu.c("Slot") & 0xFF;
+/* 252 */       iz localiz = new iz(localnu);
+/* 253 */       if (localiz.a() != null) {
+/* 254 */         if ((j >= 0) && (j < this.a.length)) this.a[j] = localiz;
+/* 255 */         if ((j >= 100) && (j < this.b.length + 100)) this.b[(j - 100)] = localiz;
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public int a() {
+/* 261 */     return this.a.length + 4;
+/*     */   }
+/*     */   
+/*     */   public iz f_(int paramInt) {
+/* 265 */     iz[] arrayOfiz = this.a;
+/* 266 */     if (paramInt >= arrayOfiz.length) {
+/* 267 */       paramInt -= arrayOfiz.length;
+/* 268 */       arrayOfiz = this.b;
+/*     */     }
+/*     */     
+/* 271 */     return arrayOfiz[paramInt];
+/*     */   }
+/*     */   
+/*     */   public String c() {
+/* 275 */     return "Inventory";
+/*     */   }
+/*     */   
+/*     */   public int d() {
+/* 279 */     return 64;
+/*     */   }
+/*     */   
+/*     */   public int a(sn paramsn) {
+/* 283 */     iz localiz = f_(this.c);
+/* 284 */     if (localiz != null) return localiz.a(paramsn);
+/* 285 */     return 1;
+/*     */   }
+/*     */   
+/*     */   public boolean b(uu paramuu) {
+/* 289 */     if (paramuu.bA.i()) { return true;
+/*     */     }
+/* 291 */     iz localiz = f_(this.c);
+/* 292 */     if (localiz != null) return localiz.b(paramuu);
+/* 293 */     return false;
+/*     */   }
+/*     */   
+/*     */   public iz d(int paramInt) {
+/* 297 */     return this.b[paramInt];
+/*     */   }
+/*     */   
+/*     */   public int f() {
+/* 301 */     int i = 0;
+/* 302 */     int j = 0;
+/* 303 */     int k = 0;
+/* 304 */     for (int m = 0; m < this.b.length; m++) {
+/* 305 */       if ((this.b[m] != null) && ((this.b[m].a() instanceof wa))) {
+/* 306 */         int n = this.b[m].j();
+/* 307 */         int i1 = this.b[m].h();
+/*     */         
+/* 309 */         int i2 = n - i1;
+/* 310 */         j += i2;
+/* 311 */         k += n;
+/*     */         
+/* 313 */         int i3 = ((wa)this.b[m].a()).bl;
+/*     */         
+/* 315 */         i += i3;
+/*     */       }
+/*     */     }
+/* 318 */     if (k == 0) return 0;
+/* 319 */     return (i - 1) * j / k + 1;
+/*     */   }
+/*     */   
+/*     */   public void e(int paramInt) {
+/* 323 */     for (int i = 0; i < this.b.length; i++) {
+/* 324 */       if ((this.b[i] != null) && ((this.b[i].a() instanceof wa))) {
+/* 325 */         this.b[i].a(paramInt, this.d);
+/* 326 */         if (this.b[i].a == 0) {
+/* 327 */           this.b[i].a(this.d);
+/* 328 */           this.b[i] = null;
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void g() {
+/* 335 */     for (int i = 0; i < this.a.length; i++) {
+/* 336 */       if (this.a[i] != null) {
+/* 337 */         this.d.a(this.a[i], true);
+/* 338 */         this.a[i] = null;
+/*     */       }
+/*     */     }
+/* 341 */     for (i = 0; i < this.b.length; i++) {
+/* 342 */       if (this.b[i] != null) {
+/* 343 */         this.d.a(this.b[i], true);
+/* 344 */         this.b[i] = null;
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void y_() {
+/* 350 */     this.e = true;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void b(iz paramiz)
+/*     */   {
+/* 382 */     this.f = paramiz;
+/* 383 */     this.d.b(paramiz);
+/*     */   }
+/*     */   
+/*     */   public iz i() {
+/* 387 */     return this.f;
+/*     */   }
+/*     */   
+/*     */   public boolean a_(gs paramgs) {
+/* 391 */     if (this.d.be) return false;
+/* 392 */     if (paramgs.g(this.d) > 64.0D) return false;
+/* 393 */     return true;
+/*     */   }
+/*     */   
+/*     */   public boolean c(iz paramiz) {
+/* 397 */     for (int i = 0; i < this.b.length; i++) {
+/* 398 */       if ((this.b[i] != null) && (this.b[i].c(paramiz))) return true;
+/*     */     }
+/* 400 */     for (i = 0; i < this.a.length; i++) {
+/* 401 */       if ((this.a[i] != null) && (this.a[i].c(paramiz))) return true;
+/*     */     }
+/* 403 */     return false;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ix.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

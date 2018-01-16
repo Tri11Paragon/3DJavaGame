@@ -1,0 +1,87 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class gp
+/*    */ {
+/*    */   private final int d;
+/*    */   private final lw e;
+/*    */   public int a;
+/*    */   public int b;
+/*    */   public int c;
+/*    */   
+/*    */   public gp(lw paramlw, int paramInt1, int paramInt2, int paramInt3)
+/*    */   {
+/* 14 */     this.e = paramlw;
+/* 15 */     this.d = paramInt1;
+/* 16 */     this.b = paramInt2;
+/* 17 */     this.c = paramInt3;
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public void a(iz paramiz)
+/*    */   {
+/* 39 */     c();
+/*    */   }
+/*    */   
+/*    */   public boolean b(iz paramiz) {
+/* 43 */     return true;
+/*    */   }
+/*    */   
+/*    */   public iz a() {
+/* 47 */     return this.e.f_(this.d);
+/*    */   }
+/*    */   
+/*    */   public boolean b() {
+/* 51 */     return a() != null;
+/*    */   }
+/*    */   
+/*    */   public void c(iz paramiz) {
+/* 55 */     this.e.a(this.d, paramiz);
+/* 56 */     c();
+/*    */   }
+/*    */   
+/*    */   public void c() {
+/* 60 */     this.e.y_();
+/*    */   }
+/*    */   
+/*    */   public int d() {
+/* 64 */     return this.e.d();
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public int e()
+/*    */   {
+/* 75 */     return -1;
+/*    */   }
+/*    */   
+/*    */   public iz a(int paramInt) {
+/* 79 */     return this.e.a(this.d, paramInt);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\gp.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

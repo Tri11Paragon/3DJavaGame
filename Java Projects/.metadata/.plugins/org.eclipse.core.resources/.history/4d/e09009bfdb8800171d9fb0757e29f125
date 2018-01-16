@@ -1,0 +1,271 @@
+/*     */ import java.io.DataInputStream;
+/*     */ import java.io.DataOutputStream;
+/*     */ import java.util.ArrayList;
+/*     */ import java.util.HashMap;
+/*     */ import java.util.List;
+/*     */ import java.util.Map;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class ud
+/*     */ {
+/*  25 */   private static final HashMap a = new HashMap();
+/*     */   
+/*  27 */   static { a.put(Byte.class, Integer.valueOf(0));
+/*  28 */     a.put(Short.class, Integer.valueOf(1));
+/*  29 */     a.put(Integer.class, Integer.valueOf(2));
+/*  30 */     a.put(Float.class, Integer.valueOf(3));
+/*  31 */     a.put(String.class, Integer.valueOf(4));
+/*  32 */     a.put(iz.class, Integer.valueOf(5));
+/*  33 */     a.put(br.class, Integer.valueOf(6));
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*  43 */   private final Map b = new HashMap();
+/*     */   
+/*     */ 
+/*     */   private boolean c;
+/*     */   
+/*     */ 
+/*     */   public void a(int paramInt, Object paramObject)
+/*     */   {
+/*  51 */     Integer localInteger = (Integer)a.get(paramObject.getClass());
+/*  52 */     if (localInteger == null) {
+/*  53 */       throw new IllegalArgumentException("Unknown data type: " + paramObject.getClass());
+/*     */     }
+/*  55 */     if (paramInt > 31) {
+/*  56 */       throw new IllegalArgumentException("Data value id is too big with " + paramInt + "! (Max is " + 31 + ")");
+/*     */     }
+/*  58 */     if (this.b.containsKey(Integer.valueOf(paramInt))) {
+/*  59 */       throw new IllegalArgumentException("Duplicate id value for " + paramInt + "!");
+/*     */     }
+/*     */     
+/*  62 */     ma localma = new ma(localInteger.intValue(), paramInt, paramObject);
+/*  63 */     this.b.put(Integer.valueOf(paramInt), localma);
+/*     */   }
+/*     */   
+/*     */   public byte a(int paramInt) {
+/*  67 */     return ((Byte)((ma)this.b.get(Integer.valueOf(paramInt))).b()).byteValue();
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public int b(int paramInt)
+/*     */   {
+/*  75 */     return ((Integer)((ma)this.b.get(Integer.valueOf(paramInt))).b()).intValue();
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public String c(int paramInt)
+/*     */   {
+/*  83 */     return (String)((ma)this.b.get(Integer.valueOf(paramInt))).b();
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void b(int paramInt, Object paramObject)
+/*     */   {
+/*  95 */     ma localma = (ma)this.b.get(Integer.valueOf(paramInt));
+/*     */     
+/*     */ 
+/*  98 */     if (!paramObject.equals(localma.b())) {
+/*  99 */       localma.a(paramObject);
+/* 100 */       localma.a(true);
+/* 101 */       this.c = true;
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static void a(List paramList, DataOutputStream paramDataOutputStream)
+/*     */   {
+/* 116 */     if (paramList != null) {
+/* 117 */       for (ma localma : paramList) {
+/* 118 */         a(paramDataOutputStream, localma);
+/*     */       }
+/*     */     }
+/*     */     
+/*     */ 
+/* 123 */     paramDataOutputStream.writeByte(127);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void a(DataOutputStream paramDataOutputStream)
+/*     */   {
+/* 148 */     for (ma localma : this.b.values()) {
+/* 149 */       a(paramDataOutputStream, localma);
+/*     */     }
+/*     */     
+/*     */ 
+/* 153 */     paramDataOutputStream.writeByte(127);
+/*     */   }
+/*     */   
+/*     */   private static void a(DataOutputStream paramDataOutputStream, ma paramma)
+/*     */   {
+/* 158 */     int i = (paramma.c() << 5 | paramma.a() & 0x1F) & 0xFF;
+/* 159 */     paramDataOutputStream.writeByte(i);
+/*     */     
+/*     */     Object localObject;
+/* 162 */     switch (paramma.c()) {
+/*     */     case 0: 
+/* 164 */       paramDataOutputStream.writeByte(((Byte)paramma.b()).byteValue());
+/* 165 */       break;
+/*     */     case 1: 
+/* 167 */       paramDataOutputStream.writeShort(((Short)paramma.b()).shortValue());
+/* 168 */       break;
+/*     */     case 2: 
+/* 170 */       paramDataOutputStream.writeInt(((Integer)paramma.b()).intValue());
+/* 171 */       break;
+/*     */     case 3: 
+/* 173 */       paramDataOutputStream.writeFloat(((Float)paramma.b()).floatValue());
+/* 174 */       break;
+/*     */     case 4: 
+/* 176 */       ki.a((String)paramma.b(), paramDataOutputStream);
+/* 177 */       break;
+/*     */     case 5: 
+/* 179 */       localObject = (iz)paramma.b();
+/* 180 */       paramDataOutputStream.writeShort(((iz)localObject).a().bf);
+/* 181 */       paramDataOutputStream.writeByte(((iz)localObject).a);
+/* 182 */       paramDataOutputStream.writeShort(((iz)localObject).i());
+/*     */       
+/* 184 */       break;
+/*     */     case 6: 
+/* 186 */       localObject = (br)paramma.b();
+/* 187 */       paramDataOutputStream.writeInt(((br)localObject).a);
+/* 188 */       paramDataOutputStream.writeInt(((br)localObject).b);
+/* 189 */       paramDataOutputStream.writeInt(((br)localObject).c);
+/*     */     }
+/*     */     
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   public static List a(DataInputStream paramDataInputStream)
+/*     */   {
+/* 197 */     ArrayList localArrayList = null;
+/*     */     
+/* 199 */     int i = paramDataInputStream.readByte();
+/*     */     
+/* 201 */     while (i != 127)
+/*     */     {
+/* 203 */       if (localArrayList == null) {
+/* 204 */         localArrayList = new ArrayList();
+/*     */       }
+/*     */       
+/*     */ 
+/* 208 */       int j = (i & 0xE0) >> 5;
+/* 209 */       int k = i & 0x1F;
+/*     */       
+/* 211 */       ma localma = null;
+/* 212 */       int m; int n; int i1; switch (j) {
+/*     */       case 0: 
+/* 214 */         localma = new ma(j, k, Byte.valueOf(paramDataInputStream.readByte()));
+/* 215 */         break;
+/*     */       case 1: 
+/* 217 */         localma = new ma(j, k, Short.valueOf(paramDataInputStream.readShort()));
+/* 218 */         break;
+/*     */       case 2: 
+/* 220 */         localma = new ma(j, k, Integer.valueOf(paramDataInputStream.readInt()));
+/* 221 */         break;
+/*     */       case 3: 
+/* 223 */         localma = new ma(j, k, Float.valueOf(paramDataInputStream.readFloat()));
+/* 224 */         break;
+/*     */       case 4: 
+/* 226 */         localma = new ma(j, k, ki.a(paramDataInputStream, 64));
+/* 227 */         break;
+/*     */       case 5: 
+/* 229 */         m = paramDataInputStream.readShort();
+/* 230 */         n = paramDataInputStream.readByte();
+/* 231 */         i1 = paramDataInputStream.readShort();
+/* 232 */         localma = new ma(j, k, new iz(m, n, i1));
+/*     */         
+/* 234 */         break;
+/*     */       case 6: 
+/* 236 */         m = paramDataInputStream.readInt();
+/* 237 */         n = paramDataInputStream.readInt();
+/* 238 */         i1 = paramDataInputStream.readInt();
+/* 239 */         localma = new ma(j, k, new br(m, n, i1));
+/*     */       }
+/*     */       
+/*     */       
+/* 243 */       localArrayList.add(localma);
+/*     */       
+/* 245 */       i = paramDataInputStream.readByte();
+/*     */     }
+/*     */     
+/* 248 */     return localArrayList;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void a(List paramList)
+/*     */   {
+/* 258 */     for (ma localma1 : paramList) {
+/* 259 */       ma localma2 = (ma)this.b.get(Integer.valueOf(localma1.a()));
+/* 260 */       if (localma2 != null) {
+/* 261 */         localma2.a(localma1.b());
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ud.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

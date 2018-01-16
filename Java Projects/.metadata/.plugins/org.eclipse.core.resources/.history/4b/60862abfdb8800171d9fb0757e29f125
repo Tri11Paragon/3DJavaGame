@@ -1,0 +1,209 @@
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class fw
+/*     */ {
+/*     */   private xp a;
+/*  12 */   private lf b = new lf();
+/*  13 */   private jx c = new jx();
+/*     */   
+/*  15 */   private d[] d = new d[32];
+/*     */   
+/*     */   public fw(xp paramxp) {
+/*  18 */     this.a = paramxp;
+/*     */   }
+/*     */   
+/*     */   public dh a(sn paramsn1, sn paramsn2, float paramFloat) {
+/*  22 */     return a(paramsn1, paramsn2.aM, paramsn2.aW.b, paramsn2.aO, paramFloat);
+/*     */   }
+/*     */   
+/*     */   public dh a(sn paramsn, int paramInt1, int paramInt2, int paramInt3, float paramFloat) {
+/*  26 */     return a(paramsn, paramInt1 + 0.5F, paramInt2 + 0.5F, paramInt3 + 0.5F, paramFloat);
+/*     */   }
+/*     */   
+/*     */   private dh a(sn paramsn, double paramDouble1, double paramDouble2, double paramDouble3, float paramFloat) {
+/*  30 */     this.b.a();
+/*  31 */     this.c.a();
+/*     */     
+/*  33 */     d locald1 = a(in.b(paramsn.aW.a), in.b(paramsn.aW.b), in.b(paramsn.aW.c));
+/*  34 */     d locald2 = a(in.b(paramDouble1 - paramsn.bg / 2.0F), in.b(paramDouble2), in.b(paramDouble3 - paramsn.bg / 2.0F));
+/*     */     
+/*  36 */     d locald3 = new d(in.d(paramsn.bg + 1.0F), in.d(paramsn.bh + 1.0F), in.d(paramsn.bg + 1.0F));
+/*  37 */     dh localdh = a(paramsn, locald1, locald2, locald3, paramFloat);
+/*  38 */     return localdh;
+/*     */   }
+/*     */   
+/*     */   private dh a(sn paramsn, d paramd1, d paramd2, d paramd3, float paramFloat)
+/*     */   {
+/*  43 */     paramd1.e = 0.0F;
+/*  44 */     paramd1.f = paramd1.a(paramd2);
+/*  45 */     paramd1.g = paramd1.f;
+/*     */     
+/*  47 */     this.b.a();
+/*  48 */     this.b.a(paramd1);
+/*     */     
+/*  50 */     Object localObject = paramd1;
+/*     */     
+/*  52 */     while (!this.b.c()) {
+/*  53 */       d locald1 = this.b.b();
+/*     */       
+/*  55 */       if (locald1.equals(paramd2)) {
+/*  56 */         return a(paramd1, paramd2);
+/*     */       }
+/*     */       
+/*  59 */       if (locald1.a(paramd2) < ((d)localObject).a(paramd2)) {
+/*  60 */         localObject = locald1;
+/*     */       }
+/*  62 */       locald1.i = true;
+/*     */       
+/*  64 */       int i = b(paramsn, locald1, paramd3, paramd2, paramFloat);
+/*  65 */       for (int j = 0; j < i; j++) {
+/*  66 */         d locald2 = this.d[j];
+/*     */         
+/*  68 */         float f = locald1.e + locald1.a(locald2);
+/*  69 */         if ((!locald2.a()) || (f < locald2.e)) {
+/*  70 */           locald2.h = locald1;
+/*  71 */           locald2.e = f;
+/*  72 */           locald2.f = locald2.a(paramd2);
+/*  73 */           if (locald2.a()) {
+/*  74 */             this.b.a(locald2, locald2.e + locald2.f);
+/*     */           } else {
+/*  76 */             locald2.g = (locald2.e + locald2.f);
+/*  77 */             this.b.a(locald2);
+/*     */           }
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */     
+/*  83 */     if (localObject == paramd1) return null;
+/*  84 */     return a(paramd1, (d)localObject);
+/*     */   }
+/*     */   
+/*     */   private int b(sn paramsn, d paramd1, d paramd2, d paramd3, float paramFloat) {
+/*  88 */     int i = 0;
+/*     */     
+/*  90 */     int j = 0;
+/*  91 */     if (a(paramsn, paramd1.a, paramd1.b + 1, paramd1.c, paramd2) == 1) { j = 1;
+/*     */     }
+/*  93 */     d locald1 = a(paramsn, paramd1.a, paramd1.b, paramd1.c + 1, paramd2, j);
+/*  94 */     d locald2 = a(paramsn, paramd1.a - 1, paramd1.b, paramd1.c, paramd2, j);
+/*  95 */     d locald3 = a(paramsn, paramd1.a + 1, paramd1.b, paramd1.c, paramd2, j);
+/*  96 */     d locald4 = a(paramsn, paramd1.a, paramd1.b, paramd1.c - 1, paramd2, j);
+/*     */     
+/*  98 */     if ((locald1 != null) && (!locald1.i) && (locald1.a(paramd3) < paramFloat)) this.d[(i++)] = locald1;
+/*  99 */     if ((locald2 != null) && (!locald2.i) && (locald2.a(paramd3) < paramFloat)) this.d[(i++)] = locald2;
+/* 100 */     if ((locald3 != null) && (!locald3.i) && (locald3.a(paramd3) < paramFloat)) this.d[(i++)] = locald3;
+/* 101 */     if ((locald4 != null) && (!locald4.i) && (locald4.a(paramd3) < paramFloat)) { this.d[(i++)] = locald4;
+/*     */     }
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 110 */     return i;
+/*     */   }
+/*     */   
+/*     */   private d a(sn paramsn, int paramInt1, int paramInt2, int paramInt3, d paramd, int paramInt4) {
+/* 114 */     d locald = null;
+/* 115 */     if (a(paramsn, paramInt1, paramInt2, paramInt3, paramd) == 1) locald = a(paramInt1, paramInt2, paramInt3);
+/* 116 */     if ((locald == null) && (paramInt4 > 0) && (a(paramsn, paramInt1, paramInt2 + paramInt4, paramInt3, paramd) == 1)) {
+/* 117 */       locald = a(paramInt1, paramInt2 + paramInt4, paramInt3);
+/* 118 */       paramInt2 += paramInt4;
+/*     */     }
+/*     */     
+/* 121 */     if (locald != null) {
+/* 122 */       int i = 0;
+/* 123 */       int j = 0;
+/* 124 */       while ((paramInt2 > 0) && ((j = a(paramsn, paramInt1, paramInt2 - 1, paramInt3, paramd)) == 1))
+/*     */       {
+/* 126 */         i++; if (i >= 4) return null;
+/* 127 */         paramInt2--;
+/*     */         
+/* 129 */         if (paramInt2 > 0) { locald = a(paramInt1, paramInt2, paramInt3);
+/*     */         }
+/*     */       }
+/* 132 */       if (j == -2) { return null;
+/*     */       }
+/*     */     }
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/* 139 */     return locald;
+/*     */   }
+/*     */   
+/*     */   private final d a(int paramInt1, int paramInt2, int paramInt3) {
+/* 143 */     int i = d.a(paramInt1, paramInt2, paramInt3);
+/* 144 */     d locald = (d)this.c.a(i);
+/* 145 */     if (locald == null) {
+/* 146 */       locald = new d(paramInt1, paramInt2, paramInt3);
+/* 147 */       this.c.a(i, locald);
+/*     */     }
+/* 149 */     return locald;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   private int a(sn paramsn, int paramInt1, int paramInt2, int paramInt3, d paramd)
+/*     */   {
+/* 158 */     for (int i = paramInt1; i < paramInt1 + paramd.a; i++) {
+/* 159 */       for (int j = paramInt2; j < paramInt2 + paramd.b; j++) {
+/* 160 */         for (int k = paramInt3; k < paramInt3 + paramd.c; k++) {
+/* 161 */           int m = this.a.a(i, j, k);
+/* 162 */           if (m > 0) {
+/* 163 */             if ((m == uu.aM.bn) || (m == uu.aF.bn)) {
+/* 164 */               int n = this.a.e(i, j, k);
+/* 165 */               if (!le.f(n)) {
+/* 166 */                 return 0;
+/*     */               }
+/*     */             } else {
+/* 169 */               ln localln = uu.m[m].bA;
+/* 170 */               if (localln.c()) return 0;
+/* 171 */               if (localln == ln.g) {
+/* 172 */                 return -1;
+/*     */               }
+/* 174 */               if (localln == ln.h) {
+/* 175 */                 return -2;
+/*     */               }
+/*     */             }
+/*     */           }
+/*     */         }
+/*     */       }
+/*     */     }
+/* 182 */     return 1;
+/*     */   }
+/*     */   
+/*     */   private dh a(d paramd1, d paramd2)
+/*     */   {
+/* 187 */     int i = 1;
+/* 188 */     d locald = paramd2;
+/* 189 */     while (locald.h != null) {
+/* 190 */       i++;
+/* 191 */       locald = locald.h;
+/*     */     }
+/*     */     
+/* 194 */     d[] arrayOfd = new d[i];
+/* 195 */     locald = paramd2;
+/* 196 */     arrayOfd[(--i)] = locald;
+/* 197 */     while (locald.h != null) {
+/* 198 */       locald = locald.h;
+/* 199 */       arrayOfd[(--i)] = locald;
+/*     */     }
+/* 201 */     return new dh(arrayOfd);
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\fw.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

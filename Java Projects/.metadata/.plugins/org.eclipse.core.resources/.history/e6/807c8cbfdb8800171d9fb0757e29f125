@@ -1,0 +1,27 @@
+/*    */ 
+/*    */ 
+/*    */ public class we
+/*    */   extends gv
+/*    */ {
+/*    */   public we(ko paramko, float paramFloat)
+/*    */   {
+/*  8 */     super(paramko, paramFloat);
+/*    */   }
+/*    */   
+/*    */   public void a(gi paramgi, double paramDouble1, double paramDouble2, double paramDouble3, float paramFloat1, float paramFloat2) {
+/* 12 */     super.a(paramgi, paramDouble1, paramDouble2, paramDouble3, paramFloat1, paramFloat2);
+/*    */   }
+/*    */   
+/*    */   protected float a(gi paramgi, float paramFloat)
+/*    */   {
+/* 17 */     return paramgi.z();
+/*    */   }
+/*    */   
+/*    */   protected void b(gi paramgi, float paramFloat) {}
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\we.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

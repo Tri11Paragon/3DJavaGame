@@ -1,0 +1,40 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class kt
+/*    */   extends pg
+/*    */ {
+/*    */   private int a;
+/*    */   
+/*    */   public kt(int paramInt)
+/*    */   {
+/* 13 */     this.a = paramInt;
+/*    */   }
+/*    */   
+/*    */   public boolean a(fd paramfd, Random paramRandom, int paramInt1, int paramInt2, int paramInt3) {
+/* 17 */     int i = 0;
+/* 18 */     while ((((i = paramfd.a(paramInt1, paramInt2, paramInt3)) == 0) || (i == uu.L.bn)) && (paramInt2 > 0)) {
+/* 19 */       paramInt2--;
+/*    */     }
+/* 21 */     for (int j = 0; j < 4; j++) {
+/* 22 */       int k = paramInt1 + paramRandom.nextInt(8) - paramRandom.nextInt(8);
+/* 23 */       int m = paramInt2 + paramRandom.nextInt(4) - paramRandom.nextInt(4);
+/* 24 */       int n = paramInt3 + paramRandom.nextInt(8) - paramRandom.nextInt(8);
+/* 25 */       if ((paramfd.d(k, m, n)) && 
+/* 26 */         (((wb)uu.m[this.a]).g(paramfd, k, m, n))) {
+/* 27 */         paramfd.c(k, m, n, this.a);
+/*    */       }
+/*    */     }
+/*    */     
+/*    */ 
+/* 32 */     return true;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\kt.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

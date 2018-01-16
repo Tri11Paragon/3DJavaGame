@@ -1,0 +1,92 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class ri
+/*    */   extends uu
+/*    */ {
+/*    */   protected ri(int paramInt1, int paramInt2)
+/*    */   {
+/* 12 */     super(paramInt1, ln.j);
+/* 13 */     this.bm = paramInt2;
+/* 14 */     float f = 0.375F;
+/* 15 */     a(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 1.0F, 0.5F + f);
+/* 16 */     b(true);
+/*    */   }
+/*    */   
+/*    */   public void a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, Random paramRandom) {
+/* 20 */     if (paramfd.d(paramInt1, paramInt2 + 1, paramInt3)) {
+/* 21 */       int i = 1;
+/* 22 */       while (paramfd.a(paramInt1, paramInt2 - i, paramInt3) == this.bn) {
+/* 23 */         i++;
+/*    */       }
+/* 25 */       if (i < 3) {
+/* 26 */         int j = paramfd.e(paramInt1, paramInt2, paramInt3);
+/* 27 */         if (j == 15) {
+/* 28 */           paramfd.f(paramInt1, paramInt2 + 1, paramInt3, this.bn);
+/* 29 */           paramfd.d(paramInt1, paramInt2, paramInt3, 0);
+/*    */         } else {
+/* 31 */           paramfd.d(paramInt1, paramInt2, paramInt3, j + 1);
+/*    */         }
+/*    */       }
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public boolean a(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/* 38 */     int i = paramfd.a(paramInt1, paramInt2 - 1, paramInt3);
+/* 39 */     if (i == this.bn) return true;
+/* 40 */     if ((i != uu.v.bn) && (i != uu.w.bn)) return false;
+/* 41 */     if (paramfd.f(paramInt1 - 1, paramInt2 - 1, paramInt3) == ln.g) return true;
+/* 42 */     if (paramfd.f(paramInt1 + 1, paramInt2 - 1, paramInt3) == ln.g) return true;
+/* 43 */     if (paramfd.f(paramInt1, paramInt2 - 1, paramInt3 - 1) == ln.g) return true;
+/* 44 */     if (paramfd.f(paramInt1, paramInt2 - 1, paramInt3 + 1) == ln.g) return true;
+/* 45 */     return false;
+/*    */   }
+/*    */   
+/*    */   public void b(fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/* 49 */     h(paramfd, paramInt1, paramInt2, paramInt3);
+/*    */   }
+/*    */   
+/*    */   protected final void h(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/* 53 */     if (!g(paramfd, paramInt1, paramInt2, paramInt3)) {
+/* 54 */       g(paramfd, paramInt1, paramInt2, paramInt3, paramfd.e(paramInt1, paramInt2, paramInt3));
+/* 55 */       paramfd.f(paramInt1, paramInt2, paramInt3, 0);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public boolean g(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/* 60 */     return a(paramfd, paramInt1, paramInt2, paramInt3);
+/*    */   }
+/*    */   
+/*    */   public eq e(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/* 64 */     return null;
+/*    */   }
+/*    */   
+/*    */   public int a(int paramInt, Random paramRandom) {
+/* 68 */     return gm.aH.bf;
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public boolean c()
+/*    */   {
+/* 76 */     return false;
+/*    */   }
+/*    */   
+/*    */   public boolean d() {
+/* 80 */     return false;
+/*    */   }
+/*    */   
+/*    */   public int b() {
+/* 84 */     return 1;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ri.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,155 @@
+/*     */ import java.util.List;
+/*     */ import org.lwjgl.input.Keyboard;
+/*     */ 
+/*     */ public class TMIView
+/*     */ {
+/*     */   private _tmi_MgCanvas canvas;
+/*     */   private TMIConfig config;
+/*     */   private TMIController controller;
+/*   9 */   private boolean widgetsCreated = false;
+/*     */   private _tmi_MgButton prevButton;
+/*     */   private _tmi_MgButton nextButton;
+/*     */   private _tmi_MgButton trashButton;
+/*     */   private _tmi_MgButton[] stateButtons;
+/*     */   private _tmi_MgButton[] deleteButtons;
+/*     */   public _tmi_MgItemPanel itemPanel;
+/*     */   
+/*     */   public TMIView(_tmi_MgCanvas param_tmi_MgCanvas, TMIConfig paramTMIConfig, TMIController paramTMIController)
+/*     */   {
+/*  19 */     this.canvas = param_tmi_MgCanvas;
+/*  20 */     this.config = paramTMIConfig;
+/*  21 */     this.controller = paramTMIController;
+/*  22 */     this.stateButtons = new _tmi_MgButton[this.config.getNumSaves()];
+/*  23 */     this.deleteButtons = new _tmi_MgButton[this.config.getNumSaves()];
+/*  24 */     createWidgets();
+/*     */   }
+/*     */   
+/*     */   public void createWidgets() {
+/*  28 */     this.prevButton = new _tmi_MgButton("Prev", this.controller, "prev");
+/*  29 */     this.canvas.widgets.add(this.prevButton);
+/*  30 */     this.nextButton = new _tmi_MgButton("Next", this.controller, "next");
+/*  31 */     this.canvas.widgets.add(this.nextButton);
+/*  32 */     this.itemPanel = new _tmi_MgItemPanel(0, 0, 0, 0, 0, this.config.getItems(), this.controller);
+/*  33 */     this.canvas.widgets.add(this.itemPanel);
+/*     */     
+/*  35 */     if (!TMIConfig.isMultiplayer()) {
+/*  36 */       this.trashButton = new _tmi_MgButton("Trash", this.controller, "trash");
+/*  37 */       this.canvas.widgets.add(this.trashButton);
+/*     */       
+/*  39 */       this.stateButtons = new _tmi_MgButton[this.config.getNumSaves()];
+/*  40 */       for (int i = 0; i < this.config.getNumSaves(); i++) {
+/*  41 */         this.stateButtons[i] = new _tmi_MgButton("Save " + (i + 1), this.controller, new TMIStateButtonData(i, 0));
+/*  42 */         this.canvas.widgets.add(this.stateButtons[i]);
+/*  43 */         this.deleteButtons[i] = new _tmi_MgButton("x", this.controller, new TMIStateButtonData(i, 1));
+/*  44 */         this.canvas.widgets.add(this.deleteButtons[i]);
+/*     */       }
+/*     */     }
+/*     */     
+/*  48 */     this.widgetsCreated = true;
+/*     */   }
+/*     */   
+/*     */   public void layout(int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/*  52 */     if (!this.widgetsCreated) {
+/*  53 */       createWidgets();
+/*     */     }
+/*  55 */     this.prevButton.x = ((paramInt3 + paramInt1) / 2);
+/*  56 */     this.prevButton.y = 0;
+/*  57 */     this.prevButton.width = this.canvas.windowX;
+/*  58 */     this.prevButton.height = 28;
+/*     */     
+/*  60 */     this.nextButton.x = ((paramInt3 + paramInt1) / 2);
+/*  61 */     this.nextButton.y = (paramInt2 - 28);
+/*  62 */     this.nextButton.width = this.canvas.windowX;
+/*  63 */     this.nextButton.height = 28;
+/*     */     
+/*  65 */     this.itemPanel.x = ((paramInt1 + paramInt3) / 2 + 5);
+/*  66 */     this.itemPanel.y = 30;
+/*  67 */     this.itemPanel.width = (paramInt1 - 5 - this.itemPanel.x);
+/*  68 */     this.itemPanel.height = (paramInt2 - 30 - this.itemPanel.y);
+/*  69 */     this.itemPanel.resize();
+/*     */     
+/*  71 */     this.prevButton.label = ("Prev (" + (_tmi_MgItemPanel.page + 1) + "/" + this.itemPanel.numPages + ")");
+/*     */     
+/*  73 */     if (!TMIConfig.isMultiplayer()) {
+/*  74 */       this.trashButton.x = 0;
+/*  75 */       this.trashButton.y = (paramInt2 - 30);
+/*  76 */       this.trashButton.width = 82;
+/*  77 */       this.trashButton.height = 30;
+/*  78 */       if ((TMIUtils.getHeldItem() == null) && ((Keyboard.isKeyDown(54)) || (Keyboard.isKeyDown(42)))) {
+/*  79 */         this.trashButton.label = "Delete all";
+/*     */       } else {
+/*  81 */         this.trashButton.label = "Trash";
+/*     */       }
+/*     */       
+/*     */ 
+/*  85 */       int i = 0;
+/*  86 */       for (int j = 0; j < this.config.getNumSaves(); j++) {
+/*  87 */         this.deleteButtons[j].x = 64536;
+/*     */         
+/*     */ 
+/*  90 */         this.stateButtons[j].y = (30 + j * 22);
+/*  91 */         this.stateButtons[j].height = 20;
+/*     */         
+/*     */ 
+/*  94 */         String str = (String)this.config.getSettings().get("save-name" + (j + 1));
+/*  95 */         if (str == null) {
+/*  96 */           str = "" + (j + 1);
+/*     */         }
+/*     */         
+/*     */ 
+/* 100 */         if (this.config.isStateSaved(j)) {
+/* 101 */           this.stateButtons[j].label = ("Load " + str);
+/*     */         } else {
+/* 103 */           this.stateButtons[j].label = ("Save " + str);
+/*     */         }
+/*     */         
+/*     */ 
+/* 107 */         int k = this.canvas.getTextWidth(this.stateButtons[j].label) + 26;
+/* 108 */         if (k + 2 + 20 > this.canvas.windowX) {
+/* 109 */           k = this.canvas.windowX - 20 - 2;
+/*     */         }
+/* 111 */         if (k > i) {
+/* 112 */           i = k;
+/*     */         }
+/*     */       }
+/*     */       
+/* 116 */       for (j = 0; j < this.config.getNumSaves(); j++) {
+/* 117 */         this.stateButtons[j].width = i;
+/* 118 */         if (this.config.isStateSaved(j)) {
+/* 119 */           this.deleteButtons[j].x = (this.stateButtons[j].width + 2);
+/* 120 */           this.deleteButtons[j].y = this.stateButtons[j].y;
+/* 121 */           this.deleteButtons[j].width = 20;
+/* 122 */           this.deleteButtons[j].height = 20;
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void showToolTip(int paramInt1, int paramInt2) {
+/* 129 */     if ((!TMIConfig.isMultiplayer()) && (this.trashButton.contains(paramInt1, paramInt2))) {
+/* 130 */       if ((Keyboard.isKeyDown(54)) || (Keyboard.isKeyDown(42))) {
+/* 131 */         if (TMIUtils.getHeldItem() == null) {
+/* 132 */           this.canvas.drawTip(paramInt1, paramInt2, "Delete ALL items from current inventory screen");
+/*     */         } else {
+/* 134 */           this.canvas.drawTip(paramInt1, paramInt2, "Delete ALL " + TMIUtils.itemDisplayName(TMIUtils.getHeldItem()));
+/*     */         }
+/*     */       }
+/* 137 */       else if (TMIUtils.getHeldItem() == null) {
+/* 138 */         this.canvas.drawTip(paramInt1, paramInt2, "Drop item here to delete");
+/*     */       } else {
+/* 140 */         this.canvas.drawTip(paramInt1, paramInt2, "Delete " + TMIUtils.itemDisplayName(TMIUtils.getHeldItem()));
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public boolean isInitialized()
+/*     */   {
+/* 147 */     return this.widgetsCreated;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\TMIView.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

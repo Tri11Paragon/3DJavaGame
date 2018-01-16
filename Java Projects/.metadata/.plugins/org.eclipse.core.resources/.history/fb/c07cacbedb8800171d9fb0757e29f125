@@ -1,0 +1,39 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class yk
+/*    */   extends ow
+/*    */ {
+/* 11 */   public String[] a = { "", "", "", "" };
+/*    */   
+/*    */ 
+/* 14 */   public int b = -1;
+/* 15 */   private boolean c = true;
+/*    */   
+/*    */   public void b(nu paramnu) {
+/* 18 */     super.b(paramnu);
+/* 19 */     paramnu.a("Text1", this.a[0]);
+/* 20 */     paramnu.a("Text2", this.a[1]);
+/* 21 */     paramnu.a("Text3", this.a[2]);
+/* 22 */     paramnu.a("Text4", this.a[3]);
+/*    */   }
+/*    */   
+/*    */   public void a(nu paramnu) {
+/* 26 */     this.c = false;
+/* 27 */     super.a(paramnu);
+/* 28 */     for (int i = 0; i < 4; i++) {
+/* 29 */       this.a[i] = paramnu.i("Text" + (i + 1));
+/* 30 */       if (this.a[i].length() > 15) this.a[i] = this.a[i].substring(0, 15);
+/*    */     }
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\yk.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,91 @@
+package entities;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.lwjgl.util.vector.Vector3f;
+
+import entities.components.ComponentBase;
+import models.TexturedModel;
+import terrains.Terrain;
+import toolbox.Maths;
+import toolbox.TranslationMatrix;
+
+
+public class EntityLiving extends Entity {
+	
+	TexturedModel model;
+	Vector3f position;
+	float rotX, rotY, rotZ;
+	float scale;
+	public boolean isOnGround;
+	
+	public List<ComponentBase> componentsArrtibsList = new ArrayList<ComponentBase>();
+	private List<TranslationMatrix> translationMatrixList = new ArrayList<TranslationMatrix>();
+	
+	public EntityLiving(TexturedModel model, Vector3f position, float rotX, float rotY, float rotZ, float scale, Vector3f entityColor) {
+		super(model, position, rotX, rotY, rotZ, scale, entityColor);
+		this.model = model;
+		this.position = position;
+		this.rotX = rotX;
+		this.rotY = rotY;
+		this.rotZ = rotZ;
+		this.scale = scale;
+	}
+	
+	public void update(Terrain terrain) {
+		for (ComponentBase base : componentsArrtibsList) {
+			base.update();
+		}
+		if (translationMatrixList.size() > 0) {
+			doTranslation();
+		}
+		doTerrainCollision(terrain);
+	}
+	
+	public void doTerrainCollision(Terrain terrain) {
+		float terrainHeight = terrain.getHeightOfTerrain(getPosition().x, getPosition().z);
+		if (terrainHeight == -1000) {
+			
+		} else {
+		
+			float offset = 0;
+			if (getPosition().y < terrainHeight + offset) {
+				getPosition().y = terrainHeight + offset;
+				isOnGround = true;
+			} else {
+				isOnGround = false;
+			}
+		
+		}
+	}
+	
+	public void addTranslation(Vector3f startPoint, Vector3f endPos, float deltaSpeed) {
+		translationMatrixList.add(new TranslationMatrix(startPoint, endPos, deltaSpeed));
+	}
+	
+	public void doTranslation() {
+		Vector3f startPos = translationMatrixList.get(0).getStartPoint();
+		Vector3f endPos = translationMatrixList.get(0).getEndPos();
+		float deltaSpeed = translationMatrixList.get(0).getDeltaSpeed();
+		Vector3f distace = Maths.distanceABS(startPos, endPos);
+		Vector3f amountToTranslate = new Vector3f(distace.x / deltaSpeed, distace.y / deltaSpeed, distace.z / deltaSpeed);
+		this.translate(amountToTranslate.x, amountToTranslate.y, amountToTranslate.z);
+		if (this.getPosition() == endPos) {
+			translationMatrixList.remove(0);
+		}
+	}
+	
+	public void setIsOnGround(boolean bool) {
+		this.isOnGround = bool;
+	}
+	
+	public void addComponent(ComponentBase comp) {
+		componentsArrtibsList.add(comp);
+	}
+	
+	public List<ComponentBase> getComponent(){
+		return componentsArrtibsList;
+	}
+	
+}

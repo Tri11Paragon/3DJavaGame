@@ -1,0 +1,33 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class fi
+/*    */   extends uu
+/*    */ {
+/*    */   protected fi(int paramInt)
+/*    */   {
+/*  9 */     super(paramInt, ln.d);
+/* 10 */     this.bm = 59;
+/*    */   }
+/*    */   
+/*    */   public int a(int paramInt) {
+/* 14 */     if (paramInt == 1) return this.bm - 16;
+/* 15 */     if (paramInt == 0) return uu.y.a(0);
+/* 16 */     if ((paramInt == 2) || (paramInt == 4)) return this.bm + 1;
+/* 17 */     return this.bm;
+/*    */   }
+/*    */   
+/*    */   public boolean a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, gs paramgs) {
+/* 21 */     if (paramfd.B) {
+/* 22 */       return true;
+/*    */     }
+/* 24 */     paramgs.a(paramInt1, paramInt2, paramInt3);
+/* 25 */     return true;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\fi.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

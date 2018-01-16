@@ -1,0 +1,19 @@
+/*    */ import java.net.URL;
+/*    */ 
+/*    */ public class bh
+/*    */ {
+/*    */   public String a;
+/*    */   public URL b;
+/*    */   
+/*    */   public bh(String paramString, URL paramURL)
+/*    */   {
+/* 10 */     this.a = paramString;
+/* 11 */     this.b = paramURL;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\bh.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

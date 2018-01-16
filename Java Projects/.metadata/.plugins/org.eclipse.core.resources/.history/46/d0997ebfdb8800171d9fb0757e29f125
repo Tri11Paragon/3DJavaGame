@@ -1,0 +1,26 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class yj
+/*    */   extends kd
+/*    */ {
+/*    */   public pg a(Random paramRandom)
+/*    */   {
+/* 15 */     if (paramRandom.nextInt(3) == 0) {
+/* 16 */       return new ih();
+/*    */     }
+/* 18 */     return new yh();
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\yj.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

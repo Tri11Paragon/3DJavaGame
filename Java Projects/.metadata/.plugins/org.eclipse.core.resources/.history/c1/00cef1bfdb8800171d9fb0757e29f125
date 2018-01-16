@@ -1,0 +1,56 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class nk
+/*    */   extends jp
+/*    */ {
+/*    */   public nk(int paramInt1, int paramInt2)
+/*    */   {
+/* 11 */     super(paramInt1, paramInt2, ln.s, false);
+/* 12 */     this.bB = 0.98F;
+/* 13 */     b(true);
+/*    */   }
+/*    */   
+/*    */   public int b_() {
+/* 17 */     return 1;
+/*    */   }
+/*    */   
+/*    */   public boolean b(xp paramxp, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/* 21 */     return super.b(paramxp, paramInt1, paramInt2, paramInt3, 1 - paramInt4);
+/*    */   }
+/*    */   
+/*    */ 
+/*    */   public void a(fd paramfd, gs paramgs, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+/*    */   {
+/* 27 */     super.a(paramfd, paramgs, paramInt1, paramInt2, paramInt3, paramInt4);
+/*    */     
+/* 29 */     ln localln = paramfd.f(paramInt1, paramInt2 - 1, paramInt3);
+/* 30 */     if ((localln.c()) || (localln.d())) {
+/* 31 */       paramfd.f(paramInt1, paramInt2, paramInt3, uu.B.bn);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public int a(Random paramRandom) {
+/* 36 */     return 0;
+/*    */   }
+/*    */   
+/*    */   public void a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, Random paramRandom) {
+/* 40 */     if (paramfd.a(eb.b, paramInt1, paramInt2, paramInt3) > 11 - uu.q[this.bn]) {
+/* 41 */       g(paramfd, paramInt1, paramInt2, paramInt3, paramfd.e(paramInt1, paramInt2, paramInt3));
+/* 42 */       paramfd.f(paramInt1, paramInt2, paramInt3, uu.C.bn);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public int h()
+/*    */   {
+/* 48 */     return 0;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\nk.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

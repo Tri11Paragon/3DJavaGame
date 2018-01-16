@@ -1,0 +1,400 @@
+/*     */ import java.util.Collections;
+/*     */ import java.util.Comparator;
+/*     */ import java.util.List;
+/*     */ import net.minecraft.client.Minecraft;
+/*     */ import org.lwjgl.input.Mouse;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ abstract class iv
+/*     */   extends lg
+/*     */ {
+/* 208 */   protected int b = -1;
+/*     */   
+/*     */   protected List c;
+/*     */   protected Comparator d;
+/* 212 */   protected int e = -1;
+/* 213 */   protected int f = 0;
+/*     */   
+/*     */   protected iv(dv paramdv) {
+/* 216 */     super(dv.f(paramdv), paramdv.c, paramdv.d, 32, paramdv.d - 64, 20);
+/*     */     
+/* 218 */     a(false);
+/* 219 */     a(true, 20);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   protected void a(int paramInt, boolean paramBoolean) {}
+/*     */   
+/*     */ 
+/*     */   protected boolean c_(int paramInt)
+/*     */   {
+/* 228 */     return false;
+/*     */   }
+/*     */   
+/*     */   protected void c()
+/*     */   {
+/* 233 */     this.g.i();
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   protected void a(int paramInt1, int paramInt2, nw paramnw)
+/*     */   {
+/* 239 */     if (!Mouse.isButtonDown(0)) {
+/* 240 */       this.b = -1;
+/*     */     }
+/*     */     
+/* 243 */     if (this.b == 0) {
+/* 244 */       dv.a(this.g, paramInt1 + 115 - 18, paramInt2 + 1, 0, 0);
+/*     */     } else {
+/* 246 */       dv.a(this.g, paramInt1 + 115 - 18, paramInt2 + 1, 0, 18);
+/*     */     }
+/*     */     
+/* 249 */     if (this.b == 1) {
+/* 250 */       dv.a(this.g, paramInt1 + 165 - 18, paramInt2 + 1, 0, 0);
+/*     */     } else {
+/* 252 */       dv.a(this.g, paramInt1 + 165 - 18, paramInt2 + 1, 0, 18);
+/*     */     }
+/*     */     
+/* 255 */     if (this.b == 2) {
+/* 256 */       dv.a(this.g, paramInt1 + 215 - 18, paramInt2 + 1, 0, 0);
+/*     */     } else {
+/* 258 */       dv.a(this.g, paramInt1 + 215 - 18, paramInt2 + 1, 0, 18);
+/*     */     }
+/*     */     
+/* 261 */     if (this.e != -1) {
+/* 262 */       int i = 79;
+/* 263 */       int j = 18;
+/*     */       
+/* 265 */       if (this.e == 1) {
+/* 266 */         i = 129;
+/* 267 */       } else if (this.e == 2) {
+/* 268 */         i = 179;
+/*     */       }
+/*     */       
+/* 271 */       if (this.f == 1) {
+/* 272 */         j = 36;
+/*     */       }
+/* 274 */       dv.a(this.g, paramInt1 + i, paramInt2 + 1, j, 0);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   protected void a(int paramInt1, int paramInt2)
+/*     */   {
+/* 281 */     this.b = -1;
+/* 282 */     if ((paramInt1 >= 79) && (paramInt1 < 115)) {
+/* 283 */       this.b = 0;
+/* 284 */     } else if ((paramInt1 >= 129) && (paramInt1 < 165)) {
+/* 285 */       this.b = 1;
+/* 286 */     } else if ((paramInt1 >= 179) && (paramInt1 < 215)) {
+/* 287 */       this.b = 2;
+/*     */     }
+/*     */     
+/* 290 */     if (this.b >= 0) {
+/* 291 */       c(this.b);
+/* 292 */       dv.g(this.g).B.a("random.click", 1.0F, 1.0F);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   protected final int a()
+/*     */   {
+/* 298 */     return this.c.size();
+/*     */   }
+/*     */   
+/*     */   protected final tw b(int paramInt) {
+/* 302 */     return (tw)this.c.get(paramInt);
+/*     */   }
+/*     */   
+/*     */   protected abstract String a(int paramInt);
+/*     */   
+/*     */   protected void a(tw paramtw, int paramInt1, int paramInt2, boolean paramBoolean) {
+/*     */     String str;
+/* 309 */     if (paramtw != null) {
+/* 310 */       str = paramtw.a(dv.c(this.g).a(paramtw));
+/* 311 */       this.g.b(dv.h(this.g), str, paramInt1 - dv.i(this.g).a(str), paramInt2 + 5, paramBoolean ? 16777215 : 9474192);
+/*     */     } else {
+/* 313 */       str = "-";
+/* 314 */       this.g.b(dv.j(this.g), str, paramInt1 - dv.k(this.g).a(str), paramInt2 + 5, paramBoolean ? 16777215 : 9474192);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   protected void b(int paramInt1, int paramInt2)
+/*     */   {
+/* 322 */     if ((paramInt2 < this.h) || (paramInt2 > this.i)) {
+/* 323 */       return;
+/*     */     }
+/*     */     
+/* 326 */     int i = c(paramInt1, paramInt2);
+/* 327 */     int j = this.g.c / 2 - 92 - 16;
+/* 328 */     Object localObject; if (i >= 0) {
+/* 329 */       if ((paramInt1 < j + 40) || (paramInt1 > j + 40 + 20)) {
+/* 330 */         return;
+/*     */       }
+/*     */       
+/* 333 */       localObject = b(i);
+/* 334 */       a((tw)localObject, paramInt1, paramInt2);
+/*     */     } else {
+/* 336 */       localObject = "";
+/* 337 */       if ((paramInt1 >= j + 115 - 18) && (paramInt1 <= j + 115)) {
+/* 338 */         localObject = a(0);
+/* 339 */       } else if ((paramInt1 >= j + 165 - 18) && (paramInt1 <= j + 165)) {
+/* 340 */         localObject = a(1);
+/* 341 */       } else if ((paramInt1 >= j + 215 - 18) && (paramInt1 <= j + 215)) {
+/* 342 */         localObject = a(2);
+/*     */       } else {
+/* 344 */         return;
+/*     */       }
+/*     */       
+/* 347 */       localObject = ("" + nh.a().a((String)localObject)).trim();
+/*     */       
+/* 349 */       if (((String)localObject).length() > 0) {
+/* 350 */         int k = paramInt1 + 12;
+/* 351 */         int m = paramInt2 - 12;
+/* 352 */         int n = dv.l(this.g).a((String)localObject);
+/* 353 */         dv.a(this.g, k - 3, m - 3, k + n + 3, m + 8 + 3, -1073741824, -1073741824);
+/*     */         
+/* 355 */         dv.m(this.g).a((String)localObject, k, m, -1);
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   protected void a(tw paramtw, int paramInt1, int paramInt2)
+/*     */   {
+/* 362 */     if (paramtw == null) {
+/* 363 */       return;
+/*     */     }
+/*     */     
+/* 366 */     gm localgm = gm.c[paramtw.a()];
+/*     */     
+/* 368 */     String str = ("" + nh.a().b(localgm.a())).trim();
+/*     */     
+/* 370 */     if (str.length() > 0) {
+/* 371 */       int i = paramInt1 + 12;
+/* 372 */       int j = paramInt2 - 12;
+/* 373 */       int k = dv.n(this.g).a(str);
+/* 374 */       dv.b(this.g, i - 3, j - 3, i + k + 3, j + 8 + 3, -1073741824, -1073741824);
+/*     */       
+/* 376 */       dv.o(this.g).a(str, i, j, -1);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   protected void c(int paramInt)
+/*     */   {
+/* 382 */     if (paramInt != this.e) {
+/* 383 */       this.e = paramInt;
+/* 384 */       this.f = -1;
+/* 385 */     } else if (this.f == -1) {
+/* 386 */       this.f = 1;
+/*     */     } else {
+/* 388 */       this.e = -1;
+/* 389 */       this.f = 0;
+/*     */     }
+/*     */     
+/* 392 */     Collections.sort(this.c, this.d);
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\iv.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

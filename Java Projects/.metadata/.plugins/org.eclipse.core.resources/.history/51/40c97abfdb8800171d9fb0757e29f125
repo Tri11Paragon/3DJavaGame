@@ -1,0 +1,104 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ class xj
+/*    */   extends Thread
+/*    */ {
+/* 77 */   xj(pf parampf, String paramString) { super(paramString); }
+/*    */   
+/* 79 */   public void run() { synchronized (pf.a) {
+/* 80 */       pf.b += 1;
+/*    */     }
+/*    */     try {
+/* 83 */       while ((pf.a(this.a)) && (!pf.b(this.a))) {
+/* 84 */         while (pf.c(this.a)) {}
+/*    */         
+/*    */         try
+/*    */         {
+/* 88 */           sleep(100L);
+/*    */         }
+/*    */         catch (InterruptedException ???) {}
+/*    */       }
+/*    */     } finally {
+/* 93 */       synchronized (pf.a) {
+/* 94 */         pf.b -= 1;
+/*    */       }
+/*    */     }
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\xj.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

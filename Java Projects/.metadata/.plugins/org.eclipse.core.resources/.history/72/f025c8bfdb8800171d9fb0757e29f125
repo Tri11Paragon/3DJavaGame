@@ -1,0 +1,37 @@
+/*    */ import java.io.DataInputStream;
+/*    */ import java.io.DataOutputStream;
+/*    */ 
+/*    */ public class mp
+/*    */   extends ki
+/*    */ {
+/*    */   public String a;
+/*    */   
+/*    */   public mp() {}
+/*    */   
+/*    */   public mp(String paramString)
+/*    */   {
+/* 13 */     this.a = paramString;
+/*    */   }
+/*    */   
+/*    */   public void a(DataInputStream paramDataInputStream) {
+/* 17 */     this.a = a(paramDataInputStream, 32);
+/*    */   }
+/*    */   
+/*    */   public void a(DataOutputStream paramDataOutputStream) {
+/* 21 */     a(this.a, paramDataOutputStream);
+/*    */   }
+/*    */   
+/*    */   public void a(ti paramti) {
+/* 25 */     paramti.a(this);
+/*    */   }
+/*    */   
+/*    */   public int a() {
+/* 29 */     return 4 + this.a.length() + 4;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\mp.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

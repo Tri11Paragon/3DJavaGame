@@ -1,0 +1,218 @@
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public abstract class ti
+/*     */ {
+/*     */   public abstract boolean c();
+/*     */   
+/*     */   public void a(ef paramef) {}
+/*     */   
+/*     */   public void c(ki paramki) {}
+/*     */   
+/*     */   public void a(String paramString, Object[] paramArrayOfObject) {}
+/*     */   
+/*     */   public void a(yr paramyr)
+/*     */   {
+/*  18 */     c(paramyr);
+/*     */   }
+/*     */   
+/*     */   public void a(nz paramnz) {
+/*  22 */     c(paramnz);
+/*     */   }
+/*     */   
+/*     */   public void a(ig paramig) {
+/*  26 */     c(paramig);
+/*     */   }
+/*     */   
+/*     */   public void a(wu paramwu) {
+/*  30 */     c(paramwu);
+/*     */   }
+/*     */   
+/*     */   public void a(jv paramjv) {
+/*  34 */     c(paramjv);
+/*     */   }
+/*     */   
+/*     */   public void a(tv paramtv) {
+/*  38 */     c(paramtv);
+/*     */   }
+/*     */   
+/*     */   public void a(se paramse) {
+/*  42 */     c(paramse);
+/*     */   }
+/*     */   
+/*     */   public void a(mf parammf) {
+/*  46 */     c(parammf);
+/*     */   }
+/*     */   
+/*     */   public void a(uh paramuh) {
+/*  50 */     c(paramuh);
+/*     */   }
+/*     */   
+/*     */   public void a(rg paramrg) {
+/*  54 */     c(paramrg);
+/*     */   }
+/*     */   
+/*     */   public void a(gx paramgx) {
+/*  58 */     c(paramgx);
+/*     */   }
+/*     */   
+/*     */   public void a(ho paramho) {
+/*  62 */     c(paramho);
+/*     */   }
+/*     */   
+/*     */   public void a(rv paramrv) {
+/*  66 */     c(paramrv);
+/*     */   }
+/*     */   
+/*     */   public void a(nd paramnd) {
+/*  70 */     c(paramnd);
+/*     */   }
+/*     */   
+/*     */   public void a(di paramdi) {
+/*  74 */     c(paramdi);
+/*     */   }
+/*     */   
+/*     */   public void a(pe parampe) {
+/*  78 */     c(parampe);
+/*     */   }
+/*     */   
+/*     */   public void a(so paramso) {
+/*  82 */     c(paramso);
+/*     */   }
+/*     */   
+/*     */   public void a(nm paramnm) {
+/*  86 */     c(paramnm);
+/*     */   }
+/*     */   
+/*     */   public void a(ts paramts) {
+/*  90 */     c(paramts);
+/*     */   }
+/*     */   
+/*     */   public void a(mp parammp) {
+/*  94 */     c(parammp);
+/*     */   }
+/*     */   
+/*     */   public void a(jm paramjm) {
+/*  98 */     c(paramjm);
+/*     */   }
+/*     */   
+/*     */   public void a(hg paramhg) {
+/* 102 */     c(paramhg);
+/*     */   }
+/*     */   
+/*     */   public void a(rc paramrc) {
+/* 106 */     c(paramrc);
+/*     */   }
+/*     */   
+/*     */   public void a(gj paramgj) {
+/* 110 */     c(paramgj);
+/*     */   }
+/*     */   
+/*     */   public void a(ux paramux) {
+/* 114 */     c(paramux);
+/*     */   }
+/*     */   
+/*     */   public void a(ns paramns) {
+/* 118 */     c(paramns);
+/*     */   }
+/*     */   
+/*     */   public void a(a parama) {
+/* 122 */     c(parama);
+/*     */   }
+/*     */   
+/*     */   public void a(jf paramjf) {
+/* 126 */     c(paramjf);
+/*     */   }
+/*     */   
+/*     */   public void a(eu parameu) {
+/* 130 */     c(parameu);
+/*     */   }
+/*     */   
+/*     */   public void a(ox paramox) {
+/* 134 */     c(paramox);
+/*     */   }
+/*     */   
+/*     */   public void a(rm paramrm) {
+/* 138 */     c(paramrm);
+/*     */   }
+/*     */   
+/*     */   public void a(iw paramiw) {
+/* 142 */     c(paramiw);
+/*     */   }
+/*     */   
+/*     */   public void a(mn parammn) {
+/* 146 */     c(parammn);
+/*     */   }
+/*     */   
+/*     */   public void a(qs paramqs) {
+/* 150 */     c(paramqs);
+/*     */   }
+/*     */   
+/*     */   public void a(hq paramhq) {
+/* 154 */     c(paramhq);
+/*     */   }
+/*     */   
+/*     */   public void a(kb paramkb) {
+/* 158 */     c(paramkb);
+/*     */   }
+/*     */   
+/*     */   public void a(ui paramui) {
+/* 162 */     c(paramui);
+/*     */   }
+/*     */   
+/*     */   public void a(mv parammv) {
+/* 166 */     c(parammv);
+/*     */   }
+/*     */   
+/*     */   public void a(s params) {
+/* 170 */     c(params);
+/*     */   }
+/*     */   
+/*     */   public void a(oj paramoj) {
+/* 174 */     c(paramoj);
+/*     */   }
+/*     */   
+/*     */   public void a(vt paramvt) {
+/* 178 */     c(paramvt);
+/*     */   }
+/*     */   
+/*     */   public void a(vw paramvw) {
+/* 182 */     c(paramvw);
+/*     */   }
+/*     */   
+/*     */   public void a(of paramof) {
+/* 186 */     c(paramof);
+/*     */   }
+/*     */   
+/*     */   public void a(jz paramjz) {
+/* 190 */     c(paramjz);
+/*     */   }
+/*     */   
+/*     */   public void a(ql paramql) {
+/* 194 */     c(paramql);
+/*     */   }
+/*     */   
+/*     */   public void a(ca paramca) {
+/* 198 */     c(paramca);
+/*     */   }
+/*     */   
+/*     */   public void a(fa paramfa) {
+/* 202 */     c(paramfa);
+/*     */   }
+/*     */   
+/*     */   public void a(ai paramai) {
+/* 206 */     c(paramai);
+/*     */   }
+/*     */   
+/*     */   public void a(fn paramfn) {
+/* 210 */     c(paramfn);
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ti.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

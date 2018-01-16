@@ -1,0 +1,26 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ public class qz
+/*    */   extends gm
+/*    */ {
+/*    */   public qz(int paramInt)
+/*    */   {
+/*  9 */     super(paramInt);
+/* 10 */     this.bg = 1;
+/*    */   }
+/*    */   
+/*    */   public iz a(iz paramiz, fd paramfd, gs paramgs) {
+/* 14 */     if (paramgs.c.c(gm.j.bf)) {
+/* 15 */       paramfd.a(paramgs, "random.bow", 1.0F, 1.0F / (b.nextFloat() * 0.4F + 0.8F));
+/* 16 */       if (!paramfd.B) paramfd.b(new sl(paramfd, paramgs));
+/*    */     }
+/* 18 */     return paramiz;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\qz.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

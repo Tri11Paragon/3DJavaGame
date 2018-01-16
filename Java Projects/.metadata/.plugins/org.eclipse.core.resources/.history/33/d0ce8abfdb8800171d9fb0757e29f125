@@ -1,0 +1,22 @@
+/*    */ 
+/*    */ 
+/*    */ public class me
+/*    */   extends gv
+/*    */ {
+/*    */   public me(ko paramko1, ko paramko2, float paramFloat)
+/*    */   {
+/*  8 */     super(paramko1, paramFloat);
+/*  9 */     a(paramko2);
+/*    */   }
+/*    */   
+/*    */   protected boolean a(wh paramwh, int paramInt, float paramFloat) {
+/* 13 */     a("/mob/saddle.png");
+/* 14 */     return (paramInt == 0) && (paramwh.v());
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\me.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

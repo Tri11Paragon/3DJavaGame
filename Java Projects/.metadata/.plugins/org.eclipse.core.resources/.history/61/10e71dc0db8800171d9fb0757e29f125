@@ -1,0 +1,40 @@
+/*    */ import java.io.DataInputStream;
+/*    */ import java.io.DataOutputStream;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class jf
+/*    */   extends ki
+/*    */ {
+/*    */   public int a;
+/*    */   public byte b;
+/*    */   
+/*    */   public void a(DataInputStream paramDataInputStream)
+/*    */   {
+/* 18 */     this.a = paramDataInputStream.readInt();
+/* 19 */     this.b = paramDataInputStream.readByte();
+/*    */   }
+/*    */   
+/*    */   public void a(DataOutputStream paramDataOutputStream) {
+/* 23 */     paramDataOutputStream.writeInt(this.a);
+/* 24 */     paramDataOutputStream.writeByte(this.b);
+/*    */   }
+/*    */   
+/*    */   public void a(ti paramti) {
+/* 28 */     paramti.a(this);
+/*    */   }
+/*    */   
+/*    */   public int a() {
+/* 32 */     return 5;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\jf.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

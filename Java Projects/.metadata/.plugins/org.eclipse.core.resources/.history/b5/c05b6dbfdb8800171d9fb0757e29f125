@@ -1,0 +1,85 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public final class jt
+/*    */ {
+/*    */   final yp a;
+/*    */   
+/*    */   jt(yp paramyp)
+/*    */   {
+/* 32 */     this.a = paramyp;
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public boolean a(Object paramObject)
+/*    */   {
+/* 41 */     return this.a.a(paramObject);
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public Object b(Object paramObject)
+/*    */   {
+/* 52 */     return this.a.b(paramObject);
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public jt a(jt paramjt)
+/*    */   {
+/* 68 */     return new jt(new j(this, paramjt));
+/*    */   }
+/*    */   
+/*    */   String a() {
+/* 72 */     return this.a.a();
+/*    */   }
+/*    */   
+/*    */   public String toString()
+/*    */   {
+/* 77 */     return this.a.toString();
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\jt.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

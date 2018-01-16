@@ -1,0 +1,199 @@
+/*     */ import java.io.IOException;
+/*     */ import java.util.ArrayList;
+/*     */ import java.util.HashMap;
+/*     */ import java.util.HashSet;
+/*     */ import java.util.Iterator;
+/*     */ import java.util.List;
+/*     */ import java.util.Map;
+/*     */ import java.util.Set;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class ok
+/*     */   implements cl
+/*     */ {
+/*  19 */   private Set a = new HashSet();
+/*     */   
+/*     */   private lm b;
+/*     */   private cl c;
+/*     */   private bf d;
+/*  24 */   private Map e = new HashMap();
+/*  25 */   private List f = new ArrayList();
+/*     */   private fd g;
+/*     */   
+/*     */   public ok(fd paramfd, bf parambf, cl paramcl) {
+/*  29 */     this.b = new li(paramfd, new byte[32768], 0, 0);
+/*     */     
+/*  31 */     this.g = paramfd;
+/*  32 */     this.d = parambf;
+/*  33 */     this.c = paramcl;
+/*     */   }
+/*     */   
+/*     */   public boolean a(int paramInt1, int paramInt2) {
+/*  37 */     return this.e.containsKey(Integer.valueOf(yy.a(paramInt1, paramInt2)));
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public lm c(int paramInt1, int paramInt2)
+/*     */   {
+/*  51 */     int i = yy.a(paramInt1, paramInt2);
+/*  52 */     this.a.remove(Integer.valueOf(i));
+/*     */     
+/*  54 */     lm locallm = (lm)this.e.get(Integer.valueOf(i));
+/*  55 */     if (locallm == null) {
+/*  56 */       locallm = d(paramInt1, paramInt2);
+/*  57 */       if (locallm == null) {
+/*  58 */         if (this.c == null) {
+/*  59 */           locallm = this.b;
+/*     */         } else {
+/*  61 */           locallm = this.c.b(paramInt1, paramInt2);
+/*     */         }
+/*     */       }
+/*     */       
+/*     */ 
+/*  66 */       this.e.put(Integer.valueOf(i), locallm);
+/*  67 */       this.f.add(locallm);
+/*     */       
+/*  69 */       if (locallm != null) {
+/*  70 */         locallm.d();
+/*  71 */         locallm.e();
+/*     */       }
+/*     */       
+/*  74 */       if ((!locallm.n) && (a(paramInt1 + 1, paramInt2 + 1)) && (a(paramInt1, paramInt2 + 1)) && (a(paramInt1 + 1, paramInt2))) a(this, paramInt1, paramInt2);
+/*  75 */       if ((a(paramInt1 - 1, paramInt2)) && (!b(paramInt1 - 1, paramInt2).n) && (a(paramInt1 - 1, paramInt2 + 1)) && (a(paramInt1, paramInt2 + 1)) && (a(paramInt1 - 1, paramInt2))) a(this, paramInt1 - 1, paramInt2);
+/*  76 */       if ((a(paramInt1, paramInt2 - 1)) && (!b(paramInt1, paramInt2 - 1).n) && (a(paramInt1 + 1, paramInt2 - 1)) && (a(paramInt1, paramInt2 - 1)) && (a(paramInt1 + 1, paramInt2))) a(this, paramInt1, paramInt2 - 1);
+/*  77 */       if ((a(paramInt1 - 1, paramInt2 - 1)) && (!b(paramInt1 - 1, paramInt2 - 1).n) && (a(paramInt1 - 1, paramInt2 - 1)) && (a(paramInt1, paramInt2 - 1)) && (a(paramInt1 - 1, paramInt2))) { a(this, paramInt1 - 1, paramInt2 - 1);
+/*     */       }
+/*     */     }
+/*     */     
+/*     */ 
+/*     */ 
+/*  83 */     return locallm;
+/*     */   }
+/*     */   
+/*     */   public lm b(int paramInt1, int paramInt2)
+/*     */   {
+/*  88 */     lm locallm = (lm)this.e.get(Integer.valueOf(yy.a(paramInt1, paramInt2)));
+/*     */     
+/*  90 */     if (locallm == null)
+/*     */     {
+/*  92 */       return c(paramInt1, paramInt2);
+/*     */     }
+/*     */     
+/*     */ 
+/*     */ 
+/*  97 */     return locallm;
+/*     */   }
+/*     */   
+/*     */   private lm d(int paramInt1, int paramInt2) {
+/* 101 */     if (this.d == null) return null;
+/*     */     try {
+/* 103 */       lm locallm = this.d.a(this.g, paramInt1, paramInt2);
+/* 104 */       if (locallm != null) {
+/* 105 */         locallm.r = this.g.t();
+/*     */       }
+/* 107 */       return locallm;
+/*     */     } catch (Exception localException) {
+/* 109 */       localException.printStackTrace(); }
+/* 110 */     return null;
+/*     */   }
+/*     */   
+/*     */   private void a(lm paramlm)
+/*     */   {
+/* 115 */     if (this.d == null) return;
+/*     */     try {
+/* 117 */       this.d.b(this.g, paramlm);
+/*     */     } catch (Exception localException) {
+/* 119 */       localException.printStackTrace();
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   private void b(lm paramlm) {
+/* 124 */     if (this.d == null) return;
+/*     */     try {
+/* 126 */       paramlm.r = this.g.t();
+/* 127 */       this.d.a(this.g, paramlm);
+/*     */     } catch (IOException localIOException) {
+/* 129 */       localIOException.printStackTrace();
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(cl paramcl, int paramInt1, int paramInt2) {
+/* 134 */     lm locallm = b(paramInt1, paramInt2);
+/* 135 */     if (!locallm.n) {
+/* 136 */       locallm.n = true;
+/* 137 */       if (this.c != null) {
+/* 138 */         this.c.a(paramcl, paramInt1, paramInt2);
+/* 139 */         locallm.g();
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   public boolean a(boolean paramBoolean, yb paramyb)
+/*     */   {
+/* 147 */     int i = 0;
+/* 148 */     for (int j = 0; j < this.f.size(); j++) {
+/* 149 */       lm locallm = (lm)this.f.get(j);
+/* 150 */       if ((paramBoolean) && (!locallm.p)) a(locallm);
+/* 151 */       if (locallm.a(paramBoolean)) {
+/* 152 */         b(locallm);
+/* 153 */         locallm.o = false;
+/* 154 */         i++; if ((i == 24) && (!paramBoolean)) { return false;
+/*     */         }
+/*     */       }
+/*     */     }
+/* 158 */     if (paramBoolean) {
+/* 159 */       if (this.d == null) return true;
+/* 160 */       this.d.b();
+/*     */     }
+/* 162 */     return true;
+/*     */   }
+/*     */   
+/*     */   public boolean a() {
+/* 166 */     for (int i = 0; i < 100; i++) {
+/* 167 */       if (!this.a.isEmpty()) {
+/* 168 */         Integer localInteger = (Integer)this.a.iterator().next();
+/*     */         
+/* 170 */         lm locallm = (lm)this.e.get(localInteger);
+/* 171 */         locallm.f();
+/* 172 */         b(locallm);
+/* 173 */         a(locallm);
+/* 174 */         this.a.remove(localInteger);
+/*     */         
+/* 176 */         this.e.remove(localInteger);
+/* 177 */         this.f.remove(locallm);
+/*     */       }
+/*     */     }
+/*     */     
+/* 181 */     if (this.d != null) { this.d.a();
+/*     */     }
+/* 183 */     return this.c.a();
+/*     */   }
+/*     */   
+/*     */   public boolean b() {
+/* 187 */     return true;
+/*     */   }
+/*     */   
+/*     */   public String c() {
+/* 191 */     return "ServerChunkCache: " + this.e.size() + " Drop: " + this.a.size();
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ok.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

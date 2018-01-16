@@ -1,0 +1,210 @@
+/*     */ import java.util.Random;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class bk
+/*     */   extends nr
+/*     */ {
+/*     */   private int c;
+/*     */   int[] a;
+/*     */   
+/*     */   protected bk(int paramInt1, int paramInt2)
+/*     */   {
+/*  27 */     super(paramInt1, paramInt2, ln.i, false);
+/*  28 */     this.c = paramInt2;
+/*  29 */     b(true);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public int b(int paramInt)
+/*     */   {
+/*  42 */     if ((paramInt & 0x1) == 1) {
+/*  43 */       return jh.a();
+/*     */     }
+/*  45 */     if ((paramInt & 0x2) == 2) {
+/*  46 */       return jh.b();
+/*     */     }
+/*     */     
+/*  49 */     return jh.c();
+/*     */   }
+/*     */   
+/*     */   public int b(xp paramxp, int paramInt1, int paramInt2, int paramInt3)
+/*     */   {
+/*  54 */     int i = paramxp.e(paramInt1, paramInt2, paramInt3);
+/*     */     
+/*  56 */     if ((i & 0x1) == 1) {
+/*  57 */       return jh.a();
+/*     */     }
+/*  59 */     if ((i & 0x2) == 2) {
+/*  60 */       return jh.b();
+/*     */     }
+/*     */     
+/*  63 */     paramxp.a().a(paramInt1, paramInt3, 1, 1);
+/*  64 */     double d1 = paramxp.a().a[0];
+/*  65 */     double d2 = paramxp.a().b[0];
+/*     */     
+/*  67 */     return jh.a(d1, d2);
+/*     */   }
+/*     */   
+/*     */   public void b(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/*  71 */     int i = 1;
+/*  72 */     int j = i + 1;
+/*     */     
+/*  74 */     if (paramfd.a(paramInt1 - j, paramInt2 - j, paramInt3 - j, paramInt1 + j, paramInt2 + j, paramInt3 + j)) {
+/*  75 */       for (int k = -i; k <= i; k++) {
+/*  76 */         for (int m = -i; m <= i; m++) {
+/*  77 */           for (int n = -i; n <= i; n++) {
+/*  78 */             int i1 = paramfd.a(paramInt1 + k, paramInt2 + m, paramInt3 + n);
+/*  79 */             if (i1 == uu.L.bn) {
+/*  80 */               int i2 = paramfd.e(paramInt1 + k, paramInt2 + m, paramInt3 + n);
+/*  81 */               paramfd.e(paramInt1 + k, paramInt2 + m, paramInt3 + n, i2 | 0x8);
+/*     */             }
+/*     */           }
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, Random paramRandom) {
+/*  90 */     if (paramfd.B) { return;
+/*     */     }
+/*  92 */     int i = paramfd.e(paramInt1, paramInt2, paramInt3);
+/*  93 */     if ((i & 0x8) != 0) {
+/*  94 */       int j = 4;
+/*  95 */       int k = j + 1;
+/*     */       
+/*  97 */       int m = 32;
+/*  98 */       int n = m * m;
+/*  99 */       int i1 = m / 2;
+/* 100 */       if (this.a == null) {
+/* 101 */         this.a = new int[m * m * m];
+/*     */       }
+/*     */       
+/* 104 */       if (paramfd.a(paramInt1 - k, paramInt2 - k, paramInt3 - k, paramInt1 + k, paramInt2 + k, paramInt3 + k)) { int i3;
+/* 105 */         int i4; int i5; for (i2 = -j; i2 <= j; i2++) {
+/* 106 */           for (i3 = -j; i3 <= j; i3++)
+/* 107 */             for (i4 = -j; i4 <= j; i4++) {
+/* 108 */               i5 = paramfd.a(paramInt1 + i2, paramInt2 + i3, paramInt3 + i4);
+/* 109 */               if (i5 == uu.K.bn) {
+/* 110 */                 this.a[((i2 + i1) * n + (i3 + i1) * m + (i4 + i1))] = 0;
+/* 111 */               } else if (i5 == uu.L.bn) {
+/* 112 */                 this.a[((i2 + i1) * n + (i3 + i1) * m + (i4 + i1))] = -2;
+/*     */               } else
+/* 114 */                 this.a[((i2 + i1) * n + (i3 + i1) * m + (i4 + i1))] = -1;
+/*     */             }
+/*     */         }
+/* 117 */         for (i2 = 1; i2 <= 4; i2++) {
+/* 118 */           for (i3 = -j; i3 <= j; i3++) {
+/* 119 */             for (i4 = -j; i4 <= j; i4++) {
+/* 120 */               for (i5 = -j; i5 <= j; i5++) {
+/* 121 */                 if (this.a[((i3 + i1) * n + (i4 + i1) * m + (i5 + i1))] == i2 - 1) {
+/* 122 */                   if (this.a[((i3 + i1 - 1) * n + (i4 + i1) * m + (i5 + i1))] == -2) {
+/* 123 */                     this.a[((i3 + i1 - 1) * n + (i4 + i1) * m + (i5 + i1))] = i2;
+/*     */                   }
+/* 125 */                   if (this.a[((i3 + i1 + 1) * n + (i4 + i1) * m + (i5 + i1))] == -2) {
+/* 126 */                     this.a[((i3 + i1 + 1) * n + (i4 + i1) * m + (i5 + i1))] = i2;
+/*     */                   }
+/* 128 */                   if (this.a[((i3 + i1) * n + (i4 + i1 - 1) * m + (i5 + i1))] == -2) {
+/* 129 */                     this.a[((i3 + i1) * n + (i4 + i1 - 1) * m + (i5 + i1))] = i2;
+/*     */                   }
+/* 131 */                   if (this.a[((i3 + i1) * n + (i4 + i1 + 1) * m + (i5 + i1))] == -2) {
+/* 132 */                     this.a[((i3 + i1) * n + (i4 + i1 + 1) * m + (i5 + i1))] = i2;
+/*     */                   }
+/* 134 */                   if (this.a[((i3 + i1) * n + (i4 + i1) * m + (i5 + i1 - 1))] == -2) {
+/* 135 */                     this.a[((i3 + i1) * n + (i4 + i1) * m + (i5 + i1 - 1))] = i2;
+/*     */                   }
+/* 137 */                   if (this.a[((i3 + i1) * n + (i4 + i1) * m + (i5 + i1 + 1))] == -2)
+/* 138 */                     this.a[((i3 + i1) * n + (i4 + i1) * m + (i5 + i1 + 1))] = i2;
+/*     */                 }
+/*     */               }
+/*     */             }
+/*     */           }
+/*     */         }
+/*     */       }
+/* 145 */       int i2 = this.a[(i1 * n + i1 * m + i1)];
+/* 146 */       if (i2 >= 0) {
+/* 147 */         paramfd.e(paramInt1, paramInt2, paramInt3, i & 0xFFFFFFF7);
+/*     */       } else {
+/* 149 */         h(paramfd, paramInt1, paramInt2, paramInt3);
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   private void h(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/* 155 */     g(paramfd, paramInt1, paramInt2, paramInt3, paramfd.e(paramInt1, paramInt2, paramInt3));
+/* 156 */     paramfd.f(paramInt1, paramInt2, paramInt3, 0);
+/*     */   }
+/*     */   
+/*     */   public int a(Random paramRandom) {
+/* 160 */     return paramRandom.nextInt(20) == 0 ? 1 : 0;
+/*     */   }
+/*     */   
+/*     */   public int a(int paramInt, Random paramRandom) {
+/* 164 */     return uu.z.bn;
+/*     */   }
+/*     */   
+/*     */   public void a(fd paramfd, gs paramgs, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+/*     */   {
+/* 169 */     if ((!paramfd.B) && (paramgs.G() != null) && (paramgs.G().c == gm.bc.bf)) {
+/* 170 */       paramgs.a(jl.C[this.bn], 1);
+/*     */       
+/*     */ 
+/* 173 */       a(paramfd, paramInt1, paramInt2, paramInt3, new iz(uu.L.bn, 1, paramInt4 & 0x3));
+/*     */     } else {
+/* 175 */       super.a(paramfd, paramgs, paramInt1, paramInt2, paramInt3, paramInt4);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   protected int b_(int paramInt)
+/*     */   {
+/* 181 */     return paramInt & 0x3;
+/*     */   }
+/*     */   
+/*     */   public boolean c() {
+/* 185 */     return !this.b;
+/*     */   }
+/*     */   
+/*     */   public int a(int paramInt1, int paramInt2)
+/*     */   {
+/* 190 */     if ((paramInt2 & 0x3) == 1) {
+/* 191 */       return this.bm + 80;
+/*     */     }
+/* 193 */     return this.bm;
+/*     */   }
+/*     */   
+/*     */   public void a(boolean paramBoolean) {
+/* 197 */     this.b = paramBoolean;
+/* 198 */     this.bm = (this.c + (paramBoolean ? 0 : 1));
+/*     */   }
+/*     */   
+/*     */   public void b(fd paramfd, int paramInt1, int paramInt2, int paramInt3, sn paramsn) {
+/* 202 */     super.b(paramfd, paramInt1, paramInt2, paramInt3, paramsn);
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\bk.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

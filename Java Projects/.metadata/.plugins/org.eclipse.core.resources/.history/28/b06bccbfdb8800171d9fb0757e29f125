@@ -1,0 +1,518 @@
+/*     */ import java.util.Random;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class pc
+/*     */   extends uu
+/*     */ {
+/*     */   private final boolean a;
+/*     */   
+/*     */   public static final boolean h(fd paramfd, int paramInt1, int paramInt2, int paramInt3)
+/*     */   {
+/* 270 */     int i = paramfd.a(paramInt1, paramInt2, paramInt3);
+/* 271 */     return (i == uu.aH.bn) || (i == uu.U.bn) || (i == uu.V.bn);
+/*     */   }
+/*     */   
+/*     */   public static final boolean d(int paramInt) {
+/* 275 */     return (paramInt == uu.aH.bn) || (paramInt == uu.U.bn) || (paramInt == uu.V.bn);
+/*     */   }
+/*     */   
+/*     */   protected pc(int paramInt1, int paramInt2, boolean paramBoolean) {
+/* 279 */     super(paramInt1, paramInt2, ln.o);
+/* 280 */     this.a = paramBoolean;
+/* 281 */     a(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
+/*     */   }
+/*     */   
+/*     */   public boolean i() {
+/* 285 */     return this.a;
+/*     */   }
+/*     */   
+/*     */   public eq e(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/* 289 */     return null;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public boolean c()
+/*     */   {
+/* 297 */     return false;
+/*     */   }
+/*     */   
+/*     */   public vf a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, bt parambt1, bt parambt2) {
+/* 301 */     a(paramfd, paramInt1, paramInt2, paramInt3);
+/* 302 */     return super.a(paramfd, paramInt1, paramInt2, paramInt3, parambt1, parambt2);
+/*     */   }
+/*     */   
+/*     */   public void a(xp paramxp, int paramInt1, int paramInt2, int paramInt3) {
+/* 306 */     int i = paramxp.e(paramInt1, paramInt2, paramInt3);
+/* 307 */     if ((i >= 2) && (i <= 5)) {
+/* 308 */       a(0.0F, 0.0F, 0.0F, 1.0F, 0.625F, 1.0F);
+/*     */     } else {
+/* 310 */       a(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public int a(int paramInt1, int paramInt2) {
+/* 315 */     if (this.a) {
+/* 316 */       if ((this.bn == uu.U.bn) && 
+/* 317 */         ((paramInt2 & 0x8) == 0)) {
+/* 318 */         return this.bm - 16;
+/*     */       }
+/*     */     }
+/* 321 */     else if (paramInt2 >= 6) return this.bm - 16;
+/* 322 */     return this.bm;
+/*     */   }
+/*     */   
+/*     */   public boolean d() {
+/* 326 */     return false;
+/*     */   }
+/*     */   
+/*     */   public int b() {
+/* 330 */     return 9;
+/*     */   }
+/*     */   
+/*     */   public int a(Random paramRandom) {
+/* 334 */     return 1;
+/*     */   }
+/*     */   
+/*     */   public boolean a(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/* 338 */     if (paramfd.h(paramInt1, paramInt2 - 1, paramInt3)) {
+/* 339 */       return true;
+/*     */     }
+/* 341 */     return false;
+/*     */   }
+/*     */   
+/*     */   public void c(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/* 345 */     if (!paramfd.B)
+/*     */     {
+/* 347 */       a(paramfd, paramInt1, paramInt2, paramInt3, true);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void b(fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/* 352 */     if (paramfd.B) { return;
+/*     */     }
+/* 354 */     int i = paramfd.e(paramInt1, paramInt2, paramInt3);
+/* 355 */     int j = i;
+/* 356 */     if (this.a) {
+/* 357 */       j &= 0x7;
+/*     */     }
+/* 359 */     int k = 0;
+/*     */     
+/* 361 */     if (!paramfd.h(paramInt1, paramInt2 - 1, paramInt3)) k = 1;
+/* 362 */     if ((j == 2) && (!paramfd.h(paramInt1 + 1, paramInt2, paramInt3))) k = 1;
+/* 363 */     if ((j == 3) && (!paramfd.h(paramInt1 - 1, paramInt2, paramInt3))) k = 1;
+/* 364 */     if ((j == 4) && (!paramfd.h(paramInt1, paramInt2, paramInt3 - 1))) k = 1;
+/* 365 */     if ((j == 5) && (!paramfd.h(paramInt1, paramInt2, paramInt3 + 1))) { k = 1;
+/*     */     }
+/* 367 */     if (k != 0) {
+/* 368 */       g(paramfd, paramInt1, paramInt2, paramInt3, paramfd.e(paramInt1, paramInt2, paramInt3));
+/* 369 */       paramfd.f(paramInt1, paramInt2, paramInt3, 0);
+/*     */     }
+/* 371 */     else if (this.bn == uu.U.bn) {
+/* 372 */       int m = (paramfd.s(paramInt1, paramInt2, paramInt3)) || (paramfd.s(paramInt1, paramInt2 + 1, paramInt3)) ? 1 : 0;
+/* 373 */       m = (m != 0) || (a(paramfd, paramInt1, paramInt2, paramInt3, i, true, 0)) || (a(paramfd, paramInt1, paramInt2, paramInt3, i, false, 0)) ? 1 : 0;
+/*     */       
+/* 375 */       int n = 0;
+/* 376 */       if ((m != 0) && ((i & 0x8) == 0)) {
+/* 377 */         paramfd.d(paramInt1, paramInt2, paramInt3, j | 0x8);
+/* 378 */         n = 1;
+/* 379 */       } else if ((m == 0) && ((i & 0x8) != 0)) {
+/* 380 */         paramfd.d(paramInt1, paramInt2, paramInt3, j);
+/* 381 */         n = 1;
+/*     */       }
+/*     */       
+/*     */ 
+/*     */ 
+/*     */ 
+/* 387 */       if (n != 0) {
+/* 388 */         paramfd.i(paramInt1, paramInt2 - 1, paramInt3, this.bn);
+/* 389 */         if ((j == 2) || (j == 3) || (j == 4) || (j == 5)) {
+/* 390 */           paramfd.i(paramInt1, paramInt2 + 1, paramInt3, this.bn);
+/*     */         }
+/*     */         
+/*     */       }
+/*     */     }
+/* 395 */     else if ((paramInt4 > 0) && (uu.m[paramInt4].f()) && (!this.a) && 
+/* 396 */       (vo.a(new vo(this, paramfd, paramInt1, paramInt2, paramInt3)) == 3)) {
+/* 397 */       a(paramfd, paramInt1, paramInt2, paramInt3, false);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   private void a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, boolean paramBoolean)
+/*     */   {
+/* 404 */     if (paramfd.B) return;
+/* 405 */     new vo(this, paramfd, paramInt1, paramInt2, paramInt3).a(paramfd.s(paramInt1, paramInt2, paramInt3), paramBoolean);
+/*     */   }
+/*     */   
+/*     */   private boolean a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4, boolean paramBoolean, int paramInt5)
+/*     */   {
+/* 410 */     if (paramInt5 >= 8) {
+/* 411 */       return false;
+/*     */     }
+/*     */     
+/* 414 */     int i = paramInt4 & 0x7;
+/*     */     
+/* 416 */     int j = 1;
+/* 417 */     switch (i) {
+/*     */     case 0: 
+/* 419 */       if (paramBoolean) {
+/* 420 */         paramInt3++;
+/*     */       } else {
+/* 422 */         paramInt3--;
+/*     */       }
+/* 424 */       break;
+/*     */     case 1: 
+/* 426 */       if (paramBoolean) {
+/* 427 */         paramInt1--;
+/*     */       } else {
+/* 429 */         paramInt1++;
+/*     */       }
+/* 431 */       break;
+/*     */     case 2: 
+/* 433 */       if (paramBoolean) {
+/* 434 */         paramInt1--;
+/*     */       } else {
+/* 436 */         paramInt1++;
+/* 437 */         paramInt2++;
+/* 438 */         j = 0;
+/*     */       }
+/* 440 */       i = 1;
+/* 441 */       break;
+/*     */     case 3: 
+/* 443 */       if (paramBoolean) {
+/* 444 */         paramInt1--;
+/* 445 */         paramInt2++;
+/* 446 */         j = 0;
+/*     */       } else {
+/* 448 */         paramInt1++;
+/*     */       }
+/* 450 */       i = 1;
+/* 451 */       break;
+/*     */     case 4: 
+/* 453 */       if (paramBoolean) {
+/* 454 */         paramInt3++;
+/*     */       } else {
+/* 456 */         paramInt3--;
+/* 457 */         paramInt2++;
+/* 458 */         j = 0;
+/*     */       }
+/* 460 */       i = 0;
+/* 461 */       break;
+/*     */     case 5: 
+/* 463 */       if (paramBoolean) {
+/* 464 */         paramInt3++;
+/* 465 */         paramInt2++;
+/* 466 */         j = 0;
+/*     */       } else {
+/* 468 */         paramInt3--;
+/*     */       }
+/* 470 */       i = 0;
+/*     */     }
+/*     */     
+/*     */     
+/* 474 */     if (a(paramfd, paramInt1, paramInt2, paramInt3, paramBoolean, paramInt5, i)) {
+/* 475 */       return true;
+/*     */     }
+/* 477 */     if ((j != 0) && (a(paramfd, paramInt1, paramInt2 - 1, paramInt3, paramBoolean, paramInt5, i))) {
+/* 478 */       return true;
+/*     */     }
+/* 480 */     return false;
+/*     */   }
+/*     */   
+/*     */   private boolean a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, boolean paramBoolean, int paramInt4, int paramInt5) {
+/* 484 */     int i = paramfd.a(paramInt1, paramInt2, paramInt3);
+/* 485 */     if (i == uu.U.bn) {
+/* 486 */       int j = paramfd.e(paramInt1, paramInt2, paramInt3);
+/* 487 */       int k = j & 0x7;
+/*     */       
+/* 489 */       if ((paramInt5 == 1) && ((k == 0) || (k == 4) || (k == 5))) {
+/* 490 */         return false;
+/*     */       }
+/* 492 */       if ((paramInt5 == 0) && ((k == 1) || (k == 2) || (k == 3))) {
+/* 493 */         return false;
+/*     */       }
+/*     */       
+/* 496 */       if ((j & 0x8) != 0) {
+/* 497 */         if ((paramfd.s(paramInt1, paramInt2, paramInt3)) || (paramfd.s(paramInt1, paramInt2 + 1, paramInt3))) {
+/* 498 */           return true;
+/*     */         }
+/* 500 */         return a(paramfd, paramInt1, paramInt2, paramInt3, j, paramBoolean, paramInt4 + 1);
+/*     */       }
+/*     */     }
+/*     */     
+/* 504 */     return false;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   public int h()
+/*     */   {
+/* 510 */     return 0;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\pc.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

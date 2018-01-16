@@ -1,0 +1,52 @@
+/*    */ import org.lwjgl.opengl.GL11;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class kl
+/*    */   extends bw
+/*    */ {
+/*    */   public void a(cf paramcf, double paramDouble1, double paramDouble2, double paramDouble3, float paramFloat1, float paramFloat2)
+/*    */   {
+/* 11 */     GL11.glPushMatrix();
+/*    */     
+/* 13 */     GL11.glTranslatef((float)paramDouble1, (float)paramDouble2, (float)paramDouble3);
+/* 14 */     GL11.glEnable(32826);
+/* 15 */     float f1 = 2.0F;
+/* 16 */     GL11.glScalef(f1 / 1.0F, f1 / 1.0F, f1 / 1.0F);
+/* 17 */     int i = gm.aB.a(0);
+/* 18 */     a("/gui/items.png");
+/* 19 */     nw localnw = nw.a;
+/*    */     
+/* 21 */     float f2 = (i % 16 * 16 + 0) / 256.0F;
+/* 22 */     float f3 = (i % 16 * 16 + 16) / 256.0F;
+/* 23 */     float f4 = (i / 16 * 16 + 0) / 256.0F;
+/* 24 */     float f5 = (i / 16 * 16 + 16) / 256.0F;
+/*    */     
+/*    */ 
+/* 27 */     float f6 = 1.0F;
+/* 28 */     float f7 = 0.5F;
+/* 29 */     float f8 = 0.25F;
+/*    */     
+/*    */ 
+/*    */ 
+/* 33 */     GL11.glRotatef(180.0F - this.b.i, 0.0F, 1.0F, 0.0F);
+/* 34 */     GL11.glRotatef(-this.b.j, 1.0F, 0.0F, 0.0F);
+/* 35 */     localnw.b();
+/* 36 */     localnw.b(0.0F, 1.0F, 0.0F);
+/* 37 */     localnw.a(0.0F - f7, 0.0F - f8, 0.0D, f2, f5);
+/* 38 */     localnw.a(f6 - f7, 0.0F - f8, 0.0D, f3, f5);
+/* 39 */     localnw.a(f6 - f7, 1.0F - f8, 0.0D, f3, f4);
+/* 40 */     localnw.a(0.0F - f7, 1.0F - f8, 0.0D, f2, f4);
+/* 41 */     localnw.a();
+/*    */     
+/* 43 */     GL11.glDisable(32826);
+/* 44 */     GL11.glPopMatrix();
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\kl.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

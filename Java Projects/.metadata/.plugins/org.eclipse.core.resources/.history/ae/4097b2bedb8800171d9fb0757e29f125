@@ -1,0 +1,274 @@
+/*     */ import java.util.ArrayList;
+/*     */ import java.util.List;
+/*     */ import java.util.Random;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class qv
+/*     */   extends sn
+/*     */ {
+/*  14 */   private int f = 0;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*  65 */   public int a = 0;
+/*     */   public int b;
+/*     */   public int c;
+/*     */   public int d;
+/*     */   public iq e;
+/*     */   
+/*     */   public qv(fd paramfd) {
+/*  72 */     super(paramfd);
+/*  73 */     this.bf = 0.0F;
+/*  74 */     b(0.5F, 0.5F);
+/*     */   }
+/*     */   
+/*     */   public qv(fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/*  78 */     this(paramfd);
+/*  79 */     this.b = paramInt1;
+/*  80 */     this.c = paramInt2;
+/*  81 */     this.d = paramInt3;
+/*     */     
+/*  83 */     ArrayList localArrayList = new ArrayList();
+/*  84 */     for (iq localiq : iq.values()) {
+/*  85 */       this.e = localiq;
+/*  86 */       b(paramInt4);
+/*  87 */       if (k()) {
+/*  88 */         localArrayList.add(localiq);
+/*     */       }
+/*     */     }
+/*  91 */     if (localArrayList.size() > 0) {
+/*  92 */       this.e = ((iq)localArrayList.get(this.bs.nextInt(localArrayList.size())));
+/*     */     }
+/*  94 */     b(paramInt4);
+/*     */   }
+/*     */   
+/*     */   public qv(fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4, String paramString) {
+/*  98 */     this(paramfd);
+/*  99 */     this.b = paramInt1;
+/* 100 */     this.c = paramInt2;
+/* 101 */     this.d = paramInt3;
+/*     */     
+/* 103 */     for (iq localiq : iq.values()) {
+/* 104 */       if (localiq.A.equals(paramString)) {
+/* 105 */         this.e = localiq;
+/* 106 */         break;
+/*     */       }
+/*     */     }
+/* 109 */     b(paramInt4);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   protected void b() {}
+/*     */   
+/*     */ 
+/*     */   public void b(int paramInt)
+/*     */   {
+/* 118 */     this.a = paramInt;
+/* 119 */     this.aU = (this.aS = paramInt * 90);
+/*     */     
+/* 121 */     float f1 = this.e.B;
+/* 122 */     float f2 = this.e.C;
+/* 123 */     float f3 = this.e.B;
+/*     */     
+/* 125 */     if ((paramInt == 0) || (paramInt == 2)) {
+/* 126 */       f3 = 0.5F;
+/*     */     } else {
+/* 128 */       f1 = 0.5F;
+/*     */     }
+/*     */     
+/* 131 */     f1 /= 32.0F;
+/* 132 */     f2 /= 32.0F;
+/* 133 */     f3 /= 32.0F;
+/*     */     
+/* 135 */     float f4 = this.b + 0.5F;
+/* 136 */     float f5 = this.c + 0.5F;
+/* 137 */     float f6 = this.d + 0.5F;
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 143 */     float f7 = 0.5625F;
+/*     */     
+/* 145 */     if (paramInt == 0) f6 -= f7;
+/* 146 */     if (paramInt == 1) f4 -= f7;
+/* 147 */     if (paramInt == 2) f6 += f7;
+/* 148 */     if (paramInt == 3) { f4 += f7;
+/*     */     }
+/* 150 */     if (paramInt == 0) f4 -= c(this.e.B);
+/* 151 */     if (paramInt == 1) f6 += c(this.e.B);
+/* 152 */     if (paramInt == 2) f4 += c(this.e.B);
+/* 153 */     if (paramInt == 3) f6 -= c(this.e.B);
+/* 154 */     f5 += c(this.e.C);
+/*     */     
+/* 156 */     e(f4, f5, f6);
+/*     */     
+/* 158 */     float f8 = -0.00625F;
+/* 159 */     this.aW.c(f4 - f1 - f8, f5 - f2 - f8, f6 - f3 - f8, f4 + f1 + f8, f5 + f2 + f8, f6 + f3 + f8);
+/*     */   }
+/*     */   
+/*     */   private float c(int paramInt) {
+/* 163 */     if (paramInt == 32) return 0.5F;
+/* 164 */     if (paramInt == 64) return 0.5F;
+/* 165 */     return 0.0F;
+/*     */   }
+/*     */   
+/*     */   public void w_() {
+/* 169 */     if ((this.f++ == 100) && (!this.aI.B)) {
+/* 170 */       this.f = 0;
+/* 171 */       if (!k()) {
+/* 172 */         K();
+/* 173 */         this.aI.b(new hl(this.aI, this.aM, this.aN, this.aO, new iz(gm.aq)));
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public boolean k() {
+/* 179 */     if (this.aI.a(this, this.aW).size() > 0) {
+/* 180 */       return false;
+/*     */     }
+/* 182 */     int i = this.e.B / 16;
+/* 183 */     int j = this.e.C / 16;
+/*     */     
+/* 185 */     int k = this.b;
+/* 186 */     int m = this.c;
+/* 187 */     int n = this.d;
+/* 188 */     if (this.a == 0) k = in.b(this.aM - this.e.B / 32.0F);
+/* 189 */     if (this.a == 1) n = in.b(this.aO - this.e.B / 32.0F);
+/* 190 */     if (this.a == 2) k = in.b(this.aM - this.e.B / 32.0F);
+/* 191 */     if (this.a == 3) n = in.b(this.aO - this.e.B / 32.0F);
+/* 192 */     m = in.b(this.aN - this.e.C / 32.0F);
+/*     */     
+/*     */ 
+/* 195 */     for (int i1 = 0; i1 < i; i1++)
+/* 196 */       for (i2 = 0; i2 < j; i2++) {
+/*     */         ln localln;
+/* 198 */         if ((this.a == 0) || (this.a == 2)) {
+/* 199 */           localln = this.aI.f(k + i1, m + i2, this.d);
+/*     */         } else {
+/* 201 */           localln = this.aI.f(this.b, m + i2, n + i1);
+/*     */         }
+/* 203 */         if (!localln.a()) return false;
+/*     */       }
+/* 205 */     List localList = this.aI.b(this, this.aW);
+/* 206 */     for (int i2 = 0; i2 < localList.size(); i2++) {
+/* 207 */       if ((localList.get(i2) instanceof qv)) { return false;
+/*     */       }
+/*     */     }
+/* 210 */     return true;
+/*     */   }
+/*     */   
+/*     */   public boolean h_() {
+/* 214 */     return true;
+/*     */   }
+/*     */   
+/*     */   public boolean a(sn paramsn, int paramInt) {
+/* 218 */     if ((!this.be) && (!this.aI.B)) {
+/* 219 */       K();
+/* 220 */       ai();
+/* 221 */       this.aI.b(new hl(this.aI, this.aM, this.aN, this.aO, new iz(gm.aq)));
+/*     */     }
+/* 223 */     return true;
+/*     */   }
+/*     */   
+/*     */   public void b(nu paramnu) {
+/* 227 */     paramnu.a("Dir", (byte)this.a);
+/* 228 */     paramnu.a("Motive", this.e.A);
+/* 229 */     paramnu.a("TileX", this.b);
+/* 230 */     paramnu.a("TileY", this.c);
+/* 231 */     paramnu.a("TileZ", this.d);
+/*     */   }
+/*     */   
+/*     */   public void a(nu paramnu) {
+/* 235 */     this.a = paramnu.c("Dir");
+/* 236 */     this.b = paramnu.e("TileX");
+/* 237 */     this.c = paramnu.e("TileY");
+/* 238 */     this.d = paramnu.e("TileZ");
+/* 239 */     String str = paramnu.i("Motive");
+/* 240 */     for (iq localiq : iq.values()) {
+/* 241 */       if (localiq.A.equals(str)) {
+/* 242 */         this.e = localiq;
+/*     */       }
+/*     */     }
+/* 245 */     if (this.e == null) this.e = iq.a;
+/* 246 */     b(this.a);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void b(double paramDouble1, double paramDouble2, double paramDouble3)
+/*     */   {
+/* 255 */     if ((!this.aI.B) && (paramDouble1 * paramDouble1 + paramDouble2 * paramDouble2 + paramDouble3 * paramDouble3 > 0.0D)) {
+/* 256 */       K();
+/* 257 */       this.aI.b(new hl(this.aI, this.aM, this.aN, this.aO, new iz(gm.aq)));
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void d(double paramDouble1, double paramDouble2, double paramDouble3)
+/*     */   {
+/* 263 */     if ((!this.aI.B) && (paramDouble1 * paramDouble1 + paramDouble2 * paramDouble2 + paramDouble3 * paramDouble3 > 0.0D)) {
+/* 264 */       K();
+/* 265 */       this.aI.b(new hl(this.aI, this.aM, this.aN, this.aO, new iz(gm.aq)));
+/*     */     }
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\qv.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

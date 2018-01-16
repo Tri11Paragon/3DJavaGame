@@ -1,0 +1,42 @@
+/*    */ import java.io.DataInputStream;
+/*    */ import java.io.DataOutputStream;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class of
+/*    */   extends ki
+/*    */ {
+/*    */   public int a;
+/*    */   public int b;
+/*    */   
+/*    */   public void a(ti paramti)
+/*    */   {
+/* 20 */     paramti.a(this);
+/*    */   }
+/*    */   
+/*    */   public void a(DataInputStream paramDataInputStream) {
+/* 24 */     this.a = paramDataInputStream.readInt();
+/* 25 */     this.b = paramDataInputStream.readByte();
+/*    */   }
+/*    */   
+/*    */   public void a(DataOutputStream paramDataOutputStream) {
+/* 29 */     paramDataOutputStream.writeInt(this.a);
+/* 30 */     paramDataOutputStream.writeByte(this.b);
+/*    */   }
+/*    */   
+/*    */   public int a() {
+/* 34 */     return 6;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\of.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

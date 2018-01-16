@@ -1,0 +1,88 @@
+/*    */ import java.io.PrintStream;
+/*    */ import java.util.List;
+/*    */ import net.minecraft.client.Minecraft;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class vx
+/*    */   extends da
+/*    */ {
+/*    */   private nb a;
+/* 15 */   private boolean i = false;
+/*    */   
+/*    */   public vx(Minecraft paramMinecraft, String paramString, int paramInt) {
+/* 18 */     System.out.println("Connecting to " + paramString + ", " + paramInt);
+/* 19 */     paramMinecraft.a(null);
+/* 20 */     new wz(this, paramMinecraft, paramString, paramInt).start();
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public void a()
+/*    */   {
+/* 43 */     if (this.a != null) {
+/* 44 */       this.a.a();
+/*    */     }
+/*    */   }
+/*    */   
+/*    */ 
+/*    */   protected void a(char paramChar, int paramInt) {}
+/*    */   
+/*    */   public void b()
+/*    */   {
+/* 53 */     nh localnh = nh.a();
+/*    */     
+/* 55 */     this.e.clear();
+/* 56 */     this.e.add(new ke(0, this.c / 2 - 100, this.d / 4 + 120 + 12, localnh.a("gui.cancel")));
+/*    */   }
+/*    */   
+/*    */   protected void a(ke paramke) {
+/* 60 */     if (paramke.f == 0) {
+/* 61 */       this.i = true;
+/* 62 */       if (this.a != null) this.a.b();
+/* 63 */       this.b.a(new fu());
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public void a(int paramInt1, int paramInt2, float paramFloat) {
+/* 68 */     i();
+/*    */     
+/* 70 */     nh localnh = nh.a();
+/*    */     
+/* 72 */     if (this.a == null) {
+/* 73 */       a(this.g, localnh.a("connect.connecting"), this.c / 2, this.d / 2 - 50, 16777215);
+/* 74 */       a(this.g, "", this.c / 2, this.d / 2 - 10, 16777215);
+/*    */     } else {
+/* 76 */       a(this.g, localnh.a("connect.authorizing"), this.c / 2, this.d / 2 - 50, 16777215);
+/* 77 */       a(this.g, this.a.a, this.c / 2, this.d / 2 - 10, 16777215);
+/*    */     }
+/*    */     
+/* 80 */     super.a(paramInt1, paramInt2, paramFloat);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\vx.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

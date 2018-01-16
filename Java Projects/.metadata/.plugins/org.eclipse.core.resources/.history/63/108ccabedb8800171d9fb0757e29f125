@@ -1,0 +1,56 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class ha
+/*    */ {
+/*  9 */   private String[][] a = { { "XXX", " # ", " # " }, { "X", "#", "#" }, { "XX", "X#", " #" }, { "XX", " #", " #" } };
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/* 27 */   private Object[][] b = { { uu.y, uu.x, gm.m, gm.l, gm.n }, { gm.r, gm.v, gm.e, gm.z, gm.G }, { gm.q, gm.u, gm.d, gm.y, gm.F }, { gm.s, gm.w, gm.f, gm.A, gm.H }, { gm.L, gm.M, gm.N, gm.O, gm.P } };
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public void a(hk paramhk)
+/*    */   {
+/* 37 */     for (int i = 0; i < this.b[0].length; i++) {
+/* 38 */       Object localObject = this.b[0][i];
+/*    */       
+/* 40 */       for (int j = 0; j < this.b.length - 1; j++) {
+/* 41 */         gm localgm = (gm)this.b[(j + 1)][i];
+/* 42 */         paramhk.a(new iz(localgm), new Object[] { this.a[j], Character.valueOf('#'), gm.B, Character.valueOf('X'), localObject });
+/*    */       }
+/*    */     }
+/*    */     
+/*    */ 
+/*    */ 
+/* 48 */     paramhk.a(new iz(gm.bc), new Object[] { " #", "# ", Character.valueOf('#'), gm.m });
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ha.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

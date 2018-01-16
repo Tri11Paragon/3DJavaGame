@@ -1,0 +1,109 @@
+/*     */ import java.util.List;
+/*     */ import net.minecraft.client.Minecraft;
+/*     */ import org.lwjgl.input.Keyboard;
+/*     */ import org.lwjgl.opengl.GL11;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class yc
+/*     */   extends da
+/*     */ {
+/*  16 */   protected String a = "Edit sign message:";
+/*     */   private yk i;
+/*     */   private int j;
+/*  19 */   private int l = 0;
+/*     */   
+/*     */   public yc(yk paramyk) {
+/*  22 */     this.i = paramyk;
+/*     */   }
+/*     */   
+/*     */   public void b() {
+/*  26 */     this.e.clear();
+/*  27 */     Keyboard.enableRepeatEvents(true);
+/*  28 */     this.e.add(new ke(0, this.c / 2 - 100, this.d / 4 + 120, "Done"));
+/*     */   }
+/*     */   
+/*     */   public void h() {
+/*  32 */     Keyboard.enableRepeatEvents(false);
+/*  33 */     if (this.b.f.B) {
+/*  34 */       this.b.s().b(new ui(this.i.e, this.i.f, this.i.g, this.i.a));
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a() {
+/*  39 */     this.j += 1;
+/*     */   }
+/*     */   
+/*     */   protected void a(ke paramke) {
+/*  43 */     if (!paramke.g) { return;
+/*     */     }
+/*  45 */     if (paramke.f == 0) {
+/*  46 */       this.i.y_();
+/*  47 */       this.b.a(null);
+/*     */     }
+/*     */   }
+/*     */   
+/*  51 */   private static final String m = fp.a;
+/*     */   
+/*     */   protected void a(char paramChar, int paramInt) {
+/*  54 */     if (paramInt == 200) this.l = (this.l - 1 & 0x3);
+/*  55 */     if ((paramInt == 208) || (paramInt == 28)) this.l = (this.l + 1 & 0x3);
+/*  56 */     if ((paramInt == 14) && (this.i.a[this.l].length() > 0)) {
+/*  57 */       this.i.a[this.l] = this.i.a[this.l].substring(0, this.i.a[this.l].length() - 1);
+/*     */     }
+/*  59 */     if ((m.indexOf(paramChar) >= 0) && (this.i.a[this.l].length() < 15)) {
+/*  60 */       int tmp161_158 = this.l; String[] tmp161_154 = this.i.a;tmp161_154[tmp161_158] = (tmp161_154[tmp161_158] + paramChar);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(int paramInt1, int paramInt2, float paramFloat) {
+/*  65 */     i();
+/*     */     
+/*  67 */     a(this.g, this.a, this.c / 2, 40, 16777215);
+/*     */     
+/*  69 */     GL11.glPushMatrix();
+/*  70 */     GL11.glTranslatef(this.c / 2, 0.0F, 50.0F);
+/*  71 */     float f1 = 93.75F;
+/*  72 */     GL11.glScalef(-f1, -f1, -f1);
+/*  73 */     GL11.glRotatef(180.0F, 0.0F, 1.0F, 0.0F);
+/*     */     
+/*  75 */     uu localuu = this.i.f();
+/*     */     
+/*  77 */     if (localuu == uu.aE) {
+/*  78 */       float f2 = this.i.e() * 360 / 16.0F;
+/*  79 */       GL11.glRotatef(f2, 0.0F, 1.0F, 0.0F);
+/*     */       
+/*  81 */       GL11.glTranslatef(0.0F, -1.0625F, 0.0F);
+/*     */     }
+/*     */     else {
+/*  84 */       int k = this.i.e();
+/*  85 */       float f3 = 0.0F;
+/*     */       
+/*  87 */       if (k == 2) f3 = 180.0F;
+/*  88 */       if (k == 4) f3 = 90.0F;
+/*  89 */       if (k == 5) f3 = -90.0F;
+/*  90 */       GL11.glRotatef(f3, 0.0F, 1.0F, 0.0F);
+/*  91 */       GL11.glTranslatef(0.0F, -1.0625F, 0.0F);
+/*     */     }
+/*     */     
+/*  94 */     if (this.j / 6 % 2 == 0) { this.i.b = this.l;
+/*     */     }
+/*  96 */     ll.a.a(this.i, -0.5D, -0.75D, -0.5D, 0.0F);
+/*  97 */     this.i.b = -1;
+/*     */     
+/*  99 */     GL11.glPopMatrix();
+/*     */     
+/* 101 */     super.a(paramInt1, paramInt2, paramFloat);
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\yc.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

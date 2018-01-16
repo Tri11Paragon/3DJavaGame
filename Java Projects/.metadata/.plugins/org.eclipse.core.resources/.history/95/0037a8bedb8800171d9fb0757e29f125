@@ -1,0 +1,28 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ abstract class ba
+/*    */   implements yp
+/*    */ {
+/*    */   public final Object b(Object paramObject)
+/*    */   {
+/* 15 */     if (!a(paramObject)) {
+/* 16 */       throw mz.a(this);
+/*    */     }
+/* 18 */     return c(paramObject);
+/*    */   }
+/*    */   
+/*    */   protected abstract Object c(Object paramObject);
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ba.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

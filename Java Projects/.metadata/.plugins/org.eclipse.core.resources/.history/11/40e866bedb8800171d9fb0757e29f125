@@ -1,0 +1,83 @@
+/*    */ 
+/*    */ 
+/*    */ public class vs
+/*    */   extends aw
+/*    */ {
+/*  6 */   protected float[] g = new float['Ā'];
+/*  7 */   protected float[] h = new float['Ā'];
+/*  8 */   protected float[] i = new float['Ā'];
+/*  9 */   protected float[] j = new float['Ā'];
+/*    */   
+/* 11 */   private int k = 0;
+/*    */   
+/*    */   public vs() {
+/* 14 */     super(uu.B.bm);
+/*    */   }
+/*    */   
+/*    */   public void a() {
+/* 18 */     this.k += 1;
+/* 19 */     float f1; int i2; int i3; for (int m = 0; m < 16; m++) {
+/* 20 */       for (n = 0; n < 16; n++) {
+/* 21 */         f1 = 0.0F;
+/* 22 */         for (int i1 = m - 1; i1 <= m + 1; i1++) {
+/* 23 */           i2 = i1 & 0xF;
+/* 24 */           i3 = n & 0xF;
+/* 25 */           f1 += this.g[(i2 + i3 * 16)];
+/*    */         }
+/* 27 */         this.h[(m + n * 16)] = (f1 / 3.3F + this.i[(m + n * 16)] * 0.8F);
+/*    */       }
+/*    */     }
+/* 30 */     for (m = 0; m < 16; m++) {
+/* 31 */       for (n = 0; n < 16; n++) {
+/* 32 */         this.i[(m + n * 16)] += this.j[(m + n * 16)] * 0.05F;
+/*    */         
+/* 34 */         if (this.i[(m + n * 16)] < 0.0F) this.i[(m + n * 16)] = 0.0F;
+/* 35 */         this.j[(m + n * 16)] -= 0.1F;
+/* 36 */         if (Math.random() < 0.05D)
+/* 37 */           this.j[(m + n * 16)] = 0.5F;
+/*    */       }
+/*    */     }
+/* 40 */     float[] arrayOfFloat = this.h;
+/* 41 */     this.h = this.g;
+/* 42 */     this.g = arrayOfFloat;
+/*    */     
+/* 44 */     for (int n = 0; n < 256; n++) {
+/* 45 */       f1 = this.g[n];
+/* 46 */       if (f1 > 1.0F) f1 = 1.0F;
+/* 47 */       if (f1 < 0.0F) { f1 = 0.0F;
+/*    */       }
+/* 49 */       float f2 = f1 * f1;
+/*    */       
+/* 51 */       i2 = (int)(32.0F + f2 * 32.0F);
+/* 52 */       i3 = (int)(50.0F + f2 * 64.0F);
+/* 53 */       int i4 = 255;
+/* 54 */       int i5 = (int)(146.0F + f2 * 50.0F);
+/*    */       
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/* 61 */       if (this.c) {
+/* 62 */         int i6 = (i2 * 30 + i3 * 59 + i4 * 11) / 100;
+/* 63 */         int i7 = (i2 * 30 + i3 * 70) / 100;
+/* 64 */         int i8 = (i2 * 30 + i4 * 70) / 100;
+/*    */         
+/* 66 */         i2 = i6;
+/* 67 */         i3 = i7;
+/* 68 */         i4 = i8;
+/*    */       }
+/*    */       
+/* 71 */       this.a[(n * 4 + 0)] = ((byte)i2);
+/* 72 */       this.a[(n * 4 + 1)] = ((byte)i3);
+/* 73 */       this.a[(n * 4 + 2)] = ((byte)i4);
+/* 74 */       this.a[(n * 4 + 3)] = ((byte)i5);
+/*    */     }
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\vs.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

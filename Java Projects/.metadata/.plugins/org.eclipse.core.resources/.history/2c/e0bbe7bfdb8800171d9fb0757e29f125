@@ -1,0 +1,23 @@
+import java.io.File;
+import java.util.List;
+
+public abstract interface wt
+{
+  public abstract ei c();
+  
+  public abstract void b();
+  
+  public abstract bf a(xa paramxa);
+  
+  public abstract void a(ei paramei, List paramList);
+  
+  public abstract void a(ei paramei);
+  
+  public abstract File a(String paramString);
+}
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\wt.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

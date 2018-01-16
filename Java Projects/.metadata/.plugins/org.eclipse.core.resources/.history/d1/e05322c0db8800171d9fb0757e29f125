@@ -1,0 +1,62 @@
+/*    */ import java.util.ArrayList;
+/*    */ import java.util.List;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class tt
+/*    */   implements dt
+/*    */ {
+/*    */   private final iz a;
+/*    */   private final List b;
+/*    */   
+/*    */   public tt(iz paramiz, List paramList)
+/*    */   {
+/* 14 */     this.a = paramiz;
+/* 15 */     this.b = paramList;
+/*    */   }
+/*    */   
+/*    */   public iz b() {
+/* 19 */     return this.a;
+/*    */   }
+/*    */   
+/*    */   public boolean a(mq parammq)
+/*    */   {
+/* 24 */     ArrayList localArrayList = new ArrayList(this.b);
+/*    */     
+/* 26 */     for (int i = 0; i < 3; i++) {
+/* 27 */       for (int j = 0; j < 3; j++) {
+/* 28 */         iz localiz1 = parammq.b(j, i);
+/*    */         
+/* 30 */         if (localiz1 != null) {
+/* 31 */           int k = 0;
+/* 32 */           for (iz localiz2 : localArrayList) {
+/* 33 */             if ((localiz1.c == localiz2.c) && ((localiz2.i() == -1) || (localiz1.i() == localiz2.i()))) {
+/* 34 */               k = 1;
+/* 35 */               localArrayList.remove(localiz2);
+/* 36 */               break;
+/*    */             }
+/*    */           }
+/* 39 */           if (k == 0) {
+/* 40 */             return false;
+/*    */           }
+/*    */         }
+/*    */       }
+/*    */     }
+/*    */     
+/* 46 */     return localArrayList.isEmpty();
+/*    */   }
+/*    */   
+/*    */   public iz b(mq parammq) {
+/* 50 */     return this.a.k();
+/*    */   }
+/*    */   
+/*    */   public int a() {
+/* 54 */     return this.b.size();
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\tt.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

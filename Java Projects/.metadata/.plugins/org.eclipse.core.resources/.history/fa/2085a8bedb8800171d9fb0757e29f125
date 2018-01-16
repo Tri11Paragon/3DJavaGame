@@ -1,0 +1,54 @@
+/*    */ 
+/*    */ 
+/*    */ public class qd
+/*    */   extends gm
+/*    */ {
+/*    */   private int a;
+/*    */   
+/*    */   public qd(int paramInt, bu parambu)
+/*    */   {
+/* 10 */     super(paramInt);
+/* 11 */     this.bg = 1;
+/* 12 */     e(parambu.a());
+/*    */     
+/* 14 */     this.a = (4 + parambu.c() * 2);
+/*    */   }
+/*    */   
+/*    */   public float a(iz paramiz, uu paramuu)
+/*    */   {
+/* 19 */     if (paramuu.bn == uu.X.bn)
+/*    */     {
+/* 21 */       return 15.0F;
+/*    */     }
+/* 23 */     return 1.5F;
+/*    */   }
+/*    */   
+/*    */   public boolean a(iz paramiz, ls paramls1, ls paramls2) {
+/* 27 */     paramiz.a(1, paramls2);
+/* 28 */     return true;
+/*    */   }
+/*    */   
+/*    */   public boolean a(iz paramiz, int paramInt1, int paramInt2, int paramInt3, int paramInt4, ls paramls) {
+/* 32 */     paramiz.a(2, paramls);
+/* 33 */     return true;
+/*    */   }
+/*    */   
+/*    */   public int a(sn paramsn) {
+/* 37 */     return this.a;
+/*    */   }
+/*    */   
+/*    */   public boolean b() {
+/* 41 */     return true;
+/*    */   }
+/*    */   
+/*    */   public boolean a(uu paramuu)
+/*    */   {
+/* 46 */     return paramuu.bn == uu.X.bn;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\qd.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

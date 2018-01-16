@@ -1,0 +1,48 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class cr
+/*    */   extends xw
+/*    */ {
+/*    */   public cr(fd paramfd, double paramDouble1, double paramDouble2, double paramDouble3, double paramDouble4, double paramDouble5, double paramDouble6)
+/*    */   {
+/* 10 */     super(paramfd, paramDouble1, paramDouble2, paramDouble3, paramDouble4, paramDouble5, paramDouble6);
+/*    */     
+/* 12 */     this.i = 1.0F;
+/* 13 */     this.j = 1.0F;
+/* 14 */     this.k = 1.0F;
+/* 15 */     this.b = 32;
+/* 16 */     b(0.02F, 0.02F);
+/*    */     
+/* 18 */     this.g *= (this.bs.nextFloat() * 0.6F + 0.2F);
+/*    */     
+/* 20 */     this.aP = (paramDouble4 * 0.20000000298023224D + (float)(Math.random() * 2.0D - 1.0D) * 0.02F);
+/* 21 */     this.aQ = (paramDouble5 * 0.20000000298023224D + (float)(Math.random() * 2.0D - 1.0D) * 0.02F);
+/* 22 */     this.aR = (paramDouble6 * 0.20000000298023224D + (float)(Math.random() * 2.0D - 1.0D) * 0.02F);
+/*    */     
+/* 24 */     this.f = ((int)(8.0D / (Math.random() * 0.8D + 0.2D)));
+/*    */   }
+/*    */   
+/*    */   public void w_() {
+/* 28 */     this.aJ = this.aM;
+/* 29 */     this.aK = this.aN;
+/* 30 */     this.aL = this.aO;
+/*    */     
+/* 32 */     this.aQ += 0.002D;
+/* 33 */     b(this.aP, this.aQ, this.aR);
+/* 34 */     this.aP *= 0.8500000238418579D;
+/* 35 */     this.aQ *= 0.8500000238418579D;
+/* 36 */     this.aR *= 0.8500000238418579D;
+/*    */     
+/* 38 */     if (this.aI.f(in.b(this.aM), in.b(this.aN), in.b(this.aO)) != ln.g) { K();
+/*    */     }
+/* 40 */     if (this.f-- <= 0) K();
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\cr.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

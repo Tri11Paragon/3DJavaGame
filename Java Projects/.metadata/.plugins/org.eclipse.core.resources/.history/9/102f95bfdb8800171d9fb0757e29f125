@@ -1,0 +1,84 @@
+/*    */ import java.io.PushbackReader;
+/*    */ import java.io.Reader;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ final class lj
+/*    */   implements et
+/*    */ {
+/*    */   private final PushbackReader a;
+/* 22 */   private int b = 0;
+/* 23 */   private int c = 1;
+/* 24 */   private boolean d = false;
+/*    */   
+/*    */   public lj(Reader paramReader) {
+/* 27 */     this.a = new PushbackReader(paramReader);
+/*    */   }
+/*    */   
+/*    */   public void a(char paramChar) {
+/* 31 */     this.b -= 1;
+/* 32 */     if (this.b < 0) this.b = 0;
+/* 33 */     this.a.unread(paramChar);
+/*    */   }
+/*    */   
+/*    */   public void a(char[] paramArrayOfChar) {
+/* 37 */     this.b -= paramArrayOfChar.length;
+/* 38 */     if (this.b < 0) this.b = 0;
+/*    */   }
+/*    */   
+/*    */   public int c() {
+/* 42 */     int i = this.a.read();
+/* 43 */     a(i);
+/* 44 */     return i;
+/*    */   }
+/*    */   
+/*    */   public int b(char[] paramArrayOfChar) {
+/* 48 */     int i = this.a.read(paramArrayOfChar);
+/* 49 */     for (int m : paramArrayOfChar) {
+/* 50 */       a(m);
+/*    */     }
+/* 52 */     return i;
+/*    */   }
+/*    */   
+/*    */   private void a(int paramInt) {
+/* 56 */     if (13 == paramInt) {
+/* 57 */       this.b = 0;
+/* 58 */       this.c += 1;
+/* 59 */       this.d = true;
+/*    */     } else {
+/* 61 */       if ((10 == paramInt) && (!this.d)) {
+/* 62 */         this.b = 0;
+/* 63 */         this.c += 1;
+/*    */       } else {
+/* 65 */         this.b += 1;
+/*    */       }
+/* 67 */       this.d = false;
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public int a() {
+/* 72 */     return this.b;
+/*    */   }
+/*    */   
+/*    */   public int b() {
+/* 76 */     return this.c;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\lj.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

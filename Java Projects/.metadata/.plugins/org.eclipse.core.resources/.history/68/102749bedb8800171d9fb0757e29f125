@@ -1,0 +1,1334 @@
+/*      */ package com.jcraft.jorbis;
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ class Drft
+/*      */ {
+/*      */   int n;
+/*      */   
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */   float[] trigcache;
+/*      */   
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */   int[] splitcache;
+/*      */   
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */   void backward(float[] paramArrayOfFloat)
+/*      */   {
+/*   35 */     if (this.n == 1)
+/*   36 */       return;
+/*   37 */     drftb1(this.n, paramArrayOfFloat, this.trigcache, this.trigcache, this.n, this.splitcache);
+/*      */   }
+/*      */   
+/*      */   void init(int paramInt) {
+/*   41 */     this.n = paramInt;
+/*   42 */     this.trigcache = new float[3 * paramInt];
+/*   43 */     this.splitcache = new int[32];
+/*   44 */     fdrffti(paramInt, this.trigcache, this.splitcache);
+/*      */   }
+/*      */   
+/*      */   void clear() {
+/*   48 */     if (this.trigcache != null)
+/*   49 */       this.trigcache = null;
+/*   50 */     if (this.splitcache != null)
+/*   51 */       this.splitcache = null;
+/*      */   }
+/*      */   
+/*   54 */   static int[] ntryh = { 4, 2, 3, 5 };
+/*   55 */   static float tpi = 6.2831855F;
+/*   56 */   static float hsqt2 = 0.70710677F;
+/*   57 */   static float taui = 0.8660254F;
+/*   58 */   static float taur = -0.5F;
+/*   59 */   static float sqrt2 = 1.4142135F;
+/*      */   
+/*      */   static void drfti1(int paramInt1, float[] paramArrayOfFloat, int paramInt2, int[] paramArrayOfInt)
+/*      */   {
+/*   63 */     int i = 0;int k = -1;
+/*      */     
+/*      */ 
+/*      */ 
+/*   67 */     int i13 = paramInt1;
+/*   68 */     int i14 = 0;
+/*      */     
+/*   70 */     int i15 = 101;
+/*      */     for (;;) {
+/*      */       int j;
+/*   73 */       switch (i15) {
+/*      */       case 101: 
+/*   75 */         k++;
+/*   76 */         if (k < 4) {
+/*   77 */           i = ntryh[k];
+/*      */         } else
+/*   79 */           i += 2;
+/*      */       case 104: 
+/*   81 */         int i8 = i13 / i;
+/*   82 */         int i9 = i13 - i * i8;
+/*   83 */         if (i9 != 0) {
+/*   84 */           i15 = 101;
+/*      */         }
+/*      */         else {
+/*   87 */           i14++;
+/*   88 */           paramArrayOfInt[(i14 + 1)] = i;
+/*   89 */           i13 = i8;
+/*   90 */           if (i != 2) {
+/*   91 */             i15 = 107;
+/*      */ 
+/*      */           }
+/*   94 */           else if (i14 == 1) {
+/*   95 */             i15 = 107;
+/*      */           }
+/*      */           else
+/*      */           {
+/*   99 */             for (j = 1; j < i14; j++) {
+/*  100 */               int i3 = i14 - j + 1;
+/*  101 */               paramArrayOfInt[(i3 + 1)] = paramArrayOfInt[i3];
+/*      */             }
+/*  103 */             paramArrayOfInt[2] = 2;
+/*      */           } }
+/*      */         break; case 107:  if (i13 != 1) {
+/*  106 */           i15 = 104;
+/*      */         }
+/*      */         else {
+/*  109 */           paramArrayOfInt[0] = paramInt1;
+/*  110 */           paramArrayOfInt[1] = i14;
+/*  111 */           float f2 = tpi / paramInt1;
+/*  112 */           int i7 = 0;
+/*  113 */           int i12 = i14 - 1;
+/*  114 */           int i1 = 1;
+/*      */           
+/*  116 */           if (i12 == 0) {
+/*  117 */             return;
+/*      */           }
+/*  119 */           for (int m = 0; m < i12; m++) {
+/*  120 */             int i6 = paramArrayOfInt[(m + 2)];
+/*  121 */             int i4 = 0;
+/*  122 */             int i2 = i1 * i6;
+/*  123 */             int i10 = paramInt1 / i2;
+/*  124 */             int i11 = i6 - 1;
+/*      */             
+/*  126 */             for (k = 0; k < i11; k++) {
+/*  127 */               i4 += i1;
+/*  128 */               j = i7;
+/*  129 */               float f3 = i4 * f2;
+/*  130 */               float f4 = 0.0F;
+/*  131 */               for (int i5 = 2; i5 < i10; i5 += 2) {
+/*  132 */                 f4 += 1.0F;
+/*  133 */                 float f1 = f4 * f3;
+/*  134 */                 paramArrayOfFloat[(paramInt2 + j++)] = ((float)Math.cos(f1));
+/*  135 */                 paramArrayOfFloat[(paramInt2 + j++)] = ((float)Math.sin(f1));
+/*      */               }
+/*  137 */               i7 += i10;
+/*      */             }
+/*  139 */             i1 = i2;
+/*      */           }
+/*      */         }
+/*      */         break; }
+/*      */     }
+/*      */   }
+/*      */   
+/*      */   static void fdrffti(int paramInt, float[] paramArrayOfFloat, int[] paramArrayOfInt) {
+/*  147 */     if (paramInt == 1)
+/*  148 */       return;
+/*  149 */     drfti1(paramInt, paramArrayOfFloat, paramInt, paramArrayOfInt);
+/*      */   }
+/*      */   
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */   static void dradf2(int paramInt1, int paramInt2, float[] paramArrayOfFloat1, float[] paramArrayOfFloat2, float[] paramArrayOfFloat3, int paramInt3)
+/*      */   {
+/*  158 */     int m = 0;
+/*  159 */     int i1; int k = i1 = paramInt2 * paramInt1;
+/*  160 */     int i2 = paramInt1 << 1;
+/*  161 */     for (int j = 0; j < paramInt2; j++) {
+/*  162 */       paramArrayOfFloat2[(m << 1)] = (paramArrayOfFloat1[m] + paramArrayOfFloat1[i1]);
+/*  163 */       paramArrayOfFloat2[((m << 1) + i2 - 1)] = (paramArrayOfFloat1[m] - paramArrayOfFloat1[i1]);
+/*  164 */       m += paramInt1;
+/*  165 */       i1 += paramInt1;
+/*      */     }
+/*      */     
+/*  168 */     if (paramInt1 < 2) {
+/*  169 */       return;
+/*      */     }
+/*  171 */     if (paramInt1 != 2) {
+/*  172 */       m = 0;
+/*  173 */       i1 = k;
+/*  174 */       for (j = 0; j < paramInt2; j++) {
+/*  175 */         i2 = i1;
+/*  176 */         int i3 = (m << 1) + (paramInt1 << 1);
+/*  177 */         int i4 = m;
+/*  178 */         int i5 = m + m;
+/*  179 */         for (int i = 2; i < paramInt1; i += 2) {
+/*  180 */           i2 += 2;
+/*  181 */           i3 -= 2;
+/*  182 */           i4 += 2;
+/*  183 */           i5 += 2;
+/*  184 */           float f2 = paramArrayOfFloat3[(paramInt3 + i - 2)] * paramArrayOfFloat1[(i2 - 1)] + paramArrayOfFloat3[(paramInt3 + i - 1)] * paramArrayOfFloat1[i2];
+/*  185 */           float f1 = paramArrayOfFloat3[(paramInt3 + i - 2)] * paramArrayOfFloat1[i2] - paramArrayOfFloat3[(paramInt3 + i - 1)] * paramArrayOfFloat1[(i2 - 1)];
+/*  186 */           paramArrayOfFloat1[i4] += f1;
+/*  187 */           paramArrayOfFloat2[i3] = (f1 - paramArrayOfFloat1[i4]);
+/*  188 */           paramArrayOfFloat1[(i4 - 1)] += f2;
+/*  189 */           paramArrayOfFloat1[(i4 - 1)] -= f2;
+/*      */         }
+/*  191 */         m += paramInt1;
+/*  192 */         i1 += paramInt1;
+/*      */       }
+/*  194 */       if (paramInt1 % 2 == 1) {
+/*  195 */         return;
+/*      */       }
+/*      */     }
+/*  198 */     i2 = i1 = (m = paramInt1) - 1;
+/*  199 */     i1 += k;
+/*  200 */     for (j = 0; j < paramInt2; j++) {
+/*  201 */       paramArrayOfFloat2[m] = (-paramArrayOfFloat1[i1]);
+/*  202 */       paramArrayOfFloat2[(m - 1)] = paramArrayOfFloat1[i2];
+/*  203 */       m += (paramInt1 << 1);
+/*  204 */       i1 += paramInt1;
+/*  205 */       i2 += paramInt1;
+/*      */     }
+/*      */   }
+/*      */   
+/*      */ 
+/*      */ 
+/*      */   static void dradf4(int paramInt1, int paramInt2, float[] paramArrayOfFloat1, float[] paramArrayOfFloat2, float[] paramArrayOfFloat3, int paramInt3, float[] paramArrayOfFloat4, int paramInt4, float[] paramArrayOfFloat5, int paramInt5)
+/*      */   {
+/*  213 */     int k = paramInt2 * paramInt1;
+/*      */     
+/*  215 */     int m = k;
+/*  216 */     int i3 = m << 1;
+/*  217 */     int i1 = m + (m << 1);
+/*  218 */     int i2 = 0;
+/*      */     float f11;
+/*  220 */     float f12; for (int j = 0; j < paramInt2; j++) {
+/*  221 */       f11 = paramArrayOfFloat1[m] + paramArrayOfFloat1[i1];
+/*  222 */       f12 = paramArrayOfFloat1[i2] + paramArrayOfFloat1[i3];
+/*      */       
+/*  224 */       paramArrayOfFloat2[(i4 = i2 << 2)] = (f11 + f12);
+/*  225 */       paramArrayOfFloat2[((paramInt1 << 2) + i4 - 1)] = (f12 - f11);
+/*  226 */       paramArrayOfFloat2[(i4 += (paramInt1 << 1) - 1)] = (paramArrayOfFloat1[i2] - paramArrayOfFloat1[i3]);
+/*  227 */       paramArrayOfFloat1[i1] -= paramArrayOfFloat1[m];
+/*      */       
+/*  229 */       m += paramInt1;
+/*  230 */       i1 += paramInt1;
+/*  231 */       i2 += paramInt1;
+/*  232 */       i3 += paramInt1;
+/*      */     }
+/*  234 */     if (paramInt1 < 2)
+/*      */       return;
+/*      */     float f7;
+/*  237 */     if (paramInt1 != 2) {
+/*  238 */       m = 0;
+/*  239 */       for (j = 0; j < paramInt2; j++) {
+/*  240 */         i1 = m;
+/*  241 */         i3 = m << 2;
+/*  242 */         i4 = (i5 = paramInt1 << 1) + i3;
+/*  243 */         for (int i = 2; i < paramInt1; i += 2) {
+/*  244 */           i1 += 2;i2 = i1;
+/*  245 */           i3 += 2;
+/*  246 */           i4 -= 2;
+/*      */           
+/*  248 */           i2 += k;
+/*  249 */           float f4 = paramArrayOfFloat3[(paramInt3 + i - 2)] * paramArrayOfFloat1[(i2 - 1)] + paramArrayOfFloat3[(paramInt3 + i - 1)] * paramArrayOfFloat1[i2];
+/*  250 */           float f1 = paramArrayOfFloat3[(paramInt3 + i - 2)] * paramArrayOfFloat1[i2] - paramArrayOfFloat3[(paramInt3 + i - 1)] * paramArrayOfFloat1[(i2 - 1)];
+/*  251 */           i2 += k;
+/*  252 */           float f5 = paramArrayOfFloat4[(paramInt4 + i - 2)] * paramArrayOfFloat1[(i2 - 1)] + paramArrayOfFloat4[(paramInt4 + i - 1)] * paramArrayOfFloat1[i2];
+/*  253 */           float f2 = paramArrayOfFloat4[(paramInt4 + i - 2)] * paramArrayOfFloat1[i2] - paramArrayOfFloat4[(paramInt4 + i - 1)] * paramArrayOfFloat1[(i2 - 1)];
+/*  254 */           i2 += k;
+/*  255 */           float f6 = paramArrayOfFloat5[(paramInt5 + i - 2)] * paramArrayOfFloat1[(i2 - 1)] + paramArrayOfFloat5[(paramInt5 + i - 1)] * paramArrayOfFloat1[i2];
+/*  256 */           float f3 = paramArrayOfFloat5[(paramInt5 + i - 2)] * paramArrayOfFloat1[i2] - paramArrayOfFloat5[(paramInt5 + i - 1)] * paramArrayOfFloat1[(i2 - 1)];
+/*      */           
+/*  258 */           f11 = f4 + f6;
+/*  259 */           float f14 = f6 - f4;
+/*  260 */           f7 = f1 + f3;
+/*  261 */           float f10 = f1 - f3;
+/*      */           
+/*  263 */           float f8 = paramArrayOfFloat1[i1] + f2;
+/*  264 */           float f9 = paramArrayOfFloat1[i1] - f2;
+/*  265 */           f12 = paramArrayOfFloat1[(i1 - 1)] + f5;
+/*  266 */           float f13 = paramArrayOfFloat1[(i1 - 1)] - f5;
+/*      */           
+/*  268 */           paramArrayOfFloat2[(i3 - 1)] = (f11 + f12);
+/*  269 */           paramArrayOfFloat2[i3] = (f7 + f8);
+/*      */           
+/*  271 */           paramArrayOfFloat2[(i4 - 1)] = (f13 - f10);
+/*  272 */           paramArrayOfFloat2[i4] = (f14 - f9);
+/*      */           
+/*  274 */           paramArrayOfFloat2[(i3 + i5 - 1)] = (f10 + f13);
+/*  275 */           paramArrayOfFloat2[(i3 + i5)] = (f14 + f9);
+/*      */           
+/*  277 */           paramArrayOfFloat2[(i4 + i5 - 1)] = (f12 - f11);
+/*  278 */           paramArrayOfFloat2[(i4 + i5)] = (f7 - f8);
+/*      */         }
+/*  280 */         m += paramInt1;
+/*      */       }
+/*  282 */       if ((paramInt1 & 0x1) != 0) {
+/*  283 */         return;
+/*      */       }
+/*      */     }
+/*  286 */     i1 = (m = k + paramInt1 - 1) + (k << 1);
+/*  287 */     i2 = paramInt1 << 2;
+/*  288 */     i3 = paramInt1;
+/*  289 */     int i4 = paramInt1 << 1;
+/*  290 */     int i5 = paramInt1;
+/*      */     
+/*  292 */     for (j = 0; j < paramInt2; j++) {
+/*  293 */       f7 = -hsqt2 * (paramArrayOfFloat1[m] + paramArrayOfFloat1[i1]);
+/*  294 */       f11 = hsqt2 * (paramArrayOfFloat1[m] - paramArrayOfFloat1[i1]);
+/*      */       
+/*  296 */       paramArrayOfFloat2[(i3 - 1)] = (f11 + paramArrayOfFloat1[(i5 - 1)]);
+/*  297 */       paramArrayOfFloat2[(i3 + i4 - 1)] = (paramArrayOfFloat1[(i5 - 1)] - f11);
+/*      */       
+/*  299 */       paramArrayOfFloat2[i3] = (f7 - paramArrayOfFloat1[(m + k)]);
+/*  300 */       paramArrayOfFloat2[(i3 + i4)] = (f7 + paramArrayOfFloat1[(m + k)]);
+/*      */       
+/*  302 */       m += paramInt1;
+/*  303 */       i1 += paramInt1;
+/*  304 */       i3 += i2;
+/*  305 */       i5 += paramInt1;
+/*      */     }
+/*      */   }
+/*      */   
+/*      */ 
+/*      */   static void dradfg(int paramInt1, int paramInt2, int paramInt3, int paramInt4, float[] paramArrayOfFloat1, float[] paramArrayOfFloat2, float[] paramArrayOfFloat3, float[] paramArrayOfFloat4, float[] paramArrayOfFloat5, float[] paramArrayOfFloat6, int paramInt5)
+/*      */   {
+/*  312 */     int i8 = 0;
+/*      */     
+/*      */ 
+/*  315 */     float f7 = 0.0F;float f9 = 0.0F;
+/*      */     
+/*      */ 
+/*  318 */     float f8 = tpi / paramInt2;
+/*  319 */     f7 = (float)Math.cos(f8);
+/*  320 */     f9 = (float)Math.sin(f8);
+/*  321 */     int j = paramInt2 + 1 >> 1;
+/*  322 */     int i19 = paramInt2;
+/*  323 */     int i18 = paramInt1;
+/*  324 */     int i17 = paramInt1 - 1 >> 1;
+/*  325 */     int i6 = paramInt3 * paramInt1;
+/*  326 */     int i16 = paramInt2 * paramInt1;
+/*      */     
+/*  328 */     int i20 = 100;
+/*      */     for (;;) { int i4;
+/*  330 */       int i7; int m; int i1; int i9; int k; int i10; int i11; int i12; int i13; int i14; int i15; switch (i20) {
+/*      */       case 101: 
+/*  332 */         if (paramInt1 == 1) {
+/*  333 */           i20 = 119;
+/*      */         }
+/*      */         else {
+/*  336 */           for (i4 = 0; i4 < paramInt4; i4++) {
+/*  337 */             paramArrayOfFloat5[i4] = paramArrayOfFloat3[i4];
+/*      */           }
+/*  339 */           i7 = 0;
+/*  340 */           for (m = 1; m < paramInt2; m++) {
+/*  341 */             i7 += i6;
+/*  342 */             i8 = i7;
+/*  343 */             for (i1 = 0; i1 < paramInt3; i1++) {
+/*  344 */               paramArrayOfFloat4[i8] = paramArrayOfFloat2[i8];
+/*  345 */               i8 += paramInt1;
+/*      */             }
+/*      */           }
+/*      */           
+/*  349 */           int i5 = -paramInt1;
+/*  350 */           i7 = 0;
+/*  351 */           int i; if (i17 > paramInt3) {
+/*  352 */             for (m = 1; m < paramInt2; m++) {
+/*  353 */               i7 += i6;
+/*  354 */               i5 += paramInt1;
+/*  355 */               i8 = -paramInt1 + i7;
+/*  356 */               for (i1 = 0; i1 < paramInt3; i1++) {
+/*  357 */                 i = i5 - 1;
+/*  358 */                 i8 += paramInt1;
+/*  359 */                 i9 = i8;
+/*  360 */                 for (k = 2; k < paramInt1; k += 2) {
+/*  361 */                   i += 2;
+/*  362 */                   i9 += 2;
+/*  363 */                   paramArrayOfFloat4[(i9 - 1)] = (paramArrayOfFloat6[(paramInt5 + i - 1)] * paramArrayOfFloat2[(i9 - 1)] + paramArrayOfFloat6[(paramInt5 + i)] * paramArrayOfFloat2[i9]);
+/*  364 */                   paramArrayOfFloat4[i9] = (paramArrayOfFloat6[(paramInt5 + i - 1)] * paramArrayOfFloat2[i9] - paramArrayOfFloat6[(paramInt5 + i)] * paramArrayOfFloat2[(i9 - 1)]);
+/*      */                 }
+/*      */               }
+/*      */             }
+/*      */           }
+/*      */           
+/*      */ 
+/*  371 */           for (m = 1; m < paramInt2; m++) {
+/*  372 */             i5 += paramInt1;
+/*  373 */             i = i5 - 1;
+/*  374 */             i7 += i6;
+/*  375 */             i8 = i7;
+/*  376 */             for (k = 2; k < paramInt1; k += 2) {
+/*  377 */               i += 2;
+/*  378 */               i8 += 2;
+/*  379 */               i9 = i8;
+/*  380 */               for (i1 = 0; i1 < paramInt3; i1++) {
+/*  381 */                 paramArrayOfFloat4[(i9 - 1)] = (paramArrayOfFloat6[(paramInt5 + i - 1)] * paramArrayOfFloat2[(i9 - 1)] + paramArrayOfFloat6[(paramInt5 + i)] * paramArrayOfFloat2[i9]);
+/*  382 */                 paramArrayOfFloat4[i9] = (paramArrayOfFloat6[(paramInt5 + i - 1)] * paramArrayOfFloat2[i9] - paramArrayOfFloat6[(paramInt5 + i)] * paramArrayOfFloat2[(i9 - 1)]);
+/*  383 */                 i9 += paramInt1;
+/*      */               }
+/*      */             }
+/*      */           }
+/*      */           
+/*      */ 
+/*  389 */           i7 = 0;
+/*  390 */           i8 = i19 * i6;
+/*  391 */           if (i17 < paramInt3) {
+/*  392 */             for (m = 1; m < j; m++) {
+/*  393 */               i7 += i6;
+/*  394 */               i8 -= i6;
+/*  395 */               i9 = i7;
+/*  396 */               i10 = i8;
+/*  397 */               for (k = 2; k < paramInt1; k += 2) {
+/*  398 */                 i9 += 2;
+/*  399 */                 i10 += 2;
+/*  400 */                 i11 = i9 - paramInt1;
+/*  401 */                 i12 = i10 - paramInt1;
+/*  402 */                 for (i1 = 0; i1 < paramInt3; i1++) {
+/*  403 */                   i11 += paramInt1;
+/*  404 */                   i12 += paramInt1;
+/*  405 */                   paramArrayOfFloat4[(i11 - 1)] += paramArrayOfFloat4[(i12 - 1)];
+/*  406 */                   paramArrayOfFloat2[(i12 - 1)] = (paramArrayOfFloat4[i11] - paramArrayOfFloat4[i12]);
+/*  407 */                   paramArrayOfFloat4[i11] += paramArrayOfFloat4[i12];
+/*  408 */                   paramArrayOfFloat2[i12] = (paramArrayOfFloat4[(i12 - 1)] - paramArrayOfFloat4[(i11 - 1)]);
+/*      */                 }
+/*      */               }
+/*      */             }
+/*      */           }
+/*      */           
+/*  414 */           for (m = 1; m < j; m++) {
+/*  415 */             i7 += i6;
+/*  416 */             i8 -= i6;
+/*  417 */             i9 = i7;
+/*  418 */             i10 = i8;
+/*  419 */             for (i1 = 0; i1 < paramInt3; i1++) {
+/*  420 */               i11 = i9;
+/*  421 */               i12 = i10;
+/*  422 */               for (k = 2; k < paramInt1; k += 2) {
+/*  423 */                 i11 += 2;
+/*  424 */                 i12 += 2;
+/*  425 */                 paramArrayOfFloat4[(i11 - 1)] += paramArrayOfFloat4[(i12 - 1)];
+/*  426 */                 paramArrayOfFloat2[(i12 - 1)] = (paramArrayOfFloat4[i11] - paramArrayOfFloat4[i12]);
+/*  427 */                 paramArrayOfFloat4[i11] += paramArrayOfFloat4[i12];
+/*  428 */                 paramArrayOfFloat2[i12] = (paramArrayOfFloat4[(i12 - 1)] - paramArrayOfFloat4[(i11 - 1)]);
+/*      */               }
+/*  430 */               i9 += paramInt1;
+/*  431 */               i10 += paramInt1;
+/*      */             }
+/*      */           }
+/*      */         }
+/*      */         break;
+/*  436 */       case 119:  for (i4 = 0; i4 < paramInt4; i4++) {
+/*  437 */           paramArrayOfFloat3[i4] = paramArrayOfFloat5[i4];
+/*      */         }
+/*  439 */         i7 = 0;
+/*  440 */         i8 = i19 * paramInt4;
+/*  441 */         for (m = 1; m < j; m++) {
+/*  442 */           i7 += i6;
+/*  443 */           i8 -= i6;
+/*  444 */           i9 = i7 - paramInt1;
+/*  445 */           i10 = i8 - paramInt1;
+/*  446 */           for (i1 = 0; i1 < paramInt3; i1++) {
+/*  447 */             i9 += paramInt1;
+/*  448 */             i10 += paramInt1;
+/*  449 */             paramArrayOfFloat4[i9] += paramArrayOfFloat4[i10];
+/*  450 */             paramArrayOfFloat4[i10] -= paramArrayOfFloat4[i9];
+/*      */           }
+/*      */         }
+/*      */         
+/*  454 */         float f4 = 1.0F;
+/*  455 */         float f2 = 0.0F;
+/*  456 */         i7 = 0;
+/*  457 */         i8 = i19 * paramInt4;
+/*  458 */         i9 = (paramInt2 - 1) * paramInt4;
+/*  459 */         for (int i2 = 1; i2 < j; i2++) {
+/*  460 */           i7 += paramInt4;
+/*  461 */           i8 -= paramInt4;
+/*  462 */           float f10 = f7 * f4 - f9 * f2;
+/*  463 */           f2 = f7 * f2 + f9 * f4;
+/*  464 */           f4 = f10;
+/*  465 */           i10 = i7;
+/*  466 */           i11 = i8;
+/*  467 */           i12 = i9;
+/*  468 */           i13 = paramInt4;
+/*      */           
+/*  470 */           for (i4 = 0; i4 < paramInt4; i4++) {
+/*  471 */             paramArrayOfFloat5[(i10++)] = (paramArrayOfFloat3[i4] + f4 * paramArrayOfFloat3[(i13++)]);
+/*  472 */             paramArrayOfFloat5[(i11++)] = (f2 * paramArrayOfFloat3[(i12++)]);
+/*      */           }
+/*      */           
+/*  475 */           float f1 = f4;
+/*  476 */           float f6 = f2;
+/*  477 */           float f5 = f4;
+/*  478 */           float f3 = f2;
+/*      */           
+/*  480 */           i10 = paramInt4;
+/*  481 */           i11 = (i19 - 1) * paramInt4;
+/*  482 */           for (m = 2; m < j; m++) {
+/*  483 */             i10 += paramInt4;
+/*  484 */             i11 -= paramInt4;
+/*      */             
+/*  486 */             float f11 = f1 * f5 - f6 * f3;
+/*  487 */             f3 = f1 * f3 + f6 * f5;
+/*  488 */             f5 = f11;
+/*      */             
+/*  490 */             i12 = i7;
+/*  491 */             i13 = i8;
+/*  492 */             i14 = i10;
+/*  493 */             i15 = i11;
+/*  494 */             for (i4 = 0; i4 < paramInt4; i4++) {
+/*  495 */               paramArrayOfFloat5[(i12++)] += f5 * paramArrayOfFloat3[(i14++)];
+/*  496 */               paramArrayOfFloat5[(i13++)] += f3 * paramArrayOfFloat3[(i15++)];
+/*      */             }
+/*      */           }
+/*      */         }
+/*  500 */         i7 = 0;
+/*  501 */         for (m = 1; m < j; m++) {
+/*  502 */           i7 += paramInt4;
+/*  503 */           i8 = i7;
+/*  504 */           for (i4 = 0; i4 < paramInt4; i4++) {
+/*  505 */             paramArrayOfFloat5[i4] += paramArrayOfFloat3[(i8++)];
+/*      */           }
+/*      */         }
+/*  508 */         if (paramInt1 < paramInt3) {
+/*  509 */           i20 = 132;
+/*      */         }
+/*      */         else
+/*      */         {
+/*  513 */           i7 = 0;
+/*  514 */           i8 = 0;
+/*  515 */           for (i1 = 0; i1 < paramInt3; i1++) {
+/*  516 */             i9 = i7;
+/*  517 */             i10 = i8;
+/*  518 */             for (k = 0; k < paramInt1; k++)
+/*  519 */               paramArrayOfFloat1[(i10++)] = paramArrayOfFloat4[(i9++)];
+/*  520 */             i7 += paramInt1;
+/*  521 */             i8 += i16;
+/*      */           }
+/*  523 */           i20 = 135; }
+/*  524 */         break;
+/*      */       
+/*      */       case 132: 
+/*  527 */         for (k = 0; k < paramInt1; k++) {
+/*  528 */           i7 = k;
+/*  529 */           i8 = k;
+/*  530 */           for (i1 = 0; i1 < paramInt3; i1++) {
+/*  531 */             paramArrayOfFloat1[i8] = paramArrayOfFloat4[i7];
+/*  532 */             i7 += paramInt1;
+/*  533 */             i8 += i16;
+/*      */           }
+/*      */         }
+/*      */       case 135: 
+/*  537 */         i7 = 0;
+/*  538 */         i8 = paramInt1 << 1;
+/*  539 */         i9 = 0;
+/*  540 */         i10 = i19 * i6;
+/*  541 */         for (m = 1; m < j; m++) {
+/*  542 */           i7 += i8;
+/*  543 */           i9 += i6;
+/*  544 */           i10 -= i6;
+/*      */           
+/*  546 */           i11 = i7;
+/*  547 */           i12 = i9;
+/*  548 */           i13 = i10;
+/*      */           
+/*  550 */           for (i1 = 0; i1 < paramInt3; i1++) {
+/*  551 */             paramArrayOfFloat1[(i11 - 1)] = paramArrayOfFloat4[i12];
+/*  552 */             paramArrayOfFloat1[i11] = paramArrayOfFloat4[i13];
+/*  553 */             i11 += i16;
+/*  554 */             i12 += paramInt1;
+/*  555 */             i13 += paramInt1;
+/*      */           }
+/*      */         }
+/*      */         
+/*  559 */         if (paramInt1 == 1)
+/*  560 */           return;
+/*  561 */         if (i17 < paramInt3) {
+/*  562 */           i20 = 141;
+/*      */         }
+/*      */         else
+/*      */         {
+/*  566 */           i7 = -paramInt1;
+/*  567 */           i9 = 0;
+/*  568 */           i10 = 0;
+/*  569 */           i11 = i19 * i6;
+/*  570 */           for (m = 1; m < j; m++) {
+/*  571 */             i7 += i8;
+/*  572 */             i9 += i8;
+/*  573 */             i10 += i6;
+/*  574 */             i11 -= i6;
+/*  575 */             i12 = i7;
+/*  576 */             i13 = i9;
+/*  577 */             i14 = i10;
+/*  578 */             i15 = i11;
+/*  579 */             for (i1 = 0; i1 < paramInt3; i1++) {
+/*  580 */               for (k = 2; k < paramInt1; k += 2) {
+/*  581 */                 int i3 = i18 - k;
+/*  582 */                 paramArrayOfFloat4[(k + i14 - 1)] += paramArrayOfFloat4[(k + i15 - 1)];
+/*  583 */                 paramArrayOfFloat4[(k + i14 - 1)] -= paramArrayOfFloat4[(k + i15 - 1)];
+/*  584 */                 paramArrayOfFloat4[(k + i14)] += paramArrayOfFloat4[(k + i15)];
+/*  585 */                 paramArrayOfFloat4[(k + i15)] -= paramArrayOfFloat4[(k + i14)];
+/*      */               }
+/*  587 */               i12 += i16;
+/*  588 */               i13 += i16;
+/*  589 */               i14 += paramInt1;
+/*  590 */               i15 += paramInt1;
+/*      */             }
+/*      */           }
+/*      */           return;
+/*      */         }
+/*      */         break; case 141:  i7 = -paramInt1;
+/*  596 */         i9 = 0;
+/*  597 */         i10 = 0;
+/*  598 */         i11 = i19 * i6;
+/*  599 */         for (m = 1; m < j; m++) {
+/*  600 */           i7 += i8;
+/*  601 */           i9 += i8;
+/*  602 */           i10 += i6;
+/*  603 */           i11 -= i6;
+/*  604 */           for (k = 2; k < paramInt1; k += 2) {
+/*  605 */             i12 = i18 + i7 - k;
+/*  606 */             i13 = k + i9;
+/*  607 */             i14 = k + i10;
+/*  608 */             i15 = k + i11;
+/*  609 */             for (i1 = 0; i1 < paramInt3; i1++) {
+/*  610 */               paramArrayOfFloat4[(i14 - 1)] += paramArrayOfFloat4[(i15 - 1)];
+/*  611 */               paramArrayOfFloat4[(i14 - 1)] -= paramArrayOfFloat4[(i15 - 1)];
+/*  612 */               paramArrayOfFloat4[i14] += paramArrayOfFloat4[i15];
+/*  613 */               paramArrayOfFloat4[i15] -= paramArrayOfFloat4[i14];
+/*  614 */               i12 += i16;
+/*  615 */               i13 += i16;
+/*  616 */               i14 += paramInt1;
+/*  617 */               i15 += paramInt1;
+/*      */             }
+/*      */           }
+/*      */         }
+/*      */       }
+/*      */       
+/*      */     }
+/*      */   }
+/*      */   
+/*      */ 
+/*      */ 
+/*      */ 
+/*      */   static void drftf1(int paramInt, float[] paramArrayOfFloat1, float[] paramArrayOfFloat2, float[] paramArrayOfFloat3, int[] paramArrayOfInt)
+/*      */   {
+/*  631 */     int i3 = paramArrayOfInt[1];
+/*  632 */     int i1 = 1;
+/*  633 */     int m = paramInt;
+/*  634 */     int i5 = paramInt;
+/*      */     label383:
+/*  636 */     for (int j = 0; j < i3; j++) {
+/*  637 */       int i2 = i3 - j;
+/*  638 */       int i4 = paramArrayOfInt[(i2 + 1)];
+/*  639 */       int k = m / i4;
+/*  640 */       int i6 = paramInt / m;
+/*  641 */       int i7 = i6 * k;
+/*  642 */       i5 -= (i4 - 1) * i6;
+/*  643 */       i1 = 1 - i1;
+/*      */       
+/*  645 */       int i10 = 100;
+/*      */       for (;;) {
+/*  647 */         switch (i10) {
+/*      */         case 100: 
+/*  649 */           if (i4 != 4) {
+/*  650 */             i10 = 102;
+/*      */           }
+/*      */           else
+/*      */           {
+/*  654 */             int i8 = i5 + i6;
+/*  655 */             int i9 = i8 + i6;
+/*  656 */             if (i1 != 0) {
+/*  657 */               dradf4(i6, k, paramArrayOfFloat2, paramArrayOfFloat1, paramArrayOfFloat3, i5 - 1, paramArrayOfFloat3, i8 - 1, paramArrayOfFloat3, i9 - 1);
+/*      */             } else
+/*  659 */               dradf4(i6, k, paramArrayOfFloat1, paramArrayOfFloat2, paramArrayOfFloat3, i5 - 1, paramArrayOfFloat3, i8 - 1, paramArrayOfFloat3, i9 - 1);
+/*  660 */             i10 = 110; }
+/*  661 */           break;
+/*      */         case 102: 
+/*  663 */           if (i4 != 2) {
+/*  664 */             i10 = 104;
+/*      */ 
+/*      */           }
+/*  667 */           else if (i1 != 0) {
+/*  668 */             i10 = 103;
+/*      */           }
+/*      */           else {
+/*  671 */             dradf2(i6, k, paramArrayOfFloat1, paramArrayOfFloat2, paramArrayOfFloat3, i5 - 1);
+/*  672 */             i10 = 110; }
+/*  673 */           break;
+/*      */         case 103: 
+/*  675 */           dradf2(i6, k, paramArrayOfFloat2, paramArrayOfFloat1, paramArrayOfFloat3, i5 - 1);
+/*      */         case 104: 
+/*  677 */           if (i6 == 1)
+/*  678 */             i1 = 1 - i1;
+/*  679 */           if (i1 != 0) {
+/*  680 */             i10 = 109;
+/*      */           }
+/*      */           else {
+/*  683 */             dradfg(i6, i4, k, i7, paramArrayOfFloat1, paramArrayOfFloat1, paramArrayOfFloat1, paramArrayOfFloat2, paramArrayOfFloat2, paramArrayOfFloat3, i5 - 1);
+/*  684 */             i1 = 1;
+/*  685 */             i10 = 110; }
+/*  686 */           break;
+/*      */         case 109: 
+/*  688 */           dradfg(i6, i4, k, i7, paramArrayOfFloat2, paramArrayOfFloat2, paramArrayOfFloat2, paramArrayOfFloat1, paramArrayOfFloat1, paramArrayOfFloat3, i5 - 1);
+/*  689 */           i1 = 0;
+/*      */         case 110: 
+/*  691 */           m = k;
+/*      */           break label383;
+/*      */         }
+/*      */       }
+/*      */     }
+/*  696 */     if (i1 == 1)
+/*  697 */       return;
+/*  698 */     for (int i = 0; i < paramInt; i++) {
+/*  699 */       paramArrayOfFloat1[i] = paramArrayOfFloat2[i];
+/*      */     }
+/*      */   }
+/*      */   
+/*      */ 
+/*      */ 
+/*      */   static void dradb2(int paramInt1, int paramInt2, float[] paramArrayOfFloat1, float[] paramArrayOfFloat2, float[] paramArrayOfFloat3, int paramInt3)
+/*      */   {
+/*  707 */     int k = paramInt2 * paramInt1;
+/*      */     
+/*  709 */     int m = 0;
+/*  710 */     int i1 = 0;
+/*  711 */     int i2 = (paramInt1 << 1) - 1;
+/*  712 */     for (int j = 0; j < paramInt2; j++) {
+/*  713 */       paramArrayOfFloat1[i1] += paramArrayOfFloat1[(i2 + i1)];
+/*  714 */       paramArrayOfFloat2[(m + k)] = (paramArrayOfFloat1[i1] - paramArrayOfFloat1[(i2 + i1)]);
+/*  715 */       i1 = m += paramInt1 << 1;
+/*      */     }
+/*      */     
+/*  718 */     if (paramInt1 < 2)
+/*  719 */       return;
+/*  720 */     if (paramInt1 != 2) {
+/*  721 */       m = 0;
+/*  722 */       i1 = 0;
+/*  723 */       for (j = 0; j < paramInt2; j++) {
+/*  724 */         i2 = m;
+/*  725 */         int i3; int i4 = (i3 = i1) + (paramInt1 << 1);
+/*  726 */         int i5 = k + m;
+/*  727 */         for (int i = 2; i < paramInt1; i += 2) {
+/*  728 */           i2 += 2;
+/*  729 */           i3 += 2;
+/*  730 */           i4 -= 2;
+/*  731 */           i5 += 2;
+/*  732 */           paramArrayOfFloat1[(i3 - 1)] += paramArrayOfFloat1[(i4 - 1)];
+/*  733 */           float f2 = paramArrayOfFloat1[(i3 - 1)] - paramArrayOfFloat1[(i4 - 1)];
+/*  734 */           paramArrayOfFloat1[i3] -= paramArrayOfFloat1[i4];
+/*  735 */           float f1 = paramArrayOfFloat1[i3] + paramArrayOfFloat1[i4];
+/*  736 */           paramArrayOfFloat2[(i5 - 1)] = (paramArrayOfFloat3[(paramInt3 + i - 2)] * f2 - paramArrayOfFloat3[(paramInt3 + i - 1)] * f1);
+/*  737 */           paramArrayOfFloat2[i5] = (paramArrayOfFloat3[(paramInt3 + i - 2)] * f1 + paramArrayOfFloat3[(paramInt3 + i - 1)] * f2);
+/*      */         }
+/*  739 */         i1 = m += paramInt1 << 1;
+/*      */       }
+/*  741 */       if (paramInt1 % 2 == 1) {
+/*  742 */         return;
+/*      */       }
+/*      */     }
+/*  745 */     m = paramInt1 - 1;
+/*  746 */     i1 = paramInt1 - 1;
+/*  747 */     for (j = 0; j < paramInt2; j++) {
+/*  748 */       paramArrayOfFloat1[i1] += paramArrayOfFloat1[i1];
+/*  749 */       paramArrayOfFloat2[(m + k)] = (-(paramArrayOfFloat1[(i1 + 1)] + paramArrayOfFloat1[(i1 + 1)]));
+/*  750 */       m += paramInt1;
+/*  751 */       i1 += (paramInt1 << 1);
+/*      */     }
+/*      */   }
+/*      */   
+/*      */ 
+/*      */ 
+/*      */   static void dradb3(int paramInt1, int paramInt2, float[] paramArrayOfFloat1, float[] paramArrayOfFloat2, float[] paramArrayOfFloat3, int paramInt3, float[] paramArrayOfFloat4, int paramInt4)
+/*      */   {
+/*  759 */     int k = paramInt2 * paramInt1;
+/*      */     
+/*  761 */     int m = 0;
+/*  762 */     int i1 = k << 1;
+/*  763 */     int i2 = paramInt1 << 1;
+/*  764 */     int i3 = paramInt1 + (paramInt1 << 1);
+/*  765 */     int i4 = 0;
+/*  766 */     float f10; float f5; float f2; for (int j = 0; j < paramInt2; j++) {
+/*  767 */       f10 = paramArrayOfFloat1[(i2 - 1)] + paramArrayOfFloat1[(i2 - 1)];
+/*  768 */       f5 = paramArrayOfFloat1[i4] + taur * f10;
+/*  769 */       paramArrayOfFloat1[i4] += f10;
+/*  770 */       f2 = taui * (paramArrayOfFloat1[i2] + paramArrayOfFloat1[i2]);
+/*  771 */       paramArrayOfFloat2[(m + k)] = (f5 - f2);
+/*  772 */       paramArrayOfFloat2[(m + i1)] = (f5 + f2);
+/*  773 */       m += paramInt1;
+/*  774 */       i2 += i3;
+/*  775 */       i4 += i3;
+/*      */     }
+/*      */     
+/*  778 */     if (paramInt1 == 1) {
+/*  779 */       return;
+/*      */     }
+/*  781 */     m = 0;
+/*  782 */     i2 = paramInt1 << 1;
+/*  783 */     for (j = 0; j < paramInt2; j++) {
+/*  784 */       int i6 = m + (m << 1);
+/*  785 */       int i5 = i4 = i6 + i2;
+/*  786 */       int i7 = m;
+/*  787 */       int i8; int i9 = (i8 = m + k) + k;
+/*      */       
+/*  789 */       for (int i = 2; i < paramInt1; i += 2) {
+/*  790 */         i4 += 2;
+/*  791 */         i5 -= 2;
+/*  792 */         i6 += 2;
+/*  793 */         i7 += 2;
+/*  794 */         i8 += 2;
+/*  795 */         i9 += 2;
+/*  796 */         f10 = paramArrayOfFloat1[(i4 - 1)] + paramArrayOfFloat1[(i5 - 1)];
+/*  797 */         f5 = paramArrayOfFloat1[(i6 - 1)] + taur * f10;
+/*  798 */         paramArrayOfFloat1[(i6 - 1)] += f10;
+/*  799 */         float f9 = paramArrayOfFloat1[i4] - paramArrayOfFloat1[i5];
+/*  800 */         float f1 = paramArrayOfFloat1[i6] + taur * f9;
+/*  801 */         paramArrayOfFloat1[i6] += f9;
+/*  802 */         float f6 = taui * (paramArrayOfFloat1[(i4 - 1)] - paramArrayOfFloat1[(i5 - 1)]);
+/*  803 */         f2 = taui * (paramArrayOfFloat1[i4] + paramArrayOfFloat1[i5]);
+/*  804 */         float f7 = f5 - f2;
+/*  805 */         float f8 = f5 + f2;
+/*  806 */         float f3 = f1 + f6;
+/*  807 */         float f4 = f1 - f6;
+/*  808 */         paramArrayOfFloat2[(i8 - 1)] = (paramArrayOfFloat3[(paramInt3 + i - 2)] * f7 - paramArrayOfFloat3[(paramInt3 + i - 1)] * f3);
+/*  809 */         paramArrayOfFloat2[i8] = (paramArrayOfFloat3[(paramInt3 + i - 2)] * f3 + paramArrayOfFloat3[(paramInt3 + i - 1)] * f7);
+/*  810 */         paramArrayOfFloat2[(i9 - 1)] = (paramArrayOfFloat4[(paramInt4 + i - 2)] * f8 - paramArrayOfFloat4[(paramInt4 + i - 1)] * f4);
+/*  811 */         paramArrayOfFloat2[i9] = (paramArrayOfFloat4[(paramInt4 + i - 2)] * f4 + paramArrayOfFloat4[(paramInt4 + i - 1)] * f8);
+/*      */       }
+/*  813 */       m += paramInt1;
+/*      */     }
+/*      */   }
+/*      */   
+/*      */ 
+/*      */ 
+/*      */   static void dradb4(int paramInt1, int paramInt2, float[] paramArrayOfFloat1, float[] paramArrayOfFloat2, float[] paramArrayOfFloat3, int paramInt3, float[] paramArrayOfFloat4, int paramInt4, float[] paramArrayOfFloat5, int paramInt5)
+/*      */   {
+/*  821 */     int k = paramInt2 * paramInt1;
+/*      */     
+/*  823 */     int m = 0;
+/*  824 */     int i1 = paramInt1 << 2;
+/*  825 */     int i2 = 0;
+/*  826 */     int i5 = paramInt1 << 1;
+/*  827 */     int i4; float f13; float f14; float f11; float f12; for (int j = 0; j < paramInt2; j++) {
+/*  828 */       i3 = i2 + i5;
+/*  829 */       i4 = m;
+/*  830 */       f13 = paramArrayOfFloat1[(i3 - 1)] + paramArrayOfFloat1[(i3 - 1)];
+/*  831 */       f14 = paramArrayOfFloat1[i3] + paramArrayOfFloat1[i3];
+/*  832 */       f11 = paramArrayOfFloat1[i2] - paramArrayOfFloat1[(i3 += i5 - 1)];
+/*  833 */       f12 = paramArrayOfFloat1[i2] + paramArrayOfFloat1[(i3 - 1)];
+/*  834 */       paramArrayOfFloat2[i4] = (f12 + f13);
+/*  835 */       paramArrayOfFloat2[(i4 += k)] = (f11 - f14);
+/*  836 */       paramArrayOfFloat2[(i4 += k)] = (f12 - f13);
+/*  837 */       paramArrayOfFloat2[(i4 += k)] = (f11 + f14);
+/*  838 */       m += paramInt1;
+/*  839 */       i2 += i1;
+/*      */     }
+/*      */     
+/*  842 */     if (paramInt1 < 2) return;
+/*      */     float f7;
+/*  844 */     float f8; if (paramInt1 != 2) {
+/*  845 */       m = 0;
+/*  846 */       for (j = 0; j < paramInt2; j++) {
+/*  847 */         i4 = (i3 = i2 = (i1 = m << 2) + i5) + i5;
+/*  848 */         int i6 = m;
+/*  849 */         for (int i = 2; i < paramInt1; i += 2) {
+/*  850 */           i1 += 2;
+/*  851 */           i2 += 2;
+/*  852 */           i3 -= 2;
+/*  853 */           i4 -= 2;
+/*  854 */           i6 += 2;
+/*  855 */           f7 = paramArrayOfFloat1[i1] + paramArrayOfFloat1[i4];
+/*  856 */           f8 = paramArrayOfFloat1[i1] - paramArrayOfFloat1[i4];
+/*  857 */           float f9 = paramArrayOfFloat1[i2] - paramArrayOfFloat1[i3];
+/*  858 */           f14 = paramArrayOfFloat1[i2] + paramArrayOfFloat1[i3];
+/*  859 */           f11 = paramArrayOfFloat1[(i1 - 1)] - paramArrayOfFloat1[(i4 - 1)];
+/*  860 */           f12 = paramArrayOfFloat1[(i1 - 1)] + paramArrayOfFloat1[(i4 - 1)];
+/*  861 */           float f10 = paramArrayOfFloat1[(i2 - 1)] - paramArrayOfFloat1[(i3 - 1)];
+/*  862 */           f13 = paramArrayOfFloat1[(i2 - 1)] + paramArrayOfFloat1[(i3 - 1)];
+/*  863 */           paramArrayOfFloat2[(i6 - 1)] = (f12 + f13);
+/*  864 */           float f5 = f12 - f13;
+/*  865 */           paramArrayOfFloat2[i6] = (f8 + f9);
+/*  866 */           float f2 = f8 - f9;
+/*  867 */           float f4 = f11 - f14;
+/*  868 */           float f6 = f11 + f14;
+/*  869 */           float f1 = f7 + f10;
+/*  870 */           float f3 = f7 - f10;
+/*      */           int i7;
+/*  872 */           paramArrayOfFloat2[((i7 = i6 + k) - 1)] = (paramArrayOfFloat3[(paramInt3 + i - 2)] * f4 - paramArrayOfFloat3[(paramInt3 + i - 1)] * f1);
+/*  873 */           paramArrayOfFloat2[i7] = (paramArrayOfFloat3[(paramInt3 + i - 2)] * f1 + paramArrayOfFloat3[(paramInt3 + i - 1)] * f4);
+/*  874 */           paramArrayOfFloat2[(i7 += k - 1)] = (paramArrayOfFloat4[(paramInt4 + i - 2)] * f5 - paramArrayOfFloat4[(paramInt4 + i - 1)] * f2);
+/*  875 */           paramArrayOfFloat2[i7] = (paramArrayOfFloat4[(paramInt4 + i - 2)] * f2 + paramArrayOfFloat4[(paramInt4 + i - 1)] * f5);
+/*  876 */           paramArrayOfFloat2[(i7 += k - 1)] = (paramArrayOfFloat5[(paramInt5 + i - 2)] * f6 - paramArrayOfFloat5[(paramInt5 + i - 1)] * f3);
+/*  877 */           paramArrayOfFloat2[i7] = (paramArrayOfFloat5[(paramInt5 + i - 2)] * f3 + paramArrayOfFloat5[(paramInt5 + i - 1)] * f6);
+/*      */         }
+/*  879 */         m += paramInt1;
+/*      */       }
+/*  881 */       if (paramInt1 % 2 == 1) {
+/*  882 */         return;
+/*      */       }
+/*      */     }
+/*  885 */     m = paramInt1;
+/*  886 */     i1 = paramInt1 << 2;
+/*  887 */     i2 = paramInt1 - 1;
+/*  888 */     int i3 = paramInt1 + (paramInt1 << 1);
+/*  889 */     for (j = 0; j < paramInt2; j++) {
+/*  890 */       i4 = i2;
+/*  891 */       f7 = paramArrayOfFloat1[m] + paramArrayOfFloat1[i3];
+/*  892 */       f8 = paramArrayOfFloat1[i3] - paramArrayOfFloat1[m];
+/*  893 */       f11 = paramArrayOfFloat1[(m - 1)] - paramArrayOfFloat1[(i3 - 1)];
+/*  894 */       f12 = paramArrayOfFloat1[(m - 1)] + paramArrayOfFloat1[(i3 - 1)];
+/*  895 */       paramArrayOfFloat2[i4] = (f12 + f12);
+/*  896 */       paramArrayOfFloat2[(i4 += k)] = (sqrt2 * (f11 - f7));
+/*  897 */       paramArrayOfFloat2[(i4 += k)] = (f8 + f8);
+/*  898 */       paramArrayOfFloat2[(i4 += k)] = (-sqrt2 * (f11 + f7));
+/*      */       
+/*  900 */       i2 += paramInt1;
+/*  901 */       m += i1;
+/*  902 */       i3 += i1;
+/*      */     }
+/*      */   }
+/*      */   
+/*      */ 
+/*      */   static void dradbg(int paramInt1, int paramInt2, int paramInt3, int paramInt4, float[] paramArrayOfFloat1, float[] paramArrayOfFloat2, float[] paramArrayOfFloat3, float[] paramArrayOfFloat4, float[] paramArrayOfFloat5, float[] paramArrayOfFloat6, int paramInt5)
+/*      */   {
+/*  909 */     int j = 0;int i5 = 0;int i15 = 0;
+/*      */     
+/*  911 */     int i18 = 0;
+/*  912 */     float f7 = 0.0F;float f9 = 0.0F;
+/*  913 */     int i19 = 0;
+/*      */     
+/*  915 */     int i20 = 100;
+/*      */     for (;;) { int i6;
+/*      */       int i7;
+/*  918 */       int i1; int i8; int i9; int k; int i10; int i12; int m; int i11; int i13; int i14; int i16; int i17; int i3; int i4; int i; switch (i20) {
+/*      */       case 100: 
+/*  920 */         i15 = paramInt2 * paramInt1;
+/*  921 */         i5 = paramInt3 * paramInt1;
+/*  922 */         float f8 = tpi / paramInt2;
+/*  923 */         f7 = (float)Math.cos(f8);
+/*  924 */         f9 = (float)Math.sin(f8);
+/*  925 */         i18 = paramInt1 - 1 >>> 1;
+/*  926 */         i19 = paramInt2;
+/*  927 */         j = paramInt2 + 1 >>> 1;
+/*  928 */         if (paramInt1 < paramInt3) {
+/*  929 */           i20 = 103;
+/*      */         }
+/*      */         else {
+/*  932 */           i6 = 0;
+/*  933 */           i7 = 0;
+/*  934 */           for (i1 = 0; i1 < paramInt3; i1++) {
+/*  935 */             i8 = i6;
+/*  936 */             i9 = i7;
+/*  937 */             for (k = 0; k < paramInt1; k++) {
+/*  938 */               paramArrayOfFloat4[i8] = paramArrayOfFloat1[i9];
+/*  939 */               i8++;
+/*  940 */               i9++;
+/*      */             }
+/*  942 */             i6 += paramInt1;
+/*  943 */             i7 += i15;
+/*      */           }
+/*  945 */           i20 = 106; }
+/*  946 */         break;
+/*      */       case 103: 
+/*  948 */         i6 = 0;
+/*  949 */         for (k = 0; k < paramInt1; k++) {
+/*  950 */           i7 = i6;
+/*  951 */           i8 = i6;
+/*  952 */           for (i1 = 0; i1 < paramInt3; i1++) {
+/*  953 */             paramArrayOfFloat4[i7] = paramArrayOfFloat1[i8];
+/*  954 */             i7 += paramInt1;
+/*  955 */             i8 += i15;
+/*      */           }
+/*  957 */           i6++;
+/*      */         }
+/*      */       case 106: 
+/*  960 */         i6 = 0;
+/*  961 */         i7 = i19 * i5;
+/*  962 */         i12 = i10 = paramInt1 << 1;
+/*  963 */         for (m = 1; m < j; m++) {
+/*  964 */           i6 += i5;
+/*  965 */           i7 -= i5;
+/*  966 */           i8 = i6;
+/*  967 */           i9 = i7;
+/*  968 */           i11 = i10;
+/*  969 */           for (i1 = 0; i1 < paramInt3; i1++) {
+/*  970 */             paramArrayOfFloat4[i8] = (paramArrayOfFloat1[(i11 - 1)] + paramArrayOfFloat1[(i11 - 1)]);
+/*  971 */             paramArrayOfFloat1[i11] += paramArrayOfFloat1[i11];
+/*  972 */             i8 += paramInt1;
+/*  973 */             i9 += paramInt1;
+/*  974 */             i11 += i15;
+/*      */           }
+/*  976 */           i10 += i12;
+/*      */         }
+/*  978 */         if (paramInt1 == 1) {
+/*  979 */           i20 = 116;
+/*      */ 
+/*      */         }
+/*  982 */         else if (i18 < paramInt3) {
+/*  983 */           i20 = 112;
+/*      */         }
+/*      */         else
+/*      */         {
+/*  987 */           i6 = 0;
+/*  988 */           i7 = i19 * i5;
+/*  989 */           i12 = 0;
+/*  990 */           for (m = 1; m < j; m++) {
+/*  991 */             i6 += i5;
+/*  992 */             i7 -= i5;
+/*  993 */             i8 = i6;
+/*  994 */             i9 = i7;
+/*      */             
+/*  996 */             i12 += (paramInt1 << 1);
+/*  997 */             i13 = i12;
+/*  998 */             for (i1 = 0; i1 < paramInt3; i1++) {
+/*  999 */               i10 = i8;
+/* 1000 */               i11 = i9;
+/* 1001 */               i14 = i13;
+/* 1002 */               i16 = i13;
+/* 1003 */               for (k = 2; k < paramInt1; k += 2) {
+/* 1004 */                 i10 += 2;
+/* 1005 */                 i11 += 2;
+/* 1006 */                 i14 += 2;
+/* 1007 */                 i16 -= 2;
+/* 1008 */                 paramArrayOfFloat1[(i14 - 1)] += paramArrayOfFloat1[(i16 - 1)];
+/* 1009 */                 paramArrayOfFloat1[(i14 - 1)] -= paramArrayOfFloat1[(i16 - 1)];
+/* 1010 */                 paramArrayOfFloat1[i14] -= paramArrayOfFloat1[i16];
+/* 1011 */                 paramArrayOfFloat1[i14] += paramArrayOfFloat1[i16];
+/*      */               }
+/* 1013 */               i8 += paramInt1;
+/* 1014 */               i9 += paramInt1;
+/* 1015 */               i13 += i15;
+/*      */             }
+/*      */           }
+/* 1018 */           i20 = 116; }
+/* 1019 */         break;
+/*      */       case 112: 
+/* 1021 */         i6 = 0;
+/* 1022 */         i7 = i19 * i5;
+/* 1023 */         i12 = 0;
+/* 1024 */         for (m = 1; m < j; m++) {
+/* 1025 */           i6 += i5;
+/* 1026 */           i7 -= i5;
+/* 1027 */           i8 = i6;
+/* 1028 */           i9 = i7;
+/* 1029 */           i12 += (paramInt1 << 1);
+/* 1030 */           i13 = i12;
+/* 1031 */           i14 = i12;
+/* 1032 */           for (k = 2; k < paramInt1; k += 2) {
+/* 1033 */             i8 += 2;
+/* 1034 */             i9 += 2;
+/* 1035 */             i13 += 2;
+/* 1036 */             i14 -= 2;
+/* 1037 */             i10 = i8;
+/* 1038 */             i11 = i9;
+/* 1039 */             i16 = i13;
+/* 1040 */             i17 = i14;
+/* 1041 */             for (i1 = 0; i1 < paramInt3; i1++) {
+/* 1042 */               paramArrayOfFloat1[(i16 - 1)] += paramArrayOfFloat1[(i17 - 1)];
+/* 1043 */               paramArrayOfFloat1[(i16 - 1)] -= paramArrayOfFloat1[(i17 - 1)];
+/* 1044 */               paramArrayOfFloat1[i16] -= paramArrayOfFloat1[i17];
+/* 1045 */               paramArrayOfFloat1[i16] += paramArrayOfFloat1[i17];
+/* 1046 */               i10 += paramInt1;
+/* 1047 */               i11 += paramInt1;
+/* 1048 */               i16 += i15;
+/* 1049 */               i17 += i15;
+/*      */             }
+/*      */           }
+/*      */         }
+/*      */       case 116: 
+/* 1054 */         float f4 = 1.0F;
+/* 1055 */         float f2 = 0.0F;
+/* 1056 */         i6 = 0;
+/* 1057 */         i14 = i7 = i19 * paramInt4;
+/* 1058 */         i8 = (paramInt2 - 1) * paramInt4;
+/* 1059 */         for (int i2 = 1; i2 < j; i2++) {
+/* 1060 */           i6 += paramInt4;
+/* 1061 */           i7 -= paramInt4;
+/*      */           
+/* 1063 */           float f10 = f7 * f4 - f9 * f2;
+/* 1064 */           f2 = f7 * f2 + f9 * f4;
+/* 1065 */           f4 = f10;
+/* 1066 */           i9 = i6;
+/* 1067 */           i10 = i7;
+/* 1068 */           i11 = 0;
+/* 1069 */           i12 = paramInt4;
+/* 1070 */           i13 = i8;
+/* 1071 */           for (i3 = 0; i3 < paramInt4; i3++) {
+/* 1072 */             paramArrayOfFloat5[(i11++)] += f4 * paramArrayOfFloat5[(i12++)];
+/* 1073 */             paramArrayOfFloat3[(i10++)] = (f2 * paramArrayOfFloat5[(i13++)]);
+/*      */           }
+/* 1075 */           float f1 = f4;
+/* 1076 */           float f6 = f2;
+/* 1077 */           float f5 = f4;
+/* 1078 */           float f3 = f2;
+/*      */           
+/* 1080 */           i11 = paramInt4;
+/* 1081 */           i12 = i14 - paramInt4;
+/* 1082 */           for (m = 2; m < j; m++) {
+/* 1083 */             i11 += paramInt4;
+/* 1084 */             i12 -= paramInt4;
+/* 1085 */             float f11 = f1 * f5 - f6 * f3;
+/* 1086 */             f3 = f1 * f3 + f6 * f5;
+/* 1087 */             f5 = f11;
+/* 1088 */             i9 = i6;
+/* 1089 */             i10 = i7;
+/* 1090 */             i16 = i11;
+/* 1091 */             i17 = i12;
+/* 1092 */             for (i3 = 0; i3 < paramInt4; i3++) {
+/* 1093 */               paramArrayOfFloat3[(i9++)] += f5 * paramArrayOfFloat5[(i16++)];
+/* 1094 */               paramArrayOfFloat3[(i10++)] += f3 * paramArrayOfFloat5[(i17++)];
+/*      */             }
+/*      */           }
+/*      */         }
+/*      */         
+/* 1099 */         i6 = 0;
+/* 1100 */         for (m = 1; m < j; m++) {
+/* 1101 */           i6 += paramInt4;
+/* 1102 */           i7 = i6;
+/* 1103 */           for (i3 = 0; i3 < paramInt4; i3++) {
+/* 1104 */             paramArrayOfFloat5[i3] += paramArrayOfFloat5[(i7++)];
+/*      */           }
+/*      */         }
+/* 1107 */         i6 = 0;
+/* 1108 */         i7 = i19 * i5;
+/* 1109 */         for (m = 1; m < j; m++) {
+/* 1110 */           i6 += i5;
+/* 1111 */           i7 -= i5;
+/* 1112 */           i8 = i6;
+/* 1113 */           i9 = i7;
+/* 1114 */           for (i1 = 0; i1 < paramInt3; i1++) {
+/* 1115 */             paramArrayOfFloat2[i8] -= paramArrayOfFloat2[i9];
+/* 1116 */             paramArrayOfFloat2[i8] += paramArrayOfFloat2[i9];
+/* 1117 */             i8 += paramInt1;
+/* 1118 */             i9 += paramInt1;
+/*      */           }
+/*      */         }
+/*      */         
+/* 1122 */         if (paramInt1 == 1) {
+/* 1123 */           i20 = 132;
+/*      */ 
+/*      */         }
+/* 1126 */         else if (i18 < paramInt3) {
+/* 1127 */           i20 = 128;
+/*      */         }
+/*      */         else
+/*      */         {
+/* 1131 */           i6 = 0;
+/* 1132 */           i7 = i19 * i5;
+/* 1133 */           for (m = 1; m < j; m++) {
+/* 1134 */             i6 += i5;
+/* 1135 */             i7 -= i5;
+/* 1136 */             i8 = i6;
+/* 1137 */             i9 = i7;
+/* 1138 */             for (i1 = 0; i1 < paramInt3; i1++) {
+/* 1139 */               i10 = i8;
+/* 1140 */               i11 = i9;
+/* 1141 */               for (k = 2; k < paramInt1; k += 2) {
+/* 1142 */                 i10 += 2;
+/* 1143 */                 i11 += 2;
+/* 1144 */                 paramArrayOfFloat2[(i10 - 1)] -= paramArrayOfFloat2[i11];
+/* 1145 */                 paramArrayOfFloat2[(i10 - 1)] += paramArrayOfFloat2[i11];
+/* 1146 */                 paramArrayOfFloat2[i10] += paramArrayOfFloat2[(i11 - 1)];
+/* 1147 */                 paramArrayOfFloat2[i10] -= paramArrayOfFloat2[(i11 - 1)];
+/*      */               }
+/* 1149 */               i8 += paramInt1;
+/* 1150 */               i9 += paramInt1;
+/*      */             }
+/*      */           }
+/* 1153 */           i20 = 132; }
+/* 1154 */         break;
+/*      */       case 128: 
+/* 1156 */         i6 = 0;
+/* 1157 */         i7 = i19 * i5;
+/* 1158 */         for (m = 1; m < j; m++) {
+/* 1159 */           i6 += i5;
+/* 1160 */           i7 -= i5;
+/* 1161 */           i8 = i6;
+/* 1162 */           i9 = i7;
+/* 1163 */           for (k = 2; k < paramInt1; k += 2) {
+/* 1164 */             i8 += 2;
+/* 1165 */             i9 += 2;
+/* 1166 */             i10 = i8;
+/* 1167 */             i11 = i9;
+/* 1168 */             for (i1 = 0; i1 < paramInt3; i1++) {
+/* 1169 */               paramArrayOfFloat2[(i10 - 1)] -= paramArrayOfFloat2[i11];
+/* 1170 */               paramArrayOfFloat2[(i10 - 1)] += paramArrayOfFloat2[i11];
+/* 1171 */               paramArrayOfFloat2[i10] += paramArrayOfFloat2[(i11 - 1)];
+/* 1172 */               paramArrayOfFloat2[i10] -= paramArrayOfFloat2[(i11 - 1)];
+/* 1173 */               i10 += paramInt1;
+/* 1174 */               i11 += paramInt1;
+/*      */             }
+/*      */           }
+/*      */         }
+/*      */       case 132: 
+/* 1179 */         if (paramInt1 == 1) {
+/* 1180 */           return;
+/*      */         }
+/* 1182 */         for (i3 = 0; i3 < paramInt4; i3++) {
+/* 1183 */           paramArrayOfFloat3[i3] = paramArrayOfFloat5[i3];
+/*      */         }
+/* 1185 */         i6 = 0;
+/* 1186 */         for (m = 1; m < paramInt2; m++) {
+/* 1187 */           i7 = i6 += i5;
+/* 1188 */           for (i1 = 0; i1 < paramInt3; i1++) {
+/* 1189 */             paramArrayOfFloat2[i7] = paramArrayOfFloat4[i7];
+/* 1190 */             i7 += paramInt1;
+/*      */           }
+/*      */         }
+/*      */         
+/* 1194 */         if (i18 > paramInt3) {
+/* 1195 */           i20 = 139;
+/*      */         }
+/*      */         else
+/*      */         {
+/* 1199 */           i4 = -paramInt1 - 1;
+/* 1200 */           i6 = 0;
+/* 1201 */           for (m = 1; m < paramInt2; m++) {
+/* 1202 */             i4 += paramInt1;
+/* 1203 */             i6 += i5;
+/* 1204 */             i = i4;
+/* 1205 */             i7 = i6;
+/* 1206 */             for (k = 2; k < paramInt1; k += 2) {
+/* 1207 */               i7 += 2;
+/* 1208 */               i += 2;
+/* 1209 */               i8 = i7;
+/* 1210 */               for (i1 = 0; i1 < paramInt3; i1++) {
+/* 1211 */                 paramArrayOfFloat2[(i8 - 1)] = (paramArrayOfFloat6[(paramInt5 + i - 1)] * paramArrayOfFloat4[(i8 - 1)] - paramArrayOfFloat6[(paramInt5 + i)] * paramArrayOfFloat4[i8]);
+/* 1212 */                 paramArrayOfFloat2[i8] = (paramArrayOfFloat6[(paramInt5 + i - 1)] * paramArrayOfFloat4[i8] + paramArrayOfFloat6[(paramInt5 + i)] * paramArrayOfFloat4[(i8 - 1)]);
+/* 1213 */                 i8 += paramInt1;
+/*      */               }
+/*      */             }
+/*      */           }
+/*      */           return;
+/*      */         }
+/*      */         break;
+/* 1220 */       case 139:  i4 = -paramInt1 - 1;
+/* 1221 */         i6 = 0;
+/* 1222 */         for (m = 1; m < paramInt2; m++) {
+/* 1223 */           i4 += paramInt1;
+/* 1224 */           i6 += i5;
+/* 1225 */           i7 = i6;
+/* 1226 */           for (i1 = 0; i1 < paramInt3; i1++) {
+/* 1227 */             i = i4;
+/* 1228 */             i8 = i7;
+/* 1229 */             for (k = 2; k < paramInt1; k += 2) {
+/* 1230 */               i += 2;
+/* 1231 */               i8 += 2;
+/* 1232 */               paramArrayOfFloat2[(i8 - 1)] = (paramArrayOfFloat6[(paramInt5 + i - 1)] * paramArrayOfFloat4[(i8 - 1)] - paramArrayOfFloat6[(paramInt5 + i)] * paramArrayOfFloat4[i8]);
+/* 1233 */               paramArrayOfFloat2[i8] = (paramArrayOfFloat6[(paramInt5 + i - 1)] * paramArrayOfFloat4[i8] + paramArrayOfFloat6[(paramInt5 + i)] * paramArrayOfFloat4[(i8 - 1)]);
+/*      */             }
+/* 1235 */             i7 += paramInt1;
+/*      */           }
+/*      */         }
+/*      */       }
+/*      */       
+/*      */     }
+/*      */   }
+/*      */   
+/*      */   static void drftb1(int paramInt1, float[] paramArrayOfFloat1, float[] paramArrayOfFloat2, float[] paramArrayOfFloat3, int paramInt2, int[] paramArrayOfInt)
+/*      */   {
+/* 1245 */     int m = 0;
+/*      */     
+/* 1247 */     int i3 = 0;int i7 = 0;int i8 = 0;
+/*      */     
+/* 1249 */     int i2 = paramArrayOfInt[1];
+/* 1250 */     int i1 = 0;
+/* 1251 */     int k = 1;
+/* 1252 */     int i4 = 1;
+/*      */     label484:
+/* 1254 */     for (int j = 0; j < i2; j++) {
+/* 1255 */       int i9 = 100;
+/*      */       for (;;) { int i5;
+/* 1257 */         switch (i9) {
+/*      */         case 100: 
+/* 1259 */           i3 = paramArrayOfInt[(j + 2)];
+/* 1260 */           m = i3 * k;
+/* 1261 */           i7 = paramInt1 / m;
+/* 1262 */           i8 = i7 * k;
+/* 1263 */           if (i3 != 4) {
+/* 1264 */             i9 = 103;
+/*      */           }
+/*      */           else {
+/* 1267 */             i5 = i4 + i7;
+/* 1268 */             int i6 = i5 + i7;
+/*      */             
+/* 1270 */             if (i1 != 0) {
+/* 1271 */               dradb4(i7, k, paramArrayOfFloat2, paramArrayOfFloat1, paramArrayOfFloat3, paramInt2 + i4 - 1, paramArrayOfFloat3, paramInt2 + i5 - 1, paramArrayOfFloat3, paramInt2 + i6 - 1);
+/*      */             }
+/*      */             else {
+/* 1274 */               dradb4(i7, k, paramArrayOfFloat1, paramArrayOfFloat2, paramArrayOfFloat3, paramInt2 + i4 - 1, paramArrayOfFloat3, paramInt2 + i5 - 1, paramArrayOfFloat3, paramInt2 + i6 - 1);
+/*      */             }
+/* 1276 */             i1 = 1 - i1;
+/* 1277 */             i9 = 115; }
+/* 1278 */           break;
+/*      */         case 103: 
+/* 1280 */           if (i3 != 2) {
+/* 1281 */             i9 = 106;
+/*      */           }
+/*      */           else
+/*      */           {
+/* 1285 */             if (i1 != 0) {
+/* 1286 */               dradb2(i7, k, paramArrayOfFloat2, paramArrayOfFloat1, paramArrayOfFloat3, paramInt2 + i4 - 1);
+/*      */             } else
+/* 1288 */               dradb2(i7, k, paramArrayOfFloat1, paramArrayOfFloat2, paramArrayOfFloat3, paramInt2 + i4 - 1);
+/* 1289 */             i1 = 1 - i1;
+/* 1290 */             i9 = 115; }
+/* 1291 */           break;
+/*      */         
+/*      */         case 106: 
+/* 1294 */           if (i3 != 3) {
+/* 1295 */             i9 = 109;
+/*      */           }
+/*      */           else
+/*      */           {
+/* 1299 */             i5 = i4 + i7;
+/* 1300 */             if (i1 != 0) {
+/* 1301 */               dradb3(i7, k, paramArrayOfFloat2, paramArrayOfFloat1, paramArrayOfFloat3, paramInt2 + i4 - 1, paramArrayOfFloat3, paramInt2 + i5 - 1);
+/*      */             } else
+/* 1303 */               dradb3(i7, k, paramArrayOfFloat1, paramArrayOfFloat2, paramArrayOfFloat3, paramInt2 + i4 - 1, paramArrayOfFloat3, paramInt2 + i5 - 1);
+/* 1304 */             i1 = 1 - i1;
+/* 1305 */             i9 = 115; }
+/* 1306 */           break;
+/*      */         case 109: 
+/* 1308 */           if (i1 != 0) {
+/* 1309 */             dradbg(i7, i3, k, i8, paramArrayOfFloat2, paramArrayOfFloat2, paramArrayOfFloat2, paramArrayOfFloat1, paramArrayOfFloat1, paramArrayOfFloat3, paramInt2 + i4 - 1);
+/*      */           } else
+/* 1311 */             dradbg(i7, i3, k, i8, paramArrayOfFloat1, paramArrayOfFloat1, paramArrayOfFloat1, paramArrayOfFloat2, paramArrayOfFloat2, paramArrayOfFloat3, paramInt2 + i4 - 1);
+/* 1312 */           if (i7 == 1) {
+/* 1313 */             i1 = 1 - i1;
+/*      */           }
+/*      */         case 115: 
+/* 1316 */           k = m;
+/* 1317 */           i4 += (i3 - 1) * i7;
+/*      */           break label484;
+/*      */         }
+/*      */       }
+/*      */     }
+/* 1322 */     if (i1 == 0)
+/* 1323 */       return;
+/* 1324 */     for (int i = 0; i < paramInt1; i++) {
+/* 1325 */       paramArrayOfFloat1[i] = paramArrayOfFloat2[i];
+/*      */     }
+/*      */   }
+/*      */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\com\jcraft\jorbis\Drft.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

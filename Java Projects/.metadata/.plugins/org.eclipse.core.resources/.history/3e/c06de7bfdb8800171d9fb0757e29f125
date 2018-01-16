@@ -1,0 +1,33 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public final class f
+/*    */   implements lb
+/*    */ {
+/*    */   private final String a;
+/*    */   
+/*    */   f(String paramString)
+/*    */   {
+/* 21 */     this.a = paramString;
+/*    */   }
+/*    */   
+/*    */   public qa a() {
+/* 25 */     return ol.a(this.a);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\f.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

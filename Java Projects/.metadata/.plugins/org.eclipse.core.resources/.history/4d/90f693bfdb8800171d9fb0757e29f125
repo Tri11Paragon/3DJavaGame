@@ -1,0 +1,35 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class be
+/*    */   extends pg
+/*    */ {
+/*    */   private int a;
+/*    */   
+/*    */   public be(int paramInt)
+/*    */   {
+/* 12 */     this.a = paramInt;
+/*    */   }
+/*    */   
+/*    */   public boolean a(fd paramfd, Random paramRandom, int paramInt1, int paramInt2, int paramInt3) {
+/* 16 */     for (int i = 0; i < 64; i++) {
+/* 17 */       int j = paramInt1 + paramRandom.nextInt(8) - paramRandom.nextInt(8);
+/* 18 */       int k = paramInt2 + paramRandom.nextInt(4) - paramRandom.nextInt(4);
+/* 19 */       int m = paramInt3 + paramRandom.nextInt(8) - paramRandom.nextInt(8);
+/* 20 */       if ((paramfd.d(j, k, m)) && 
+/* 21 */         (((wb)uu.m[this.a]).g(paramfd, j, k, m))) {
+/* 22 */         paramfd.c(j, k, m, this.a);
+/*    */       }
+/*    */     }
+/*    */     
+/*    */ 
+/* 27 */     return true;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\be.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

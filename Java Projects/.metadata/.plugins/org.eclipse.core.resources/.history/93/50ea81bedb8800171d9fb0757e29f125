@@ -1,0 +1,71 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class uf
+/*    */   extends df
+/*    */ {
+/*    */   private am[] a;
+/*    */   private int b;
+/*    */   
+/*    */   public uf(Random paramRandom, int paramInt)
+/*    */   {
+/* 14 */     this.b = paramInt;
+/* 15 */     this.a = new am[paramInt];
+/* 16 */     for (int i = 0; i < paramInt; i++) {
+/* 17 */       this.a[i] = new am(paramRandom);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public double a(double paramDouble1, double paramDouble2) {
+/* 22 */     double d1 = 0.0D;
+/* 23 */     double d2 = 1.0D;
+/*    */     
+/* 25 */     for (int i = 0; i < this.b; i++) {
+/* 26 */       d1 += this.a[i].a(paramDouble1 * d2, paramDouble2 * d2) / d2;
+/* 27 */       d2 /= 2.0D;
+/*    */     }
+/*    */     
+/* 30 */     return d1;
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public double[] a(double[] paramArrayOfDouble, double paramDouble1, double paramDouble2, double paramDouble3, int paramInt1, int paramInt2, int paramInt3, double paramDouble4, double paramDouble5, double paramDouble6)
+/*    */   {
+/* 46 */     if (paramArrayOfDouble == null) paramArrayOfDouble = new double[paramInt1 * paramInt2 * paramInt3]; else {
+/* 47 */       for (int i = 0; i < paramArrayOfDouble.length; i++) {
+/* 48 */         paramArrayOfDouble[i] = 0.0D;
+/*    */       }
+/*    */     }
+/* 51 */     double d = 1.0D;
+/*    */     
+/* 53 */     for (int j = 0; j < this.b; j++)
+/*    */     {
+/* 55 */       this.a[j].a(paramArrayOfDouble, paramDouble1, paramDouble2, paramDouble3, paramInt1, paramInt2, paramInt3, paramDouble4 * d, paramDouble5 * d, paramDouble6 * d, d);
+/* 56 */       d /= 2.0D;
+/*    */     }
+/*    */     
+/* 59 */     return paramArrayOfDouble;
+/*    */   }
+/*    */   
+/*    */   public double[] a(double[] paramArrayOfDouble, int paramInt1, int paramInt2, int paramInt3, int paramInt4, double paramDouble1, double paramDouble2, double paramDouble3) {
+/* 63 */     return a(paramArrayOfDouble, paramInt1, 10.0D, paramInt2, paramInt3, 1, paramInt4, paramDouble1, 1.0D, paramDouble2);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\uf.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

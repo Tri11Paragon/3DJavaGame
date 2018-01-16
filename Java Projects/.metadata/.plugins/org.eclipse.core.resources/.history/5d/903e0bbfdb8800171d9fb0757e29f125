@@ -1,0 +1,162 @@
+/*     */ import java.util.Random;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class xt
+/*     */   extends ar
+/*     */ {
+/*  13 */   public float a = 0.0F; public float b = 0.0F;
+/*  14 */   public float c = 0.0F; public float f = 0.0F;
+/*     */   
+/*  16 */   public float g = 0.0F; public float h = 0.0F;
+/*  17 */   public float i = 0.0F; public float j = 0.0F;
+/*     */   
+/*  19 */   private float k = 0.0F;
+/*  20 */   private float l = 0.0F;
+/*  21 */   private float m = 0.0F;
+/*     */   
+/*  23 */   private float n = 0.0F; private float o = 0.0F; private float p = 0.0F;
+/*     */   
+/*     */   public xt(fd paramfd) {
+/*  26 */     super(paramfd);
+/*  27 */     this.O = "/mob/squid.png";
+/*  28 */     b(0.95F, 0.95F);
+/*  29 */     this.l = (1.0F / (this.bs.nextFloat() + 1.0F) * 0.2F);
+/*     */   }
+/*     */   
+/*     */   public void b(nu paramnu) {
+/*  33 */     super.b(paramnu);
+/*     */   }
+/*     */   
+/*     */   public void a(nu paramnu) {
+/*  37 */     super.a(paramnu);
+/*     */   }
+/*     */   
+/*     */   protected String g() {
+/*  41 */     return null;
+/*     */   }
+/*     */   
+/*     */   protected String j_() {
+/*  45 */     return null;
+/*     */   }
+/*     */   
+/*     */   protected String i() {
+/*  49 */     return null;
+/*     */   }
+/*     */   
+/*     */   protected float k() {
+/*  53 */     return 0.4F;
+/*     */   }
+/*     */   
+/*     */   protected int j() {
+/*  57 */     return 0;
+/*     */   }
+/*     */   
+/*     */   protected void q()
+/*     */   {
+/*  62 */     int i1 = this.bs.nextInt(3) + 1;
+/*  63 */     for (int i2 = 0; i2 < i1; i2++) {
+/*  64 */       a(new iz(gm.aU, 1, 0), 0.0F);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public boolean a(gs paramgs) {
+/*  69 */     return false;
+/*     */   }
+/*     */   
+/*     */   public boolean ag() {
+/*  73 */     return this.aI.a(this.aW.b(0.0D, -0.6000000238418579D, 0.0D), ln.g, this);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   public void o()
+/*     */   {
+/*  79 */     super.o();
+/*     */     
+/*  81 */     this.b = this.a;
+/*  82 */     this.f = this.c;
+/*     */     
+/*  84 */     this.h = this.g;
+/*  85 */     this.j = this.i;
+/*     */     
+/*  87 */     this.g += this.l;
+/*  88 */     if (this.g > 6.2831855F) {
+/*  89 */       this.g -= 6.2831855F;
+/*  90 */       if (this.bs.nextInt(10) == 0) { this.l = (1.0F / (this.bs.nextFloat() + 1.0F) * 0.2F);
+/*     */       }
+/*     */     }
+/*  93 */     if (ag()) {
+/*  94 */       if (this.g < 3.1415927F) {
+/*  95 */         f1 = this.g / 3.1415927F;
+/*  96 */         this.i = (in.a(f1 * f1 * 3.1415927F) * 3.1415927F * 0.25F);
+/*     */         
+/*  98 */         if (f1 > 0.75D) {
+/*  99 */           this.k = 1.0F;
+/* 100 */           this.m = 1.0F;
+/*     */         } else {
+/* 102 */           this.m *= 0.8F;
+/*     */         }
+/*     */       } else {
+/* 105 */         this.i = 0.0F;
+/* 106 */         this.k *= 0.9F;
+/* 107 */         this.m *= 0.99F;
+/*     */       }
+/*     */       
+/* 110 */       if (!this.V) {
+/* 111 */         this.aP = (this.n * this.k);
+/* 112 */         this.aQ = (this.o * this.k);
+/* 113 */         this.aR = (this.p * this.k);
+/*     */       }
+/*     */       
+/* 116 */       float f1 = in.a(this.aP * this.aP + this.aR * this.aR);
+/*     */       
+/* 118 */       this.H += (-(float)Math.atan2(this.aP, this.aR) * 180.0F / 3.1415927F - this.H) * 0.1F;
+/* 119 */       this.aS = this.H;
+/* 120 */       this.c += 3.1415927F * this.m * 1.5F;
+/* 121 */       this.a += (-(float)Math.atan2(f1, this.aQ) * 180.0F / 3.1415927F - this.a) * 0.1F;
+/*     */     } else {
+/* 123 */       this.i = (in.e(in.a(this.g)) * 3.1415927F * 0.25F);
+/*     */       
+/* 125 */       if (!this.V)
+/*     */       {
+/* 127 */         this.aP = 0.0D;
+/* 128 */         this.aQ -= 0.08D;
+/* 129 */         this.aQ *= 0.9800000190734863D;
+/* 130 */         this.aR = 0.0D;
+/*     */       }
+/*     */       
+/*     */ 
+/* 134 */       this.a = ((float)(this.a + (-90.0F - this.a) * 0.02D));
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a_(float paramFloat1, float paramFloat2)
+/*     */   {
+/* 140 */     b(this.aP, this.aQ, this.aR);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   protected void f_()
+/*     */   {
+/* 147 */     if ((this.bs.nextInt(50) == 0) || (!this.bx) || ((this.n == 0.0F) && (this.o == 0.0F) && (this.p == 0.0F))) {
+/* 148 */       float f1 = this.bs.nextFloat() * 3.1415927F * 2.0F;
+/* 149 */       this.n = (in.b(f1) * 0.2F);
+/* 150 */       this.o = (-0.1F + this.bs.nextFloat() * 0.2F);
+/* 151 */       this.p = (in.a(f1) * 0.2F);
+/*     */     }
+/*     */     
+/* 154 */     X();
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\xt.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

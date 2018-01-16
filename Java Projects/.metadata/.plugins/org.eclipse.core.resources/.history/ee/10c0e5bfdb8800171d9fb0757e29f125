@@ -1,0 +1,114 @@
+/*     */ import java.io.File;
+/*     */ import java.util.List;
+/*     */ import net.minecraft.client.Minecraft;
+/*     */ import org.lwjgl.Sys;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class ft
+/*     */   extends da
+/*     */ {
+/*     */   protected da a;
+/*  23 */   private int i = -1;
+/*  24 */   private String j = "";
+/*     */   private de l;
+/*     */   
+/*     */   public ft(da paramda)
+/*     */   {
+/*  29 */     this.a = paramda;
+/*     */   }
+/*     */   
+/*     */   public void b()
+/*     */   {
+/*  34 */     nh localnh = nh.a();
+/*     */     
+/*  36 */     this.e.add(new ab(5, this.c / 2 - 154, this.d - 48, localnh.a("texturePack.openFolder")));
+/*  37 */     this.e.add(new ab(6, this.c / 2 + 4, this.d - 48, localnh.a("gui.done")));
+/*  38 */     this.b.D.a();
+/*     */     
+/*  40 */     this.j = new File(Minecraft.b(), "texturepacks").getAbsolutePath();
+/*     */     
+/*  42 */     this.l = new de(this);
+/*  43 */     this.l.a(this.e, 7, 8);
+/*     */   }
+/*     */   
+/*     */   protected void a(ke paramke) {
+/*  47 */     if (!paramke.g) return;
+/*  48 */     if (paramke.f == 5) {
+/*  49 */       Sys.openURL("file://" + this.j);
+/*  50 */     } else if (paramke.f == 6) {
+/*  51 */       this.b.p.b();
+/*  52 */       this.b.a(this.a);
+/*     */     } else {
+/*  54 */       this.l.a(paramke);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   protected void a(int paramInt1, int paramInt2, int paramInt3) {
+/*  59 */     super.a(paramInt1, paramInt2, paramInt3);
+/*     */   }
+/*     */   
+/*     */   protected void b(int paramInt1, int paramInt2, int paramInt3) {
+/*  63 */     super.b(paramInt1, paramInt2, paramInt3);
+/*     */   }
+/*     */   
+/*     */   public void a(int paramInt1, int paramInt2, float paramFloat)
+/*     */   {
+/*  68 */     this.l.a(paramInt1, paramInt2, paramFloat);
+/*     */     
+/*  70 */     if (this.i <= 0) {
+/*  71 */       this.b.D.a();
+/*  72 */       this.i += 20;
+/*     */     }
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*  96 */     nh localnh = nh.a();
+/*     */     
+/*  98 */     a(this.g, localnh.a("texturePack.title"), this.c / 2, 16, 16777215);
+/*  99 */     a(this.g, localnh.a("texturePack.folderInfo"), this.c / 2 - 77, this.d - 26, 8421504);
+/*     */     
+/* 101 */     super.a(paramInt1, paramInt2, paramFloat);
+/*     */   }
+/*     */   
+/*     */   public void a() {
+/* 105 */     super.a();
+/* 106 */     this.i -= 1;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ft.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

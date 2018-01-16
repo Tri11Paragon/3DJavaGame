@@ -1,0 +1,305 @@
+/*     */ import java.util.Random;
+/*     */ 
+/*     */ 
+/*     */ public class cc
+/*     */ {
+/*   6 */   private static int[][] d = { { 1, 1, 0 }, { -1, 1, 0 }, { 1, -1, 0 }, { -1, -1, 0 }, { 1, 0, 1 }, { -1, 0, 1 }, { 1, 0, -1 }, { -1, 0, -1 }, { 0, 1, 1 }, { 0, -1, 1 }, { 0, 1, -1 }, { 0, -1, -1 } };
+/*     */   
+/*   8 */   private int[] e = new int['Ȁ'];
+/*     */   public double a;
+/*     */   public double b;
+/*     */   public double c;
+/*     */   
+/*     */   public cc() {
+/*  14 */     this(new Random());
+/*     */   }
+/*     */   
+/*     */   public cc(Random paramRandom) {
+/*  18 */     this.a = (paramRandom.nextDouble() * 256.0D);
+/*  19 */     this.b = (paramRandom.nextDouble() * 256.0D);
+/*  20 */     this.c = (paramRandom.nextDouble() * 256.0D);
+/*  21 */     for (int i = 0; i < 256; i++) {
+/*  22 */       this.e[i] = i;
+/*     */     }
+/*     */     
+/*  25 */     for (i = 0; i < 256; i++) {
+/*  26 */       int j = paramRandom.nextInt(256 - i) + i;
+/*  27 */       int k = this.e[i];
+/*  28 */       this.e[i] = this.e[j];
+/*  29 */       this.e[j] = k;
+/*     */       
+/*  31 */       this.e[(i + 256)] = this.e[i];
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   private static int a(double paramDouble)
+/*     */   {
+/*  37 */     return paramDouble > 0.0D ? (int)paramDouble : (int)paramDouble - 1;
+/*     */   }
+/*     */   
+/*     */   private static double a(int[] paramArrayOfInt, double paramDouble1, double paramDouble2) {
+/*  41 */     return paramArrayOfInt[0] * paramDouble1 + paramArrayOfInt[1] * paramDouble2;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 231 */   private static final double f = 0.5D * (Math.sqrt(3.0D) - 1.0D);
+/* 232 */   private static final double g = (3.0D - Math.sqrt(3.0D)) / 6.0D;
+/*     */   
+/*     */   public void a(double[] paramArrayOfDouble, double paramDouble1, double paramDouble2, int paramInt1, int paramInt2, double paramDouble3, double paramDouble4, double paramDouble5) {
+/* 235 */     int i = 0;
+/* 236 */     for (int j = 0; j < paramInt1; j++) {
+/* 237 */       double d1 = (paramDouble1 + j) * paramDouble3 + this.a;
+/* 238 */       for (int k = 0; k < paramInt2; k++) {
+/* 239 */         double d2 = (paramDouble2 + k) * paramDouble4 + this.b;
+/*     */         
+/*     */ 
+/* 242 */         double d6 = (d1 + d2) * f;
+/* 243 */         int m = a(d1 + d6);
+/* 244 */         int n = a(d2 + d6);
+/* 245 */         double d7 = (m + n) * g;
+/* 246 */         double d8 = m - d7;
+/* 247 */         double d9 = n - d7;
+/* 248 */         double d10 = d1 - d8;
+/* 249 */         double d11 = d2 - d9;
+/*     */         
+/*     */         int i1;
+/*     */         int i2;
+/* 253 */         if (d10 > d11) {
+/* 254 */           i1 = 1;
+/* 255 */           i2 = 0;
+/*     */         }
+/*     */         else {
+/* 258 */           i1 = 0;
+/* 259 */           i2 = 1;
+/*     */         }
+/*     */         
+/*     */ 
+/*     */ 
+/* 264 */         double d12 = d10 - i1 + g;
+/* 265 */         double d13 = d11 - i2 + g;
+/* 266 */         double d14 = d10 - 1.0D + 2.0D * g;
+/* 267 */         double d15 = d11 - 1.0D + 2.0D * g;
+/*     */         
+/* 269 */         int i3 = m & 0xFF;
+/* 270 */         int i4 = n & 0xFF;
+/* 271 */         int i5 = this.e[(i3 + this.e[i4])] % 12;
+/* 272 */         int i6 = this.e[(i3 + i1 + this.e[(i4 + i2)])] % 12;
+/* 273 */         int i7 = this.e[(i3 + 1 + this.e[(i4 + 1)])] % 12;
+/*     */         
+/* 275 */         double d16 = 0.5D - d10 * d10 - d11 * d11;
+/* 276 */         double d3; if (d16 < 0.0D) { d3 = 0.0D;
+/*     */         } else {
+/* 278 */           d16 *= d16;
+/* 279 */           d3 = d16 * d16 * a(d[i5], d10, d11);
+/*     */         }
+/* 281 */         double d17 = 0.5D - d12 * d12 - d13 * d13;
+/* 282 */         double d4; if (d17 < 0.0D) { d4 = 0.0D;
+/*     */         } else {
+/* 284 */           d17 *= d17;
+/* 285 */           d4 = d17 * d17 * a(d[i6], d12, d13);
+/*     */         }
+/* 287 */         double d18 = 0.5D - d14 * d14 - d15 * d15;
+/* 288 */         double d5; if (d18 < 0.0D) { d5 = 0.0D;
+/*     */         } else {
+/* 290 */           d18 *= d18;
+/* 291 */           d5 = d18 * d18 * a(d[i7], d14, d15);
+/*     */         }
+/*     */         
+/*     */ 
+/* 295 */         paramArrayOfDouble[(i++)] += 70.0D * (d3 + d4 + d5) * paramDouble5;
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\cc.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,193 @@
+/*     */ package com.jcraft.jorbis;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ class Lpc
+/*     */ {
+/*  31 */   Drft fft = new Drft();
+/*     */   
+/*     */ 
+/*     */   int ln;
+/*     */   
+/*     */ 
+/*     */   int m;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   static float lpc_from_data(float[] paramArrayOfFloat1, float[] paramArrayOfFloat2, int paramInt1, int paramInt2)
+/*     */   {
+/*  43 */     float[] arrayOfFloat = new float[paramInt2 + 1];
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*  49 */     int j = paramInt2 + 1;
+/*  50 */     float f2; while (j-- != 0) {
+/*  51 */       f2 = 0.0F;
+/*  52 */       for (i = j; i < paramInt1; i++)
+/*  53 */         f2 += paramArrayOfFloat1[i] * paramArrayOfFloat1[(i - j)];
+/*  54 */       arrayOfFloat[j] = f2;
+/*     */     }
+/*     */     
+/*     */ 
+/*     */ 
+/*  59 */     float f1 = arrayOfFloat[0];
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*  67 */     for (int i = 0; i < paramInt2; i++) {
+/*  68 */       f2 = -arrayOfFloat[(i + 1)];
+/*     */       
+/*  70 */       if (f1 == 0.0F) {
+/*  71 */         for (int k = 0; k < paramInt2; k++)
+/*  72 */           paramArrayOfFloat2[k] = 0.0F;
+/*  73 */         return 0.0F;
+/*     */       }
+/*     */       
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*  81 */       for (j = 0; j < i; j++)
+/*  82 */         f2 -= paramArrayOfFloat2[j] * arrayOfFloat[(i - j)];
+/*  83 */       f2 /= f1;
+/*     */       
+/*     */ 
+/*     */ 
+/*  87 */       paramArrayOfFloat2[i] = f2;
+/*  88 */       for (j = 0; j < i / 2; j++) {
+/*  89 */         float f3 = paramArrayOfFloat2[j];
+/*  90 */         paramArrayOfFloat2[j] += f2 * paramArrayOfFloat2[(i - 1 - j)];
+/*  91 */         paramArrayOfFloat2[(i - 1 - j)] += f2 * f3;
+/*     */       }
+/*  93 */       if (i % 2 != 0) {
+/*  94 */         paramArrayOfFloat2[j] += paramArrayOfFloat2[j] * f2;
+/*     */       }
+/*  96 */       f1 = (float)(f1 * (1.0D - f2 * f2));
+/*     */     }
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/* 102 */     return f1;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   float lpc_from_curve(float[] paramArrayOfFloat1, float[] paramArrayOfFloat2)
+/*     */   {
+/* 109 */     int i = this.ln;
+/* 110 */     float[] arrayOfFloat = new float[i + i];
+/* 111 */     float f1 = (float)(0.5D / i);
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/* 116 */     for (int j = 0; j < i; j++) {
+/* 117 */       arrayOfFloat[(j * 2)] = (paramArrayOfFloat1[j] * f1);
+/* 118 */       arrayOfFloat[(j * 2 + 1)] = 0.0F;
+/*     */     }
+/* 120 */     arrayOfFloat[(i * 2 - 1)] = (paramArrayOfFloat1[(i - 1)] * f1);
+/*     */     
+/* 122 */     i *= 2;
+/* 123 */     this.fft.backward(arrayOfFloat);
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/* 128 */     j = 0; for (int k = i / 2; j < i / 2;) {
+/* 129 */       float f2 = arrayOfFloat[j];
+/* 130 */       arrayOfFloat[(j++)] = arrayOfFloat[k];
+/* 131 */       arrayOfFloat[(k++)] = f2;
+/*     */     }
+/*     */     
+/* 134 */     return lpc_from_data(arrayOfFloat, paramArrayOfFloat2, i, this.m);
+/*     */   }
+/*     */   
+/*     */   void init(int paramInt1, int paramInt2) {
+/* 138 */     this.ln = paramInt1;
+/* 139 */     this.m = paramInt2;
+/*     */     
+/*     */ 
+/* 142 */     this.fft.init(paramInt1 * 2);
+/*     */   }
+/*     */   
+/*     */   void clear() {
+/* 146 */     this.fft.clear();
+/*     */   }
+/*     */   
+/*     */   static float FAST_HYPOT(float paramFloat1, float paramFloat2) {
+/* 150 */     return (float)Math.sqrt(paramFloat1 * paramFloat1 + paramFloat2 * paramFloat2);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   void lpc_to_curve(float[] paramArrayOfFloat1, float[] paramArrayOfFloat2, float paramFloat)
+/*     */   {
+/* 162 */     for (int i = 0; i < this.ln * 2; i++) {
+/* 163 */       paramArrayOfFloat1[i] = 0.0F;
+/*     */     }
+/* 165 */     if (paramFloat == 0.0F) {
+/* 166 */       return;
+/*     */     }
+/* 168 */     for (i = 0; i < this.m; i++) {
+/* 169 */       paramArrayOfFloat1[(i * 2 + 1)] = (paramArrayOfFloat2[i] / (4.0F * paramFloat));
+/* 170 */       paramArrayOfFloat1[(i * 2 + 2)] = (-paramArrayOfFloat2[i] / (4.0F * paramFloat));
+/*     */     }
+/*     */     
+/* 173 */     this.fft.backward(paramArrayOfFloat1);
+/*     */     
+/*     */ 
+/* 176 */     i = this.ln * 2;
+/* 177 */     float f1 = (float)(1.0D / paramFloat);
+/* 178 */     paramArrayOfFloat1[0] = ((float)(1.0D / (paramArrayOfFloat1[0] * 2.0F + f1)));
+/* 179 */     for (int j = 1; j < this.ln; j++) {
+/* 180 */       float f2 = paramArrayOfFloat1[j] + paramArrayOfFloat1[(i - j)];
+/* 181 */       float f3 = paramArrayOfFloat1[j] - paramArrayOfFloat1[(i - j)];
+/*     */       
+/* 183 */       float f4 = f2 + f1;
+/* 184 */       paramArrayOfFloat1[j] = ((float)(1.0D / FAST_HYPOT(f4, f3)));
+/*     */     }
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\com\jcraft\jorbis\Lpc.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

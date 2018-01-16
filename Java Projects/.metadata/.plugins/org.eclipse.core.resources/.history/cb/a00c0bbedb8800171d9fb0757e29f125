@@ -1,0 +1,123 @@
+/*     */ package net.minecraft.client;
+/*     */ 
+/*     */ import gr;
+/*     */ import java.awt.BorderLayout;
+/*     */ import java.awt.Canvas;
+/*     */ import java.net.URL;
+/*     */ 
+/*     */ public class MinecraftApplet extends java.applet.Applet
+/*     */ {
+/*     */   private Canvas a;
+/*     */   private Minecraft b;
+/*  12 */   private Thread c = null;
+/*     */   
+/*     */   public void init() {
+/*  15 */     this.a = new r(this);
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*  29 */     boolean bool = false;
+/*  30 */     if (getParameter("fullscreen") != null) {
+/*  31 */       bool = getParameter("fullscreen").equalsIgnoreCase("true");
+/*     */     }
+/*     */     
+/*  34 */     this.b = new q(this, this, this.a, this, getWidth(), getHeight(), bool);
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*  44 */     this.b.l = getDocumentBase().getHost();
+/*  45 */     if (getDocumentBase().getPort() > 0) {
+/*  46 */       Minecraft tmp97_94 = this.b;tmp97_94.l = (tmp97_94.l + ":" + getDocumentBase().getPort());
+/*     */     }
+/*     */     
+/*  49 */     if ((getParameter("username") != null) && (getParameter("sessionid") != null)) {
+/*  50 */       this.b.k = new gr(getParameter("username"), getParameter("sessionid"));
+/*  51 */       System.out.println("Setting user: " + this.b.k.b + ", " + this.b.k.c);
+/*  52 */       if (getParameter("mppass") != null) {
+/*  53 */         this.b.k.d = getParameter("mppass");
+/*     */       }
+/*     */     } else {
+/*  56 */       this.b.k = new gr("Player", "");
+/*     */     }
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*  62 */     if ((getParameter("server") != null) && (getParameter("port") != null)) {
+/*  63 */       this.b.a(getParameter("server"), Integer.parseInt(getParameter("port")));
+/*     */     }
+/*     */     
+/*     */ 
+/*  67 */     this.b.n = true;
+/*  68 */     setLayout(new BorderLayout());
+/*  69 */     add(this.a, "Center");
+/*  70 */     this.a.setFocusable(true);
+/*  71 */     validate();
+/*     */   }
+/*     */   
+/*     */   public void a() {
+/*  75 */     if (this.c != null) return;
+/*  76 */     this.c = new Thread(this.b, "Minecraft main thread");
+/*  77 */     this.c.start();
+/*     */   }
+/*     */   
+/*     */   public void start() {
+/*  81 */     if (this.b != null) this.b.o = false;
+/*     */   }
+/*     */   
+/*     */   public void stop() {
+/*  85 */     if (this.b != null) this.b.o = true;
+/*     */   }
+/*     */   
+/*     */   public void destroy() {
+/*  89 */     b();
+/*     */   }
+/*     */   
+/*     */   public void b() {
+/*  93 */     if (this.c == null) return;
+/*  94 */     this.b.f();
+/*     */     try {
+/*  96 */       this.c.join(10000L);
+/*     */     } catch (InterruptedException localInterruptedException) {
+/*     */       try {
+/*  99 */         this.b.d();
+/*     */       } catch (Exception localException) {
+/* 101 */         localException.printStackTrace();
+/*     */       }
+/*     */     }
+/* 104 */     this.c = null;
+/*     */   }
+/*     */   
+/*     */   public void c() {
+/* 108 */     this.a = null;
+/* 109 */     this.b = null;
+/* 110 */     this.c = null;
+/*     */     try {
+/* 112 */       removeAll();
+/* 113 */       validate();
+/*     */     }
+/*     */     catch (Exception localException) {}
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\net\minecraft\client\MinecraftApplet.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

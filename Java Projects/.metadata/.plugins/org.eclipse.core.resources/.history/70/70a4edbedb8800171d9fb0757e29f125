@@ -1,0 +1,116 @@
+/*     */ import java.io.PrintStream;
+/*     */ import java.lang.reflect.Constructor;
+/*     */ import java.util.HashMap;
+/*     */ import java.util.Map;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class jc
+/*     */ {
+/*  14 */   private static Map a = new HashMap();
+/*  15 */   private static Map b = new HashMap();
+/*  16 */   private static Map c = new HashMap();
+/*  17 */   private static Map d = new HashMap();
+/*     */   
+/*     */   private static void a(Class paramClass, String paramString, int paramInt) {
+/*  20 */     a.put(paramString, paramClass);
+/*  21 */     b.put(paramClass, paramString);
+/*  22 */     c.put(Integer.valueOf(paramInt), paramClass);
+/*  23 */     d.put(paramClass, Integer.valueOf(paramInt));
+/*     */   }
+/*     */   
+/*     */   static {
+/*  27 */     a(sl.class, "Arrow", 10);
+/*  28 */     a(by.class, "Snowball", 11);
+/*  29 */     a(hl.class, "Item", 1);
+/*  30 */     a(qv.class, "Painting", 9);
+/*     */     
+/*  32 */     a(ls.class, "Mob", 48);
+/*  33 */     a(gz.class, "Monster", 49);
+/*     */     
+/*  35 */     a(gb.class, "Creeper", 50);
+/*  36 */     a(fr.class, "Skeleton", 51);
+/*  37 */     a(cn.class, "Spider", 52);
+/*  38 */     a(nt.class, "Giant", 53);
+/*  39 */     a(uz.class, "Zombie", 54);
+/*  40 */     a(uw.class, "Slime", 55);
+/*  41 */     a(bp.class, "Ghast", 56);
+/*  42 */     a(ya.class, "PigZombie", 57);
+/*     */     
+/*  44 */     a(wh.class, "Pig", 90);
+/*  45 */     a(dl.class, "Sheep", 91);
+/*  46 */     a(bx.class, "Cow", 92);
+/*  47 */     a(ww.class, "Chicken", 93);
+/*  48 */     a(xt.class, "Squid", 94);
+/*  49 */     a(gi.class, "Wolf", 95);
+/*     */     
+/*  51 */     a(qw.class, "PrimedTnt", 20);
+/*  52 */     a(ju.class, "FallingSand", 21);
+/*     */     
+/*  54 */     a(yl.class, "Minecart", 40);
+/*  55 */     a(fz.class, "Boat", 41);
+/*     */   }
+/*     */   
+/*     */   public static sn a(String paramString, fd paramfd) {
+/*  59 */     sn localsn = null;
+/*     */     try {
+/*  61 */       Class localClass = (Class)a.get(paramString);
+/*  62 */       if (localClass != null) localsn = (sn)localClass.getConstructor(new Class[] { fd.class }).newInstance(new Object[] { paramfd });
+/*     */     }
+/*     */     catch (Exception localException) {
+/*  65 */       localException.printStackTrace();
+/*     */     }
+/*  67 */     return localsn;
+/*     */   }
+/*     */   
+/*     */   public static sn a(nu paramnu, fd paramfd) {
+/*  71 */     sn localsn = null;
+/*     */     try {
+/*  73 */       Class localClass = (Class)a.get(paramnu.i("id"));
+/*  74 */       if (localClass != null) localsn = (sn)localClass.getConstructor(new Class[] { fd.class }).newInstance(new Object[] { paramfd });
+/*     */     }
+/*     */     catch (Exception localException) {
+/*  77 */       localException.printStackTrace();
+/*     */     }
+/*  79 */     if (localsn != null) {
+/*  80 */       localsn.e(paramnu);
+/*     */     } else {
+/*  82 */       System.out.println("Skipping Entity with id " + paramnu.i("id"));
+/*     */     }
+/*  84 */     return localsn;
+/*     */   }
+/*     */   
+/*     */   public static sn a(int paramInt, fd paramfd) {
+/*  88 */     sn localsn = null;
+/*     */     try {
+/*  90 */       Class localClass = (Class)c.get(Integer.valueOf(paramInt));
+/*  91 */       if (localClass != null) localsn = (sn)localClass.getConstructor(new Class[] { fd.class }).newInstance(new Object[] { paramfd });
+/*     */     }
+/*     */     catch (Exception localException) {
+/*  94 */       localException.printStackTrace();
+/*     */     }
+/*  96 */     if (localsn == null)
+/*     */     {
+/*  98 */       System.out.println("Skipping Entity with id " + paramInt);
+/*     */     }
+/* 100 */     return localsn;
+/*     */   }
+/*     */   
+/*     */   public static int a(sn paramsn) {
+/* 104 */     return ((Integer)d.get(paramsn.getClass())).intValue();
+/*     */   }
+/*     */   
+/*     */   public static String b(sn paramsn) {
+/* 108 */     return (String)b.get(paramsn.getClass());
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\jc.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

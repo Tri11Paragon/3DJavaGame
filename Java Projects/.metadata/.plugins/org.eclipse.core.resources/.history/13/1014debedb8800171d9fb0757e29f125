@@ -1,0 +1,36 @@
+/*    */ import java.io.DataInput;
+/*    */ import java.io.DataOutput;
+/*    */ 
+/*    */ public class ul extends ij
+/*    */ {
+/*    */   public short a;
+/*    */   
+/*    */   public ul() {}
+/*    */   
+/*    */   public ul(short paramShort)
+/*    */   {
+/* 12 */     this.a = paramShort;
+/*    */   }
+/*    */   
+/*    */   void a(DataOutput paramDataOutput) {
+/* 16 */     paramDataOutput.writeShort(this.a);
+/*    */   }
+/*    */   
+/*    */   void a(DataInput paramDataInput) {
+/* 20 */     this.a = paramDataInput.readShort();
+/*    */   }
+/*    */   
+/*    */   public byte a() {
+/* 24 */     return 2;
+/*    */   }
+/*    */   
+/*    */   public String toString() {
+/* 28 */     return "" + this.a;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ul.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

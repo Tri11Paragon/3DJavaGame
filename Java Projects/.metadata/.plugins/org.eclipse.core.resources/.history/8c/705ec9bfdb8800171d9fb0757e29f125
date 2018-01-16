@@ -1,0 +1,146 @@
+/*     */ import java.io.DataInputStream;
+/*     */ import java.io.DataOutputStream;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class ig
+/*     */   extends ki
+/*     */ {
+/*     */   public double a;
+/*     */   public double b;
+/*     */   public double c;
+/*     */   public double d;
+/*     */   public float e;
+/*     */   public float f;
+/*     */   public boolean g;
+/*     */   public boolean h;
+/*     */   public boolean i;
+/*     */   
+/*     */   public ig() {}
+/*     */   
+/*     */   public ig(boolean paramBoolean)
+/*     */   {
+/* 122 */     this.g = paramBoolean;
+/*     */   }
+/*     */   
+/*     */   public void a(ti paramti) {
+/* 126 */     paramti.a(this);
+/*     */   }
+/*     */   
+/*     */   public void a(DataInputStream paramDataInputStream) {
+/* 130 */     this.g = (paramDataInputStream.read() != 0);
+/*     */   }
+/*     */   
+/*     */   public void a(DataOutputStream paramDataOutputStream) {
+/* 134 */     paramDataOutputStream.write(this.g ? 1 : 0);
+/*     */   }
+/*     */   
+/*     */   public int a() {
+/* 138 */     return 1;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ig.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

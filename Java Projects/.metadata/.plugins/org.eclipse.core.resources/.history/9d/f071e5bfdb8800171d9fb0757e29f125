@@ -1,0 +1,48 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class qc
+/*    */   extends pg
+/*    */ {
+/*    */   private int a;
+/*    */   
+/*    */   public qc(int paramInt)
+/*    */   {
+/* 12 */     this.a = paramInt;
+/*    */   }
+/*    */   
+/*    */   public boolean a(fd paramfd, Random paramRandom, int paramInt1, int paramInt2, int paramInt3) {
+/* 16 */     if (paramfd.a(paramInt1, paramInt2 + 1, paramInt3) != uu.bc.bn) return false;
+/* 17 */     if ((paramfd.a(paramInt1, paramInt2, paramInt3) != 0) && (paramfd.a(paramInt1, paramInt2, paramInt3) != uu.bc.bn)) { return false;
+/*    */     }
+/* 19 */     int i = 0;
+/* 20 */     if (paramfd.a(paramInt1 - 1, paramInt2, paramInt3) == uu.bc.bn) i++;
+/* 21 */     if (paramfd.a(paramInt1 + 1, paramInt2, paramInt3) == uu.bc.bn) i++;
+/* 22 */     if (paramfd.a(paramInt1, paramInt2, paramInt3 - 1) == uu.bc.bn) i++;
+/* 23 */     if (paramfd.a(paramInt1, paramInt2, paramInt3 + 1) == uu.bc.bn) i++;
+/* 24 */     if (paramfd.a(paramInt1, paramInt2 - 1, paramInt3) == uu.bc.bn) { i++;
+/*    */     }
+/* 26 */     int j = 0;
+/* 27 */     if (paramfd.d(paramInt1 - 1, paramInt2, paramInt3)) j++;
+/* 28 */     if (paramfd.d(paramInt1 + 1, paramInt2, paramInt3)) j++;
+/* 29 */     if (paramfd.d(paramInt1, paramInt2, paramInt3 - 1)) j++;
+/* 30 */     if (paramfd.d(paramInt1, paramInt2, paramInt3 + 1)) j++;
+/* 31 */     if (paramfd.d(paramInt1, paramInt2 - 1, paramInt3)) { j++;
+/*    */     }
+/* 33 */     if ((i == 4) && (j == 1)) {
+/* 34 */       paramfd.f(paramInt1, paramInt2, paramInt3, this.a);
+/* 35 */       paramfd.a = true;
+/* 36 */       uu.m[this.a].a(paramfd, paramInt1, paramInt2, paramInt3, paramRandom);
+/* 37 */       paramfd.a = false;
+/*    */     }
+/*    */     
+/* 40 */     return true;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\qc.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

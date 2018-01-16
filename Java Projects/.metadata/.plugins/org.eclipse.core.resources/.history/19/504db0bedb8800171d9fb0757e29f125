@@ -1,0 +1,33 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class rk
+/*    */   extends gm
+/*    */ {
+/*    */   private int a;
+/*    */   
+/*    */   public rk(int paramInt1, int paramInt2)
+/*    */   {
+/* 11 */     super(paramInt1);
+/* 12 */     this.a = paramInt2;
+/*    */   }
+/*    */   
+/*    */   public boolean a(iz paramiz, gs paramgs, fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/* 16 */     if (paramInt4 != 1) { return false;
+/*    */     }
+/* 18 */     int i = paramfd.a(paramInt1, paramInt2, paramInt3);
+/*    */     
+/* 20 */     if ((i == uu.aB.bn) && (paramfd.d(paramInt1, paramInt2 + 1, paramInt3))) {
+/* 21 */       paramfd.f(paramInt1, paramInt2 + 1, paramInt3, this.a);
+/* 22 */       paramiz.a -= 1;
+/* 23 */       return true;
+/*    */     }
+/* 25 */     return false;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\rk.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

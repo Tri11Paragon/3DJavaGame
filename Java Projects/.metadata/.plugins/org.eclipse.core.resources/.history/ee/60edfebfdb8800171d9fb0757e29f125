@@ -1,0 +1,74 @@
+/*    */ 
+/*    */ public class kc
+/*    */   extends xw
+/*    */ {
+/*    */   float a;
+/*    */   
+/*    */   public kc(fd paramfd, double paramDouble1, double paramDouble2, double paramDouble3, double paramDouble4, double paramDouble5, double paramDouble6)
+/*    */   {
+/*  9 */     this(paramfd, paramDouble1, paramDouble2, paramDouble3, paramDouble4, paramDouble5, paramDouble6, 2.0F);
+/*    */   }
+/*    */   
+/*    */ 
+/*    */   public kc(fd paramfd, double paramDouble1, double paramDouble2, double paramDouble3, double paramDouble4, double paramDouble5, double paramDouble6, float paramFloat)
+/*    */   {
+/* 15 */     super(paramfd, paramDouble1, paramDouble2, paramDouble3, 0.0D, 0.0D, 0.0D);
+/* 16 */     this.aP *= 0.009999999776482582D;
+/* 17 */     this.aQ *= 0.009999999776482582D;
+/* 18 */     this.aR *= 0.009999999776482582D;
+/* 19 */     this.aQ += 0.1D;
+/*    */     
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/* 25 */     this.g *= 0.75F;
+/* 26 */     this.g *= paramFloat;
+/* 27 */     this.a = this.g;
+/*    */     
+/* 29 */     this.f = 16;
+/* 30 */     this.bq = false;
+/*    */     
+/*    */ 
+/* 33 */     this.b = 80;
+/*    */   }
+/*    */   
+/*    */   public void a(nw paramnw, float paramFloat1, float paramFloat2, float paramFloat3, float paramFloat4, float paramFloat5, float paramFloat6)
+/*    */   {
+/* 38 */     float f = (this.e + paramFloat1) / this.f * 32.0F;
+/* 39 */     if (f < 0.0F) f = 0.0F;
+/* 40 */     if (f > 1.0F) { f = 1.0F;
+/*    */     }
+/* 42 */     this.g = (this.a * f);
+/* 43 */     super.a(paramnw, paramFloat1, paramFloat2, paramFloat3, paramFloat4, paramFloat5, paramFloat6);
+/*    */   }
+/*    */   
+/*    */   public void w_() {
+/* 47 */     this.aJ = this.aM;
+/* 48 */     this.aK = this.aN;
+/* 49 */     this.aL = this.aO;
+/*    */     
+/* 51 */     if (this.e++ >= this.f) { K();
+/*    */     }
+/*    */     
+/* 54 */     b(this.aP, this.aQ, this.aR);
+/* 55 */     if (this.aN == this.aK) {
+/* 56 */       this.aP *= 1.1D;
+/* 57 */       this.aR *= 1.1D;
+/*    */     }
+/* 59 */     this.aP *= 0.8600000143051147D;
+/* 60 */     this.aQ *= 0.8600000143051147D;
+/* 61 */     this.aR *= 0.8600000143051147D;
+/*    */     
+/* 63 */     if (this.aX) {
+/* 64 */       this.aP *= 0.699999988079071D;
+/* 65 */       this.aR *= 0.699999988079071D;
+/*    */     }
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\kc.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

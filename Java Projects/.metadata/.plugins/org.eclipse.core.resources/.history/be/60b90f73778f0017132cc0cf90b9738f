@@ -1,0 +1,43 @@
+package entities.components;
+
+import entities.EntityLiving;
+import renderEngine.DisplayManager;
+
+public class BounceComponent extends ComponentBase {
+	
+	private EntityLiving entity;
+	
+	private float cooldown;
+	private float bounceHeight;
+	private float curr;
+	float upwardsSpeed = 0;
+	float moveAtX = 0;
+	
+	public static final float GRAVITY = -50;
+	
+	public BounceComponent(EntityLiving entity, float cooldown, float bounceHeight) {
+		super(entity);
+		this.entity = entity;
+		this.cooldown = cooldown;
+		this.bounceHeight = bounceHeight;
+	}
+
+	@Override
+	public void update() {
+		upwardsSpeed += GRAVITY * DisplayManager.getDelta();
+		entity.increasePosition(0, upwardsSpeed * DisplayManager.getDelta(), 0);
+		//System.out.println(curr + "" + entity.isOnGround + isInAir);
+		if (entity.isOnGround)
+			curr -= DisplayManager.getDelta();
+		if (curr > 0) {
+			return;
+		}
+		if (entity.isOnGround) {
+			this.upwardsSpeed = bounceHeight;
+			entity.isOnGround = false;
+		}
+		if (curr <= 0){
+			curr = cooldown;
+		}
+	}
+}

@@ -1,0 +1,33 @@
+/*    */ 
+/*    */ public class lc
+/*    */   extends ej
+/*    */ {
+/*    */   public lc()
+/*    */   {
+/*  7 */     float f = 0.0F;
+/*    */     
+/*  9 */     this.d = new ps(40, 16);
+/* 10 */     this.d.a(-1.0F, -2.0F, -1.0F, 2, 12, 2, f);
+/* 11 */     this.d.a(-5.0F, 2.0F, 0.0F);
+/*    */     
+/* 13 */     this.e = new ps(40, 16);
+/* 14 */     this.e.g = true;
+/* 15 */     this.e.a(-1.0F, -2.0F, -1.0F, 2, 12, 2, f);
+/* 16 */     this.e.a(5.0F, 2.0F, 0.0F);
+/*    */     
+/* 18 */     this.f = new ps(0, 16);
+/* 19 */     this.f.a(-1.0F, 0.0F, -1.0F, 2, 12, 2, f);
+/* 20 */     this.f.a(-2.0F, 12.0F, 0.0F);
+/*    */     
+/* 22 */     this.g = new ps(0, 16);
+/* 23 */     this.g.g = true;
+/* 24 */     this.g.a(-1.0F, 0.0F, -1.0F, 2, 12, 2, f);
+/* 25 */     this.g.a(2.0F, 12.0F, 0.0F);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\lc.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

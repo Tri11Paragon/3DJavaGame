@@ -1,0 +1,321 @@
+/*     */ package com.jcraft.jorbis;
+/*     */ 
+/*     */ import com.jcraft.jogg.Buffer;
+/*     */ import in;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ class Floor0
+/*     */   extends FuncFloor
+/*     */ {
+/*     */   float[] lsp;
+/*     */   
+/*     */   void pack(Object paramObject, Buffer paramBuffer)
+/*     */   {
+/*  36 */     Floor0.InfoFloor0 localInfoFloor0 = (Floor0.InfoFloor0)paramObject;
+/*  37 */     paramBuffer.write(localInfoFloor0.order, 8);
+/*  38 */     paramBuffer.write(localInfoFloor0.rate, 16);
+/*  39 */     paramBuffer.write(localInfoFloor0.barkmap, 16);
+/*  40 */     paramBuffer.write(localInfoFloor0.ampbits, 6);
+/*  41 */     paramBuffer.write(localInfoFloor0.ampdB, 8);
+/*  42 */     paramBuffer.write(localInfoFloor0.numbooks - 1, 4);
+/*  43 */     for (int i = 0; i < localInfoFloor0.numbooks; i++)
+/*  44 */       paramBuffer.write(localInfoFloor0.books[i], 8);
+/*     */   }
+/*     */   
+/*     */   Object unpack(Info paramInfo, Buffer paramBuffer) {
+/*  48 */     Floor0.InfoFloor0 localInfoFloor0 = new Floor0.InfoFloor0(this);
+/*  49 */     localInfoFloor0.order = paramBuffer.read(8);
+/*  50 */     localInfoFloor0.rate = paramBuffer.read(16);
+/*  51 */     localInfoFloor0.barkmap = paramBuffer.read(16);
+/*  52 */     localInfoFloor0.ampbits = paramBuffer.read(6);
+/*  53 */     localInfoFloor0.ampdB = paramBuffer.read(8);
+/*  54 */     localInfoFloor0.numbooks = (paramBuffer.read(4) + 1);
+/*     */     
+/*  56 */     if ((localInfoFloor0.order < 1) || (localInfoFloor0.rate < 1) || (localInfoFloor0.barkmap < 1) || (localInfoFloor0.numbooks < 1)) {
+/*  57 */       return null;
+/*     */     }
+/*     */     
+/*  60 */     for (int i = 0; i < localInfoFloor0.numbooks; i++) {
+/*  61 */       localInfoFloor0.books[i] = paramBuffer.read(8);
+/*  62 */       if ((localInfoFloor0.books[i] < 0) || (localInfoFloor0.books[i] >= paramInfo.books)) {
+/*  63 */         return null;
+/*     */       }
+/*     */     }
+/*  66 */     return localInfoFloor0;
+/*     */   }
+/*     */   
+/*     */   Object look(DspState paramDspState, InfoMode paramInfoMode, Object paramObject)
+/*     */   {
+/*  71 */     Info localInfo = paramDspState.vi;
+/*  72 */     Floor0.InfoFloor0 localInfoFloor0 = (Floor0.InfoFloor0)paramObject;
+/*  73 */     Floor0.LookFloor0 localLookFloor0 = new Floor0.LookFloor0(this);
+/*  74 */     localLookFloor0.m = localInfoFloor0.order;
+/*  75 */     localLookFloor0.n = (localInfo.blocksizes[paramInfoMode.blockflag] / 2);
+/*  76 */     localLookFloor0.ln = localInfoFloor0.barkmap;
+/*  77 */     localLookFloor0.vi = localInfoFloor0;
+/*  78 */     localLookFloor0.lpclook.init(localLookFloor0.ln, localLookFloor0.m);
+/*     */     
+/*     */ 
+/*  81 */     float f = localLookFloor0.ln / toBARK((float)(localInfoFloor0.rate / 2.0D));
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*  89 */     localLookFloor0.linearmap = new int[localLookFloor0.n];
+/*  90 */     for (int i = 0; i < localLookFloor0.n; i++) {
+/*  91 */       int j = in.d(toBARK((float)(localInfoFloor0.rate / 2.0D / localLookFloor0.n * i)) * f);
+/*  92 */       if (j >= localLookFloor0.ln)
+/*  93 */         j = localLookFloor0.ln;
+/*  94 */       localLookFloor0.linearmap[i] = j;
+/*     */     }
+/*  96 */     return localLookFloor0;
+/*     */   }
+/*     */   
+/*     */   static float toBARK(float paramFloat) {
+/* 100 */     return (float)(13.1D * Math.atan(7.4E-4D * paramFloat) + 2.24D * Math.atan(paramFloat * paramFloat * 1.85E-8D) + 1.0E-4D * paramFloat);
+/*     */   }
+/*     */   
+/*     */   Object state(Object paramObject) {
+/* 104 */     Floor0.EchstateFloor0 localEchstateFloor0 = new Floor0.EchstateFloor0(this);
+/* 105 */     Floor0.InfoFloor0 localInfoFloor0 = (Floor0.InfoFloor0)paramObject;
+/*     */     
+/*     */ 
+/* 108 */     localEchstateFloor0.codewords = new int[localInfoFloor0.order];
+/* 109 */     localEchstateFloor0.curve = new float[localInfoFloor0.barkmap];
+/* 110 */     localEchstateFloor0.frameno = -1L;
+/* 111 */     return localEchstateFloor0;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   int forward(Block paramBlock, Object paramObject1, float[] paramArrayOfFloat1, float[] paramArrayOfFloat2, Object paramObject2)
+/*     */   {
+/* 124 */     return 0;
+/*     */   }
+/*     */   
+/* 127 */   Floor0() { this.lsp = null; }
+/*     */   
+/*     */   int inverse(Block paramBlock, Object paramObject, float[] paramArrayOfFloat)
+/*     */   {
+/* 131 */     Floor0.LookFloor0 localLookFloor0 = (Floor0.LookFloor0)paramObject;
+/* 132 */     Floor0.InfoFloor0 localInfoFloor0 = localLookFloor0.vi;
+/* 133 */     int i = paramBlock.opb.read(localInfoFloor0.ampbits);
+/* 134 */     if (i > 0) {
+/* 135 */       int j = (1 << localInfoFloor0.ampbits) - 1;
+/* 136 */       float f1 = i / j * localInfoFloor0.ampdB;
+/* 137 */       int k = paramBlock.opb.read(Util.ilog(localInfoFloor0.numbooks));
+/*     */       
+/* 139 */       if ((k != -1) && (k < localInfoFloor0.numbooks))
+/*     */       {
+/* 141 */         synchronized (this) {
+/* 142 */           if ((this.lsp == null) || (this.lsp.length < localLookFloor0.m)) {
+/* 143 */             this.lsp = new float[localLookFloor0.m];
+/*     */           }
+/*     */           else {
+/* 146 */             for (int m = 0; m < localLookFloor0.m; m++) {
+/* 147 */               this.lsp[m] = 0.0F;
+/*     */             }
+/*     */           }
+/* 150 */           CodeBook localCodeBook = paramBlock.vd.fullbooks[localInfoFloor0.books[k]];
+/* 151 */           float f2 = 0.0F;
+/*     */           
+/* 153 */           for (int n = 0; n < localLookFloor0.m; n++)
+/* 154 */             paramArrayOfFloat[n] = 0.0F;
+/*     */           int i1;
+/* 156 */           for (n = 0; n < localLookFloor0.m; n += localCodeBook.dim) {
+/* 157 */             if (localCodeBook.decodevs(this.lsp, n, paramBlock.opb, 1, -1) == -1) {
+/* 158 */               for (i1 = 0; i1 < localLookFloor0.n; i1++)
+/* 159 */                 paramArrayOfFloat[i1] = 0.0F;
+/* 160 */               return 0;
+/*     */             }
+/*     */           }
+/* 163 */           for (n = 0; n < localLookFloor0.m;) {
+/* 164 */             for (i1 = 0; i1 < localCodeBook.dim; n++) {
+/* 165 */               this.lsp[n] += f2;i1++; }
+/* 166 */             f2 = this.lsp[(n - 1)];
+/*     */           }
+/*     */           
+/* 169 */           Lsp.lsp_to_curve(paramArrayOfFloat, localLookFloor0.linearmap, localLookFloor0.n, localLookFloor0.ln, this.lsp, localLookFloor0.m, f1, localInfoFloor0.ampdB);
+/*     */           
+/*     */ 
+/* 172 */           return 1;
+/*     */         }
+/*     */       }
+/*     */     }
+/* 176 */     return 0;
+/*     */   }
+/*     */   
+/*     */   Object inverse1(Block paramBlock, Object paramObject1, Object paramObject2) {
+/* 180 */     Floor0.LookFloor0 localLookFloor0 = (Floor0.LookFloor0)paramObject1;
+/* 181 */     Floor0.InfoFloor0 localInfoFloor0 = localLookFloor0.vi;
+/* 182 */     float[] arrayOfFloat = null;
+/* 183 */     if ((paramObject2 instanceof float[])) {
+/* 184 */       arrayOfFloat = (float[])paramObject2;
+/*     */     }
+/*     */     
+/* 187 */     int i = paramBlock.opb.read(localInfoFloor0.ampbits);
+/* 188 */     if (i > 0) {
+/* 189 */       int j = (1 << localInfoFloor0.ampbits) - 1;
+/* 190 */       float f1 = i / j * localInfoFloor0.ampdB;
+/* 191 */       int k = paramBlock.opb.read(Util.ilog(localInfoFloor0.numbooks));
+/*     */       
+/* 193 */       if ((k != -1) && (k < localInfoFloor0.numbooks)) {
+/* 194 */         CodeBook localCodeBook = paramBlock.vd.fullbooks[localInfoFloor0.books[k]];
+/* 195 */         float f2 = 0.0F;
+/*     */         
+/* 197 */         if ((arrayOfFloat == null) || (arrayOfFloat.length < localLookFloor0.m + 1)) {
+/* 198 */           arrayOfFloat = new float[localLookFloor0.m + 1];
+/*     */         }
+/*     */         else {
+/* 201 */           for (m = 0; m < arrayOfFloat.length; m++) {
+/* 202 */             arrayOfFloat[m] = 0.0F;
+/*     */           }
+/*     */         }
+/* 205 */         for (int m = 0; m < localLookFloor0.m; m += localCodeBook.dim) {
+/* 206 */           if (localCodeBook.decodev_set(arrayOfFloat, m, paramBlock.opb, localCodeBook.dim) == -1) {
+/* 207 */             return null;
+/*     */           }
+/*     */         }
+/*     */         
+/* 211 */         for (m = 0; m < localLookFloor0.m;) {
+/* 212 */           for (int n = 0; n < localCodeBook.dim; m++) {
+/* 213 */             arrayOfFloat[m] += f2;n++; }
+/* 214 */           f2 = arrayOfFloat[(m - 1)];
+/*     */         }
+/* 216 */         arrayOfFloat[localLookFloor0.m] = f1;
+/* 217 */         return arrayOfFloat;
+/*     */       }
+/*     */     }
+/* 220 */     return null;
+/*     */   }
+/*     */   
+/*     */   int inverse2(Block paramBlock, Object paramObject1, Object paramObject2, float[] paramArrayOfFloat) {
+/* 224 */     Floor0.LookFloor0 localLookFloor0 = (Floor0.LookFloor0)paramObject1;
+/* 225 */     Floor0.InfoFloor0 localInfoFloor0 = localLookFloor0.vi;
+/*     */     
+/* 227 */     if (paramObject2 != null) {
+/* 228 */       float[] arrayOfFloat = (float[])paramObject2;
+/* 229 */       float f = arrayOfFloat[localLookFloor0.m];
+/*     */       
+/* 231 */       Lsp.lsp_to_curve(paramArrayOfFloat, localLookFloor0.linearmap, localLookFloor0.n, localLookFloor0.ln, arrayOfFloat, localLookFloor0.m, f, localInfoFloor0.ampdB);
+/*     */       
+/* 233 */       return 1;
+/*     */     }
+/* 235 */     for (int i = 0; i < localLookFloor0.n; i++) {
+/* 236 */       paramArrayOfFloat[i] = 0.0F;
+/*     */     }
+/* 238 */     return 0;
+/*     */   }
+/*     */   
+/*     */   static float fromdB(float paramFloat) {
+/* 242 */     return (float)Math.exp(paramFloat * 0.11512925D);
+/*     */   }
+/*     */   
+/*     */   static void lsp_to_lpc(float[] paramArrayOfFloat1, float[] paramArrayOfFloat2, int paramInt) {
+/* 246 */     int k = paramInt / 2;
+/* 247 */     float[] arrayOfFloat1 = new float[k];
+/* 248 */     float[] arrayOfFloat2 = new float[k];
+/*     */     
+/* 250 */     float[] arrayOfFloat3 = new float[k + 1];
+/* 251 */     float[] arrayOfFloat4 = new float[k + 1];
+/*     */     
+/* 253 */     float[] arrayOfFloat5 = new float[k];
+/* 254 */     float[] arrayOfFloat6 = new float[k];
+/*     */     
+/*     */ 
+/*     */ 
+/* 258 */     for (int i = 0; i < k; i++) {
+/* 259 */       arrayOfFloat1[i] = ((float)(-2.0D * Math.cos(paramArrayOfFloat1[(i * 2)])));
+/* 260 */       arrayOfFloat2[i] = ((float)(-2.0D * Math.cos(paramArrayOfFloat1[(i * 2 + 1)])));
+/*     */     }
+/*     */     
+/*     */ 
+/* 264 */     for (int j = 0; j < k; j++) {
+/* 265 */       arrayOfFloat3[j] = 0.0F;
+/* 266 */       arrayOfFloat4[j] = 1.0F;
+/* 267 */       arrayOfFloat5[j] = 0.0F;
+/* 268 */       arrayOfFloat6[j] = 1.0F;
+/*     */     }
+/* 270 */     arrayOfFloat4[j] = 1.0F;
+/* 271 */     arrayOfFloat3[j] = 1.0F;
+/*     */     
+/*     */ 
+/* 274 */     for (i = 1; i < paramInt + 1; i++) { float f2;
+/* 275 */       float f1 = f2 = 0.0F;
+/* 276 */       for (j = 0; j < k; j++) {
+/* 277 */         float f3 = arrayOfFloat1[j] * arrayOfFloat4[j] + arrayOfFloat3[j];
+/* 278 */         arrayOfFloat3[j] = arrayOfFloat4[j];
+/* 279 */         arrayOfFloat4[j] = f1;
+/* 280 */         f1 += f3;
+/*     */         
+/* 282 */         f3 = arrayOfFloat2[j] * arrayOfFloat6[j] + arrayOfFloat5[j];
+/* 283 */         arrayOfFloat5[j] = arrayOfFloat6[j];
+/* 284 */         arrayOfFloat6[j] = f2;
+/* 285 */         f2 += f3;
+/*     */       }
+/* 287 */       paramArrayOfFloat2[(i - 1)] = ((f1 + arrayOfFloat4[j] + f2 - arrayOfFloat3[j]) / 2.0F);
+/* 288 */       arrayOfFloat4[j] = f1;
+/* 289 */       arrayOfFloat3[j] = f2;
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   static void lpc_to_curve(float[] paramArrayOfFloat1, float[] paramArrayOfFloat2, float paramFloat, Floor0.LookFloor0 paramLookFloor0, String paramString, int paramInt)
+/*     */   {
+/* 296 */     float[] arrayOfFloat = new float[Math.max(paramLookFloor0.ln * 2, paramLookFloor0.m * 2 + 2)];
+/*     */     
+/* 298 */     if (paramFloat == 0.0F) {
+/* 299 */       for (i = 0; i < paramLookFloor0.n; i++)
+/* 300 */         paramArrayOfFloat1[i] = 0.0F;
+/* 301 */       return;
+/*     */     }
+/* 303 */     paramLookFloor0.lpclook.lpc_to_curve(arrayOfFloat, paramArrayOfFloat2, paramFloat);
+/*     */     
+/* 305 */     for (int i = 0; i < paramLookFloor0.n; i++) {
+/* 306 */       paramArrayOfFloat1[i] = arrayOfFloat[paramLookFloor0.linearmap[i]];
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   void free_info(Object paramObject) {}
+/*     */   
+/*     */   void free_look(Object paramObject) {}
+/*     */   
+/*     */   void free_state(Object paramObject) {}
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\com\jcraft\jorbis\Floor0.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

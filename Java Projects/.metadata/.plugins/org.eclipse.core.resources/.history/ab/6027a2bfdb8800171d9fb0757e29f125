@@ -1,0 +1,61 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public enum bu
+/*    */ {
+/*    */   private final int f;
+/*    */   private final int g;
+/*    */   private final float h;
+/*    */   private final int i;
+/*    */   
+/*    */   private bu(int paramInt2, int paramInt3, float paramFloat, int paramInt4)
+/*    */   {
+/* 34 */     this.f = paramInt2;
+/* 35 */     this.g = paramInt3;
+/* 36 */     this.h = paramFloat;
+/* 37 */     this.i = paramInt4;
+/*    */   }
+/*    */   
+/*    */   public int a() {
+/* 41 */     return this.g;
+/*    */   }
+/*    */   
+/*    */   public float b() {
+/* 45 */     return this.h;
+/*    */   }
+/*    */   
+/*    */   public int c() {
+/* 49 */     return this.i;
+/*    */   }
+/*    */   
+/*    */   public int d() {
+/* 53 */     return this.f;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\bu.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

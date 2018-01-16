@@ -1,0 +1,46 @@
+/*    */ import java.io.PrintStream;
+/*    */ import java.util.ArrayList;
+/*    */ import java.util.List;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class ep
+/*    */ {
+/*    */   public static int a;
+/*    */   public static int b;
+/*    */   public static int c;
+/*    */   public static int d;
+/*    */   
+/*    */   public static void a() {}
+/*    */   
+/* 18 */   public static List e = new ArrayList();
+/*    */   
+/* 20 */   public static ny f = new ny(0, "openInventory", 0, 0, gm.aJ, null).a().c();
+/* 21 */   public static ny g = new ny(1, "mineWood", 2, 1, uu.K, f).c();
+/* 22 */   public static ny h = new ny(2, "buildWorkBench", 4, -1, uu.az, g).c();
+/* 23 */   public static ny i = new ny(3, "buildPickaxe", 4, 2, gm.r, h).c();
+/* 24 */   public static ny j = new ny(4, "buildFurnace", 3, 4, uu.aD, i).c();
+/* 25 */   public static ny k = new ny(5, "acquireIron", 1, 4, gm.m, j).c();
+/* 26 */   public static ny l = new ny(6, "buildHoe", 2, -3, gm.L, h).c();
+/* 27 */   public static ny m = new ny(7, "makeBread", -1, -3, gm.S, l).c();
+/* 28 */   public static ny n = new ny(8, "bakeCake", 0, -5, gm.aX, l).c();
+/* 29 */   public static ny o = new ny(9, "buildBetterPickaxe", 6, 2, gm.v, i).c();
+/* 30 */   public static ny p = new ny(10, "cookFish", 2, 6, gm.aT, j).c();
+/* 31 */   public static ny q = new ny(11, "onARail", 2, 3, uu.aH, k).b().c();
+/* 32 */   public static ny r = new ny(12, "buildSword", 6, -1, gm.p, h).c();
+/* 33 */   public static ny s = new ny(13, "killEnemy", 8, -1, gm.aV, r).c();
+/* 34 */   public static ny t = new ny(14, "killCow", 7, -3, gm.aD, r).c();
+/* 35 */   public static ny u = new ny(15, "flyPig", 8, -4, gm.ay, t).b().c();
+/*    */   
+/*    */   static {
+/* 38 */     System.out.println(e.size() + " achievements");
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ep.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

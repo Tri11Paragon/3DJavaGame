@@ -1,0 +1,174 @@
+/*     */ import java.util.List;
+/*     */ import java.util.Random;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class bv
+/*     */   extends uu
+/*     */ {
+/*     */   private rt a;
+/*     */   
+/*     */   protected bv(int paramInt1, int paramInt2, rt paramrt, ln paramln)
+/*     */   {
+/*  22 */     super(paramInt1, paramInt2, paramln);
+/*  23 */     this.a = paramrt;
+/*  24 */     b(true);
+/*     */     
+/*  26 */     float f = 0.0625F;
+/*  27 */     a(f, 0.0F, f, 1.0F - f, 0.03125F, 1.0F - f);
+/*     */   }
+/*     */   
+/*     */   public int e()
+/*     */   {
+/*  32 */     return 20;
+/*     */   }
+/*     */   
+/*     */   public eq e(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/*  36 */     return null;
+/*     */   }
+/*     */   
+/*     */   public boolean c() {
+/*  40 */     return false;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public boolean d()
+/*     */   {
+/*  48 */     return false;
+/*     */   }
+/*     */   
+/*     */   public boolean a(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/*  52 */     return paramfd.h(paramInt1, paramInt2 - 1, paramInt3);
+/*     */   }
+/*     */   
+/*     */   public void c(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {}
+/*     */   
+/*     */   public void b(fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+/*     */   {
+/*  59 */     int i = 0;
+/*     */     
+/*  61 */     if (!paramfd.h(paramInt1, paramInt2 - 1, paramInt3)) { i = 1;
+/*     */     }
+/*  63 */     if (i != 0) {
+/*  64 */       g(paramfd, paramInt1, paramInt2, paramInt3, paramfd.e(paramInt1, paramInt2, paramInt3));
+/*  65 */       paramfd.f(paramInt1, paramInt2, paramInt3, 0);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, Random paramRandom) {
+/*  70 */     if (paramfd.B) return;
+/*  71 */     if (paramfd.e(paramInt1, paramInt2, paramInt3) == 0) {
+/*  72 */       return;
+/*     */     }
+/*     */     
+/*  75 */     h(paramfd, paramInt1, paramInt2, paramInt3);
+/*     */   }
+/*     */   
+/*     */   public void a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, sn paramsn) {
+/*  79 */     if (paramfd.B) { return;
+/*     */     }
+/*  81 */     if (paramfd.e(paramInt1, paramInt2, paramInt3) == 1) {
+/*  82 */       return;
+/*     */     }
+/*     */     
+/*  85 */     h(paramfd, paramInt1, paramInt2, paramInt3);
+/*     */   }
+/*     */   
+/*     */   private void h(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/*  89 */     int i = paramfd.e(paramInt1, paramInt2, paramInt3) == 1 ? 1 : 0;
+/*  90 */     int j = 0;
+/*     */     
+/*  92 */     float f = 0.125F;
+/*  93 */     List localList = null;
+/*  94 */     if (this.a == rt.a) localList = paramfd.b(null, eq.b(paramInt1 + f, paramInt2, paramInt3 + f, paramInt1 + 1 - f, paramInt2 + 0.25D, paramInt3 + 1 - f));
+/*  95 */     if (this.a == rt.b) localList = paramfd.a(ls.class, eq.b(paramInt1 + f, paramInt2, paramInt3 + f, paramInt1 + 1 - f, paramInt2 + 0.25D, paramInt3 + 1 - f));
+/*  96 */     if (this.a == rt.c) localList = paramfd.a(gs.class, eq.b(paramInt1 + f, paramInt2, paramInt3 + f, paramInt1 + 1 - f, paramInt2 + 0.25D, paramInt3 + 1 - f));
+/*  97 */     if (localList.size() > 0) {
+/*  98 */       j = 1;
+/*     */     }
+/*     */     
+/* 101 */     if ((j != 0) && (i == 0)) {
+/* 102 */       paramfd.d(paramInt1, paramInt2, paramInt3, 1);
+/* 103 */       paramfd.i(paramInt1, paramInt2, paramInt3, this.bn);
+/* 104 */       paramfd.i(paramInt1, paramInt2 - 1, paramInt3, this.bn);
+/* 105 */       paramfd.b(paramInt1, paramInt2, paramInt3, paramInt1, paramInt2, paramInt3);
+/*     */       
+/* 107 */       paramfd.a(paramInt1 + 0.5D, paramInt2 + 0.1D, paramInt3 + 0.5D, "random.click", 0.3F, 0.6F);
+/*     */     }
+/* 109 */     if ((j == 0) && (i != 0)) {
+/* 110 */       paramfd.d(paramInt1, paramInt2, paramInt3, 0);
+/* 111 */       paramfd.i(paramInt1, paramInt2, paramInt3, this.bn);
+/* 112 */       paramfd.i(paramInt1, paramInt2 - 1, paramInt3, this.bn);
+/* 113 */       paramfd.b(paramInt1, paramInt2, paramInt3, paramInt1, paramInt2, paramInt3);
+/*     */       
+/* 115 */       paramfd.a(paramInt1 + 0.5D, paramInt2 + 0.1D, paramInt3 + 0.5D, "random.click", 0.3F, 0.5F);
+/*     */     }
+/*     */     
+/* 118 */     if (j != 0) {
+/* 119 */       paramfd.c(paramInt1, paramInt2, paramInt3, this.bn, e());
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void b(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/* 124 */     int i = paramfd.e(paramInt1, paramInt2, paramInt3);
+/* 125 */     if (i > 0) {
+/* 126 */       paramfd.i(paramInt1, paramInt2, paramInt3, this.bn);
+/* 127 */       paramfd.i(paramInt1, paramInt2 - 1, paramInt3, this.bn);
+/*     */     }
+/* 129 */     super.b(paramfd, paramInt1, paramInt2, paramInt3);
+/*     */   }
+/*     */   
+/*     */   public void a(xp paramxp, int paramInt1, int paramInt2, int paramInt3) {
+/* 133 */     int i = paramxp.e(paramInt1, paramInt2, paramInt3) == 1 ? 1 : 0;
+/*     */     
+/* 135 */     float f = 0.0625F;
+/* 136 */     if (i != 0) {
+/* 137 */       a(f, 0.0F, f, 1.0F - f, 0.03125F, 1.0F - f);
+/*     */     } else {
+/* 139 */       a(f, 0.0F, f, 1.0F - f, 0.0625F, 1.0F - f);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public boolean c(xp paramxp, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/* 144 */     return paramxp.e(paramInt1, paramInt2, paramInt3) > 0;
+/*     */   }
+/*     */   
+/*     */   public boolean d(fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+/*     */   {
+/* 149 */     if (paramfd.e(paramInt1, paramInt2, paramInt3) == 0) return false;
+/* 150 */     return paramInt4 == 1;
+/*     */   }
+/*     */   
+/*     */   public boolean f() {
+/* 154 */     return true;
+/*     */   }
+/*     */   
+/*     */   public void g() {
+/* 158 */     float f1 = 0.5F;
+/* 159 */     float f2 = 0.125F;
+/* 160 */     float f3 = 0.5F;
+/* 161 */     a(0.5F - f1, 0.5F - f2, 0.5F - f3, 0.5F + f1, 0.5F + f2, 0.5F + f3);
+/*     */   }
+/*     */   
+/*     */   public int h()
+/*     */   {
+/* 166 */     return 1;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\bv.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,71 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class ck
+/*    */   extends gm
+/*    */ {
+/*    */   private int a;
+/*    */   
+/*    */   public ck(int paramInt)
+/*    */   {
+/* 11 */     super(paramInt);
+/* 12 */     this.a = (paramInt + 256);
+/* 13 */     c(uu.m[(paramInt + 256)].a(2));
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public boolean a(iz paramiz, gs paramgs, fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+/*    */   {
+/* 21 */     if (paramfd.a(paramInt1, paramInt2, paramInt3) == uu.aT.bn) {
+/* 22 */       paramInt4 = 0;
+/*    */     } else {
+/* 24 */       if (paramInt4 == 0) paramInt2--;
+/* 25 */       if (paramInt4 == 1) paramInt2++;
+/* 26 */       if (paramInt4 == 2) paramInt3--;
+/* 27 */       if (paramInt4 == 3) paramInt3++;
+/* 28 */       if (paramInt4 == 4) paramInt1--;
+/* 29 */       if (paramInt4 == 5) { paramInt1++;
+/*    */       }
+/*    */     }
+/* 32 */     if (paramiz.a == 0) { return false;
+/*    */     }
+/*    */     
+/* 35 */     if ((paramInt2 == 127) && (uu.m[this.a].bA.a())) { return false;
+/*    */     }
+/* 37 */     if (paramfd.a(this.a, paramInt1, paramInt2, paramInt3, false, paramInt4)) {
+/* 38 */       uu localuu = uu.m[this.a];
+/* 39 */       if (paramfd.b(paramInt1, paramInt2, paramInt3, this.a, b(paramiz.i()))) {
+/* 40 */         uu.m[this.a].e(paramfd, paramInt1, paramInt2, paramInt3, paramInt4);
+/* 41 */         uu.m[this.a].a(paramfd, paramInt1, paramInt2, paramInt3, paramgs);
+/* 42 */         paramfd.a(paramInt1 + 0.5F, paramInt2 + 0.5F, paramInt3 + 0.5F, localuu.by.d(), (localuu.by.b() + 1.0F) / 2.0F, localuu.by.c() * 0.8F);
+/* 43 */         paramiz.a -= 1;
+/*    */       }
+/*    */       
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/* 51 */       return true;
+/*    */     }
+/* 53 */     return false;
+/*    */   }
+/*    */   
+/*    */   public String a(iz paramiz)
+/*    */   {
+/* 58 */     return uu.m[this.a].o();
+/*    */   }
+/*    */   
+/*    */   public String a()
+/*    */   {
+/* 63 */     return uu.m[this.a].o();
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ck.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,74 @@
+/*    */ import java.util.List;
+/*    */ import net.minecraft.client.Minecraft;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class co
+/*    */   extends da
+/*    */ {
+/*    */   private da i;
+/* 11 */   protected String a = "Options";
+/*    */   
+/*    */   private kv j;
+/* 14 */   private static ht[] l = { ht.a, ht.b, ht.c, ht.d, ht.j };
+/*    */   
+/*    */ 
+/*    */   public co(da paramda, kv paramkv)
+/*    */   {
+/* 19 */     this.i = paramda;
+/* 20 */     this.j = paramkv;
+/*    */   }
+/*    */   
+/*    */   public void b()
+/*    */   {
+/* 25 */     nh localnh = nh.a();
+/* 26 */     this.a = localnh.a("options.title");
+/*    */     
+/* 28 */     int k = 0;
+/* 29 */     for (ht localht : l) {
+/* 30 */       if (!localht.a()) {
+/* 31 */         this.e.add(new ab(localht.c(), this.c / 2 - 155 + k % 2 * 160, this.d / 6 + 24 * (k >> 1), localht, this.j.c(localht)));
+/*    */       } else {
+/* 33 */         this.e.add(new vz(localht.c(), this.c / 2 - 155 + k % 2 * 160, this.d / 6 + 24 * (k >> 1), localht, this.j.c(localht), this.j.a(localht)));
+/*    */       }
+/* 35 */       k++;
+/*    */     }
+/*    */     
+/* 38 */     this.e.add(new ke(101, this.c / 2 - 100, this.d / 6 + 96 + 12, localnh.a("options.video")));
+/* 39 */     this.e.add(new ke(100, this.c / 2 - 100, this.d / 6 + 120 + 12, localnh.a("options.controls")));
+/* 40 */     this.e.add(new ke(200, this.c / 2 - 100, this.d / 6 + 168, localnh.a("gui.done")));
+/*    */   }
+/*    */   
+/*    */   protected void a(ke paramke) {
+/* 44 */     if (!paramke.g) return;
+/* 45 */     if ((paramke.f < 100) && ((paramke instanceof ab))) {
+/* 46 */       this.j.a(((ab)paramke).a(), 1);
+/* 47 */       paramke.e = this.j.c(ht.a(paramke.f));
+/*    */     }
+/* 49 */     if (paramke.f == 101) {
+/* 50 */       this.b.z.b();
+/* 51 */       this.b.a(new nj(this, this.j));
+/*    */     }
+/* 53 */     if (paramke.f == 100) {
+/* 54 */       this.b.z.b();
+/* 55 */       this.b.a(new up(this, this.j));
+/*    */     }
+/* 57 */     if (paramke.f == 200) {
+/* 58 */       this.b.z.b();
+/* 59 */       this.b.a(this.i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public void a(int paramInt1, int paramInt2, float paramFloat) {
+/* 64 */     i();
+/* 65 */     a(this.g, this.a, this.c / 2, 20, 16777215);
+/* 66 */     super.a(paramInt1, paramInt2, paramFloat);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\co.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

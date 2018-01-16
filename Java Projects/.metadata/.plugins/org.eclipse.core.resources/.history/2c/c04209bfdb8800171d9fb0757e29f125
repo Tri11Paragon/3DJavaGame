@@ -1,0 +1,114 @@
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class ju
+/*     */   extends sn
+/*     */ {
+/*     */   public int a;
+/*  13 */   public int b = 0;
+/*     */   
+/*     */   public ju(fd paramfd) {
+/*  16 */     super(paramfd);
+/*     */   }
+/*     */   
+/*     */   public ju(fd paramfd, double paramDouble1, double paramDouble2, double paramDouble3, int paramInt) {
+/*  20 */     super(paramfd);
+/*  21 */     this.a = paramInt;
+/*  22 */     this.aF = true;
+/*  23 */     b(0.98F, 0.98F);
+/*  24 */     this.bf = (this.bh / 2.0F);
+/*  25 */     e(paramDouble1, paramDouble2, paramDouble3);
+/*     */     
+/*  27 */     this.aP = 0.0D;
+/*  28 */     this.aQ = 0.0D;
+/*  29 */     this.aR = 0.0D;
+/*     */     
+/*  31 */     this.aJ = paramDouble1;
+/*  32 */     this.aK = paramDouble2;
+/*  33 */     this.aL = paramDouble3;
+/*     */   }
+/*     */   
+/*     */   protected boolean n()
+/*     */   {
+/*  38 */     return false;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   protected void b() {}
+/*     */   
+/*     */ 
+/*     */   public boolean h_()
+/*     */   {
+/*  48 */     return !this.be;
+/*     */   }
+/*     */   
+/*     */   public void w_() {
+/*  52 */     if (this.a == 0) {
+/*  53 */       K();
+/*  54 */       return;
+/*     */     }
+/*     */     
+/*  57 */     this.aJ = this.aM;
+/*  58 */     this.aK = this.aN;
+/*  59 */     this.aL = this.aO;
+/*  60 */     this.b += 1;
+/*     */     
+/*  62 */     this.aQ -= 0.03999999910593033D;
+/*  63 */     b(this.aP, this.aQ, this.aR);
+/*  64 */     this.aP *= 0.9800000190734863D;
+/*  65 */     this.aQ *= 0.9800000190734863D;
+/*  66 */     this.aR *= 0.9800000190734863D;
+/*     */     
+/*  68 */     int i = in.b(this.aM);
+/*  69 */     int j = in.b(this.aN);
+/*  70 */     int k = in.b(this.aO);
+/*  71 */     if (this.aI.a(i, j, k) == this.a) {
+/*  72 */       this.aI.f(i, j, k, 0);
+/*     */     }
+/*     */     
+/*  75 */     if (this.aX) {
+/*  76 */       this.aP *= 0.699999988079071D;
+/*  77 */       this.aR *= 0.699999988079071D;
+/*  78 */       this.aQ *= -0.5D;
+/*     */       
+/*  80 */       K();
+/*     */       
+/*  82 */       if (((!this.aI.a(this.a, i, j, k, true, 1)) || (gk.c_(this.aI, i, j - 1, k)) || (!this.aI.f(i, j, k, this.a))) && 
+/*  83 */         (!this.aI.B)) {
+/*  84 */         b(this.a, 1);
+/*     */       }
+/*  86 */     } else if ((this.b > 100) && (!this.aI.B)) {
+/*  87 */       b(this.a, 1);
+/*  88 */       K();
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   protected void b(nu paramnu)
+/*     */   {
+/*  94 */     paramnu.a("Tile", (byte)this.a);
+/*     */   }
+/*     */   
+/*     */   protected void a(nu paramnu) {
+/*  98 */     this.a = (paramnu.c("Tile") & 0xFF);
+/*     */   }
+/*     */   
+/*     */   public float x_() {
+/* 102 */     return 0.0F;
+/*     */   }
+/*     */   
+/*     */   public fd k() {
+/* 106 */     return this.aI;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ju.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,27 @@
+/*    */ import java.util.List;
+/*    */ 
+/*    */ public class yd extends vr
+/*    */ {
+/*    */   public yd(int paramInt, String paramString, wk paramwk) {
+/*  6 */     super(paramInt, paramString, paramwk);
+/*    */   }
+/*    */   
+/*    */   public yd(int paramInt, String paramString) {
+/* 10 */     super(paramInt, paramString);
+/*    */   }
+/*    */   
+/*    */   public vr g()
+/*    */   {
+/* 15 */     super.g();
+/*    */     
+/* 17 */     jl.c.add(this);
+/*    */     
+/* 19 */     return this;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\yd.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

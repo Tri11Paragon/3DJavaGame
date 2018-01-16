@@ -1,0 +1,141 @@
+/*     */ import java.io.DataInput;
+/*     */ import java.io.DataOutput;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public abstract class ij
+/*     */ {
+/*  18 */   private String a = null;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   abstract void a(DataOutput paramDataOutput);
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   abstract void a(DataInput paramDataInput);
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public abstract byte a();
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public String b()
+/*     */   {
+/*  45 */     if (this.a == null) return "";
+/*  46 */     return this.a;
+/*     */   }
+/*     */   
+/*     */   public ij a(String paramString) {
+/*  50 */     this.a = paramString;
+/*  51 */     return this;
+/*     */   }
+/*     */   
+/*     */   public static ij b(DataInput paramDataInput) {
+/*  55 */     byte b = paramDataInput.readByte();
+/*  56 */     if (b == 0) { return new lh();
+/*     */     }
+/*  58 */     ij localij = a(b);
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*  63 */     localij.a = paramDataInput.readUTF();
+/*  64 */     localij.a(paramDataInput);
+/*  65 */     return localij;
+/*     */   }
+/*     */   
+/*     */   public static void a(ij paramij, DataOutput paramDataOutput) {
+/*  69 */     paramDataOutput.writeByte(paramij.a());
+/*  70 */     if (paramij.a() == 0) { return;
+/*     */     }
+/*     */     
+/*     */ 
+/*     */ 
+/*  75 */     paramDataOutput.writeUTF(paramij.b());
+/*     */     
+/*  77 */     paramij.a(paramDataOutput);
+/*     */   }
+/*     */   
+/*     */   public static ij a(byte paramByte) {
+/*  81 */     switch (paramByte) {
+/*     */     case 0: 
+/*  83 */       return new lh();
+/*     */     case 1: 
+/*  85 */       return new qp();
+/*     */     case 2: 
+/*  87 */       return new ul();
+/*     */     case 3: 
+/*  89 */       return new pp();
+/*     */     case 4: 
+/*  91 */       return new mi();
+/*     */     case 5: 
+/*  93 */       return new p();
+/*     */     case 6: 
+/*  95 */       return new sz();
+/*     */     case 7: 
+/*  97 */       return new hn();
+/*     */     case 8: 
+/*  99 */       return new xb();
+/*     */     case 9: 
+/* 101 */       return new sp();
+/*     */     case 10: 
+/* 103 */       return new nu();
+/*     */     }
+/* 105 */     return null;
+/*     */   }
+/*     */   
+/*     */   public static String b(byte paramByte) {
+/* 109 */     switch (paramByte) {
+/*     */     case 0: 
+/* 111 */       return "TAG_End";
+/*     */     case 1: 
+/* 113 */       return "TAG_Byte";
+/*     */     case 2: 
+/* 115 */       return "TAG_Short";
+/*     */     case 3: 
+/* 117 */       return "TAG_Int";
+/*     */     case 4: 
+/* 119 */       return "TAG_Long";
+/*     */     case 5: 
+/* 121 */       return "TAG_Float";
+/*     */     case 6: 
+/* 123 */       return "TAG_Double";
+/*     */     case 7: 
+/* 125 */       return "TAG_Byte_Array";
+/*     */     case 8: 
+/* 127 */       return "TAG_String";
+/*     */     case 9: 
+/* 129 */       return "TAG_List";
+/*     */     case 10: 
+/* 131 */       return "TAG_Compound";
+/*     */     }
+/* 133 */     return "UNKNOWN";
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ij.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,32 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class fx
+/*    */   extends pg
+/*    */ {
+/*    */   public boolean a(fd paramfd, Random paramRandom, int paramInt1, int paramInt2, int paramInt3)
+/*    */   {
+/* 10 */     for (int i = 0; i < 10; i++) {
+/* 11 */       int j = paramInt1 + paramRandom.nextInt(8) - paramRandom.nextInt(8);
+/* 12 */       int k = paramInt2 + paramRandom.nextInt(4) - paramRandom.nextInt(4);
+/* 13 */       int m = paramInt3 + paramRandom.nextInt(8) - paramRandom.nextInt(8);
+/* 14 */       if (paramfd.d(j, k, m)) {
+/* 15 */         int n = 1 + paramRandom.nextInt(paramRandom.nextInt(3) + 1);
+/* 16 */         for (int i1 = 0; i1 < n; i1++) {
+/* 17 */           if (uu.aW.g(paramfd, j, k + i1, m)) {
+/* 18 */             paramfd.c(j, k + i1, m, uu.aW.bn);
+/*    */           }
+/*    */         }
+/*    */       }
+/*    */     }
+/*    */     
+/* 24 */     return true;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\fx.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

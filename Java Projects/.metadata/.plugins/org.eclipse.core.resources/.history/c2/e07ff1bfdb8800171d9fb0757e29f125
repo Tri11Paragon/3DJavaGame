@@ -1,0 +1,58 @@
+/*    */ import java.io.DataInputStream;
+/*    */ import java.io.DataOutputStream;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class fa
+/*    */   extends ki
+/*    */ {
+/*    */   public int a;
+/*    */   public int b;
+/*    */   public int c;
+/*    */   public int d;
+/*    */   public int e;
+/*    */   
+/*    */   public fa() {}
+/*    */   
+/*    */   public fa(sn paramsn)
+/*    */   {
+/* 20 */     this.a = paramsn.aD;
+/* 21 */     this.b = in.b(paramsn.aM * 32.0D);
+/* 22 */     this.c = in.b(paramsn.aN * 32.0D);
+/* 23 */     this.d = in.b(paramsn.aO * 32.0D);
+/* 24 */     if ((paramsn instanceof c)) {
+/* 25 */       this.e = 1;
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public void a(DataInputStream paramDataInputStream) {
+/* 30 */     this.a = paramDataInputStream.readInt();
+/* 31 */     this.e = paramDataInputStream.readByte();
+/* 32 */     this.b = paramDataInputStream.readInt();
+/* 33 */     this.c = paramDataInputStream.readInt();
+/* 34 */     this.d = paramDataInputStream.readInt();
+/*    */   }
+/*    */   
+/*    */   public void a(DataOutputStream paramDataOutputStream) {
+/* 38 */     paramDataOutputStream.writeInt(this.a);
+/* 39 */     paramDataOutputStream.writeByte(this.e);
+/* 40 */     paramDataOutputStream.writeInt(this.b);
+/* 41 */     paramDataOutputStream.writeInt(this.c);
+/* 42 */     paramDataOutputStream.writeInt(this.d);
+/*    */   }
+/*    */   
+/*    */   public void a(ti paramti) {
+/* 46 */     paramti.a(this);
+/*    */   }
+/*    */   
+/*    */   public int a() {
+/* 50 */     return 17;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\fa.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

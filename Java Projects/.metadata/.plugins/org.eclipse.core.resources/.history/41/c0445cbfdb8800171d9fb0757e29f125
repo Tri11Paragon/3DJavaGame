@@ -1,0 +1,58 @@
+/*    */ import java.util.List;
+/*    */ import net.minecraft.client.Minecraft;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class pj
+/*    */   extends ob
+/*    */ {
+/*    */   public pj(Minecraft paramMinecraft)
+/*    */   {
+/* 13 */     super(paramMinecraft);
+/* 14 */     this.b = true;
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public void b(gs paramgs)
+/*    */   {
+/* 34 */     for (int i = 0; i < 9; i++) {
+/* 35 */       if (paramgs.c.a[i] == null) {
+/* 36 */         this.a.h.c.a[i] = new iz((uu)gr.a.get(i));
+/*    */       } else {
+/* 38 */         this.a.h.c.a[i].a = 1;
+/*    */       }
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public boolean d() {
+/* 44 */     return false;
+/*    */   }
+/*    */   
+/*    */   public void a(fd paramfd) {
+/* 48 */     super.a(paramfd);
+/*    */   }
+/*    */   
+/*    */   public void c() {}
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\pj.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

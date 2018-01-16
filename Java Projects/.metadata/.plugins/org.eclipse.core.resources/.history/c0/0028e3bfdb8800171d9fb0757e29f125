@@ -1,0 +1,36 @@
+/*    */ 
+/*    */ 
+/*    */ public class dx
+/*    */ {
+/*  5 */   public static final dx[] a = new dx[16];
+/*    */   
+/*  7 */   public static final dx b = new dx(0, 0);
+/*  8 */   public static final dx c = new dx(1, 8368696);
+/*  9 */   public static final dx d = new dx(2, 16247203);
+/* 10 */   public static final dx e = new dx(3, 10987431);
+/* 11 */   public static final dx f = new dx(4, 16711680);
+/* 12 */   public static final dx g = new dx(5, 10526975);
+/* 13 */   public static final dx h = new dx(6, 10987431);
+/* 14 */   public static final dx i = new dx(7, 31744);
+/* 15 */   public static final dx j = new dx(8, 16777215);
+/* 16 */   public static final dx k = new dx(9, 10791096);
+/* 17 */   public static final dx l = new dx(10, 12020271);
+/* 18 */   public static final dx m = new dx(11, 7368816);
+/* 19 */   public static final dx n = new dx(12, 4210943);
+/* 20 */   public static final dx o = new dx(13, 6837042);
+/*    */   public final int p;
+/*    */   public final int q;
+/*    */   
+/*    */   private dx(int paramInt1, int paramInt2)
+/*    */   {
+/* 26 */     this.q = paramInt1;
+/* 27 */     this.p = paramInt2;
+/* 28 */     a[paramInt1] = this;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\dx.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

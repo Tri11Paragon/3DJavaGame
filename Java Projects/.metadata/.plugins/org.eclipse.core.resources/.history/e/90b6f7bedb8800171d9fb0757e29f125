@@ -1,0 +1,97 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class fo
+/*    */   extends rw
+/*    */ {
+/*    */   protected fo(int paramInt1, int paramInt2)
+/*    */   {
+/* 31 */     super(paramInt1, paramInt2, ln.d);
+/*    */   }
+/*    */   
+/*    */   public int a(int paramInt) {
+/* 35 */     return this.bm + (paramInt == 1 ? 1 : 0);
+/*    */   }
+/*    */   
+/*    */   public boolean a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, gs paramgs) {
+/* 39 */     if (paramfd.e(paramInt1, paramInt2, paramInt3) == 0) return false;
+/* 40 */     b_(paramfd, paramInt1, paramInt2, paramInt3);
+/* 41 */     return true;
+/*    */   }
+/*    */   
+/*    */   public void f(fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/* 45 */     if (paramfd.B) { return;
+/*    */     }
+/* 47 */     eg localeg = (eg)paramfd.b(paramInt1, paramInt2, paramInt3);
+/* 48 */     localeg.a = paramInt4;
+/* 49 */     localeg.y_();
+/*    */     
+/* 51 */     paramfd.d(paramInt1, paramInt2, paramInt3, 1);
+/*    */   }
+/*    */   
+/*    */   public void b_(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/* 55 */     if (paramfd.B) { return;
+/*    */     }
+/* 57 */     eg localeg = (eg)paramfd.b(paramInt1, paramInt2, paramInt3);
+/* 58 */     int i = localeg.a;
+/* 59 */     if (i == 0) { return;
+/*    */     }
+/*    */     
+/* 62 */     paramfd.e(1005, paramInt1, paramInt2, paramInt3, 0);
+/* 63 */     paramfd.a(null, paramInt1, paramInt2, paramInt3);
+/* 64 */     localeg.a = 0;
+/* 65 */     localeg.y_();
+/* 66 */     paramfd.d(paramInt1, paramInt2, paramInt3, 0);
+/*    */     
+/* 68 */     int j = i;
+/* 69 */     float f = 0.7F;
+/* 70 */     double d1 = paramfd.r.nextFloat() * f + (1.0F - f) * 0.5D;
+/* 71 */     double d2 = paramfd.r.nextFloat() * f + (1.0F - f) * 0.2D + 0.6D;
+/* 72 */     double d3 = paramfd.r.nextFloat() * f + (1.0F - f) * 0.5D;
+/* 73 */     hl localhl = new hl(paramfd, paramInt1 + d1, paramInt2 + d2, paramInt3 + d3, new iz(j, 1, 0));
+/* 74 */     localhl.c = 10;
+/* 75 */     paramfd.b(localhl);
+/*    */   }
+/*    */   
+/*    */   public void b(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/* 79 */     b_(paramfd, paramInt1, paramInt2, paramInt3);
+/* 80 */     super.b(paramfd, paramInt1, paramInt2, paramInt3);
+/*    */   }
+/*    */   
+/*    */   public void a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4, float paramFloat) {
+/* 84 */     if (paramfd.B) return;
+/* 85 */     super.a(paramfd, paramInt1, paramInt2, paramInt3, paramInt4, paramFloat);
+/*    */   }
+/*    */   
+/*    */   protected ow a_() {
+/* 89 */     return new eg();
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\fo.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,51 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class dh
+/*    */ {
+/*    */   private final d[] b;
+/*    */   public final int a;
+/*    */   private int c;
+/*    */   
+/*    */   public dh(d[] paramArrayOfd)
+/*    */   {
+/* 12 */     this.b = paramArrayOfd;
+/* 13 */     this.a = paramArrayOfd.length;
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public void a()
+/*    */   {
+/* 21 */     this.c += 1;
+/*    */   }
+/*    */   
+/*    */   public boolean b() {
+/* 25 */     return this.c >= this.b.length;
+/*    */   }
+/*    */   
+/*    */   public d c() {
+/* 29 */     if (this.a > 0) {
+/* 30 */       return this.b[(this.a - 1)];
+/*    */     }
+/* 32 */     return null;
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public bt a(sn paramsn)
+/*    */   {
+/* 40 */     double d1 = this.b[this.c].a + (int)(paramsn.bg + 1.0F) * 0.5D;
+/* 41 */     double d2 = this.b[this.c].b;
+/* 42 */     double d3 = this.b[this.c].c + (int)(paramsn.bg + 1.0F) * 0.5D;
+/* 43 */     return bt.b(d1, d2, d3);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\dh.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

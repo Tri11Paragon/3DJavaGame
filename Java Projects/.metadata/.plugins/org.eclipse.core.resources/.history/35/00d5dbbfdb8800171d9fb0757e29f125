@@ -1,0 +1,363 @@
+/*     */ import java.util.List;
+/*     */ import net.minecraft.client.Minecraft;
+/*     */ import org.lwjgl.input.Mouse;
+/*     */ import org.lwjgl.opengl.GL11;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public abstract class lg
+/*     */ {
+/*     */   private final Minecraft a;
+/*     */   private final int b;
+/*     */   private final int c;
+/*     */   protected final int h;
+/*     */   protected final int i;
+/*     */   private final int d;
+/*     */   private final int e;
+/*     */   protected final int j;
+/*     */   private int f;
+/*     */   private int g;
+/*  43 */   private float k = -2.0F;
+/*     */   
+/*     */   private float l;
+/*     */   private float m;
+/*  47 */   private int n = -1;
+/*  48 */   private long o = 0L;
+/*     */   
+/*  50 */   private boolean p = true;
+/*     */   private boolean q;
+/*     */   private int r;
+/*     */   
+/*     */   public lg(Minecraft paramMinecraft, int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5) {
+/*  55 */     this.a = paramMinecraft;
+/*  56 */     this.b = paramInt1;
+/*  57 */     this.c = paramInt2;
+/*  58 */     this.h = paramInt3;
+/*  59 */     this.i = paramInt4;
+/*  60 */     this.j = paramInt5;
+/*  61 */     this.e = 0;
+/*  62 */     this.d = paramInt1;
+/*     */   }
+/*     */   
+/*     */   public void a(boolean paramBoolean) {
+/*  66 */     this.p = paramBoolean;
+/*     */   }
+/*     */   
+/*     */   protected void a(boolean paramBoolean, int paramInt) {
+/*  70 */     this.q = paramBoolean;
+/*  71 */     this.r = paramInt;
+/*     */     
+/*  73 */     if (!paramBoolean) {
+/*  74 */       this.r = 0;
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   protected abstract int a();
+/*     */   
+/*     */   protected abstract void a(int paramInt, boolean paramBoolean);
+/*     */   
+/*     */   protected abstract boolean c_(int paramInt);
+/*     */   
+/*     */   protected int b() {
+/*  85 */     return a() * this.j + this.r;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   protected abstract void c();
+/*     */   
+/*     */ 
+/*     */   protected abstract void a(int paramInt1, int paramInt2, int paramInt3, int paramInt4, nw paramnw);
+/*     */   
+/*     */ 
+/*     */   protected void a(int paramInt1, int paramInt2, nw paramnw) {}
+/*     */   
+/*     */ 
+/*     */   protected void a(int paramInt1, int paramInt2) {}
+/*     */   
+/*     */ 
+/*     */   protected void b(int paramInt1, int paramInt2) {}
+/*     */   
+/*     */   public int c(int paramInt1, int paramInt2)
+/*     */   {
+/* 105 */     int i1 = this.b / 2 - 110;
+/* 106 */     int i2 = this.b / 2 + 110;
+/*     */     
+/* 108 */     int i3 = paramInt2 - this.h - this.r + (int)this.m - 4;
+/* 109 */     int i4 = i3 / this.j;
+/* 110 */     if ((paramInt1 >= i1) && (paramInt1 <= i2) && (i4 >= 0) && (i3 >= 0) && (i4 < a())) {
+/* 111 */       return i4;
+/*     */     }
+/* 113 */     return -1;
+/*     */   }
+/*     */   
+/*     */   public void a(List paramList, int paramInt1, int paramInt2) {
+/* 117 */     this.f = paramInt1;
+/* 118 */     this.g = paramInt2;
+/*     */   }
+/*     */   
+/*     */   private void d() {
+/* 122 */     int i1 = b() - (this.i - this.h - 4);
+/* 123 */     if (i1 < 0) i1 /= 2;
+/* 124 */     if (this.m < 0.0F) this.m = 0.0F;
+/* 125 */     if (this.m > i1) this.m = i1;
+/*     */   }
+/*     */   
+/*     */   public void a(ke paramke) {
+/* 129 */     if (!paramke.g) { return;
+/*     */     }
+/* 131 */     if (paramke.f == this.f) {
+/* 132 */       this.m -= this.j * 2 / 3;
+/* 133 */       this.k = -2.0F;
+/* 134 */       d();
+/* 135 */     } else if (paramke.f == this.g) {
+/* 136 */       this.m += this.j * 2 / 3;
+/* 137 */       this.k = -2.0F;
+/* 138 */       d();
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(int paramInt1, int paramInt2, float paramFloat)
+/*     */   {
+/* 144 */     c();
+/*     */     
+/* 146 */     int i1 = a();
+/*     */     
+/* 148 */     int i2 = this.b / 2 + 124;
+/* 149 */     int i3 = i2 + 6;
+/*     */     int i10;
+/* 151 */     if (Mouse.isButtonDown(0)) {
+/* 152 */       if (this.k == -1.0F) {
+/* 153 */         int i4 = 1;
+/* 154 */         if ((paramInt2 >= this.h) && (paramInt2 <= this.i)) {
+/* 155 */           int i5 = this.b / 2 - 110;
+/* 156 */           i6 = this.b / 2 + 110;
+/*     */           
+/* 158 */           i7 = paramInt2 - this.h - this.r + (int)this.m - 4;
+/* 159 */           i8 = i7 / this.j;
+/* 160 */           if ((paramInt1 >= i5) && (paramInt1 <= i6) && (i8 >= 0) && (i7 >= 0) && (i8 < i1))
+/*     */           {
+/* 162 */             boolean bool = (i8 == this.n) && (System.currentTimeMillis() - this.o < 250L);
+/*     */             
+/* 164 */             a(i8, bool);
+/* 165 */             this.n = i8;
+/* 166 */             this.o = System.currentTimeMillis();
+/* 167 */           } else if ((paramInt1 >= i5) && (paramInt1 <= i6) && (i7 < 0)) {
+/* 168 */             a(paramInt1 - i5, paramInt2 - this.h + (int)this.m - 4);
+/* 169 */             i4 = 0;
+/*     */           }
+/* 171 */           if ((paramInt1 >= i2) && (paramInt1 <= i3)) {
+/* 172 */             this.l = -1.0F;
+/*     */             
+/* 174 */             i9 = b() - (this.i - this.h - 4);
+/* 175 */             if (i9 < 1) i9 = 1;
+/* 176 */             i10 = (int)((this.i - this.h) * (this.i - this.h) / b());
+/* 177 */             if (i10 < 32) i10 = 32;
+/* 178 */             if (i10 > this.i - this.h - 8) { i10 = this.i - this.h - 8;
+/*     */             }
+/*     */             
+/*     */ 
+/*     */ 
+/* 183 */             this.l /= (this.i - this.h - i10) / i9;
+/*     */           }
+/*     */           else {
+/* 186 */             this.l = 1.0F;
+/*     */           }
+/* 188 */           if (i4 != 0) {
+/* 189 */             this.k = paramInt2;
+/*     */           } else {
+/* 191 */             this.k = -2.0F;
+/*     */           }
+/*     */         } else {
+/* 194 */           this.k = -2.0F;
+/*     */         }
+/* 196 */       } else if (this.k >= 0.0F) {
+/* 197 */         this.m -= (paramInt2 - this.k) * this.l;
+/* 198 */         this.k = paramInt2;
+/*     */       }
+/*     */     }
+/*     */     else {
+/* 202 */       this.k = -1.0F;
+/*     */     }
+/*     */     
+/* 205 */     d();
+/*     */     
+/* 207 */     GL11.glDisable(2896);
+/* 208 */     GL11.glDisable(2912);
+/* 209 */     nw localnw = nw.a;
+/*     */     
+/* 211 */     GL11.glBindTexture(3553, this.a.p.b("/gui/background.png"));
+/* 212 */     GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+/* 213 */     float f1 = 32.0F;
+/* 214 */     localnw.b();
+/* 215 */     localnw.b(2105376);
+/* 216 */     localnw.a(this.e, this.i, 0.0D, this.e / f1, (this.i + (int)this.m) / f1);
+/* 217 */     localnw.a(this.d, this.i, 0.0D, this.d / f1, (this.i + (int)this.m) / f1);
+/* 218 */     localnw.a(this.d, this.h, 0.0D, this.d / f1, (this.h + (int)this.m) / f1);
+/* 219 */     localnw.a(this.e, this.h, 0.0D, this.e / f1, (this.h + (int)this.m) / f1);
+/* 220 */     localnw.a();
+/*     */     
+/* 222 */     int i6 = this.b / 2 - 92 - 16;
+/* 223 */     int i7 = this.h + 4 - (int)this.m;
+/*     */     
+/* 225 */     if (this.q) {
+/* 226 */       a(i6, i7, localnw);
+/*     */     }
+/*     */     int i11;
+/* 229 */     for (int i8 = 0; i8 < i1; i8++)
+/*     */     {
+/* 231 */       i9 = i7 + i8 * this.j + this.r;
+/* 232 */       i10 = this.j - 4;
+/*     */       
+/* 234 */       if ((i9 <= this.i) && (i9 + i10 >= this.h))
+/*     */       {
+/*     */ 
+/*     */ 
+/* 238 */         if ((this.p) && (c_(i8))) {
+/* 239 */           i11 = this.b / 2 - 110;
+/* 240 */           int i12 = this.b / 2 + 110;
+/* 241 */           GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+/* 242 */           GL11.glDisable(3553);
+/* 243 */           localnw.b();
+/* 244 */           localnw.b(8421504);
+/* 245 */           localnw.a(i11, i9 + i10 + 2, 0.0D, 0.0D, 1.0D);
+/* 246 */           localnw.a(i12, i9 + i10 + 2, 0.0D, 1.0D, 1.0D);
+/* 247 */           localnw.a(i12, i9 - 2, 0.0D, 1.0D, 0.0D);
+/* 248 */           localnw.a(i11, i9 - 2, 0.0D, 0.0D, 0.0D);
+/*     */           
+/* 250 */           localnw.b(0);
+/* 251 */           localnw.a(i11 + 1, i9 + i10 + 1, 0.0D, 0.0D, 1.0D);
+/* 252 */           localnw.a(i12 - 1, i9 + i10 + 1, 0.0D, 1.0D, 1.0D);
+/* 253 */           localnw.a(i12 - 1, i9 - 1, 0.0D, 1.0D, 0.0D);
+/* 254 */           localnw.a(i11 + 1, i9 - 1, 0.0D, 0.0D, 0.0D);
+/*     */           
+/* 256 */           localnw.a();
+/* 257 */           GL11.glEnable(3553);
+/*     */         }
+/*     */         
+/* 260 */         a(i8, i6, i9, i10, localnw);
+/*     */       }
+/*     */     }
+/*     */     
+/* 264 */     GL11.glDisable(2929);
+/*     */     
+/*     */ 
+/* 267 */     i8 = 4;
+/*     */     
+/* 269 */     a(0, this.h, 255, 255);
+/* 270 */     a(this.i, this.c, 255, 255);
+/*     */     
+/* 272 */     GL11.glEnable(3042);
+/* 273 */     GL11.glBlendFunc(770, 771);
+/* 274 */     GL11.glDisable(3008);
+/* 275 */     GL11.glShadeModel(7425);
+/*     */     
+/* 277 */     GL11.glDisable(3553);
+/*     */     
+/* 279 */     localnw.b();
+/* 280 */     localnw.a(0, 0);
+/* 281 */     localnw.a(this.e, this.h + i8, 0.0D, 0.0D, 1.0D);
+/* 282 */     localnw.a(this.d, this.h + i8, 0.0D, 1.0D, 1.0D);
+/* 283 */     localnw.a(0, 255);
+/* 284 */     localnw.a(this.d, this.h, 0.0D, 1.0D, 0.0D);
+/* 285 */     localnw.a(this.e, this.h, 0.0D, 0.0D, 0.0D);
+/* 286 */     localnw.a();
+/*     */     
+/* 288 */     localnw.b();
+/* 289 */     localnw.a(0, 255);
+/* 290 */     localnw.a(this.e, this.i, 0.0D, 0.0D, 1.0D);
+/* 291 */     localnw.a(this.d, this.i, 0.0D, 1.0D, 1.0D);
+/* 292 */     localnw.a(0, 0);
+/* 293 */     localnw.a(this.d, this.i - i8, 0.0D, 1.0D, 0.0D);
+/* 294 */     localnw.a(this.e, this.i - i8, 0.0D, 0.0D, 0.0D);
+/* 295 */     localnw.a();
+/*     */     
+/*     */ 
+/* 298 */     int i9 = b() - (this.i - this.h - 4);
+/* 299 */     if (i9 > 0) {
+/* 300 */       i10 = (this.i - this.h) * (this.i - this.h) / b();
+/* 301 */       if (i10 < 32) i10 = 32;
+/* 302 */       if (i10 > this.i - this.h - 8) { i10 = this.i - this.h - 8;
+/*     */       }
+/* 304 */       i11 = (int)this.m * (this.i - this.h - i10) / i9 + this.h;
+/* 305 */       if (i11 < this.h) { i11 = this.h;
+/*     */       }
+/* 307 */       localnw.b();
+/* 308 */       localnw.a(0, 255);
+/* 309 */       localnw.a(i2, this.i, 0.0D, 0.0D, 1.0D);
+/* 310 */       localnw.a(i3, this.i, 0.0D, 1.0D, 1.0D);
+/* 311 */       localnw.a(i3, this.h, 0.0D, 1.0D, 0.0D);
+/* 312 */       localnw.a(i2, this.h, 0.0D, 0.0D, 0.0D);
+/* 313 */       localnw.a();
+/*     */       
+/* 315 */       localnw.b();
+/* 316 */       localnw.a(8421504, 255);
+/* 317 */       localnw.a(i2, i11 + i10, 0.0D, 0.0D, 1.0D);
+/* 318 */       localnw.a(i3, i11 + i10, 0.0D, 1.0D, 1.0D);
+/* 319 */       localnw.a(i3, i11, 0.0D, 1.0D, 0.0D);
+/* 320 */       localnw.a(i2, i11, 0.0D, 0.0D, 0.0D);
+/* 321 */       localnw.a();
+/*     */       
+/* 323 */       localnw.b();
+/* 324 */       localnw.a(12632256, 255);
+/* 325 */       localnw.a(i2, i11 + i10 - 1, 0.0D, 0.0D, 1.0D);
+/* 326 */       localnw.a(i3 - 1, i11 + i10 - 1, 0.0D, 1.0D, 1.0D);
+/* 327 */       localnw.a(i3 - 1, i11, 0.0D, 1.0D, 0.0D);
+/* 328 */       localnw.a(i2, i11, 0.0D, 0.0D, 0.0D);
+/* 329 */       localnw.a();
+/*     */     }
+/*     */     
+/*     */ 
+/* 333 */     b(paramInt1, paramInt2);
+/*     */     
+/*     */ 
+/* 336 */     GL11.glEnable(3553);
+/*     */     
+/* 338 */     GL11.glShadeModel(7424);
+/* 339 */     GL11.glEnable(3008);
+/* 340 */     GL11.glDisable(3042);
+/*     */   }
+/*     */   
+/*     */   private void a(int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/* 344 */     nw localnw = nw.a;
+/* 345 */     GL11.glBindTexture(3553, this.a.p.b("/gui/background.png"));
+/* 346 */     GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+/* 347 */     float f1 = 32.0F;
+/* 348 */     localnw.b();
+/* 349 */     localnw.a(4210752, paramInt4);
+/* 350 */     localnw.a(0.0D, paramInt2, 0.0D, 0.0D, paramInt2 / f1);
+/* 351 */     localnw.a(this.b, paramInt2, 0.0D, this.b / f1, paramInt2 / f1);
+/* 352 */     localnw.a(4210752, paramInt3);
+/* 353 */     localnw.a(this.b, paramInt1, 0.0D, this.b / f1, paramInt1 / f1);
+/* 354 */     localnw.a(0.0D, paramInt1, 0.0D, 0.0D, paramInt1 / f1);
+/* 355 */     localnw.a();
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\lg.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

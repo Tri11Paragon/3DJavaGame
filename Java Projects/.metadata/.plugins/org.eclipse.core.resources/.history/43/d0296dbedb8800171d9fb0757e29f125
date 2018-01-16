@@ -1,0 +1,233 @@
+/*     */ import java.awt.image.BufferedImage;
+/*     */ import java.io.IOException;
+/*     */ import java.util.Arrays;
+/*     */ import javax.imageio.ImageIO;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class un
+/*     */ {
+/*  17 */   private float[] a = new float['̀'];
+/*     */   
+/*  19 */   private int[] b = new int['᐀'];
+/*  20 */   private int[] c = new int['᐀'];
+/*  21 */   private int[] d = new int['᐀'];
+/*  22 */   private int[] e = new int['᐀'];
+/*  23 */   private int[] f = new int[34];
+/*  24 */   private int[] g = new int['̀'];
+/*     */   
+/*     */   public un() {
+/*     */     try {
+/*  28 */       BufferedImage localBufferedImage = ImageIO.read(un.class.getResource("/terrain.png"));
+/*  29 */       int[] arrayOfInt = new int[65536];
+/*  30 */       localBufferedImage.getRGB(0, 0, 256, 256, arrayOfInt, 0, 256);
+/*  31 */       for (int j = 0; j < 256; j++) {
+/*  32 */         int k = 0;
+/*  33 */         int m = 0;
+/*  34 */         int n = 0;
+/*  35 */         int i1 = j % 16 * 16;
+/*  36 */         int i2 = j / 16 * 16;
+/*  37 */         int i3 = 0;
+/*  38 */         for (int i4 = 0; i4 < 16; i4++) {
+/*  39 */           for (int i5 = 0; i5 < 16; i5++) {
+/*  40 */             int i6 = arrayOfInt[(i5 + i1 + (i4 + i2) * 256)];
+/*  41 */             int i7 = i6 >> 24 & 0xFF;
+/*  42 */             if (i7 > 128) {
+/*  43 */               k += (i6 >> 16 & 0xFF);
+/*  44 */               m += (i6 >> 8 & 0xFF);
+/*  45 */               n += (i6 & 0xFF);
+/*  46 */               i3++;
+/*     */             }
+/*     */           }
+/*  49 */           if (i3 == 0) i3++;
+/*  50 */           this.a[(j * 3 + 0)] = (k / i3);
+/*  51 */           this.a[(j * 3 + 1)] = (m / i3);
+/*  52 */           this.a[(j * 3 + 2)] = (n / i3);
+/*     */         }
+/*     */       }
+/*     */     } catch (IOException localIOException) {
+/*  56 */       localIOException.printStackTrace();
+/*     */     }
+/*     */     
+/*  59 */     for (int i = 0; i < 256; i++) {
+/*  60 */       if (uu.m[i] != null) {
+/*  61 */         this.g[(i * 3 + 0)] = uu.m[i].a(1);
+/*  62 */         this.g[(i * 3 + 1)] = uu.m[i].a(2);
+/*  63 */         this.g[(i * 3 + 2)] = uu.m[i].a(3);
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(re paramre)
+/*     */   {
+/*  70 */     fd localfd = paramre.b;
+/*  71 */     if (localfd == null) {
+/*  72 */       paramre.f = true;
+/*  73 */       paramre.e = true;
+/*  74 */       return;
+/*     */     }
+/*     */     
+/*  77 */     int i = paramre.c * 16;
+/*  78 */     int j = paramre.d * 16;
+/*  79 */     int k = i + 16;
+/*  80 */     int m = j + 16;
+/*  81 */     lm locallm = localfd.c(paramre.c, paramre.d);
+/*  82 */     if (locallm.h()) {
+/*  83 */       paramre.f = true;
+/*  84 */       paramre.e = true;
+/*  85 */       return;
+/*     */     }
+/*  87 */     paramre.f = false;
+/*     */     
+/*     */ 
+/*  90 */     Arrays.fill(this.c, 0);
+/*  91 */     Arrays.fill(this.d, 0);
+/*  92 */     Arrays.fill(this.f, 160);
+/*     */     
+/*  94 */     for (int n = m - 1; n >= j; n--) {
+/*  95 */       for (int i1 = k - 1; i1 >= i; i1--) {
+/*  96 */         int i2 = i1 - i;
+/*  97 */         int i3 = n - j;
+/*     */         
+/*  99 */         int i4 = i2 + i3;
+/* 100 */         int i5 = 1;
+/* 101 */         for (int i6 = 0; i6 < 128; i6++) {
+/* 102 */           int i7 = i3 - i2 - i6 + 160 - 16;
+/*     */           
+/* 104 */           if ((i7 < this.f[i4]) || (i7 < this.f[(i4 + 1)]))
+/*     */           {
+/*     */ 
+/* 107 */             uu localuu = uu.m[localfd.a(i1, i6, n)];
+/* 108 */             if (localuu == null) {
+/* 109 */               i5 = 0;
+/*     */             }
+/* 111 */             else if (localuu.bA == ln.g) {
+/* 112 */               int i8 = localfd.a(i1, i6 + 1, n);
+/* 113 */               if ((i8 == 0) || (uu.m[i8].bA != ln.g)) {
+/* 114 */                 float f2 = i6 / 127.0F * 0.6F + 0.4F;
+/* 115 */                 float f3 = localfd.c(i1, i6 + 1, n) * f2;
+/*     */                 
+/* 117 */                 if ((i7 < 0) || (i7 >= 160)) {
+/*     */                   continue;
+/*     */                 }
+/*     */                 
+/*     */ 
+/* 122 */                 int i11 = i4 + i7 * 32;
+/*     */                 
+/* 124 */                 if ((i4 >= 0) && (i4 <= 32) && 
+/* 125 */                   (this.d[i11] <= i6)) {
+/* 126 */                   this.d[i11] = i6;
+/* 127 */                   this.e[i11] = ((int)(f3 * 127.0F));
+/*     */                 }
+/*     */                 
+/* 130 */                 if ((i4 >= -1) && (i4 <= 31) && 
+/* 131 */                   (this.d[(i11 + 1)] <= i6)) {
+/* 132 */                   this.d[(i11 + 1)] = i6;
+/* 133 */                   this.e[(i11 + 1)] = ((int)(f3 * 127.0F));
+/*     */                 }
+/*     */                 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 140 */                 i5 = 0;
+/*     */               }
+/*     */             } else {
+/* 143 */               if (i5 != 0) {
+/* 144 */                 if (i7 < this.f[i4]) this.f[i4] = i7;
+/* 145 */                 if (i7 < this.f[(i4 + 1)]) { this.f[(i4 + 1)] = i7;
+/*     */                 }
+/*     */               }
+/* 148 */               float f1 = i6 / 127.0F * 0.6F + 0.4F;
+/*     */               int i9;
+/* 150 */               int i10; float f4; int i12; float f5; if ((i7 >= 0) && (i7 < 160)) {
+/* 151 */                 i9 = i4 + i7 * 32;
+/* 152 */                 i10 = this.g[(localuu.bn * 3 + 0)];
+/* 153 */                 f4 = (localfd.c(i1, i6 + 1, n) * 0.8F + 0.2F) * f1;
+/* 154 */                 i12 = i10;
+/*     */                 
+/* 156 */                 if (i4 >= 0) {
+/* 157 */                   f5 = f4;
+/* 158 */                   if (this.c[i9] <= i6) {
+/* 159 */                     this.c[i9] = i6;
+/* 160 */                     this.b[i9] = (0xFF000000 | (int)(this.a[(i12 * 3 + 0)] * f5) << 16 | (int)(this.a[(i12 * 3 + 1)] * f5) << 8 | (int)(this.a[(i12 * 3 + 2)] * f5));
+/*     */                   }
+/*     */                 }
+/* 163 */                 if (i4 < 31) {
+/* 164 */                   f5 = f4 * 0.9F;
+/* 165 */                   if (this.c[(i9 + 1)] <= i6) {
+/* 166 */                     this.c[(i9 + 1)] = i6;
+/* 167 */                     this.b[(i9 + 1)] = (0xFF000000 | (int)(this.a[(i12 * 3 + 0)] * f5) << 16 | (int)(this.a[(i12 * 3 + 1)] * f5) << 8 | (int)(this.a[(i12 * 3 + 2)] * f5));
+/*     */                   }
+/*     */                 }
+/*     */               }
+/*     */               
+/* 172 */               if ((i7 >= -1) && (i7 < 159)) {
+/* 173 */                 i9 = i4 + (i7 + 1) * 32;
+/* 174 */                 i10 = this.g[(localuu.bn * 3 + 1)];
+/* 175 */                 f4 = localfd.c(i1 - 1, i6, n) * 0.8F + 0.2F;
+/* 176 */                 i12 = this.g[(localuu.bn * 3 + 2)];
+/* 177 */                 f5 = localfd.c(i1, i6, n + 1) * 0.8F + 0.2F;
+/*     */                 float f6;
+/* 179 */                 if (i4 >= 0) {
+/* 180 */                   f6 = f4 * f1 * 0.6F;
+/* 181 */                   if (this.c[i9] <= i6 - 1) {
+/* 182 */                     this.c[i9] = (i6 - 1);
+/* 183 */                     this.b[i9] = (0xFF000000 | (int)(this.a[(i10 * 3 + 0)] * f6) << 16 | (int)(this.a[(i10 * 3 + 1)] * f6) << 8 | (int)(this.a[(i10 * 3 + 2)] * f6));
+/*     */                   }
+/*     */                 }
+/* 186 */                 if (i4 < 31) {
+/* 187 */                   f6 = f5 * 0.9F * f1 * 0.4F;
+/* 188 */                   if (this.c[(i9 + 1)] <= i6 - 1) {
+/* 189 */                     this.c[(i9 + 1)] = (i6 - 1);
+/* 190 */                     this.b[(i9 + 1)] = (0xFF000000 | (int)(this.a[(i12 * 3 + 0)] * f6) << 16 | (int)(this.a[(i12 * 3 + 1)] * f6) << 8 | (int)(this.a[(i12 * 3 + 2)] * f6));
+/*     */                   }
+/*     */                 }
+/*     */               }
+/*     */             }
+/*     */           }
+/*     */         }
+/*     */       }
+/*     */     }
+/* 199 */     a();
+/*     */     
+/* 201 */     if (paramre.a == null) {
+/* 202 */       paramre.a = new BufferedImage(32, 160, 2);
+/*     */     }
+/* 204 */     paramre.a.setRGB(0, 0, 32, 160, this.b, 0, 32);
+/* 205 */     paramre.e = true;
+/*     */   }
+/*     */   
+/*     */   private void a() {
+/* 209 */     for (int i = 0; i < 32; i++) {
+/* 210 */       for (int j = 0; j < 160; j++) {
+/* 211 */         int k = i + j * 32;
+/* 212 */         if (this.c[k] == 0) {
+/* 213 */           this.b[k] = 0;
+/*     */         }
+/* 215 */         if (this.d[k] > this.c[k]) {
+/* 216 */           int m = this.b[k] >> 24 & 0xFF;
+/* 217 */           this.b[k] = (((this.b[k] & 0xFEFEFE) >> 1) + this.e[k]);
+/* 218 */           if (m < 128) {
+/* 219 */             this.b[k] = (Integer.MIN_VALUE + this.e[k] * 2);
+/*     */           } else {
+/* 221 */             this.b[k] |= 0xFF000000;
+/*     */           }
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\un.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

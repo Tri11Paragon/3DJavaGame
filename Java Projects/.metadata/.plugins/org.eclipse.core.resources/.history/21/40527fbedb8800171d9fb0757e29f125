@@ -1,0 +1,238 @@
+/*     */ import net.minecraft.client.Minecraft;
+/*     */ import org.lwjgl.opengl.GL11;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class gv
+/*     */   extends bw
+/*     */ {
+/*     */   protected ko e;
+/*     */   protected ko f;
+/*     */   
+/*     */   public gv(ko paramko, float paramFloat)
+/*     */   {
+/*  19 */     this.e = paramko;
+/*  20 */     this.c = paramFloat;
+/*     */   }
+/*     */   
+/*     */   public void a(ko paramko) {
+/*  24 */     this.f = paramko;
+/*     */   }
+/*     */   
+/*     */   public void a(ls paramls, double paramDouble1, double paramDouble2, double paramDouble3, float paramFloat1, float paramFloat2) {
+/*  28 */     GL11.glPushMatrix();
+/*  29 */     GL11.glDisable(2884);
+/*     */     
+/*  31 */     this.e.m = d(paramls, paramFloat2);
+/*  32 */     if (this.f != null) this.f.m = this.e.m;
+/*  33 */     this.e.n = paramls.al();
+/*  34 */     if (this.f != null) { this.f.n = this.e.n;
+/*     */     }
+/*     */     try
+/*     */     {
+/*  38 */       float f1 = paramls.I + (paramls.H - paramls.I) * paramFloat2;
+/*  39 */       float f2 = paramls.aU + (paramls.aS - paramls.aU) * paramFloat2;
+/*  40 */       float f3 = paramls.aV + (paramls.aT - paramls.aV) * paramFloat2;
+/*     */       
+/*  42 */       b(paramls, paramDouble1, paramDouble2, paramDouble3);
+/*     */       
+/*  44 */       float f4 = c(paramls, paramFloat2);
+/*  45 */       a(paramls, f4, f1, paramFloat2);
+/*     */       
+/*  47 */       float f5 = 0.0625F;
+/*  48 */       GL11.glEnable(32826);
+/*  49 */       GL11.glScalef(-1.0F, -1.0F, 1.0F);
+/*     */       
+/*  51 */       a(paramls, paramFloat2);
+/*  52 */       GL11.glTranslatef(0.0F, -24.0F * f5 - 0.0078125F, 0.0F);
+/*     */       
+/*     */ 
+/*  55 */       float f6 = paramls.ak + (paramls.al - paramls.ak) * paramFloat2;
+/*  56 */       float f7 = paramls.am - paramls.al * (1.0F - paramFloat2);
+/*     */       
+/*  58 */       if (f6 > 1.0F) { f6 = 1.0F;
+/*     */       }
+/*  60 */       a(paramls.bA, paramls.q_());
+/*  61 */       GL11.glEnable(3008);
+/*     */       
+/*  63 */       this.e.a(paramls, f7, f6, paramFloat2);
+/*  64 */       this.e.a(f7, f6, f4, f2 - f1, f3, f5);
+/*  65 */       for (int i = 0; i < 4; i++) {
+/*  66 */         if (a(paramls, i, paramFloat2)) {
+/*  67 */           this.f.a(f7, f6, f4, f2 - f1, f3, f5);
+/*  68 */           GL11.glDisable(3042);
+/*  69 */           GL11.glEnable(3008);
+/*     */         }
+/*     */       }
+/*     */       
+/*  73 */       b(paramls, paramFloat2);
+/*  74 */       float f8 = paramls.a(paramFloat2);
+/*  75 */       int j = a(paramls, f8, paramFloat2);
+/*     */       
+/*  77 */       if (((j >> 24 & 0xFF) > 0) || (paramls.aa > 0) || (paramls.ad > 0)) {
+/*  78 */         GL11.glDisable(3553);
+/*  79 */         GL11.glDisable(3008);
+/*  80 */         GL11.glEnable(3042);
+/*  81 */         GL11.glBlendFunc(770, 771);
+/*  82 */         GL11.glDepthFunc(514);
+/*     */         
+/*  84 */         if ((paramls.aa > 0) || (paramls.ad > 0)) {
+/*  85 */           GL11.glColor4f(f8, 0.0F, 0.0F, 0.4F);
+/*  86 */           this.e.a(f7, f6, f4, f2 - f1, f3, f5);
+/*  87 */           for (int k = 0; k < 4; k++) {
+/*  88 */             if (b(paramls, k, paramFloat2)) {
+/*  89 */               GL11.glColor4f(f8, 0.0F, 0.0F, 0.4F);
+/*  90 */               this.f.a(f7, f6, f4, f2 - f1, f3, f5);
+/*     */             }
+/*     */           }
+/*     */         }
+/*     */         
+/*  95 */         if ((j >> 24 & 0xFF) > 0) {
+/*  96 */           float f9 = (j >> 16 & 0xFF) / 255.0F;
+/*  97 */           float f10 = (j >> 8 & 0xFF) / 255.0F;
+/*  98 */           float f11 = (j & 0xFF) / 255.0F;
+/*  99 */           float f12 = (j >> 24 & 0xFF) / 255.0F;
+/* 100 */           GL11.glColor4f(f9, f10, f11, f12);
+/* 101 */           this.e.a(f7, f6, f4, f2 - f1, f3, f5);
+/* 102 */           for (int m = 0; m < 4; m++) {
+/* 103 */             if (b(paramls, m, paramFloat2)) {
+/* 104 */               GL11.glColor4f(f9, f10, f11, f12);
+/* 105 */               this.f.a(f7, f6, f4, f2 - f1, f3, f5);
+/*     */             }
+/*     */           }
+/*     */         }
+/*     */         
+/* 110 */         GL11.glDepthFunc(515);
+/* 111 */         GL11.glDisable(3042);
+/* 112 */         GL11.glEnable(3008);
+/* 113 */         GL11.glEnable(3553);
+/*     */       }
+/* 115 */       GL11.glDisable(32826);
+/*     */     }
+/*     */     catch (Exception localException) {
+/* 118 */       localException.printStackTrace();
+/*     */     }
+/*     */     
+/* 121 */     GL11.glEnable(2884);
+/*     */     
+/* 123 */     GL11.glPopMatrix();
+/*     */     
+/* 125 */     a(paramls, paramDouble1, paramDouble2, paramDouble3);
+/*     */   }
+/*     */   
+/*     */   protected void b(ls paramls, double paramDouble1, double paramDouble2, double paramDouble3)
+/*     */   {
+/* 130 */     GL11.glTranslatef((float)paramDouble1, (float)paramDouble2, (float)paramDouble3);
+/*     */   }
+/*     */   
+/*     */   protected void a(ls paramls, float paramFloat1, float paramFloat2, float paramFloat3)
+/*     */   {
+/* 135 */     GL11.glRotatef(180.0F - paramFloat2, 0.0F, 1.0F, 0.0F);
+/* 136 */     if (paramls.ad > 0) {
+/* 137 */       float f1 = (paramls.ad + paramFloat3 - 1.0F) / 20.0F * 1.6F;
+/* 138 */       f1 = in.c(f1);
+/* 139 */       if (f1 > 1.0F) f1 = 1.0F;
+/* 140 */       GL11.glRotatef(f1 * a(paramls), 0.0F, 0.0F, 1.0F);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   protected float d(ls paramls, float paramFloat) {
+/* 145 */     return paramls.d(paramFloat);
+/*     */   }
+/*     */   
+/*     */   protected float c(ls paramls, float paramFloat) {
+/* 149 */     return paramls.bt + paramFloat;
+/*     */   }
+/*     */   
+/*     */   protected void b(ls paramls, float paramFloat) {}
+/*     */   
+/*     */   protected boolean b(ls paramls, int paramInt, float paramFloat)
+/*     */   {
+/* 156 */     return a(paramls, paramInt, paramFloat);
+/*     */   }
+/*     */   
+/*     */   protected boolean a(ls paramls, int paramInt, float paramFloat) {
+/* 160 */     return false;
+/*     */   }
+/*     */   
+/*     */   protected float a(ls paramls) {
+/* 164 */     return 90.0F;
+/*     */   }
+/*     */   
+/*     */   protected int a(ls paramls, float paramFloat1, float paramFloat2) {
+/* 168 */     return 0;
+/*     */   }
+/*     */   
+/*     */   protected void a(ls paramls, float paramFloat) {}
+/*     */   
+/*     */   protected void a(ls paramls, double paramDouble1, double paramDouble2, double paramDouble3)
+/*     */   {
+/* 175 */     if (Minecraft.w()) {
+/* 176 */       a(paramls, Integer.toString(paramls.aD), paramDouble1, paramDouble2, paramDouble3, 64);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   protected void a(ls paramls, String paramString, double paramDouble1, double paramDouble2, double paramDouble3, int paramInt)
+/*     */   {
+/* 182 */     float f1 = paramls.f(this.b.h);
+/*     */     
+/* 184 */     if (f1 > paramInt) {
+/* 185 */       return;
+/*     */     }
+/*     */     
+/* 188 */     sj localsj = a();
+/*     */     
+/* 190 */     float f2 = 1.6F;
+/* 191 */     float f3 = 0.016666668F * f2;
+/*     */     
+/* 193 */     GL11.glPushMatrix();
+/* 194 */     GL11.glTranslatef((float)paramDouble1 + 0.0F, (float)paramDouble2 + 2.3F, (float)paramDouble3);
+/* 195 */     GL11.glNormal3f(0.0F, 1.0F, 0.0F);
+/*     */     
+/* 197 */     GL11.glRotatef(-this.b.i, 0.0F, 1.0F, 0.0F);
+/* 198 */     GL11.glRotatef(this.b.j, 1.0F, 0.0F, 0.0F);
+/*     */     
+/* 200 */     GL11.glScalef(-f3, -f3, f3);
+/* 201 */     GL11.glDisable(2896);
+/*     */     
+/* 203 */     GL11.glDepthMask(false);
+/* 204 */     GL11.glDisable(2929);
+/* 205 */     GL11.glEnable(3042);
+/* 206 */     GL11.glBlendFunc(770, 771);
+/* 207 */     nw localnw = nw.a;
+/*     */     
+/* 209 */     int i = 0;
+/* 210 */     if (paramString.equals("deadmau5")) { i = -10;
+/*     */     }
+/* 212 */     GL11.glDisable(3553);
+/* 213 */     localnw.b();
+/* 214 */     int j = localsj.a(paramString) / 2;
+/* 215 */     localnw.a(0.0F, 0.0F, 0.0F, 0.25F);
+/* 216 */     localnw.a(-j - 1, -1 + i, 0.0D);
+/* 217 */     localnw.a(-j - 1, 8 + i, 0.0D);
+/* 218 */     localnw.a(j + 1, 8 + i, 0.0D);
+/* 219 */     localnw.a(j + 1, -1 + i, 0.0D);
+/* 220 */     localnw.a();
+/* 221 */     GL11.glEnable(3553);
+/* 222 */     localsj.b(paramString, -localsj.a(paramString) / 2, i, 553648127);
+/* 223 */     GL11.glEnable(2929);
+/*     */     
+/* 225 */     GL11.glDepthMask(true);
+/* 226 */     localsj.b(paramString, -localsj.a(paramString) / 2, i, -1);
+/* 227 */     GL11.glEnable(2896);
+/* 228 */     GL11.glDisable(3042);
+/* 229 */     GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+/* 230 */     GL11.glPopMatrix();
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\gv.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

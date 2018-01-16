@@ -1,0 +1,29 @@
+/*    */ import java.util.List;
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class g
+/*    */   extends kd
+/*    */ {
+/*    */   public g()
+/*    */   {
+/* 13 */     this.t.add(new bj(gi.class, 2));
+/*    */   }
+/*    */   
+/*    */   public pg a(Random paramRandom)
+/*    */   {
+/* 18 */     if (paramRandom.nextInt(3) == 0) {
+/* 19 */       return new pw();
+/*    */     }
+/* 21 */     return new ws();
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\g.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,173 @@
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class oq
+/*     */   extends uu
+/*     */ {
+/*     */   protected oq(int paramInt, ln paramln)
+/*     */   {
+/*  14 */     super(paramInt, paramln);
+/*  15 */     this.bm = 84;
+/*  16 */     if (paramln == ln.f) { this.bm += 1;
+/*     */     }
+/*  18 */     float f1 = 0.5F;
+/*  19 */     float f2 = 1.0F;
+/*  20 */     a(0.5F - f1, 0.0F, 0.5F - f1, 0.5F + f1, f2, 0.5F + f1);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public boolean c()
+/*     */   {
+/*  37 */     return false;
+/*     */   }
+/*     */   
+/*     */   public boolean d() {
+/*  41 */     return false;
+/*     */   }
+/*     */   
+/*     */   public int b() {
+/*  45 */     return 0;
+/*     */   }
+/*     */   
+/*     */   public eq f(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/*  49 */     a(paramfd, paramInt1, paramInt2, paramInt3);
+/*  50 */     return super.f(paramfd, paramInt1, paramInt2, paramInt3);
+/*     */   }
+/*     */   
+/*     */   public eq e(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/*  54 */     a(paramfd, paramInt1, paramInt2, paramInt3);
+/*  55 */     return super.e(paramfd, paramInt1, paramInt2, paramInt3);
+/*     */   }
+/*     */   
+/*     */   public void a(xp paramxp, int paramInt1, int paramInt2, int paramInt3) {
+/*  59 */     d(paramxp.e(paramInt1, paramInt2, paramInt3));
+/*     */   }
+/*     */   
+/*     */   public void g() {
+/*  63 */     float f = 0.1875F;
+/*  64 */     a(0.0F, 0.5F - f / 2.0F, 0.0F, 1.0F, 0.5F + f / 2.0F, 1.0F);
+/*     */   }
+/*     */   
+/*     */   public void d(int paramInt) {
+/*  68 */     float f = 0.1875F;
+/*  69 */     a(0.0F, 0.0F, 0.0F, 1.0F, f, 1.0F);
+/*  70 */     if (e(paramInt)) {
+/*  71 */       if ((paramInt & 0x3) == 0) a(0.0F, 0.0F, 1.0F - f, 1.0F, 1.0F, 1.0F);
+/*  72 */       if ((paramInt & 0x3) == 1) a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, f);
+/*  73 */       if ((paramInt & 0x3) == 2) a(1.0F - f, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+/*  74 */       if ((paramInt & 0x3) == 3) a(0.0F, 0.0F, 0.0F, f, 1.0F, 1.0F);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void b(fd paramfd, int paramInt1, int paramInt2, int paramInt3, gs paramgs) {
+/*  79 */     a(paramfd, paramInt1, paramInt2, paramInt3, paramgs);
+/*     */   }
+/*     */   
+/*     */   public boolean a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, gs paramgs) {
+/*  83 */     if (this.bA == ln.f) { return true;
+/*     */     }
+/*     */     
+/*  86 */     int i = paramfd.e(paramInt1, paramInt2, paramInt3);
+/*  87 */     paramfd.d(paramInt1, paramInt2, paramInt3, i ^ 0x4);
+/*     */     
+/*  89 */     paramfd.a(paramgs, 1003, paramInt1, paramInt2, paramInt3, 0);
+/*  90 */     return true;
+/*     */   }
+/*     */   
+/*     */   public void a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, boolean paramBoolean) {
+/*  94 */     int i = paramfd.e(paramInt1, paramInt2, paramInt3);
+/*     */     
+/*  96 */     boolean bool = (i & 0x4) > 0;
+/*  97 */     if (bool == paramBoolean) { return;
+/*     */     }
+/*  99 */     paramfd.d(paramInt1, paramInt2, paramInt3, i ^ 0x4);
+/*     */     
+/* 101 */     paramfd.a(null, 1003, paramInt1, paramInt2, paramInt3, 0);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   public void b(fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+/*     */   {
+/* 107 */     if (paramfd.B) { return;
+/*     */     }
+/* 109 */     int i = paramfd.e(paramInt1, paramInt2, paramInt3);
+/* 110 */     int j = paramInt1;
+/* 111 */     int k = paramInt3;
+/* 112 */     if ((i & 0x3) == 0) k++;
+/* 113 */     if ((i & 0x3) == 1) k--;
+/* 114 */     if ((i & 0x3) == 2) j++;
+/* 115 */     if ((i & 0x3) == 3) { j--;
+/*     */     }
+/*     */     
+/* 118 */     if (!paramfd.h(j, paramInt2, k)) {
+/* 119 */       paramfd.f(paramInt1, paramInt2, paramInt3, 0);
+/* 120 */       g(paramfd, paramInt1, paramInt2, paramInt3, i);
+/*     */     }
+/*     */     
+/* 123 */     if ((paramInt4 > 0) && (uu.m[paramInt4].f())) {
+/* 124 */       boolean bool = paramfd.s(paramInt1, paramInt2, paramInt3);
+/* 125 */       a(paramfd, paramInt1, paramInt2, paramInt3, bool);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   public vf a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, bt parambt1, bt parambt2)
+/*     */   {
+/* 132 */     a(paramfd, paramInt1, paramInt2, paramInt3);
+/* 133 */     return super.a(paramfd, paramInt1, paramInt2, paramInt3, parambt1, parambt2);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void e(fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+/*     */   {
+/* 145 */     int i = 0;
+/* 146 */     if (paramInt4 == 2) i = 0;
+/* 147 */     if (paramInt4 == 3) i = 1;
+/* 148 */     if (paramInt4 == 4) i = 2;
+/* 149 */     if (paramInt4 == 5) i = 3;
+/* 150 */     paramfd.d(paramInt1, paramInt2, paramInt3, i);
+/*     */   }
+/*     */   
+/*     */   public boolean a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/* 154 */     if (paramInt4 == 0) return false;
+/* 155 */     if (paramInt4 == 1) return false;
+/* 156 */     if (paramInt4 == 2) paramInt3++;
+/* 157 */     if (paramInt4 == 3) paramInt3--;
+/* 158 */     if (paramInt4 == 4) paramInt1++;
+/* 159 */     if (paramInt4 == 5) { paramInt1--;
+/*     */     }
+/* 161 */     return paramfd.h(paramInt1, paramInt2, paramInt3);
+/*     */   }
+/*     */   
+/*     */   public static boolean e(int paramInt) {
+/* 165 */     return (paramInt & 0x4) != 0;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\oq.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

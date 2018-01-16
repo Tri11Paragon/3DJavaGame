@@ -1,0 +1,59 @@
+/*    */ import java.util.ArrayList;
+/*    */ import java.util.List;
+/*    */ import net.minecraft.client.Minecraft;
+/*    */ import org.lwjgl.opengl.GL11;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class du
+/*    */   extends ub
+/*    */ {
+/* 12 */   private List a = new ArrayList();
+/*    */   private Minecraft b;
+/*    */   
+/*    */   public du(Minecraft paramMinecraft) {
+/* 16 */     this.b = paramMinecraft;
+/*    */   }
+/*    */   
+/*    */   public void a() {
+/* 20 */     for (int i = 0; i < this.a.size(); i++) {
+/* 21 */       kw localkw = (kw)this.a.get(i);
+/*    */       
+/* 23 */       localkw.a();
+/* 24 */       localkw.a(this);
+/*    */       
+/* 26 */       if (localkw.h) {
+/* 27 */         this.a.remove(i--);
+/*    */       }
+/*    */     }
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public void a(float paramFloat)
+/*    */   {
+/* 38 */     this.b.p.b(this.b.p.b("/gui/particles.png"));
+/* 39 */     for (int i = 0; i < this.a.size(); i++) {
+/* 40 */       kw localkw = (kw)this.a.get(i);
+/* 41 */       int j = (int)(localkw.c + (localkw.a - localkw.c) * paramFloat - 4.0D);
+/* 42 */       int k = (int)(localkw.d + (localkw.b - localkw.d) * paramFloat - 4.0D);
+/*    */       
+/* 44 */       float f1 = (float)(localkw.r + (localkw.n - localkw.r) * paramFloat);
+/* 45 */       float f2 = (float)(localkw.o + (localkw.k - localkw.o) * paramFloat);
+/* 46 */       float f3 = (float)(localkw.p + (localkw.l - localkw.p) * paramFloat);
+/* 47 */       float f4 = (float)(localkw.q + (localkw.m - localkw.q) * paramFloat);
+/*    */       
+/* 49 */       GL11.glColor4f(f2, f3, f4, f1);
+/* 50 */       b(j, k, 40, 0, 8, 8);
+/*    */     }
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\du.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

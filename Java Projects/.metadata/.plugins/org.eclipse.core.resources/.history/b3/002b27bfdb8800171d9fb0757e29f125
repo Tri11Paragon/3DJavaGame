@@ -1,0 +1,95 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class cn
+/*    */   extends gz
+/*    */ {
+/*    */   public cn(fd paramfd)
+/*    */   {
+/* 12 */     super(paramfd);
+/* 13 */     this.O = "/mob/spider.png";
+/* 14 */     b(1.4F, 0.9F);
+/* 15 */     this.aB = 0.8F;
+/*    */   }
+/*    */   
+/*    */   public double m() {
+/* 19 */     return this.bh * 0.75D - 0.5D;
+/*    */   }
+/*    */   
+/*    */   protected boolean n()
+/*    */   {
+/* 24 */     return false;
+/*    */   }
+/*    */   
+/*    */   protected sn g_() {
+/* 28 */     float f = a(1.0F);
+/* 29 */     if (f < 0.5F) {
+/* 30 */       double d = 16.0D;
+/* 31 */       return this.aI.a(this, d);
+/*    */     }
+/* 33 */     return null;
+/*    */   }
+/*    */   
+/*    */   protected String g() {
+/* 37 */     return "mob.spider";
+/*    */   }
+/*    */   
+/*    */   protected String j_() {
+/* 41 */     return "mob.spider";
+/*    */   }
+/*    */   
+/*    */   protected String i() {
+/* 45 */     return "mob.spiderdeath";
+/*    */   }
+/*    */   
+/*    */   protected void a(sn paramsn, float paramFloat) {
+/* 49 */     float f1 = a(1.0F);
+/* 50 */     if ((f1 > 0.5F) && (this.bs.nextInt(100) == 0)) {
+/* 51 */       this.d = null;
+/* 52 */       return;
+/*    */     }
+/*    */     
+/* 55 */     if ((paramFloat > 2.0F) && (paramFloat < 6.0F) && (this.bs.nextInt(10) == 0)) {
+/* 56 */       if (this.aX) {
+/* 57 */         double d1 = paramsn.aM - this.aM;
+/* 58 */         double d2 = paramsn.aO - this.aO;
+/* 59 */         float f2 = in.a(d1 * d1 + d2 * d2);
+/* 60 */         this.aP = (d1 / f2 * 0.5D * 0.800000011920929D + this.aP * 0.20000000298023224D);
+/* 61 */         this.aR = (d2 / f2 * 0.5D * 0.800000011920929D + this.aR * 0.20000000298023224D);
+/* 62 */         this.aQ = 0.4000000059604645D;
+/*    */       }
+/*    */     } else {
+/* 65 */       super.a(paramsn, paramFloat);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public void b(nu paramnu) {
+/* 70 */     super.b(paramnu);
+/*    */   }
+/*    */   
+/*    */   public void a(nu paramnu) {
+/* 74 */     super.a(paramnu);
+/*    */   }
+/*    */   
+/*    */   protected int j() {
+/* 78 */     return gm.I.bf;
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public boolean p()
+/*    */   {
+/* 87 */     return this.aY;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\cn.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

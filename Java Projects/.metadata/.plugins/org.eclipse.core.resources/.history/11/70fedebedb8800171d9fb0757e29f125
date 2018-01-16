@@ -1,0 +1,43 @@
+/*    */ import java.io.InputStream;
+/*    */ import java.net.URL;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ class np
+/*    */   extends InputStream
+/*    */ {
+/*    */   private int c;
+/*    */   private InputStream d;
+/*    */   
+/*    */   public np(io paramio, URL paramURL, InputStream paramInputStream)
+/*    */   {
+/* 15 */     this.d = paramInputStream;
+/* 16 */     String str = paramURL.getPath();
+/* 17 */     str = str.substring(str.lastIndexOf("/") + 1);
+/* 18 */     this.c = str.hashCode();
+/*    */   }
+/*    */   
+/* 21 */   byte[] a = new byte[1];
+/*    */   
+/*    */   public int read() {
+/* 24 */     int i = read(this.a, 0, 1);
+/* 25 */     if (i < 0) return i;
+/* 26 */     return this.a[0];
+/*    */   }
+/*    */   
+/*    */   public int read(byte[] paramArrayOfByte, int paramInt1, int paramInt2) {
+/* 30 */     paramInt2 = this.d.read(paramArrayOfByte, paramInt1, paramInt2);
+/* 31 */     for (int i = 0; i < paramInt2; i++) {
+/* 32 */       int tmp25_24 = (paramInt1 + i); byte[] tmp25_20 = paramArrayOfByte;int j = tmp25_20[tmp25_24] = (byte)(tmp25_20[tmp25_24] ^ this.c >> 8);
+/* 33 */       this.c = (this.c * 498729871 + 85731 * j);
+/*    */     }
+/* 35 */     return paramInt2;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\np.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

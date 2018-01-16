@@ -1,0 +1,903 @@
+/*     */ package paulscode.sound.libraries;
+/*     */ 
+/*     */ import java.nio.ByteBuffer;
+/*     */ import java.nio.FloatBuffer;
+/*     */ import java.nio.IntBuffer;
+/*     */ import java.util.HashMap;
+/*     */ import java.util.Iterator;
+/*     */ import java.util.List;
+/*     */ import java.util.Set;
+/*     */ import javax.sound.sampled.AudioFormat;
+/*     */ import org.lwjgl.BufferUtils;
+/*     */ import org.lwjgl.LWJGLException;
+/*     */ import org.lwjgl.openal.AL;
+/*     */ import org.lwjgl.openal.AL10;
+/*     */ import paulscode.sound.Channel;
+/*     */ import paulscode.sound.FilenameURL;
+/*     */ import paulscode.sound.ICodec;
+/*     */ import paulscode.sound.Library;
+/*     */ import paulscode.sound.ListenerData;
+/*     */ import paulscode.sound.SoundBuffer;
+/*     */ import paulscode.sound.SoundSystemConfig;
+/*     */ import paulscode.sound.SoundSystemException;
+/*     */ import paulscode.sound.Source;
+/*     */ import paulscode.sound.Vector3D;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class LibraryLWJGLOpenAL
+/*     */   extends Library
+/*     */ {
+/*     */   private static final boolean GET = false;
+/*     */   private static final boolean SET = true;
+/*     */   private static final boolean XXX = false;
+/* 121 */   private FloatBuffer listenerPositionAL = null;
+/*     */   
+/*     */ 
+/*     */ 
+/* 125 */   private FloatBuffer listenerOrientation = null;
+/*     */   
+/*     */ 
+/*     */ 
+/* 129 */   private FloatBuffer listenerVelocity = null;
+/*     */   
+/*     */ 
+/*     */ 
+/* 133 */   private HashMap ALBufferMap = null;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/* 138 */   private static boolean alPitchSupported = true;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public LibraryLWJGLOpenAL()
+/*     */   {
+/* 148 */     this.ALBufferMap = new HashMap();
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void init()
+/*     */   {
+/* 157 */     boolean bool = false;
+/*     */     
+/*     */ 
+/*     */     try
+/*     */     {
+/* 162 */       AL.create();
+/* 163 */       bool = checkALError();
+/*     */ 
+/*     */     }
+/*     */     catch (LWJGLException localLWJGLException)
+/*     */     {
+/* 168 */       errorMessage("Unable to initialize OpenAL.  Probable cause: OpenAL not supported.");
+/*     */       
+/* 170 */       printStackTrace(localLWJGLException);
+/* 171 */       throw new SoundSystemException(localLWJGLException.getMessage(), 6);
+/*     */     }
+/*     */     
+/*     */ 
+/*     */ 
+/* 176 */     if (bool) {
+/* 177 */       importantMessage("OpenAL did not initialize properly!");
+/*     */     } else {
+/* 179 */       message("OpenAL initialized.");
+/*     */     }
+/*     */     
+/* 182 */     this.listenerPositionAL = BufferUtils.createFloatBuffer(3).put(new float[] { this.listener.position.x, this.listener.position.y, this.listener.position.z });
+/*     */     
+/*     */ 
+/*     */ 
+/* 186 */     this.listenerOrientation = BufferUtils.createFloatBuffer(6).put(new float[] { this.listener.lookAt.x, this.listener.lookAt.y, this.listener.lookAt.z, this.listener.up.x, this.listener.up.y, this.listener.up.z });
+/*     */     
+/*     */ 
+/*     */ 
+/* 190 */     this.listenerVelocity = BufferUtils.createFloatBuffer(3).put(new float[] { 0.0F, 0.0F, 0.0F });
+/*     */     
+/*     */ 
+/*     */ 
+/* 194 */     this.listenerPositionAL.flip();
+/* 195 */     this.listenerOrientation.flip();
+/* 196 */     this.listenerVelocity.flip();
+/*     */     
+/*     */ 
+/* 199 */     AL10.alListener(4100, this.listenerPositionAL);
+/* 200 */     bool = (checkALError()) || (bool);
+/* 201 */     AL10.alListener(4111, this.listenerOrientation);
+/* 202 */     bool = (checkALError()) || (bool);
+/* 203 */     AL10.alListener(4102, this.listenerVelocity);
+/* 204 */     bool = (checkALError()) || (bool);
+/*     */     
+/*     */ 
+/* 207 */     if (bool)
+/*     */     {
+/* 209 */       importantMessage("OpenAL did not initialize properly!");
+/* 210 */       throw new SoundSystemException("Problem encountered while loading OpenAL or creating the listener.  Probably cause:  OpenAL not supported", 6);
+/*     */     }
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 217 */     super.init();
+/*     */     
+/*     */ 
+/* 220 */     ChannelLWJGLOpenAL localChannelLWJGLOpenAL = (ChannelLWJGLOpenAL)this.normalChannels.get(1);
+/*     */     
+/*     */     try
+/*     */     {
+/* 224 */       AL10.alSourcef(localChannelLWJGLOpenAL.ALSource.get(0), 4099, 1.0F);
+/*     */       
+/* 226 */       if (checkALError())
+/*     */       {
+/* 228 */         alPitchSupported(true, false);
+/* 229 */         throw new SoundSystemException("OpenAL: AL_PITCH not supported.", 13);
+/*     */       }
+/*     */       
+/*     */ 
+/*     */ 
+/* 234 */       alPitchSupported(true, true);
+/*     */ 
+/*     */     }
+/*     */     catch (Exception localException)
+/*     */     {
+/* 239 */       alPitchSupported(true, false);
+/* 240 */       throw new SoundSystemException("OpenAL: AL_PITCH not supported.", 13);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static boolean libraryCompatible()
+/*     */   {
+/* 251 */     if (AL.isCreated()) {
+/* 252 */       return true;
+/*     */     }
+/*     */     try
+/*     */     {
+/* 256 */       AL.create();
+/*     */     }
+/*     */     catch (Exception localException1)
+/*     */     {
+/* 260 */       return false;
+/*     */     }
+/*     */     
+/*     */     try
+/*     */     {
+/* 265 */       AL.destroy();
+/*     */     }
+/*     */     catch (Exception localException2) {}
+/*     */     
+/*     */ 
+/* 270 */     return true;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   protected Channel createChannel(int paramInt)
+/*     */   {
+/* 285 */     IntBuffer localIntBuffer = BufferUtils.createIntBuffer(1);
+/*     */     try
+/*     */     {
+/* 288 */       AL10.alGenSources(localIntBuffer);
+/*     */     }
+/*     */     catch (Exception localException)
+/*     */     {
+/* 292 */       AL10.alGetError();
+/* 293 */       return null;
+/*     */     }
+/*     */     
+/* 296 */     if (AL10.alGetError() != 0) {
+/* 297 */       return null;
+/*     */     }
+/* 299 */     ChannelLWJGLOpenAL localChannelLWJGLOpenAL = new ChannelLWJGLOpenAL(paramInt, localIntBuffer);
+/* 300 */     return localChannelLWJGLOpenAL;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void cleanup()
+/*     */   {
+/* 310 */     super.cleanup();
+/*     */     
+/* 312 */     Set localSet = this.bufferMap.keySet();
+/* 313 */     Iterator localIterator = localSet.iterator();
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/* 318 */     while (localIterator.hasNext())
+/*     */     {
+/* 320 */       String str = (String)localIterator.next();
+/* 321 */       IntBuffer localIntBuffer = (IntBuffer)this.ALBufferMap.get(str);
+/* 322 */       if (localIntBuffer != null)
+/*     */       {
+/* 324 */         AL10.alDeleteBuffers(localIntBuffer);
+/* 325 */         checkALError();
+/* 326 */         localIntBuffer.clear();
+/*     */       }
+/*     */     }
+/*     */     
+/* 330 */     this.bufferMap.clear();
+/* 331 */     AL.destroy();
+/*     */     
+/* 333 */     this.bufferMap = null;
+/* 334 */     this.listenerPositionAL = null;
+/* 335 */     this.listenerOrientation = null;
+/* 336 */     this.listenerVelocity = null;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public boolean loadSound(FilenameURL paramFilenameURL)
+/*     */   {
+/* 348 */     if (this.bufferMap == null)
+/*     */     {
+/* 350 */       this.bufferMap = new HashMap();
+/* 351 */       importantMessage("Buffer Map was null in method 'loadSound'");
+/*     */     }
+/*     */     
+/* 354 */     if (this.ALBufferMap == null)
+/*     */     {
+/* 356 */       this.ALBufferMap = new HashMap();
+/* 357 */       importantMessage("Open AL Buffer Map was null in method'loadSound'");
+/*     */     }
+/*     */     
+/*     */ 
+/*     */ 
+/* 362 */     if (errorCheck(paramFilenameURL == null, "Filename/URL not specified in method 'loadSound'"))
+/*     */     {
+/* 364 */       return false;
+/*     */     }
+/*     */     
+/* 367 */     if (this.bufferMap.get(paramFilenameURL.getFilename()) != null) {
+/* 368 */       return true;
+/*     */     }
+/* 370 */     ICodec localICodec = SoundSystemConfig.getCodec(paramFilenameURL.getFilename());
+/* 371 */     if (errorCheck(localICodec == null, "No codec found for file '" + paramFilenameURL.getFilename() + "' in method 'loadSound'"))
+/*     */     {
+/*     */ 
+/* 374 */       return false;
+/*     */     }
+/* 376 */     localICodec.initialize(paramFilenameURL.getURL());
+/* 377 */     SoundBuffer localSoundBuffer = localICodec.readAll();
+/* 378 */     localICodec.cleanup();
+/* 379 */     localICodec = null;
+/* 380 */     if (errorCheck(localSoundBuffer == null, "Sound buffer null in method 'loadSound'"))
+/*     */     {
+/* 382 */       return false;
+/*     */     }
+/* 384 */     this.bufferMap.put(paramFilenameURL.getFilename(), localSoundBuffer);
+/*     */     
+/* 386 */     AudioFormat localAudioFormat = localSoundBuffer.audioFormat;
+/* 387 */     int i = 0;
+/* 388 */     if (localAudioFormat.getChannels() == 1)
+/*     */     {
+/* 390 */       if (localAudioFormat.getSampleSizeInBits() == 8)
+/*     */       {
+/* 392 */         i = 4352;
+/*     */       }
+/* 394 */       else if (localAudioFormat.getSampleSizeInBits() == 16)
+/*     */       {
+/* 396 */         i = 4353;
+/*     */       }
+/*     */       else
+/*     */       {
+/* 400 */         errorMessage("Illegal sample size in method 'loadSound'");
+/* 401 */         return false;
+/*     */       }
+/*     */     }
+/* 404 */     else if (localAudioFormat.getChannels() == 2)
+/*     */     {
+/* 406 */       if (localAudioFormat.getSampleSizeInBits() == 8)
+/*     */       {
+/* 408 */         i = 4354;
+/*     */       }
+/* 410 */       else if (localAudioFormat.getSampleSizeInBits() == 16)
+/*     */       {
+/* 412 */         i = 4355;
+/*     */       }
+/*     */       else
+/*     */       {
+/* 416 */         errorMessage("Illegal sample size in method 'loadSound'");
+/* 417 */         return false;
+/*     */       }
+/*     */     }
+/*     */     else
+/*     */     {
+/* 422 */       errorMessage("File neither mono nor stereo in method 'loadSound'");
+/*     */       
+/* 424 */       return false;
+/*     */     }
+/*     */     
+/* 427 */     IntBuffer localIntBuffer = BufferUtils.createIntBuffer(1);
+/* 428 */     AL10.alGenBuffers(localIntBuffer);
+/* 429 */     if (errorCheck(AL10.alGetError() != 0, "alGenBuffers error when loading " + paramFilenameURL.getFilename()))
+/*     */     {
+/*     */ 
+/* 432 */       return false;
+/*     */     }
+/* 434 */     ByteBuffer localByteBuffer = BufferUtils.createByteBuffer(localSoundBuffer.audioData.length);
+/* 435 */     localByteBuffer.clear();
+/* 436 */     localByteBuffer.put(localSoundBuffer.audioData);
+/* 437 */     localByteBuffer.flip();
+/*     */     
+/*     */ 
+/* 440 */     AL10.alBufferData(localIntBuffer.get(0), i, localByteBuffer, (int)localAudioFormat.getSampleRate());
+/*     */     
+/*     */ 
+/* 443 */     if (errorCheck(AL10.alGetError() != 0, "alBufferData error when loading " + paramFilenameURL.getFilename()))
+/*     */     {
+/*     */ 
+/*     */ 
+/* 447 */       if (errorCheck(localIntBuffer == null, "Sound buffer was not created for " + paramFilenameURL.getFilename()))
+/*     */       {
+/*     */ 
+/* 450 */         return false; }
+/*     */     }
+/* 452 */     this.ALBufferMap.put(paramFilenameURL.getFilename(), localIntBuffer);
+/*     */     
+/* 454 */     return true;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void unloadSound(String paramString)
+/*     */   {
+/* 467 */     this.ALBufferMap.remove(paramString);
+/* 468 */     super.unloadSound(paramString);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void setMasterVolume(float paramFloat)
+/*     */   {
+/* 478 */     super.setMasterVolume(paramFloat);
+/*     */     
+/* 480 */     AL10.alListenerf(4106, paramFloat);
+/* 481 */     checkALError();
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void newSource(boolean paramBoolean1, boolean paramBoolean2, boolean paramBoolean3, String paramString, FilenameURL paramFilenameURL, float paramFloat1, float paramFloat2, float paramFloat3, int paramInt, float paramFloat4)
+/*     */   {
+/* 502 */     IntBuffer localIntBuffer = null;
+/* 503 */     if (!paramBoolean2)
+/*     */     {
+/*     */ 
+/* 506 */       localIntBuffer = (IntBuffer)this.ALBufferMap.get(paramFilenameURL.getFilename());
+/*     */       
+/*     */ 
+/* 509 */       if (localIntBuffer == null)
+/*     */       {
+/* 511 */         if (!loadSound(paramFilenameURL))
+/*     */         {
+/* 513 */           errorMessage("Source '" + paramString + "' was not created " + "because an error occurred while loading " + paramFilenameURL.getFilename());
+/*     */           
+/*     */ 
+/* 516 */           return;
+/*     */         }
+/*     */       }
+/*     */       
+/*     */ 
+/* 521 */       localIntBuffer = (IntBuffer)this.ALBufferMap.get(paramFilenameURL.getFilename());
+/*     */       
+/* 523 */       if (localIntBuffer == null)
+/*     */       {
+/* 525 */         errorMessage("Source '" + paramString + "' was not created " + "because a sound buffer was not found for " + paramFilenameURL.getFilename());
+/*     */         
+/*     */ 
+/* 528 */         return;
+/*     */       }
+/*     */     }
+/* 531 */     SoundBuffer localSoundBuffer = null;
+/*     */     
+/* 533 */     if (!paramBoolean2)
+/*     */     {
+/*     */ 
+/* 536 */       localSoundBuffer = (SoundBuffer)this.bufferMap.get(paramFilenameURL.getFilename());
+/*     */       
+/* 538 */       if (localSoundBuffer == null)
+/*     */       {
+/* 540 */         if (!loadSound(paramFilenameURL))
+/*     */         {
+/* 542 */           errorMessage("Source '" + paramString + "' was not created " + "because an error occurred while loading " + paramFilenameURL.getFilename());
+/*     */           
+/*     */ 
+/* 545 */           return;
+/*     */         }
+/*     */       }
+/*     */       
+/* 549 */       localSoundBuffer = (SoundBuffer)this.bufferMap.get(paramFilenameURL.getFilename());
+/*     */       
+/* 551 */       if (localSoundBuffer == null)
+/*     */       {
+/* 553 */         errorMessage("Source '" + paramString + "' was not created " + "because audio data was not found for " + paramFilenameURL.getFilename());
+/*     */         
+/*     */ 
+/* 556 */         return;
+/*     */       }
+/*     */     }
+/*     */     
+/* 560 */     this.sourceMap.put(paramString, new SourceLWJGLOpenAL(this.listenerPositionAL, localIntBuffer, paramBoolean1, paramBoolean2, paramBoolean3, paramString, paramFilenameURL, localSoundBuffer, paramFloat1, paramFloat2, paramFloat3, paramInt, paramFloat4, false));
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void rawDataStream(AudioFormat paramAudioFormat, boolean paramBoolean, String paramString, float paramFloat1, float paramFloat2, float paramFloat3, int paramInt, float paramFloat4)
+/*     */   {
+/* 584 */     this.sourceMap.put(paramString, new SourceLWJGLOpenAL(this.listenerPositionAL, paramAudioFormat, paramBoolean, paramString, paramFloat1, paramFloat2, paramFloat3, paramInt, paramFloat4));
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void quickPlay(boolean paramBoolean1, boolean paramBoolean2, boolean paramBoolean3, String paramString, FilenameURL paramFilenameURL, float paramFloat1, float paramFloat2, float paramFloat3, int paramInt, float paramFloat4, boolean paramBoolean4)
+/*     */   {
+/* 610 */     IntBuffer localIntBuffer = null;
+/* 611 */     if (!paramBoolean2)
+/*     */     {
+/*     */ 
+/* 614 */       localIntBuffer = (IntBuffer)this.ALBufferMap.get(paramFilenameURL.getFilename());
+/*     */       
+/* 616 */       if (localIntBuffer == null) {
+/* 617 */         loadSound(paramFilenameURL);
+/*     */       }
+/* 619 */       localIntBuffer = (IntBuffer)this.ALBufferMap.get(paramFilenameURL.getFilename());
+/*     */       
+/* 621 */       if (localIntBuffer == null)
+/*     */       {
+/* 623 */         errorMessage("Sound buffer was not created for " + paramFilenameURL.getFilename());
+/*     */         
+/* 625 */         return;
+/*     */       }
+/*     */     }
+/*     */     
+/* 629 */     SoundBuffer localSoundBuffer = null;
+/*     */     
+/* 631 */     if (!paramBoolean2)
+/*     */     {
+/*     */ 
+/* 634 */       localSoundBuffer = (SoundBuffer)this.bufferMap.get(paramFilenameURL.getFilename());
+/*     */       
+/* 636 */       if (localSoundBuffer == null)
+/*     */       {
+/* 638 */         if (!loadSound(paramFilenameURL))
+/*     */         {
+/* 640 */           errorMessage("Source '" + paramString + "' was not created " + "because an error occurred while loading " + paramFilenameURL.getFilename());
+/*     */           
+/*     */ 
+/* 643 */           return;
+/*     */         }
+/*     */       }
+/*     */       
+/* 647 */       localSoundBuffer = (SoundBuffer)this.bufferMap.get(paramFilenameURL.getFilename());
+/*     */       
+/* 649 */       if (localSoundBuffer == null)
+/*     */       {
+/* 651 */         errorMessage("Source '" + paramString + "' was not created " + "because audio data was not found for " + paramFilenameURL.getFilename());
+/*     */         
+/*     */ 
+/* 654 */         return;
+/*     */       }
+/*     */     }
+/* 657 */     SourceLWJGLOpenAL localSourceLWJGLOpenAL = new SourceLWJGLOpenAL(this.listenerPositionAL, localIntBuffer, paramBoolean1, paramBoolean2, paramBoolean3, paramString, paramFilenameURL, localSoundBuffer, paramFloat1, paramFloat2, paramFloat3, paramInt, paramFloat4, false);
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 665 */     this.sourceMap.put(paramString, localSourceLWJGLOpenAL);
+/* 666 */     play(localSourceLWJGLOpenAL);
+/* 667 */     if (paramBoolean4) {
+/* 668 */       localSourceLWJGLOpenAL.setTemporary(true);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void copySources(HashMap paramHashMap)
+/*     */   {
+/* 678 */     if (paramHashMap == null)
+/* 679 */       return;
+/* 680 */     Set localSet = paramHashMap.keySet();
+/* 681 */     Iterator localIterator = localSet.iterator();
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/* 686 */     if (this.bufferMap == null)
+/*     */     {
+/* 688 */       this.bufferMap = new HashMap();
+/* 689 */       importantMessage("Buffer Map was null in method 'copySources'");
+/*     */     }
+/*     */     
+/* 692 */     if (this.ALBufferMap == null)
+/*     */     {
+/* 694 */       this.ALBufferMap = new HashMap();
+/* 695 */       importantMessage("Open AL Buffer Map was null in method'copySources'");
+/*     */     }
+/*     */     
+/*     */ 
+/*     */ 
+/* 700 */     this.sourceMap.clear();
+/*     */     
+/*     */ 
+/*     */ 
+/* 704 */     while (localIterator.hasNext())
+/*     */     {
+/* 706 */       String str = (String)localIterator.next();
+/* 707 */       Source localSource = (Source)paramHashMap.get(str);
+/* 708 */       if (localSource != null)
+/*     */       {
+/* 710 */         SoundBuffer localSoundBuffer = null;
+/* 711 */         if (!localSource.toStream)
+/*     */         {
+/* 713 */           loadSound(localSource.filenameURL);
+/* 714 */           localSoundBuffer = (SoundBuffer)this.bufferMap.get(localSource.filenameURL.getFilename());
+/*     */         }
+/* 716 */         if ((localSource.toStream) || (localSoundBuffer != null)) {
+/* 717 */           this.sourceMap.put(str, new SourceLWJGLOpenAL(this.listenerPositionAL, (IntBuffer)this.ALBufferMap.get(localSource.filenameURL.getFilename()), localSource, localSoundBuffer));
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void setListenerPosition(float paramFloat1, float paramFloat2, float paramFloat3)
+/*     */   {
+/* 735 */     super.setListenerPosition(paramFloat1, paramFloat2, paramFloat3);
+/*     */     
+/* 737 */     this.listenerPositionAL.put(0, paramFloat1);
+/* 738 */     this.listenerPositionAL.put(1, paramFloat2);
+/* 739 */     this.listenerPositionAL.put(2, paramFloat3);
+/*     */     
+/*     */ 
+/* 742 */     AL10.alListener(4100, this.listenerPositionAL);
+/*     */     
+/* 744 */     checkALError();
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void setListenerAngle(float paramFloat)
+/*     */   {
+/* 755 */     super.setListenerAngle(paramFloat);
+/*     */     
+/* 757 */     this.listenerOrientation.put(0, this.listener.lookAt.x);
+/* 758 */     this.listenerOrientation.put(2, this.listener.lookAt.z);
+/*     */     
+/*     */ 
+/* 761 */     AL10.alListener(4111, this.listenerOrientation);
+/*     */     
+/* 763 */     checkALError();
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void setListenerOrientation(float paramFloat1, float paramFloat2, float paramFloat3, float paramFloat4, float paramFloat5, float paramFloat6)
+/*     */   {
+/* 779 */     super.setListenerOrientation(paramFloat1, paramFloat2, paramFloat3, paramFloat4, paramFloat5, paramFloat6);
+/* 780 */     this.listenerOrientation.put(0, paramFloat1);
+/* 781 */     this.listenerOrientation.put(1, paramFloat2);
+/* 782 */     this.listenerOrientation.put(2, paramFloat3);
+/* 783 */     this.listenerOrientation.put(3, paramFloat4);
+/* 784 */     this.listenerOrientation.put(4, paramFloat5);
+/* 785 */     this.listenerOrientation.put(5, paramFloat6);
+/* 786 */     AL10.alListener(4111, this.listenerOrientation);
+/* 787 */     checkALError();
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void setListenerData(ListenerData paramListenerData)
+/*     */   {
+/* 798 */     super.setListenerData(paramListenerData);
+/*     */     
+/* 800 */     this.listenerPositionAL.put(0, paramListenerData.position.x);
+/* 801 */     this.listenerPositionAL.put(1, paramListenerData.position.y);
+/* 802 */     this.listenerPositionAL.put(2, paramListenerData.position.z);
+/* 803 */     AL10.alListener(4100, this.listenerPositionAL);
+/*     */     
+/* 805 */     this.listenerOrientation.put(0, paramListenerData.lookAt.x);
+/* 806 */     this.listenerOrientation.put(1, paramListenerData.lookAt.y);
+/* 807 */     this.listenerOrientation.put(2, paramListenerData.lookAt.z);
+/* 808 */     this.listenerOrientation.put(3, paramListenerData.up.x);
+/* 809 */     this.listenerOrientation.put(4, paramListenerData.up.y);
+/* 810 */     this.listenerOrientation.put(5, paramListenerData.up.z);
+/* 811 */     AL10.alListener(4111, this.listenerOrientation);
+/*     */     
+/* 813 */     checkALError();
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   private boolean checkALError()
+/*     */   {
+/* 822 */     switch ()
+/*     */     {
+/*     */     case 0: 
+/* 825 */       return false;
+/*     */     case 40961: 
+/* 827 */       errorMessage("Invalid name parameter.");
+/* 828 */       return true;
+/*     */     case 40962: 
+/* 830 */       errorMessage("Invalid parameter.");
+/* 831 */       return true;
+/*     */     case 40963: 
+/* 833 */       errorMessage("Invalid enumerated parameter value.");
+/* 834 */       return true;
+/*     */     case 40964: 
+/* 836 */       errorMessage("Illegal call.");
+/* 837 */       return true;
+/*     */     case 40965: 
+/* 839 */       errorMessage("Unable to allocate memory.");
+/* 840 */       return true;
+/*     */     }
+/* 842 */     errorMessage("An unrecognized error occurred.");
+/* 843 */     return true;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static boolean alPitchSupported()
+/*     */   {
+/* 853 */     return alPitchSupported(false, false);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   private static synchronized boolean alPitchSupported(boolean paramBoolean1, boolean paramBoolean2)
+/*     */   {
+/* 864 */     if (paramBoolean1 == true)
+/* 865 */       alPitchSupported = paramBoolean2;
+/* 866 */     return alPitchSupported;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static String getTitle()
+/*     */   {
+/* 875 */     return "LWJGL OpenAL";
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static String getDescription()
+/*     */   {
+/* 884 */     return "The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org";
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public String getClassName()
+/*     */   {
+/* 895 */     return "LibraryLWJGLOpenAL";
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\paulscode\sound\libraries\LibraryLWJGLOpenAL.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

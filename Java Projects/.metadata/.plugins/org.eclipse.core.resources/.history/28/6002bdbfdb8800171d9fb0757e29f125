@@ -1,0 +1,102 @@
+/*    */ import java.io.DataInputStream;
+/*    */ import java.io.DataOutputStream;
+/*    */ import java.io.File;
+/*    */ import java.io.IOException;
+/*    */ import java.lang.ref.Reference;
+/*    */ import java.lang.ref.SoftReference;
+/*    */ import java.util.HashMap;
+/*    */ import java.util.Map;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class rj
+/*    */ {
+/* 37 */   private static final Map a = new HashMap();
+/*    */   
+/*    */ 
+/*    */ 
+/*    */   public static synchronized qj a(File paramFile, int paramInt1, int paramInt2)
+/*    */   {
+/* 43 */     File localFile1 = new File(paramFile, "region");
+/* 44 */     File localFile2 = new File(localFile1, "r." + (paramInt1 >> 5) + "." + (paramInt2 >> 5) + ".mcr");
+/*    */     
+/* 46 */     Reference localReference = (Reference)a.get(localFile2);
+/*    */     
+/* 48 */     if (localReference != null) {
+/* 49 */       localqj = (qj)localReference.get();
+/* 50 */       if (localqj != null) {
+/* 51 */         return localqj;
+/*    */       }
+/*    */     }
+/*    */     
+/* 55 */     if (!localFile1.exists()) {
+/* 56 */       localFile1.mkdirs();
+/*    */     }
+/*    */     
+/* 59 */     if (a.size() >= 256) {
+/* 60 */       a();
+/*    */     }
+/*    */     
+/* 63 */     qj localqj = new qj(localFile2);
+/* 64 */     a.put(localFile2, new SoftReference(localqj));
+/* 65 */     return localqj;
+/*    */   }
+/*    */   
+/*    */   public static synchronized void a() {
+/* 69 */     for (Reference localReference : a.values()) {
+/*    */       try {
+/* 71 */         qj localqj = (qj)localReference.get();
+/* 72 */         if (localqj != null) {
+/* 73 */           localqj.b();
+/*    */         }
+/*    */       } catch (IOException localIOException) {
+/* 76 */         localIOException.printStackTrace();
+/*    */       }
+/*    */     }
+/* 79 */     a.clear();
+/*    */   }
+/*    */   
+/*    */   public static int b(File paramFile, int paramInt1, int paramInt2) {
+/* 83 */     qj localqj = a(paramFile, paramInt1, paramInt2);
+/* 84 */     return localqj.a();
+/*    */   }
+/*    */   
+/*    */   public static DataInputStream c(File paramFile, int paramInt1, int paramInt2) {
+/* 88 */     qj localqj = a(paramFile, paramInt1, paramInt2);
+/* 89 */     return localqj.a(paramInt1 & 0x1F, paramInt2 & 0x1F);
+/*    */   }
+/*    */   
+/*    */   public static DataOutputStream d(File paramFile, int paramInt1, int paramInt2) {
+/* 93 */     qj localqj = a(paramFile, paramInt1, paramInt2);
+/* 94 */     return localqj.b(paramInt1 & 0x1F, paramInt2 & 0x1F);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\rj.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

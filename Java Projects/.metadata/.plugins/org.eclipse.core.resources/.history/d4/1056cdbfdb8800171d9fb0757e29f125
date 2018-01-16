@@ -1,0 +1,60 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class bx
+/*    */   extends bg
+/*    */ {
+/*    */   public bx(fd paramfd)
+/*    */   {
+/* 13 */     super(paramfd);
+/* 14 */     this.O = "/mob/cow.png";
+/* 15 */     b(0.9F, 1.3F);
+/*    */   }
+/*    */   
+/*    */   public void b(nu paramnu) {
+/* 19 */     super.b(paramnu);
+/*    */   }
+/*    */   
+/*    */   public void a(nu paramnu) {
+/* 23 */     super.a(paramnu);
+/*    */   }
+/*    */   
+/*    */   protected String g() {
+/* 27 */     return "mob.cow";
+/*    */   }
+/*    */   
+/*    */   protected String j_() {
+/* 31 */     return "mob.cowhurt";
+/*    */   }
+/*    */   
+/*    */   protected String i() {
+/* 35 */     return "mob.cowhurt";
+/*    */   }
+/*    */   
+/*    */   protected float k() {
+/* 39 */     return 0.4F;
+/*    */   }
+/*    */   
+/*    */   protected int j() {
+/* 43 */     return gm.aD.bf;
+/*    */   }
+/*    */   
+/*    */   public boolean a(gs paramgs) {
+/* 47 */     iz localiz = paramgs.c.b();
+/* 48 */     if ((localiz != null) && (localiz.c == gm.au.bf)) {
+/* 49 */       paramgs.c.a(paramgs.c.c, new iz(gm.aE));
+/* 50 */       return true;
+/*    */     }
+/* 52 */     return false;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\bx.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

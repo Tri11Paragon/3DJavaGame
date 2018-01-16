@@ -1,0 +1,54 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class ct
+/*    */ {
+/*    */   public final String a;
+/*    */   public final float b;
+/*    */   public final float c;
+/*    */   
+/*    */   public ct(String paramString, float paramFloat1, float paramFloat2)
+/*    */   {
+/* 28 */     this.a = paramString;
+/* 29 */     this.b = paramFloat1;
+/* 30 */     this.c = paramFloat2;
+/*    */   }
+/*    */   
+/*    */   public float b() {
+/* 34 */     return this.b;
+/*    */   }
+/*    */   
+/*    */   public float c() {
+/* 38 */     return this.c;
+/*    */   }
+/*    */   
+/*    */   public String a() {
+/* 42 */     return "step." + this.a;
+/*    */   }
+/*    */   
+/*    */   public String d() {
+/* 46 */     return "step." + this.a;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ct.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

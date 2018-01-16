@@ -1,0 +1,62 @@
+/*    */ import java.io.IOException;
+/*    */ import java.io.Reader;
+/*    */ import java.io.StringReader;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public final class hx
+/*    */ {
+/*    */   public qe a(Reader paramReader)
+/*    */   {
+/* 35 */     lt locallt = new lt();
+/* 36 */     new an().a(paramReader, locallt);
+/* 37 */     return locallt.a();
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public qe a(String paramString)
+/*    */   {
+/*    */     qe localqe;
+/*    */     
+/*    */ 
+/*    */     try
+/*    */     {
+/* 50 */       localqe = a(new StringReader(paramString));
+/*    */     } catch (IOException localIOException) {
+/* 52 */       throw new RuntimeException("Coding failure in Argo:  StringWriter gave an IOException", localIOException);
+/*    */     }
+/* 54 */     return localqe;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\hx.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

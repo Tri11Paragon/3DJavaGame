@@ -1,0 +1,26 @@
+/*    */ public class lu extends ln
+/*    */ {
+/*    */   public lu(dx paramdx)
+/*    */   {
+/*  5 */     super(paramdx);
+/*  6 */     f();
+/*    */   }
+/*    */   
+/*    */   public boolean a() {
+/* 10 */     return false;
+/*    */   }
+/*    */   
+/*    */   public boolean b() {
+/* 14 */     return false;
+/*    */   }
+/*    */   
+/*    */   public boolean c() {
+/* 18 */     return false;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\lu.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

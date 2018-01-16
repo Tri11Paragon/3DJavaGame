@@ -1,0 +1,123 @@
+/*     */ import java.util.Random;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class xw
+/*     */   extends sn
+/*     */ {
+/*     */   protected int b;
+/*     */   protected float c;
+/*     */   protected float d;
+/*  13 */   protected int e = 0;
+/*  14 */   protected int f = 0;
+/*     */   protected float g;
+/*     */   protected float h;
+/*     */   protected float i;
+/*     */   protected float j;
+/*     */   
+/*     */   public xw(fd paramfd, double paramDouble1, double paramDouble2, double paramDouble3, double paramDouble4, double paramDouble5, double paramDouble6)
+/*     */   {
+/*  22 */     super(paramfd);
+/*  23 */     b(0.2F, 0.2F);
+/*  24 */     this.bf = (this.bh / 2.0F);
+/*  25 */     e(paramDouble1, paramDouble2, paramDouble3);
+/*  26 */     this.i = (this.j = this.k = 1.0F);
+/*     */     
+/*  28 */     this.aP = (paramDouble4 + (float)(Math.random() * 2.0D - 1.0D) * 0.4F);
+/*  29 */     this.aQ = (paramDouble5 + (float)(Math.random() * 2.0D - 1.0D) * 0.4F);
+/*  30 */     this.aR = (paramDouble6 + (float)(Math.random() * 2.0D - 1.0D) * 0.4F);
+/*  31 */     float f1 = (float)(Math.random() + Math.random() + 1.0D) * 0.15F;
+/*     */     
+/*  33 */     float f2 = in.a(this.aP * this.aP + this.aQ * this.aQ + this.aR * this.aR);
+/*  34 */     this.aP = (this.aP / f2 * f1 * 0.4000000059604645D);
+/*  35 */     this.aQ = (this.aQ / f2 * f1 * 0.4000000059604645D + 0.10000000149011612D);
+/*  36 */     this.aR = (this.aR / f2 * f1 * 0.4000000059604645D);
+/*     */     
+/*     */ 
+/*  39 */     this.c = (this.bs.nextFloat() * 3.0F);
+/*  40 */     this.d = (this.bs.nextFloat() * 3.0F);
+/*     */     
+/*  42 */     this.g = ((this.bs.nextFloat() * 0.5F + 0.5F) * 2.0F);
+/*     */     
+/*  44 */     this.f = ((int)(4.0F / (this.bs.nextFloat() * 0.9F + 0.1F)));
+/*  45 */     this.e = 0;
+/*     */   }
+/*     */   
+/*     */   public xw c(float paramFloat) {
+/*  49 */     this.aP *= paramFloat;
+/*  50 */     this.aQ = ((this.aQ - 0.10000000149011612D) * paramFloat + 0.10000000149011612D);
+/*  51 */     this.aR *= paramFloat;
+/*  52 */     return this;
+/*     */   }
+/*     */   
+/*     */   public xw d(float paramFloat) {
+/*  56 */     b(0.2F * paramFloat, 0.2F * paramFloat);
+/*  57 */     this.g *= paramFloat;
+/*  58 */     return this;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*  63 */   protected boolean n() { return false; }
+/*     */   
+/*     */   protected float k;
+/*     */   public static double l;
+/*     */   public static double m;
+/*     */   public static double n;
+/*     */   protected void b() {}
+/*     */   
+/*     */   public void w_() {
+/*  72 */     this.aJ = this.aM;
+/*  73 */     this.aK = this.aN;
+/*  74 */     this.aL = this.aO;
+/*     */     
+/*  76 */     if (this.e++ >= this.f) { K();
+/*     */     }
+/*  78 */     this.aQ -= 0.04D * this.h;
+/*  79 */     b(this.aP, this.aQ, this.aR);
+/*  80 */     this.aP *= 0.9800000190734863D;
+/*  81 */     this.aQ *= 0.9800000190734863D;
+/*  82 */     this.aR *= 0.9800000190734863D;
+/*     */     
+/*  84 */     if (this.aX) {
+/*  85 */       this.aP *= 0.699999988079071D;
+/*  86 */       this.aR *= 0.699999988079071D;
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(nw paramnw, float paramFloat1, float paramFloat2, float paramFloat3, float paramFloat4, float paramFloat5, float paramFloat6) {
+/*  91 */     float f1 = this.b % 16 / 16.0F;
+/*  92 */     float f2 = f1 + 0.0624375F;
+/*  93 */     float f3 = this.b / 16 / 16.0F;
+/*  94 */     float f4 = f3 + 0.0624375F;
+/*  95 */     float f5 = 0.1F * this.g;
+/*     */     
+/*  97 */     float f6 = (float)(this.aJ + (this.aM - this.aJ) * paramFloat1 - l);
+/*  98 */     float f7 = (float)(this.aK + (this.aN - this.aK) * paramFloat1 - m);
+/*  99 */     float f8 = (float)(this.aL + (this.aO - this.aL) * paramFloat1 - n);
+/*     */     
+/* 101 */     float f9 = a(paramFloat1);
+/* 102 */     paramnw.a(this.i * f9, this.j * f9, this.k * f9);
+/*     */     
+/* 104 */     paramnw.a(f6 - paramFloat2 * f5 - paramFloat5 * f5, f7 - paramFloat3 * f5, f8 - paramFloat4 * f5 - paramFloat6 * f5, f2, f4);
+/* 105 */     paramnw.a(f6 - paramFloat2 * f5 + paramFloat5 * f5, f7 + paramFloat3 * f5, f8 - paramFloat4 * f5 + paramFloat6 * f5, f2, f3);
+/* 106 */     paramnw.a(f6 + paramFloat2 * f5 + paramFloat5 * f5, f7 + paramFloat3 * f5, f8 + paramFloat4 * f5 + paramFloat6 * f5, f1, f3);
+/* 107 */     paramnw.a(f6 + paramFloat2 * f5 - paramFloat5 * f5, f7 - paramFloat3 * f5, f8 + paramFloat4 * f5 - paramFloat6 * f5, f1, f4);
+/*     */   }
+/*     */   
+/*     */   public int c_() {
+/* 111 */     return 0;
+/*     */   }
+/*     */   
+/*     */   public void b(nu paramnu) {}
+/*     */   
+/*     */   public void a(nu paramnu) {}
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\xw.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

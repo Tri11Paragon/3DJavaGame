@@ -1,0 +1,92 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class js
+/*    */   extends ow
+/*    */   implements lw
+/*    */ {
+/* 10 */   private iz[] a = new iz[36];
+/*    */   
+/*    */   public int a() {
+/* 13 */     return 27;
+/*    */   }
+/*    */   
+/*    */   public iz f_(int paramInt) {
+/* 17 */     return this.a[paramInt];
+/*    */   }
+/*    */   
+/*    */   public iz a(int paramInt1, int paramInt2) {
+/* 21 */     if (this.a[paramInt1] != null) {
+/* 22 */       if (this.a[paramInt1].a <= paramInt2) {
+/* 23 */         localiz = this.a[paramInt1];
+/* 24 */         this.a[paramInt1] = null;
+/* 25 */         y_();
+/* 26 */         return localiz;
+/*    */       }
+/* 28 */       iz localiz = this.a[paramInt1].a(paramInt2);
+/* 29 */       if (this.a[paramInt1].a == 0) this.a[paramInt1] = null;
+/* 30 */       y_();
+/* 31 */       return localiz;
+/*    */     }
+/*    */     
+/* 34 */     return null;
+/*    */   }
+/*    */   
+/*    */   public void a(int paramInt, iz paramiz) {
+/* 38 */     this.a[paramInt] = paramiz;
+/* 39 */     if ((paramiz != null) && (paramiz.a > d())) paramiz.a = d();
+/* 40 */     y_();
+/*    */   }
+/*    */   
+/*    */   public String c() {
+/* 44 */     return "Chest";
+/*    */   }
+/*    */   
+/*    */   public void a(nu paramnu)
+/*    */   {
+/* 49 */     super.a(paramnu);
+/* 50 */     sp localsp = paramnu.l("Items");
+/* 51 */     this.a = new iz[a()];
+/* 52 */     for (int i = 0; i < localsp.c(); i++) {
+/* 53 */       nu localnu = (nu)localsp.a(i);
+/* 54 */       int j = localnu.c("Slot") & 0xFF;
+/* 55 */       if ((j >= 0) && (j < this.a.length)) this.a[j] = new iz(localnu);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public void b(nu paramnu) {
+/* 60 */     super.b(paramnu);
+/* 61 */     sp localsp = new sp();
+/*    */     
+/* 63 */     for (int i = 0; i < this.a.length; i++) {
+/* 64 */       if (this.a[i] != null) {
+/* 65 */         nu localnu = new nu();
+/* 66 */         localnu.a("Slot", (byte)i);
+/* 67 */         this.a[i].a(localnu);
+/* 68 */         localsp.a(localnu);
+/*    */       }
+/*    */     }
+/* 71 */     paramnu.a("Items", localsp);
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */   public int d()
+/*    */   {
+/* 78 */     return 64;
+/*    */   }
+/*    */   
+/*    */   public boolean a_(gs paramgs) {
+/* 82 */     if (this.d.b(this.e, this.f, this.g) != this) return false;
+/* 83 */     if (paramgs.g(this.e + 0.5D, this.f + 0.5D, this.g + 0.5D) > 64.0D) return false;
+/* 84 */     return true;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\js.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

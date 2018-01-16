@@ -1,0 +1,113 @@
+/*     */ import java.util.ArrayList;
+/*     */ import java.util.Collections;
+/*     */ import java.util.List;
+/*     */ import net.minecraft.client.Minecraft;
+/*     */ import org.lwjgl.opengl.GL11;
+/*     */ 
+/*     */ 
+/*     */ public class _tmi_MgCanvas
+/*     */ {
+/*  10 */   public int windowX = 0;
+/*  11 */   public int windowY = 0;
+/*     */   public da window;
+/*     */   private bb drawItems;
+/*  14 */   public List<_tmi_MgWidget> widgets = new ArrayList();
+/*     */   
+/*     */   public static final int WHITE = -1;
+/*     */   
+/*     */   public static final int SHADE = -301989888;
+/*     */   public static final int RED_SHADE = -297791480;
+/*     */   public static final int LIGHT_SHADE = -296397483;
+/*  21 */   private boolean flatMode = false;
+/*     */   
+/*     */   public _tmi_MgCanvas(da paramda, bb parambb) {
+/*  24 */     this.window = paramda;
+/*  25 */     this.drawItems = parambb;
+/*     */   }
+/*     */   
+/*     */   public void drawRect(int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5) {
+/*  29 */     flatMode(true);
+/*  30 */     this.window.a(paramInt1 - this.windowX, paramInt2 - this.windowY, paramInt1 + paramInt3 - this.windowX, paramInt2 + paramInt4 - this.windowY, paramInt5, paramInt5);
+/*     */   }
+/*     */   
+/*     */   public void drawText(int paramInt1, int paramInt2, String paramString, int paramInt3) {
+/*  34 */     flatMode(true);
+/*  35 */     this.window.g.a(paramString, paramInt1 - this.windowX, paramInt2 - this.windowY, paramInt3);
+/*     */   }
+/*     */   
+/*     */   public void drawTextCentered(int paramInt1, int paramInt2, int paramInt3, int paramInt4, String paramString, int paramInt5) {
+/*  39 */     drawText(paramInt1 + (paramInt3 - getTextWidth(paramString)) / 2, paramInt2 + (paramInt4 - 8) / 2, paramString, paramInt5);
+/*     */   }
+/*     */   
+/*     */   public void drawText(int paramInt1, int paramInt2, String paramString) {
+/*  43 */     drawText(paramInt1, paramInt2, paramString, -1);
+/*     */   }
+/*     */   
+/*     */   public void drawTip(int paramInt1, int paramInt2, String paramString) {
+/*  47 */     int i = 3;
+/*  48 */     int j = paramInt1 + 12;
+/*  49 */     int k = paramInt2 - 15;
+/*  50 */     if (k < 0) {
+/*  51 */       k = 0;
+/*     */     }
+/*  53 */     int m = getTextWidth(paramString) + i * 2;
+/*  54 */     if (j + m > this.window.c) {
+/*  55 */       j -= j + m - this.window.c;
+/*     */     }
+/*  57 */     drawRect(j, k, m, 8 + i * 2, -301989888);
+/*  58 */     drawText(j + i, k + i, paramString, -1);
+/*     */   }
+/*     */   
+/*     */   public void drawItem(int paramInt1, int paramInt2, iz paramiz) {
+/*  62 */     hardSetFlatMode(false);
+/*     */     try {
+/*  64 */       this.drawItems.a(this.window.g, this.window.b.p, paramiz, paramInt1 - this.windowX, paramInt2 - this.windowY);
+/*     */     }
+/*     */     catch (RuntimeException localRuntimeException) {
+/*  67 */       this.drawItems.a(this.window.g, this.window.b.p, new iz(51, 1, 0), paramInt1 - this.windowX, paramInt2 - this.windowY);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void sortByZOrder() {
+/*  72 */     Collections.sort(this.widgets, _tmi_MgWidget.getComparator());
+/*     */   }
+/*     */   
+/*     */   public void drawWidgets(int paramInt1, int paramInt2) {
+/*  76 */     sortByZOrder();
+/*  77 */     for (_tmi_MgWidget local_tmi_MgWidget : this.widgets) {
+/*  78 */       local_tmi_MgWidget.draw(this, paramInt1, paramInt2);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public int getTextWidth(String paramString) {
+/*  83 */     return this.window.g.a(paramString);
+/*     */   }
+/*     */   
+/*     */   public void flatMode(boolean paramBoolean) {
+/*  87 */     if ((paramBoolean) && (!this.flatMode)) {
+/*  88 */       GL11.glDisable(2896);
+/*  89 */       GL11.glDisable(2929);
+/*  90 */     } else if ((!paramBoolean) && (this.flatMode)) {
+/*  91 */       GL11.glEnable(2896);
+/*  92 */       GL11.glEnable(2929);
+/*     */     }
+/*  94 */     this.flatMode = paramBoolean;
+/*     */   }
+/*     */   
+/*     */   public void hardSetFlatMode(boolean paramBoolean) {
+/*  98 */     if (paramBoolean) {
+/*  99 */       GL11.glDisable(2896);
+/* 100 */       GL11.glDisable(2929);
+/*     */     } else {
+/* 102 */       GL11.glEnable(2896);
+/* 103 */       GL11.glEnable(2929);
+/*     */     }
+/* 105 */     this.flatMode = paramBoolean;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\_tmi_MgCanvas.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

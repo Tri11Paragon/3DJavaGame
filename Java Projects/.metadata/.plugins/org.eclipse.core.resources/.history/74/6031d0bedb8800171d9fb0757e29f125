@@ -1,0 +1,80 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class mq
+/*    */   implements lw
+/*    */ {
+/*    */   private iz[] a;
+/*    */   private int b;
+/*    */   private dw c;
+/*    */   
+/*    */   public mq(dw paramdw, int paramInt1, int paramInt2)
+/*    */   {
+/* 13 */     int i = paramInt1 * paramInt2;
+/* 14 */     this.a = new iz[i];
+/* 15 */     this.c = paramdw;
+/* 16 */     this.b = paramInt1;
+/*    */   }
+/*    */   
+/*    */   public int a() {
+/* 20 */     return this.a.length;
+/*    */   }
+/*    */   
+/*    */   public iz f_(int paramInt) {
+/* 24 */     if (paramInt >= a()) {
+/* 25 */       return null;
+/*    */     }
+/* 27 */     return this.a[paramInt];
+/*    */   }
+/*    */   
+/*    */   public iz b(int paramInt1, int paramInt2) {
+/* 31 */     if ((paramInt1 < 0) || (paramInt1 >= this.b)) {
+/* 32 */       return null;
+/*    */     }
+/* 34 */     int i = paramInt1 + paramInt2 * this.b;
+/* 35 */     return f_(i);
+/*    */   }
+/*    */   
+/*    */   public String c() {
+/* 39 */     return "Crafting";
+/*    */   }
+/*    */   
+/*    */   public iz a(int paramInt1, int paramInt2) {
+/* 43 */     if (this.a[paramInt1] != null) {
+/* 44 */       if (this.a[paramInt1].a <= paramInt2) {
+/* 45 */         localiz = this.a[paramInt1];
+/* 46 */         this.a[paramInt1] = null;
+/* 47 */         this.c.a(this);
+/* 48 */         return localiz;
+/*    */       }
+/* 50 */       iz localiz = this.a[paramInt1].a(paramInt2);
+/* 51 */       if (this.a[paramInt1].a == 0) this.a[paramInt1] = null;
+/* 52 */       this.c.a(this);
+/* 53 */       return localiz;
+/*    */     }
+/*    */     
+/* 56 */     return null;
+/*    */   }
+/*    */   
+/*    */   public void a(int paramInt, iz paramiz) {
+/* 60 */     this.a[paramInt] = paramiz;
+/* 61 */     this.c.a(this);
+/*    */   }
+/*    */   
+/*    */   public int d() {
+/* 65 */     return 64;
+/*    */   }
+/*    */   
+/*    */   public void y_() {}
+/*    */   
+/*    */   public boolean a_(gs paramgs)
+/*    */   {
+/* 72 */     return true;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\mq.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,48 @@
+/*    */ import java.awt.BorderLayout;
+/*    */ import java.awt.Canvas;
+/*    */ import java.awt.Component;
+/*    */ import net.minecraft.client.Minecraft;
+/*    */ import net.minecraft.client.MinecraftApplet;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class q
+/*    */   extends Minecraft
+/*    */ {
+/* 34 */   public q(MinecraftApplet paramMinecraftApplet1, Component paramComponent, Canvas paramCanvas, MinecraftApplet paramMinecraftApplet2, int paramInt1, int paramInt2, boolean paramBoolean) { super(paramComponent, paramCanvas, paramMinecraftApplet2, paramInt1, paramInt2, paramBoolean); }
+/*    */   
+/*    */   public void a(mh parammh) {
+/* 37 */     this.a.removeAll();
+/* 38 */     this.a.setLayout(new BorderLayout());
+/* 39 */     this.a.add(new cb(parammh), "Center");
+/* 40 */     this.a.validate();
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\q.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

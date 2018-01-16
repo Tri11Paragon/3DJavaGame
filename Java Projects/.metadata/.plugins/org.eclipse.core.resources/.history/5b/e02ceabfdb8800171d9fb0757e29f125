@@ -1,0 +1,91 @@
+/*    */ import java.util.List;
+/*    */ import net.minecraft.client.Minecraft;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class oz
+/*    */   extends da
+/*    */ {
+/* 12 */   private int a = 0;
+/* 13 */   private int i = 0;
+/*    */   
+/*    */   public void b() {
+/* 16 */     this.a = 0;
+/* 17 */     this.e.clear();
+/* 18 */     int j = -16;
+/* 19 */     this.e.add(new ke(1, this.c / 2 - 100, this.d / 4 + 120 + j, "Save and quit to title"));
+/* 20 */     if (this.b.l()) {
+/* 21 */       ((ke)this.e.get(0)).e = "Disconnect";
+/*    */     }
+/*    */     
+/*    */ 
+/* 25 */     this.e.add(new ke(4, this.c / 2 - 100, this.d / 4 + 24 + j, "Back to game"));
+/* 26 */     this.e.add(new ke(0, this.c / 2 - 100, this.d / 4 + 96 + j, "Options..."));
+/*    */     
+/* 28 */     this.e.add(new ke(5, this.c / 2 - 100, this.d / 4 + 48 + j, 98, 20, do.a("gui.achievements")));
+/* 29 */     this.e.add(new ke(6, this.c / 2 + 2, this.d / 4 + 48 + j, 98, 20, do.a("gui.stats")));
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   protected void a(ke paramke)
+/*    */   {
+/* 38 */     if (paramke.f == 0) {
+/* 39 */       this.b.a(new co(this, this.b.z));
+/*    */     }
+/* 41 */     if (paramke.f == 1) {
+/* 42 */       this.b.I.a(jl.j, 1);
+/* 43 */       if (this.b.l()) {
+/* 44 */         this.b.f.q();
+/*    */       }
+/*    */       
+/* 47 */       this.b.a(null);
+/* 48 */       this.b.a(new fu());
+/*    */     }
+/* 50 */     if (paramke.f == 4) {
+/* 51 */       this.b.a(null);
+/* 52 */       this.b.g();
+/*    */     }
+/*    */     
+/* 55 */     if (paramke.f == 5) {
+/* 56 */       this.b.a(new xm(this.b.I));
+/*    */     }
+/* 58 */     if (paramke.f == 6) {
+/* 59 */       this.b.a(new dv(this, this.b.I));
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public void a()
+/*    */   {
+/* 65 */     super.a();
+/* 66 */     this.i += 1;
+/*    */   }
+/*    */   
+/*    */   public void a(int paramInt1, int paramInt2, float paramFloat) {
+/* 70 */     i();
+/*    */     
+/* 72 */     int j = !this.b.f.a(this.a++) ? 1 : 0;
+/* 73 */     if ((j != 0) || (this.i < 20)) {
+/* 74 */       float f = (this.i % 10 + paramFloat) / 10.0F;
+/* 75 */       f = in.a(f * 3.1415927F * 2.0F) * 0.2F + 0.8F;
+/* 76 */       int k = (int)(255.0F * f);
+/*    */       
+/* 78 */       b(this.g, "Saving level..", 8, this.d - 16, k << 16 | k << 8 | k);
+/*    */     }
+/*    */     
+/* 81 */     a(this.g, "Game menu", this.c / 2, 40, 16777215);
+/*    */     
+/* 83 */     super.a(paramInt1, paramInt2, paramFloat);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\oz.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

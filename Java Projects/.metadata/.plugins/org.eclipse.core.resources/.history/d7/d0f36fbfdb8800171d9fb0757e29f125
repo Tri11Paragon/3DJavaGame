@@ -1,0 +1,42 @@
+/*    */ import net.minecraft.client.Minecraft;
+/*    */ import org.lwjgl.opengl.GL11;
+/*    */ 
+/*    */ 
+/*    */ public class ov
+/*    */   extends id
+/*    */ {
+/*    */   private sk l;
+/*    */   
+/*    */   public ov(ix paramix, sk paramsk)
+/*    */   {
+/* 12 */     super(new bm(paramix, paramsk));
+/* 13 */     this.l = paramsk;
+/*    */   }
+/*    */   
+/*    */   protected void k() {
+/* 17 */     this.g.b("Furnace", 60, 6, 4210752);
+/* 18 */     this.g.b("Inventory", 8, this.i - 96 + 2, 4210752);
+/*    */   }
+/*    */   
+/*    */   protected void a(float paramFloat) {
+/* 22 */     int i = this.b.p.b("/gui/furnace.png");
+/* 23 */     GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+/* 24 */     this.b.p.b(i);
+/* 25 */     int j = (this.c - this.a) / 2;
+/* 26 */     int k = (this.d - this.i) / 2;
+/* 27 */     b(j, k, 0, 0, this.a, this.i);
+/* 28 */     if (this.l.b()) {
+/* 29 */       m = this.l.c(12);
+/* 30 */       b(j + 56, k + 36 + 12 - m, 176, 12 - m, 14, m + 2);
+/*    */     }
+/*    */     
+/* 33 */     int m = this.l.b(24);
+/* 34 */     b(j + 79, k + 34, 176, 14, m + 1, 16);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ov.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

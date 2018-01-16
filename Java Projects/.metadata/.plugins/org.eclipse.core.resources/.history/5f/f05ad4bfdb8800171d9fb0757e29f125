@@ -1,0 +1,23 @@
+/*    */ 
+/*    */ 
+/*    */ public class sy
+/*    */   extends xd
+/*    */ {
+/*    */   public sy(fd paramfd, double paramDouble1, double paramDouble2, double paramDouble3, double paramDouble4, double paramDouble5, double paramDouble6)
+/*    */   {
+/*  8 */     super(paramfd, paramDouble1, paramDouble2, paramDouble3);
+/*  9 */     this.h = 0.04F;
+/* 10 */     this.b += 1;
+/* 11 */     if ((paramDouble5 == 0.0D) && ((paramDouble4 != 0.0D) || (paramDouble6 != 0.0D))) {
+/* 12 */       this.aP = paramDouble4;
+/* 13 */       this.aQ = (paramDouble5 + 0.1D);
+/* 14 */       this.aR = paramDouble6;
+/*    */     }
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\sy.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

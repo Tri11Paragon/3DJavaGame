@@ -1,0 +1,256 @@
+/*     */ package com.jcraft.jorbis;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ class Mdct
+/*     */ {
+/*     */   int n;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   int log2n;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   float[] trig;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   int[] bitrev;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   float scale;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   void init(int paramInt)
+/*     */   {
+/*  40 */     this.bitrev = new int[paramInt / 4];
+/*  41 */     this.trig = new float[paramInt + paramInt / 4];
+/*     */     
+/*  43 */     this.log2n = ((int)Math.rint(Math.log(paramInt) / Math.log(2.0D)));
+/*  44 */     this.n = paramInt;
+/*     */     
+/*  46 */     int i = 0;
+/*  47 */     int j = 1;
+/*  48 */     int k = i + paramInt / 2;
+/*  49 */     int m = k + 1;
+/*  50 */     int i1 = k + paramInt / 2;
+/*  51 */     int i2 = i1 + 1;
+/*     */     
+/*  53 */     for (int i3 = 0; i3 < paramInt / 4; i3++) {
+/*  54 */       this.trig[(i + i3 * 2)] = ((float)Math.cos(3.141592653589793D / paramInt * (4 * i3)));
+/*  55 */       this.trig[(j + i3 * 2)] = ((float)-Math.sin(3.141592653589793D / paramInt * (4 * i3)));
+/*  56 */       this.trig[(k + i3 * 2)] = ((float)Math.cos(3.141592653589793D / (2 * paramInt) * (2 * i3 + 1)));
+/*  57 */       this.trig[(m + i3 * 2)] = ((float)Math.sin(3.141592653589793D / (2 * paramInt) * (2 * i3 + 1)));
+/*     */     }
+/*  59 */     for (i3 = 0; i3 < paramInt / 8; i3++) {
+/*  60 */       this.trig[(i1 + i3 * 2)] = ((float)Math.cos(3.141592653589793D / paramInt * (4 * i3 + 2)));
+/*  61 */       this.trig[(i2 + i3 * 2)] = ((float)-Math.sin(3.141592653589793D / paramInt * (4 * i3 + 2)));
+/*     */     }
+/*     */     
+/*     */ 
+/*  65 */     i3 = (1 << this.log2n - 1) - 1;
+/*  66 */     int i4 = 1 << this.log2n - 2;
+/*  67 */     for (int i5 = 0; i5 < paramInt / 8; i5++) {
+/*  68 */       int i6 = 0;
+/*  69 */       for (int i7 = 0; i4 >>> i7 != 0; i7++)
+/*  70 */         if ((i4 >>> i7 & i5) != 0)
+/*  71 */           i6 |= 1 << i7;
+/*  72 */       this.bitrev[(i5 * 2)] = ((i6 ^ 0xFFFFFFFF) & i3);
+/*     */       
+/*  74 */       this.bitrev[(i5 * 2 + 1)] = i6;
+/*     */     }
+/*     */     
+/*  77 */     this.scale = (4.0F / paramInt);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   void clear() {}
+/*     */   
+/*     */ 
+/*     */   void forward(float[] paramArrayOfFloat1, float[] paramArrayOfFloat2) {}
+/*     */   
+/*  86 */   float[] _x = new float['Ѐ'];
+/*  87 */   float[] _w = new float['Ѐ'];
+/*     */   
+/*     */   synchronized void backward(float[] paramArrayOfFloat1, float[] paramArrayOfFloat2) {
+/*  90 */     if (this._x.length < this.n / 2) {
+/*  91 */       this._x = new float[this.n / 2];
+/*     */     }
+/*  93 */     if (this._w.length < this.n / 2) {
+/*  94 */       this._w = new float[this.n / 2];
+/*     */     }
+/*  96 */     float[] arrayOfFloat1 = this._x;
+/*  97 */     float[] arrayOfFloat2 = this._w;
+/*  98 */     int i = this.n >>> 1;
+/*  99 */     int j = this.n >>> 2;
+/* 100 */     int k = this.n >>> 3;
+/*     */     
+/*     */ 
+/*     */ 
+/* 104 */     int m = 1;
+/* 105 */     int i1 = 0;
+/* 106 */     int i2 = i;
+/*     */     
+/*     */ 
+/* 109 */     for (int i3 = 0; i3 < k; i3++) {
+/* 110 */       i2 -= 2;
+/* 111 */       arrayOfFloat1[(i1++)] = (-paramArrayOfFloat1[(m + 2)] * this.trig[(i2 + 1)] - paramArrayOfFloat1[m] * this.trig[i2]);
+/* 112 */       arrayOfFloat1[(i1++)] = (paramArrayOfFloat1[m] * this.trig[(i2 + 1)] - paramArrayOfFloat1[(m + 2)] * this.trig[i2]);
+/* 113 */       m += 4;
+/*     */     }
+/*     */     
+/* 116 */     m = i - 4;
+/*     */     
+/* 118 */     for (i3 = 0; i3 < k; i3++) {
+/* 119 */       i2 -= 2;
+/* 120 */       arrayOfFloat1[(i1++)] = (paramArrayOfFloat1[m] * this.trig[(i2 + 1)] + paramArrayOfFloat1[(m + 2)] * this.trig[i2]);
+/* 121 */       arrayOfFloat1[(i1++)] = (paramArrayOfFloat1[m] * this.trig[i2] - paramArrayOfFloat1[(m + 2)] * this.trig[(i2 + 1)]);
+/* 122 */       m -= 4;
+/*     */     }
+/*     */     
+/*     */ 
+/* 126 */     float[] arrayOfFloat3 = mdct_kernel(arrayOfFloat1, arrayOfFloat2, this.n, i, j, k);
+/* 127 */     i1 = 0;
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/* 132 */     i2 = i;
+/* 133 */     i3 = j;int i4 = i3 - 1;
+/* 134 */     int i5 = j + i;int i6 = i5 - 1;
+/*     */     
+/* 136 */     for (int i7 = 0; i7 < j; i7++) {
+/* 137 */       float f1 = arrayOfFloat3[i1] * this.trig[(i2 + 1)] - arrayOfFloat3[(i1 + 1)] * this.trig[i2];
+/* 138 */       float f2 = -(arrayOfFloat3[i1] * this.trig[i2] + arrayOfFloat3[(i1 + 1)] * this.trig[(i2 + 1)]);
+/*     */       
+/* 140 */       paramArrayOfFloat2[i3] = (-f1);
+/* 141 */       paramArrayOfFloat2[i4] = f1;
+/* 142 */       paramArrayOfFloat2[i5] = f2;
+/* 143 */       paramArrayOfFloat2[i6] = f2;
+/*     */       
+/* 145 */       i3++;
+/* 146 */       i4--;
+/* 147 */       i5++;
+/* 148 */       i6--;
+/* 149 */       i1 += 2;
+/* 150 */       i2 += 2;
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   private float[] mdct_kernel(float[] paramArrayOfFloat1, float[] paramArrayOfFloat2, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+/*     */   {
+/* 159 */     int i = paramInt3;
+/* 160 */     int j = 0;
+/* 161 */     int k = paramInt3;
+/* 162 */     int m = paramInt2;
+/*     */     
+/* 164 */     for (int i1 = 0; i1 < paramInt3;) {
+/* 165 */       float f1 = paramArrayOfFloat1[i] - paramArrayOfFloat1[j];
+/*     */       
+/* 167 */       paramArrayOfFloat2[(k + i1)] = (paramArrayOfFloat1[(i++)] + paramArrayOfFloat1[(j++)]);
+/*     */       
+/* 169 */       float f2 = paramArrayOfFloat1[i] - paramArrayOfFloat1[j];
+/* 170 */       m -= 4;
+/*     */       
+/* 172 */       paramArrayOfFloat2[(i1++)] = (f1 * this.trig[m] + f2 * this.trig[(m + 1)]);
+/* 173 */       paramArrayOfFloat2[i1] = (f2 * this.trig[m] - f1 * this.trig[(m + 1)]);
+/*     */       
+/* 175 */       paramArrayOfFloat2[(k + i1)] = (paramArrayOfFloat1[(i++)] + paramArrayOfFloat1[(j++)]);
+/* 176 */       i1++; }
+/*     */     int i6;
+/*     */     int i7;
+/*     */     float f3;
+/*     */     float f5;
+/*     */     float f6;
+/* 182 */     float f4; for (i1 = 0; i1 < this.log2n - 3; i1++) {
+/* 183 */       i2 = paramInt1 >>> i1 + 2;
+/* 184 */       i3 = 1 << i1 + 3;
+/* 185 */       i4 = paramInt2 - 2;
+/*     */       
+/* 187 */       m = 0;
+/*     */       
+/*     */ 
+/* 190 */       for (i6 = 0; i6 < i2 >>> 2; i6++) {
+/* 191 */         i7 = i4;
+/* 192 */         k = i7 - (i2 >> 1);
+/* 193 */         f3 = this.trig[m];
+/* 194 */         f5 = this.trig[(m + 1)];
+/* 195 */         i4 -= 2;
+/*     */         
+/* 197 */         i2++;
+/* 198 */         for (int i8 = 0; i8 < 2 << i1; i8++) {
+/* 199 */           f6 = paramArrayOfFloat2[i7] - paramArrayOfFloat2[k];
+/* 200 */           paramArrayOfFloat2[i7] += paramArrayOfFloat2[k];
+/*     */           
+/* 202 */           f4 = paramArrayOfFloat2[(++i7)] - paramArrayOfFloat2[(++k)];
+/* 203 */           paramArrayOfFloat2[i7] += paramArrayOfFloat2[k];
+/*     */           
+/* 205 */           paramArrayOfFloat1[k] = (f4 * f3 - f6 * f5);
+/* 206 */           paramArrayOfFloat1[(k - 1)] = (f6 * f3 + f4 * f5);
+/*     */           
+/* 208 */           i7 -= i2;
+/* 209 */           k -= i2;
+/*     */         }
+/* 211 */         i2--;
+/* 212 */         m += i3;
+/*     */       }
+/*     */       
+/* 215 */       float[] arrayOfFloat = paramArrayOfFloat2;
+/* 216 */       paramArrayOfFloat2 = paramArrayOfFloat1;
+/* 217 */       paramArrayOfFloat1 = arrayOfFloat;
+/*     */     }
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/* 223 */     i1 = paramInt1;
+/* 224 */     int i2 = 0;
+/* 225 */     int i3 = 0;
+/* 226 */     int i4 = paramInt2 - 1;
+/*     */     
+/* 228 */     for (int i5 = 0; i5 < paramInt4; i5++) {
+/* 229 */       i6 = this.bitrev[(i2++)];
+/* 230 */       i7 = this.bitrev[(i2++)];
+/*     */       
+/* 232 */       f3 = paramArrayOfFloat2[i6] - paramArrayOfFloat2[(i7 + 1)];
+/* 233 */       f4 = paramArrayOfFloat2[(i6 - 1)] + paramArrayOfFloat2[i7];
+/* 234 */       f5 = paramArrayOfFloat2[i6] + paramArrayOfFloat2[(i7 + 1)];
+/* 235 */       f6 = paramArrayOfFloat2[(i6 - 1)] - paramArrayOfFloat2[i7];
+/*     */       
+/* 237 */       float f7 = f3 * this.trig[i1];
+/* 238 */       float f8 = f4 * this.trig[(i1++)];
+/* 239 */       float f9 = f3 * this.trig[i1];
+/* 240 */       float f10 = f4 * this.trig[(i1++)];
+/*     */       
+/* 242 */       paramArrayOfFloat1[(i3++)] = ((f5 + f9 + f8) * 0.5F);
+/* 243 */       paramArrayOfFloat1[(i4--)] = ((-f6 + f10 - f7) * 0.5F);
+/* 244 */       paramArrayOfFloat1[(i3++)] = ((f6 + f10 - f7) * 0.5F);
+/* 245 */       paramArrayOfFloat1[(i4--)] = ((f5 - f9 - f8) * 0.5F);
+/*     */     }
+/*     */     
+/* 248 */     return paramArrayOfFloat1;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\com\jcraft\jorbis\Mdct.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

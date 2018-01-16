@@ -1,0 +1,397 @@
+/*     */ import java.io.PrintStream;
+/*     */ import java.util.Random;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class gm
+/*     */ {
+/*  57 */   protected static Random b = new Random();
+/*     */   
+/*  59 */   public static gm[] c = new gm['紀'];
+/*     */   
+/*  61 */   public static gm d = new wc(0, bu.c).a(2, 5).a("shovelIron");
+/*  62 */   public static gm e = new au(1, bu.c).a(2, 6).a("pickaxeIron");
+/*  63 */   public static gm f = new ta(2, bu.c).a(2, 7).a("hatchetIron");
+/*  64 */   public static gm g = new ye(3).a(5, 0).a("flintAndSteel");
+/*  65 */   public static gm h = new yw(4, 4, false).a(10, 0).a("apple");
+/*  66 */   public static gm i = new qz(5).a(5, 1).a("bow");
+/*  67 */   public static gm j = new gm(6).a(5, 2).a("arrow");
+/*  68 */   public static gm k = new rx(7).a(7, 0).a("coal");
+/*  69 */   public static gm l = new gm(8).a(7, 3).a("emerald");
+/*  70 */   public static gm m = new gm(9).a(7, 1).a("ingotIron");
+/*  71 */   public static gm n = new gm(10).a(7, 2).a("ingotGold");
+/*  72 */   public static gm o = new qd(11, bu.c).a(2, 4).a("swordIron");
+/*     */   
+/*  74 */   public static gm p = new qd(12, bu.a).a(0, 4).a("swordWood");
+/*  75 */   public static gm q = new wc(13, bu.a).a(0, 5).a("shovelWood");
+/*  76 */   public static gm r = new au(14, bu.a).a(0, 6).a("pickaxeWood");
+/*  77 */   public static gm s = new ta(15, bu.a).a(0, 7).a("hatchetWood");
+/*     */   
+/*  79 */   public static gm t = new qd(16, bu.b).a(1, 4).a("swordStone");
+/*  80 */   public static gm u = new wc(17, bu.b).a(1, 5).a("shovelStone");
+/*  81 */   public static gm v = new au(18, bu.b).a(1, 6).a("pickaxeStone");
+/*  82 */   public static gm w = new ta(19, bu.b).a(1, 7).a("hatchetStone");
+/*     */   
+/*  84 */   public static gm x = new qd(20, bu.d).a(3, 4).a("swordDiamond");
+/*  85 */   public static gm y = new wc(21, bu.d).a(3, 5).a("shovelDiamond");
+/*  86 */   public static gm z = new au(22, bu.d).a(3, 6).a("pickaxeDiamond");
+/*  87 */   public static gm A = new ta(23, bu.d).a(3, 7).a("hatchetDiamond");
+/*     */   
+/*  89 */   public static gm B = new gm(24).a(5, 3).h().a("stick");
+/*  90 */   public static gm C = new gm(25).a(7, 4).a("bowl");
+/*  91 */   public static gm D = new bz(26, 10).a(8, 4).a("mushroomStew");
+/*     */   
+/*  93 */   public static gm E = new qd(27, bu.e).a(4, 4).a("swordGold");
+/*  94 */   public static gm F = new wc(28, bu.e).a(4, 5).a("shovelGold");
+/*  95 */   public static gm G = new au(29, bu.e).a(4, 6).a("pickaxeGold");
+/*  96 */   public static gm H = new ta(30, bu.e).a(4, 7).a("hatchetGold");
+/*     */   
+/*  98 */   public static gm I = new gm(31).a(8, 0).a("string");
+/*  99 */   public static gm J = new gm(32).a(8, 1).a("feather");
+/* 100 */   public static gm K = new gm(33).a(8, 2).a("sulphur");
+/*     */   
+/* 102 */   public static gm L = new la(34, bu.a).a(0, 8).a("hoeWood");
+/* 103 */   public static gm M = new la(35, bu.b).a(1, 8).a("hoeStone");
+/* 104 */   public static gm N = new la(36, bu.c).a(2, 8).a("hoeIron");
+/* 105 */   public static gm O = new la(37, bu.d).a(3, 8).a("hoeDiamond");
+/* 106 */   public static gm P = new la(38, bu.e).a(4, 8).a("hoeGold");
+/*     */   
+/* 108 */   public static gm Q = new rk(39, uu.aA.bn).a(9, 0).a("seeds");
+/* 109 */   public static gm R = new gm(40).a(9, 1).a("wheat");
+/* 110 */   public static gm S = new yw(41, 5, false).a(9, 2).a("bread");
+/*     */   
+/* 112 */   public static gm T = new wa(42, 0, 0, 0).a(0, 0).a("helmetCloth");
+/* 113 */   public static gm U = new wa(43, 0, 0, 1).a(0, 1).a("chestplateCloth");
+/* 114 */   public static gm V = new wa(44, 0, 0, 2).a(0, 2).a("leggingsCloth");
+/* 115 */   public static gm W = new wa(45, 0, 0, 3).a(0, 3).a("bootsCloth");
+/*     */   
+/* 117 */   public static gm X = new wa(46, 1, 1, 0).a(1, 0).a("helmetChain");
+/* 118 */   public static gm Y = new wa(47, 1, 1, 1).a(1, 1).a("chestplateChain");
+/* 119 */   public static gm Z = new wa(48, 1, 1, 2).a(1, 2).a("leggingsChain");
+/* 120 */   public static gm aa = new wa(49, 1, 1, 3).a(1, 3).a("bootsChain");
+/*     */   
+/* 122 */   public static gm ab = new wa(50, 2, 2, 0).a(2, 0).a("helmetIron");
+/* 123 */   public static gm ac = new wa(51, 2, 2, 1).a(2, 1).a("chestplateIron");
+/* 124 */   public static gm ad = new wa(52, 2, 2, 2).a(2, 2).a("leggingsIron");
+/* 125 */   public static gm ae = new wa(53, 2, 2, 3).a(2, 3).a("bootsIron");
+/*     */   
+/* 127 */   public static gm af = new wa(54, 3, 3, 0).a(3, 0).a("helmetDiamond");
+/* 128 */   public static gm ag = new wa(55, 3, 3, 1).a(3, 1).a("chestplateDiamond");
+/* 129 */   public static gm ah = new wa(56, 3, 3, 2).a(3, 2).a("leggingsDiamond");
+/* 130 */   public static gm ai = new wa(57, 3, 3, 3).a(3, 3).a("bootsDiamond");
+/*     */   
+/* 132 */   public static gm aj = new wa(58, 1, 4, 0).a(4, 0).a("helmetGold");
+/* 133 */   public static gm ak = new wa(59, 1, 4, 1).a(4, 1).a("chestplateGold");
+/* 134 */   public static gm al = new wa(60, 1, 4, 2).a(4, 2).a("leggingsGold");
+/* 135 */   public static gm am = new wa(61, 1, 4, 3).a(4, 3).a("bootsGold");
+/*     */   
+/* 137 */   public static gm an = new gm(62).a(6, 0).a("flint");
+/* 138 */   public static gm ao = new yw(63, 3, true).a(7, 5).a("porkchopRaw");
+/* 139 */   public static gm ap = new yw(64, 8, true).a(8, 5).a("porkchopCooked");
+/* 140 */   public static gm aq = new ym(65).a(10, 1).a("painting");
+/*     */   
+/* 142 */   public static gm ar = new yw(66, 42, false).a(11, 0).a("appleGold");
+/*     */   
+/* 144 */   public static gm as = new vc(67).a(10, 2).a("sign");
+/* 145 */   public static gm at = new hu(68, ln.d).a(11, 2).a("doorWood");
+/*     */   
+/* 147 */   public static gm au = new bc(69, 0).a(10, 4).a("bucket");
+/* 148 */   public static gm av = new bc(70, uu.B.bn).a(11, 4).a("bucketWater").a(au);
+/* 149 */   public static gm aw = new bc(71, uu.D.bn).a(12, 4).a("bucketLava").a(au);
+/*     */   
+/* 151 */   public static gm ax = new rl(72, 0).a(7, 8).a("minecart");
+/* 152 */   public static gm ay = new sa(73).a(8, 6).a("saddle");
+/* 153 */   public static gm az = new hu(74, ln.f).a(12, 2).a("doorIron");
+/* 154 */   public static gm aA = new ie(75).a(8, 3).a("redstone");
+/* 155 */   public static gm aB = new dm(76).a(14, 0).a("snowball");
+/*     */   
+/* 157 */   public static gm aC = new vd(77).a(8, 8).a("boat");
+/*     */   
+/* 159 */   public static gm aD = new gm(78).a(7, 6).a("leather");
+/* 160 */   public static gm aE = new bc(79, -1).a(13, 4).a("milk").a(au);
+/* 161 */   public static gm aF = new gm(80).a(6, 1).a("brick");
+/* 162 */   public static gm aG = new gm(81).a(9, 3).a("clay");
+/* 163 */   public static gm aH = new lv(82, uu.aY).a(11, 1).a("reeds");
+/* 164 */   public static gm aI = new gm(83).a(10, 3).a("paper");
+/* 165 */   public static gm aJ = new gm(84).a(11, 3).a("book");
+/* 166 */   public static gm aK = new gm(85).a(14, 1).a("slimeball");
+/* 167 */   public static gm aL = new rl(86, 1).a(7, 9).a("minecartChest");
+/* 168 */   public static gm aM = new rl(87, 2).a(7, 10).a("minecartFurnace");
+/* 169 */   public static gm aN = new mo(88).a(12, 0).a("egg");
+/* 170 */   public static gm aO = new gm(89).a(6, 3).a("compass");
+/* 171 */   public static gm aP = new cs(90).a(5, 4).a("fishingRod");
+/* 172 */   public static gm aQ = new gm(91).a(6, 4).a("clock");
+/* 173 */   public static gm aR = new gm(92).a(9, 4).a("yellowDust");
+/* 174 */   public static gm aS = new yw(93, 2, false).a(9, 5).a("fishRaw");
+/* 175 */   public static gm aT = new yw(94, 5, false).a(10, 5).a("fishCooked");
+/*     */   
+/* 177 */   public static gm aU = new km(95).a(14, 4).a("dyePowder");
+/* 178 */   public static gm aV = new gm(96).a(12, 1).a("bone").h();
+/* 179 */   public static gm aW = new gm(97).a(13, 0).a("sugar").h();
+/* 180 */   public static gm aX = new lv(98, uu.bh).d(1).a(13, 1).a("cake");
+/*     */   
+/* 182 */   public static gm aY = new lp(99).d(1).a(13, 2).a("bed");
+/*     */   
+/* 184 */   public static gm aZ = new lv(100, uu.bi).a(6, 5).a("diode");
+/* 185 */   public static gm ba = new qk(101, 1, false, 8).a(12, 5).a("cookie");
+/*     */   
+/* 187 */   public static wr bb = (wr)new wr(102).a(12, 3).a("map");
+/*     */   
+/* 189 */   public static bl bc = (bl)new bl(103).a(13, 5).a("shears");
+/*     */   
+/*     */ 
+/*     */ 
+/* 193 */   public static gm bd = new tr(2000, "13").a(0, 15).a("record");
+/* 194 */   public static gm be = new tr(2001, "cat").a(1, 15).a("record");
+/*     */   public final int bf;
+/*     */   
+/* 197 */   static { jl.c(); }
+/*     */   
+/*     */ 
+/*     */ 
+/* 201 */   protected int bg = 64;
+/* 202 */   private int a = 0;
+/*     */   
+/*     */   protected int bh;
+/* 205 */   protected boolean bi = false;
+/* 206 */   protected boolean bj = false;
+/*     */   
+/* 208 */   private gm bk = null;
+/*     */   private String bl;
+/*     */   
+/*     */   protected gm(int paramInt)
+/*     */   {
+/* 213 */     this.bf = (256 + paramInt);
+/* 214 */     if (c[(256 + paramInt)] != null) {
+/* 215 */       System.out.println("CONFLICT @ " + paramInt);
+/*     */     }
+/*     */     
+/* 218 */     c[(256 + paramInt)] = this;
+/*     */   }
+/*     */   
+/*     */   public gm c(int paramInt) {
+/* 222 */     this.bh = paramInt;
+/* 223 */     return this;
+/*     */   }
+/*     */   
+/*     */   public gm d(int paramInt) {
+/* 227 */     this.bg = paramInt;
+/* 228 */     return this;
+/*     */   }
+/*     */   
+/*     */   public gm a(int paramInt1, int paramInt2) {
+/* 232 */     this.bh = (paramInt1 + paramInt2 * 16);
+/* 233 */     return this;
+/*     */   }
+/*     */   
+/*     */   public int a(int paramInt) {
+/* 237 */     return this.bh;
+/*     */   }
+/*     */   
+/*     */   public final int b(iz paramiz) {
+/* 241 */     return a(paramiz.i());
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public boolean a(iz paramiz, gs paramgs, fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+/*     */   {
+/* 249 */     return false;
+/*     */   }
+/*     */   
+/*     */   public float a(iz paramiz, uu paramuu) {
+/* 253 */     return 1.0F;
+/*     */   }
+/*     */   
+/*     */   public iz a(iz paramiz, fd paramfd, gs paramgs) {
+/* 257 */     return paramiz;
+/*     */   }
+/*     */   
+/*     */   public int d() {
+/* 261 */     return this.bg;
+/*     */   }
+/*     */   
+/*     */   public int b(int paramInt) {
+/* 265 */     return 0;
+/*     */   }
+/*     */   
+/*     */   public boolean e() {
+/* 269 */     return this.bj;
+/*     */   }
+/*     */   
+/*     */   protected gm a(boolean paramBoolean) {
+/* 273 */     this.bj = paramBoolean;
+/* 274 */     return this;
+/*     */   }
+/*     */   
+/*     */   public int f() {
+/* 278 */     return this.a;
+/*     */   }
+/*     */   
+/*     */   protected gm e(int paramInt) {
+/* 282 */     this.a = paramInt;
+/* 283 */     return this;
+/*     */   }
+/*     */   
+/*     */   public boolean g() {
+/* 287 */     return (this.a > 0) && (!this.bj);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public boolean a(iz paramiz, ls paramls1, ls paramls2)
+/*     */   {
+/* 299 */     return false;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public boolean a(iz paramiz, int paramInt1, int paramInt2, int paramInt3, int paramInt4, ls paramls)
+/*     */   {
+/* 314 */     return false;
+/*     */   }
+/*     */   
+/*     */   public int a(sn paramsn) {
+/* 318 */     return 1;
+/*     */   }
+/*     */   
+/*     */   public boolean a(uu paramuu) {
+/* 322 */     return false;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   public gm h()
+/*     */   {
+/* 329 */     this.bi = true;
+/* 330 */     return this;
+/*     */   }
+/*     */   
+/*     */   public boolean b() {
+/* 334 */     return this.bi;
+/*     */   }
+/*     */   
+/*     */   public boolean c() {
+/* 338 */     return false;
+/*     */   }
+/*     */   
+/*     */   public gm a(String paramString) {
+/* 342 */     this.bl = ("item." + paramString);
+/* 343 */     return this;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public String a()
+/*     */   {
+/* 355 */     return this.bl;
+/*     */   }
+/*     */   
+/*     */   public String a(iz paramiz) {
+/* 359 */     return this.bl;
+/*     */   }
+/*     */   
+/*     */   public gm a(gm paramgm) {
+/* 363 */     if (this.bg > 1) {
+/* 364 */       throw new IllegalArgumentException("Max stack size must be 1 for items with crafting results");
+/*     */     }
+/* 366 */     this.bk = paramgm;
+/* 367 */     return this;
+/*     */   }
+/*     */   
+/*     */   public gm i() {
+/* 371 */     return this.bk;
+/*     */   }
+/*     */   
+/*     */   public boolean j() {
+/* 375 */     return this.bk != null;
+/*     */   }
+/*     */   
+/*     */   public String k() {
+/* 379 */     return do.a(a() + ".name");
+/*     */   }
+/*     */   
+/*     */   public int f(int paramInt) {
+/* 383 */     return 16777215;
+/*     */   }
+/*     */   
+/*     */   public void a(iz paramiz, ls paramls) {}
+/*     */   
+/*     */   public void a(iz paramiz, fd paramfd, sn paramsn, int paramInt, boolean paramBoolean) {}
+/*     */   
+/*     */   public void b(iz paramiz, fd paramfd, gs paramgs) {}
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\gm.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

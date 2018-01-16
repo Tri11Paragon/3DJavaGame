@@ -1,0 +1,38 @@
+/*    */ import java.io.DataInput;
+/*    */ 
+/*    */ public class hn extends ij
+/*    */ {
+/*    */   public byte[] a;
+/*    */   
+/*    */   public hn() {}
+/*    */   
+/*    */   public hn(byte[] paramArrayOfByte)
+/*    */   {
+/* 11 */     this.a = paramArrayOfByte;
+/*    */   }
+/*    */   
+/*    */   void a(java.io.DataOutput paramDataOutput) {
+/* 15 */     paramDataOutput.writeInt(this.a.length);
+/* 16 */     paramDataOutput.write(this.a);
+/*    */   }
+/*    */   
+/*    */   void a(DataInput paramDataInput) {
+/* 20 */     int i = paramDataInput.readInt();
+/* 21 */     this.a = new byte[i];
+/* 22 */     paramDataInput.readFully(this.a);
+/*    */   }
+/*    */   
+/*    */   public byte a() {
+/* 26 */     return 7;
+/*    */   }
+/*    */   
+/*    */   public String toString() {
+/* 30 */     return "[" + this.a.length + " bytes]";
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\hn.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,50 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ public class tl
+/*    */   extends wb
+/*    */ {
+/*    */   protected tl(int paramInt1, int paramInt2)
+/*    */   {
+/*  9 */     super(paramInt1, paramInt2);
+/* 10 */     float f = 0.2F;
+/* 11 */     a(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);
+/* 12 */     b(true);
+/*    */   }
+/*    */   
+/*    */   public void a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, Random paramRandom) {
+/* 16 */     if (paramRandom.nextInt(100) == 0) {
+/* 17 */       int i = paramInt1 + paramRandom.nextInt(3) - 1;
+/* 18 */       int j = paramInt2 + paramRandom.nextInt(2) - paramRandom.nextInt(2);
+/* 19 */       int k = paramInt3 + paramRandom.nextInt(3) - 1;
+/* 20 */       if ((paramfd.d(i, j, k)) && 
+/* 21 */         (g(paramfd, i, j, k))) {
+/* 22 */         paramInt1 += paramRandom.nextInt(3) - 1;
+/* 23 */         paramInt3 += paramRandom.nextInt(3) - 1;
+/*    */         
+/* 25 */         if ((paramfd.d(i, j, k)) && 
+/* 26 */           (g(paramfd, i, j, k))) {
+/* 27 */           paramfd.f(i, j, k, this.bn);
+/*    */         }
+/*    */       }
+/*    */     }
+/*    */   }
+/*    */   
+/*    */ 
+/*    */   protected boolean d(int paramInt)
+/*    */   {
+/* 36 */     return uu.o[paramInt];
+/*    */   }
+/*    */   
+/*    */   public boolean g(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/* 40 */     if ((paramInt2 < 0) || (paramInt2 >= 128)) { return false;
+/*    */     }
+/* 42 */     return (paramfd.m(paramInt1, paramInt2, paramInt3) < 13) && (d(paramfd.a(paramInt1, paramInt2 - 1, paramInt3)));
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\tl.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

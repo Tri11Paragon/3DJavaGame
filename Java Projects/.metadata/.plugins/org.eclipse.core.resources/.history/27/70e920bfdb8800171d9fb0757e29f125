@@ -1,0 +1,28 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class rd
+/*    */   extends uu
+/*    */ {
+/*    */   public rd(int paramInt)
+/*    */   {
+/*  9 */     super(paramInt, 192, ln.e);
+/*    */   }
+/*    */   
+/*    */   public int a(int paramInt)
+/*    */   {
+/* 14 */     if (paramInt == 1) {
+/* 15 */       return this.bm - 16;
+/*    */     }
+/* 17 */     if (paramInt == 0) {
+/* 18 */       return this.bm + 16;
+/*    */     }
+/* 20 */     return this.bm;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\rd.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

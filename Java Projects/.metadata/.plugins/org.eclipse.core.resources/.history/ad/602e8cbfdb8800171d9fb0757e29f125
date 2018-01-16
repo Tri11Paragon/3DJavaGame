@@ -1,0 +1,74 @@
+/*    */ import java.awt.image.BufferedImage;
+/*    */ 
+/*    */ public class rr implements nf
+/*    */ {
+/*    */   private int[] a;
+/*    */   private int b;
+/*    */   private int c;
+/*    */   
+/*    */   public BufferedImage a(BufferedImage paramBufferedImage)
+/*    */   {
+/* 11 */     if (paramBufferedImage == null) { return null;
+/*    */     }
+/* 13 */     this.b = 64;
+/* 14 */     this.c = 32;
+/*    */     
+/* 16 */     BufferedImage localBufferedImage = new BufferedImage(this.b, this.c, 2);
+/* 17 */     java.awt.Graphics localGraphics = localBufferedImage.getGraphics();
+/* 18 */     localGraphics.drawImage(paramBufferedImage, 0, 0, null);
+/* 19 */     localGraphics.dispose();
+/*    */     
+/* 21 */     this.a = ((java.awt.image.DataBufferInt)localBufferedImage.getRaster().getDataBuffer()).getData();
+/*    */     
+/* 23 */     b(0, 0, 32, 16);
+/* 24 */     a(32, 0, 64, 32);
+/* 25 */     b(0, 16, 64, 32);
+/* 26 */     int i = 0;
+/* 27 */     int k; int m; for (int j = 32; j < 64; j++) {
+/* 28 */       for (k = 0; k < 16; k++) {
+/* 29 */         m = this.a[(j + k * 64)];
+/* 30 */         if ((m >> 24 & 0xFF) < 128) i = 1;
+/*    */       }
+/*    */     }
+/* 33 */     if (i == 0) {
+/* 34 */       for (j = 32; j < 64; j++) {
+/* 35 */         for (k = 0; k < 16; k++) {
+/* 36 */           m = this.a[(j + k * 64)];
+/* 37 */           if ((m >> 24 & 0xFF) < 128) i = 1;
+/*    */         }
+/*    */       }
+/*    */     }
+/* 41 */     return localBufferedImage;
+/*    */   }
+/*    */   
+/*    */   private void a(int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/* 45 */     if (c(paramInt1, paramInt2, paramInt3, paramInt4)) { return;
+/*    */     }
+/* 47 */     for (int i = paramInt1; i < paramInt3; i++) {
+/* 48 */       for (int j = paramInt2; j < paramInt4; j++)
+/* 49 */         this.a[(i + j * this.b)] &= 0xFFFFFF;
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   private void b(int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/* 54 */     for (int i = paramInt1; i < paramInt3; i++) {
+/* 55 */       for (int j = paramInt2; j < paramInt4; j++)
+/* 56 */         this.a[(i + j * this.b)] |= 0xFF000000;
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   private boolean c(int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/* 61 */     for (int i = paramInt1; i < paramInt3; i++)
+/* 62 */       for (int j = paramInt2; j < paramInt4; j++) {
+/* 63 */         int k = this.a[(i + j * this.b)];
+/* 64 */         if ((k >> 24 & 0xFF) < 128) return true;
+/*    */       }
+/* 66 */     return false;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\rr.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

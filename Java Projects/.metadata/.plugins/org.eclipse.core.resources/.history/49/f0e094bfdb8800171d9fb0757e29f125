@@ -1,0 +1,37 @@
+/*    */ import java.io.BufferedReader;
+/*    */ import java.io.InputStreamReader;
+/*    */ import java.util.HashMap;
+/*    */ import java.util.Map;
+/*    */ 
+/*    */ 
+/*    */ public class b
+/*    */ {
+/*  9 */   public static b a = new b();
+/*    */   
+/* 11 */   private Map b = new HashMap();
+/*    */   
+/*    */   private b() {
+/*    */     try {
+/* 15 */       BufferedReader localBufferedReader = new BufferedReader(new InputStreamReader(b.class.getResourceAsStream("/achievement/map.txt")));
+/*    */       String str;
+/* 17 */       while ((str = localBufferedReader.readLine()) != null) {
+/* 18 */         String[] arrayOfString = str.split(",");
+/* 19 */         int i = Integer.parseInt(arrayOfString[0]);
+/* 20 */         this.b.put(Integer.valueOf(i), arrayOfString[1]);
+/*    */       }
+/* 22 */       localBufferedReader.close();
+/*    */     } catch (Exception localException) {
+/* 24 */       localException.printStackTrace();
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public static String a(int paramInt) {
+/* 29 */     return (String)a.b.get(Integer.valueOf(paramInt));
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\b.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,203 @@
+/*     */ import java.io.File;
+/*     */ import java.io.PrintStream;
+/*     */ import java.util.Random;
+/*     */ import paulscode.sound.SoundSystem;
+/*     */ import paulscode.sound.SoundSystemConfig;
+/*     */ import paulscode.sound.codecs.CodecJOrbis;
+/*     */ import paulscode.sound.codecs.CodecWav;
+/*     */ import paulscode.sound.libraries.LibraryLWJGLOpenAL;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class yo
+/*     */ {
+/*     */   private static SoundSystem a;
+/*  18 */   private hr b = new hr();
+/*  19 */   private hr c = new hr();
+/*  20 */   private hr d = new hr();
+/*  21 */   private int e = 0;
+/*     */   
+/*     */   private kv f;
+/*  24 */   private static boolean g = false;
+/*     */   
+/*     */   public void a(kv paramkv) {
+/*  27 */     this.c.b = false;
+/*  28 */     this.f = paramkv;
+/*     */     
+/*  30 */     if ((!g) && ((paramkv == null) || (paramkv.b != 0.0F) || (paramkv.a != 0.0F))) {
+/*  31 */       d();
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   private void d() {
+/*     */     try {
+/*  37 */       float f1 = this.f.b;
+/*  38 */       float f2 = this.f.a;
+/*     */       
+/*  40 */       this.f.b = 0.0F;
+/*  41 */       this.f.a = 0.0F;
+/*  42 */       this.f.b();
+/*     */       
+/*  44 */       SoundSystemConfig.addLibrary(LibraryLWJGLOpenAL.class);
+/*     */       
+/*  46 */       SoundSystemConfig.setCodec("ogg", CodecJOrbis.class);
+/*  47 */       SoundSystemConfig.setCodec("mus", io.class);
+/*  48 */       SoundSystemConfig.setCodec("wav", CodecWav.class);
+/*     */       
+/*  50 */       a = new SoundSystem();
+/*     */       
+/*  52 */       this.f.b = f1;
+/*  53 */       this.f.a = f2;
+/*  54 */       this.f.b();
+/*     */     }
+/*     */     catch (Throwable localThrowable) {
+/*  57 */       localThrowable.printStackTrace();
+/*  58 */       System.err.println("error linking with the LibraryJavaSound plug-in");
+/*     */     }
+/*     */     
+/*  61 */     g = true;
+/*     */   }
+/*     */   
+/*     */   public void a() {
+/*  65 */     if ((!g) && ((this.f.b != 0.0F) || (this.f.a != 0.0F))) {
+/*  66 */       d();
+/*     */     }
+/*     */     
+/*  69 */     if (g) {
+/*  70 */       if (this.f.a == 0.0F) {
+/*  71 */         a.stop("BgMusic");
+/*     */       } else {
+/*  73 */         a.setVolume("BgMusic", this.f.a);
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void b() {
+/*  79 */     if (g) a.cleanup();
+/*     */   }
+/*     */   
+/*     */   public void a(String paramString, File paramFile) {
+/*  83 */     this.b.a(paramString, paramFile);
+/*     */   }
+/*     */   
+/*     */   public void b(String paramString, File paramFile)
+/*     */   {
+/*  88 */     this.c.a(paramString, paramFile);
+/*     */   }
+/*     */   
+/*     */   public void c(String paramString, File paramFile) {
+/*  92 */     this.d.a(paramString, paramFile);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*  97 */   private Random h = new Random();
+/*  98 */   private int i = this.h.nextInt(12000);
+/*     */   
+/*     */   public void c() {
+/* 101 */     if ((!g) || (this.f.a == 0.0F)) { return;
+/*     */     }
+/* 103 */     if ((!a.playing("BgMusic")) && (!a.playing("streaming"))) {
+/* 104 */       if (this.i > 0) {
+/* 105 */         this.i -= 1;
+/* 106 */         return;
+/*     */       }
+/* 108 */       bh localbh = this.d.a();
+/* 109 */       if (localbh != null) {
+/* 110 */         this.i = (this.h.nextInt(12000) + 12000);
+/* 111 */         a.backgroundMusic("BgMusic", localbh.b, localbh.a, false);
+/* 112 */         a.setVolume("BgMusic", this.f.a);
+/* 113 */         a.play("BgMusic");
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(ls paramls, float paramFloat) {
+/* 119 */     if ((!g) || (this.f.b == 0.0F)) return;
+/* 120 */     if (paramls == null) { return;
+/*     */     }
+/* 122 */     float f1 = paramls.aU + (paramls.aS - paramls.aU) * paramFloat;
+/*     */     
+/* 124 */     double d1 = paramls.aJ + (paramls.aM - paramls.aJ) * paramFloat;
+/* 125 */     double d2 = paramls.aK + (paramls.aN - paramls.aK) * paramFloat;
+/* 126 */     double d3 = paramls.aL + (paramls.aO - paramls.aL) * paramFloat;
+/*     */     
+/* 128 */     float f2 = in.b(-f1 * 0.017453292F - 3.1415927F);
+/* 129 */     float f3 = in.a(-f1 * 0.017453292F - 3.1415927F);
+/*     */     
+/* 131 */     float f4 = -f3;
+/* 132 */     float f5 = 0.0F;
+/* 133 */     float f6 = -f2;
+/*     */     
+/* 135 */     float f7 = 0.0F;
+/* 136 */     float f8 = 1.0F;
+/* 137 */     float f9 = 0.0F;
+/*     */     
+/* 139 */     a.setListenerPosition((float)d1, (float)d2, (float)d3);
+/* 140 */     a.setListenerOrientation(f4, f5, f6, f7, f8, f9);
+/*     */   }
+/*     */   
+/*     */   public void a(String paramString, float paramFloat1, float paramFloat2, float paramFloat3, float paramFloat4, float paramFloat5) {
+/* 144 */     if ((!g) || (this.f.b == 0.0F)) return;
+/* 145 */     String str = "streaming";
+/* 146 */     if (a.playing("streaming")) {
+/* 147 */       a.stop("streaming");
+/*     */     }
+/* 149 */     if (paramString == null) {
+/* 150 */       return;
+/*     */     }
+/*     */     
+/* 153 */     bh localbh = this.c.a(paramString);
+/* 154 */     if ((localbh != null) && (paramFloat4 > 0.0F)) {
+/* 155 */       if (a.playing("BgMusic")) {
+/* 156 */         a.stop("BgMusic");
+/*     */       }
+/* 158 */       float f1 = 16.0F;
+/* 159 */       a.newStreamingSource(true, str, localbh.b, localbh.a, false, paramFloat1, paramFloat2, paramFloat3, 2, f1 * 4.0F);
+/* 160 */       a.setVolume(str, 0.5F * this.f.b);
+/* 161 */       a.play(str);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void b(String paramString, float paramFloat1, float paramFloat2, float paramFloat3, float paramFloat4, float paramFloat5) {
+/* 166 */     if ((!g) || (this.f.b == 0.0F)) { return;
+/*     */     }
+/* 168 */     bh localbh = this.b.a(paramString);
+/* 169 */     if ((localbh != null) && (paramFloat4 > 0.0F)) {
+/* 170 */       this.e = ((this.e + 1) % 256);
+/* 171 */       String str = "sound_" + this.e;
+/* 172 */       float f1 = 16.0F;
+/* 173 */       if (paramFloat4 > 1.0F) f1 *= paramFloat4;
+/* 174 */       a.newSource(paramFloat4 > 1.0F, str, localbh.b, localbh.a, false, paramFloat1, paramFloat2, paramFloat3, 2, f1);
+/* 175 */       a.setPitch(str, paramFloat5);
+/* 176 */       if (paramFloat4 > 1.0F) paramFloat4 = 1.0F;
+/* 177 */       a.setVolume(str, paramFloat4 * this.f.b);
+/* 178 */       a.play(str);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(String paramString, float paramFloat1, float paramFloat2) {
+/* 183 */     if ((!g) || (this.f.b == 0.0F)) { return;
+/*     */     }
+/* 185 */     bh localbh = this.b.a(paramString);
+/* 186 */     if (localbh != null) {
+/* 187 */       this.e = ((this.e + 1) % 256);
+/* 188 */       String str = "sound_" + this.e;
+/* 189 */       a.newSource(false, str, localbh.b, localbh.a, false, 0.0F, 0.0F, 0.0F, 0, 0.0F);
+/* 190 */       if (paramFloat1 > 1.0F) paramFloat1 = 1.0F;
+/* 191 */       paramFloat1 *= 0.25F;
+/* 192 */       a.setPitch(str, paramFloat2);
+/* 193 */       a.setVolume(str, paramFloat1 * this.f.b);
+/* 194 */       a.play(str);
+/*     */     }
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\yo.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

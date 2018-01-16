@@ -1,0 +1,48 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class xf
+/*    */   extends uu
+/*    */ {
+/*    */   protected xf(int paramInt)
+/*    */   {
+/* 12 */     super(paramInt, ln.k);
+/* 13 */     this.bm = 48;
+/*    */   }
+/*    */   
+/*    */   public void c(fd paramfd, int paramInt1, int paramInt2, int paramInt3)
+/*    */   {
+/* 18 */     int i = 2;
+/* 19 */     for (int j = paramInt1 - i; j <= paramInt1 + i; j++) {
+/* 20 */       for (int k = paramInt2 - i; k <= paramInt2 + i; k++) {
+/* 21 */         for (int m = paramInt3 - i; m <= paramInt3 + i; m++)
+/*    */         {
+/* 23 */           if (paramfd.f(j, k, m) != ln.g) {}
+/*    */         }
+/*    */       }
+/*    */     }
+/*    */   }
+/*    */   
+/*    */ 
+/*    */   public void b(fd paramfd, int paramInt1, int paramInt2, int paramInt3)
+/*    */   {
+/* 32 */     int i = 2;
+/* 33 */     for (int j = paramInt1 - i; j <= paramInt1 + i; j++) {
+/* 34 */       for (int k = paramInt2 - i; k <= paramInt2 + i; k++) {
+/* 35 */         for (int m = paramInt3 - i; m <= paramInt3 + i; m++)
+/*    */         {
+/* 37 */           paramfd.i(j, k, m, paramfd.a(j, k, m));
+/*    */         }
+/*    */       }
+/*    */     }
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\xf.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,36 @@
+/*    */ import java.io.DataInput;
+/*    */ import java.io.DataOutput;
+/*    */ 
+/*    */ public class mi extends ij
+/*    */ {
+/*    */   public long a;
+/*    */   
+/*    */   public mi() {}
+/*    */   
+/*    */   public mi(long paramLong)
+/*    */   {
+/* 12 */     this.a = paramLong;
+/*    */   }
+/*    */   
+/*    */   void a(DataOutput paramDataOutput) {
+/* 16 */     paramDataOutput.writeLong(this.a);
+/*    */   }
+/*    */   
+/*    */   void a(DataInput paramDataInput) {
+/* 20 */     this.a = paramDataInput.readLong();
+/*    */   }
+/*    */   
+/*    */   public byte a() {
+/* 24 */     return 4;
+/*    */   }
+/*    */   
+/*    */   public String toString() {
+/* 28 */     return "" + this.a;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\mi.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

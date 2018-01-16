@@ -1,0 +1,158 @@
+/*     */ import java.util.Random;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class hl
+/*     */   extends sn
+/*     */ {
+/*     */   public iz a;
+/*     */   private int e;
+/*  20 */   public int b = 0;
+/*     */   
+/*     */   public int c;
+/*  23 */   private int f = 5;
+/*     */   
+/*  25 */   public float d = (float)(Math.random() * 3.141592653589793D * 2.0D);
+/*     */   
+/*     */   public hl(fd paramfd, double paramDouble1, double paramDouble2, double paramDouble3, iz paramiz) {
+/*  28 */     super(paramfd);
+/*  29 */     b(0.25F, 0.25F);
+/*  30 */     this.bf = (this.bh / 2.0F);
+/*  31 */     e(paramDouble1, paramDouble2, paramDouble3);
+/*  32 */     this.a = paramiz;
+/*     */     
+/*  34 */     this.aS = ((float)(Math.random() * 360.0D));
+/*     */     
+/*  36 */     this.aP = ((float)(Math.random() * 0.20000000298023224D - 0.10000000149011612D));
+/*  37 */     this.aQ = 0.20000000298023224D;
+/*  38 */     this.aR = ((float)(Math.random() * 0.20000000298023224D - 0.10000000149011612D));
+/*     */   }
+/*     */   
+/*     */   protected boolean n()
+/*     */   {
+/*  43 */     return false;
+/*     */   }
+/*     */   
+/*     */   public hl(fd paramfd)
+/*     */   {
+/*  48 */     super(paramfd);
+/*  49 */     b(0.25F, 0.25F);
+/*  50 */     this.bf = (this.bh / 2.0F);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   protected void b() {}
+/*     */   
+/*     */ 
+/*     */   public void w_()
+/*     */   {
+/*  59 */     super.w_();
+/*  60 */     if (this.c > 0) this.c -= 1;
+/*  61 */     this.aJ = this.aM;
+/*  62 */     this.aK = this.aN;
+/*  63 */     this.aL = this.aO;
+/*     */     
+/*  65 */     this.aQ -= 0.03999999910593033D;
+/*  66 */     if (this.aI.f(in.b(this.aM), in.b(this.aN), in.b(this.aO)) == ln.h) {
+/*  67 */       this.aQ = 0.20000000298023224D;
+/*  68 */       this.aP = ((this.bs.nextFloat() - this.bs.nextFloat()) * 0.2F);
+/*  69 */       this.aR = ((this.bs.nextFloat() - this.bs.nextFloat()) * 0.2F);
+/*  70 */       this.aI.a(this, "random.fizz", 0.4F, 2.0F + this.bs.nextFloat() * 0.4F);
+/*     */     }
+/*  72 */     c(this.aM, (this.aW.b + this.aW.e) / 2.0D, this.aO);
+/*  73 */     b(this.aP, this.aQ, this.aR);
+/*     */     
+/*     */ 
+/*  76 */     float f1 = 0.98F;
+/*  77 */     if (this.aX) {
+/*  78 */       f1 = 0.58800006F;
+/*  79 */       int i = this.aI.a(in.b(this.aM), in.b(this.aW.b) - 1, in.b(this.aO));
+/*  80 */       if (i > 0) {
+/*  81 */         f1 = uu.m[i].bB * 0.98F;
+/*     */       }
+/*     */     }
+/*     */     
+/*  85 */     this.aP *= f1;
+/*  86 */     this.aQ *= 0.9800000190734863D;
+/*  87 */     this.aR *= f1;
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*  97 */     if (this.aX) {
+/*  98 */       this.aQ *= -0.5D;
+/*     */     }
+/*     */     
+/* 101 */     this.e += 1;
+/* 102 */     this.b += 1;
+/* 103 */     if (this.b >= 6000) {
+/* 104 */       K();
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public boolean k_()
+/*     */   {
+/* 110 */     return this.aI.a(this.aW, ln.g, this);
+/*     */   }
+/*     */   
+/*     */   protected void a(int paramInt) {
+/* 114 */     a(null, paramInt);
+/*     */   }
+/*     */   
+/*     */   public boolean a(sn paramsn, int paramInt) {
+/* 118 */     ai();
+/* 119 */     this.f -= paramInt;
+/* 120 */     if (this.f <= 0) {
+/* 121 */       K();
+/*     */     }
+/* 123 */     return false;
+/*     */   }
+/*     */   
+/*     */   public void b(nu paramnu) {
+/* 127 */     paramnu.a("Health", (short)(byte)this.f);
+/* 128 */     paramnu.a("Age", (short)this.b);
+/* 129 */     paramnu.a("Item", this.a.a(new nu()));
+/*     */   }
+/*     */   
+/*     */   public void a(nu paramnu) {
+/* 133 */     this.f = (paramnu.d("Health") & 0xFF);
+/* 134 */     this.b = paramnu.d("Age");
+/* 135 */     nu localnu = paramnu.k("Item");
+/* 136 */     this.a = new iz(localnu);
+/*     */   }
+/*     */   
+/*     */   public void b(gs paramgs) {
+/* 140 */     if (this.aI.B) { return;
+/*     */     }
+/* 142 */     int i = this.a.a;
+/* 143 */     if ((this.c == 0) && (paramgs.c.a(this.a))) {
+/* 144 */       if (this.a.c == uu.K.bn) paramgs.a(ep.g);
+/* 145 */       if (this.a.c == gm.aD.bf) paramgs.a(ep.t);
+/* 146 */       this.aI.a(this, "random.pop", 0.2F, ((this.bs.nextFloat() - this.bs.nextFloat()) * 0.7F + 1.0F) * 2.0F);
+/* 147 */       paramgs.b(this, i);
+/*     */       
+/* 149 */       if (this.a.a <= 0) K();
+/*     */     }
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\hl.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

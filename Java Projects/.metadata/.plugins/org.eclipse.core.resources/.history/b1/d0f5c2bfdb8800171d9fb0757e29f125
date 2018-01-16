@@ -1,0 +1,96 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class wh
+/*    */   extends bg
+/*    */ {
+/*    */   public wh(fd paramfd)
+/*    */   {
+/* 17 */     super(paramfd);
+/* 18 */     this.O = "/mob/pig.png";
+/* 19 */     b(0.9F, 0.9F);
+/*    */   }
+/*    */   
+/*    */   protected void b()
+/*    */   {
+/* 24 */     this.bD.a(16, Byte.valueOf((byte)0));
+/*    */   }
+/*    */   
+/*    */   public void b(nu paramnu) {
+/* 28 */     super.b(paramnu);
+/* 29 */     paramnu.a("Saddle", v());
+/*    */   }
+/*    */   
+/*    */   public void a(nu paramnu) {
+/* 33 */     super.a(paramnu);
+/* 34 */     a(paramnu.m("Saddle"));
+/*    */   }
+/*    */   
+/*    */   protected String g() {
+/* 38 */     return "mob.pig";
+/*    */   }
+/*    */   
+/*    */   protected String j_() {
+/* 42 */     return "mob.pig";
+/*    */   }
+/*    */   
+/*    */   protected String i() {
+/* 46 */     return "mob.pigdeath";
+/*    */   }
+/*    */   
+/*    */   public boolean a(gs paramgs) {
+/* 50 */     if ((v()) && (!this.aI.B) && ((this.aG == null) || (this.aG == paramgs))) {
+/* 51 */       paramgs.i(this);
+/* 52 */       return true;
+/*    */     }
+/* 54 */     return false;
+/*    */   }
+/*    */   
+/*    */   protected int j() {
+/* 58 */     if (this.bv > 0) return gm.ap.bf;
+/* 59 */     return gm.ao.bf;
+/*    */   }
+/*    */   
+/*    */   public boolean v() {
+/* 63 */     return (this.bD.a(16) & 0x1) != 0;
+/*    */   }
+/*    */   
+/*    */   public void a(boolean paramBoolean) {
+/* 67 */     if (paramBoolean) {
+/* 68 */       this.bD.b(16, Byte.valueOf((byte)1));
+/*    */     } else {
+/* 70 */       this.bD.b(16, Byte.valueOf((byte)0));
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public void a(c paramc) {
+/* 75 */     if (this.aI.B) { return;
+/*    */     }
+/* 77 */     ya localya = new ya(this.aI);
+/* 78 */     localya.c(this.aM, this.aN, this.aO, this.aS, this.aT);
+/* 79 */     this.aI.b(localya);
+/* 80 */     K();
+/*    */   }
+/*    */   
+/*    */   protected void b(float paramFloat) {
+/* 84 */     super.b(paramFloat);
+/*    */     
+/* 86 */     if ((paramFloat > 5.0F) && ((this.aG instanceof gs))) {
+/* 87 */       ((gs)this.aG).a(ep.u);
+/*    */     }
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\wh.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

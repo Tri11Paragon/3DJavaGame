@@ -1,0 +1,33 @@
+/*    */ import net.minecraft.client.Minecraft;
+/*    */ import org.lwjgl.opengl.GL11;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class gq
+/*    */   extends id
+/*    */ {
+/*    */   public gq(ix paramix, az paramaz)
+/*    */   {
+/* 11 */     super(new sh(paramix, paramaz));
+/*    */   }
+/*    */   
+/*    */   protected void k() {
+/* 15 */     this.g.b("Dispenser", 60, 6, 4210752);
+/* 16 */     this.g.b("Inventory", 8, this.i - 96 + 2, 4210752);
+/*    */   }
+/*    */   
+/*    */   protected void a(float paramFloat) {
+/* 20 */     int i = this.b.p.b("/gui/trap.png");
+/* 21 */     GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+/* 22 */     this.b.p.b(i);
+/* 23 */     int j = (this.c - this.a) / 2;
+/* 24 */     int k = (this.d - this.i) / 2;
+/* 25 */     b(j, k, 0, 0, this.a, this.i);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\gq.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

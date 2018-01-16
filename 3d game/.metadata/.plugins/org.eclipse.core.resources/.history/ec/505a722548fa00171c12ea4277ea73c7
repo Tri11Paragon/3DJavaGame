@@ -1,0 +1,106 @@
+package entities.components;
+
+import java.util.ArrayList;
+import java.util.List;
+import org.lwjgl.util.vector.Vector3f;
+
+import entities.EntityLiving;
+import entities.EntityLivingSheep;
+import renderEngine.DisplayManager;
+import settings.MasterSettingsLocationList;
+import terrains.World;
+import toolbox.Maths;
+
+public class BreedingComponent extends ComponentBase {
+	
+	private World world;
+	
+	private float cooldown;
+	float currentTick;
+	
+	public BreedingComponent(World world, float cooldown) {
+		super();
+		this.cooldown = cooldown;
+		this.world = world;
+		this.currentTick = cooldown;
+	}
+	
+	@Override
+	public void update(EntityLiving entity) {
+		//int ran = Maths.randInt(1, 1);
+		//if (ran == 1) 
+			checkBreeding(entity);
+	}
+	public void checkBreeding(EntityLiving entity) {
+		List<EntityLiving> entities = world.getLivingEntitiesInRange(entity.getPosition().x, entity.getPosition().y, entity.getPosition().z, 16);
+		if (entities.size() > 0){
+			startBreeding(entities, entity);
+		}
+	}
+	
+	public void startBreeding(List<EntityLiving> entities, EntityLiving entity) {
+		this.currentTick -= DisplayManager.getDelta();
+		if (currentTick > 0) {
+			return;
+		}
+		//System.out.println (currentTick);
+		haveChild(entities, entity);
+		this.currentTick = Maths.randomFloat(this.cooldown, this.cooldown * 2);
+	}
+	
+	public void haveChild(List<EntityLiving> entities, EntityLiving entity) {
+		Vector3f entityColor = calculateChildColor(entity, entities.get(0));
+		List<GeneBase> entityGenes = calcualteChildGenes(entity, entities.get(0));
+		Vector3f entityPos = new Vector3f(entity.getPosition().x, entity.getPosition().y, entity.getPosition().z);
+		EntityLiving entityLiving = new EntityLiving(entity.getModel(), entityPos, 
+				entity.getRotX(), entity.getRotY() + 10, entity.getRotZ(), entity.getScale(), entityColor, true);
+		//entityLiving.addAllComponent(entity.getComponent());
+		//entityLiving.addComponent(new BounceComponent(entityLiving, 1.35f, 70, 100.0f));
+		//entityLiving.addComponent(new RandomLookComponent(entityLiving, 10, 10));
+		//entityLiving.addComponent(new BreedingComponent(entityLiving, world, 100));
+		entityLiving.addAllGenes(entityGenes);
+		System.out.println(entity.getPosition());
+		world.entityLivingList.add(entityLiving);
+		return;
+	}
+
+	private Vector3f calculateChildColor(EntityLiving entity1, EntityLiving entity2) {
+		Vector3f color = new Vector3f(Maths.randomFloat(entity1.getEntityColor().x, entity2.getEntityColor().x), 
+				Maths.randomFloat(entity1.getEntityColor().y, entity2.getEntityColor().y) , 
+				Maths.randomFloat(entity1.getEntityColor().z, entity2.getEntityColor().z));
+		if (Maths.randInt(0, MasterSettingsLocationList.colorChangeChance) == 2) {
+			Maths.colors entityColorType = Maths.getEntityColor(color);
+			if (entityColorType == Maths.colors.COLOR_RED) {
+				color.x += 0.1f;
+				color.y += Maths.randomFloat(0.001f, 0.01f);
+				color.z += Maths.randomFloat(0.001f, 0.01f);
+			} else if (entityColorType == Maths.colors.COLOR_GREEN) {
+				color.y += 0.1f;
+				color.x += Maths.randomFloat(0.001f, 0.01f);
+				color.z += Maths.randomFloat(0.001f, 0.01f);
+			} else if (entityColorType == Maths.colors.COLOR_BLUE) {
+				color.x += Maths.randomFloat(0.001f, 0.01f);
+				color.y += Maths.randomFloat(0.001f, 0.01f);
+				color.z += 0.1f;
+			} else if (entityColorType == Maths.colors.NULL) {
+				color.x += Maths.randomFloat(0.01f, 0.1f);
+				color.y += Maths.randomFloat(0.01f, 0.1f);
+				color.z += Maths.randomFloat(0.01f, 0.1f);
+			}
+		}
+		return color;
+	}
+	
+	private List<GeneBase> calcualteChildGenes(EntityLiving entity1, EntityLiving entity2){
+		List<GeneBase> genes = new ArrayList<GeneBase>();
+		
+		genes.addAll(entity1.getGenes());
+		genes.addAll(entity2.getGenes());
+		
+		return genes;
+	}
+	
+	public float getCooldown() {
+		return cooldown;
+	}
+}

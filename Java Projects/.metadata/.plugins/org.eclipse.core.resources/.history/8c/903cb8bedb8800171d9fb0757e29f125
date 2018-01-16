@@ -1,0 +1,68 @@
+/*    */ public class il
+/*    */   extends ko {
+/*    */   public ps a;
+/*    */   public ps b;
+/*    */   public ps c;
+/*    */   
+/*  7 */   public il() { this(0.0F); }
+/*    */   
+/*    */   public ps d;
+/*    */   
+/* 11 */   public il(float paramFloat) { int i = 4;
+/*    */     
+/* 13 */     this.a = new ps(0, 0);
+/* 14 */     this.a.a(-4.0F, -8.0F, -4.0F, 8, 8, 8, paramFloat);
+/* 15 */     this.a.a(0.0F, i, 0.0F);
+/*    */     
+/* 17 */     this.b = new ps(32, 0);
+/* 18 */     this.b.a(-4.0F, -8.0F, -4.0F, 8, 8, 8, paramFloat + 0.5F);
+/* 19 */     this.b.a(0.0F, i, 0.0F);
+/*    */     
+/* 21 */     this.c = new ps(16, 16);
+/* 22 */     this.c.a(-4.0F, 0.0F, -2.0F, 8, 12, 4, paramFloat);
+/* 23 */     this.c.a(0.0F, i, 0.0F);
+/*    */     
+/* 25 */     this.d = new ps(0, 16);
+/* 26 */     this.d.a(-2.0F, 0.0F, -2.0F, 4, 6, 4, paramFloat);
+/* 27 */     this.d.a(-2.0F, 12 + i, 4.0F);
+/*    */     
+/* 29 */     this.e = new ps(0, 16);
+/* 30 */     this.e.a(-2.0F, 0.0F, -2.0F, 4, 6, 4, paramFloat);
+/* 31 */     this.e.a(2.0F, 12 + i, 4.0F);
+/*    */     
+/* 33 */     this.f = new ps(0, 16);
+/* 34 */     this.f.a(-2.0F, 0.0F, -2.0F, 4, 6, 4, paramFloat);
+/* 35 */     this.f.a(-2.0F, 12 + i, -4.0F);
+/*    */     
+/* 37 */     this.g = new ps(0, 16);
+/* 38 */     this.g.a(-2.0F, 0.0F, -2.0F, 4, 6, 4, paramFloat);
+/* 39 */     this.g.a(2.0F, 12 + i, -4.0F); }
+/*    */   
+/*    */   public ps e;
+/*    */   
+/* 43 */   public void a(float paramFloat1, float paramFloat2, float paramFloat3, float paramFloat4, float paramFloat5, float paramFloat6) { b(paramFloat1, paramFloat2, paramFloat3, paramFloat4, paramFloat5, paramFloat6);
+/*    */     
+/* 45 */     this.a.a(paramFloat6);
+/* 46 */     this.c.a(paramFloat6);
+/* 47 */     this.d.a(paramFloat6);
+/* 48 */     this.e.a(paramFloat6);
+/* 49 */     this.f.a(paramFloat6);
+/* 50 */     this.g.a(paramFloat6); }
+/*    */   
+/*    */   public ps f;
+/*    */   public ps g;
+/* 54 */   public void b(float paramFloat1, float paramFloat2, float paramFloat3, float paramFloat4, float paramFloat5, float paramFloat6) { this.a.e = (paramFloat4 / 57.295776F);
+/* 55 */     this.a.d = (paramFloat5 / 57.295776F);
+/*    */     
+/* 57 */     this.d.d = (in.b(paramFloat1 * 0.6662F) * 1.4F * paramFloat2);
+/* 58 */     this.e.d = (in.b(paramFloat1 * 0.6662F + 3.1415927F) * 1.4F * paramFloat2);
+/* 59 */     this.f.d = (in.b(paramFloat1 * 0.6662F + 3.1415927F) * 1.4F * paramFloat2);
+/* 60 */     this.g.d = (in.b(paramFloat1 * 0.6662F) * 1.4F * paramFloat2);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\il.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,76 @@
+/*    */ import java.util.List;
+/*    */ 
+/*    */ class _tmi_MgItemPanel
+/*    */   extends _tmi_MgWidget
+/*    */ {
+/*    */   private _tmi_MgItemHandler handler;
+/*    */   private List<iz> items;
+/*  8 */   public static int page = 0;
+/*  9 */   public int numPages = 0;
+/*    */   public static final int SPACING = 18;
+/* 11 */   private iz hoverItem = null;
+/*    */   private int marginLeft;
+/*    */   private int marginTop;
+/*    */   private int cols;
+/*    */   private int rows;
+/*    */   private int itemsPerPage;
+/*    */   
+/*    */   public _tmi_MgItemPanel(int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5, List<iz> paramList, _tmi_MgItemHandler param_tmi_MgItemHandler)
+/*    */   {
+/* 20 */     super(paramInt1, paramInt2, paramInt3, paramInt4, paramInt5);
+/* 21 */     this.items = paramList;
+/* 22 */     this.handler = param_tmi_MgItemHandler;
+/*    */   }
+/*    */   
+/*    */   public void resize() {
+/* 26 */     this.marginLeft = (this.x + this.width % 18 / 2);
+/* 27 */     this.marginTop = (this.y + this.height % 18 / 2);
+/* 28 */     this.cols = (this.width / 18);
+/* 29 */     this.rows = (this.height / 18);
+/* 30 */     this.itemsPerPage = (this.rows * this.cols);
+/* 31 */     this.numPages = ((int)Math.ceil(1.0F * this.items.size() / this.itemsPerPage));
+/* 32 */     page = page >= this.numPages ? 0 : page < 0 ? this.numPages - 1 : page;
+/*    */   }
+/*    */   
+/*    */   public void draw(_tmi_MgCanvas param_tmi_MgCanvas, int paramInt1, int paramInt2) {
+/* 36 */     int i = page * this.itemsPerPage;
+/* 37 */     int j = 0;
+/* 38 */     int k = 0;
+/* 39 */     this.hoverItem = null;
+/* 40 */     Object localObject; while ((i < this.itemsPerPage * (page + 1)) && (i < this.items.size())) {
+/* 41 */       localObject = (iz)this.items.get(i++);
+/* 42 */       int m = this.marginLeft + j * 18;
+/* 43 */       int n = this.marginTop + k * 18;
+/* 44 */       if ((paramInt1 >= m) && (paramInt1 < m + 18) && (paramInt2 >= n) && (paramInt2 < n + 18)) {
+/* 45 */         this.hoverItem = ((iz)localObject);
+/* 46 */         param_tmi_MgCanvas.drawRect(m - 1, n - 1, 18, 18, -296397483);
+/*    */       }
+/* 48 */       param_tmi_MgCanvas.drawItem(m, n, (iz)localObject);
+/* 49 */       j++;
+/* 50 */       if (j == this.cols) {
+/* 51 */         j = 0;
+/* 52 */         k++;
+/*    */       }
+/*    */     }
+/* 55 */     if (this.hoverItem != null) {
+/* 56 */       localObject = TMIUtils.itemDisplayName(this.hoverItem) + " " + this.hoverItem.c;
+/* 57 */       if (this.hoverItem.i() != 0) {
+/* 58 */         localObject = (String)localObject + "-" + this.hoverItem.i();
+/*    */       }
+/* 60 */       param_tmi_MgCanvas.drawTip(paramInt1, paramInt2, (String)localObject);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public boolean click(int paramInt1, int paramInt2, int paramInt3) {
+/* 65 */     if (this.hoverItem != null) {
+/* 66 */       return this.handler.onItemEvent(this.hoverItem, paramInt3);
+/*    */     }
+/* 68 */     return true;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\_tmi_MgItemPanel.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

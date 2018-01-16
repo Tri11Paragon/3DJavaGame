@@ -1,0 +1,18 @@
+public abstract interface bf
+{
+  public abstract lm a(fd paramfd, int paramInt1, int paramInt2);
+  
+  public abstract void a(fd paramfd, lm paramlm);
+  
+  public abstract void b(fd paramfd, lm paramlm);
+  
+  public abstract void a();
+  
+  public abstract void b();
+}
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\bf.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

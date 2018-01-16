@@ -1,0 +1,27 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class fk
+/*    */   extends jp
+/*    */ {
+/*    */   public fk(int paramInt1, int paramInt2, ln paramln, boolean paramBoolean)
+/*    */   {
+/* 10 */     super(paramInt1, paramInt2, paramln, paramBoolean);
+/*    */   }
+/*    */   
+/*    */   public int a(Random paramRandom) {
+/* 14 */     return 0;
+/*    */   }
+/*    */   
+/*    */   public int b_()
+/*    */   {
+/* 19 */     return 0;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\fk.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

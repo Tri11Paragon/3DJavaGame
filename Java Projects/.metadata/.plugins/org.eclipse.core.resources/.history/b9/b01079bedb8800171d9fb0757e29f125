@@ -1,0 +1,61 @@
+/*    */ import java.util.List;
+/*    */ import java.util.Map;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ final class vn
+/*    */   extends gu
+/*    */ {
+/* 18 */   static final vn a = new vn(at.g);
+/* 19 */   static final vn b = new vn(at.e);
+/* 20 */   static final vn c = new vn(at.f);
+/*    */   private final at d;
+/*    */   
+/*    */   private vn(at paramat)
+/*    */   {
+/* 25 */     this.d = paramat;
+/*    */   }
+/*    */   
+/*    */   public at a() {
+/* 29 */     return this.d;
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public String b()
+/*    */   {
+/* 37 */     throw new IllegalStateException("Attempt to get text on a JsonNode without text.");
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public Map c()
+/*    */   {
+/* 45 */     throw new IllegalStateException("Attempt to get fields on a JsonNode without fields.");
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public List d()
+/*    */   {
+/* 53 */     throw new IllegalStateException("Attempt to get elements on a JsonNode without elements.");
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\vn.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

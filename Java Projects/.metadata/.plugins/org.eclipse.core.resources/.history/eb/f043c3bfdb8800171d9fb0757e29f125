@@ -1,0 +1,327 @@
+/*     */ import java.util.ArrayList;
+/*     */ import java.util.HashSet;
+/*     */ import java.util.List;
+/*     */ import java.util.Set;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public abstract class dw
+/*     */ {
+/*  17 */   public List d = new ArrayList();
+/*  18 */   public List e = new ArrayList();
+/*  19 */   public int f = 0;
+/*  20 */   private short a = 0;
+/*     */   
+/*  22 */   protected List g = new ArrayList();
+/*     */   
+/*     */   protected void a(gp paramgp) {
+/*  25 */     paramgp.a = this.e.size();
+/*  26 */     this.e.add(paramgp);
+/*  27 */     this.d.add(null);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void a()
+/*     */   {
+/*  56 */     for (int i = 0; i < this.e.size(); i++) {
+/*  57 */       iz localiz1 = ((gp)this.e.get(i)).a();
+/*  58 */       iz localiz2 = (iz)this.d.get(i);
+/*  59 */       if (!iz.a(localiz2, localiz1)) {
+/*  60 */         localiz2 = localiz1 == null ? null : localiz1.k();
+/*  61 */         this.d.set(i, localiz2);
+/*  62 */         for (int j = 0; j < this.g.size(); j++) {
+/*  63 */           ((ec)this.g.get(j)).a(this, i, localiz2);
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public gp b(int paramInt)
+/*     */   {
+/*  80 */     return (gp)this.e.get(paramInt);
+/*     */   }
+/*     */   
+/*     */   public iz a(int paramInt) {
+/*  84 */     gp localgp = (gp)this.e.get(paramInt);
+/*  85 */     if (localgp != null) {
+/*  86 */       return localgp.a();
+/*     */     }
+/*  88 */     return null;
+/*     */   }
+/*     */   
+/*     */   public iz a(int paramInt1, int paramInt2, boolean paramBoolean, gs paramgs) {
+/*  92 */     iz localiz1 = null;
+/*  93 */     if ((paramInt2 == 0) || (paramInt2 == 1)) {
+/*  94 */       ix localix = paramgs.c;
+/*  95 */       if (paramInt1 == 64537) {
+/*  96 */         if ((localix.i() != null) && 
+/*  97 */           (paramInt1 == 64537)) {
+/*  98 */           if (paramInt2 == 0) {
+/*  99 */             paramgs.a(localix.i());
+/* 100 */             localix.b(null);
+/*     */           }
+/* 102 */           if (paramInt2 == 1) {
+/* 103 */             paramgs.a(localix.i().a(1));
+/* 104 */             if (localix.i().a == 0) localix.b(null);
+/*     */           }
+/*     */         } } else { Object localObject1;
+/*     */         Object localObject2;
+/*     */         int j;
+/* 109 */         if (paramBoolean) {
+/* 110 */           localObject1 = a(paramInt1);
+/* 111 */           if (localObject1 != null) {
+/* 112 */             int i = ((iz)localObject1).a;
+/* 113 */             localiz1 = ((iz)localObject1).k();
+/*     */             
+/* 115 */             localObject2 = (gp)this.e.get(paramInt1);
+/* 116 */             if ((localObject2 != null) && 
+/* 117 */               (((gp)localObject2).a() != null)) {
+/* 118 */               j = ((gp)localObject2).a().a;
+/* 119 */               if (j < i) a(paramInt1, paramInt2, paramBoolean, paramgs);
+/*     */             }
+/*     */           }
+/*     */         }
+/*     */         else {
+/* 124 */           localObject1 = (gp)this.e.get(paramInt1);
+/* 125 */           if (localObject1 != null) {
+/* 126 */             ((gp)localObject1).c();
+/* 127 */             iz localiz2 = ((gp)localObject1).a();
+/* 128 */             localObject2 = localix.i();
+/*     */             
+/* 130 */             if (localiz2 != null) {
+/* 131 */               localiz1 = localiz2.k();
+/*     */             }
+/*     */             
+/* 134 */             if (localiz2 == null) {
+/* 135 */               if ((localObject2 != null) && (((gp)localObject1).b((iz)localObject2))) {
+/* 136 */                 j = paramInt2 == 0 ? ((iz)localObject2).a : 1;
+/* 137 */                 if (j > ((gp)localObject1).d()) {
+/* 138 */                   j = ((gp)localObject1).d();
+/*     */                 }
+/* 140 */                 ((gp)localObject1).c(((iz)localObject2).a(j));
+/* 141 */                 if (((iz)localObject2).a == 0) {
+/* 142 */                   localix.b(null);
+/*     */                 }
+/*     */               }
+/*     */             }
+/* 146 */             else if (localObject2 == null)
+/*     */             {
+/* 148 */               j = paramInt2 == 0 ? localiz2.a : (localiz2.a + 1) / 2;
+/* 149 */               iz localiz4 = ((gp)localObject1).a(j);
+/*     */               
+/* 151 */               localix.b(localiz4);
+/* 152 */               if (localiz2.a == 0) {
+/* 153 */                 ((gp)localObject1).c(null);
+/*     */               }
+/* 155 */               ((gp)localObject1).a(localix.i()); } else { int k;
+/* 156 */               if (((gp)localObject1).b((iz)localObject2))
+/*     */               {
+/* 158 */                 if ((localiz2.c != ((iz)localObject2).c) || ((localiz2.f()) && (localiz2.i() != ((iz)localObject2).i())))
+/*     */                 {
+/* 160 */                   if (((iz)localObject2).a <= ((gp)localObject1).d()) {
+/* 161 */                     iz localiz3 = localiz2;
+/* 162 */                     ((gp)localObject1).c((iz)localObject2);
+/* 163 */                     localix.b(localiz3);
+/*     */                   }
+/*     */                 }
+/*     */                 else {
+/* 167 */                   k = paramInt2 == 0 ? ((iz)localObject2).a : 1;
+/* 168 */                   if (k > ((gp)localObject1).d() - localiz2.a) {
+/* 169 */                     k = ((gp)localObject1).d() - localiz2.a;
+/*     */                   }
+/* 171 */                   if (k > ((iz)localObject2).c() - localiz2.a) {
+/* 172 */                     k = ((iz)localObject2).c() - localiz2.a;
+/*     */                   }
+/* 174 */                   ((iz)localObject2).a(k);
+/* 175 */                   if (((iz)localObject2).a == 0) {
+/* 176 */                     localix.b(null);
+/*     */                   }
+/* 178 */                   localiz2.a += k;
+/*     */                 }
+/*     */                 
+/*     */               }
+/* 182 */               else if ((localiz2.c == ((iz)localObject2).c) && (((iz)localObject2).c() > 1) && ((!localiz2.f()) || (localiz2.i() == ((iz)localObject2).i()))) {
+/* 183 */                 k = localiz2.a;
+/* 184 */                 if ((k > 0) && (k + ((iz)localObject2).a <= ((iz)localObject2).c())) {
+/* 185 */                   localObject2.a += k;
+/* 186 */                   localiz2.a(k);
+/* 187 */                   if (localiz2.a == 0) ((gp)localObject1).c(null);
+/* 188 */                   ((gp)localObject1).a(localix.i());
+/*     */                 }
+/*     */               }
+/*     */             }
+/*     */           }
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */     
+/*     */ 
+/*     */ 
+/* 199 */     return localiz1;
+/*     */   }
+/*     */   
+/*     */   public void a(gs paramgs) {
+/* 203 */     ix localix = paramgs.c;
+/* 204 */     if (localix.i() != null) {
+/* 205 */       paramgs.a(localix.i());
+/* 206 */       localix.b(null);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(lw paramlw) {
+/* 211 */     a();
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void a(int paramInt, iz paramiz)
+/*     */   {
+/* 219 */     b(paramInt).c(paramiz);
+/*     */   }
+/*     */   
+/*     */   public void a(iz[] paramArrayOfiz) {
+/* 223 */     for (int i = 0; i < paramArrayOfiz.length; i++) {
+/* 224 */       b(i).c(paramArrayOfiz[i]);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(int paramInt1, int paramInt2) {}
+/*     */   
+/*     */   public short a(ix paramix)
+/*     */   {
+/* 232 */     this.a = ((short)(this.a + 1));
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/* 237 */     return this.a;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 248 */   private Set b = new HashSet();
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   public void a(short paramShort) {}
+/*     */   
+/*     */ 
+/*     */   public void b(short paramShort) {}
+/*     */   
+/*     */ 
+/*     */   public abstract boolean b(gs paramgs);
+/*     */   
+/*     */ 
+/*     */   protected void a(iz paramiz, int paramInt1, int paramInt2, boolean paramBoolean)
+/*     */   {
+/* 263 */     int i = paramInt1;
+/* 264 */     if (paramBoolean) {
+/* 265 */       i = paramInt2 - 1;
+/*     */     }
+/*     */     gp localgp;
+/*     */     iz localiz;
+/* 269 */     if (paramiz.d()) {
+/* 270 */       while ((paramiz.a > 0) && (((!paramBoolean) && (i < paramInt2)) || ((paramBoolean) && (i >= paramInt1))))
+/*     */       {
+/* 272 */         localgp = (gp)this.e.get(i);
+/* 273 */         localiz = localgp.a();
+/* 274 */         if ((localiz != null) && (localiz.c == paramiz.c) && ((!paramiz.f()) || (paramiz.i() == localiz.i()))) {
+/* 275 */           int j = localiz.a + paramiz.a;
+/* 276 */           if (j <= paramiz.c()) {
+/* 277 */             paramiz.a = 0;
+/* 278 */             localiz.a = j;
+/* 279 */             localgp.c();
+/* 280 */           } else if (localiz.a < paramiz.c()) {
+/* 281 */             paramiz.a -= paramiz.c() - localiz.a;
+/* 282 */             localiz.a = paramiz.c();
+/* 283 */             localgp.c();
+/*     */           }
+/*     */         }
+/*     */         
+/* 287 */         if (paramBoolean) {
+/* 288 */           i--;
+/*     */         } else {
+/* 290 */           i++;
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */     
+/*     */ 
+/* 296 */     if (paramiz.a > 0) {
+/* 297 */       if (paramBoolean) {
+/* 298 */         i = paramInt2 - 1;
+/*     */       } else {
+/* 300 */         i = paramInt1;
+/*     */       }
+/* 302 */       while (((!paramBoolean) && (i < paramInt2)) || ((paramBoolean) && (i >= paramInt1))) {
+/* 303 */         localgp = (gp)this.e.get(i);
+/* 304 */         localiz = localgp.a();
+/*     */         
+/* 306 */         if (localiz == null) {
+/* 307 */           localgp.c(paramiz.k());
+/* 308 */           localgp.c();
+/* 309 */           paramiz.a = 0;
+/* 310 */           break;
+/*     */         }
+/*     */         
+/* 313 */         if (paramBoolean) {
+/* 314 */           i--;
+/*     */         } else {
+/* 316 */           i++;
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\dw.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

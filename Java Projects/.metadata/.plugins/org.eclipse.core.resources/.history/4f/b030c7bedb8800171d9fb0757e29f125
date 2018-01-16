@@ -1,0 +1,104 @@
+/*    */ import java.util.List;
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class c
+/*    */   extends yu
+/*    */ {
+/*    */   private int b;
+/* 18 */   public long a = 0L;
+/*    */   private int c;
+/*    */   
+/*    */   public c(fd paramfd, double paramDouble1, double paramDouble2, double paramDouble3) {
+/* 22 */     super(paramfd);
+/* 23 */     c(paramDouble1, paramDouble2, paramDouble3, 0.0F, 0.0F);
+/* 24 */     this.b = 2;
+/* 25 */     this.a = this.bs.nextLong();
+/* 26 */     this.c = (this.bs.nextInt(3) + 1);
+/*    */     
+/* 28 */     if ((paramfd.q >= 2) && (paramfd.b(in.b(paramDouble1), in.b(paramDouble2), in.b(paramDouble3), 10)))
+/*    */     {
+/* 30 */       int i = in.b(paramDouble1);
+/* 31 */       int j = in.b(paramDouble2);
+/* 32 */       int k = in.b(paramDouble3);
+/* 33 */       if ((paramfd.a(i, j, k) == 0) && (uu.as.a(paramfd, i, j, k))) { paramfd.f(i, j, k, uu.as.bn);
+/*    */       }
+/*    */       
+/* 36 */       for (i = 0; i < 4; i++) {
+/* 37 */         j = in.b(paramDouble1) + this.bs.nextInt(3) - 1;
+/* 38 */         k = in.b(paramDouble2) + this.bs.nextInt(3) - 1;
+/* 39 */         int m = in.b(paramDouble3) + this.bs.nextInt(3) - 1;
+/* 40 */         if ((paramfd.a(j, k, m) == 0) && (uu.as.a(paramfd, j, k, m))) paramfd.f(j, k, m, uu.as.bn);
+/*    */       }
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public void w_() {
+/* 46 */     super.w_();
+/*    */     
+/* 48 */     if (this.b == 2) {
+/* 49 */       this.aI.a(this.aM, this.aN, this.aO, "ambient.weather.thunder", 10000.0F, 0.8F + this.bs.nextFloat() * 0.2F);
+/* 50 */       this.aI.a(this.aM, this.aN, this.aO, "random.explode", 2.0F, 0.5F + this.bs.nextFloat() * 0.2F);
+/*    */     }
+/*    */     
+/* 53 */     this.b -= 1;
+/* 54 */     if (this.b < 0) {
+/* 55 */       if (this.c == 0) {
+/* 56 */         K();
+/* 57 */       } else if (this.b < -this.bs.nextInt(10)) {
+/* 58 */         this.c -= 1;
+/* 59 */         this.b = 1;
+/* 60 */         this.a = this.bs.nextLong();
+/* 61 */         if (this.aI.b(in.b(this.aM), in.b(this.aN), in.b(this.aO), 10)) {
+/* 62 */           int i = in.b(this.aM);
+/* 63 */           int j = in.b(this.aN);
+/* 64 */           int k = in.b(this.aO);
+/* 65 */           if ((this.aI.a(i, j, k) == 0) && (uu.as.a(this.aI, i, j, k))) { this.aI.f(i, j, k, uu.as.bn);
+/*    */           }
+/*    */         }
+/*    */       }
+/*    */     }
+/* 70 */     if (this.b >= 0) {
+/* 71 */       double d = 3.0D;
+/* 72 */       List localList = this.aI.b(this, eq.b(this.aM - d, this.aN - d, this.aO - d, this.aM + d, this.aN + 6.0D + d, this.aO + d));
+/* 73 */       for (int m = 0; m < localList.size(); m++) {
+/* 74 */         sn localsn = (sn)localList.get(m);
+/* 75 */         localsn.a(this);
+/*    */       }
+/*    */       
+/* 78 */       this.aI.n = 2;
+/*    */     }
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */   protected void b() {}
+/*    */   
+/*    */ 
+/*    */ 
+/*    */   protected void a(nu paramnu) {}
+/*    */   
+/*    */ 
+/*    */   protected void b(nu paramnu) {}
+/*    */   
+/*    */ 
+/*    */   public boolean a(bt parambt)
+/*    */   {
+/* 96 */     return this.b >= 0;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\c.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

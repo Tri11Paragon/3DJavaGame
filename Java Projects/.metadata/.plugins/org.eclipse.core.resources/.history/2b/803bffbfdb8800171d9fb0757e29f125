@@ -1,0 +1,688 @@
+/*     */ import java.io.BufferedReader;
+/*     */ import java.io.InputStreamReader;
+/*     */ import java.io.PrintStream;
+/*     */ import java.net.InetAddress;
+/*     */ import java.net.Socket;
+/*     */ import java.net.URL;
+/*     */ import java.util.List;
+/*     */ import java.util.Random;
+/*     */ import net.minecraft.client.Minecraft;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class nb
+/*     */   extends ti
+/*     */ {
+/*  99 */   private boolean d = false;
+/*     */   private pf e;
+/*     */   public String a;
+/*     */   private Minecraft f;
+/*     */   private mm g;
+/* 104 */   private boolean h = false;
+/* 105 */   public hc b = new hc(null);
+/*     */   
+/*     */   public nb(Minecraft paramMinecraft, String paramString, int paramInt)
+/*     */   {
+/* 109 */     this.f = paramMinecraft;
+/* 110 */     Socket localSocket = new Socket(InetAddress.getByName(paramString), paramInt);
+/* 111 */     this.e = new pf(localSocket, "Client", this);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void a()
+/*     */   {
+/* 119 */     if (!this.d) this.e.b();
+/* 120 */     this.e.a();
+/*     */   }
+/*     */   
+/*     */   public void a(nz paramnz) {
+/* 124 */     this.f.c = new xk(this.f, this);
+/* 125 */     this.f.I.a(jl.i, 1);
+/*     */     
+/* 127 */     this.g = new mm(this, paramnz.c, paramnz.d);
+/* 128 */     this.g.B = true;
+/* 129 */     this.f.a(this.g);
+/* 130 */     this.f.h.m = paramnz.d;
+/* 131 */     this.f.a(new gg(this));
+/* 132 */     this.f.h.aD = paramnz.a;
+/*     */   }
+/*     */   
+/*     */   public void a(nd paramnd) {
+/* 136 */     double d1 = paramnd.b / 32.0D;
+/* 137 */     double d2 = paramnd.c / 32.0D;
+/* 138 */     double d3 = paramnd.d / 32.0D;
+/* 139 */     hl localhl = new hl(this.g, d1, d2, d3, new iz(paramnd.h, paramnd.i, paramnd.l));
+/* 140 */     localhl.aP = (paramnd.e / 128.0D);
+/* 141 */     localhl.aQ = (paramnd.f / 128.0D);
+/* 142 */     localhl.aR = (paramnd.g / 128.0D);
+/* 143 */     localhl.bJ = paramnd.b;
+/* 144 */     localhl.bK = paramnd.c;
+/* 145 */     localhl.bL = paramnd.d;
+/*     */     
+/* 147 */     this.g.a(paramnd.a, localhl);
+/*     */   }
+/*     */   
+/*     */   public void a(so paramso) {
+/* 151 */     double d1 = paramso.b / 32.0D;
+/* 152 */     double d2 = paramso.c / 32.0D;
+/* 153 */     double d3 = paramso.d / 32.0D;
+/* 154 */     Object localObject = null;
+/* 155 */     if (paramso.h == 10) localObject = new yl(this.g, d1, d2, d3, 0);
+/* 156 */     if (paramso.h == 11) localObject = new yl(this.g, d1, d2, d3, 1);
+/* 157 */     if (paramso.h == 12) localObject = new yl(this.g, d1, d2, d3, 2);
+/* 158 */     if (paramso.h == 90) localObject = new lx(this.g, d1, d2, d3);
+/* 159 */     if (paramso.h == 60) localObject = new sl(this.g, d1, d2, d3);
+/* 160 */     if (paramso.h == 61) localObject = new by(this.g, d1, d2, d3);
+/* 161 */     if (paramso.h == 63) {
+/* 162 */       localObject = new cf(this.g, d1, d2, d3, paramso.e / 8000.0D, paramso.f / 8000.0D, paramso.g / 8000.0D);
+/* 163 */       paramso.i = 0;
+/*     */     }
+/* 165 */     if (paramso.h == 62) localObject = new vv(this.g, d1, d2, d3);
+/* 166 */     if (paramso.h == 1) localObject = new fz(this.g, d1, d2, d3);
+/* 167 */     if (paramso.h == 50) localObject = new qw(this.g, d1, d2, d3);
+/* 168 */     if (paramso.h == 70) localObject = new ju(this.g, d1, d2, d3, uu.F.bn);
+/* 169 */     if (paramso.h == 71) localObject = new ju(this.g, d1, d2, d3, uu.G.bn);
+/* 170 */     if (localObject != null) {
+/* 171 */       ((sn)localObject).bJ = paramso.b;
+/* 172 */       ((sn)localObject).bK = paramso.c;
+/* 173 */       ((sn)localObject).bL = paramso.d;
+/* 174 */       ((sn)localObject).aS = 0.0F;
+/* 175 */       ((sn)localObject).aT = 0.0F;
+/* 176 */       ((sn)localObject).aD = paramso.a;
+/* 177 */       this.g.a(paramso.a, (sn)localObject);
+/* 178 */       if (paramso.i > 0)
+/*     */       {
+/* 180 */         if (paramso.h == 60) {
+/* 181 */           sn localsn = a(paramso.i);
+/* 182 */           if ((localsn instanceof ls)) {
+/* 183 */             ((sl)localObject).c = ((ls)localsn);
+/*     */           }
+/*     */         }
+/*     */         
+/* 187 */         ((sn)localObject).a(paramso.e / 8000.0D, paramso.f / 8000.0D, paramso.g / 8000.0D);
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(fa paramfa)
+/*     */   {
+/* 194 */     double d1 = paramfa.b / 32.0D;
+/* 195 */     double d2 = paramfa.c / 32.0D;
+/* 196 */     double d3 = paramfa.d / 32.0D;
+/* 197 */     c localc = null;
+/* 198 */     if (paramfa.e == 1) localc = new c(this.g, d1, d2, d3);
+/* 199 */     if (localc != null) {
+/* 200 */       localc.bJ = paramfa.b;
+/* 201 */       localc.bK = paramfa.c;
+/* 202 */       localc.bL = paramfa.d;
+/* 203 */       localc.aS = 0.0F;
+/* 204 */       localc.aT = 0.0F;
+/* 205 */       localc.aD = paramfa.a;
+/* 206 */       this.g.a(localc);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   public void a(vt paramvt)
+/*     */   {
+/* 214 */     qv localqv = new qv(this.g, paramvt.b, paramvt.c, paramvt.d, paramvt.e, paramvt.f);
+/* 215 */     this.g.a(paramvt.a, localqv);
+/*     */   }
+/*     */   
+/*     */   public void a(gj paramgj) {
+/* 219 */     sn localsn = a(paramgj.a);
+/* 220 */     if (localsn == null) return;
+/* 221 */     localsn.a(paramgj.b / 8000.0D, paramgj.c / 8000.0D, paramgj.d / 8000.0D);
+/*     */   }
+/*     */   
+/*     */   public void a(ux paramux)
+/*     */   {
+/* 226 */     sn localsn = a(paramux.a);
+/* 227 */     if ((localsn != null) && (paramux.b() != null)) {
+/* 228 */       localsn.ad().a(paramux.b());
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(mf parammf) {
+/* 233 */     double d1 = parammf.c / 32.0D;
+/* 234 */     double d2 = parammf.d / 32.0D;
+/* 235 */     double d3 = parammf.e / 32.0D;
+/* 236 */     float f1 = parammf.f * 360 / 256.0F;
+/* 237 */     float f2 = parammf.g * 360 / 256.0F;
+/* 238 */     xz localxz = new xz(this.f.f, parammf.b);
+/* 239 */     localxz.aJ = (localxz.bl = localxz.bJ = parammf.c);
+/* 240 */     localxz.aK = (localxz.bm = localxz.bK = parammf.d);
+/* 241 */     localxz.aL = (localxz.bn = localxz.bL = parammf.e);
+/*     */     
+/* 243 */     int i = parammf.h;
+/* 244 */     if (i == 0) {
+/* 245 */       localxz.c.a[localxz.c.c] = null;
+/*     */     } else {
+/* 247 */       localxz.c.a[localxz.c.c] = new iz(i, 1, 0);
+/*     */     }
+/* 249 */     localxz.b(d1, d2, d3, f1, f2);
+/* 250 */     this.g.a(parammf.a, localxz);
+/*     */   }
+/*     */   
+/*     */   public void a(rg paramrg) {
+/* 254 */     sn localsn = a(paramrg.a);
+/* 255 */     if (localsn == null) return;
+/* 256 */     localsn.bJ = paramrg.b;
+/* 257 */     localsn.bK = paramrg.c;
+/* 258 */     localsn.bL = paramrg.d;
+/* 259 */     double d1 = localsn.bJ / 32.0D;
+/* 260 */     double d2 = localsn.bK / 32.0D + 0.015625D;
+/* 261 */     double d3 = localsn.bL / 32.0D;
+/* 262 */     float f1 = paramrg.e * 360 / 256.0F;
+/* 263 */     float f2 = paramrg.f * 360 / 256.0F;
+/* 264 */     localsn.a(d1, d2, d3, f1, f2, 3);
+/*     */   }
+/*     */   
+/*     */   public void a(uh paramuh)
+/*     */   {
+/* 269 */     sn localsn = a(paramuh.a);
+/* 270 */     if (localsn == null) return;
+/* 271 */     localsn.bJ += paramuh.b;
+/* 272 */     localsn.bK += paramuh.c;
+/* 273 */     localsn.bL += paramuh.d;
+/* 274 */     double d1 = localsn.bJ / 32.0D;
+/* 275 */     double d2 = localsn.bK / 32.0D;
+/* 276 */     double d3 = localsn.bL / 32.0D;
+/* 277 */     float f1 = paramuh.g ? paramuh.e * 360 / 256.0F : localsn.aS;
+/* 278 */     float f2 = paramuh.g ? paramuh.f * 360 / 256.0F : localsn.aT;
+/* 279 */     localsn.a(d1, d2, d3, f1, f2, 3);
+/*     */   }
+/*     */   
+/*     */   public void a(rv paramrv) {
+/* 283 */     this.g.c(paramrv.a);
+/*     */   }
+/*     */   
+/*     */   public void a(ig paramig) {
+/* 287 */     dc localdc = this.f.h;
+/*     */     
+/* 289 */     double d1 = localdc.aM;
+/* 290 */     double d2 = localdc.aN;
+/* 291 */     double d3 = localdc.aO;
+/* 292 */     float f1 = localdc.aS;
+/* 293 */     float f2 = localdc.aT;
+/*     */     
+/* 295 */     if (paramig.h) {
+/* 296 */       d1 = paramig.a;
+/* 297 */       d2 = paramig.b;
+/* 298 */       d3 = paramig.c;
+/*     */     }
+/* 300 */     if (paramig.i) {
+/* 301 */       f1 = paramig.e;
+/* 302 */       f2 = paramig.f;
+/*     */     }
+/*     */     
+/* 305 */     localdc.bo = 0.0F;
+/* 306 */     localdc.aP = (localdc.aQ = localdc.aR = 0.0D);
+/* 307 */     localdc.b(d1, d2, d3, f1, f2);
+/* 308 */     paramig.a = localdc.aM;
+/* 309 */     paramig.b = localdc.aW.b;
+/* 310 */     paramig.c = localdc.aO;
+/* 311 */     paramig.d = localdc.aN;
+/* 312 */     this.e.a(paramig);
+/* 313 */     if (!this.h) {
+/* 314 */       this.f.h.aJ = this.f.h.aM;
+/* 315 */       this.f.h.aK = this.f.h.aN;
+/* 316 */       this.f.h.aL = this.f.h.aO;
+/* 317 */       this.h = true;
+/* 318 */       this.f.a(null);
+/*     */     }
+/*     */   }
+/*     */   
+/* 322 */   Random c = new Random();
+/*     */   
+/*     */   public void a(se paramse) {
+/* 325 */     this.g.a(paramse.a, paramse.b, paramse.c);
+/*     */   }
+/*     */   
+/*     */   public void a(wu paramwu) {
+/* 329 */     lm locallm = this.g.c(paramwu.a, paramwu.b);
+/* 330 */     int i = paramwu.a * 16;
+/* 331 */     int j = paramwu.b * 16;
+/* 332 */     for (int k = 0; k < paramwu.f; k++) {
+/* 333 */       int m = paramwu.c[k];
+/* 334 */       int n = paramwu.d[k] & 0xFF;
+/* 335 */       int i1 = paramwu.e[k];
+/*     */       
+/*     */ 
+/* 338 */       int i2 = m >> 12 & 0xF;
+/* 339 */       int i3 = m >> 8 & 0xF;
+/* 340 */       int i4 = m & 0xFF;
+/*     */       
+/*     */ 
+/* 343 */       locallm.a(i2, i4, i3, n, i1);
+/* 344 */       this.g.c(i2 + i, i4, i3 + j, i2 + i, i4, i3 + j);
+/* 345 */       this.g.b(i2 + i, i4, i3 + j, i2 + i, i4, i3 + j);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(ef paramef) {
+/* 350 */     this.g.c(paramef.a, paramef.b, paramef.c, paramef.a + paramef.d - 1, paramef.b + paramef.e - 1, paramef.c + paramef.f - 1);
+/* 351 */     this.g.a(paramef.a, paramef.b, paramef.c, paramef.d, paramef.e, paramef.f, paramef.g);
+/*     */   }
+/*     */   
+/*     */   public void a(tv paramtv) {
+/* 355 */     this.g.f(paramtv.a, paramtv.b, paramtv.c, paramtv.d, paramtv.e);
+/*     */   }
+/*     */   
+/*     */   public void a(yr paramyr) {
+/* 359 */     this.e.a("disconnect.kicked", new Object[0]);
+/* 360 */     this.d = true;
+/* 361 */     this.f.a(null);
+/* 362 */     this.f.a(new ex("disconnect.disconnected", "disconnect.genericReason", new Object[] { paramyr.a }));
+/*     */   }
+/*     */   
+/*     */   public void a(String paramString, Object[] paramArrayOfObject)
+/*     */   {
+/* 367 */     if (this.d) return;
+/* 368 */     this.d = true;
+/* 369 */     this.f.a(null);
+/* 370 */     this.f.a(new ex("disconnect.lost", paramString, paramArrayOfObject));
+/*     */   }
+/*     */   
+/*     */   public void a(ki paramki)
+/*     */   {
+/* 375 */     if (this.d) return;
+/* 376 */     this.e.a(paramki);
+/* 377 */     this.e.c();
+/*     */   }
+/*     */   
+/*     */   public void b(ki paramki) {
+/* 381 */     if (this.d) return;
+/* 382 */     this.e.a(paramki);
+/*     */   }
+/*     */   
+/*     */   public void a(di paramdi) {
+/* 386 */     sn localsn = a(paramdi.a);
+/* 387 */     Object localObject = (ls)a(paramdi.b);
+/* 388 */     if (localObject == null) {
+/* 389 */       localObject = this.f.h;
+/*     */     }
+/* 391 */     if (localsn != null) {
+/* 392 */       this.g.a(localsn, "random.pop", 0.2F, ((this.c.nextFloat() - this.c.nextFloat()) * 0.7F + 1.0F) * 2.0F);
+/*     */       
+/* 394 */       this.f.j.a(new em(this.f.f, localsn, (sn)localObject, -0.5F));
+/* 395 */       this.g.c(paramdi.a);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(pe parampe) {
+/* 400 */     this.f.v.a(parampe.a);
+/*     */   }
+/*     */   
+/*     */   public void a(nm paramnm) {
+/* 404 */     sn localsn = a(paramnm.a);
+/* 405 */     if (localsn == null) return;
+/* 406 */     gs localgs; if (paramnm.b == 1) {
+/* 407 */       localgs = (gs)localsn;
+/* 408 */       localgs.J();
+/* 409 */     } else if (paramnm.b == 2) {
+/* 410 */       localsn.h();
+/* 411 */     } else if (paramnm.b == 3) {
+/* 412 */       localgs = (gs)localsn;
+/* 413 */       localgs.a(false, false, false);
+/* 414 */     } else if (paramnm.b == 4) {
+/* 415 */       localgs = (gs)localsn;
+/* 416 */       localgs.v();
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(jz paramjz)
+/*     */   {
+/* 422 */     sn localsn = a(paramjz.a);
+/* 423 */     if (localsn == null) return;
+/* 424 */     if (paramjz.e == 0) {
+/* 425 */       gs localgs = (gs)localsn;
+/* 426 */       localgs.b(paramjz.b, paramjz.c, paramjz.d);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(mp parammp) {
+/* 431 */     if (parammp.a.equals("-")) {
+/* 432 */       b(new nz(this.f.k.b, 14));
+/*     */     } else {
+/*     */       try {
+/* 435 */         URL localURL = new URL("http://www.minecraft.net/game/joinserver.jsp?user=" + this.f.k.b + "&sessionId=" + this.f.k.c + "&serverId=" + parammp.a);
+/* 436 */         BufferedReader localBufferedReader = new BufferedReader(new InputStreamReader(localURL.openStream()));
+/* 437 */         String str = localBufferedReader.readLine();
+/* 438 */         localBufferedReader.close();
+/*     */         
+/* 440 */         if (str.equalsIgnoreCase("ok")) {
+/* 441 */           b(new nz(this.f.k.b, 14));
+/*     */         } else {
+/* 443 */           this.e.a("disconnect.loginFailedInfo", new Object[] { str });
+/*     */         }
+/*     */       } catch (Exception localException) {
+/* 446 */         localException.printStackTrace();
+/* 447 */         this.e.a("disconnect.genericReason", new Object[] { "Internal client error: " + localException.toString() });
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void b() {
+/* 453 */     this.d = true;
+/* 454 */     this.e.a();
+/* 455 */     this.e.a("disconnect.closed", new Object[0]);
+/*     */   }
+/*     */   
+/*     */   public void a(jm paramjm) {
+/* 459 */     double d1 = paramjm.c / 32.0D;
+/* 460 */     double d2 = paramjm.d / 32.0D;
+/* 461 */     double d3 = paramjm.e / 32.0D;
+/* 462 */     float f1 = paramjm.f * 360 / 256.0F;
+/* 463 */     float f2 = paramjm.g * 360 / 256.0F;
+/* 464 */     ls localls = (ls)jc.a(paramjm.b, this.f.f);
+/* 465 */     localls.bJ = paramjm.c;
+/* 466 */     localls.bK = paramjm.d;
+/* 467 */     localls.bL = paramjm.e;
+/* 468 */     localls.aD = paramjm.a;
+/*     */     
+/* 470 */     localls.b(d1, d2, d3, f1, f2);
+/* 471 */     localls.V = true;
+/* 472 */     this.g.a(paramjm.a, localls);
+/*     */     
+/* 474 */     List localList = paramjm.b();
+/* 475 */     if (localList != null) {
+/* 476 */       localls.ad().a(localList);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(hg paramhg) {
+/* 481 */     this.f.f.a(paramhg.a);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void a(rc paramrc)
+/*     */   {
+/* 495 */     this.f.h.a(new br(paramrc.a, paramrc.b, paramrc.c));
+/* 496 */     this.f.f.x().a(paramrc.a, paramrc.b, paramrc.c);
+/*     */   }
+/*     */   
+/*     */   public void a(ns paramns) {
+/* 500 */     Object localObject = a(paramns.a);
+/* 501 */     sn localsn = a(paramns.b);
+/*     */     
+/* 503 */     if (paramns.a == this.f.h.aD) localObject = this.f.h;
+/* 504 */     if (localObject == null) { return;
+/*     */     }
+/* 506 */     ((sn)localObject).i(localsn);
+/*     */   }
+/*     */   
+/*     */   public void a(jf paramjf) {
+/* 510 */     sn localsn = a(paramjf.a);
+/* 511 */     if (localsn != null) localsn.a(paramjf.b);
+/*     */   }
+/*     */   
+/*     */   private sn a(int paramInt) {
+/* 515 */     if (paramInt == this.f.h.aD) {
+/* 516 */       return this.f.h;
+/*     */     }
+/* 518 */     return this.g.b(paramInt);
+/*     */   }
+/*     */   
+/*     */   public void a(eu parameu) {
+/* 522 */     this.f.h.d_(parameu.a);
+/*     */   }
+/*     */   
+/*     */   public void a(ox paramox) {
+/* 526 */     if (paramox.a != this.f.h.m) {
+/* 527 */       this.h = false;
+/* 528 */       this.g = new mm(this, this.g.x().b(), paramox.a);
+/* 529 */       this.g.B = true;
+/* 530 */       this.f.a(this.g);
+/* 531 */       this.f.h.m = paramox.a;
+/* 532 */       this.f.a(new gg(this));
+/*     */     }
+/*     */     
+/* 535 */     this.f.a(true, paramox.a);
+/*     */   }
+/*     */   
+/*     */   public void a(rm paramrm) {
+/* 539 */     qx localqx = new qx(this.f.f, null, paramrm.a, paramrm.b, paramrm.c, paramrm.d);
+/* 540 */     localqx.g = paramrm.e;
+/* 541 */     localqx.a(true);
+/*     */   }
+/*     */   
+/*     */   public void a(iw paramiw) { Object localObject;
+/* 545 */     if (paramiw.b == 0) {
+/* 546 */       localObject = new qo(paramiw.c, paramiw.d);
+/* 547 */       this.f.h.a((lw)localObject);
+/* 548 */       this.f.h.e.f = paramiw.a;
+/* 549 */     } else if (paramiw.b == 2) {
+/* 550 */       localObject = new sk();
+/* 551 */       this.f.h.a((sk)localObject);
+/* 552 */       this.f.h.e.f = paramiw.a;
+/* 553 */     } else if (paramiw.b == 3) {
+/* 554 */       localObject = new az();
+/* 555 */       this.f.h.a((az)localObject);
+/* 556 */       this.f.h.e.f = paramiw.a;
+/* 557 */     } else if (paramiw.b == 1) {
+/* 558 */       localObject = this.f.h;
+/* 559 */       this.f.h.a(in.b(((gs)localObject).aM), in.b(((gs)localObject).aN), in.b(((gs)localObject).aO));
+/* 560 */       this.f.h.e.f = paramiw.a;
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(hq paramhq) {
+/* 565 */     if (paramhq.a == -1) {
+/* 566 */       this.f.h.c.b(paramhq.c);
+/*     */     }
+/* 568 */     else if ((paramhq.a == 0) && (paramhq.b >= 36) && (paramhq.b < 45)) {
+/* 569 */       iz localiz = this.f.h.d.b(paramhq.b).a();
+/* 570 */       if ((paramhq.c != null) && (
+/* 571 */         (localiz == null) || (localiz.a < paramhq.c.a))) {
+/* 572 */         paramhq.c.b = 5;
+/*     */       }
+/*     */       
+/* 575 */       this.f.h.d.a(paramhq.b, paramhq.c);
+/* 576 */     } else if (paramhq.a == this.f.h.e.f) {
+/* 577 */       this.f.h.e.a(paramhq.b, paramhq.c);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(oj paramoj)
+/*     */   {
+/* 583 */     dw localdw = null;
+/* 584 */     if (paramoj.a == 0) {
+/* 585 */       localdw = this.f.h.d;
+/* 586 */     } else if (paramoj.a == this.f.h.e.f) {
+/* 587 */       localdw = this.f.h.e;
+/*     */     }
+/* 589 */     if (localdw != null) {
+/* 590 */       if (paramoj.c) {
+/* 591 */         localdw.a(paramoj.b);
+/*     */       } else {
+/* 593 */         localdw.b(paramoj.b);
+/* 594 */         b(new oj(paramoj.a, paramoj.b, true));
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(kb paramkb) {
+/* 600 */     if (paramkb.a == 0) {
+/* 601 */       this.f.h.d.a(paramkb.b);
+/* 602 */     } else if (paramkb.a == this.f.h.e.f) {
+/* 603 */       this.f.h.e.a(paramkb.b);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(ui paramui) {
+/* 608 */     if (this.f.f.i(paramui.a, paramui.b, paramui.c)) {
+/* 609 */       ow localow = this.f.f.b(paramui.a, paramui.b, paramui.c);
+/* 610 */       if ((localow instanceof yk)) {
+/* 611 */         yk localyk = (yk)localow;
+/* 612 */         for (int i = 0; i < 4; i++) {
+/* 613 */           localyk.a[i] = paramui.d[i];
+/*     */         }
+/* 615 */         localyk.y_();
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(mv parammv) {
+/* 621 */     c(parammv);
+/* 622 */     if ((this.f.h.e != null) && (this.f.h.e.f == parammv.a)) {
+/* 623 */       this.f.h.e.a(parammv.b, parammv.c);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(s params) {
+/* 628 */     sn localsn = a(params.a);
+/* 629 */     if (localsn != null) {
+/* 630 */       localsn.c(params.b, params.c, params.d);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(mn parammn) {
+/* 635 */     this.f.h.r();
+/*     */   }
+/*     */   
+/*     */   public void a(vw paramvw) {
+/* 639 */     this.f.f.d(paramvw.a, paramvw.b, paramvw.c, paramvw.d, paramvw.e);
+/*     */   }
+/*     */   
+/*     */   public void a(ca paramca)
+/*     */   {
+/* 644 */     int i = paramca.b;
+/* 645 */     if ((i >= 0) && (i < ca.a.length) && 
+/* 646 */       (ca.a[i] != null)) {
+/* 647 */       this.f.h.b(ca.a[i]);
+/*     */     }
+/*     */     
+/* 650 */     if (i == 1) {
+/* 651 */       this.g.x().b(true);
+/* 652 */       this.g.h(1.0F);
+/* 653 */     } else if (i == 2) {
+/* 654 */       this.g.x().b(false);
+/* 655 */       this.g.h(0.0F);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(ai paramai)
+/*     */   {
+/* 661 */     if (paramai.a == gm.bb.bf) {
+/* 662 */       wr.a(paramai.b, this.f.f).a(paramai.c);
+/*     */     } else {
+/* 664 */       System.out.println("Unknown itemid: " + paramai.b);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(fn paramfn)
+/*     */   {
+/* 670 */     this.f.f.e(paramfn.a, paramfn.c, paramfn.d, paramfn.e, paramfn.b);
+/*     */   }
+/*     */   
+/*     */   public void a(of paramof)
+/*     */   {
+/* 675 */     ((tk)this.f.h).b(jl.a(paramof.a), paramof.b);
+/*     */   }
+/*     */   
+/*     */   public boolean c()
+/*     */   {
+/* 680 */     return false;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\nb.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,540 @@
+/*     */ package com.jcraft.jorbis;
+/*     */ 
+/*     */ import com.jcraft.jogg.Buffer;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ class CodeBook
+/*     */ {
+/*     */   int dim;
+/*     */   int entries;
+/*     */   StaticCodeBook c;
+/*     */   float[] valuelist;
+/*     */   int[] codelist;
+/*     */   CodeBook.DecodeAux decode_tree;
+/*     */   private int[] t;
+/*     */   
+/*     */   int encode(int paramInt, Buffer paramBuffer)
+/*     */   {
+/*  42 */     paramBuffer.write(this.codelist[paramInt], this.c.lengthlist[paramInt]);
+/*  43 */     return this.c.lengthlist[paramInt];
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   int errorv(float[] paramArrayOfFloat)
+/*     */   {
+/*  62 */     int i = best(paramArrayOfFloat, 1);
+/*  63 */     for (int j = 0; j < this.dim; j++) {
+/*  64 */       paramArrayOfFloat[j] = this.valuelist[(i * this.dim + j)];
+/*     */     }
+/*  66 */     return i;
+/*     */   }
+/*     */   
+/*     */   int encodev(int paramInt, float[] paramArrayOfFloat, Buffer paramBuffer)
+/*     */   {
+/*  71 */     for (int i = 0; i < this.dim; i++) {
+/*  72 */       paramArrayOfFloat[i] = this.valuelist[(paramInt * this.dim + i)];
+/*     */     }
+/*  74 */     return encode(paramInt, paramBuffer);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   int encodevs(float[] paramArrayOfFloat, Buffer paramBuffer, int paramInt1, int paramInt2)
+/*     */   {
+/*  80 */     int i = besterror(paramArrayOfFloat, paramInt1, paramInt2);
+/*  81 */     return encode(i, paramBuffer);
+/*     */   }
+/*     */   
+/*     */   CodeBook()
+/*     */   {
+/*  34 */     this.c = new StaticCodeBook();
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*  84 */     this.t = new int[15];
+/*     */   }
+/*     */   
+/*  87 */   synchronized int decodevs_add(float[] paramArrayOfFloat, int paramInt1, Buffer paramBuffer, int paramInt2) { int i = paramInt2 / this.dim;
+/*     */     
+/*     */ 
+/*     */ 
+/*  91 */     if (this.t.length < i) {
+/*  92 */       this.t = new int[i];
+/*     */     }
+/*     */     
+/*  95 */     for (int k = 0; k < i; k++) {
+/*  96 */       int j = decode(paramBuffer);
+/*  97 */       if (j == -1)
+/*  98 */         return -1;
+/*  99 */       this.t[k] = (j * this.dim);
+/*     */     }
+/* 101 */     k = 0; for (int n = 0; k < this.dim; n += i) {
+/* 102 */       for (int m = 0; m < i; m++) {
+/* 103 */         paramArrayOfFloat[(paramInt1 + n + m)] += this.valuelist[(this.t[m] + k)];
+/*     */       }
+/* 101 */       k++;
+/*     */     }
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/* 107 */     return 0;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   int decodev_add(float[] paramArrayOfFloat, int paramInt1, Buffer paramBuffer, int paramInt2)
+/*     */   {
+/* 114 */     if (this.dim > 8)
+/* 115 */       for (i = 0; i < paramInt2;) {
+/* 116 */         k = decode(paramBuffer);
+/* 117 */         if (k == -1)
+/* 118 */           return -1;
+/* 119 */         m = k * this.dim;
+/* 120 */         for (j = 0; j < this.dim;)
+/* 121 */           paramArrayOfFloat[(paramInt1 + i++)] += this.valuelist[(m + j++)];
+/*     */       }
+/*     */     int k;
+/*     */     int m;
+/*     */     int j;
+/* 126 */     for (int i = 0; i < paramInt2;) {
+/* 127 */       k = decode(paramBuffer);
+/* 128 */       if (k == -1)
+/* 129 */         return -1;
+/* 130 */       m = k * this.dim;
+/* 131 */       j = 0;
+/* 132 */       switch (this.dim) {
+/*     */       case 8: 
+/* 134 */         paramArrayOfFloat[(paramInt1 + i++)] += this.valuelist[(m + j++)];
+/*     */       case 7: 
+/* 136 */         paramArrayOfFloat[(paramInt1 + i++)] += this.valuelist[(m + j++)];
+/*     */       case 6: 
+/* 138 */         paramArrayOfFloat[(paramInt1 + i++)] += this.valuelist[(m + j++)];
+/*     */       case 5: 
+/* 140 */         paramArrayOfFloat[(paramInt1 + i++)] += this.valuelist[(m + j++)];
+/*     */       case 4: 
+/* 142 */         paramArrayOfFloat[(paramInt1 + i++)] += this.valuelist[(m + j++)];
+/*     */       case 3: 
+/* 144 */         paramArrayOfFloat[(paramInt1 + i++)] += this.valuelist[(m + j++)];
+/*     */       case 2: 
+/* 146 */         paramArrayOfFloat[(paramInt1 + i++)] += this.valuelist[(m + j++)];
+/*     */       case 1: 
+/* 148 */         paramArrayOfFloat[(paramInt1 + i++)] += this.valuelist[(m + j++)];
+/*     */       }
+/*     */       
+/*     */     }
+/*     */     
+/*     */ 
+/* 154 */     return 0;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   int decodev_set(float[] paramArrayOfFloat, int paramInt1, Buffer paramBuffer, int paramInt2)
+/*     */   {
+/* 161 */     for (int i = 0; i < paramInt2;) {
+/* 162 */       int k = decode(paramBuffer);
+/* 163 */       if (k == -1)
+/* 164 */         return -1;
+/* 165 */       m = k * this.dim;
+/* 166 */       for (j = 0; j < this.dim;)
+/* 167 */         paramArrayOfFloat[(paramInt1 + i++)] = this.valuelist[(m + j++)]; }
+/*     */     int m;
+/*     */     int j;
+/* 170 */     return 0;
+/*     */   }
+/*     */   
+/*     */   int decodevv_add(float[][] paramArrayOfFloat, int paramInt1, int paramInt2, Buffer paramBuffer, int paramInt3)
+/*     */   {
+/* 175 */     int m = 0;
+/*     */     
+/* 177 */     for (int i = paramInt1 / paramInt2; i < (paramInt1 + paramInt3) / paramInt2;) {
+/* 178 */       int k = decode(paramBuffer);
+/* 179 */       if (k == -1) {
+/* 180 */         return -1;
+/*     */       }
+/* 182 */       int n = k * this.dim;
+/* 183 */       for (int j = 0; j < this.dim; j++) {
+/* 184 */         paramArrayOfFloat[(m++)][i] += this.valuelist[(n + j)];
+/* 185 */         if (m == paramInt2) {
+/* 186 */           m = 0;
+/* 187 */           i++;
+/*     */         }
+/*     */       }
+/*     */     }
+/* 191 */     return 0;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   int decode(Buffer paramBuffer)
+/*     */   {
+/* 210 */     int i = 0;
+/* 211 */     CodeBook.DecodeAux localDecodeAux = this.decode_tree;
+/* 212 */     int j = paramBuffer.look(localDecodeAux.tabn);
+/*     */     
+/* 214 */     if (j >= 0) {
+/* 215 */       i = localDecodeAux.tab[j];
+/* 216 */       paramBuffer.adv(localDecodeAux.tabl[j]);
+/* 217 */       if (i <= 0) {
+/* 218 */         return -i;
+/*     */       }
+/*     */     }
+/*     */     do {
+/* 222 */       switch (paramBuffer.read1()) {
+/*     */       case 0: 
+/* 224 */         i = localDecodeAux.ptr0[i];
+/* 225 */         break;
+/*     */       case 1: 
+/* 227 */         i = localDecodeAux.ptr1[i];
+/* 228 */         break;
+/*     */       case -1: 
+/*     */       default: 
+/* 231 */         return -1;
+/*     */       }
+/*     */       
+/* 234 */     } while (i > 0);
+/* 235 */     return -i;
+/*     */   }
+/*     */   
+/*     */   int decodevs(float[] paramArrayOfFloat, int paramInt1, Buffer paramBuffer, int paramInt2, int paramInt3)
+/*     */   {
+/* 240 */     int i = decode(paramBuffer);
+/* 241 */     if (i == -1)
+/* 242 */       return -1;
+/* 243 */     int j; int k; switch (paramInt3) {
+/*     */     case -1: 
+/* 245 */       j = 0; for (k = 0; j < this.dim; k += paramInt2) {
+/* 246 */         paramArrayOfFloat[(paramInt1 + k)] = this.valuelist[(i * this.dim + j)];j++; }
+/* 247 */       break;
+/*     */     case 0: 
+/* 249 */       j = 0; for (k = 0; j < this.dim; k += paramInt2) {
+/* 250 */         paramArrayOfFloat[(paramInt1 + k)] += this.valuelist[(i * this.dim + j)];j++; }
+/* 251 */       break;
+/*     */     case 1: 
+/* 253 */       j = 0; for (k = 0; j < this.dim; k += paramInt2) {
+/* 254 */         paramArrayOfFloat[(paramInt1 + k)] *= this.valuelist[(i * this.dim + j)];j++; }
+/* 255 */       break;
+/*     */     }
+/*     */     
+/*     */     
+/* 259 */     return i;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   int best(float[] paramArrayOfFloat, int paramInt)
+/*     */   {
+/* 265 */     int i = -1;
+/* 266 */     float f1 = 0.0F;
+/* 267 */     int j = 0;
+/* 268 */     for (int k = 0; k < this.entries; k++) {
+/* 269 */       if (this.c.lengthlist[k] > 0) {
+/* 270 */         float f2 = dist(this.dim, this.valuelist, j, paramArrayOfFloat, paramInt);
+/* 271 */         if ((i == -1) || (f2 < f1)) {
+/* 272 */           f1 = f2;
+/* 273 */           i = k;
+/*     */         }
+/*     */       }
+/* 276 */       j += this.dim;
+/*     */     }
+/* 278 */     return i;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   int besterror(float[] paramArrayOfFloat, int paramInt1, int paramInt2)
+/*     */   {
+/* 284 */     int i = best(paramArrayOfFloat, paramInt1);
+/* 285 */     int j; int k; switch (paramInt2) {
+/*     */     case 0: 
+/* 287 */       j = 0; for (k = 0; j < this.dim; k += paramInt1) {
+/* 288 */         paramArrayOfFloat[k] -= this.valuelist[(i * this.dim + j)];j++; }
+/* 289 */       break;
+/*     */     case 1: 
+/* 291 */       j = 0; for (k = 0; j < this.dim; k += paramInt1) {
+/* 292 */         float f = this.valuelist[(i * this.dim + j)];
+/* 293 */         if (f == 0.0F) {
+/* 294 */           paramArrayOfFloat[k] = 0.0F;
+/*     */         }
+/*     */         else {
+/* 297 */           paramArrayOfFloat[k] /= f;
+/*     */         }
+/* 291 */         j++;
+/*     */       }
+/*     */     }
+/*     */     
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 302 */     return i;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   private static float dist(int paramInt1, float[] paramArrayOfFloat1, int paramInt2, float[] paramArrayOfFloat2, int paramInt3)
+/*     */   {
+/* 309 */     float f1 = 0.0F;
+/* 310 */     for (int i = 0; i < paramInt1; i++) {
+/* 311 */       float f2 = paramArrayOfFloat1[(paramInt2 + i)] - paramArrayOfFloat2[(i * paramInt3)];
+/* 312 */       f1 += f2 * f2;
+/*     */     }
+/* 314 */     return f1;
+/*     */   }
+/*     */   
+/*     */   int init_decode(StaticCodeBook paramStaticCodeBook) {
+/* 318 */     this.c = paramStaticCodeBook;
+/* 319 */     this.entries = paramStaticCodeBook.entries;
+/* 320 */     this.dim = paramStaticCodeBook.dim;
+/* 321 */     this.valuelist = paramStaticCodeBook.unquantize();
+/*     */     
+/* 323 */     this.decode_tree = make_decode_tree();
+/* 324 */     if (this.decode_tree == null) {
+/* 325 */       clear();
+/* 326 */       return -1;
+/*     */     }
+/* 328 */     return 0;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   static int[] make_words(int[] paramArrayOfInt, int paramInt)
+/*     */   {
+/* 335 */     int[] arrayOfInt1 = new int[33];
+/* 336 */     int[] arrayOfInt2 = new int[paramInt];
+/*     */     int j;
+/* 338 */     int k; for (int i = 0; i < paramInt; i++) {
+/* 339 */       j = paramArrayOfInt[i];
+/* 340 */       if (j > 0) {
+/* 341 */         k = arrayOfInt1[j];
+/*     */         
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 349 */         if ((j < 32) && (k >>> j != 0))
+/*     */         {
+/*     */ 
+/* 352 */           return null;
+/*     */         }
+/* 354 */         arrayOfInt2[i] = k;
+/*     */         
+/*     */ 
+/*     */ 
+/*     */ 
+/* 359 */         for (int m = j; m > 0; m--) {
+/* 360 */           if ((arrayOfInt1[m] & 0x1) != 0)
+/*     */           {
+/* 362 */             if (m == 1) {
+/* 363 */               arrayOfInt1[1] += 1; break;
+/*     */             }
+/* 365 */             arrayOfInt1[m] = (arrayOfInt1[(m - 1)] << 1);
+/* 366 */             break;
+/*     */           }
+/*     */           
+/* 369 */           arrayOfInt1[m] += 1;
+/*     */         }
+/*     */         
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 376 */         for (m = j + 1; m < 33; m++) {
+/* 377 */           if (arrayOfInt1[m] >>> 1 != k) break;
+/* 378 */           k = arrayOfInt1[m];
+/* 379 */           arrayOfInt1[m] = (arrayOfInt1[(m - 1)] << 1);
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 390 */     for (i = 0; i < paramInt; i++) {
+/* 391 */       j = 0;
+/* 392 */       for (k = 0; k < paramArrayOfInt[i]; k++) {
+/* 393 */         j <<= 1;
+/* 394 */         j |= arrayOfInt2[i] >>> k & 0x1;
+/*     */       }
+/* 396 */       arrayOfInt2[i] = j;
+/*     */     }
+/*     */     
+/* 399 */     return arrayOfInt2;
+/*     */   }
+/*     */   
+/*     */   CodeBook.DecodeAux make_decode_tree()
+/*     */   {
+/* 404 */     int i = 0;
+/* 405 */     CodeBook.DecodeAux localDecodeAux = new CodeBook.DecodeAux(this);
+/* 406 */     int[] arrayOfInt1 = localDecodeAux.ptr0 = new int[this.entries * 2];
+/* 407 */     int[] arrayOfInt2 = localDecodeAux.ptr1 = new int[this.entries * 2];
+/* 408 */     int[] arrayOfInt3 = make_words(this.c.lengthlist, this.c.entries);
+/*     */     
+/* 410 */     if (arrayOfInt3 == null)
+/* 411 */       return null;
+/* 412 */     localDecodeAux.aux = (this.entries * 2);
+/*     */     int m;
+/* 414 */     int n; for (int j = 0; j < this.entries; j++) {
+/* 415 */       if (this.c.lengthlist[j] > 0) {
+/* 416 */         k = 0;
+/*     */         
+/* 418 */         for (m = 0; m < this.c.lengthlist[j] - 1; m++) {
+/* 419 */           n = arrayOfInt3[j] >>> m & 0x1;
+/* 420 */           if (n == 0) {
+/* 421 */             if (arrayOfInt1[k] == 0) {
+/* 422 */               arrayOfInt1[k] = (++i);
+/*     */             }
+/* 424 */             k = arrayOfInt1[k];
+/*     */           }
+/*     */           else {
+/* 427 */             if (arrayOfInt2[k] == 0) {
+/* 428 */               arrayOfInt2[k] = (++i);
+/*     */             }
+/* 430 */             k = arrayOfInt2[k];
+/*     */           }
+/*     */         }
+/*     */         
+/* 434 */         if ((arrayOfInt3[j] >>> m & 0x1) == 0) {
+/* 435 */           arrayOfInt1[k] = (-j);
+/*     */         }
+/*     */         else {
+/* 438 */           arrayOfInt2[k] = (-j);
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */     
+/*     */ 
+/* 444 */     localDecodeAux.tabn = (Util.ilog(this.entries) - 4);
+/*     */     
+/* 446 */     if (localDecodeAux.tabn < 5)
+/* 447 */       localDecodeAux.tabn = 5;
+/* 448 */     j = 1 << localDecodeAux.tabn;
+/* 449 */     localDecodeAux.tab = new int[j];
+/* 450 */     localDecodeAux.tabl = new int[j];
+/* 451 */     for (int k = 0; k < j; k++) {
+/* 452 */       m = 0;
+/* 453 */       n = 0;
+/* 454 */       for (n = 0; (n < localDecodeAux.tabn) && ((m > 0) || (n == 0)); n++) {
+/* 455 */         if ((k & 1 << n) != 0) {
+/* 456 */           m = arrayOfInt2[m];
+/*     */         }
+/*     */         else {
+/* 459 */           m = arrayOfInt1[m];
+/*     */         }
+/*     */       }
+/* 462 */       localDecodeAux.tab[k] = m;
+/* 463 */       localDecodeAux.tabl[k] = n;
+/*     */     }
+/*     */     
+/* 466 */     return localDecodeAux;
+/*     */   }
+/*     */   
+/*     */   void clear() {}
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\com\jcraft\jorbis\CodeBook.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

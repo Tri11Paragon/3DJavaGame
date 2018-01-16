@@ -1,0 +1,60 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class qm
+/*    */   extends xw
+/*    */ {
+/*    */   private uu a;
+/* 10 */   private int o = 0;
+/*    */   
+/*    */   public qm(fd paramfd, double paramDouble1, double paramDouble2, double paramDouble3, double paramDouble4, double paramDouble5, double paramDouble6, uu paramuu, int paramInt1, int paramInt2) {
+/* 13 */     super(paramfd, paramDouble1, paramDouble2, paramDouble3, paramDouble4, paramDouble5, paramDouble6);
+/* 14 */     this.a = paramuu;
+/* 15 */     this.b = paramuu.a(0, paramInt2);
+/* 16 */     this.h = paramuu.bz;
+/* 17 */     this.i = (this.j = this.k = 0.6F);
+/* 18 */     this.g /= 2.0F;
+/* 19 */     this.o = paramInt1;
+/*    */   }
+/*    */   
+/*    */   public qm a(int paramInt1, int paramInt2, int paramInt3) {
+/* 23 */     if (this.a == uu.v) { return this;
+/*    */     }
+/* 25 */     int i = this.a.b(this.aI, paramInt1, paramInt2, paramInt3);
+/* 26 */     this.i *= (i >> 16 & 0xFF) / 255.0F;
+/* 27 */     this.j *= (i >> 8 & 0xFF) / 255.0F;
+/* 28 */     this.k *= (i & 0xFF) / 255.0F;
+/* 29 */     return this;
+/*    */   }
+/*    */   
+/*    */   public int c_() {
+/* 33 */     return 1;
+/*    */   }
+/*    */   
+/*    */   public void a(nw paramnw, float paramFloat1, float paramFloat2, float paramFloat3, float paramFloat4, float paramFloat5, float paramFloat6) {
+/* 37 */     float f1 = (this.b % 16 + this.c / 4.0F) / 16.0F;
+/* 38 */     float f2 = f1 + 0.015609375F;
+/* 39 */     float f3 = (this.b / 16 + this.d / 4.0F) / 16.0F;
+/* 40 */     float f4 = f3 + 0.015609375F;
+/* 41 */     float f5 = 0.1F * this.g;
+/*    */     
+/* 43 */     float f6 = (float)(this.aJ + (this.aM - this.aJ) * paramFloat1 - l);
+/* 44 */     float f7 = (float)(this.aK + (this.aN - this.aK) * paramFloat1 - m);
+/* 45 */     float f8 = (float)(this.aL + (this.aO - this.aL) * paramFloat1 - n);
+/* 46 */     float f9 = a(paramFloat1);
+/* 47 */     paramnw.a(f9 * this.i, f9 * this.j, f9 * this.k);
+/*    */     
+/* 49 */     paramnw.a(f6 - paramFloat2 * f5 - paramFloat5 * f5, f7 - paramFloat3 * f5, f8 - paramFloat4 * f5 - paramFloat6 * f5, f1, f4);
+/* 50 */     paramnw.a(f6 - paramFloat2 * f5 + paramFloat5 * f5, f7 + paramFloat3 * f5, f8 - paramFloat4 * f5 + paramFloat6 * f5, f1, f3);
+/* 51 */     paramnw.a(f6 + paramFloat2 * f5 + paramFloat5 * f5, f7 + paramFloat3 * f5, f8 + paramFloat4 * f5 + paramFloat6 * f5, f2, f3);
+/* 52 */     paramnw.a(f6 + paramFloat2 * f5 - paramFloat5 * f5, f7 - paramFloat3 * f5, f8 + paramFloat4 * f5 - paramFloat6 * f5, f2, f4);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\qm.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

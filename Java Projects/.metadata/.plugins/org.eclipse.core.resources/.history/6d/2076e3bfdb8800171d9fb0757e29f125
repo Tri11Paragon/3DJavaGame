@@ -1,0 +1,106 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class bc
+/*    */   extends gm
+/*    */ {
+/*    */   private int a;
+/*    */   
+/*    */   public bc(int paramInt1, int paramInt2)
+/*    */   {
+/* 15 */     super(paramInt1);
+/* 16 */     this.bg = 1;
+/* 17 */     this.a = paramInt2;
+/*    */   }
+/*    */   
+/*    */   public iz a(iz paramiz, fd paramfd, gs paramgs) {
+/* 21 */     float f1 = 1.0F;
+/*    */     
+/* 23 */     float f2 = paramgs.aV + (paramgs.aT - paramgs.aV) * f1;
+/* 24 */     float f3 = paramgs.aU + (paramgs.aS - paramgs.aU) * f1;
+/*    */     
+/*    */ 
+/*    */ 
+/* 28 */     double d1 = paramgs.aJ + (paramgs.aM - paramgs.aJ) * f1;
+/* 29 */     double d2 = paramgs.aK + (paramgs.aN - paramgs.aK) * f1 + 1.62D - paramgs.bf;
+/* 30 */     double d3 = paramgs.aL + (paramgs.aO - paramgs.aL) * f1;
+/*    */     
+/* 32 */     bt localbt1 = bt.b(d1, d2, d3);
+/*    */     
+/* 34 */     float f4 = in.b(-f3 * 0.017453292F - 3.1415927F);
+/* 35 */     float f5 = in.a(-f3 * 0.017453292F - 3.1415927F);
+/* 36 */     float f6 = -in.b(-f2 * 0.017453292F);
+/* 37 */     float f7 = in.a(-f2 * 0.017453292F);
+/*    */     
+/* 39 */     float f8 = f5 * f6;
+/* 40 */     float f9 = f7;
+/* 41 */     float f10 = f4 * f6;
+/*    */     
+/* 43 */     double d4 = 5.0D;
+/* 44 */     bt localbt2 = localbt1.c(f8 * d4, f9 * d4, f10 * d4);
+/* 45 */     vf localvf = paramfd.a(localbt1, localbt2, this.a == 0);
+/* 46 */     if (localvf == null) { return paramiz;
+/*    */     }
+/* 48 */     if (localvf.a == jg.a) {
+/* 49 */       int i = localvf.b;
+/* 50 */       int j = localvf.c;
+/* 51 */       int k = localvf.d;
+/*    */       
+/* 53 */       if (!paramfd.a(paramgs, i, j, k)) {
+/* 54 */         return paramiz;
+/*    */       }
+/*    */       
+/* 57 */       if (this.a == 0) {
+/* 58 */         if ((paramfd.f(i, j, k) == ln.g) && (paramfd.e(i, j, k) == 0)) {
+/* 59 */           paramfd.f(i, j, k, 0);
+/* 60 */           return new iz(gm.av);
+/*    */         }
+/* 62 */         if ((paramfd.f(i, j, k) == ln.h) && (paramfd.e(i, j, k) == 0)) {
+/* 63 */           paramfd.f(i, j, k, 0);
+/* 64 */           return new iz(gm.aw);
+/*    */         }
+/* 66 */       } else { if (this.a < 0) {
+/* 67 */           return new iz(gm.au);
+/*    */         }
+/* 69 */         if (localvf.e == 0) j--;
+/* 70 */         if (localvf.e == 1) j++;
+/* 71 */         if (localvf.e == 2) k--;
+/* 72 */         if (localvf.e == 3) k++;
+/* 73 */         if (localvf.e == 4) i--;
+/* 74 */         if (localvf.e == 5) { i++;
+/*    */         }
+/*    */         
+/* 77 */         if ((paramfd.d(i, j, k)) || (!paramfd.f(i, j, k).a())) {
+/* 78 */           if ((paramfd.t.d) && (this.a == uu.B.bn)) {
+/* 79 */             paramfd.a(d1 + 0.5D, d2 + 0.5D, d3 + 0.5D, "random.fizz", 0.5F, 2.6F + (paramfd.r.nextFloat() - paramfd.r.nextFloat()) * 0.8F);
+/* 80 */             for (int m = 0; m < 8; m++) {
+/* 81 */               paramfd.a("largesmoke", i + Math.random(), j + Math.random(), k + Math.random(), 0.0D, 0.0D, 0.0D);
+/*    */             }
+/*    */           } else {
+/* 84 */             paramfd.b(i, j, k, this.a, 0);
+/*    */           }
+/* 86 */           return new iz(gm.au);
+/*    */         }
+/*    */         
+/*    */       }
+/*    */     }
+/* 91 */     else if ((this.a == 0) && 
+/* 92 */       ((localvf.g instanceof bx))) {
+/* 93 */       return new iz(gm.aE);
+/*    */     }
+/*    */     
+/*    */ 
+/*    */ 
+/* 98 */     return paramiz;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\bc.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

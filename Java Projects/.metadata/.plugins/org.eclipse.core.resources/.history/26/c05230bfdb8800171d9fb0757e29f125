@@ -1,0 +1,29 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class jj
+/*    */ {
+/* 12 */   public static final int[] a = { 3, 4, 2, 5 };
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/* 17 */   public static final int[] b = { 2, 3, 0, 1 };
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/* 22 */   public static final int[][] c = { { 1, 0, 3, 2, 5, 4 }, { 1, 0, 5, 4, 2, 3 }, { 1, 0, 2, 3, 4, 5 }, { 1, 0, 4, 5, 3, 2 } };
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\jj.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

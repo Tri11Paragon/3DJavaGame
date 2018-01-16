@@ -1,0 +1,58 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class ng
+/*    */ {
+/*    */   public void a(hk paramhk)
+/*    */   {
+/* 14 */     for (int i = 0; i < 16; i++)
+/*    */     {
+/* 16 */       paramhk.b(new iz(uu.ac, 1, ee.e(i)), new Object[] { new iz(gm.aU, 1, i), new iz(gm.c[uu.ac.bn], 1, 0) });
+/*    */     }
+/*    */     
+/*    */ 
+/*    */ 
+/* 21 */     paramhk.b(new iz(gm.aU, 2, 11), new Object[] { uu.ae });
+/* 22 */     paramhk.b(new iz(gm.aU, 2, 1), new Object[] { uu.af });
+/* 23 */     paramhk.b(new iz(gm.aU, 3, 15), new Object[] { gm.aV });
+/* 24 */     paramhk.b(new iz(gm.aU, 2, 9), new Object[] { new iz(gm.aU, 1, 1), new iz(gm.aU, 1, 15) });
+/*    */     
+/* 26 */     paramhk.b(new iz(gm.aU, 2, 14), new Object[] { new iz(gm.aU, 1, 1), new iz(gm.aU, 1, 11) });
+/*    */     
+/* 28 */     paramhk.b(new iz(gm.aU, 2, 10), new Object[] { new iz(gm.aU, 1, 2), new iz(gm.aU, 1, 15) });
+/*    */     
+/* 30 */     paramhk.b(new iz(gm.aU, 2, 8), new Object[] { new iz(gm.aU, 1, 0), new iz(gm.aU, 1, 15) });
+/*    */     
+/* 32 */     paramhk.b(new iz(gm.aU, 2, 7), new Object[] { new iz(gm.aU, 1, 8), new iz(gm.aU, 1, 15) });
+/*    */     
+/* 34 */     paramhk.b(new iz(gm.aU, 3, 7), new Object[] { new iz(gm.aU, 1, 0), new iz(gm.aU, 1, 15), new iz(gm.aU, 1, 15) });
+/*    */     
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/* 40 */     paramhk.b(new iz(gm.aU, 2, 12), new Object[] { new iz(gm.aU, 1, 4), new iz(gm.aU, 1, 15) });
+/*    */     
+/* 42 */     paramhk.b(new iz(gm.aU, 2, 6), new Object[] { new iz(gm.aU, 1, 4), new iz(gm.aU, 1, 2) });
+/*    */     
+/* 44 */     paramhk.b(new iz(gm.aU, 2, 5), new Object[] { new iz(gm.aU, 1, 4), new iz(gm.aU, 1, 1) });
+/*    */     
+/* 46 */     paramhk.b(new iz(gm.aU, 2, 13), new Object[] { new iz(gm.aU, 1, 5), new iz(gm.aU, 1, 9) });
+/*    */     
+/* 48 */     paramhk.b(new iz(gm.aU, 3, 13), new Object[] { new iz(gm.aU, 1, 4), new iz(gm.aU, 1, 1), new iz(gm.aU, 1, 9) });
+/*    */     
+/* 50 */     paramhk.b(new iz(gm.aU, 4, 13), new Object[] { new iz(gm.aU, 1, 4), new iz(gm.aU, 1, 1), new iz(gm.aU, 1, 1), new iz(gm.aU, 1, 15) });
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ng.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

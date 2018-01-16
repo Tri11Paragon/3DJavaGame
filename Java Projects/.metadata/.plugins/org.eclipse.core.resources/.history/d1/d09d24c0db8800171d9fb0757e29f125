@@ -1,0 +1,48 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ public class uz
+/*    */   extends gz
+/*    */ {
+/*    */   public uz(fd paramfd)
+/*    */   {
+/*  9 */     super(paramfd);
+/* 10 */     this.O = "/mob/zombie.png";
+/* 11 */     this.aB = 0.5F;
+/* 12 */     this.c = 5;
+/*    */   }
+/*    */   
+/*    */   public void o() {
+/* 16 */     if (this.aI.f()) {
+/* 17 */       float f = a(1.0F);
+/* 18 */       if ((f > 0.5F) && 
+/* 19 */         (this.aI.l(in.b(this.aM), in.b(this.aN), in.b(this.aO))) && (this.bs.nextFloat() * 30.0F < (f - 0.4F) * 2.0F)) {
+/* 20 */         this.bv = 300;
+/*    */       }
+/*    */     }
+/*    */     
+/* 24 */     super.o();
+/*    */   }
+/*    */   
+/*    */   protected String g() {
+/* 28 */     return "mob.zombie";
+/*    */   }
+/*    */   
+/*    */   protected String j_() {
+/* 32 */     return "mob.zombiehurt";
+/*    */   }
+/*    */   
+/*    */   protected String i() {
+/* 36 */     return "mob.zombiedeath";
+/*    */   }
+/*    */   
+/*    */   protected int j() {
+/* 40 */     return gm.J.bf;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\uz.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

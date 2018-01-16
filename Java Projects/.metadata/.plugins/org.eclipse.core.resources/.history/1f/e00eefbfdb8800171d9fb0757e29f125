@@ -1,0 +1,85 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class sd
+/*    */   extends aw
+/*    */ {
+/*  7 */   protected float[] g = new float['ŀ'];
+/*  8 */   protected float[] h = new float['ŀ'];
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/* 13 */   public sd(int paramInt) { super(uu.as.bm + paramInt * 16); }
+/*    */   
+/*    */   public void a() { float f2;
+/*    */     int m;
+/*    */     int n;
+/* 18 */     int i1; int i2; for (int i = 0; i < 16; i++) {
+/* 19 */       for (j = 0; j < 20; j++)
+/*    */       {
+/* 21 */         int k = 18;
+/* 22 */         f2 = this.g[(i + (j + 1) % 20 * 16)] * k;
+/* 23 */         for (m = i - 1; m <= i + 1; m++)
+/* 24 */           for (n = j; n <= j + 1; n++)
+/*    */           {
+/* 26 */             i1 = m;
+/* 27 */             i2 = n;
+/* 28 */             if ((i1 >= 0) && (i2 >= 0) && (i1 < 16) && (i2 < 20))
+/*    */             {
+/* 30 */               f2 += this.g[(i1 + i2 * 16)];
+/*    */             }
+/* 32 */             k++;
+/*    */           }
+/* 34 */         this.h[(i + j * 16)] = (f2 / (k * 1.06F));
+/* 35 */         if (j >= 19)
+/*    */         {
+/* 37 */           this.h[(i + j * 16)] = ((float)(Math.random() * Math.random() * Math.random() * 4.0D + Math.random() * 0.10000000149011612D + 0.20000000298023224D)); }
+/*    */       }
+/*    */     }
+/* 40 */     float[] arrayOfFloat = this.h;
+/* 41 */     this.h = this.g;
+/* 42 */     this.g = arrayOfFloat;
+/*    */     
+/* 44 */     for (int j = 0; j < 256; j++)
+/*    */     {
+/* 46 */       float f1 = this.g[j] * 1.8F;
+/* 47 */       if (f1 > 1.0F) f1 = 1.0F;
+/* 48 */       if (f1 < 0.0F) { f1 = 0.0F;
+/*    */       }
+/* 50 */       f2 = f1;
+/* 51 */       m = (int)(f2 * 155.0F + 100.0F);
+/* 52 */       n = (int)(f2 * f2 * 255.0F);
+/* 53 */       i1 = (int)(f2 * f2 * f2 * f2 * f2 * f2 * f2 * f2 * f2 * f2 * 255.0F);
+/* 54 */       i2 = 255;
+/*    */       
+/* 56 */       if (f2 < 0.5F)
+/*    */       {
+/* 58 */         i2 = 0;
+/*    */       }
+/* 60 */       f2 = (f2 - 0.5F) * 2.0F;
+/*    */       
+/* 62 */       if (this.c)
+/*    */       {
+/* 64 */         int i3 = (m * 30 + n * 59 + i1 * 11) / 100;
+/* 65 */         int i4 = (m * 30 + n * 70) / 100;
+/* 66 */         int i5 = (m * 30 + i1 * 70) / 100;
+/*    */         
+/* 68 */         m = i3;
+/* 69 */         n = i4;
+/* 70 */         i1 = i5;
+/*    */       }
+/*    */       
+/* 73 */       this.a[(j * 4 + 0)] = ((byte)m);
+/* 74 */       this.a[(j * 4 + 1)] = ((byte)n);
+/* 75 */       this.a[(j * 4 + 2)] = ((byte)i1);
+/* 76 */       this.a[(j * 4 + 3)] = ((byte)i2);
+/*    */     }
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\sd.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

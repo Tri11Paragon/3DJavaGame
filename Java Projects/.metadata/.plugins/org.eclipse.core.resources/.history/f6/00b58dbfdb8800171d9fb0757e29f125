@@ -1,0 +1,46 @@
+/*    */ import java.io.DataInputStream;
+/*    */ import java.io.DataOutputStream;
+/*    */ 
+/*    */ 
+/*    */ public class oj
+/*    */   extends ki
+/*    */ {
+/*    */   public int a;
+/*    */   public short b;
+/*    */   public boolean c;
+/*    */   
+/*    */   public oj() {}
+/*    */   
+/*    */   public oj(int paramInt, short paramShort, boolean paramBoolean)
+/*    */   {
+/* 16 */     this.a = paramInt;
+/* 17 */     this.b = paramShort;
+/* 18 */     this.c = paramBoolean;
+/*    */   }
+/*    */   
+/*    */   public void a(ti paramti) {
+/* 22 */     paramti.a(this);
+/*    */   }
+/*    */   
+/*    */   public void a(DataInputStream paramDataInputStream) {
+/* 26 */     this.a = paramDataInputStream.readByte();
+/* 27 */     this.b = paramDataInputStream.readShort();
+/* 28 */     this.c = (paramDataInputStream.readByte() != 0);
+/*    */   }
+/*    */   
+/*    */   public void a(DataOutputStream paramDataOutputStream) {
+/* 32 */     paramDataOutputStream.writeByte(this.a);
+/* 33 */     paramDataOutputStream.writeShort(this.b);
+/* 34 */     paramDataOutputStream.writeByte(this.c ? 1 : 0);
+/*    */   }
+/*    */   
+/*    */   public int a() {
+/* 38 */     return 4;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\oj.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

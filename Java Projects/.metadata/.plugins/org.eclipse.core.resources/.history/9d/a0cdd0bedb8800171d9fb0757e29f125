@@ -1,0 +1,93 @@
+/*    */ import java.io.DataInputStream;
+/*    */ import java.io.DataOutputStream;
+/*    */ import java.util.zip.DataFormatException;
+/*    */ import java.util.zip.Inflater;
+/*    */ 
+/*    */ public class ef extends ki
+/*    */ {
+/*    */   public int a;
+/*    */   public int b;
+/*    */   public int c;
+/*    */   public int d;
+/*    */   public int e;
+/*    */   public int f;
+/*    */   public byte[] g;
+/*    */   private int h;
+/*    */   
+/*    */   public ef()
+/*    */   {
+/* 19 */     this.k = true;
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public void a(DataInputStream paramDataInputStream)
+/*    */   {
+/* 44 */     this.a = paramDataInputStream.readInt();
+/* 45 */     this.b = paramDataInputStream.readShort();
+/* 46 */     this.c = paramDataInputStream.readInt();
+/* 47 */     this.d = (paramDataInputStream.read() + 1);
+/* 48 */     this.e = (paramDataInputStream.read() + 1);
+/* 49 */     this.f = (paramDataInputStream.read() + 1);
+/*    */     
+/* 51 */     this.h = paramDataInputStream.readInt();
+/* 52 */     byte[] arrayOfByte = new byte[this.h];
+/* 53 */     paramDataInputStream.readFully(arrayOfByte);
+/*    */     
+/* 55 */     this.g = new byte[this.d * this.e * this.f * 5 / 2];
+/*    */     
+/* 57 */     Inflater localInflater = new Inflater();
+/* 58 */     localInflater.setInput(arrayOfByte);
+/*    */     try {
+/* 60 */       localInflater.inflate(this.g);
+/*    */     } catch (DataFormatException localDataFormatException) {
+/* 62 */       throw new java.io.IOException("Bad compressed data format");
+/*    */     } finally {
+/* 64 */       localInflater.end();
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public void a(DataOutputStream paramDataOutputStream) {
+/* 69 */     paramDataOutputStream.writeInt(this.a);
+/* 70 */     paramDataOutputStream.writeShort(this.b);
+/* 71 */     paramDataOutputStream.writeInt(this.c);
+/* 72 */     paramDataOutputStream.write(this.d - 1);
+/* 73 */     paramDataOutputStream.write(this.e - 1);
+/* 74 */     paramDataOutputStream.write(this.f - 1);
+/*    */     
+/* 76 */     paramDataOutputStream.writeInt(this.h);
+/* 77 */     paramDataOutputStream.write(this.g, 0, this.h);
+/*    */   }
+/*    */   
+/*    */   public void a(ti paramti) {
+/* 81 */     paramti.a(this);
+/*    */   }
+/*    */   
+/*    */   public int a() {
+/* 85 */     return 17 + this.h;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ef.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

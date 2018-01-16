@@ -1,0 +1,87 @@
+/*    */ import java.util.List;
+/*    */ import java.util.Map;
+/*    */ import java.util.regex.Matcher;
+/*    */ import java.util.regex.Pattern;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ final class ja
+/*    */   extends gu
+/*    */ {
+/* 21 */   private static final Pattern a = Pattern.compile("(-?)(0|([1-9]([0-9]*)))(\\.[0-9]+)?((e|E)(\\+|-)?[0-9]+)?");
+/*    */   private final String b;
+/*    */   
+/*    */   ja(String paramString)
+/*    */   {
+/* 26 */     if (paramString == null) {
+/* 27 */       throw new NullPointerException("Attempt to construct a JsonNumber with a null value.");
+/*    */     }
+/* 29 */     if (!a.matcher(paramString).matches()) {
+/* 30 */       throw new IllegalArgumentException("Attempt to construct a JsonNumber with a String [" + paramString + "] that does not match the JSON number specification.");
+/*    */     }
+/* 32 */     this.b = paramString;
+/*    */   }
+/*    */   
+/*    */   public at a() {
+/* 36 */     return at.d;
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public String b()
+/*    */   {
+/* 44 */     return this.b;
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public Map c()
+/*    */   {
+/* 52 */     throw new IllegalStateException("Attempt to get fields on a JsonNode without fields.");
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public List d()
+/*    */   {
+/* 60 */     throw new IllegalStateException("Attempt to get elements on a JsonNode without elements.");
+/*    */   }
+/*    */   
+/*    */   public boolean equals(Object paramObject)
+/*    */   {
+/* 65 */     if (this == paramObject) return true;
+/* 66 */     if ((paramObject == null) || (getClass() != paramObject.getClass())) { return false;
+/*    */     }
+/* 68 */     ja localja = (ja)paramObject;
+/* 69 */     return this.b.equals(localja.b);
+/*    */   }
+/*    */   
+/*    */   public int hashCode()
+/*    */   {
+/* 74 */     return this.b.hashCode();
+/*    */   }
+/*    */   
+/*    */   public String toString()
+/*    */   {
+/* 79 */     return "JsonNumberNode value:[" + this.b + "]";
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ja.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

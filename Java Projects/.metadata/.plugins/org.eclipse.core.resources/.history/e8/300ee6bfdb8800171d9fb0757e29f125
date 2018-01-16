@@ -1,0 +1,483 @@
+/*     */ import java.util.Random;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class ih
+/*     */   extends pg
+/*     */ {
+/*  27 */   static final byte[] a = { 2, 0, 0, 1, 2, 1 };
+/*     */   
+/*     */ 
+/*  30 */   Random b = new Random();
+/*     */   
+/*     */ 
+/*     */   fd c;
+/*     */   
+/*     */ 
+/*  36 */   int[] d = { 0, 0, 0 };
+/*     */   
+/*  38 */   int e = 0;
+/*     */   
+/*     */   int f;
+/*  41 */   double g = 0.618D;
+/*  42 */   double h = 1.0D;
+/*  43 */   double i = 0.381D;
+/*  44 */   double j = 1.0D;
+/*  45 */   double k = 1.0D;
+/*  46 */   int l = 1;
+/*  47 */   int m = 12;
+/*  48 */   int n = 4;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   int[][] o;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   void a()
+/*     */   {
+/*  58 */     this.f = ((int)(this.e * this.g));
+/*  59 */     if (this.f >= this.e) this.f = (this.e - 1);
+/*  60 */     int i1 = (int)(1.382D + Math.pow(this.k * this.e / 13.0D, 2.0D));
+/*  61 */     if (i1 < 1) { i1 = 1;
+/*     */     }
+/*  63 */     int[][] arrayOfInt = new int[i1 * this.e][4];
+/*  64 */     int i2 = this.d[1] + this.e - this.n;
+/*  65 */     int i3 = 1;
+/*  66 */     int i4 = this.d[1] + this.f;
+/*  67 */     int i5 = i2 - this.d[1];
+/*     */     
+/*  69 */     arrayOfInt[0][0] = this.d[0];
+/*  70 */     arrayOfInt[0][1] = i2;
+/*  71 */     arrayOfInt[0][2] = this.d[2];
+/*  72 */     arrayOfInt[0][3] = i4;
+/*  73 */     i2--;
+/*     */     
+/*  75 */     while (i5 >= 0) {
+/*  76 */       int i6 = 0;
+/*     */       
+/*  78 */       float f1 = a(i5);
+/*  79 */       if (f1 < 0.0F) {
+/*  80 */         i2--;
+/*  81 */         i5--;
+/*     */ 
+/*     */       }
+/*     */       else
+/*     */       {
+/*  86 */         double d1 = 0.5D;
+/*  87 */         while (i6 < i1) {
+/*  88 */           double d2 = this.j * (f1 * (this.b.nextFloat() + 0.328D));
+/*  89 */           double d3 = this.b.nextFloat() * 2.0D * 3.14159D;
+/*  90 */           int i7 = in.b(d2 * Math.sin(d3) + this.d[0] + d1);
+/*  91 */           int i8 = in.b(d2 * Math.cos(d3) + this.d[2] + d1);
+/*  92 */           int[] arrayOfInt1 = { i7, i2, i8 };
+/*  93 */           int[] arrayOfInt2 = { i7, i2 + this.n, i8 };
+/*     */           
+/*  95 */           if (a(arrayOfInt1, arrayOfInt2) == -1)
+/*     */           {
+/*     */ 
+/*  98 */             int[] arrayOfInt3 = { this.d[0], this.d[1], this.d[2] };
+/*  99 */             double d4 = Math.sqrt(Math.pow(Math.abs(this.d[0] - arrayOfInt1[0]), 2.0D) + Math.pow(Math.abs(this.d[2] - arrayOfInt1[2]), 2.0D));
+/* 100 */             double d5 = d4 * this.i;
+/* 101 */             if (arrayOfInt1[1] - d5 > i4) {
+/* 102 */               arrayOfInt3[1] = i4;
+/*     */             }
+/*     */             else {
+/* 105 */               arrayOfInt3[1] = ((int)(arrayOfInt1[1] - d5));
+/*     */             }
+/*     */             
+/* 108 */             if (a(arrayOfInt3, arrayOfInt1) == -1)
+/*     */             {
+/*     */ 
+/* 111 */               arrayOfInt[i3][0] = i7;
+/* 112 */               arrayOfInt[i3][1] = i2;
+/* 113 */               arrayOfInt[i3][2] = i8;
+/* 114 */               arrayOfInt[i3][3] = arrayOfInt3[1];
+/* 115 */               i3++;
+/*     */             }
+/*     */           }
+/* 118 */           i6++;
+/*     */         }
+/* 120 */         i2--;
+/* 121 */         i5--;
+/*     */       } }
+/* 123 */     this.o = new int[i3][4];
+/* 124 */     System.arraycopy(arrayOfInt, 0, this.o, 0, i3);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   void a(int paramInt1, int paramInt2, int paramInt3, float paramFloat, byte paramByte, int paramInt4)
+/*     */   {
+/* 139 */     int i1 = (int)(paramFloat + 0.618D);
+/* 140 */     int i2 = a[paramByte];
+/* 141 */     int i3 = a[(paramByte + 3)];
+/* 142 */     int[] arrayOfInt1 = { paramInt1, paramInt2, paramInt3 };
+/* 143 */     int[] arrayOfInt2 = { 0, 0, 0 };
+/* 144 */     int i4 = -i1;
+/* 145 */     int i5 = -i1;
+/*     */     
+/* 147 */     arrayOfInt2[paramByte] = arrayOfInt1[paramByte];
+/* 148 */     while (i4 <= i1) {
+/* 149 */       arrayOfInt1[i2] += i4;
+/* 150 */       i5 = -i1;
+/* 151 */       while (i5 <= i1) {
+/* 152 */         double d1 = Math.sqrt(Math.pow(Math.abs(i4) + 0.5D, 2.0D) + Math.pow(Math.abs(i5) + 0.5D, 2.0D));
+/* 153 */         if (d1 > paramFloat) {
+/* 154 */           i5++;
+/*     */         }
+/*     */         else {
+/* 157 */           arrayOfInt1[i3] += i5;
+/* 158 */           int i6 = this.c.a(arrayOfInt2[0], arrayOfInt2[1], arrayOfInt2[2]);
+/* 159 */           if ((i6 != 0) && (i6 != 18))
+/*     */           {
+/*     */ 
+/* 162 */             i5++;
+/*     */           }
+/*     */           else {
+/* 165 */             this.c.c(arrayOfInt2[0], arrayOfInt2[1], arrayOfInt2[2], paramInt4);
+/* 166 */             i5++;
+/*     */           } } }
+/* 168 */       i4++;
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   float a(int paramInt)
+/*     */   {
+/* 181 */     if (paramInt < this.e * 0.3D) return -1.618F;
+/* 182 */     float f1 = this.e / 2.0F;
+/* 183 */     float f2 = this.e / 2.0F - paramInt;
+/*     */     float f3;
+/* 185 */     if (f2 == 0.0F) { f3 = f1;
+/* 186 */     } else if (Math.abs(f2) >= f1) f3 = 0.0F; else {
+/* 187 */       f3 = (float)Math.sqrt(Math.pow(Math.abs(f1), 2.0D) - Math.pow(Math.abs(f2), 2.0D));
+/*     */     }
+/* 189 */     f3 *= 0.5F;
+/* 190 */     return f3;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   float b(int paramInt)
+/*     */   {
+/* 199 */     if ((paramInt < 0) || (paramInt >= this.n)) return -1.0F;
+/* 200 */     if ((paramInt == 0) || (paramInt == this.n - 1)) return 2.0F;
+/* 201 */     return 3.0F;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   void a(int paramInt1, int paramInt2, int paramInt3)
+/*     */   {
+/* 208 */     int i1 = paramInt2;
+/* 209 */     int i2 = paramInt2 + this.n;
+/*     */     
+/* 211 */     while (i1 < i2) {
+/* 212 */       float f1 = b(i1 - paramInt2);
+/* 213 */       a(paramInt1, i1, paramInt3, f1, (byte)1, 18);
+/* 214 */       i1++;
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   void a(int[] paramArrayOfInt1, int[] paramArrayOfInt2, int paramInt)
+/*     */   {
+/* 225 */     int[] arrayOfInt1 = { 0, 0, 0 };
+/* 226 */     int i1 = 0;
+/* 227 */     int i2 = 0;
+/* 228 */     while (i1 < 3) {
+/* 229 */       paramArrayOfInt2[i1] -= paramArrayOfInt1[i1];
+/* 230 */       if (Math.abs(arrayOfInt1[i1]) > Math.abs(arrayOfInt1[i2])) {
+/* 231 */         i2 = i1;
+/*     */       }
+/* 233 */       i1 = (byte)(i1 + 1);
+/*     */     }
+/*     */     
+/* 236 */     if (arrayOfInt1[i2] == 0) { return;
+/*     */     }
+/* 238 */     int i3 = a[i2];
+/* 239 */     int i4 = a[(i2 + 3)];
+/*     */     
+/*     */     int i5;
+/*     */     
+/* 243 */     if (arrayOfInt1[i2] > 0) i5 = 1; else {
+/* 244 */       i5 = -1;
+/*     */     }
+/* 246 */     double d1 = arrayOfInt1[i3] / arrayOfInt1[i2];
+/* 247 */     double d2 = arrayOfInt1[i4] / arrayOfInt1[i2];
+/*     */     
+/* 249 */     int[] arrayOfInt2 = { 0, 0, 0 };
+/*     */     
+/* 251 */     int i6 = 0;
+/* 252 */     int i7 = arrayOfInt1[i2] + i5;
+/* 253 */     while (i6 != i7) {
+/* 254 */       arrayOfInt2[i2] = in.b(paramArrayOfInt1[i2] + i6 + 0.5D);
+/* 255 */       arrayOfInt2[i3] = in.b(paramArrayOfInt1[i3] + i6 * d1 + 0.5D);
+/* 256 */       arrayOfInt2[i4] = in.b(paramArrayOfInt1[i4] + i6 * d2 + 0.5D);
+/* 257 */       this.c.c(arrayOfInt2[0], arrayOfInt2[1], arrayOfInt2[2], paramInt);
+/* 258 */       i6 += i5;
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   void b()
+/*     */   {
+/* 267 */     int i1 = 0;
+/* 268 */     int i2 = this.o.length;
+/* 269 */     while (i1 < i2) {
+/* 270 */       int i3 = this.o[i1][0];
+/* 271 */       int i4 = this.o[i1][1];
+/* 272 */       int i5 = this.o[i1][2];
+/* 273 */       a(i3, i4, i5);
+/* 274 */       i1++;
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   boolean c(int paramInt)
+/*     */   {
+/* 286 */     if (paramInt < this.e * 0.2D) return false;
+/* 287 */     return true;
+/*     */   }
+/*     */   
+/*     */   void c()
+/*     */   {
+/* 292 */     int i1 = this.d[0];
+/* 293 */     int i2 = this.d[1];
+/* 294 */     int i3 = this.d[1] + this.f;
+/* 295 */     int i4 = this.d[2];
+/* 296 */     int[] arrayOfInt1 = { i1, i2, i4 };
+/* 297 */     int[] arrayOfInt2 = { i1, i3, i4 };
+/* 298 */     a(arrayOfInt1, arrayOfInt2, 17);
+/* 299 */     if (this.l == 2) {
+/* 300 */       arrayOfInt1[0] += 1;
+/* 301 */       arrayOfInt2[0] += 1;
+/* 302 */       a(arrayOfInt1, arrayOfInt2, 17);
+/* 303 */       arrayOfInt1[2] += 1;
+/* 304 */       arrayOfInt2[2] += 1;
+/* 305 */       a(arrayOfInt1, arrayOfInt2, 17);
+/* 306 */       arrayOfInt1[0] += -1;
+/* 307 */       arrayOfInt2[0] += -1;
+/* 308 */       a(arrayOfInt1, arrayOfInt2, 17);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   void d()
+/*     */   {
+/* 316 */     int i1 = 0;
+/* 317 */     int i2 = this.o.length;
+/* 318 */     int[] arrayOfInt1 = { this.d[0], this.d[1], this.d[2] };
+/* 319 */     while (i1 < i2) {
+/* 320 */       int[] arrayOfInt2 = this.o[i1];
+/* 321 */       int[] arrayOfInt3 = { arrayOfInt2[0], arrayOfInt2[1], arrayOfInt2[2] };
+/* 322 */       arrayOfInt1[1] = arrayOfInt2[3];
+/*     */       
+/* 324 */       int i3 = arrayOfInt1[1] - this.d[1];
+/* 325 */       if (c(i3)) {
+/* 326 */         a(arrayOfInt1, arrayOfInt3, 17);
+/*     */       }
+/* 328 */       i1++;
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   int a(int[] paramArrayOfInt1, int[] paramArrayOfInt2)
+/*     */   {
+/* 340 */     int[] arrayOfInt1 = { 0, 0, 0 };
+/* 341 */     int i1 = 0;
+/* 342 */     int i2 = 0;
+/* 343 */     while (i1 < 3) {
+/* 344 */       paramArrayOfInt2[i1] -= paramArrayOfInt1[i1];
+/* 345 */       if (Math.abs(arrayOfInt1[i1]) > Math.abs(arrayOfInt1[i2])) {
+/* 346 */         i2 = i1;
+/*     */       }
+/* 348 */       i1 = (byte)(i1 + 1);
+/*     */     }
+/*     */     
+/* 351 */     if (arrayOfInt1[i2] == 0) { return -1;
+/*     */     }
+/* 353 */     int i3 = a[i2];
+/* 354 */     int i4 = a[(i2 + 3)];
+/*     */     
+/*     */     int i5;
+/*     */     
+/* 358 */     if (arrayOfInt1[i2] > 0) i5 = 1; else {
+/* 359 */       i5 = -1;
+/*     */     }
+/* 361 */     double d1 = arrayOfInt1[i3] / arrayOfInt1[i2];
+/* 362 */     double d2 = arrayOfInt1[i4] / arrayOfInt1[i2];
+/*     */     
+/* 364 */     int[] arrayOfInt2 = { 0, 0, 0 };
+/*     */     
+/* 366 */     int i6 = 0;
+/* 367 */     int i7 = arrayOfInt1[i2] + i5;
+/*     */     
+/* 369 */     while (i6 != i7) {
+/* 370 */       paramArrayOfInt1[i2] += i6;
+/* 371 */       arrayOfInt2[i3] = in.b(paramArrayOfInt1[i3] + i6 * d1);
+/* 372 */       arrayOfInt2[i4] = in.b(paramArrayOfInt1[i4] + i6 * d2);
+/* 373 */       int i8 = this.c.a(arrayOfInt2[0], arrayOfInt2[1], arrayOfInt2[2]);
+/* 374 */       if ((i8 != 0) && (i8 != 18)) {
+/*     */         break;
+/*     */       }
+/*     */       
+/*     */ 
+/* 379 */       i6 += i5;
+/*     */     }
+/*     */     
+/* 382 */     if (i6 == i7) {
+/* 383 */       return -1;
+/*     */     }
+/*     */     
+/*     */ 
+/* 387 */     return Math.abs(i6);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   boolean e()
+/*     */   {
+/* 400 */     int[] arrayOfInt1 = { this.d[0], this.d[1], this.d[2] };
+/* 401 */     int[] arrayOfInt2 = { this.d[0], this.d[1] + this.e - 1, this.d[2] };
+/*     */     
+/* 403 */     int i1 = this.c.a(this.d[0], this.d[1] - 1, this.d[2]);
+/* 404 */     if ((i1 != 2) && (i1 != 3)) {
+/* 405 */       return false;
+/*     */     }
+/* 407 */     int i2 = a(arrayOfInt1, arrayOfInt2);
+/*     */     
+/* 409 */     if (i2 == -1) {
+/* 410 */       return true;
+/*     */     }
+/*     */     
+/* 413 */     if (i2 < 6) {
+/* 414 */       return false;
+/*     */     }
+/*     */     
+/*     */ 
+/*     */ 
+/* 419 */     this.e = i2;
+/*     */     
+/* 421 */     return true;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void a(double paramDouble1, double paramDouble2, double paramDouble3)
+/*     */   {
+/* 433 */     this.m = ((int)(paramDouble1 * 12.0D));
+/* 434 */     if (paramDouble1 > 0.5D) this.n = 5;
+/* 435 */     this.j = paramDouble2;
+/* 436 */     this.k = paramDouble3;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public boolean a(fd paramfd, Random paramRandom, int paramInt1, int paramInt2, int paramInt3)
+/*     */   {
+/* 449 */     this.c = paramfd;
+/* 450 */     long l1 = paramRandom.nextLong();
+/* 451 */     this.b.setSeed(l1);
+/*     */     
+/* 453 */     this.d[0] = paramInt1;
+/* 454 */     this.d[1] = paramInt2;
+/* 455 */     this.d[2] = paramInt3;
+/*     */     
+/* 457 */     if (this.e == 0) {
+/* 458 */       this.e = (5 + this.b.nextInt(this.m));
+/*     */     }
+/* 460 */     if (!e())
+/*     */     {
+/* 462 */       return false;
+/*     */     }
+/*     */     
+/*     */ 
+/*     */ 
+/* 467 */     a();
+/*     */     
+/* 469 */     b();
+/*     */     
+/* 471 */     c();
+/*     */     
+/* 473 */     d();
+/*     */     
+/* 475 */     return true;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ih.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

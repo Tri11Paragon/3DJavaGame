@@ -1,0 +1,88 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class he
+/*    */   extends wb
+/*    */ {
+/*    */   protected he(int paramInt1, int paramInt2)
+/*    */   {
+/* 22 */     super(paramInt1, paramInt2);
+/*    */     
+/* 24 */     float f = 0.4F;
+/* 25 */     a(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);
+/*    */   }
+/*    */   
+/*    */   public void a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, Random paramRandom) {
+/* 29 */     if (paramfd.B) { return;
+/*    */     }
+/* 31 */     super.a(paramfd, paramInt1, paramInt2, paramInt3, paramRandom);
+/*    */     
+/* 33 */     if ((paramfd.n(paramInt1, paramInt2 + 1, paramInt3) >= 9) && 
+/* 34 */       (paramRandom.nextInt(30) == 0)) {
+/* 35 */       int i = paramfd.e(paramInt1, paramInt2, paramInt3);
+/* 36 */       if ((i & 0x8) == 0) {
+/* 37 */         paramfd.d(paramInt1, paramInt2, paramInt3, i | 0x8);
+/*    */       } else {
+/* 39 */         c(paramfd, paramInt1, paramInt2, paramInt3, paramRandom);
+/*    */       }
+/*    */     }
+/*    */   }
+/*    */   
+/*    */ 
+/*    */   public int a(int paramInt1, int paramInt2)
+/*    */   {
+/* 47 */     paramInt2 &= 0x3;
+/* 48 */     if (paramInt2 == 1)
+/* 49 */       return 63;
+/* 50 */     if (paramInt2 == 2) {
+/* 51 */       return 79;
+/*    */     }
+/* 53 */     return super.a(paramInt1, paramInt2);
+/*    */   }
+/*    */   
+/*    */   public void c(fd paramfd, int paramInt1, int paramInt2, int paramInt3, Random paramRandom)
+/*    */   {
+/* 58 */     int i = paramfd.e(paramInt1, paramInt2, paramInt3) & 0x3;
+/*    */     
+/* 60 */     paramfd.c(paramInt1, paramInt2, paramInt3, 0);
+/* 61 */     Object localObject = null;
+/*    */     
+/* 63 */     if (i == 1) {
+/* 64 */       localObject = new ws();
+/* 65 */     } else if (i == 2) {
+/* 66 */       localObject = new k();
+/*    */     } else {
+/* 68 */       localObject = new yh();
+/* 69 */       if (paramRandom.nextInt(10) == 0) {
+/* 70 */         localObject = new ih();
+/*    */       }
+/*    */     }
+/* 73 */     if (!((pg)localObject).a(paramfd, paramRandom, paramInt1, paramInt2, paramInt3)) {
+/* 74 */       paramfd.a(paramInt1, paramInt2, paramInt3, this.bn, i);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   protected int b_(int paramInt)
+/*    */   {
+/* 80 */     return paramInt & 0x3;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\he.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

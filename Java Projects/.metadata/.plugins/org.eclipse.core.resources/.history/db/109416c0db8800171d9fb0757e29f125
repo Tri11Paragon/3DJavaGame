@@ -1,0 +1,50 @@
+/*    */ import java.io.DataInputStream;
+/*    */ import java.io.DataOutputStream;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class vw
+/*    */   extends ki
+/*    */ {
+/*    */   public int a;
+/*    */   public int b;
+/*    */   public int c;
+/*    */   public int d;
+/*    */   public int e;
+/*    */   
+/*    */   public void a(DataInputStream paramDataInputStream)
+/*    */   {
+/* 22 */     this.a = paramDataInputStream.readInt();
+/* 23 */     this.b = paramDataInputStream.readShort();
+/* 24 */     this.c = paramDataInputStream.readInt();
+/* 25 */     this.d = paramDataInputStream.read();
+/* 26 */     this.e = paramDataInputStream.read();
+/*    */   }
+/*    */   
+/*    */   public void a(DataOutputStream paramDataOutputStream) {
+/* 30 */     paramDataOutputStream.writeInt(this.a);
+/* 31 */     paramDataOutputStream.writeShort(this.b);
+/* 32 */     paramDataOutputStream.writeInt(this.c);
+/* 33 */     paramDataOutputStream.write(this.d);
+/* 34 */     paramDataOutputStream.write(this.e);
+/*    */   }
+/*    */   
+/*    */   public void a(ti paramti) {
+/* 38 */     paramti.a(this);
+/*    */   }
+/*    */   
+/*    */   public int a() {
+/* 42 */     return 12;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\vw.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

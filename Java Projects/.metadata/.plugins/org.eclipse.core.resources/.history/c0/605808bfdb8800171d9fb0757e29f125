@@ -1,0 +1,33 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class eg
+/*    */   extends ow
+/*    */ {
+/*    */   public int a;
+/*    */   
+/*    */   public void a(nu paramnu)
+/*    */   {
+/* 18 */     super.a(paramnu);
+/* 19 */     this.a = paramnu.e("Record");
+/*    */   }
+/*    */   
+/*    */   public void b(nu paramnu)
+/*    */   {
+/* 24 */     super.b(paramnu);
+/* 25 */     if (this.a > 0) paramnu.a("Record", this.a);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\eg.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

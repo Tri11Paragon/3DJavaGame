@@ -1,0 +1,105 @@
+/*    */ import java.util.List;
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class ph
+/*    */   extends pc
+/*    */ {
+/*    */   public ph(int paramInt1, int paramInt2)
+/*    */   {
+/* 16 */     super(paramInt1, paramInt2, true);
+/*    */     
+/* 18 */     b(true);
+/*    */   }
+/*    */   
+/*    */   public int e()
+/*    */   {
+/* 23 */     return 20;
+/*    */   }
+/*    */   
+/*    */   public boolean f()
+/*    */   {
+/* 28 */     return true;
+/*    */   }
+/*    */   
+/*    */   public void a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, sn paramsn)
+/*    */   {
+/* 33 */     if (paramfd.B) {
+/* 34 */       return;
+/*    */     }
+/*    */     
+/* 37 */     int i = paramfd.e(paramInt1, paramInt2, paramInt3);
+/* 38 */     if ((i & 0x8) != 0) {
+/* 39 */       return;
+/*    */     }
+/*    */     
+/* 42 */     f(paramfd, paramInt1, paramInt2, paramInt3, i);
+/*    */   }
+/*    */   
+/*    */   public void a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, Random paramRandom)
+/*    */   {
+/* 47 */     if (paramfd.B) { return;
+/*    */     }
+/* 49 */     int i = paramfd.e(paramInt1, paramInt2, paramInt3);
+/* 50 */     if ((i & 0x8) == 0) {
+/* 51 */       return;
+/*    */     }
+/*    */     
+/* 54 */     f(paramfd, paramInt1, paramInt2, paramInt3, i);
+/*    */   }
+/*    */   
+/*    */   public boolean c(xp paramxp, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+/*    */   {
+/* 59 */     return (paramxp.e(paramInt1, paramInt2, paramInt3) & 0x8) != 0;
+/*    */   }
+/*    */   
+/*    */   public boolean d(fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+/*    */   {
+/* 64 */     if ((paramfd.e(paramInt1, paramInt2, paramInt3) & 0x8) == 0) return false;
+/* 65 */     return paramInt4 == 1;
+/*    */   }
+/*    */   
+/*    */   private void f(fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/* 69 */     int i = (paramInt4 & 0x8) != 0 ? 1 : 0;
+/* 70 */     int j = 0;
+/*    */     
+/* 72 */     float f = 0.125F;
+/* 73 */     List localList = paramfd.a(yl.class, eq.b(paramInt1 + f, paramInt2, paramInt3 + f, paramInt1 + 1 - f, paramInt2 + 0.25D, paramInt3 + 1 - f));
+/* 74 */     if (localList.size() > 0) {
+/* 75 */       j = 1;
+/*    */     }
+/*    */     
+/* 78 */     if ((j != 0) && (i == 0)) {
+/* 79 */       paramfd.d(paramInt1, paramInt2, paramInt3, paramInt4 | 0x8);
+/* 80 */       paramfd.i(paramInt1, paramInt2, paramInt3, this.bn);
+/* 81 */       paramfd.i(paramInt1, paramInt2 - 1, paramInt3, this.bn);
+/* 82 */       paramfd.b(paramInt1, paramInt2, paramInt3, paramInt1, paramInt2, paramInt3);
+/*    */     }
+/*    */     
+/*    */ 
+/* 86 */     if ((j == 0) && (i != 0)) {
+/* 87 */       paramfd.d(paramInt1, paramInt2, paramInt3, paramInt4 & 0x7);
+/* 88 */       paramfd.i(paramInt1, paramInt2, paramInt3, this.bn);
+/* 89 */       paramfd.i(paramInt1, paramInt2 - 1, paramInt3, this.bn);
+/* 90 */       paramfd.b(paramInt1, paramInt2, paramInt3, paramInt1, paramInt2, paramInt3);
+/*    */     }
+/*    */     
+/*    */ 
+/*    */ 
+/* 95 */     if (j != 0) {
+/* 96 */       paramfd.c(paramInt1, paramInt2, paramInt3, this.bn, e());
+/*    */     }
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ph.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

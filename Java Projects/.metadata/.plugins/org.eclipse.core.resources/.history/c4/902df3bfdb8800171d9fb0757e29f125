@@ -1,0 +1,29 @@
+/*    */ import org.lwjgl.opengl.GL11;
+/*    */ 
+/*    */ 
+/*    */ public class xy
+/*    */   extends gv
+/*    */ {
+/*    */   public xy(ko paramko1, ko paramko2, float paramFloat)
+/*    */   {
+/*  9 */     super(paramko1, paramFloat);
+/* 10 */     a(paramko2);
+/*    */   }
+/*    */   
+/*    */   protected boolean a(dl paramdl, int paramInt, float paramFloat) {
+/* 14 */     if ((paramInt == 0) && (!paramdl.s())) {
+/* 15 */       a("/mob/sheep_fur.png");
+/* 16 */       float f = paramdl.a(paramFloat);
+/* 17 */       int i = paramdl.r();
+/* 18 */       GL11.glColor3f(f * dl.a[i][0], f * dl.a[i][1], f * dl.a[i][2]);
+/* 19 */       return true;
+/*    */     }
+/* 21 */     return false;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\xy.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

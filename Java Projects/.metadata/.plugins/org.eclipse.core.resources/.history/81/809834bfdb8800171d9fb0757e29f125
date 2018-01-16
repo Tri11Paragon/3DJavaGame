@@ -1,0 +1,24 @@
+public abstract interface lw
+{
+  public abstract int a();
+  
+  public abstract iz f_(int paramInt);
+  
+  public abstract iz a(int paramInt1, int paramInt2);
+  
+  public abstract void a(int paramInt, iz paramiz);
+  
+  public abstract String c();
+  
+  public abstract int d();
+  
+  public abstract void y_();
+  
+  public abstract boolean a_(gs paramgs);
+}
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\lw.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

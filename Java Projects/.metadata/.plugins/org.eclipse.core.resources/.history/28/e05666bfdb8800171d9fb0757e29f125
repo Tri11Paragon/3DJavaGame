@@ -1,0 +1,36 @@
+/*    */ import java.io.DataInput;
+/*    */ import java.io.DataOutput;
+/*    */ 
+/*    */ public class qp extends ij
+/*    */ {
+/*    */   public byte a;
+/*    */   
+/*    */   public qp() {}
+/*    */   
+/*    */   public qp(byte paramByte)
+/*    */   {
+/* 12 */     this.a = paramByte;
+/*    */   }
+/*    */   
+/*    */   void a(DataOutput paramDataOutput) {
+/* 16 */     paramDataOutput.writeByte(this.a);
+/*    */   }
+/*    */   
+/*    */   void a(DataInput paramDataInput) {
+/* 20 */     this.a = paramDataInput.readByte();
+/*    */   }
+/*    */   
+/*    */   public byte a() {
+/* 24 */     return 1;
+/*    */   }
+/*    */   
+/*    */   public String toString() {
+/* 28 */     return "" + this.a;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\qp.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

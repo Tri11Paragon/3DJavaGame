@@ -1,0 +1,59 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ final class j
+/*    */   implements yp
+/*    */ {
+/*    */   private final jt a;
+/*    */   private final jt b;
+/*    */   
+/*    */   j(jt paramjt1, jt paramjt2)
+/*    */   {
+/* 21 */     this.a = paramjt1;
+/* 22 */     this.b = paramjt2;
+/*    */   }
+/*    */   
+/*    */   public boolean a(Object paramObject) {
+/* 26 */     return (this.a.a(paramObject)) && (this.b.a(this.a.b(paramObject)));
+/*    */   }
+/*    */   
+/*    */   public Object b(Object paramObject) {
+/*    */     Object localObject1;
+/*    */     try {
+/* 32 */       localObject1 = this.a.b(paramObject);
+/*    */     } catch (mz localmz1) {
+/* 34 */       throw mz.b(localmz1, this.a);
+/*    */     }
+/*    */     Object localObject2;
+/*    */     try {
+/* 38 */       localObject2 = this.b.b(localObject1);
+/*    */     } catch (mz localmz2) {
+/* 40 */       throw mz.a(localmz2, this.a);
+/*    */     }
+/* 42 */     return localObject2;
+/*    */   }
+/*    */   
+/*    */   public String a() {
+/* 46 */     return this.b.a();
+/*    */   }
+/*    */   
+/*    */   public String toString()
+/*    */   {
+/* 51 */     return this.a.toString() + ", with " + this.b.toString();
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\j.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

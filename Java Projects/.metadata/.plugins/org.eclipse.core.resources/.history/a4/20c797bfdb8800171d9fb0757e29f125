@@ -1,0 +1,21 @@
+/*    */ 
+/*    */ 
+/*    */ public class bz
+/*    */   extends yw
+/*    */ {
+/*    */   public bz(int paramInt1, int paramInt2)
+/*    */   {
+/*  8 */     super(paramInt1, paramInt2, false);
+/*    */   }
+/*    */   
+/*    */   public iz a(iz paramiz, fd paramfd, gs paramgs) {
+/* 12 */     super.a(paramiz, paramfd, paramgs);
+/* 13 */     return new iz(gm.C);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\bz.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

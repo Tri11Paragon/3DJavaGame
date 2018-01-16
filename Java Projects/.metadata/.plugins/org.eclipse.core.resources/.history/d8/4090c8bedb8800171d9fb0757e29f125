@@ -1,0 +1,207 @@
+/*     */ import java.util.ArrayList;
+/*     */ import java.util.Random;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class h
+/*     */   extends uu
+/*     */ {
+/*  16 */   private int a = -1;
+/*     */   
+/*     */   public h(int paramInt1, int paramInt2) {
+/*  19 */     super(paramInt1, paramInt2, ln.B);
+/*  20 */     a(h);
+/*  21 */     c(0.5F);
+/*     */   }
+/*     */   
+/*     */   public void a_(int paramInt) {
+/*  25 */     this.a = paramInt;
+/*     */   }
+/*     */   
+/*     */   public void a() {
+/*  29 */     this.a = -1;
+/*     */   }
+/*     */   
+/*     */   public void b(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/*  33 */     super.b(paramfd, paramInt1, paramInt2, paramInt3);
+/*  34 */     int i = paramfd.e(paramInt1, paramInt2, paramInt3);
+/*  35 */     int j = wj.a[c(i)];
+/*  36 */     paramInt1 += wj.b[j];
+/*  37 */     paramInt2 += wj.c[j];
+/*  38 */     paramInt3 += wj.d[j];
+/*     */     
+/*  40 */     int k = paramfd.a(paramInt1, paramInt2, paramInt3);
+/*     */     
+/*  42 */     if ((k == uu.aa.bn) || (k == uu.W.bn)) {
+/*  43 */       i = paramfd.e(paramInt1, paramInt2, paramInt3);
+/*  44 */       if (jq.e(i)) {
+/*  45 */         uu.m[k].g(paramfd, paramInt1, paramInt2, paramInt3, i);
+/*  46 */         paramfd.f(paramInt1, paramInt2, paramInt3, 0);
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public int a(int paramInt1, int paramInt2)
+/*     */   {
+/*  60 */     int i = c(paramInt2);
+/*     */     
+/*  62 */     if (paramInt1 == i) {
+/*  63 */       if (this.a >= 0) {
+/*  64 */         return this.a;
+/*     */       }
+/*  66 */       if ((paramInt2 & 0x8) != 0) {
+/*  67 */         return this.bm - 1;
+/*     */       }
+/*  69 */       return this.bm;
+/*     */     }
+/*  71 */     if (paramInt1 == wj.a[i]) {
+/*  72 */       return 107;
+/*     */     }
+/*  74 */     return 108;
+/*     */   }
+/*     */   
+/*     */   public int b()
+/*     */   {
+/*  79 */     return 17;
+/*     */   }
+/*     */   
+/*     */   public boolean c()
+/*     */   {
+/*  84 */     return false;
+/*     */   }
+/*     */   
+/*     */   public boolean d()
+/*     */   {
+/*  89 */     return false;
+/*     */   }
+/*     */   
+/*     */   public boolean a(fd paramfd, int paramInt1, int paramInt2, int paramInt3)
+/*     */   {
+/*  94 */     return false;
+/*     */   }
+/*     */   
+/*     */   public boolean a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+/*     */   {
+/*  99 */     return false;
+/*     */   }
+/*     */   
+/*     */   public int a(Random paramRandom)
+/*     */   {
+/* 104 */     return 0;
+/*     */   }
+/*     */   
+/*     */   public void a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, eq parameq, ArrayList paramArrayList)
+/*     */   {
+/* 109 */     int i = paramfd.e(paramInt1, paramInt2, paramInt3);
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 117 */     switch (c(i)) {
+/*     */     case 0: 
+/* 119 */       a(0.0F, 0.0F, 0.0F, 1.0F, 0.25F, 1.0F);
+/* 120 */       super.a(paramfd, paramInt1, paramInt2, paramInt3, parameq, paramArrayList);
+/* 121 */       a(0.375F, 0.25F, 0.375F, 0.625F, 1.0F, 0.625F);
+/* 122 */       super.a(paramfd, paramInt1, paramInt2, paramInt3, parameq, paramArrayList);
+/* 123 */       break;
+/*     */     case 1: 
+/* 125 */       a(0.0F, 0.75F, 0.0F, 1.0F, 1.0F, 1.0F);
+/* 126 */       super.a(paramfd, paramInt1, paramInt2, paramInt3, parameq, paramArrayList);
+/* 127 */       a(0.375F, 0.0F, 0.375F, 0.625F, 0.75F, 0.625F);
+/* 128 */       super.a(paramfd, paramInt1, paramInt2, paramInt3, parameq, paramArrayList);
+/* 129 */       break;
+/*     */     case 2: 
+/* 131 */       a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.25F);
+/* 132 */       super.a(paramfd, paramInt1, paramInt2, paramInt3, parameq, paramArrayList);
+/* 133 */       a(0.25F, 0.375F, 0.25F, 0.75F, 0.625F, 1.0F);
+/* 134 */       super.a(paramfd, paramInt1, paramInt2, paramInt3, parameq, paramArrayList);
+/* 135 */       break;
+/*     */     case 3: 
+/* 137 */       a(0.0F, 0.0F, 0.75F, 1.0F, 1.0F, 1.0F);
+/* 138 */       super.a(paramfd, paramInt1, paramInt2, paramInt3, parameq, paramArrayList);
+/* 139 */       a(0.25F, 0.375F, 0.0F, 0.75F, 0.625F, 0.75F);
+/* 140 */       super.a(paramfd, paramInt1, paramInt2, paramInt3, parameq, paramArrayList);
+/* 141 */       break;
+/*     */     case 4: 
+/* 143 */       a(0.0F, 0.0F, 0.0F, 0.25F, 1.0F, 1.0F);
+/* 144 */       super.a(paramfd, paramInt1, paramInt2, paramInt3, parameq, paramArrayList);
+/* 145 */       a(0.375F, 0.25F, 0.25F, 0.625F, 0.75F, 1.0F);
+/* 146 */       super.a(paramfd, paramInt1, paramInt2, paramInt3, parameq, paramArrayList);
+/* 147 */       break;
+/*     */     case 5: 
+/* 149 */       a(0.75F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+/* 150 */       super.a(paramfd, paramInt1, paramInt2, paramInt3, parameq, paramArrayList);
+/* 151 */       a(0.0F, 0.375F, 0.25F, 0.75F, 0.625F, 0.75F);
+/* 152 */       super.a(paramfd, paramInt1, paramInt2, paramInt3, parameq, paramArrayList);
+/*     */     }
+/*     */     
+/* 155 */     a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+/*     */   }
+/*     */   
+/*     */   public void a(xp paramxp, int paramInt1, int paramInt2, int paramInt3)
+/*     */   {
+/* 160 */     int i = paramxp.e(paramInt1, paramInt2, paramInt3);
+/*     */     
+/*     */ 
+/*     */ 
+/* 164 */     switch (c(i)) {
+/*     */     case 0: 
+/* 166 */       a(0.0F, 0.0F, 0.0F, 1.0F, 0.25F, 1.0F);
+/* 167 */       break;
+/*     */     case 1: 
+/* 169 */       a(0.0F, 0.75F, 0.0F, 1.0F, 1.0F, 1.0F);
+/* 170 */       break;
+/*     */     case 2: 
+/* 172 */       a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.25F);
+/* 173 */       break;
+/*     */     case 3: 
+/* 175 */       a(0.0F, 0.0F, 0.75F, 1.0F, 1.0F, 1.0F);
+/* 176 */       break;
+/*     */     case 4: 
+/* 178 */       a(0.0F, 0.0F, 0.0F, 0.25F, 1.0F, 1.0F);
+/* 179 */       break;
+/*     */     case 5: 
+/* 181 */       a(0.75F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+/*     */     }
+/*     */     
+/*     */   }
+/*     */   
+/*     */   public void b(fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+/*     */   {
+/* 188 */     int i = c(paramfd.e(paramInt1, paramInt2, paramInt3));
+/* 189 */     int j = paramfd.a(paramInt1 - wj.b[i], paramInt2 - wj.c[i], paramInt3 - wj.d[i]);
+/* 190 */     if ((j != uu.aa.bn) && (j != uu.W.bn)) {
+/* 191 */       paramfd.f(paramInt1, paramInt2, paramInt3, 0);
+/*     */     }
+/*     */     else {
+/* 194 */       uu.m[j].b(paramfd, paramInt1 - wj.b[i], paramInt2 - wj.c[i], paramInt3 - wj.d[i], paramInt4);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public static int c(int paramInt) {
+/* 199 */     return paramInt & 0x7;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\h.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

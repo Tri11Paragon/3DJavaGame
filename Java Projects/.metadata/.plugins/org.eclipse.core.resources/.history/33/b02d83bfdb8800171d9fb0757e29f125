@@ -1,0 +1,290 @@
+/*     */ import java.awt.image.BufferedImage;
+/*     */ import java.io.IOException;
+/*     */ import java.nio.IntBuffer;
+/*     */ import javax.imageio.ImageIO;
+/*     */ import org.lwjgl.opengl.GL11;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class sj
+/*     */ {
+/*  20 */   private int[] b = new int['Ā'];
+/*  21 */   public int a = 0;
+/*     */   private int c;
+/*  23 */   private IntBuffer d = ge.d(1024);
+/*     */   
+/*     */   public sj(kv paramkv, String paramString, ji paramji) {
+/*     */     BufferedImage localBufferedImage;
+/*     */     try {
+/*  28 */       localBufferedImage = ImageIO.read(ji.class.getResourceAsStream(paramString));
+/*     */     } catch (IOException localIOException) {
+/*  30 */       throw new RuntimeException(localIOException);
+/*     */     }
+/*  32 */     int i = localBufferedImage.getWidth();
+/*  33 */     int j = localBufferedImage.getHeight();
+/*  34 */     int[] arrayOfInt = new int[i * j];
+/*  35 */     localBufferedImage.getRGB(0, 0, i, j, arrayOfInt, 0, i);
+/*     */     int n;
+/*  37 */     int i1; int i8; int i9; for (int k = 0; k < 256; k++) {
+/*  38 */       m = k % 16;
+/*  39 */       n = k / 16;
+/*     */       
+/*     */ 
+/*  42 */       for (i1 = 7; 
+/*  43 */           i1 >= 0; i1--) {
+/*  44 */         int i2 = m * 8 + i1;
+/*  45 */         int i4 = 1;
+/*  46 */         for (int i6 = 0; (i6 < 8) && (i4 != 0); i6++) {
+/*  47 */           i8 = (n * 8 + i6) * i;
+/*  48 */           i9 = arrayOfInt[(i2 + i8)] & 0xFF;
+/*  49 */           if (i9 > 0) i4 = 0;
+/*     */         }
+/*  51 */         if (i4 == 0) {
+/*     */           break;
+/*     */         }
+/*     */       }
+/*     */       
+/*  56 */       if (k == 32) i1 = 2;
+/*  57 */       this.b[k] = (i1 + 2);
+/*     */     }
+/*     */     
+/*     */ 
+/*  61 */     this.a = paramji.a(localBufferedImage);
+/*     */     
+/*  63 */     this.c = ge.a(288);
+/*  64 */     nw localnw = nw.a;
+/*  65 */     for (int m = 0; m < 256; m++) {
+/*  66 */       GL11.glNewList(this.c + m, 4864);
+/*  67 */       localnw.b();
+/*  68 */       n = m % 16 * 8;
+/*  69 */       i1 = m / 16 * 8;
+/*     */       
+/*  71 */       float f1 = 7.99F;
+/*     */       
+/*  73 */       float f2 = 0.0F;
+/*  74 */       float f3 = 0.0F;
+/*     */       
+/*  76 */       localnw.a(0.0D, 0.0F + f1, 0.0D, n / 128.0F + f2, (i1 + f1) / 128.0F + f3);
+/*  77 */       localnw.a(0.0F + f1, 0.0F + f1, 0.0D, (n + f1) / 128.0F + f2, (i1 + f1) / 128.0F + f3);
+/*  78 */       localnw.a(0.0F + f1, 0.0D, 0.0D, (n + f1) / 128.0F + f2, i1 / 128.0F + f3);
+/*  79 */       localnw.a(0.0D, 0.0D, 0.0D, n / 128.0F + f2, i1 / 128.0F + f3);
+/*     */       
+/*     */ 
+/*  82 */       localnw.a();
+/*     */       
+/*  84 */       GL11.glTranslatef(this.b[m], 0.0F, 0.0F);
+/*  85 */       GL11.glEndList();
+/*     */     }
+/*     */     
+/*  88 */     for (m = 0; m < 32; m++) {
+/*  89 */       n = (m >> 3 & 0x1) * 85;
+/*  90 */       i1 = (m >> 2 & 0x1) * 170 + n;
+/*  91 */       int i3 = (m >> 1 & 0x1) * 170 + n;
+/*  92 */       int i5 = (m >> 0 & 0x1) * 170 + n;
+/*  93 */       if (m == 6) {
+/*  94 */         i1 += 85;
+/*     */       }
+/*  96 */       int i7 = m >= 16 ? 1 : 0;
+/*     */       
+/*  98 */       if (paramkv.g) {
+/*  99 */         i8 = (i1 * 30 + i3 * 59 + i5 * 11) / 100;
+/* 100 */         i9 = (i1 * 30 + i3 * 70) / 100;
+/* 101 */         int i10 = (i1 * 30 + i5 * 70) / 100;
+/*     */         
+/* 103 */         i1 = i8;
+/* 104 */         i3 = i9;
+/* 105 */         i5 = i10;
+/*     */       }
+/*     */       
+/*     */ 
+/* 109 */       if (i7 != 0) {
+/* 110 */         i1 /= 4;
+/* 111 */         i3 /= 4;
+/* 112 */         i5 /= 4;
+/*     */       }
+/* 114 */       GL11.glNewList(this.c + 256 + m, 4864);
+/* 115 */       GL11.glColor3f(i1 / 255.0F, i3 / 255.0F, i5 / 255.0F);
+/* 116 */       GL11.glEndList();
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(String paramString, int paramInt1, int paramInt2, int paramInt3) {
+/* 121 */     a(paramString, paramInt1 + 1, paramInt2 + 1, paramInt3, true);
+/* 122 */     b(paramString, paramInt1, paramInt2, paramInt3);
+/*     */   }
+/*     */   
+/*     */   public void b(String paramString, int paramInt1, int paramInt2, int paramInt3) {
+/* 126 */     a(paramString, paramInt1, paramInt2, paramInt3, false);
+/*     */   }
+/*     */   
+/*     */   public void a(String paramString, int paramInt1, int paramInt2, int paramInt3, boolean paramBoolean) {
+/* 130 */     if (paramString == null) { return;
+/*     */     }
+/* 132 */     if (paramBoolean) {
+/* 133 */       int i = paramInt3 & 0xFF000000;
+/* 134 */       paramInt3 = (paramInt3 & 0xFCFCFC) >> 2;
+/* 135 */       paramInt3 += i;
+/*     */     }
+/*     */     
+/*     */ 
+/* 139 */     GL11.glBindTexture(3553, this.a);
+/*     */     
+/* 141 */     float f1 = (paramInt3 >> 16 & 0xFF) / 255.0F;
+/* 142 */     float f2 = (paramInt3 >> 8 & 0xFF) / 255.0F;
+/* 143 */     float f3 = (paramInt3 & 0xFF) / 255.0F;
+/* 144 */     float f4 = (paramInt3 >> 24 & 0xFF) / 255.0F;
+/* 145 */     if (f4 == 0.0F) { f4 = 1.0F;
+/*     */     }
+/* 147 */     GL11.glColor4f(f1, f2, f3, f4);
+/*     */     
+/*     */ 
+/* 150 */     this.d.clear();
+/* 151 */     GL11.glPushMatrix();
+/* 152 */     GL11.glTranslatef(paramInt1, paramInt2, 0.0F);
+/* 153 */     for (int j = 0; j < paramString.length(); j++) { int k;
+/* 154 */       while ((paramString.length() > j + 1) && (paramString.charAt(j) == '§')) {
+/* 155 */         k = "0123456789abcdef".indexOf(paramString.toLowerCase().charAt(j + 1));
+/* 156 */         if ((k < 0) || (k > 15)) k = 15;
+/* 157 */         this.d.put(this.c + 256 + k + (paramBoolean ? 16 : 0));
+/*     */         
+/* 159 */         if (this.d.remaining() == 0) {
+/* 160 */           this.d.flip();
+/* 161 */           GL11.glCallLists(this.d);
+/* 162 */           this.d.clear();
+/*     */         }
+/*     */         
+/* 165 */         j += 2;
+/*     */       }
+/*     */       
+/* 168 */       if (j < paramString.length()) {
+/* 169 */         k = fp.a.indexOf(paramString.charAt(j));
+/* 170 */         if (k >= 0) {
+/* 171 */           this.d.put(this.c + k + 32);
+/*     */         }
+/*     */       }
+/*     */       
+/* 175 */       if (this.d.remaining() == 0) {
+/* 176 */         this.d.flip();
+/* 177 */         GL11.glCallLists(this.d);
+/* 178 */         this.d.clear();
+/*     */       }
+/*     */     }
+/* 181 */     this.d.flip();
+/* 182 */     GL11.glCallLists(this.d);
+/* 183 */     GL11.glPopMatrix();
+/*     */   }
+/*     */   
+/*     */   public int a(String paramString) {
+/* 187 */     if (paramString == null) return 0;
+/* 188 */     int i = 0;
+/*     */     
+/* 190 */     for (int j = 0; j < paramString.length(); j++) {
+/* 191 */       if (paramString.charAt(j) == '§') {
+/* 192 */         j++;
+/*     */       } else {
+/* 194 */         int k = fp.a.indexOf(paramString.charAt(j));
+/* 195 */         if (k >= 0) {
+/* 196 */           i += this.b[(k + 32)];
+/*     */         }
+/*     */       }
+/*     */     }
+/* 200 */     return i;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void a(String paramString, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+/*     */   {
+/* 217 */     String[] arrayOfString1 = paramString.split("\n");
+/* 218 */     if (arrayOfString1.length > 1) {
+/* 219 */       for (int i = 0; i < arrayOfString1.length; i++) {
+/* 220 */         a(arrayOfString1[i], paramInt1, paramInt2, paramInt3, paramInt4);
+/* 221 */         paramInt2 += a(arrayOfString1[i], paramInt3);
+/*     */       }
+/* 223 */       return;
+/*     */     }
+/* 225 */     String[] arrayOfString2 = paramString.split(" ");
+/* 226 */     int j = 0;
+/* 227 */     while (j < arrayOfString2.length) {
+/* 228 */       String str = arrayOfString2[(j++)] + " ";
+/* 229 */       while ((j < arrayOfString2.length) && (a(str + arrayOfString2[j]) < paramInt3)) {
+/* 230 */         str = str + arrayOfString2[(j++)] + " ";
+/*     */       }
+/* 232 */       while (a(str) > paramInt3) {
+/* 233 */         int k = 0;
+/* 234 */         while (a(str.substring(0, k + 1)) <= paramInt3) {
+/* 235 */           k++;
+/*     */         }
+/* 237 */         if (str.substring(0, k).trim().length() > 0) {
+/* 238 */           b(str.substring(0, k), paramInt1, paramInt2, paramInt4);
+/* 239 */           paramInt2 += 8;
+/*     */         }
+/* 241 */         str = str.substring(k);
+/*     */       }
+/* 243 */       if (str.trim().length() > 0) {
+/* 244 */         b(str, paramInt1, paramInt2, paramInt4);
+/* 245 */         paramInt2 += 8;
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public int a(String paramString, int paramInt) {
+/* 251 */     String[] arrayOfString1 = paramString.split("\n");
+/* 252 */     if (arrayOfString1.length > 1) {
+/* 253 */       int i = 0;
+/* 254 */       for (j = 0; j < arrayOfString1.length; j++) {
+/* 255 */         i += a(arrayOfString1[j], paramInt);
+/*     */       }
+/* 257 */       return i;
+/*     */     }
+/* 259 */     String[] arrayOfString2 = paramString.split(" ");
+/* 260 */     int j = 0;
+/* 261 */     int k = 0;
+/* 262 */     while (j < arrayOfString2.length) {
+/* 263 */       String str = arrayOfString2[(j++)] + " ";
+/* 264 */       while ((j < arrayOfString2.length) && (a(str + arrayOfString2[j]) < paramInt)) {
+/* 265 */         str = str + arrayOfString2[(j++)] + " ";
+/*     */       }
+/* 267 */       while (a(str) > paramInt) {
+/* 268 */         int m = 0;
+/* 269 */         while (a(str.substring(0, m + 1)) <= paramInt) {
+/* 270 */           m++;
+/*     */         }
+/* 272 */         if (str.substring(0, m).trim().length() > 0) {
+/* 273 */           k += 8;
+/*     */         }
+/* 275 */         str = str.substring(m);
+/*     */       }
+/* 277 */       if (str.trim().length() > 0) {
+/* 278 */         k += 8;
+/*     */       }
+/*     */     }
+/* 281 */     if (k < 8) k += 8;
+/* 282 */     return k;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\sj.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

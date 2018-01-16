@@ -1,0 +1,32 @@
+/*    */ 
+/*    */ 
+/*    */ public class sa
+/*    */   extends gm
+/*    */ {
+/*    */   public sa(int paramInt)
+/*    */   {
+/*  8 */     super(paramInt);
+/*  9 */     this.bg = 1;
+/*    */   }
+/*    */   
+/*    */   public void a(iz paramiz, ls paramls) {
+/* 13 */     if ((paramls instanceof wh)) {
+/* 14 */       wh localwh = (wh)paramls;
+/* 15 */       if (!localwh.v()) {
+/* 16 */         localwh.a(true);
+/* 17 */         paramiz.a -= 1;
+/*    */       }
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public boolean a(iz paramiz, ls paramls1, ls paramls2) {
+/* 23 */     a(paramiz, paramls1);
+/* 24 */     return true;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\sa.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

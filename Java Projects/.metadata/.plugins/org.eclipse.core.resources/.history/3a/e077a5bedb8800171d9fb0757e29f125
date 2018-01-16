@@ -1,0 +1,230 @@
+/*     */ import java.io.File;
+/*     */ import java.io.PrintStream;
+/*     */ import java.util.HashMap;
+/*     */ import java.util.Iterator;
+/*     */ import java.util.List;
+/*     */ import java.util.Map;
+/*     */ import java.util.Map.Entry;
+/*     */ import java.util.Set;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class xi
+/*     */ {
+/*  17 */   private Map a = new HashMap();
+/*  18 */   private Map b = new HashMap();
+/*  19 */   private boolean c = false;
+/*     */   private cj d;
+/*     */   
+/*     */   public xi(gr paramgr, File paramFile)
+/*     */   {
+/*  24 */     File localFile1 = new File(paramFile, "stats");
+/*  25 */     if (!localFile1.exists()) { localFile1.mkdir();
+/*     */     }
+/*  27 */     for (File localFile2 : paramFile.listFiles()) {
+/*  28 */       if ((localFile2.getName().startsWith("stats_")) && (localFile2.getName().endsWith(".dat"))) {
+/*  29 */         File localFile3 = new File(localFile1, localFile2.getName());
+/*  30 */         if (!localFile3.exists()) {
+/*  31 */           System.out.println("Relocating " + localFile2.getName());
+/*  32 */           localFile2.renameTo(localFile3);
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */     
+/*  37 */     this.d = new cj(paramgr, this, localFile1);
+/*     */   }
+/*     */   
+/*     */   public void a(vr paramvr, int paramInt) {
+/*  41 */     a(this.b, paramvr, paramInt);
+/*  42 */     a(this.a, paramvr, paramInt);
+/*  43 */     this.c = true;
+/*     */   }
+/*     */   
+/*     */   private void a(Map paramMap, vr paramvr, int paramInt) {
+/*  47 */     Integer localInteger = (Integer)paramMap.get(paramvr);
+/*  48 */     int i = localInteger == null ? 0 : localInteger.intValue();
+/*  49 */     paramMap.put(paramvr, Integer.valueOf(i + paramInt));
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public Map a()
+/*     */   {
+/*  57 */     return new HashMap(this.b);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void a(Map paramMap)
+/*     */   {
+/*  69 */     if (paramMap == null) { return;
+/*     */     }
+/*  71 */     this.c = true;
+/*  72 */     for (vr localvr : paramMap.keySet()) {
+/*  73 */       a(this.b, localvr, ((Integer)paramMap.get(localvr)).intValue());
+/*  74 */       a(this.a, localvr, ((Integer)paramMap.get(localvr)).intValue());
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void b(Map paramMap) {
+/*  79 */     if (paramMap == null) return;
+/*  80 */     for (vr localvr : paramMap.keySet()) {
+/*  81 */       Integer localInteger = (Integer)this.b.get(localvr);
+/*  82 */       int i = localInteger == null ? 0 : localInteger.intValue();
+/*     */       
+/*  84 */       this.a.put(localvr, Integer.valueOf(((Integer)paramMap.get(localvr)).intValue() + i));
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void c(Map paramMap) {
+/*  89 */     if (paramMap == null) { return;
+/*     */     }
+/*  91 */     this.c = true;
+/*  92 */     for (vr localvr : paramMap.keySet()) {
+/*  93 */       a(this.b, localvr, ((Integer)paramMap.get(localvr)).intValue());
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static Map a(String paramString)
+/*     */   {
+/* 121 */     HashMap localHashMap = new HashMap();
+/*     */     try {
+/* 123 */       String str = "local";
+/*     */       
+/* 125 */       StringBuilder localStringBuilder = new StringBuilder();
+/*     */       
+/* 127 */       qe localqe = new hx().a(paramString);
+/* 128 */       List localList = localqe.b(new Object[] { "stats-change" });
+/* 129 */       for (Object localObject1 = localList.iterator(); ((Iterator)localObject1).hasNext();) { localObject2 = (gu)((Iterator)localObject1).next();
+/* 130 */         Map localMap = ((gu)localObject2).c();
+/* 131 */         Map.Entry localEntry = (Map.Entry)localMap.entrySet().iterator().next();
+/* 132 */         int i = Integer.parseInt(((qa)localEntry.getKey()).b());
+/* 133 */         int j = Integer.parseInt(((gu)localEntry.getValue()).b());
+/* 134 */         vr localvr = jl.a(i);
+/* 135 */         if (localvr == null) {
+/* 136 */           System.out.println(i + " is not a valid stat");
+/*     */         }
+/*     */         else
+/*     */         {
+/* 140 */           localStringBuilder.append(jl.a(i).h).append(",");
+/* 141 */           localStringBuilder.append(j).append(",");
+/*     */           
+/* 143 */           localHashMap.put(localvr, Integer.valueOf(j));
+/*     */         }
+/*     */       }
+/* 146 */       localObject1 = new hf(str);
+/* 147 */       Object localObject2 = ((hf)localObject1).a(localStringBuilder.toString());
+/*     */       
+/* 149 */       if (!((String)localObject2).equals(localqe.a(new Object[] { "checksum" }))) {
+/* 150 */         System.out.println("CHECKSUM MISMATCH");
+/* 151 */         return null;
+/*     */       }
+/*     */     } catch (xe localxe) {
+/* 154 */       localxe.printStackTrace();
+/*     */     }
+/* 156 */     return localHashMap;
+/*     */   }
+/*     */   
+/*     */   public static String a(String paramString1, String paramString2, Map paramMap) {
+/* 160 */     StringBuilder localStringBuilder1 = new StringBuilder();
+/* 161 */     StringBuilder localStringBuilder2 = new StringBuilder();
+/* 162 */     int i = 1;
+/*     */     
+/* 164 */     localStringBuilder1.append("{\r\n");
+/* 165 */     if ((paramString1 != null) && (paramString2 != null)) {
+/* 166 */       localStringBuilder1.append("  \"user\":{\r\n");
+/* 167 */       localStringBuilder1.append("    \"name\":\"").append(paramString1).append("\",\r\n");
+/* 168 */       localStringBuilder1.append("    \"sessionid\":\"").append(paramString2).append("\"\r\n");
+/* 169 */       localStringBuilder1.append("  },\r\n");
+/*     */     }
+/* 171 */     localStringBuilder1.append("  \"stats-change\":[");
+/* 172 */     for (Object localObject = paramMap.keySet().iterator(); ((Iterator)localObject).hasNext();) { vr localvr = (vr)((Iterator)localObject).next();
+/* 173 */       if (i == 0) localStringBuilder1.append("},"); else {
+/* 174 */         i = 0;
+/*     */       }
+/* 176 */       localStringBuilder1.append("\r\n    {\"").append(localvr.e).append("\":").append(paramMap.get(localvr));
+/* 177 */       localStringBuilder2.append(localvr.h).append(",");
+/* 178 */       localStringBuilder2.append(paramMap.get(localvr)).append(",");
+/*     */     }
+/* 180 */     if (i == 0) { localStringBuilder1.append("}");
+/*     */     }
+/* 182 */     localObject = new hf(paramString2);
+/*     */     
+/* 184 */     localStringBuilder1.append("\r\n  ],\r\n");
+/* 185 */     localStringBuilder1.append("  \"checksum\":\"").append(((hf)localObject).a(localStringBuilder2.toString())).append("\"\r\n");
+/* 186 */     localStringBuilder1.append("}");
+/*     */     
+/* 188 */     return localStringBuilder1.toString();
+/*     */   }
+/*     */   
+/*     */   public boolean a(ny paramny) {
+/* 192 */     return this.a.containsKey(paramny);
+/*     */   }
+/*     */   
+/*     */   public boolean b(ny paramny) {
+/* 196 */     return (paramny.c == null) || (a(paramny.c));
+/*     */   }
+/*     */   
+/*     */   public int a(vr paramvr) {
+/* 200 */     Integer localInteger = (Integer)this.a.get(paramvr);
+/* 201 */     return localInteger == null ? 0 : localInteger.intValue();
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   public void b() {}
+/*     */   
+/*     */   public void c()
+/*     */   {
+/* 209 */     this.d.b(a());
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void d()
+/*     */   {
+/* 218 */     if ((this.c) && (this.d.b())) {
+/* 219 */       this.d.a(a());
+/*     */     }
+/*     */     
+/* 222 */     this.d.c();
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\xi.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,37 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class en
+/*    */   extends ck
+/*    */ {
+/*    */   public en(int paramInt)
+/*    */   {
+/*  9 */     super(paramInt);
+/*    */     
+/* 11 */     e(0);
+/* 12 */     a(true);
+/*    */   }
+/*    */   
+/*    */ 
+/*    */   public int a(int paramInt)
+/*    */   {
+/* 18 */     return uu.al.a(2, paramInt);
+/*    */   }
+/*    */   
+/*    */ 
+/*    */   public int b(int paramInt)
+/*    */   {
+/* 24 */     return paramInt;
+/*    */   }
+/*    */   
+/*    */   public String a(iz paramiz)
+/*    */   {
+/* 29 */     return super.a() + "." + ys.a[paramiz.i()];
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\en.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

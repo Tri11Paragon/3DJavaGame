@@ -1,0 +1,10 @@
+public abstract interface ml
+{
+  public abstract String a(qe paramqe);
+}
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ml.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

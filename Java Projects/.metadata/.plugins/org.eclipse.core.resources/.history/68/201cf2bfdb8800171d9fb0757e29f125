@@ -1,0 +1,260 @@
+/*     */ import java.io.BufferedReader;
+/*     */ import java.io.File;
+/*     */ import java.io.FileReader;
+/*     */ import java.io.FileWriter;
+/*     */ import java.io.PrintStream;
+/*     */ import java.io.PrintWriter;
+/*     */ import java.lang.reflect.Field;
+/*     */ import java.text.FieldPosition;
+/*     */ import java.text.MessageFormat;
+/*     */ import java.text.NumberFormat;
+/*     */ import java.text.SimpleDateFormat;
+/*     */ import java.util.Date;
+/*     */ import java.util.HashSet;
+/*     */ import java.util.List;
+/*     */ import java.util.Map;
+/*     */ import net.minecraft.client.Minecraft;
+/*     */ 
+/*     */ public class TMIUtils
+/*     */ {
+/*     */   public static final String CONFIG_FILENAME = "TooManyItems.txt";
+/*     */   
+/*     */   public static Minecraft getMinecraft()
+/*     */   {
+/*     */     try
+/*     */     {
+/*  26 */       Field localField = Minecraft.class.getDeclaredField("a");
+/*  27 */       localField.setAccessible(true);
+/*  28 */       return (Minecraft)localField.get(null);
+/*     */     } catch (IllegalAccessException localIllegalAccessException) {
+/*  30 */       localIllegalAccessException.printStackTrace();
+/*     */     } catch (NoSuchFieldException localNoSuchFieldException) {
+/*  32 */       localNoSuchFieldException.printStackTrace();
+/*     */     }
+/*     */     
+/*  35 */     return null;
+/*     */   }
+/*     */   
+/*     */   public static void loadPreferences(TMIConfig paramTMIConfig) {
+/*     */     try {
+/*  40 */       Map localMap = paramTMIConfig.getSettings();
+/*  41 */       File localFile = new File(Minecraft.a("minecraft"), "TooManyItems.txt");
+/*  42 */       if (localFile.exists()) {
+/*  43 */         BufferedReader localBufferedReader = new BufferedReader(new FileReader(localFile));
+/*     */         String str;
+/*  45 */         while ((str = localBufferedReader.readLine()) != null) {
+/*  46 */           String[] arrayOfString = str.split(":", 2);
+/*  47 */           if ((arrayOfString.length > 1) && (localMap.containsKey(arrayOfString[0]))) {
+/*  48 */             localMap.put(arrayOfString[0], arrayOfString[1]);
+/*     */           }
+/*     */         }
+/*  51 */         localBufferedReader.close();
+/*  52 */         for (int i = 0; i < paramTMIConfig.getNumSaves(); i++) {
+/*  53 */           paramTMIConfig.decodeState(i, (String)localMap.get("save" + (i + 1)));
+/*     */         }
+/*     */       }
+/*     */     } catch (Exception localException) {
+/*  57 */       System.out.println(localException);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public static void savePreferences(TMIConfig paramTMIConfig) {
+/*     */     try {
+/*  63 */       Map localMap = paramTMIConfig.getSettings();
+/*  64 */       File localFile = new File(Minecraft.a("minecraft"), "TooManyItems.txt");
+/*  65 */       PrintWriter localPrintWriter = new PrintWriter(new FileWriter(localFile));
+/*  66 */       for (String str : localMap.keySet()) {
+/*  67 */         localPrintWriter.println(str + ":" + (String)localMap.get(str));
+/*     */       }
+/*  69 */       localPrintWriter.close();
+/*     */     } catch (Exception localException) {
+/*  71 */       System.out.println(localException);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static void loadItems(TMIConfig paramTMIConfig)
+/*     */   {
+/*  80 */     List localList = paramTMIConfig.getItems();
+/*     */     
+/*  82 */     localList.clear();
+/*     */     
+/*     */ 
+/*  85 */     for (gm localgm : gm.c) {
+/*  86 */       if ((localgm != null) && (TMIConfig.isItemIncluded(localgm.bf)))
+/*     */       {
+/*     */ 
+/*     */ 
+/*     */ 
+/*  91 */         HashSet localHashSet = new HashSet();
+/*  92 */         int k = paramTMIConfig.areDamageVariantsShown() ? 15 : 0;
+/*  93 */         for (int m = 0; m <= k; m++) {
+/*  94 */           iz localiz = new iz(localgm, localgm.d(), m);
+/*     */           
+/*     */           try
+/*     */           {
+/*  98 */             int n = localgm.b(localiz);
+/*  99 */             String str = localiz.l() + "@" + n;
+/* 100 */             if (!localHashSet.contains(str)) {
+/* 101 */               localList.add(localiz);
+/* 102 */               localHashSet.add(str);
+/*     */             }
+/*     */           }
+/*     */           catch (NullPointerException localNullPointerException) {}catch (IndexOutOfBoundsException localIndexOutOfBoundsException) {}
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static void safeReportException(Exception paramException)
+/*     */   {
+/*     */     try
+/*     */     {
+/* 121 */       SimpleDateFormat localSimpleDateFormat = new SimpleDateFormat(".yyyyMMdd.HHmmss");
+/* 122 */       StringBuffer localStringBuffer = new StringBuffer();
+/* 123 */       localSimpleDateFormat.format(new Date(), localStringBuffer, new FieldPosition(1));
+/* 124 */       String str = "tmi" + localStringBuffer.toString() + ".txt";
+/*     */       
+/*     */ 
+/* 127 */       File localFile = new File(Minecraft.a("minecraft"), str);
+/*     */       
+/*     */ 
+/* 130 */       PrintWriter localPrintWriter = new PrintWriter(new FileWriter(localFile));
+/* 131 */       localPrintWriter.print("[code]TMI Version: 1.7.2 2011-07-01\n");
+/* 132 */       paramException.printStackTrace(localPrintWriter);
+/* 133 */       localPrintWriter.println("[/code]");
+/* 134 */       localPrintWriter.close();
+/*     */       
+/*     */ 
+/* 137 */       getMinecraft().v.a("Error written to " + str);
+/*     */     } catch (Exception localException) {
+/* 139 */       System.out.println("Error during safeReportException:");
+/* 140 */       localException.printStackTrace();
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public static String itemDisplayName(iz paramiz) {
+/*     */     try {
+/* 146 */       String str = nh.a().b(paramiz.l());
+/* 147 */       if (!str.trim().equals("")) {
+/* 148 */         return str;
+/*     */       }
+/*     */     }
+/*     */     catch (NullPointerException localNullPointerException) {}
+/* 152 */     return "Unnamed";
+/*     */   }
+/*     */   
+/*     */   public static boolean isValidItem(iz paramiz) {
+/* 156 */     return (paramiz == null) || ((paramiz.c >= 0) && (paramiz.c < gm.c.length) && (gm.c[paramiz.c] != null));
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   public static iz getValidItem(iz paramiz)
+/*     */   {
+/* 163 */     if (isValidItem(paramiz)) {
+/* 164 */       return paramiz;
+/*     */     }
+/* 166 */     return new iz(uu.as);
+/*     */   }
+/*     */   
+/*     */   public static String getValidItemDisplayName(iz paramiz)
+/*     */   {
+/* 171 */     if (isValidItem(paramiz)) {
+/* 172 */       return itemDisplayName(paramiz);
+/*     */     }
+/* 174 */     return "Undefined Item";
+/*     */   }
+/*     */   
+/*     */   public static void deleteHeldItem()
+/*     */   {
+/* 179 */     getMinecraft().h.c.b((iz)null);
+/*     */   }
+/*     */   
+/*     */   public static iz getHeldItem() {
+/* 183 */     return getMinecraft().h.c.i();
+/*     */   }
+/*     */   
+/*     */   public static void giveStack(iz paramiz, TMIConfig paramTMIConfig) {
+/* 187 */     giveStack(paramiz, paramTMIConfig, paramiz.a);
+/*     */   }
+/*     */   
+/*     */   public static void giveStack(iz paramiz, TMIConfig paramTMIConfig, int paramInt) {
+/* 191 */     iz localiz = copyStack(paramiz, paramInt);
+/*     */     
+/* 193 */     Minecraft localMinecraft = getMinecraft();
+/* 194 */     if (TMIConfig.isMultiplayer()) {
+/* 195 */       NumberFormat localNumberFormat = NumberFormat.getIntegerInstance();
+/* 196 */       localNumberFormat.setGroupingUsed(false);
+/* 197 */       MessageFormat localMessageFormat = new MessageFormat((String)paramTMIConfig.getSettings().get("give-command"));
+/* 198 */       localMessageFormat.setFormatByArgumentIndex(1, localNumberFormat);
+/* 199 */       localMessageFormat.setFormatByArgumentIndex(2, localNumberFormat);
+/* 200 */       localMessageFormat.setFormatByArgumentIndex(3, localNumberFormat);
+/* 201 */       Object[] arrayOfObject = { localMinecraft.h.l, Integer.valueOf(localiz.c), Integer.valueOf(localiz.a), Integer.valueOf(localiz.i()) };
+/* 202 */       localMinecraft.h.a(localMessageFormat.format(arrayOfObject));
+/*     */     } else {
+/* 204 */       localMinecraft.h.c.a(localiz);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public static iz copyStack(iz paramiz, int paramInt) {
+/* 209 */     if (paramiz == null) return null;
+/* 210 */     paramiz.a += paramInt;
+/* 211 */     return paramiz.a(paramInt);
+/*     */   }
+/*     */   
+/*     */   public static iz copyStack(iz paramiz) {
+/* 215 */     if (paramiz == null) return null;
+/* 216 */     return copyStack(paramiz, paramiz.a);
+/*     */   }
+/*     */   
+/*     */   public static void updateUnlimitedItems() {
+/* 220 */     if ((TMIConfig.isMultiplayer()) || (!TMIConfig.getInstance().isEnabled())) {
+/* 221 */       return;
+/*     */     }
+/*     */     
+/* 224 */     for (iz localiz : getMinecraft().h.c.a) {
+/* 225 */       if (localiz != null) {
+/* 226 */         if ((localiz.a < 0) || (localiz.a > 64)) {
+/* 227 */           localiz.a = 111;
+/*     */         }
+/* 229 */         if (localiz.i() < 0) {
+/* 230 */           setStackDamage(localiz, 33536);
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */     
+/* 235 */     ??? = getHeldItem();
+/* 236 */     if ((??? != null) && (((iz)???).a > 64)) {
+/* 237 */       ((iz)???).a = -1;
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public static void setStackDamage(iz paramiz, int paramInt) {
+/*     */     try {
+/* 243 */       for (Field localField : iz.class.getDeclaredFields()) {
+/* 244 */         if (localField.getName().equals("d")) {
+/* 245 */           localField.setAccessible(true);
+/* 246 */           localField.setInt(paramiz, paramInt);
+/* 247 */           break;
+/*     */         }
+/*     */       }
+/*     */     } catch (Exception localException) {
+/* 251 */       System.out.println(localException);
+/*     */     }
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\TMIUtils.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

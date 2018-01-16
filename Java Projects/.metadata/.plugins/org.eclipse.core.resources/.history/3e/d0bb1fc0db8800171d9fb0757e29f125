@@ -1,0 +1,48 @@
+/*    */ import java.io.DataInputStream;
+/*    */ import java.io.DataOutputStream;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class pe
+/*    */   extends ki
+/*    */ {
+/*    */   public String a;
+/*    */   
+/*    */   public pe() {}
+/*    */   
+/*    */   public pe(String paramString)
+/*    */   {
+/* 20 */     if (paramString.length() > 119) {
+/* 21 */       paramString = paramString.substring(0, 119);
+/*    */     }
+/*    */     
+/* 24 */     this.a = paramString;
+/*    */   }
+/*    */   
+/*    */   public void a(DataInputStream paramDataInputStream) {
+/* 28 */     this.a = a(paramDataInputStream, 119);
+/*    */   }
+/*    */   
+/*    */   public void a(DataOutputStream paramDataOutputStream) {
+/* 32 */     a(this.a, paramDataOutputStream);
+/*    */   }
+/*    */   
+/*    */   public void a(ti paramti) {
+/* 36 */     paramti.a(this);
+/*    */   }
+/*    */   
+/*    */   public int a() {
+/* 40 */     return this.a.length();
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\pe.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

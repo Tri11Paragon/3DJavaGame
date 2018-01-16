@@ -1,0 +1,93 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class ah
+/*    */   extends uu
+/*    */ {
+/*    */   public ah(int paramInt1, int paramInt2)
+/*    */   {
+/* 16 */     super(paramInt1, paramInt2, ln.q);
+/*    */   }
+/*    */   
+/*    */   public int a(int paramInt) {
+/* 20 */     if (paramInt == 0) return this.bm + 2;
+/* 21 */     if (paramInt == 1) return this.bm + 1;
+/* 22 */     return this.bm;
+/*    */   }
+/*    */   
+/*    */   public void c(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/* 26 */     super.c(paramfd, paramInt1, paramInt2, paramInt3);
+/* 27 */     if (paramfd.s(paramInt1, paramInt2, paramInt3)) {
+/* 28 */       c(paramfd, paramInt1, paramInt2, paramInt3, 1);
+/* 29 */       paramfd.f(paramInt1, paramInt2, paramInt3, 0);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public void b(fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/* 34 */     if ((paramInt4 > 0) && (uu.m[paramInt4].f()) && 
+/* 35 */       (paramfd.s(paramInt1, paramInt2, paramInt3))) {
+/* 36 */       c(paramfd, paramInt1, paramInt2, paramInt3, 1);
+/* 37 */       paramfd.f(paramInt1, paramInt2, paramInt3, 0);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public int a(Random paramRandom)
+/*    */   {
+/* 43 */     return 0;
+/*    */   }
+/*    */   
+/*    */   public void d(fd paramfd, int paramInt1, int paramInt2, int paramInt3)
+/*    */   {
+/* 48 */     qw localqw = new qw(paramfd, paramInt1 + 0.5F, paramInt2 + 0.5F, paramInt3 + 0.5F);
+/* 49 */     localqw.a = (paramfd.r.nextInt(localqw.a / 4) + localqw.a / 8);
+/* 50 */     paramfd.b(localqw);
+/*    */   }
+/*    */   
+/*    */   public void c(fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/* 54 */     if (paramfd.B) { return;
+/*    */     }
+/* 56 */     if ((paramInt4 & 0x1) == 0) {
+/* 57 */       a(paramfd, paramInt1, paramInt2, paramInt3, new iz(uu.an.bn, 1, 0));
+/*    */     } else {
+/* 59 */       qw localqw = new qw(paramfd, paramInt1 + 0.5F, paramInt2 + 0.5F, paramInt3 + 0.5F);
+/* 60 */       paramfd.b(localqw);
+/* 61 */       paramfd.a(localqw, "random.fuse", 1.0F, 1.0F);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */   public void b(fd paramfd, int paramInt1, int paramInt2, int paramInt3, gs paramgs)
+/*    */   {
+/* 69 */     if ((paramgs.G() != null) && (paramgs.G().c == gm.g.bf))
+/*    */     {
+/* 71 */       paramfd.e(paramInt1, paramInt2, paramInt3, 1);
+/*    */     }
+/* 73 */     super.b(paramfd, paramInt1, paramInt2, paramInt3, paramgs);
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public boolean a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, gs paramgs)
+/*    */   {
+/* 85 */     return super.a(paramfd, paramInt1, paramInt2, paramInt3, paramgs);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ah.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

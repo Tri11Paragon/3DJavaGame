@@ -1,0 +1,309 @@
+/*     */ import java.io.BufferedReader;
+/*     */ import java.io.File;
+/*     */ import java.io.FileReader;
+/*     */ import java.io.FileWriter;
+/*     */ import java.io.PrintWriter;
+/*     */ import java.util.Map;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class cj
+/*     */ {
+/*  21 */   private volatile boolean a = false;
+/*     */   
+/*  23 */   private volatile Map b = null;
+/*  24 */   private volatile Map c = null;
+/*     */   private xi d;
+/*     */   private File e;
+/*     */   private File f;
+/*     */   private File g;
+/*     */   private File h;
+/*     */   private File i;
+/*     */   private File j;
+/*  32 */   private gr k; private int l = 0; private int m = 0;
+/*     */   
+/*     */   public cj(gr paramgr, xi paramxi, File paramFile) {
+/*  35 */     this.e = new File(paramFile, "stats_" + paramgr.b.toLowerCase() + "_unsent.dat");
+/*  36 */     this.f = new File(paramFile, "stats_" + paramgr.b.toLowerCase() + ".dat");
+/*     */     
+/*  38 */     this.i = new File(paramFile, "stats_" + paramgr.b.toLowerCase() + "_unsent.old");
+/*  39 */     this.j = new File(paramFile, "stats_" + paramgr.b.toLowerCase() + ".old");
+/*     */     
+/*  41 */     this.g = new File(paramFile, "stats_" + paramgr.b.toLowerCase() + "_unsent.tmp");
+/*  42 */     this.h = new File(paramFile, "stats_" + paramgr.b.toLowerCase() + ".tmp");
+/*     */     
+/*  44 */     if (!paramgr.b.toLowerCase().equals(paramgr.b)) {
+/*  45 */       a(paramFile, "stats_" + paramgr.b + "_unsent.dat", this.e);
+/*  46 */       a(paramFile, "stats_" + paramgr.b + ".dat", this.f);
+/*     */       
+/*  48 */       a(paramFile, "stats_" + paramgr.b + "_unsent.old", this.i);
+/*  49 */       a(paramFile, "stats_" + paramgr.b + ".old", this.j);
+/*     */       
+/*  51 */       a(paramFile, "stats_" + paramgr.b + "_unsent.tmp", this.g);
+/*  52 */       a(paramFile, "stats_" + paramgr.b + ".tmp", this.h);
+/*     */     }
+/*     */     
+/*  55 */     this.d = paramxi;
+/*  56 */     this.k = paramgr;
+/*     */     
+/*  58 */     if (this.e.exists()) {
+/*  59 */       paramxi.a(a(this.e, this.g, this.i));
+/*     */     }
+/*  61 */     a();
+/*     */   }
+/*     */   
+/*     */   private void a(File paramFile1, String paramString, File paramFile2) {
+/*  65 */     File localFile = new File(paramFile1, paramString);
+/*  66 */     if ((localFile.exists()) && (!localFile.isDirectory()) && (!paramFile2.exists())) {
+/*  67 */       localFile.renameTo(paramFile2);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   private Map a(File paramFile1, File paramFile2, File paramFile3) {
+/*  72 */     if (paramFile1.exists())
+/*  73 */       return a(paramFile1);
+/*  74 */     if (paramFile3.exists())
+/*  75 */       return a(paramFile3);
+/*  76 */     if (paramFile2.exists()) {
+/*  77 */       return a(paramFile2);
+/*     */     }
+/*  79 */     return null;
+/*     */   }
+/*     */   
+/*     */   private Map a(File paramFile) {
+/*  83 */     BufferedReader localBufferedReader = null;
+/*     */     try {
+/*  85 */       localBufferedReader = new BufferedReader(new FileReader(paramFile));
+/*  86 */       String str = "";
+/*  87 */       StringBuilder localStringBuilder = new StringBuilder();
+/*  88 */       while ((str = localBufferedReader.readLine()) != null) {
+/*  89 */         localStringBuilder.append(str);
+/*     */       }
+/*     */       
+/*  92 */       return xi.a(localStringBuilder.toString());
+/*     */     } catch (Exception localException1) {
+/*  94 */       localException1.printStackTrace();
+/*     */     } finally {
+/*  96 */       if (localBufferedReader != null) {
+/*  97 */         try { localBufferedReader.close();
+/*     */         } catch (Exception localException4) {
+/*  99 */           localException4.printStackTrace();
+/*     */         }
+/*     */       }
+/*     */     }
+/* 103 */     return null;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   private void a(Map paramMap, File paramFile1, File paramFile2, File paramFile3)
+/*     */   {
+/* 139 */     PrintWriter localPrintWriter = new PrintWriter(new FileWriter(paramFile2, false));
+/*     */     try {
+/* 141 */       localPrintWriter.print(xi.a(this.k.b, "local", paramMap));
+/*     */     } finally {
+/* 143 */       localPrintWriter.close();
+/*     */     }
+/*     */     
+/* 146 */     if (paramFile3.exists()) {
+/* 147 */       paramFile3.delete();
+/*     */     }
+/* 149 */     if (paramFile1.exists()) {
+/* 150 */       paramFile1.renameTo(paramFile3);
+/*     */     }
+/* 152 */     paramFile2.renameTo(paramFile1);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void a()
+/*     */   {
+/* 173 */     if (this.a) throw new IllegalStateException("Can't get stats from server while StatsSyncher is busy!");
+/* 174 */     this.l = 100;
+/* 175 */     this.a = true;
+/* 176 */     new vk(this).start();
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void a(Map paramMap)
+/*     */   {
+/* 200 */     if (this.a) throw new IllegalStateException("Can't save stats while StatsSyncher is busy!");
+/* 201 */     this.l = 100;
+/* 202 */     this.a = true;
+/* 203 */     new vj(this, paramMap).start();
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void b(Map paramMap)
+/*     */   {
+/* 260 */     int n = 30;
+/* 261 */     while (this.a) { n--; if (n <= 0)
+/*     */         break;
+/* 263 */       try { Thread.sleep(100L);
+/*     */       } catch (InterruptedException localInterruptedException) {
+/* 265 */         localInterruptedException.printStackTrace();
+/*     */       }
+/*     */     }
+/*     */     
+/* 269 */     this.a = true;
+/*     */     try {
+/* 271 */       a(paramMap, this.e, this.g, this.i);
+/*     */     } catch (Exception localException) {
+/* 273 */       localException.printStackTrace();
+/*     */     } finally {
+/* 275 */       this.a = false;
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public boolean b() {
+/* 280 */     if ((this.l > 0) || (this.a) || (this.c != null)) return false;
+/* 281 */     return true;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void c()
+/*     */   {
+/* 290 */     if (this.l > 0) this.l -= 1;
+/* 291 */     if (this.m > 0) { this.m -= 1;
+/*     */     }
+/* 293 */     if (this.c != null) {
+/* 294 */       this.d.c(this.c);
+/* 295 */       this.c = null;
+/*     */     }
+/*     */     
+/* 298 */     if (this.b != null) {
+/* 299 */       this.d.b(this.b);
+/* 300 */       this.b = null;
+/*     */     }
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\cj.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

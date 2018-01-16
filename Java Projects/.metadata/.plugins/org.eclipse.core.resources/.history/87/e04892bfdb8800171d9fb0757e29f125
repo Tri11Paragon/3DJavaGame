@@ -1,0 +1,46 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public abstract class je
+/*    */ {
+/*    */   protected ll a;
+/*    */   
+/*    */   public abstract void a(ow paramow, double paramDouble1, double paramDouble2, double paramDouble3, float paramFloat);
+/*    */   
+/*    */   protected void a(String paramString)
+/*    */   {
+/* 15 */     ji localji = this.a.e;
+/* 16 */     localji.b(localji.b(paramString));
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public void a(ll paramll)
+/*    */   {
+/* 30 */     this.a = paramll;
+/*    */   }
+/*    */   
+/*    */ 
+/*    */   public void a(fd paramfd) {}
+/*    */   
+/*    */   public sj a()
+/*    */   {
+/* 38 */     return this.a.a();
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\je.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

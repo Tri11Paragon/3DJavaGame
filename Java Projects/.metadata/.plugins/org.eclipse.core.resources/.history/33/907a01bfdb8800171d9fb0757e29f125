@@ -1,0 +1,47 @@
+/*    */ import java.io.IOException;
+/*    */ import java.util.Properties;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class nh
+/*    */ {
+/*  8 */   private static nh a = new nh();
+/*    */   
+/*    */   private Properties b;
+/*    */   
+/*    */ 
+/*    */   private nh()
+/*    */   {
+/* 15 */     this.b = new Properties();
+/*    */     try {
+/* 17 */       this.b.load(nh.class.getResourceAsStream("/lang/en_US.lang"));
+/* 18 */       this.b.load(nh.class.getResourceAsStream("/lang/stats_US.lang"));
+/*    */     } catch (IOException localIOException) {
+/* 20 */       localIOException.printStackTrace();
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public static nh a()
+/*    */   {
+/* 26 */     return a;
+/*    */   }
+/*    */   
+/*    */   public String a(String paramString) {
+/* 30 */     return this.b.getProperty(paramString, paramString);
+/*    */   }
+/*    */   
+/*    */   public String a(String paramString, Object... paramVarArgs) {
+/* 34 */     String str = this.b.getProperty(paramString, paramString);
+/* 35 */     return String.format(str, paramVarArgs);
+/*    */   }
+/*    */   
+/*    */   public String b(String paramString) {
+/* 39 */     return this.b.getProperty(paramString + ".name", "");
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\nh.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

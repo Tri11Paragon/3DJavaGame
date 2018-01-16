@@ -1,0 +1,63 @@
+/*    */ import org.lwjgl.opengl.GL11;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class on
+/*    */   extends bw
+/*    */ {
+/* 21 */   private cv a = new cv();
+/*    */   
+/*    */   public on() {
+/* 24 */     this.c = 0.5F;
+/*    */   }
+/*    */   
+/*    */   public void a(qw paramqw, double paramDouble1, double paramDouble2, double paramDouble3, float paramFloat1, float paramFloat2) {
+/* 28 */     GL11.glPushMatrix();
+/* 29 */     GL11.glTranslatef((float)paramDouble1, (float)paramDouble2, (float)paramDouble3);
+/* 30 */     if (paramqw.a - paramFloat2 + 1.0F < 10.0F) {
+/* 31 */       f1 = 1.0F - (paramqw.a - paramFloat2 + 1.0F) / 10.0F;
+/* 32 */       if (f1 < 0.0F) f1 = 0.0F;
+/* 33 */       if (f1 > 1.0F) f1 = 1.0F;
+/* 34 */       f1 *= f1;
+/* 35 */       f1 *= f1;
+/* 36 */       float f2 = 1.0F + f1 * 0.3F;
+/* 37 */       GL11.glScalef(f2, f2, f2);
+/*    */     }
+/*    */     
+/* 40 */     float f1 = (1.0F - (paramqw.a - paramFloat2 + 1.0F) / 100.0F) * 0.8F;
+/* 41 */     a("/terrain.png");
+/* 42 */     this.a.a(uu.an, 0, paramqw.a(paramFloat2));
+/* 43 */     if (paramqw.a / 5 % 2 == 0) {
+/* 44 */       GL11.glDisable(3553);
+/* 45 */       GL11.glDisable(2896);
+/* 46 */       GL11.glEnable(3042);
+/* 47 */       GL11.glBlendFunc(770, 772);
+/* 48 */       GL11.glColor4f(1.0F, 1.0F, 1.0F, f1);
+/* 49 */       this.a.a(uu.an, 0, 1.0F);
+/* 50 */       GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+/* 51 */       GL11.glDisable(3042);
+/* 52 */       GL11.glEnable(2896);
+/* 53 */       GL11.glEnable(3553);
+/*    */     }
+/* 55 */     GL11.glPopMatrix();
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\on.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

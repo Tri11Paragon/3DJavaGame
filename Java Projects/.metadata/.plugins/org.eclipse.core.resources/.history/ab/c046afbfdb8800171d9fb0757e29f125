@@ -1,0 +1,17 @@
+/*   */ 
+/*   */ 
+/*   */ 
+/*   */ public class ot
+/*   */   extends uu
+/*   */ {
+/*   */   protected ot(int paramInt1, int paramInt2)
+/*   */   {
+/* 9 */     super(paramInt1, paramInt2, ln.c);
+/*   */   }
+/*   */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ot.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

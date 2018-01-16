@@ -1,0 +1,191 @@
+/*     */ import java.util.Random;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class sq
+/*     */   extends fv
+/*     */ {
+/*     */   protected void a(int paramInt1, int paramInt2, byte[] paramArrayOfByte, double paramDouble1, double paramDouble2, double paramDouble3)
+/*     */   {
+/*  12 */     a(paramInt1, paramInt2, paramArrayOfByte, paramDouble1, paramDouble2, paramDouble3, 1.0F + this.b.nextFloat() * 6.0F, 0.0F, 0.0F, -1, -1, 0.5D);
+/*     */   }
+/*     */   
+/*     */   protected void a(int paramInt1, int paramInt2, byte[] paramArrayOfByte, double paramDouble1, double paramDouble2, double paramDouble3, float paramFloat1, float paramFloat2, float paramFloat3, int paramInt3, int paramInt4, double paramDouble4) {
+/*  16 */     double d1 = paramInt1 * 16 + 8;
+/*  17 */     double d2 = paramInt2 * 16 + 8;
+/*     */     
+/*  19 */     float f1 = 0.0F;
+/*  20 */     float f2 = 0.0F;
+/*     */     
+/*     */ 
+/*  23 */     Random localRandom = new Random(this.b.nextLong());
+/*     */     
+/*  25 */     if (paramInt4 <= 0) {
+/*  26 */       i = this.a * 16 - 16;
+/*  27 */       paramInt4 = i - localRandom.nextInt(i / 4);
+/*     */     }
+/*  29 */     int i = 0;
+/*     */     
+/*  31 */     if (paramInt3 == -1) {
+/*  32 */       paramInt3 = paramInt4 / 2;
+/*  33 */       i = 1;
+/*     */     }
+/*     */     
+/*     */ 
+/*  37 */     int j = localRandom.nextInt(paramInt4 / 2) + paramInt4 / 4;
+/*  38 */     int k = localRandom.nextInt(6) == 0 ? 1 : 0;
+/*  40 */     for (; 
+/*  40 */         paramInt3 < paramInt4; paramInt3++) {
+/*  41 */       double d3 = 1.5D + in.a(paramInt3 * 3.1415927F / paramInt4) * paramFloat1 * 1.0F;
+/*  42 */       double d4 = d3 * paramDouble4;
+/*     */       
+/*  44 */       float f3 = in.b(paramFloat3);
+/*  45 */       float f4 = in.a(paramFloat3);
+/*  46 */       paramDouble1 += in.b(paramFloat2) * f3;
+/*  47 */       paramDouble2 += f4;
+/*  48 */       paramDouble3 += in.a(paramFloat2) * f3;
+/*     */       
+/*  50 */       if (k != 0) {
+/*  51 */         paramFloat3 *= 0.92F;
+/*     */       } else {
+/*  53 */         paramFloat3 *= 0.7F;
+/*     */       }
+/*  55 */       paramFloat3 += f2 * 0.1F;
+/*  56 */       paramFloat2 += f1 * 0.1F;
+/*     */       
+/*  58 */       f2 *= 0.9F;
+/*  59 */       f1 *= 0.75F;
+/*  60 */       f2 += (localRandom.nextFloat() - localRandom.nextFloat()) * localRandom.nextFloat() * 2.0F;
+/*  61 */       f1 += (localRandom.nextFloat() - localRandom.nextFloat()) * localRandom.nextFloat() * 4.0F;
+/*     */       
+/*     */ 
+/*  64 */       if ((i == 0) && (paramInt3 == j) && (paramFloat1 > 1.0F)) {
+/*  65 */         a(paramInt1, paramInt2, paramArrayOfByte, paramDouble1, paramDouble2, paramDouble3, localRandom.nextFloat() * 0.5F + 0.5F, paramFloat2 - 1.5707964F, paramFloat3 / 3.0F, paramInt3, paramInt4, 1.0D);
+/*  66 */         a(paramInt1, paramInt2, paramArrayOfByte, paramDouble1, paramDouble2, paramDouble3, localRandom.nextFloat() * 0.5F + 0.5F, paramFloat2 + 1.5707964F, paramFloat3 / 3.0F, paramInt3, paramInt4, 1.0D);
+/*  67 */         return;
+/*     */       }
+/*  69 */       if ((i != 0) || (localRandom.nextInt(4) != 0))
+/*     */       {
+/*     */ 
+/*  72 */         double d5 = paramDouble1 - d1;
+/*  73 */         double d6 = paramDouble3 - d2;
+/*  74 */         double d7 = paramInt4 - paramInt3;
+/*  75 */         double d8 = paramFloat1 + 2.0F + 16.0F;
+/*  76 */         if (d5 * d5 + d6 * d6 - d7 * d7 > d8 * d8) {
+/*  77 */           return;
+/*     */         }
+/*     */         
+/*     */ 
+/*  81 */         if ((paramDouble1 >= d1 - 16.0D - d3 * 2.0D) && (paramDouble3 >= d2 - 16.0D - d3 * 2.0D) && (paramDouble1 <= d1 + 16.0D + d3 * 2.0D) && (paramDouble3 <= d2 + 16.0D + d3 * 2.0D))
+/*     */         {
+/*  83 */           int m = in.b(paramDouble1 - d3) - paramInt1 * 16 - 1;
+/*  84 */           int n = in.b(paramDouble1 + d3) - paramInt1 * 16 + 1;
+/*     */           
+/*  86 */           int i1 = in.b(paramDouble2 - d4) - 1;
+/*  87 */           int i2 = in.b(paramDouble2 + d4) + 1;
+/*     */           
+/*  89 */           int i3 = in.b(paramDouble3 - d3) - paramInt2 * 16 - 1;
+/*  90 */           int i4 = in.b(paramDouble3 + d3) - paramInt2 * 16 + 1;
+/*     */           
+/*  92 */           if (m < 0) m = 0;
+/*  93 */           if (n > 16) { n = 16;
+/*     */           }
+/*  95 */           if (i1 < 1) i1 = 1;
+/*  96 */           if (i2 > 120) { i2 = 120;
+/*     */           }
+/*  98 */           if (i3 < 0) i3 = 0;
+/*  99 */           if (i4 > 16) { i4 = 16;
+/*     */           }
+/* 101 */           int i5 = 0;
+/* 102 */           int i9; for (int i6 = m; (i5 == 0) && (i6 < n); i6++) {
+/* 103 */             for (int i7 = i3; (i5 == 0) && (i7 < i4); i7++) {
+/* 104 */               for (int i8 = i2 + 1; (i5 == 0) && (i8 >= i1 - 1); i8--) {
+/* 105 */                 i9 = (i6 * 16 + i7) * 128 + i8;
+/* 106 */                 if ((i8 >= 0) && (i8 < 128)) {
+/* 107 */                   if ((paramArrayOfByte[i9] == uu.B.bn) || (paramArrayOfByte[i9] == uu.C.bn)) {
+/* 108 */                     i5 = 1;
+/*     */                   }
+/* 110 */                   if ((i8 != i1 - 1) && (i6 != m) && (i6 != n - 1) && (i7 != i3) && (i7 != i4 - 1))
+/* 111 */                     i8 = i1;
+/*     */                 }
+/*     */               }
+/*     */             }
+/*     */           }
+/* 116 */           if (i5 == 0)
+/*     */           {
+/* 118 */             for (i6 = m; i6 < n; i6++) {
+/* 119 */               double d9 = (i6 + paramInt1 * 16 + 0.5D - paramDouble1) / d3;
+/* 120 */               for (i9 = i3; i9 < i4; i9++) {
+/* 121 */                 double d10 = (i9 + paramInt2 * 16 + 0.5D - paramDouble3) / d3;
+/* 122 */                 int i10 = (i6 * 16 + i9) * 128 + i2;
+/* 123 */                 int i11 = 0;
+/* 124 */                 if (d9 * d9 + d10 * d10 < 1.0D) {
+/* 125 */                   for (int i12 = i2 - 1; i12 >= i1; i12--) {
+/* 126 */                     double d11 = (i12 + 0.5D - paramDouble2) / d4;
+/* 127 */                     if ((d11 > -0.7D) && (d9 * d9 + d11 * d11 + d10 * d10 < 1.0D)) {
+/* 128 */                       int i13 = paramArrayOfByte[i10];
+/* 129 */                       if (i13 == uu.v.bn) i11 = 1;
+/* 130 */                       if ((i13 == uu.u.bn) || (i13 == uu.w.bn) || (i13 == uu.v.bn)) {
+/* 131 */                         if (i12 < 10) {
+/* 132 */                           paramArrayOfByte[i10] = ((byte)uu.D.bn);
+/*     */                         } else {
+/* 134 */                           paramArrayOfByte[i10] = 0;
+/* 135 */                           if ((i11 != 0) && (paramArrayOfByte[(i10 - 1)] == uu.w.bn)) paramArrayOfByte[(i10 - 1)] = ((byte)uu.v.bn);
+/*     */                         }
+/*     */                       }
+/*     */                     }
+/* 139 */                     i10--;
+/*     */                   }
+/*     */                 }
+/*     */               }
+/*     */             }
+/* 144 */             if (i != 0) {
+/*     */               break;
+/*     */             }
+/*     */           }
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   protected void a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4, byte[] paramArrayOfByte)
+/*     */   {
+/* 158 */     int i = this.b.nextInt(this.b.nextInt(this.b.nextInt(40) + 1) + 1);
+/* 159 */     if (this.b.nextInt(15) != 0) { i = 0;
+/*     */     }
+/* 161 */     for (int j = 0; j < i; j++) {
+/* 162 */       double d1 = paramInt1 * 16 + this.b.nextInt(16);
+/*     */       
+/*     */ 
+/* 165 */       double d2 = this.b.nextInt(this.b.nextInt(120) + 8);
+/*     */       
+/* 167 */       double d3 = paramInt2 * 16 + this.b.nextInt(16);
+/*     */       
+/* 169 */       int k = 1;
+/* 170 */       if (this.b.nextInt(4) == 0) {
+/* 171 */         a(paramInt3, paramInt4, paramArrayOfByte, d1, d2, d3);
+/* 172 */         k += this.b.nextInt(4);
+/*     */       }
+/*     */       
+/* 175 */       for (int m = 0; m < k; m++)
+/*     */       {
+/* 177 */         float f1 = this.b.nextFloat() * 3.1415927F * 2.0F;
+/* 178 */         float f2 = (this.b.nextFloat() - 0.5F) * 2.0F / 8.0F;
+/* 179 */         float f3 = this.b.nextFloat() * 2.0F + this.b.nextFloat();
+/*     */         
+/* 181 */         a(paramInt3, paramInt4, paramArrayOfByte, d1, d2, d3, f3, f1, f2, 0, 0, 1.0D);
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\sq.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,208 @@
+/*     */ import java.awt.Color;
+/*     */ import java.util.ArrayList;
+/*     */ import java.util.List;
+/*     */ import java.util.Random;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class kd
+/*     */ {
+/*  26 */   public static final kd a = new yj().b(588342).a("Rainforest").a(2094168);
+/*  27 */   public static final kd b = new tf().b(522674).a("Swampland").a(9154376);
+/*  28 */   public static final kd c = new kd().b(10215459).a("Seasonal Forest");
+/*  29 */   public static final kd d = new rb().b(353825).a("Forest").a(5159473);
+/*  30 */   public static final kd e = new fs().b(14278691).a("Savanna");
+/*  31 */   public static final kd f = new kd().b(10595616).a("Shrubland");
+/*  32 */   public static final kd g = new g().b(3060051).a("Taiga").b().a(8107825);
+/*  33 */   public static final kd h = new fs().b(16421912).a("Desert").e();
+/*  34 */   public static final kd i = new fs().b(16767248).a("Plains");
+/*  35 */   public static final kd j = new fs().b(16772499).a("Ice Desert").b().e().a(12899129);
+/*  36 */   public static final kd k = new kd().b(5762041).a("Tundra").b().a(12899129);
+/*     */   
+/*  38 */   public static final kd l = new t().b(16711680).a("Hell").e();
+/*  39 */   public static final kd m = new ry().b(8421631).a("Sky").e();
+/*     */   
+/*     */   public String n;
+/*     */   public int o;
+/*  43 */   public byte p = (byte)uu.v.bn;
+/*  44 */   public byte q = (byte)uu.w.bn;
+/*  45 */   public int r = 5169201;
+/*     */   
+/*  47 */   protected List s = new ArrayList();
+/*  48 */   protected List t = new ArrayList();
+/*  49 */   protected List u = new ArrayList();
+/*     */   private boolean v;
+/*  51 */   private boolean w = true;
+/*     */   
+/*  53 */   private static kd[] x = new kd['က'];
+/*     */   
+/*     */   protected kd()
+/*     */   {
+/*  57 */     this.s.add(new bj(cn.class, 10));
+/*  58 */     this.s.add(new bj(uz.class, 10));
+/*  59 */     this.s.add(new bj(fr.class, 10));
+/*  60 */     this.s.add(new bj(gb.class, 10));
+/*  61 */     this.s.add(new bj(uw.class, 10));
+/*     */     
+/*  63 */     this.t.add(new bj(dl.class, 12));
+/*  64 */     this.t.add(new bj(wh.class, 10));
+/*  65 */     this.t.add(new bj(ww.class, 10));
+/*  66 */     this.t.add(new bj(bx.class, 8));
+/*     */     
+/*     */ 
+/*     */ 
+/*  70 */     this.u.add(new bj(xt.class, 10));
+/*     */   }
+/*     */   
+/*     */   private kd e() {
+/*  74 */     this.w = false;
+/*  75 */     return this;
+/*     */   }
+/*     */   
+/*     */   public static void a() {
+/*  79 */     for (int i1 = 0; i1 < 64; i1++) {
+/*  80 */       for (int i2 = 0; i2 < 64; i2++) {
+/*  81 */         x[(i1 + i2 * 64)] = a(i1 / 63.0F, i2 / 63.0F);
+/*     */       }
+/*     */     }
+/*     */     
+/*  85 */     h.p = (h.q = (byte)uu.F.bn);
+/*  86 */     j.p = (j.q = (byte)uu.F.bn);
+/*     */   }
+/*     */   
+/*     */   static {
+/*  90 */     a();
+/*     */   }
+/*     */   
+/*     */   public pg a(Random paramRandom) {
+/*  94 */     if (paramRandom.nextInt(10) == 0) {
+/*  95 */       return new ih();
+/*     */     }
+/*  97 */     return new yh();
+/*     */   }
+/*     */   
+/*     */   protected kd b() {
+/* 101 */     this.v = true;
+/* 102 */     return this;
+/*     */   }
+/*     */   
+/*     */   protected kd a(String paramString) {
+/* 106 */     this.n = paramString;
+/* 107 */     return this;
+/*     */   }
+/*     */   
+/*     */   protected kd a(int paramInt) {
+/* 111 */     this.r = paramInt;
+/* 112 */     return this;
+/*     */   }
+/*     */   
+/*     */   protected kd b(int paramInt) {
+/* 116 */     this.o = paramInt;
+/* 117 */     return this;
+/*     */   }
+/*     */   
+/*     */   public static kd a(double paramDouble1, double paramDouble2) {
+/* 121 */     int i1 = (int)(paramDouble1 * 63.0D);
+/* 122 */     int i2 = (int)(paramDouble2 * 63.0D);
+/* 123 */     return x[(i1 + i2 * 64)];
+/*     */   }
+/*     */   
+/*     */   public static kd a(float paramFloat1, float paramFloat2) {
+/* 127 */     paramFloat2 *= paramFloat1;
+/* 128 */     if (paramFloat1 < 0.1F)
+/* 129 */       return k;
+/* 130 */     if (paramFloat2 < 0.2F) {
+/* 131 */       if (paramFloat1 < 0.5F)
+/* 132 */         return k;
+/* 133 */       if (paramFloat1 < 0.95F) {
+/* 134 */         return e;
+/*     */       }
+/* 136 */       return h;
+/*     */     }
+/* 138 */     if ((paramFloat2 > 0.5F) && (paramFloat1 < 0.7F))
+/* 139 */       return b;
+/* 140 */     if (paramFloat1 < 0.5F)
+/* 141 */       return g;
+/* 142 */     if (paramFloat1 < 0.97F) {
+/* 143 */       if (paramFloat2 < 0.35F) {
+/* 144 */         return f;
+/*     */       }
+/* 146 */       return d;
+/*     */     }
+/*     */     
+/* 149 */     if (paramFloat2 < 0.45F)
+/* 150 */       return i;
+/* 151 */     if (paramFloat2 < 0.9F) {
+/* 152 */       return c;
+/*     */     }
+/* 154 */     return a;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public int a(float paramFloat)
+/*     */   {
+/* 171 */     paramFloat /= 3.0F;
+/* 172 */     if (paramFloat < -1.0F) paramFloat = -1.0F;
+/* 173 */     if (paramFloat > 1.0F) paramFloat = 1.0F;
+/* 174 */     return Color.getHSBColor(0.62222224F - paramFloat * 0.05F, 0.5F + paramFloat * 0.1F, 1.0F).getRGB();
+/*     */   }
+/*     */   
+/*     */   public List a(lk paramlk) {
+/* 178 */     if (paramlk == lk.a) return this.s;
+/* 179 */     if (paramlk == lk.b) return this.t;
+/* 180 */     if (paramlk == lk.c) return this.u;
+/* 181 */     return null;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public boolean c()
+/*     */   {
+/* 195 */     return this.v;
+/*     */   }
+/*     */   
+/*     */   public boolean d() {
+/* 199 */     if (this.v) return false;
+/* 200 */     return this.w;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\kd.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

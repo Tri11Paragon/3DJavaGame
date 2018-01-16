@@ -1,0 +1,269 @@
+/*     */ import java.util.ArrayList;
+/*     */ import java.util.List;
+/*     */ 
+/*     */ 
+/*     */ public class eq
+/*     */ {
+/*   7 */   private static List g = new ArrayList();
+/*   8 */   private static int h = 0;
+/*     */   public double a;
+/*     */   
+/*  11 */   public static eq a(double paramDouble1, double paramDouble2, double paramDouble3, double paramDouble4, double paramDouble5, double paramDouble6) { return new eq(paramDouble1, paramDouble2, paramDouble3, paramDouble4, paramDouble5, paramDouble6); }
+/*     */   
+/*     */   public static void a()
+/*     */   {
+/*  15 */     g.clear();
+/*  16 */     h = 0;
+/*     */   }
+/*     */   
+/*     */   public static void b() {
+/*  20 */     h = 0;
+/*     */   }
+/*     */   
+/*     */   public static eq b(double paramDouble1, double paramDouble2, double paramDouble3, double paramDouble4, double paramDouble5, double paramDouble6) {
+/*  24 */     if (h >= g.size()) {
+/*  25 */       g.add(a(0.0D, 0.0D, 0.0D, 0.0D, 0.0D, 0.0D));
+/*     */     }
+/*  27 */     return ((eq)g.get(h++)).c(paramDouble1, paramDouble2, paramDouble3, paramDouble4, paramDouble5, paramDouble6);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   public double b;
+/*     */   public double c;
+/*     */   private eq(double paramDouble1, double paramDouble2, double paramDouble3, double paramDouble4, double paramDouble5, double paramDouble6)
+/*     */   {
+/*  35 */     this.a = paramDouble1;
+/*  36 */     this.b = paramDouble2;
+/*  37 */     this.c = paramDouble3;
+/*  38 */     this.d = paramDouble4;
+/*  39 */     this.e = paramDouble5;
+/*  40 */     this.f = paramDouble6;
+/*     */   }
+/*     */   
+/*     */   public eq c(double paramDouble1, double paramDouble2, double paramDouble3, double paramDouble4, double paramDouble5, double paramDouble6) {
+/*  44 */     this.a = paramDouble1;
+/*  45 */     this.b = paramDouble2;
+/*  46 */     this.c = paramDouble3;
+/*  47 */     this.d = paramDouble4;
+/*  48 */     this.e = paramDouble5;
+/*  49 */     this.f = paramDouble6;
+/*  50 */     return this;
+/*     */   }
+/*     */   
+/*     */   public eq a(double paramDouble1, double paramDouble2, double paramDouble3) {
+/*  54 */     double d1 = this.a;
+/*  55 */     double d2 = this.b;
+/*  56 */     double d3 = this.c;
+/*  57 */     double d4 = this.d;
+/*  58 */     double d5 = this.e;
+/*  59 */     double d6 = this.f;
+/*     */     
+/*  61 */     if (paramDouble1 < 0.0D) d1 += paramDouble1;
+/*  62 */     if (paramDouble1 > 0.0D) { d4 += paramDouble1;
+/*     */     }
+/*  64 */     if (paramDouble2 < 0.0D) d2 += paramDouble2;
+/*  65 */     if (paramDouble2 > 0.0D) { d5 += paramDouble2;
+/*     */     }
+/*  67 */     if (paramDouble3 < 0.0D) d3 += paramDouble3;
+/*  68 */     if (paramDouble3 > 0.0D) { d6 += paramDouble3;
+/*     */     }
+/*  70 */     return b(d1, d2, d3, d4, d5, d6);
+/*     */   }
+/*     */   
+/*     */   public eq b(double paramDouble1, double paramDouble2, double paramDouble3) {
+/*  74 */     double d1 = this.a - paramDouble1;
+/*  75 */     double d2 = this.b - paramDouble2;
+/*  76 */     double d3 = this.c - paramDouble3;
+/*  77 */     double d4 = this.d + paramDouble1;
+/*  78 */     double d5 = this.e + paramDouble2;
+/*  79 */     double d6 = this.f + paramDouble3;
+/*     */     
+/*  81 */     return b(d1, d2, d3, d4, d5, d6);
+/*     */   }
+/*     */   
+/*     */   public eq c(double paramDouble1, double paramDouble2, double paramDouble3) {
+/*  85 */     return b(this.a + paramDouble1, this.b + paramDouble2, this.c + paramDouble3, this.d + paramDouble1, this.e + paramDouble2, this.f + paramDouble3);
+/*     */   }
+/*     */   
+/*     */   public double a(eq parameq, double paramDouble) {
+/*  89 */     if ((parameq.e <= this.b) || (parameq.b >= this.e)) return paramDouble;
+/*  90 */     if ((parameq.f <= this.c) || (parameq.c >= this.f)) return paramDouble;
+/*     */     double d1;
+/*  92 */     if ((paramDouble > 0.0D) && (parameq.d <= this.a)) {
+/*  93 */       d1 = this.a - parameq.d;
+/*  94 */       if (d1 < paramDouble) paramDouble = d1;
+/*     */     }
+/*  96 */     if ((paramDouble < 0.0D) && (parameq.a >= this.d)) {
+/*  97 */       d1 = this.d - parameq.a;
+/*  98 */       if (d1 > paramDouble) { paramDouble = d1;
+/*     */       }
+/*     */     }
+/* 101 */     return paramDouble;
+/*     */   }
+/*     */   
+/*     */   public double b(eq parameq, double paramDouble) {
+/* 105 */     if ((parameq.d <= this.a) || (parameq.a >= this.d)) return paramDouble;
+/* 106 */     if ((parameq.f <= this.c) || (parameq.c >= this.f)) return paramDouble;
+/*     */     double d1;
+/* 108 */     if ((paramDouble > 0.0D) && (parameq.e <= this.b)) {
+/* 109 */       d1 = this.b - parameq.e;
+/* 110 */       if (d1 < paramDouble) paramDouble = d1;
+/*     */     }
+/* 112 */     if ((paramDouble < 0.0D) && (parameq.b >= this.e)) {
+/* 113 */       d1 = this.e - parameq.b;
+/* 114 */       if (d1 > paramDouble) { paramDouble = d1;
+/*     */       }
+/*     */     }
+/* 117 */     return paramDouble;
+/*     */   }
+/*     */   
+/*     */   public double c(eq parameq, double paramDouble) {
+/* 121 */     if ((parameq.d <= this.a) || (parameq.a >= this.d)) return paramDouble;
+/* 122 */     if ((parameq.e <= this.b) || (parameq.b >= this.e)) return paramDouble;
+/*     */     double d1;
+/* 124 */     if ((paramDouble > 0.0D) && (parameq.f <= this.c)) {
+/* 125 */       d1 = this.c - parameq.f;
+/* 126 */       if (d1 < paramDouble) paramDouble = d1;
+/*     */     }
+/* 128 */     if ((paramDouble < 0.0D) && (parameq.c >= this.f)) {
+/* 129 */       d1 = this.f - parameq.c;
+/* 130 */       if (d1 > paramDouble) { paramDouble = d1;
+/*     */       }
+/*     */     }
+/* 133 */     return paramDouble;
+/*     */   }
+/*     */   
+/*     */   public boolean a(eq parameq) {
+/* 137 */     if ((parameq.d <= this.a) || (parameq.a >= this.d)) return false;
+/* 138 */     if ((parameq.e <= this.b) || (parameq.b >= this.e)) return false;
+/* 139 */     if ((parameq.f <= this.c) || (parameq.c >= this.f)) return false;
+/* 140 */     return true;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   public double d;
+/*     */   
+/*     */   public double e;
+/*     */   
+/*     */   public double f;
+/*     */   public eq d(double paramDouble1, double paramDouble2, double paramDouble3)
+/*     */   {
+/* 151 */     this.a += paramDouble1;
+/* 152 */     this.b += paramDouble2;
+/* 153 */     this.c += paramDouble3;
+/* 154 */     this.d += paramDouble1;
+/* 155 */     this.e += paramDouble2;
+/* 156 */     this.f += paramDouble3;
+/* 157 */     return this;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public boolean a(bt parambt)
+/*     */   {
+/* 168 */     if ((parambt.a <= this.a) || (parambt.a >= this.d)) return false;
+/* 169 */     if ((parambt.b <= this.b) || (parambt.b >= this.e)) return false;
+/* 170 */     if ((parambt.c <= this.c) || (parambt.c >= this.f)) return false;
+/* 171 */     return true;
+/*     */   }
+/*     */   
+/*     */   public double c() {
+/* 175 */     double d1 = this.d - this.a;
+/* 176 */     double d2 = this.e - this.b;
+/* 177 */     double d3 = this.f - this.c;
+/* 178 */     return (d1 + d2 + d3) / 3.0D;
+/*     */   }
+/*     */   
+/*     */   public eq e(double paramDouble1, double paramDouble2, double paramDouble3) {
+/* 182 */     double d1 = this.a + paramDouble1;
+/* 183 */     double d2 = this.b + paramDouble2;
+/* 184 */     double d3 = this.c + paramDouble3;
+/* 185 */     double d4 = this.d - paramDouble1;
+/* 186 */     double d5 = this.e - paramDouble2;
+/* 187 */     double d6 = this.f - paramDouble3;
+/*     */     
+/* 189 */     return b(d1, d2, d3, d4, d5, d6);
+/*     */   }
+/*     */   
+/*     */   public eq d() {
+/* 193 */     return b(this.a, this.b, this.c, this.d, this.e, this.f);
+/*     */   }
+/*     */   
+/*     */   public vf a(bt parambt1, bt parambt2) {
+/* 197 */     bt localbt1 = parambt1.a(parambt2, this.a);
+/* 198 */     bt localbt2 = parambt1.a(parambt2, this.d);
+/*     */     
+/* 200 */     bt localbt3 = parambt1.b(parambt2, this.b);
+/* 201 */     bt localbt4 = parambt1.b(parambt2, this.e);
+/*     */     
+/* 203 */     bt localbt5 = parambt1.c(parambt2, this.c);
+/* 204 */     bt localbt6 = parambt1.c(parambt2, this.f);
+/*     */     
+/* 206 */     if (!b(localbt1)) localbt1 = null;
+/* 207 */     if (!b(localbt2)) localbt2 = null;
+/* 208 */     if (!c(localbt3)) localbt3 = null;
+/* 209 */     if (!c(localbt4)) localbt4 = null;
+/* 210 */     if (!d(localbt5)) localbt5 = null;
+/* 211 */     if (!d(localbt6)) { localbt6 = null;
+/*     */     }
+/* 213 */     bt localbt7 = null;
+/*     */     
+/* 215 */     if ((localbt1 != null) && ((localbt7 == null) || (parambt1.d(localbt1) < parambt1.d(localbt7)))) localbt7 = localbt1;
+/* 216 */     if ((localbt2 != null) && ((localbt7 == null) || (parambt1.d(localbt2) < parambt1.d(localbt7)))) localbt7 = localbt2;
+/* 217 */     if ((localbt3 != null) && ((localbt7 == null) || (parambt1.d(localbt3) < parambt1.d(localbt7)))) localbt7 = localbt3;
+/* 218 */     if ((localbt4 != null) && ((localbt7 == null) || (parambt1.d(localbt4) < parambt1.d(localbt7)))) localbt7 = localbt4;
+/* 219 */     if ((localbt5 != null) && ((localbt7 == null) || (parambt1.d(localbt5) < parambt1.d(localbt7)))) localbt7 = localbt5;
+/* 220 */     if ((localbt6 != null) && ((localbt7 == null) || (parambt1.d(localbt6) < parambt1.d(localbt7)))) { localbt7 = localbt6;
+/*     */     }
+/* 222 */     if (localbt7 == null) { return null;
+/*     */     }
+/* 224 */     int i = -1;
+/*     */     
+/* 226 */     if (localbt7 == localbt1) i = 4;
+/* 227 */     if (localbt7 == localbt2) i = 5;
+/* 228 */     if (localbt7 == localbt3) i = 0;
+/* 229 */     if (localbt7 == localbt4) i = 1;
+/* 230 */     if (localbt7 == localbt5) i = 2;
+/* 231 */     if (localbt7 == localbt6) { i = 3;
+/*     */     }
+/* 233 */     return new vf(0, 0, 0, i, localbt7);
+/*     */   }
+/*     */   
+/*     */   private boolean b(bt parambt) {
+/* 237 */     if (parambt == null) return false;
+/* 238 */     return (parambt.b >= this.b) && (parambt.b <= this.e) && (parambt.c >= this.c) && (parambt.c <= this.f);
+/*     */   }
+/*     */   
+/*     */   private boolean c(bt parambt) {
+/* 242 */     if (parambt == null) return false;
+/* 243 */     return (parambt.a >= this.a) && (parambt.a <= this.d) && (parambt.c >= this.c) && (parambt.c <= this.f);
+/*     */   }
+/*     */   
+/*     */   private boolean d(bt parambt) {
+/* 247 */     if (parambt == null) return false;
+/* 248 */     return (parambt.a >= this.a) && (parambt.a <= this.d) && (parambt.b >= this.b) && (parambt.b <= this.e);
+/*     */   }
+/*     */   
+/*     */   public void b(eq parameq) {
+/* 252 */     this.a = parameq.a;
+/* 253 */     this.b = parameq.b;
+/* 254 */     this.c = parameq.c;
+/* 255 */     this.d = parameq.d;
+/* 256 */     this.e = parameq.e;
+/* 257 */     this.f = parameq.f;
+/*     */   }
+/*     */   
+/*     */   public String toString() {
+/* 261 */     return "box[" + this.a + ", " + this.b + ", " + this.c + " -> " + this.d + ", " + this.e + ", " + this.f + "]";
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\eq.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,35 @@
+/*    */ import java.io.BufferedReader;
+/*    */ import java.io.InputStreamReader;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class fp
+/*    */ {
+/*    */   private static String a()
+/*    */   {
+/* 10 */     String str1 = "";
+/*    */     try {
+/* 12 */       BufferedReader localBufferedReader = new BufferedReader(new InputStreamReader(fp.class.getResourceAsStream("/font.txt"), "UTF-8"));
+/* 13 */       String str2 = "";
+/* 14 */       while ((str2 = localBufferedReader.readLine()) != null) {
+/* 15 */         if (!str2.startsWith("#")) {
+/* 16 */           str1 = str1 + str2;
+/*    */         }
+/*    */       }
+/* 19 */       localBufferedReader.close();
+/*    */     }
+/*    */     catch (Exception localException) {}
+/* 22 */     return str1;
+/*    */   }
+/*    */   
+/*    */ 
+/* 26 */   public static final String a = ;
+/*    */   
+/* 28 */   public static final char[] b = { '/', '\n', '\r', '\t', '\000', '\f', '`', '?', '*', '\\', '<', '>', '|', '"', ':' };
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\fp.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

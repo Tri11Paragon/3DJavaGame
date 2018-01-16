@@ -1,0 +1,26 @@
+public abstract interface xp
+{
+  public abstract int a(int paramInt1, int paramInt2, int paramInt3);
+  
+  public abstract ow b(int paramInt1, int paramInt2, int paramInt3);
+  
+  public abstract float a(int paramInt1, int paramInt2, int paramInt3, int paramInt4);
+  
+  public abstract float c(int paramInt1, int paramInt2, int paramInt3);
+  
+  public abstract int e(int paramInt1, int paramInt2, int paramInt3);
+  
+  public abstract ln f(int paramInt1, int paramInt2, int paramInt3);
+  
+  public abstract boolean g(int paramInt1, int paramInt2, int paramInt3);
+  
+  public abstract boolean h(int paramInt1, int paramInt2, int paramInt3);
+  
+  public abstract xv a();
+}
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\xp.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

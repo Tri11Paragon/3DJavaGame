@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy source folder &apos;res&apos; to &apos;Block game with 2.9&apos;&#x0D;&#x0A;- Original project: &apos;3D Block Game&apos;&#x0D;&#x0A;- Destination element: &apos;Block game with 2.9&apos;&#x0D;&#x0A;- Original element: &apos;3D Block Game/res&apos;" description="Copy source folder" destination="=Block game with 2.9" element1="/res" flags="6" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyRoots" roots="1" stamp="1502919720427" version="1.0"/>
+</session>

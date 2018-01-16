@@ -1,0 +1,221 @@
+/*     */ import java.io.DataInputStream;
+/*     */ import java.io.DataOutputStream;
+/*     */ import java.io.File;
+/*     */ import java.io.FileInputStream;
+/*     */ import java.io.IOException;
+/*     */ import java.io.PrintStream;
+/*     */ import java.util.ArrayList;
+/*     */ import java.util.Collections;
+/*     */ import java.util.List;
+/*     */ import java.util.zip.GZIPInputStream;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class hi
+/*     */   extends tq
+/*     */ {
+/*     */   public hi(File paramFile)
+/*     */   {
+/*  25 */     super(paramFile);
+/*     */   }
+/*     */   
+/*     */   public String a() {
+/*  29 */     return "Scaevolus' McRegion";
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   public List b()
+/*     */   {
+/*  35 */     ArrayList localArrayList = new ArrayList();
+/*     */     
+/*  37 */     File[] arrayOfFile1 = this.a.listFiles();
+/*  38 */     for (File localFile : arrayOfFile1) {
+/*  39 */       if (localFile.isDirectory())
+/*     */       {
+/*     */ 
+/*     */ 
+/*  43 */         String str1 = localFile.getName();
+/*     */         
+/*  45 */         ei localei = b(str1);
+/*  46 */         if (localei != null) {
+/*  47 */           boolean bool = localei.k() != 19132;
+/*  48 */           String str2 = localei.j();
+/*  49 */           if ((str2 == null) || (in.a(str2))) {
+/*  50 */             str2 = str1;
+/*     */           }
+/*  52 */           localArrayList.add(new vb(str1, str2, localei.l(), localei.g(), bool));
+/*     */         }
+/*     */       }
+/*     */     }
+/*  56 */     return localArrayList;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   public void c() {}
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   public wt a(String paramString, boolean paramBoolean)
+/*     */   {
+/*  67 */     return new mx(this.a, paramString, paramBoolean);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public boolean a(String paramString)
+/*     */   {
+/*  84 */     ei localei = b(paramString);
+/*  85 */     if ((localei == null) || (localei.k() != 0)) {
+/*  86 */       return false;
+/*     */     }
+/*  88 */     return true;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   public boolean a(String paramString, yb paramyb)
+/*     */   {
+/*  94 */     paramyb.a(0);
+/*     */     
+/*  96 */     ArrayList localArrayList1 = new ArrayList();
+/*  97 */     ArrayList localArrayList2 = new ArrayList();
+/*  98 */     ArrayList localArrayList3 = new ArrayList();
+/*  99 */     ArrayList localArrayList4 = new ArrayList();
+/*     */     
+/* 101 */     File localFile1 = new File(this.a, paramString);
+/* 102 */     File localFile2 = new File(localFile1, "DIM-1");
+/*     */     
+/* 104 */     System.out.println("Scanning folders...");
+/*     */     
+/*     */ 
+/* 107 */     a(localFile1, localArrayList1, localArrayList2);
+/*     */     
+/*     */ 
+/* 110 */     if (localFile2.exists()) {
+/* 111 */       a(localFile2, localArrayList3, localArrayList4);
+/*     */     }
+/*     */     
+/* 114 */     int i = localArrayList1.size() + localArrayList3.size() + localArrayList2.size() + localArrayList4.size();
+/* 115 */     System.out.println("Total conversion count is " + i);
+/*     */     
+/*     */ 
+/* 118 */     a(localFile1, localArrayList1, 0, i, paramyb);
+/*     */     
+/* 120 */     a(localFile2, localArrayList3, localArrayList1.size(), i, paramyb);
+/*     */     
+/* 122 */     ei localei = b(paramString);
+/* 123 */     localei.d(19132);
+/*     */     
+/* 125 */     wt localwt = a(paramString, false);
+/* 126 */     localwt.a(localei);
+/*     */     
+/*     */ 
+/* 129 */     a(localArrayList2, localArrayList1.size() + localArrayList3.size(), i, paramyb);
+/* 130 */     if (localFile2.exists()) {
+/* 131 */       a(localArrayList4, localArrayList1.size() + localArrayList3.size() + localArrayList2.size(), i, paramyb);
+/*     */     }
+/*     */     
+/* 134 */     return true;
+/*     */   }
+/*     */   
+/*     */   private void a(File paramFile, ArrayList paramArrayList1, ArrayList paramArrayList2) {
+/* 138 */     cm localcm = new cm(null);
+/* 139 */     rs localrs = new rs(null);
+/*     */     
+/* 141 */     File[] arrayOfFile1 = paramFile.listFiles(localcm);
+/* 142 */     for (File localFile1 : arrayOfFile1)
+/*     */     {
+/* 144 */       paramArrayList2.add(localFile1);
+/*     */       
+/* 146 */       File[] arrayOfFile3 = localFile1.listFiles(localcm);
+/* 147 */       for (File localFile2 : arrayOfFile3) {
+/* 148 */         File[] arrayOfFile5 = localFile2.listFiles(localrs);
+/*     */         
+/* 150 */         for (File localFile3 : arrayOfFile5) {
+/* 151 */           paramArrayList1.add(new dz(localFile3));
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   private void a(File paramFile, ArrayList paramArrayList, int paramInt1, int paramInt2, yb paramyb)
+/*     */   {
+/* 159 */     Collections.sort(paramArrayList);
+/*     */     
+/* 161 */     byte[] arrayOfByte = new byte['က'];
+/*     */     
+/* 163 */     for (dz localdz : paramArrayList)
+/*     */     {
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 172 */       int i = localdz.b();
+/* 173 */       int j = localdz.c();
+/*     */       
+/* 175 */       qj localqj = rj.a(paramFile, i, j);
+/* 176 */       if (!localqj.c(i & 0x1F, j & 0x1F)) {
+/*     */         try {
+/* 178 */           DataInputStream localDataInputStream = new DataInputStream(new GZIPInputStream(new FileInputStream(localdz.a())));
+/*     */           
+/* 180 */           DataOutputStream localDataOutputStream = localqj.b(i & 0x1F, j & 0x1F);
+/*     */           
+/* 182 */           int m = 0;
+/* 183 */           while ((m = localDataInputStream.read(arrayOfByte)) != -1) {
+/* 184 */             localDataOutputStream.write(arrayOfByte, 0, m);
+/*     */           }
+/*     */           
+/* 187 */           localDataOutputStream.close();
+/* 188 */           localDataInputStream.close();
+/*     */         } catch (IOException localIOException) {
+/* 190 */           localIOException.printStackTrace();
+/*     */         }
+/*     */       }
+/*     */       
+/* 194 */       paramInt1++;
+/* 195 */       int k = (int)Math.round(100.0D * paramInt1 / paramInt2);
+/* 196 */       paramyb.a(k);
+/*     */     }
+/* 198 */     rj.a();
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   private void a(ArrayList paramArrayList, int paramInt1, int paramInt2, yb paramyb)
+/*     */   {
+/* 204 */     for (File localFile : paramArrayList)
+/*     */     {
+/* 206 */       File[] arrayOfFile = localFile.listFiles();
+/* 207 */       a(arrayOfFile);
+/* 208 */       localFile.delete();
+/*     */       
+/* 210 */       paramInt1++;
+/* 211 */       int i = (int)Math.round(100.0D * paramInt1 / paramInt2);
+/* 212 */       paramyb.a(i);
+/*     */     }
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\hi.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,47 @@
+/*    */ package com.jcraft.jorbis;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ class Residue2
+/*    */   extends Residue0
+/*    */ {
+/*    */   int inverse(Block paramBlock, Object paramObject, float[][] paramArrayOfFloat, int[] paramArrayOfInt, int paramInt)
+/*    */   {
+/* 32 */     int i = 0;
+/* 33 */     for (i = 0; i < paramInt; i++)
+/* 34 */       if (paramArrayOfInt[i] != 0)
+/*    */         break;
+/* 36 */     if (i == paramInt) {
+/* 37 */       return 0;
+/*    */     }
+/* 39 */     return _2inverse(paramBlock, paramObject, paramArrayOfFloat, paramInt);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\com\jcraft\jorbis\Residue2.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

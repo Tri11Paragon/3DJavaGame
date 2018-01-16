@@ -1,0 +1,68 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class ay
+/*    */   extends xa
+/*    */ {
+/*    */   public void a()
+/*    */   {
+/* 14 */     this.b = new hd(kd.m, 0.5D, 0.0D);
+/* 15 */     this.g = 1;
+/*    */   }
+/*    */   
+/*    */   public cl b() {
+/* 19 */     return new jd(this.a, this.a.s());
+/*    */   }
+/*    */   
+/*    */   public float a(long paramLong, float paramFloat) {
+/* 23 */     return 0.0F;
+/*    */   }
+/*    */   
+/*    */   public float[] a(float paramFloat1, float paramFloat2) {
+/* 27 */     return null;
+/*    */   }
+/*    */   
+/*    */   public bt b(float paramFloat1, float paramFloat2) {
+/* 31 */     int i = 8421536;
+/* 32 */     float f1 = in.b(paramFloat1 * 3.1415927F * 2.0F) * 2.0F + 0.5F;
+/* 33 */     if (f1 < 0.0F) f1 = 0.0F;
+/* 34 */     if (f1 > 1.0F) { f1 = 1.0F;
+/*    */     }
+/* 36 */     float f2 = (i >> 16 & 0xFF) / 255.0F;
+/* 37 */     float f3 = (i >> 8 & 0xFF) / 255.0F;
+/* 38 */     float f4 = (i & 0xFF) / 255.0F;
+/* 39 */     f2 *= (f1 * 0.94F + 0.06F);
+/* 40 */     f3 *= (f1 * 0.94F + 0.06F);
+/* 41 */     f4 *= (f1 * 0.91F + 0.09F);
+/*    */     
+/* 43 */     return bt.b(f2, f3, f4);
+/*    */   }
+/*    */   
+/*    */   public boolean c() {
+/* 47 */     return false;
+/*    */   }
+/*    */   
+/*    */   public float d()
+/*    */   {
+/* 52 */     return 8.0F;
+/*    */   }
+/*    */   
+/*    */   public boolean a(int paramInt1, int paramInt2) {
+/* 56 */     int i = this.a.a(paramInt1, paramInt2);
+/*    */     
+/* 58 */     if (i == 0) { return false;
+/*    */     }
+/* 60 */     return uu.m[i].bA.c();
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ay.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,43 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class uy
+/*    */   extends ck
+/*    */ {
+/*    */   public uy(int paramInt)
+/*    */   {
+/*  9 */     super(paramInt);
+/*    */     
+/* 11 */     e(0);
+/* 12 */     a(true);
+/*    */   }
+/*    */   
+/*    */   public int b(int paramInt)
+/*    */   {
+/* 17 */     return paramInt | 0x8;
+/*    */   }
+/*    */   
+/*    */ 
+/*    */   public int a(int paramInt)
+/*    */   {
+/* 23 */     return uu.L.a(0, paramInt);
+/*    */   }
+/*    */   
+/*    */ 
+/*    */   public int f(int paramInt)
+/*    */   {
+/* 29 */     if ((paramInt & 0x1) == 1) {
+/* 30 */       return jh.a();
+/*    */     }
+/* 32 */     if ((paramInt & 0x2) == 2) {
+/* 33 */       return jh.b();
+/*    */     }
+/* 35 */     return jh.c();
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\uy.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

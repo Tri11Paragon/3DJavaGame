@@ -1,0 +1,119 @@
+/*     */ import java.util.List;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class it
+/*     */   extends dw
+/*     */ {
+/*  20 */   public mq a = new mq(this, 3, 3);
+/*  21 */   public lw b = new wl();
+/*     */   private fd c;
+/*     */   private int h;
+/*     */   private int i;
+/*     */   private int j;
+/*     */   
+/*  27 */   public it(ix paramix, fd paramfd, int paramInt1, int paramInt2, int paramInt3) { this.c = paramfd;
+/*  28 */     this.h = paramInt1;
+/*  29 */     this.i = paramInt2;
+/*  30 */     this.j = paramInt3;
+/*  31 */     a(new yv(paramix.d, this.a, this.b, 0, 124, 35));
+/*     */     int m;
+/*  33 */     for (int k = 0; k < 3; k++) {
+/*  34 */       for (m = 0; m < 3; m++) {
+/*  35 */         a(new gp(this.a, m + k * 3, 30 + m * 18, 17 + k * 18));
+/*     */       }
+/*     */     }
+/*     */     
+/*  39 */     for (k = 0; k < 3; k++) {
+/*  40 */       for (m = 0; m < 9; m++) {
+/*  41 */         a(new gp(paramix, m + k * 9 + 9, 8 + m * 18, 84 + k * 18));
+/*     */       }
+/*     */     }
+/*  44 */     for (k = 0; k < 9; k++) {
+/*  45 */       a(new gp(paramix, k, 8 + k * 18, 142));
+/*     */     }
+/*     */     
+/*  48 */     a(this.a);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void a(lw paramlw)
+/*     */   {
+/*  61 */     this.b.a(0, hk.a().a(this.a));
+/*     */   }
+/*     */   
+/*     */   public void a(gs paramgs) {
+/*  65 */     super.a(paramgs);
+/*  66 */     if (this.c.B) { return;
+/*     */     }
+/*  68 */     for (int k = 0; k < 9; k++) {
+/*  69 */       iz localiz = this.a.f_(k);
+/*  70 */       if (localiz != null) {
+/*  71 */         paramgs.a(localiz);
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public boolean b(gs paramgs) {
+/*  77 */     if (this.c.a(this.h, this.i, this.j) != uu.az.bn) return false;
+/*  78 */     if (paramgs.g(this.h + 0.5D, this.i + 0.5D, this.j + 0.5D) > 64.0D) return false;
+/*  79 */     return true;
+/*     */   }
+/*     */   
+/*     */   public iz a(int paramInt)
+/*     */   {
+/*  84 */     iz localiz1 = null;
+/*  85 */     gp localgp = (gp)this.e.get(paramInt);
+/*  86 */     if ((localgp != null) && (localgp.b())) {
+/*  87 */       iz localiz2 = localgp.a();
+/*  88 */       localiz1 = localiz2.k();
+/*     */       
+/*  90 */       if (paramInt == 0) {
+/*  91 */         a(localiz2, 10, 46, true);
+/*  92 */       } else if ((paramInt >= 10) && (paramInt < 37)) {
+/*  93 */         a(localiz2, 37, 46, false);
+/*  94 */       } else if ((paramInt >= 37) && (paramInt < 46)) {
+/*  95 */         a(localiz2, 10, 37, false);
+/*     */       } else {
+/*  97 */         a(localiz2, 10, 46, false);
+/*     */       }
+/*  99 */       if (localiz2.a == 0) {
+/* 100 */         localgp.c(null);
+/*     */       } else {
+/* 102 */         localgp.c();
+/*     */       }
+/* 104 */       if (localiz2.a != localiz1.a) {
+/* 105 */         localgp.a(localiz2);
+/*     */       }
+/*     */       else {
+/* 108 */         return null;
+/*     */       }
+/*     */     }
+/* 111 */     return localiz1;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\it.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

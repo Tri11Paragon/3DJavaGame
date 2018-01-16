@@ -1,0 +1,41 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class tp
+/*    */ {
+/*  9 */   private Object[][] a = { { uu.ai, new iz(gm.n, 9) }, { uu.aj, new iz(gm.m, 9) }, { uu.ay, new iz(gm.l, 9) }, { uu.P, new iz(gm.aU, 9, 4) } };
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public void a(hk paramhk)
+/*    */   {
+/* 22 */     for (int i = 0; i < this.a.length; i++) {
+/* 23 */       uu localuu = (uu)this.a[i][0];
+/* 24 */       iz localiz = (iz)this.a[i][1];
+/* 25 */       paramhk.a(new iz(localuu), new Object[] { "###", "###", "###", Character.valueOf('#'), localiz });
+/*    */       
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/* 32 */       paramhk.a(localiz, new Object[] { "#", Character.valueOf('#'), localuu });
+/*    */     }
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\tp.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

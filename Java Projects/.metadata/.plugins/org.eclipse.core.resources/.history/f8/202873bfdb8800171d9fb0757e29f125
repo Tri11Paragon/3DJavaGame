@@ -1,0 +1,34 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class au
+/*    */   extends dq
+/*    */ {
+/*  7 */   private static uu[] bk = { uu.x, uu.ak, uu.al, uu.u, uu.R, uu.ap, uu.I, uu.aj, uu.J, uu.ai, uu.H, uu.ax, uu.ay, uu.aU, uu.bc, uu.O, uu.P };
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   protected au(int paramInt, bu parambu)
+/*    */   {
+/* 14 */     super(paramInt, 2, parambu, bk);
+/*    */   }
+/*    */   
+/*    */   public boolean a(uu paramuu) {
+/* 18 */     if (paramuu == uu.aq) return this.a.d() == 3;
+/* 19 */     if ((paramuu == uu.ay) || (paramuu == uu.ax)) return this.a.d() >= 2;
+/* 20 */     if ((paramuu == uu.ai) || (paramuu == uu.H)) return this.a.d() >= 2;
+/* 21 */     if ((paramuu == uu.aj) || (paramuu == uu.I)) return this.a.d() >= 1;
+/* 22 */     if ((paramuu == uu.P) || (paramuu == uu.O)) return this.a.d() >= 1;
+/* 23 */     if ((paramuu == uu.aO) || (paramuu == uu.aP)) return this.a.d() >= 2;
+/* 24 */     if (paramuu.bA == ln.e) return true;
+/* 25 */     if (paramuu.bA == ln.f) return true;
+/* 26 */     return false;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\au.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

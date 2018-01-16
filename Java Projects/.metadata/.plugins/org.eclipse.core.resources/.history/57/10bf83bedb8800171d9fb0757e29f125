@@ -1,0 +1,74 @@
+/*    */ import java.io.DataInputStream;
+/*    */ import java.io.DataOutputStream;
+/*    */ 
+/*    */ 
+/*    */ public class qs
+/*    */   extends ki
+/*    */ {
+/*    */   public int a;
+/*    */   public int b;
+/*    */   public int c;
+/*    */   public short d;
+/*    */   public iz e;
+/*    */   public boolean f;
+/*    */   
+/*    */   public qs() {}
+/*    */   
+/*    */   public qs(int paramInt1, int paramInt2, int paramInt3, boolean paramBoolean, iz paramiz, short paramShort)
+/*    */   {
+/* 19 */     this.a = paramInt1;
+/* 20 */     this.b = paramInt2;
+/* 21 */     this.c = paramInt3;
+/* 22 */     this.e = paramiz;
+/* 23 */     this.d = paramShort;
+/* 24 */     this.f = paramBoolean;
+/*    */   }
+/*    */   
+/*    */   public void a(ti paramti) {
+/* 28 */     paramti.a(this);
+/*    */   }
+/*    */   
+/*    */   public void a(DataInputStream paramDataInputStream) {
+/* 32 */     this.a = paramDataInputStream.readByte();
+/* 33 */     this.b = paramDataInputStream.readShort();
+/* 34 */     this.c = paramDataInputStream.readByte();
+/* 35 */     this.d = paramDataInputStream.readShort();
+/* 36 */     this.f = paramDataInputStream.readBoolean();
+/*    */     
+/* 38 */     int i = paramDataInputStream.readShort();
+/* 39 */     if (i >= 0) {
+/* 40 */       int j = paramDataInputStream.readByte();
+/* 41 */       int k = paramDataInputStream.readShort();
+/*    */       
+/* 43 */       this.e = new iz(i, j, k);
+/*    */     } else {
+/* 45 */       this.e = null;
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public void a(DataOutputStream paramDataOutputStream) {
+/* 50 */     paramDataOutputStream.writeByte(this.a);
+/* 51 */     paramDataOutputStream.writeShort(this.b);
+/* 52 */     paramDataOutputStream.writeByte(this.c);
+/* 53 */     paramDataOutputStream.writeShort(this.d);
+/* 54 */     paramDataOutputStream.writeBoolean(this.f);
+/*    */     
+/* 56 */     if (this.e == null) {
+/* 57 */       paramDataOutputStream.writeShort(-1);
+/*    */     } else {
+/* 59 */       paramDataOutputStream.writeShort(this.e.c);
+/* 60 */       paramDataOutputStream.writeByte(this.e.a);
+/* 61 */       paramDataOutputStream.writeShort(this.e.i());
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public int a() {
+/* 66 */     return 11;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\qs.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,268 @@
+/*     */ import java.util.ArrayList;
+/*     */ import java.util.HashSet;
+/*     */ import java.util.List;
+/*     */ import java.util.Set;
+/*     */ import org.lwjgl.opengl.GL11;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class dk
+/*     */ {
+/*     */   public fd a;
+/*  32 */   private int C = -1;
+/*     */   
+/*  34 */   private static nw D = nw.a;
+/*     */   
+/*  36 */   public static int b = 0;
+/*     */   public int c;
+/*     */   public int d;
+/*     */   public int e;
+/*     */   public int f;
+/*     */   public int g;
+/*     */   public int h;
+/*  43 */   public int i; public int j; public int k; public int l; public int m; public int n; public boolean o = false;
+/*  44 */   public boolean[] p = new boolean[2];
+/*     */   public int q;
+/*     */   public int r;
+/*     */   public int s;
+/*     */   public float t;
+/*     */   public boolean u;
+/*     */   public eq v;
+/*  51 */   public int w; public boolean x = true;
+/*     */   public boolean y;
+/*     */   public int z;
+/*     */   public boolean A;
+/*  55 */   private boolean E = false;
+/*  56 */   public List B = new ArrayList();
+/*     */   private List F;
+/*     */   
+/*     */   public dk(fd paramfd, List paramList, int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5)
+/*     */   {
+/*  61 */     this.a = paramfd;
+/*  62 */     this.F = paramList;
+/*     */     
+/*  64 */     this.f = (this.g = this.h = paramInt4);
+/*  65 */     this.t = (in.c(this.f * this.f + this.g * this.g + this.h * this.h) / 2.0F);
+/*  66 */     this.C = paramInt5;
+/*     */     
+/*  68 */     this.c = 64537;
+/*  69 */     a(paramInt1, paramInt2, paramInt3);
+/*     */     
+/*  71 */     this.u = false;
+/*     */   }
+/*     */   
+/*     */   public void a(int paramInt1, int paramInt2, int paramInt3) {
+/*  75 */     if ((paramInt1 == this.c) && (paramInt2 == this.d) && (paramInt3 == this.e)) { return;
+/*     */     }
+/*  77 */     b();
+/*  78 */     this.c = paramInt1;
+/*  79 */     this.d = paramInt2;
+/*  80 */     this.e = paramInt3;
+/*  81 */     this.q = (paramInt1 + this.f / 2);
+/*  82 */     this.r = (paramInt2 + this.g / 2);
+/*  83 */     this.s = (paramInt3 + this.h / 2);
+/*     */     
+/*  85 */     this.l = (paramInt1 & 0x3FF);
+/*  86 */     this.m = paramInt2;
+/*  87 */     this.n = (paramInt3 & 0x3FF);
+/*  88 */     this.i = (paramInt1 - this.l);
+/*  89 */     this.j = (paramInt2 - this.m);
+/*  90 */     this.k = (paramInt3 - this.n);
+/*     */     
+/*  92 */     float f1 = 6.0F;
+/*  93 */     this.v = eq.a(paramInt1 - f1, paramInt2 - f1, paramInt3 - f1, paramInt1 + this.f + f1, paramInt2 + this.g + f1, paramInt3 + this.h + f1);
+/*     */     
+/*  95 */     GL11.glNewList(this.C + 2, 4864);
+/*  96 */     bb.a(eq.b(this.l - f1, this.m - f1, this.n - f1, this.l + this.f + f1, this.m + this.g + f1, this.n + this.h + f1));
+/*  97 */     GL11.glEndList();
+/*  98 */     f();
+/*     */   }
+/*     */   
+/*     */   private void g() {
+/* 102 */     GL11.glTranslatef(this.l, this.m, this.n);
+/*     */   }
+/*     */   
+/*     */   public void a() {
+/* 106 */     if (!this.u) return;
+/* 107 */     b += 1;
+/*     */     
+/* 109 */     int i1 = this.c;
+/* 110 */     int i2 = this.d;
+/* 111 */     int i3 = this.e;
+/* 112 */     int i4 = this.c + this.f;
+/* 113 */     int i5 = this.d + this.g;
+/* 114 */     int i6 = this.e + this.h;
+/* 115 */     for (int i7 = 0; i7 < 2; i7++) {
+/* 116 */       this.p[i7] = true;
+/*     */     }
+/*     */     
+/* 119 */     lm.a = false;
+/*     */     
+/* 121 */     HashSet localHashSet1 = new HashSet();
+/* 122 */     localHashSet1.addAll(this.B);
+/* 123 */     this.B.clear();
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/* 128 */     int i8 = 1;
+/* 129 */     ew localew = new ew(this.a, i1 - i8, i2 - i8, i3 - i8, i4 + i8, i5 + i8, i6 + i8);
+/* 130 */     cv localcv = new cv(localew);
+/*     */     
+/* 132 */     for (int i9 = 0; i9 < 2; i9++) {
+/* 133 */       int i10 = 0;
+/* 134 */       boolean bool = false;
+/*     */       
+/* 136 */       int i11 = 0;
+/*     */       
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 143 */       for (int i12 = i2; i12 < i5; i12++) {
+/* 144 */         for (int i13 = i3; i13 < i6; i13++) {
+/* 145 */           for (int i14 = i1; i14 < i4; i14++) {
+/* 146 */             int i15 = localew.a(i14, i12, i13);
+/* 147 */             if (i15 > 0) {
+/* 148 */               if (i11 == 0) {
+/* 149 */                 i11 = 1;
+/*     */                 
+/* 151 */                 GL11.glNewList(this.C + i9, 4864);
+/* 152 */                 GL11.glPushMatrix();
+/* 153 */                 g();
+/* 154 */                 float f1 = 1.000001F;
+/* 155 */                 GL11.glTranslatef(-this.h / 2.0F, -this.g / 2.0F, -this.h / 2.0F);
+/* 156 */                 GL11.glScalef(f1, f1, f1);
+/* 157 */                 GL11.glTranslatef(this.h / 2.0F, this.g / 2.0F, this.h / 2.0F);
+/* 158 */                 D.b();
+/* 159 */                 D.b(-this.c, -this.d, -this.e);
+/*     */               }
+/*     */               
+/* 162 */               if ((i9 == 0) && (uu.p[i15] != 0)) {
+/* 163 */                 localObject = localew.b(i14, i12, i13);
+/* 164 */                 if (ll.a.a((ow)localObject)) {
+/* 165 */                   this.B.add(localObject);
+/*     */                 }
+/*     */               }
+/* 168 */               Object localObject = uu.m[i15];
+/* 169 */               int i16 = ((uu)localObject).b_();
+/* 170 */               if (i16 != i9) {
+/* 171 */                 i10 = 1;
+/* 172 */               } else if (i16 == i9) {
+/* 173 */                 bool |= localcv.b((uu)localObject, i14, i12, i13);
+/*     */               }
+/*     */             }
+/*     */           }
+/*     */         }
+/*     */       }
+/* 179 */       if (i11 != 0) {
+/* 180 */         D.a();
+/* 181 */         GL11.glPopMatrix();
+/* 182 */         GL11.glEndList();
+/* 183 */         D.b(0.0D, 0.0D, 0.0D);
+/*     */       } else {
+/* 185 */         bool = false;
+/*     */       }
+/* 187 */       if (bool) this.p[i9] = false;
+/* 188 */       if (i10 == 0) {
+/*     */         break;
+/*     */       }
+/*     */     }
+/*     */     
+/*     */ 
+/* 194 */     HashSet localHashSet2 = new HashSet();
+/* 195 */     localHashSet2.addAll(this.B);
+/* 196 */     localHashSet2.removeAll(localHashSet1);
+/* 197 */     this.F.addAll(localHashSet2);
+/*     */     
+/* 199 */     localHashSet1.removeAll(this.B);
+/* 200 */     this.F.removeAll(localHashSet1);
+/*     */     
+/* 202 */     this.A = lm.a;
+/* 203 */     this.E = true;
+/*     */   }
+/*     */   
+/*     */   public float a(sn paramsn)
+/*     */   {
+/* 208 */     float f1 = (float)(paramsn.aM - this.q);
+/* 209 */     float f2 = (float)(paramsn.aN - this.r);
+/* 210 */     float f3 = (float)(paramsn.aO - this.s);
+/* 211 */     return f1 * f1 + f2 * f2 + f3 * f3;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void b()
+/*     */   {
+/* 222 */     for (int i1 = 0; i1 < 2; i1++) {
+/* 223 */       this.p[i1] = true;
+/*     */     }
+/* 225 */     this.o = false;
+/* 226 */     this.E = false;
+/*     */   }
+/*     */   
+/*     */   public void c() {
+/* 230 */     b();
+/* 231 */     this.a = null;
+/*     */   }
+/*     */   
+/*     */   public int a(int paramInt) {
+/* 235 */     if (!this.o) return -1;
+/* 236 */     if (this.p[paramInt] == 0) return this.C + paramInt;
+/* 237 */     return -1;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void a(yn paramyn)
+/*     */   {
+/* 247 */     this.o = paramyn.a(this.v);
+/*     */   }
+/*     */   
+/*     */   public void d() {
+/* 251 */     GL11.glCallList(this.C + 2);
+/*     */   }
+/*     */   
+/*     */   public boolean e() {
+/* 255 */     if (!this.E) return false;
+/* 256 */     return (this.p[0] != 0) && (this.p[1] != 0);
+/*     */   }
+/*     */   
+/*     */   public void f() {
+/* 260 */     this.u = true;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\dk.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

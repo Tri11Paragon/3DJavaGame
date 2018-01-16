@@ -1,0 +1,162 @@
+/*     */ import java.io.DataInputStream;
+/*     */ import java.io.DataOutput;
+/*     */ import java.io.DataOutputStream;
+/*     */ import java.io.File;
+/*     */ import java.io.FileInputStream;
+/*     */ import java.io.FileOutputStream;
+/*     */ import java.lang.reflect.Constructor;
+/*     */ import java.util.ArrayList;
+/*     */ import java.util.HashMap;
+/*     */ import java.util.Iterator;
+/*     */ import java.util.List;
+/*     */ import java.util.Map;
+/*     */ import java.util.Set;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class hc
+/*     */ {
+/*     */   private wt a;
+/*  23 */   private Map b = new HashMap();
+/*  24 */   private List c = new ArrayList();
+/*  25 */   private Map d = new HashMap();
+/*     */   
+/*     */   public hc(wt paramwt) {
+/*  28 */     this.a = paramwt;
+/*  29 */     b();
+/*     */   }
+/*     */   
+/*     */   public hm a(Class paramClass, String paramString) {
+/*  33 */     hm localhm = (hm)this.b.get(paramString);
+/*  34 */     if (localhm != null) { return localhm;
+/*     */     }
+/*  36 */     if (this.a != null) {
+/*     */       try {
+/*  38 */         File localFile = this.a.a(paramString);
+/*  39 */         if ((localFile != null) && (localFile.exists())) {
+/*     */           try {
+/*  41 */             localhm = (hm)paramClass.getConstructor(new Class[] { String.class }).newInstance(new Object[] { paramString });
+/*     */           } catch (Exception localException2) {
+/*  43 */             throw new RuntimeException("Failed to instantiate " + paramClass.toString(), localException2);
+/*     */           }
+/*     */           
+/*  46 */           FileInputStream localFileInputStream = new FileInputStream(localFile);
+/*  47 */           nu localnu = as.a(localFileInputStream);
+/*  48 */           localFileInputStream.close();
+/*     */           
+/*  50 */           localhm.a(localnu.k("data"));
+/*     */         }
+/*     */       } catch (Exception localException1) {
+/*  53 */         localException1.printStackTrace();
+/*     */       }
+/*     */     }
+/*     */     
+/*  57 */     if (localhm != null) {
+/*  58 */       this.b.put(paramString, localhm);
+/*  59 */       this.c.add(localhm);
+/*     */     }
+/*  61 */     return localhm;
+/*     */   }
+/*     */   
+/*     */   public void a(String paramString, hm paramhm) {
+/*  65 */     if (paramhm == null) throw new RuntimeException("Can't set null data");
+/*  66 */     if (this.b.containsKey(paramString)) {
+/*  67 */       this.c.remove(this.b.remove(paramString));
+/*     */     }
+/*  69 */     this.b.put(paramString, paramhm);
+/*  70 */     this.c.add(paramhm);
+/*     */   }
+/*     */   
+/*     */   public void a() {
+/*  74 */     for (int i = 0; i < this.c.size(); i++) {
+/*  75 */       hm localhm = (hm)this.c.get(i);
+/*  76 */       if (localhm.b()) {
+/*  77 */         a(localhm);
+/*  78 */         localhm.a(false);
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   private void a(hm paramhm) {
+/*  84 */     if (this.a == null) return;
+/*     */     try {
+/*  86 */       File localFile = this.a.a(paramhm.a);
+/*  87 */       if (localFile != null) {
+/*  88 */         nu localnu1 = new nu();
+/*  89 */         paramhm.b(localnu1);
+/*     */         
+/*  91 */         nu localnu2 = new nu();
+/*  92 */         localnu2.a("data", localnu1);
+/*     */         
+/*  94 */         FileOutputStream localFileOutputStream = new FileOutputStream(localFile);
+/*  95 */         as.a(localnu2, localFileOutputStream);
+/*  96 */         localFileOutputStream.close();
+/*     */       }
+/*     */     } catch (Exception localException) {
+/*  99 */       localException.printStackTrace();
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   private void b() {
+/*     */     try {
+/* 105 */       this.d.clear();
+/* 106 */       if (this.a == null) return;
+/* 107 */       File localFile = this.a.a("idcounts");
+/* 108 */       if ((localFile != null) && (localFile.exists())) {
+/* 109 */         DataInputStream localDataInputStream = new DataInputStream(new FileInputStream(localFile));
+/* 110 */         nu localnu = as.a(localDataInputStream);
+/* 111 */         localDataInputStream.close();
+/*     */         
+/* 113 */         for (ij localij : localnu.c()) {
+/* 114 */           if ((localij instanceof ul)) {
+/* 115 */             ul localul = (ul)localij;
+/* 116 */             String str = localul.b();
+/* 117 */             short s = localul.a;
+/* 118 */             this.d.put(str, Short.valueOf(s));
+/*     */           }
+/*     */         }
+/*     */       }
+/*     */     } catch (Exception localException) {
+/* 123 */       localException.printStackTrace();
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public int a(String paramString) {
+/* 128 */     Short localShort = (Short)this.d.get(paramString);
+/* 129 */     Object localObject1; Object localObject2; if (localShort == null) {
+/* 130 */       localShort = Short.valueOf((short)0);
+/*     */     } else {
+/* 132 */       localObject1 = localShort;localObject2 = localShort = Short.valueOf((short)(localShort.shortValue() + 1));
+/*     */     }
+/*     */     
+/* 135 */     this.d.put(paramString, localShort);
+/* 136 */     if (this.a == null) return localShort.shortValue();
+/*     */     try {
+/* 138 */       localObject1 = this.a.a("idcounts");
+/* 139 */       if (localObject1 != null) {
+/* 140 */         localObject2 = new nu();
+/*     */         
+/* 142 */         for (Object localObject3 = this.d.keySet().iterator(); ((Iterator)localObject3).hasNext();) { String str = (String)((Iterator)localObject3).next();
+/* 143 */           short s = ((Short)this.d.get(str)).shortValue();
+/* 144 */           ((nu)localObject2).a(str, s);
+/*     */         }
+/*     */         
+/* 147 */         localObject3 = new DataOutputStream(new FileOutputStream((File)localObject1));
+/* 148 */         as.a((nu)localObject2, (DataOutput)localObject3);
+/* 149 */         ((DataOutputStream)localObject3).close();
+/*     */       }
+/*     */     } catch (Exception localException) {
+/* 152 */       localException.printStackTrace();
+/*     */     }
+/* 154 */     return localShort.shortValue();
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\hc.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

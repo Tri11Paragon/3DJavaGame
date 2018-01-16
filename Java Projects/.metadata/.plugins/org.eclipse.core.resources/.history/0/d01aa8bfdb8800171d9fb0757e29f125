@@ -1,0 +1,248 @@
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class wr
+/*     */   extends cp
+/*     */ {
+/*     */   protected wr(int paramInt)
+/*     */   {
+/*  19 */     super(paramInt);
+/*  20 */     d(1);
+/*     */   }
+/*     */   
+/*     */   public static iu a(short paramShort, fd paramfd) {
+/*  24 */     String str = "map_" + paramShort;
+/*  25 */     iu localiu = (iu)paramfd.a(iu.class, "map_" + paramShort);
+/*     */     
+/*  27 */     if (localiu == null) {
+/*  28 */       int i = paramfd.b("map");
+/*  29 */       str = "map_" + i;
+/*  30 */       localiu = new iu(str);
+/*     */       
+/*  32 */       paramfd.a(str, localiu);
+/*     */     }
+/*     */     
+/*  35 */     return localiu;
+/*     */   }
+/*     */   
+/*     */   public iu a(iz paramiz, fd paramfd) {
+/*  39 */     String str = "map_" + paramiz.i();
+/*  40 */     iu localiu = (iu)paramfd.a(iu.class, "map_" + paramiz.i());
+/*     */     
+/*  42 */     if (localiu == null) {
+/*  43 */       paramiz.b(paramfd.b("map"));
+/*  44 */       str = "map_" + paramiz.i();
+/*  45 */       localiu = new iu(str);
+/*     */       
+/*  47 */       localiu.b = paramfd.x().c();
+/*  48 */       localiu.c = paramfd.x().e();
+/*  49 */       localiu.e = 3;
+/*  50 */       localiu.d = ((byte)paramfd.t.g);
+/*     */       
+/*  52 */       localiu.a();
+/*     */       
+/*  54 */       paramfd.a(str, localiu);
+/*     */     }
+/*     */     
+/*  57 */     return localiu;
+/*     */   }
+/*     */   
+/*     */   public void a(fd paramfd, sn paramsn, iu paramiu) {
+/*  61 */     if (paramfd.t.g != paramiu.d)
+/*     */     {
+/*  63 */       return;
+/*     */     }
+/*     */     
+/*  66 */     int i = 128;
+/*  67 */     int j = 128;
+/*     */     
+/*  69 */     int k = 1 << paramiu.e;
+/*     */     
+/*  71 */     int m = paramiu.b;
+/*  72 */     int n = paramiu.c;
+/*     */     
+/*  74 */     int i1 = in.b(paramsn.aM - m) / k + i / 2;
+/*  75 */     int i2 = in.b(paramsn.aO - n) / k + j / 2;
+/*     */     
+/*  77 */     int i3 = 128 / k;
+/*  78 */     if (paramfd.t.e) {
+/*  79 */       i3 /= 2;
+/*     */     }
+/*  81 */     paramiu.g += 1;
+/*     */     
+/*  83 */     for (int i4 = i1 - i3 + 1; i4 < i1 + i3; i4++) {
+/*  84 */       if ((i4 & 0xF) == (paramiu.g & 0xF))
+/*     */       {
+/*  86 */         int i5 = 255;
+/*  87 */         int i6 = 0;
+/*     */         
+/*  89 */         double d1 = 0.0D;
+/*  90 */         for (int i7 = i2 - i3 - 1; i7 < i2 + i3; i7++)
+/*  91 */           if ((i4 >= 0) && (i7 >= -1) && (i4 < i) && (i7 < j))
+/*     */           {
+/*  93 */             int i8 = i4 - i1;
+/*  94 */             int i9 = i7 - i2;
+/*     */             
+/*  96 */             int i10 = i8 * i8 + i9 * i9 > (i3 - 2) * (i3 - 2) ? 1 : 0;
+/*     */             
+/*  98 */             int i11 = (m / k + i4 - i / 2) * k;
+/*  99 */             int i12 = (n / k + i7 - j / 2) * k;
+/*     */             
+/* 101 */             int i13 = 0;
+/* 102 */             int i14 = 0;
+/* 103 */             int i15 = 0;
+/*     */             
+/*     */ 
+/* 106 */             int[] arrayOfInt = new int['Ā'];
+/*     */             
+/* 108 */             lm locallm = paramfd.b(i11, i12);
+/* 109 */             int i16 = i11 & 0xF;
+/* 110 */             int i17 = i12 & 0xF;
+/* 111 */             int i18 = 0;
+/*     */             
+/* 113 */             double d2 = 0.0D;
+/* 114 */             if (paramfd.t.e) {
+/* 115 */               i19 = i11 + i12 * 231871;
+/* 116 */               i19 = i19 * i19 * 31287121 + i19 * 11;
+/* 117 */               if ((i19 >> 20 & 0x1) == 0) arrayOfInt[uu.w.bn] += 10; else
+/* 118 */                 arrayOfInt[uu.u.bn] += 10;
+/* 119 */               d2 = 100.0D;
+/*     */             } else {
+/* 121 */               for (i19 = 0; i19 < k; i19++) {
+/* 122 */                 for (i20 = 0; i20 < k; i20++) {
+/* 123 */                   i21 = locallm.b(i19 + i16, i20 + i17) + 1;
+/* 124 */                   int i22 = 0;
+/* 125 */                   if (i21 > 1) {
+/* 126 */                     i23 = 0;
+/*     */                     do {
+/* 128 */                       i23 = 1;
+/* 129 */                       i22 = locallm.a(i19 + i16, i21 - 1, i20 + i17);
+/* 130 */                       if (i22 == 0) { i23 = 0;
+/* 131 */                       } else if ((i21 > 0) && (i22 > 0) && (uu.m[i22].bA.C == dx.b)) {
+/* 132 */                         i23 = 0;
+/*     */                       }
+/*     */                       
+/* 135 */                       if (i23 == 0) {
+/* 136 */                         i21--;
+/* 137 */                         i22 = locallm.a(i19 + i16, i21 - 1, i20 + i17);
+/*     */                       }
+/*     */                       
+/* 140 */                     } while (i23 == 0);
+/*     */                     
+/* 142 */                     if ((i22 != 0) && (uu.m[i22].bA.d())) {
+/* 143 */                       i24 = i21 - 1;
+/* 144 */                       int i25 = 0;
+/*     */                       do {
+/* 146 */                         i25 = locallm.a(i19 + i16, i24--, i20 + i17);
+/* 147 */                         i18++;
+/* 148 */                       } while ((i24 > 0) && (i25 != 0) && (uu.m[i25].bA.d()));
+/*     */                     }
+/*     */                   }
+/*     */                   
+/*     */ 
+/*     */ 
+/*     */ 
+/* 155 */                   d2 += i21 / (k * k);
+/*     */                   
+/* 157 */                   arrayOfInt[i22] += 1;
+/*     */                 }
+/*     */               }
+/*     */             }
+/* 161 */             i18 /= k * k;
+/* 162 */             i13 /= k * k;
+/* 163 */             i14 /= k * k;
+/* 164 */             i15 /= k * k;
+/*     */             
+/* 166 */             int i19 = 0;
+/* 167 */             int i20 = 0;
+/* 168 */             for (int i21 = 0; i21 < 256; i21++) {
+/* 169 */               if (arrayOfInt[i21] > i19) {
+/* 170 */                 i20 = i21;
+/* 171 */                 i19 = arrayOfInt[i21];
+/*     */               }
+/*     */             }
+/*     */             
+/* 175 */             double d3 = (d2 - d1) * 4.0D / (k + 4) + ((i4 + i7 & 0x1) - 0.5D) * 0.4D;
+/* 176 */             int i23 = 1;
+/* 177 */             if (d3 > 0.6D) i23 = 2;
+/* 178 */             if (d3 < -0.6D) { i23 = 0;
+/*     */             }
+/* 180 */             int i24 = 0;
+/* 181 */             if (i20 > 0) {
+/* 182 */               dx localdx = uu.m[i20].bA.C;
+/* 183 */               if (localdx == dx.n) {
+/* 184 */                 d3 = i18 * 0.1D + (i4 + i7 & 0x1) * 0.2D;
+/* 185 */                 i23 = 1;
+/* 186 */                 if (d3 < 0.5D) i23 = 2;
+/* 187 */                 if (d3 > 0.9D) i23 = 0;
+/*     */               }
+/* 189 */               i24 = localdx.q;
+/*     */             }
+/*     */             
+/* 192 */             d1 = d2;
+/*     */             
+/* 194 */             if ((i7 >= 0) && 
+/* 195 */               (i8 * i8 + i9 * i9 < i3 * i3) && (
+/* 196 */               (i10 == 0) || ((i4 + i7 & 0x1) != 0)))
+/*     */             {
+/*     */ 
+/* 199 */               int i26 = paramiu.f[(i4 + i7 * i)];
+/* 200 */               int i27 = (byte)(i24 * 4 + i23);
+/* 201 */               if (i26 != i27) {
+/* 202 */                 if (i5 > i7) i5 = i7;
+/* 203 */                 if (i6 < i7) i6 = i7;
+/* 204 */                 paramiu.f[(i4 + i7 * i)] = i27;
+/*     */               }
+/*     */             } }
+/* 207 */         if (i5 <= i6)
+/* 208 */           paramiu.a(i4, i5, i6);
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(iz paramiz, fd paramfd, sn paramsn, int paramInt, boolean paramBoolean) {
+/* 214 */     if (paramfd.B) { return;
+/*     */     }
+/* 216 */     iu localiu = a(paramiz, paramfd);
+/* 217 */     if ((paramsn instanceof gs)) {
+/* 218 */       gs localgs = (gs)paramsn;
+/* 219 */       localiu.a(localgs, paramiz);
+/*     */     }
+/*     */     
+/* 222 */     if (paramBoolean) {
+/* 223 */       a(paramfd, paramsn, localiu);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   public void b(iz paramiz, fd paramfd, gs paramgs)
+/*     */   {
+/* 230 */     paramiz.b(paramfd.b("map"));
+/* 231 */     String str = "map_" + paramiz.i();
+/* 232 */     iu localiu = new iu(str);
+/* 233 */     paramfd.a(str, localiu);
+/*     */     
+/* 235 */     localiu.b = in.b(paramgs.aM);
+/* 236 */     localiu.c = in.b(paramgs.aO);
+/* 237 */     localiu.e = 3;
+/* 238 */     localiu.d = ((byte)paramfd.t.g);
+/*     */     
+/* 240 */     localiu.a();
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\wr.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

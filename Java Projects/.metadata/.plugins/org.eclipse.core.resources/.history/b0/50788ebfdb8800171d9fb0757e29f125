@@ -1,0 +1,16 @@
+/*   */ 
+/*   */ 
+/*   */ public class hw
+/*   */ {
+/* 5 */   private static int[] a = new int[65536];
+/*   */   
+/*   */   public static void a(int[] paramArrayOfInt) {
+/* 8 */     a = paramArrayOfInt;
+/*   */   }
+/*   */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\hw.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

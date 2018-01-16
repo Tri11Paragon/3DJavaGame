@@ -1,0 +1,75 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public enum ht
+/*    */ {
+/*    */   private final boolean n;
+/*    */   private final boolean o;
+/*    */   private final String p;
+/*    */   
+/*    */   public static ht a(int paramInt)
+/*    */   {
+/* 40 */     for (ht localht : ) {
+/* 41 */       if (localht.c() == paramInt) {
+/* 42 */         return localht;
+/*    */       }
+/*    */     }
+/* 45 */     return null;
+/*    */   }
+/*    */   
+/*    */   private ht(String paramString1, boolean paramBoolean1, boolean paramBoolean2) {
+/* 49 */     this.p = paramString1;
+/* 50 */     this.n = paramBoolean1;
+/* 51 */     this.o = paramBoolean2;
+/*    */   }
+/*    */   
+/*    */   public boolean a() {
+/* 55 */     return this.n;
+/*    */   }
+/*    */   
+/*    */   public boolean b() {
+/* 59 */     return this.o;
+/*    */   }
+/*    */   
+/*    */   public int c() {
+/* 63 */     return ordinal();
+/*    */   }
+/*    */   
+/*    */   public String d() {
+/* 67 */     return this.p;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ht.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,17 @@
+/*   */ import org.lwjgl.opengl.ContextCapabilities;
+/*   */ import org.lwjgl.opengl.GLContext;
+/*   */ 
+/*   */ public class cx
+/*   */ {
+/* 6 */   private static boolean a = true;
+/*   */   
+/*   */   public boolean a() {
+/* 9 */     return (a) && (GLContext.getCapabilities().GL_ARB_occlusion_query);
+/*   */   }
+/*   */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\cx.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

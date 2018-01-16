@@ -1,0 +1,68 @@
+/*    */ import org.lwjgl.opengl.GL11;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class gl
+/*    */   extends xw
+/*    */ {
+/* 10 */   private int a = 0;
+/* 11 */   private int o = 0;
+/*    */   private ji p;
+/*    */   
+/*    */   public gl(ji paramji, fd paramfd, double paramDouble1, double paramDouble2, double paramDouble3) {
+/* 15 */     super(paramfd, paramDouble1, paramDouble2, paramDouble3, 0.0D, 0.0D, 0.0D);
+/* 16 */     this.p = paramji;
+/* 17 */     this.aP = (this.aQ = this.aR = 0.0D);
+/* 18 */     this.o = 200;
+/*    */   }
+/*    */   
+/*    */   public void a(nw paramnw, float paramFloat1, float paramFloat2, float paramFloat3, float paramFloat4, float paramFloat5, float paramFloat6) {
+/* 22 */     float f1 = (this.a + paramFloat1) / this.o;
+/* 23 */     f1 *= f1;
+/*    */     
+/* 25 */     float f2 = 2.0F - f1 * 2.0F;
+/* 26 */     if (f2 > 1.0F) f2 = 1.0F;
+/* 27 */     f2 *= 0.2F;
+/*    */     
+/* 29 */     GL11.glDisable(2896);
+/* 30 */     float f3 = 0.125F;
+/*    */     
+/* 32 */     float f4 = (float)(this.aM - l);
+/* 33 */     float f5 = (float)(this.aN - m);
+/* 34 */     float f6 = (float)(this.aO - n);
+/*    */     
+/* 36 */     float f7 = this.aI.c(in.b(this.aM), in.b(this.aN), in.b(this.aO));
+/*    */     
+/* 38 */     this.p.b(this.p.b("/misc/footprint.png"));
+/* 39 */     GL11.glEnable(3042);
+/* 40 */     GL11.glBlendFunc(770, 771);
+/*    */     
+/* 42 */     paramnw.b();
+/* 43 */     paramnw.a(f7, f7, f7, f2);
+/* 44 */     paramnw.a(f4 - f3, f5, f6 + f3, 0.0D, 1.0D);
+/* 45 */     paramnw.a(f4 + f3, f5, f6 + f3, 1.0D, 1.0D);
+/* 46 */     paramnw.a(f4 + f3, f5, f6 - f3, 1.0D, 0.0D);
+/* 47 */     paramnw.a(f4 - f3, f5, f6 - f3, 0.0D, 0.0D);
+/* 48 */     paramnw.a();
+/*    */     
+/* 50 */     GL11.glDisable(3042);
+/* 51 */     GL11.glEnable(2896);
+/*    */   }
+/*    */   
+/*    */   public void w_() {
+/* 55 */     this.a += 1;
+/* 56 */     if (this.a == this.o) K();
+/*    */   }
+/*    */   
+/*    */   public int c_() {
+/* 60 */     return 3;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\gl.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,69 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class vg
+/*    */   extends uu
+/*    */ {
+/*    */   protected vg(int paramInt)
+/*    */   {
+/* 15 */     super(paramInt, ln.d);
+/* 16 */     this.bm = 20;
+/*    */   }
+/*    */   
+/*    */   public int a(Random paramRandom) {
+/* 20 */     return 1;
+/*    */   }
+/*    */   
+/*    */   public int a(int paramInt, Random paramRandom) {
+/* 24 */     return uu.K.bn;
+/*    */   }
+/*    */   
+/*    */   public void a(fd paramfd, gs paramgs, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/* 28 */     super.a(paramfd, paramgs, paramInt1, paramInt2, paramInt3, paramInt4);
+/*    */   }
+/*    */   
+/*    */   public void b(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/* 32 */     int i = 4;
+/* 33 */     int j = i + 1;
+/*    */     
+/* 35 */     if (paramfd.a(paramInt1 - j, paramInt2 - j, paramInt3 - j, paramInt1 + j, paramInt2 + j, paramInt3 + j)) {
+/* 36 */       for (int k = -i; k <= i; k++) {
+/* 37 */         for (int m = -i; m <= i; m++) {
+/* 38 */           for (int n = -i; n <= i; n++) {
+/* 39 */             int i1 = paramfd.a(paramInt1 + k, paramInt2 + m, paramInt3 + n);
+/* 40 */             if (i1 == uu.L.bn) {
+/* 41 */               int i2 = paramfd.e(paramInt1 + k, paramInt2 + m, paramInt3 + n);
+/* 42 */               if ((i2 & 0x8) == 0)
+/* 43 */                 paramfd.e(paramInt1 + k, paramInt2 + m, paramInt3 + n, i2 | 0x8);
+/*    */             }
+/*    */           }
+/*    */         }
+/*    */       }
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public int a(int paramInt1, int paramInt2) {
+/* 52 */     if (paramInt1 == 1) return 21;
+/* 53 */     if (paramInt1 == 0) return 21;
+/* 54 */     if (paramInt2 == 1) return 116;
+/* 55 */     if (paramInt2 == 2) return 117;
+/* 56 */     return 20;
+/*    */   }
+/*    */   
+/*    */   protected int b_(int paramInt)
+/*    */   {
+/* 61 */     return paramInt;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\vg.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

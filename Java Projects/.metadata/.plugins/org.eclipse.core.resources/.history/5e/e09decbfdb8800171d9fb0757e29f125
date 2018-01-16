@@ -1,0 +1,42 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ public class cs
+/*    */   extends gm
+/*    */ {
+/*    */   public cs(int paramInt)
+/*    */   {
+/*  9 */     super(paramInt);
+/* 10 */     e(64);
+/* 11 */     d(1);
+/*    */   }
+/*    */   
+/*    */   public boolean b() {
+/* 15 */     return true;
+/*    */   }
+/*    */   
+/*    */   public boolean c() {
+/* 19 */     return true;
+/*    */   }
+/*    */   
+/*    */   public iz a(iz paramiz, fd paramfd, gs paramgs) {
+/* 23 */     if (paramgs.D != null) {
+/* 24 */       int i = paramgs.D.k();
+/* 25 */       paramiz.a(i, paramgs);
+/* 26 */       paramgs.J();
+/*    */     } else {
+/* 28 */       paramfd.a(paramgs, "random.bow", 0.5F, 0.4F / (b.nextFloat() * 0.4F + 0.8F));
+/* 29 */       if (!paramfd.B) {
+/* 30 */         paramfd.b(new lx(paramfd, paramgs));
+/*    */       }
+/* 32 */       paramgs.J();
+/*    */     }
+/* 34 */     return paramiz;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\cs.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

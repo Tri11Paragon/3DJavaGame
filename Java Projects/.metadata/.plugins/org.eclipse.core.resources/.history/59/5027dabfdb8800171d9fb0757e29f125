@@ -1,0 +1,51 @@
+/*    */ import java.util.List;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class gg
+/*    */   extends da
+/*    */ {
+/*    */   private nb a;
+/* 10 */   private int i = 0;
+/*    */   
+/*    */   public gg(nb paramnb) {
+/* 13 */     this.a = paramnb;
+/*    */   }
+/*    */   
+/*    */   protected void a(char paramChar, int paramInt) {}
+/*    */   
+/*    */   public void b()
+/*    */   {
+/* 20 */     this.e.clear();
+/*    */   }
+/*    */   
+/*    */   public void a() {
+/* 24 */     this.i += 1;
+/* 25 */     if (this.i % 20 == 0) {
+/* 26 */       this.a.b(new lz());
+/*    */     }
+/* 28 */     if (this.a != null) {
+/* 29 */       this.a.a();
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   protected void a(ke paramke) {}
+/*    */   
+/*    */   public void a(int paramInt1, int paramInt2, float paramFloat)
+/*    */   {
+/* 37 */     b(0);
+/*    */     
+/* 39 */     nh localnh = nh.a();
+/*    */     
+/* 41 */     a(this.g, localnh.a("multiplayer.downloadingTerrain"), this.c / 2, this.d / 2 - 50, 16777215);
+/*    */     
+/* 43 */     super.a(paramInt1, paramInt2, paramFloat);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\gg.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

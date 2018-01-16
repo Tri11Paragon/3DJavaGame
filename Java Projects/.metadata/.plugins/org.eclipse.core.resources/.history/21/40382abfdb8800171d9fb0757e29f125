@@ -1,0 +1,228 @@
+/*     */ import net.minecraft.client.Minecraft;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class xk
+/*     */   extends ob
+/*     */ {
+/*  17 */   private int c = -1;
+/*  18 */   private int d = -1;
+/*  19 */   private int e = -1;
+/*  20 */   private float f = 0.0F;
+/*  21 */   private float g = 0.0F;
+/*  22 */   private float h = 0.0F;
+/*  23 */   private int i = 0;
+/*  24 */   private boolean j = false;
+/*     */   private nb k;
+/*     */   
+/*     */   public xk(Minecraft paramMinecraft, nb paramnb)
+/*     */   {
+/*  29 */     super(paramMinecraft);
+/*  30 */     this.k = paramnb;
+/*     */   }
+/*     */   
+/*     */   public void a(gs paramgs) {
+/*  34 */     paramgs.aS = -180.0F;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public boolean b(int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+/*     */   {
+/*  43 */     int m = this.a.f.a(paramInt1, paramInt2, paramInt3);
+/*     */     
+/*  45 */     boolean bool = super.b(paramInt1, paramInt2, paramInt3, paramInt4);
+/*     */     
+/*  47 */     iz localiz = this.a.h.G();
+/*  48 */     if (localiz != null) {
+/*  49 */       localiz.a(m, paramInt1, paramInt2, paramInt3, this.a.h);
+/*  50 */       if (localiz.a == 0) {
+/*  51 */         localiz.a(this.a.h);
+/*  52 */         this.a.h.H();
+/*     */       }
+/*     */     }
+/*     */     
+/*  56 */     return bool;
+/*     */   }
+/*     */   
+/*     */   public void a(int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/*  60 */     if ((!this.j) || (paramInt1 != this.c) || (paramInt2 != this.d) || (paramInt3 != this.e)) {
+/*  61 */       this.k.b(new jv(0, paramInt1, paramInt2, paramInt3, paramInt4));
+/*  62 */       int m = this.a.f.a(paramInt1, paramInt2, paramInt3);
+/*  63 */       if ((m > 0) && (this.f == 0.0F)) uu.m[m].b(this.a.f, paramInt1, paramInt2, paramInt3, this.a.h);
+/*  64 */       if ((m > 0) && (uu.m[m].a(this.a.h) >= 1.0F)) {
+/*  65 */         b(paramInt1, paramInt2, paramInt3, paramInt4);
+/*     */       } else {
+/*  67 */         this.j = true;
+/*  68 */         this.c = paramInt1;
+/*  69 */         this.d = paramInt2;
+/*  70 */         this.e = paramInt3;
+/*  71 */         this.f = 0.0F;
+/*  72 */         this.g = 0.0F;
+/*  73 */         this.h = 0.0F;
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   public void a()
+/*     */   {
+/*  81 */     this.f = 0.0F;
+/*  82 */     this.j = false;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void c(int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+/*     */   {
+/*  95 */     if (!this.j) {
+/*  96 */       return;
+/*     */     }
+/*     */     
+/*  99 */     e();
+/*     */     
+/*     */ 
+/* 102 */     if (this.i > 0) {
+/* 103 */       this.i -= 1;
+/* 104 */       return;
+/*     */     }
+/*     */     
+/* 107 */     if ((paramInt1 == this.c) && (paramInt2 == this.d) && (paramInt3 == this.e)) {
+/* 108 */       int m = this.a.f.a(paramInt1, paramInt2, paramInt3);
+/* 109 */       if (m == 0) {
+/* 110 */         this.j = false;
+/* 111 */         return;
+/*     */       }
+/* 113 */       uu localuu = uu.m[m];
+/*     */       
+/* 115 */       this.f += localuu.a(this.a.h);
+/*     */       
+/* 117 */       if ((this.h % 4.0F == 0.0F) && 
+/* 118 */         (localuu != null)) {
+/* 119 */         this.a.B.b(localuu.by.d(), paramInt1 + 0.5F, paramInt2 + 0.5F, paramInt3 + 0.5F, (localuu.by.b() + 1.0F) / 8.0F, localuu.by.c() * 0.5F);
+/*     */       }
+/*     */       
+/*     */ 
+/* 123 */       this.h += 1.0F;
+/*     */       
+/* 125 */       if (this.f >= 1.0F) {
+/* 126 */         this.j = false;
+/* 127 */         this.k.b(new jv(2, paramInt1, paramInt2, paramInt3, paramInt4));
+/* 128 */         b(paramInt1, paramInt2, paramInt3, paramInt4);
+/* 129 */         this.f = 0.0F;
+/* 130 */         this.g = 0.0F;
+/* 131 */         this.h = 0.0F;
+/* 132 */         this.i = 5;
+/*     */       }
+/*     */     } else {
+/* 135 */       a(paramInt1, paramInt2, paramInt3, paramInt4);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void a(float paramFloat)
+/*     */   {
+/* 146 */     if (this.f <= 0.0F) {
+/* 147 */       this.a.v.b = 0.0F;
+/* 148 */       this.a.g.i = 0.0F;
+/*     */     } else {
+/* 150 */       float f1 = this.g + (this.f - this.g) * paramFloat;
+/* 151 */       this.a.v.b = f1;
+/* 152 */       this.a.g.i = f1;
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public float b() {
+/* 157 */     return 4.0F;
+/*     */   }
+/*     */   
+/*     */   public void a(fd paramfd) {
+/* 161 */     super.a(paramfd);
+/*     */   }
+/*     */   
+/*     */   public void c() {
+/* 165 */     e();
+/* 166 */     this.g = this.f;
+/* 167 */     this.a.B.c();
+/*     */   }
+/*     */   
+/* 170 */   private int l = 0;
+/*     */   
+/*     */   private void e() {
+/* 173 */     int m = this.a.h.c.c;
+/* 174 */     if (m != this.l) {
+/* 175 */       this.l = m;
+/* 176 */       this.k.b(new ho(this.l));
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public boolean a(gs paramgs, fd paramfd, iz paramiz, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/* 181 */     e();
+/* 182 */     this.k.b(new gx(paramInt1, paramInt2, paramInt3, paramInt4, paramgs.c.b()));
+/* 183 */     boolean bool = super.a(paramgs, paramfd, paramiz, paramInt1, paramInt2, paramInt3, paramInt4);
+/* 184 */     return bool;
+/*     */   }
+/*     */   
+/*     */   public boolean a(gs paramgs, fd paramfd, iz paramiz) {
+/* 188 */     e();
+/* 189 */     this.k.b(new gx(-1, -1, -1, 255, paramgs.c.b()));
+/* 190 */     boolean bool = super.a(paramgs, paramfd, paramiz);
+/* 191 */     return bool;
+/*     */   }
+/*     */   
+/*     */   public gs b(fd paramfd) {
+/* 195 */     return new tk(this.a, paramfd, this.a.k, this.k);
+/*     */   }
+/*     */   
+/*     */   public void b(gs paramgs, sn paramsn) {
+/* 199 */     e();
+/* 200 */     this.k.b(new a(paramgs.aD, paramsn.aD, 1));
+/* 201 */     paramgs.d(paramsn);
+/*     */   }
+/*     */   
+/*     */   public void a(gs paramgs, sn paramsn) {
+/* 205 */     e();
+/* 206 */     this.k.b(new a(paramgs.aD, paramsn.aD, 0));
+/* 207 */     paramgs.c(paramsn);
+/*     */   }
+/*     */   
+/*     */   public iz a(int paramInt1, int paramInt2, int paramInt3, boolean paramBoolean, gs paramgs) {
+/* 211 */     short s = paramgs.e.a(paramgs.c);
+/*     */     
+/* 213 */     iz localiz = super.a(paramInt1, paramInt2, paramInt3, paramBoolean, paramgs);
+/* 214 */     this.k.b(new qs(paramInt1, paramInt2, paramInt3, paramBoolean, localiz, s));
+/*     */     
+/* 216 */     return localiz;
+/*     */   }
+/*     */   
+/*     */   public void a(int paramInt, gs paramgs) {
+/* 220 */     if (paramInt == 55537) {}
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\xk.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

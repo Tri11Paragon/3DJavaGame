@@ -1,0 +1,44 @@
+/*    */ import java.awt.image.BufferedImage;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class re
+/*    */ {
+/*    */   public BufferedImage a;
+/*    */   public fd b;
+/*    */   public int c;
+/*    */   public int d;
+/* 14 */   public boolean e = false;
+/* 15 */   public boolean f = false;
+/*    */   
+/* 17 */   public int g = 0;
+/*    */   
+/* 19 */   public boolean h = false;
+/*    */   
+/*    */   public re(fd paramfd, int paramInt1, int paramInt2) {
+/* 22 */     this.b = paramfd;
+/* 23 */     a(paramInt1, paramInt2);
+/*    */   }
+/*    */   
+/*    */   public void a(int paramInt1, int paramInt2) {
+/* 27 */     this.e = false;
+/* 28 */     this.c = paramInt1;
+/* 29 */     this.d = paramInt2;
+/* 30 */     this.g = 0;
+/* 31 */     this.h = false;
+/*    */   }
+/*    */   
+/*    */   public void a(fd paramfd, int paramInt1, int paramInt2) {
+/* 35 */     this.b = paramfd;
+/* 36 */     a(paramInt1, paramInt2);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\re.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

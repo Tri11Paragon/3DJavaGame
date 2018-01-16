@@ -1,0 +1,46 @@
+/*    */ import java.io.DataInputStream;
+/*    */ import java.io.DataOutputStream;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class ts
+/*    */   extends ki
+/*    */ {
+/*    */   public int a;
+/*    */   public int b;
+/*    */   
+/*    */   public ts() {}
+/*    */   
+/*    */   public ts(sn paramsn, int paramInt)
+/*    */   {
+/* 19 */     this.a = paramsn.aD;
+/* 20 */     this.b = paramInt;
+/*    */   }
+/*    */   
+/*    */   public void a(DataInputStream paramDataInputStream) {
+/* 24 */     this.a = paramDataInputStream.readInt();
+/* 25 */     this.b = paramDataInputStream.readByte();
+/*    */   }
+/*    */   
+/*    */   public void a(DataOutputStream paramDataOutputStream) {
+/* 29 */     paramDataOutputStream.writeInt(this.a);
+/* 30 */     paramDataOutputStream.writeByte(this.b);
+/*    */   }
+/*    */   
+/*    */   public void a(ti paramti) {
+/* 34 */     paramti.a(this);
+/*    */   }
+/*    */   
+/*    */   public int a() {
+/* 38 */     return 5;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ts.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

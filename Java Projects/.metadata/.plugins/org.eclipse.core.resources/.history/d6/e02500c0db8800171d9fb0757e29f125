@@ -1,0 +1,179 @@
+/*     */ import java.util.List;
+/*     */ import java.util.Random;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class li
+/*     */   extends lm
+/*     */ {
+/*     */   public li(fd paramfd, int paramInt1, int paramInt2)
+/*     */   {
+/*  12 */     super(paramfd, paramInt1, paramInt2);
+/*  13 */     this.p = true;
+/*     */   }
+/*     */   
+/*     */   public li(fd paramfd, byte[] paramArrayOfByte, int paramInt1, int paramInt2) {
+/*  17 */     super(paramfd, paramArrayOfByte, paramInt1, paramInt2);
+/*  18 */     this.p = true;
+/*     */   }
+/*     */   
+/*     */   public boolean a(int paramInt1, int paramInt2) {
+/*  22 */     return (paramInt1 == this.j) && (paramInt2 == this.k);
+/*     */   }
+/*     */   
+/*     */   public int b(int paramInt1, int paramInt2) {
+/*  26 */     return 0;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   public void a() {}
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   public void b() {}
+/*     */   
+/*     */ 
+/*     */   public void c() {}
+/*     */   
+/*     */ 
+/*     */   public void d() {}
+/*     */   
+/*     */ 
+/*     */   public int a(int paramInt1, int paramInt2, int paramInt3)
+/*     */   {
+/*  46 */     return 0;
+/*     */   }
+/*     */   
+/*     */   public boolean a(int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5) {
+/*  50 */     return true;
+/*     */   }
+/*     */   
+/*     */   public boolean a(int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/*  54 */     return true;
+/*     */   }
+/*     */   
+/*     */   public int b(int paramInt1, int paramInt2, int paramInt3) {
+/*  58 */     return 0;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   public void b(int paramInt1, int paramInt2, int paramInt3, int paramInt4) {}
+/*     */   
+/*     */   public int a(eb parameb, int paramInt1, int paramInt2, int paramInt3)
+/*     */   {
+/*  66 */     return 0;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   public void a(eb parameb, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {}
+/*     */   
+/*     */   public int c(int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+/*     */   {
+/*  74 */     return 0;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   public void a(sn paramsn) {}
+/*     */   
+/*     */ 
+/*     */   public void b(sn paramsn) {}
+/*     */   
+/*     */ 
+/*     */   public void a(sn paramsn, int paramInt) {}
+/*     */   
+/*     */ 
+/*     */   public boolean c(int paramInt1, int paramInt2, int paramInt3)
+/*     */   {
+/*  90 */     return false;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public ow d(int paramInt1, int paramInt2, int paramInt3)
+/*     */   {
+/*  98 */     return null;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void a(ow paramow) {}
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   public void a(int paramInt1, int paramInt2, int paramInt3, ow paramow) {}
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   public void e(int paramInt1, int paramInt2, int paramInt3) {}
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   public void e() {}
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   public void f() {}
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   public void g() {}
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   public void a(sn paramsn, eq parameq, List paramList) {}
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   public void a(Class paramClass, eq parameq, List paramList) {}
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   public boolean a(boolean paramBoolean)
+/*     */   {
+/* 138 */     return false;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public int a(byte[] paramArrayOfByte, int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5, int paramInt6, int paramInt7)
+/*     */   {
+/* 158 */     int i = paramInt4 - paramInt1;
+/* 159 */     int j = paramInt5 - paramInt2;
+/* 160 */     int k = paramInt6 - paramInt3;
+/*     */     
+/* 162 */     int m = i * j * k;
+/* 163 */     return m + m / 2 * 3;
+/*     */   }
+/*     */   
+/*     */   public Random a(long paramLong) {
+/* 167 */     return new Random(this.d.s() + this.j * this.j * 4987142 + this.j * 5947611 + this.k * this.k * 4392871L + this.k * 389711 ^ paramLong);
+/*     */   }
+/*     */   
+/*     */   public boolean h() {
+/* 171 */     return true;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\li.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

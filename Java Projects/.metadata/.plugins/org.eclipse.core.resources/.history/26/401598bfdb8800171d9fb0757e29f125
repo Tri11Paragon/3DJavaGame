@@ -1,0 +1,382 @@
+/*     */ import java.io.ByteArrayInputStream;
+/*     */ import java.io.DataInputStream;
+/*     */ import java.io.DataOutputStream;
+/*     */ import java.io.File;
+/*     */ import java.io.IOException;
+/*     */ import java.io.RandomAccessFile;
+/*     */ import java.util.ArrayList;
+/*     */ import java.util.zip.DeflaterOutputStream;
+/*     */ import java.util.zip.GZIPInputStream;
+/*     */ import java.util.zip.InflaterInputStream;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class qj
+/*     */ {
+/*  74 */   private static final byte[] a = new byte['က'];
+/*     */   
+/*     */   private final File b;
+/*     */   private RandomAccessFile c;
+/*     */   private final int[] d;
+/*     */   private final int[] e;
+/*     */   private ArrayList f;
+/*     */   private int g;
+/*  82 */   private long h = 0L;
+/*     */   
+/*     */   public qj(File paramFile) {
+/*  85 */     this.d = new int['Ѐ'];
+/*  86 */     this.e = new int['Ѐ'];
+/*     */     
+/*  88 */     this.b = paramFile;
+/*  89 */     b("REGION LOAD " + this.b);
+/*     */     
+/*  91 */     this.g = 0;
+/*     */     try
+/*     */     {
+/*  94 */       if (paramFile.exists()) {
+/*  95 */         this.h = paramFile.lastModified();
+/*     */       }
+/*     */       
+/*  98 */       this.c = new RandomAccessFile(paramFile, "rw");
+/*     */       
+/* 100 */       if (this.c.length() < 4096L)
+/*     */       {
+/* 102 */         for (i = 0; i < 1024; i++) {
+/* 103 */           this.c.writeInt(0);
+/*     */         }
+/*     */         
+/* 106 */         for (i = 0; i < 1024; i++) {
+/* 107 */           this.c.writeInt(0);
+/*     */         }
+/*     */         
+/* 110 */         this.g += 8192;
+/*     */       }
+/*     */       
+/* 113 */       if ((this.c.length() & 0xFFF) != 0L)
+/*     */       {
+/* 115 */         for (i = 0; i < (this.c.length() & 0xFFF); i++) {
+/* 116 */           this.c.write(0);
+/*     */         }
+/*     */       }
+/*     */       
+/*     */ 
+/* 121 */       int i = (int)this.c.length() / 4096;
+/* 122 */       this.f = new ArrayList(i);
+/*     */       
+/* 124 */       for (int j = 0; j < i; j++) {
+/* 125 */         this.f.add(Boolean.valueOf(true));
+/*     */       }
+/*     */       
+/* 128 */       this.f.set(0, Boolean.valueOf(false));
+/* 129 */       this.f.set(1, Boolean.valueOf(false));
+/*     */       
+/* 131 */       this.c.seek(0L);
+/* 132 */       int k; for (j = 0; j < 1024; j++) {
+/* 133 */         k = this.c.readInt();
+/* 134 */         this.d[j] = k;
+/* 135 */         if ((k != 0) && ((k >> 8) + (k & 0xFF) <= this.f.size())) {
+/* 136 */           for (int m = 0; m < (k & 0xFF); m++) {
+/* 137 */             this.f.set((k >> 8) + m, Boolean.valueOf(false));
+/*     */           }
+/*     */         }
+/*     */       }
+/* 141 */       for (j = 0; j < 1024; j++) {
+/* 142 */         k = this.c.readInt();
+/* 143 */         this.e[j] = k;
+/*     */       }
+/*     */     } catch (IOException localIOException) {
+/* 146 */       localIOException.printStackTrace();
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public synchronized int a()
+/*     */   {
+/* 157 */     int i = this.g;
+/* 158 */     this.g = 0;
+/* 159 */     return i;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   private void a(String paramString) {}
+/*     */   
+/*     */ 
+/*     */   private void b(String paramString)
+/*     */   {
+/* 168 */     a(paramString + "\n");
+/*     */   }
+/*     */   
+/*     */   private void a(String paramString1, int paramInt1, int paramInt2, String paramString2) {
+/* 172 */     a("REGION " + paramString1 + " " + this.b.getName() + "[" + paramInt1 + "," + paramInt2 + "] = " + paramString2);
+/*     */   }
+/*     */   
+/*     */   private void a(String paramString1, int paramInt1, int paramInt2, int paramInt3, String paramString2) {
+/* 176 */     a("REGION " + paramString1 + " " + this.b.getName() + "[" + paramInt1 + "," + paramInt2 + "] " + paramInt3 + "B = " + paramString2);
+/*     */   }
+/*     */   
+/*     */   private void b(String paramString1, int paramInt1, int paramInt2, String paramString2) {
+/* 180 */     a(paramString1, paramInt1, paramInt2, paramString2 + "\n");
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public synchronized DataInputStream a(int paramInt1, int paramInt2)
+/*     */   {
+/* 188 */     if (d(paramInt1, paramInt2)) {
+/* 189 */       b("READ", paramInt1, paramInt2, "out of bounds");
+/* 190 */       return null;
+/*     */     }
+/*     */     try
+/*     */     {
+/* 194 */       int i = e(paramInt1, paramInt2);
+/* 195 */       if (i == 0)
+/*     */       {
+/* 197 */         return null;
+/*     */       }
+/*     */       
+/* 200 */       int j = i >> 8;
+/* 201 */       int k = i & 0xFF;
+/*     */       
+/* 203 */       if (j + k > this.f.size()) {
+/* 204 */         b("READ", paramInt1, paramInt2, "invalid sector");
+/* 205 */         return null;
+/*     */       }
+/*     */       
+/* 208 */       this.c.seek(j * 4096);
+/* 209 */       int m = this.c.readInt();
+/*     */       
+/* 211 */       if (m > 4096 * k) {
+/* 212 */         b("READ", paramInt1, paramInt2, "invalid length: " + m + " > 4096 * " + k);
+/* 213 */         return null;
+/*     */       }
+/*     */       
+/* 216 */       int n = this.c.readByte();
+/* 217 */       byte[] arrayOfByte; DataInputStream localDataInputStream; if (n == 1) {
+/* 218 */         arrayOfByte = new byte[m - 1];
+/* 219 */         this.c.read(arrayOfByte);
+/* 220 */         return new DataInputStream(new GZIPInputStream(new ByteArrayInputStream(arrayOfByte)));
+/*     */       }
+/*     */       
+/* 223 */       if (n == 2) {
+/* 224 */         arrayOfByte = new byte[m - 1];
+/* 225 */         this.c.read(arrayOfByte);
+/* 226 */         return new DataInputStream(new InflaterInputStream(new ByteArrayInputStream(arrayOfByte)));
+/*     */       }
+/*     */       
+/*     */ 
+/*     */ 
+/* 231 */       b("READ", paramInt1, paramInt2, "unknown version " + n);
+/* 232 */       return null;
+/*     */     } catch (IOException localIOException) {
+/* 234 */       b("READ", paramInt1, paramInt2, "exception"); }
+/* 235 */     return null;
+/*     */   }
+/*     */   
+/*     */   public DataOutputStream b(int paramInt1, int paramInt2)
+/*     */   {
+/* 240 */     if (d(paramInt1, paramInt2)) { return null;
+/*     */     }
+/* 242 */     return new DataOutputStream(new DeflaterOutputStream(new hz(this, paramInt1, paramInt2)));
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   protected synchronized void a(int paramInt1, int paramInt2, byte[] paramArrayOfByte, int paramInt3)
+/*     */   {
+/*     */     try
+/*     */     {
+/* 266 */       int i = e(paramInt1, paramInt2);
+/* 267 */       int j = i >> 8;
+/* 268 */       int k = i & 0xFF;
+/* 269 */       int m = (paramInt3 + 5) / 4096 + 1;
+/*     */       
+/*     */ 
+/* 272 */       if (m >= 256) {
+/* 273 */         return;
+/*     */       }
+/*     */       
+/* 276 */       if ((j != 0) && (k == m))
+/*     */       {
+/* 278 */         a("SAVE", paramInt1, paramInt2, paramInt3, "rewrite");
+/* 279 */         a(j, paramArrayOfByte, paramInt3);
+/*     */ 
+/*     */       }
+/*     */       else
+/*     */       {
+/* 284 */         for (int n = 0; n < k; n++) {
+/* 285 */           this.f.set(j + n, Boolean.valueOf(true));
+/*     */         }
+/*     */         
+/*     */ 
+/* 289 */         n = this.f.indexOf(Boolean.valueOf(true));
+/* 290 */         int i1 = 0;
+/* 291 */         int i2; if (n != -1) {
+/* 292 */           for (i2 = n; i2 < this.f.size(); i2++) {
+/* 293 */             if (i1 != 0) {
+/* 294 */               if (((Boolean)this.f.get(i2)).booleanValue()) i1++; else
+/* 295 */                 i1 = 0;
+/* 296 */             } else if (((Boolean)this.f.get(i2)).booleanValue()) {
+/* 297 */               n = i2;
+/* 298 */               i1 = 1;
+/*     */             }
+/* 300 */             if (i1 >= m) {
+/*     */               break;
+/*     */             }
+/*     */           }
+/*     */         }
+/*     */         
+/* 306 */         if (i1 >= m)
+/*     */         {
+/* 308 */           a("SAVE", paramInt1, paramInt2, paramInt3, "reuse");
+/* 309 */           j = n;
+/* 310 */           a(paramInt1, paramInt2, j << 8 | m);
+/* 311 */           for (i2 = 0; i2 < m; i2++) {
+/* 312 */             this.f.set(j + i2, Boolean.valueOf(false));
+/*     */           }
+/* 314 */           a(j, paramArrayOfByte, paramInt3);
+/*     */ 
+/*     */         }
+/*     */         else
+/*     */         {
+/*     */ 
+/* 320 */           a("SAVE", paramInt1, paramInt2, paramInt3, "grow");
+/* 321 */           this.c.seek(this.c.length());
+/* 322 */           j = this.f.size();
+/* 323 */           for (i2 = 0; i2 < m; i2++) {
+/* 324 */             this.c.write(a);
+/* 325 */             this.f.add(Boolean.valueOf(false));
+/*     */           }
+/* 327 */           this.g += 4096 * m;
+/*     */           
+/* 329 */           a(j, paramArrayOfByte, paramInt3);
+/* 330 */           a(paramInt1, paramInt2, j << 8 | m);
+/*     */         }
+/*     */       }
+/* 333 */       b(paramInt1, paramInt2, (int)(System.currentTimeMillis() / 1000L));
+/*     */     } catch (IOException localIOException) {
+/* 335 */       localIOException.printStackTrace();
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   private void a(int paramInt1, byte[] paramArrayOfByte, int paramInt2)
+/*     */   {
+/* 341 */     b(" " + paramInt1);
+/* 342 */     this.c.seek(paramInt1 * 4096);
+/* 343 */     this.c.writeInt(paramInt2 + 1);
+/* 344 */     this.c.writeByte(2);
+/* 345 */     this.c.write(paramArrayOfByte, 0, paramInt2);
+/*     */   }
+/*     */   
+/*     */   private boolean d(int paramInt1, int paramInt2)
+/*     */   {
+/* 350 */     return (paramInt1 < 0) || (paramInt1 >= 32) || (paramInt2 < 0) || (paramInt2 >= 32);
+/*     */   }
+/*     */   
+/*     */   private int e(int paramInt1, int paramInt2) {
+/* 354 */     return this.d[(paramInt1 + paramInt2 * 32)];
+/*     */   }
+/*     */   
+/*     */   public boolean c(int paramInt1, int paramInt2) {
+/* 358 */     return e(paramInt1, paramInt2) != 0;
+/*     */   }
+/*     */   
+/*     */   private void a(int paramInt1, int paramInt2, int paramInt3) {
+/* 362 */     this.d[(paramInt1 + paramInt2 * 32)] = paramInt3;
+/* 363 */     this.c.seek((paramInt1 + paramInt2 * 32) * 4);
+/* 364 */     this.c.writeInt(paramInt3);
+/*     */   }
+/*     */   
+/*     */   private void b(int paramInt1, int paramInt2, int paramInt3) {
+/* 368 */     this.e[(paramInt1 + paramInt2 * 32)] = paramInt3;
+/* 369 */     this.c.seek(4096 + (paramInt1 + paramInt2 * 32) * 4);
+/* 370 */     this.c.writeInt(paramInt3);
+/*     */   }
+/*     */   
+/*     */   public void b() {
+/* 374 */     this.c.close();
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\qj.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

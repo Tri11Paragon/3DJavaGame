@@ -1,0 +1,111 @@
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class qw
+/*     */   extends sn
+/*     */ {
+/*  11 */   public int a = 0;
+/*     */   
+/*     */   public qw(fd paramfd) {
+/*  14 */     super(paramfd);
+/*  15 */     this.aF = true;
+/*  16 */     b(0.98F, 0.98F);
+/*  17 */     this.bf = (this.bh / 2.0F);
+/*     */   }
+/*     */   
+/*     */   public qw(fd paramfd, double paramDouble1, double paramDouble2, double paramDouble3) {
+/*  21 */     this(paramfd);
+/*     */     
+/*  23 */     e(paramDouble1, paramDouble2, paramDouble3);
+/*     */     
+/*  25 */     float f = (float)(Math.random() * 3.1415927410125732D * 2.0D);
+/*  26 */     this.aP = (-in.a(f * 3.1415927F / 180.0F) * 0.02F);
+/*  27 */     this.aQ = 0.20000000298023224D;
+/*  28 */     this.aR = (-in.b(f * 3.1415927F / 180.0F) * 0.02F);
+/*     */     
+/*     */ 
+/*     */ 
+/*  32 */     this.aJ = paramDouble1;
+/*  33 */     this.aK = paramDouble2;
+/*  34 */     this.aL = paramDouble3;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   protected void b() {}
+/*     */   
+/*     */ 
+/*     */   protected boolean n()
+/*     */   {
+/*  43 */     return false;
+/*     */   }
+/*     */   
+/*     */   public boolean h_()
+/*     */   {
+/*  48 */     return !this.be;
+/*     */   }
+/*     */   
+/*     */   public void w_() {
+/*  52 */     this.aJ = this.aM;
+/*  53 */     this.aK = this.aN;
+/*  54 */     this.aL = this.aO;
+/*     */     
+/*  56 */     this.aQ -= 0.03999999910593033D;
+/*  57 */     b(this.aP, this.aQ, this.aR);
+/*  58 */     this.aP *= 0.9800000190734863D;
+/*  59 */     this.aQ *= 0.9800000190734863D;
+/*  60 */     this.aR *= 0.9800000190734863D;
+/*     */     
+/*  62 */     if (this.aX) {
+/*  63 */       this.aP *= 0.699999988079071D;
+/*  64 */       this.aR *= 0.699999988079071D;
+/*  65 */       this.aQ *= -0.5D;
+/*     */     }
+/*     */     
+/*  68 */     if (this.a-- <= 0) {
+/*  69 */       if (!this.aI.B) {
+/*  70 */         K();
+/*  71 */         k();
+/*     */       } else {
+/*  73 */         K();
+/*     */       }
+/*     */     } else {
+/*  76 */       this.aI.a("smoke", this.aM, this.aN + 0.5D, this.aO, 0.0D, 0.0D, 0.0D);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   private void k()
+/*     */   {
+/*  82 */     float f = 4.0F;
+/*  83 */     this.aI.a(null, this.aM, this.aN, this.aO, f);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   protected void b(nu paramnu)
+/*     */   {
+/*  95 */     paramnu.a("Fuse", (byte)this.a);
+/*     */   }
+/*     */   
+/*     */   protected void a(nu paramnu) {
+/*  99 */     this.a = paramnu.c("Fuse");
+/*     */   }
+/*     */   
+/*     */   public float x_() {
+/* 103 */     return 0.0F;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\qw.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

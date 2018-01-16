@@ -1,0 +1,84 @@
+/*    */ import java.io.DataInputStream;
+/*    */ import java.io.DataOutputStream;
+/*    */ import java.io.File;
+/*    */ import java.io.PrintStream;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class ld
+/*    */   implements bf
+/*    */ {
+/*    */   private final File a;
+/*    */   
+/*    */   public ld(File paramFile)
+/*    */   {
+/* 20 */     this.a = paramFile;
+/*    */   }
+/*    */   
+/*    */   public lm a(fd paramfd, int paramInt1, int paramInt2)
+/*    */   {
+/* 25 */     DataInputStream localDataInputStream = rj.c(this.a, paramInt1, paramInt2);
+/*    */     
+/*    */     nu localnu;
+/* 28 */     if (localDataInputStream != null) {
+/* 29 */       localnu = as.a(localDataInputStream);
+/*    */     } else {
+/* 31 */       return null;
+/*    */     }
+/*    */     
+/* 34 */     if (!localnu.b("Level")) {
+/* 35 */       System.out.println("Chunk file at " + paramInt1 + "," + paramInt2 + " is missing level data, skipping");
+/* 36 */       return null;
+/*    */     }
+/* 38 */     if (!localnu.k("Level").b("Blocks")) {
+/* 39 */       System.out.println("Chunk file at " + paramInt1 + "," + paramInt2 + " is missing block data, skipping");
+/* 40 */       return null;
+/*    */     }
+/* 42 */     lm locallm = to.a(paramfd, localnu.k("Level"));
+/* 43 */     if (!locallm.a(paramInt1, paramInt2)) {
+/* 44 */       System.out.println("Chunk file at " + paramInt1 + "," + paramInt2 + " is in the wrong location; relocating. (Expected " + paramInt1 + ", " + paramInt2 + ", got " + locallm.j + ", " + locallm.k + ")");
+/* 45 */       localnu.a("xPos", paramInt1);
+/* 46 */       localnu.a("zPos", paramInt2);
+/* 47 */       locallm = to.a(paramfd, localnu.k("Level"));
+/*    */     }
+/* 49 */     locallm.i();
+/* 50 */     return locallm;
+/*    */   }
+/*    */   
+/*    */   public void a(fd paramfd, lm paramlm) {
+/* 54 */     paramfd.r();
+/*    */     
+/*    */     try
+/*    */     {
+/* 58 */       DataOutputStream localDataOutputStream = rj.d(this.a, paramlm.j, paramlm.k);
+/* 59 */       nu localnu1 = new nu();
+/* 60 */       nu localnu2 = new nu();
+/* 61 */       localnu1.a("Level", localnu2);
+/* 62 */       to.a(paramlm, paramfd, localnu2);
+/* 63 */       as.a(localnu1, localDataOutputStream);
+/* 64 */       localDataOutputStream.close();
+/*    */       
+/* 66 */       ei localei = paramfd.x();
+/* 67 */       localei.b(localei.g() + rj.b(this.a, paramlm.j, paramlm.k));
+/*    */     } catch (Exception localException) {
+/* 69 */       localException.printStackTrace();
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public void b(fd paramfd, lm paramlm) {}
+/*    */   
+/*    */   public void a() {}
+/*    */   
+/*    */   public void b() {}
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ld.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,35 @@
+/*    */ import java.util.Comparator;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class md
+/*    */   implements Comparator
+/*    */ {
+/*    */   private ls a;
+/*    */   
+/*    */   public md(ls paramls)
+/*    */   {
+/* 12 */     this.a = paramls;
+/*    */   }
+/*    */   
+/*    */   public int a(dk paramdk1, dk paramdk2) {
+/* 16 */     boolean bool1 = paramdk1.o;
+/* 17 */     boolean bool2 = paramdk2.o;
+/* 18 */     if ((bool1) && (!bool2)) return 1;
+/* 19 */     if ((bool2) && (!bool1)) { return -1;
+/*    */     }
+/* 21 */     double d1 = paramdk1.a(this.a);
+/* 22 */     double d2 = paramdk2.a(this.a);
+/*    */     
+/* 24 */     if (d1 < d2) return 1;
+/* 25 */     if (d1 > d2) { return -1;
+/*    */     }
+/* 27 */     return paramdk1.w < paramdk2.w ? 1 : -1;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\md.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

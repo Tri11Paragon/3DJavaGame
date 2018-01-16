@@ -1,0 +1,616 @@
+/*     */ package paulscode.sound.libraries;
+/*     */ 
+/*     */ import java.nio.ByteBuffer;
+/*     */ import java.nio.IntBuffer;
+/*     */ import java.util.LinkedList;
+/*     */ import javax.sound.sampled.AudioFormat;
+/*     */ import org.lwjgl.BufferUtils;
+/*     */ import org.lwjgl.openal.AL10;
+/*     */ import paulscode.sound.Channel;
+/*     */ import paulscode.sound.Source;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class ChannelLWJGLOpenAL
+/*     */   extends Channel
+/*     */ {
+/*     */   public IntBuffer ALSource;
+/*     */   public int ALformat;
+/*     */   public int sampleRate;
+/*     */   
+/*     */   public ChannelLWJGLOpenAL(int paramInt, IntBuffer paramIntBuffer)
+/*     */   {
+/* 118 */     super(paramInt);
+/* 119 */     this.libraryType = LibraryLWJGLOpenAL.class;
+/* 120 */     this.ALSource = paramIntBuffer;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void cleanup()
+/*     */   {
+/* 130 */     if (this.ALSource != null)
+/*     */     {
+/*     */ 
+/*     */       try
+/*     */       {
+/* 135 */         AL10.alSourceStop(this.ALSource);
+/* 136 */         AL10.alGetError();
+/*     */       }
+/*     */       catch (Exception localException1) {}
+/*     */       
+/*     */ 
+/*     */       try
+/*     */       {
+/* 143 */         AL10.alDeleteSources(this.ALSource);
+/* 144 */         AL10.alGetError();
+/*     */       }
+/*     */       catch (Exception localException2) {}
+/*     */       
+/* 148 */       this.ALSource.clear();
+/*     */     }
+/* 150 */     this.ALSource = null;
+/*     */     
+/* 152 */     super.cleanup();
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public boolean attachBuffer(IntBuffer paramIntBuffer)
+/*     */   {
+/* 164 */     if (errorCheck(this.channelType != 0, "Sound buffers may only be attached to normal sources."))
+/*     */     {
+/*     */ 
+/* 167 */       return false;
+/*     */     }
+/*     */     
+/* 170 */     AL10.alSourcei(this.ALSource.get(0), 4105, paramIntBuffer.get(0));
+/*     */     
+/*     */ 
+/*     */ 
+/* 174 */     return checkALError();
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void setAudioFormat(AudioFormat paramAudioFormat)
+/*     */   {
+/* 183 */     int i = 0;
+/* 184 */     if (paramAudioFormat.getChannels() == 1)
+/*     */     {
+/* 186 */       if (paramAudioFormat.getSampleSizeInBits() == 8)
+/*     */       {
+/* 188 */         i = 4352;
+/*     */       }
+/* 190 */       else if (paramAudioFormat.getSampleSizeInBits() == 16)
+/*     */       {
+/* 192 */         i = 4353;
+/*     */       }
+/*     */       else
+/*     */       {
+/* 196 */         errorMessage("Illegal sample size in method 'setAudioFormat'");
+/*     */       }
+/*     */       
+/*     */ 
+/*     */     }
+/* 201 */     else if (paramAudioFormat.getChannels() == 2)
+/*     */     {
+/* 203 */       if (paramAudioFormat.getSampleSizeInBits() == 8)
+/*     */       {
+/* 205 */         i = 4354;
+/*     */       }
+/* 207 */       else if (paramAudioFormat.getSampleSizeInBits() == 16)
+/*     */       {
+/* 209 */         i = 4355;
+/*     */       }
+/*     */       else
+/*     */       {
+/* 213 */         errorMessage("Illegal sample size in method 'setAudioFormat'");
+/*     */       }
+/*     */       
+/*     */ 
+/*     */     }
+/*     */     else
+/*     */     {
+/* 220 */       errorMessage("Audio data neither mono nor stereo in method 'setAudioFormat'");
+/*     */       
+/* 222 */       return;
+/*     */     }
+/* 224 */     this.ALformat = i;
+/* 225 */     this.sampleRate = ((int)paramAudioFormat.getSampleRate());
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void setFormat(int paramInt1, int paramInt2)
+/*     */   {
+/* 235 */     this.ALformat = paramInt1;
+/* 236 */     this.sampleRate = paramInt2;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 245 */   ByteBuffer bufferBuffer = BufferUtils.createByteBuffer(5242880);
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   public boolean preLoadBuffers(LinkedList paramLinkedList)
+/*     */   {
+/* 251 */     if (errorCheck(this.channelType != 1, "Buffers may only be queued for streaming sources."))
+/*     */     {
+/* 253 */       return false;
+/*     */     }
+/* 255 */     if (errorCheck(paramLinkedList == null, "Buffer List null in method 'preLoadBuffers'"))
+/*     */     {
+/* 257 */       return false;
+/*     */     }
+/*     */     
+/*     */ 
+/*     */ 
+/* 262 */     boolean bool = playing();
+/*     */     
+/* 264 */     if (bool)
+/*     */     {
+/* 266 */       AL10.alSourceStop(this.ALSource.get(0));
+/* 267 */       checkALError();
+/*     */     }
+/*     */     
+/* 270 */     int i = AL10.alGetSourcei(this.ALSource.get(0), 4118);
+/*     */     
+/* 272 */     if (i > 0)
+/*     */     {
+/* 274 */       localIntBuffer = BufferUtils.createIntBuffer(i);
+/* 275 */       AL10.alGenBuffers(localIntBuffer);
+/* 276 */       if (errorCheck(checkALError(), "Error clearing stream buffers in method 'preLoadBuffers'"))
+/*     */       {
+/* 278 */         return false; }
+/* 279 */       AL10.alSourceUnqueueBuffers(this.ALSource.get(0), localIntBuffer);
+/* 280 */       if (errorCheck(checkALError(), "Error unqueuing stream buffers in method 'preLoadBuffers'"))
+/*     */       {
+/* 282 */         return false;
+/*     */       }
+/*     */     }
+/* 285 */     if (bool)
+/*     */     {
+/* 287 */       AL10.alSourcePlay(this.ALSource.get(0));
+/* 288 */       checkALError();
+/*     */     }
+/*     */     
+/* 291 */     IntBuffer localIntBuffer = BufferUtils.createIntBuffer(paramLinkedList.size());
+/* 292 */     AL10.alGenBuffers(localIntBuffer);
+/* 293 */     if (errorCheck(checkALError(), "Error generating stream buffers in method 'preLoadBuffers'"))
+/*     */     {
+/* 295 */       return false;
+/*     */     }
+/* 297 */     for (int j = 0; j < paramLinkedList.size(); j++)
+/*     */     {
+/* 299 */       this.bufferBuffer.clear();
+/* 300 */       this.bufferBuffer.put((byte[])paramLinkedList.get(j), 0, ((byte[])paramLinkedList.get(j)).length);
+/* 301 */       this.bufferBuffer.flip();
+/*     */       try
+/*     */       {
+/* 304 */         AL10.alBufferData(localIntBuffer.get(j), this.ALformat, this.bufferBuffer, this.sampleRate);
+/*     */ 
+/*     */       }
+/*     */       catch (Exception localException2)
+/*     */       {
+/* 309 */         errorMessage("Error creating buffers in method 'preLoadBuffers'");
+/*     */         
+/* 311 */         printStackTrace(localException2);
+/* 312 */         return false;
+/*     */       }
+/* 314 */       if (errorCheck(checkALError(), "Error creating buffers in method 'preLoadBuffers'"))
+/*     */       {
+/* 316 */         return false;
+/*     */       }
+/*     */     }
+/*     */     try
+/*     */     {
+/* 321 */       AL10.alSourceQueueBuffers(this.ALSource.get(0), localIntBuffer);
+/*     */     }
+/*     */     catch (Exception localException1)
+/*     */     {
+/* 325 */       errorMessage("Error queuing buffers in method 'preLoadBuffers'");
+/* 326 */       printStackTrace(localException1);
+/* 327 */       return false;
+/*     */     }
+/* 329 */     if (errorCheck(checkALError(), "Error queuing buffers in method 'preLoadBuffers'"))
+/*     */     {
+/* 331 */       return false;
+/*     */     }
+/* 333 */     AL10.alSourcePlay(this.ALSource.get(0));
+/* 334 */     if (errorCheck(checkALError(), "Error playing source in method 'preLoadBuffers'"))
+/*     */     {
+/* 336 */       return false;
+/*     */     }
+/*     */     
+/* 339 */     return true;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public boolean queueBuffer(byte[] paramArrayOfByte)
+/*     */   {
+/* 351 */     if (errorCheck(this.channelType != 1, "Buffers may only be queued for streaming sources."))
+/*     */     {
+/* 353 */       return false;
+/*     */     }
+/*     */     
+/* 356 */     this.bufferBuffer.clear();
+/* 357 */     this.bufferBuffer.put(paramArrayOfByte, 0, paramArrayOfByte.length);
+/* 358 */     this.bufferBuffer.flip();
+/*     */     
+/* 360 */     IntBuffer localIntBuffer = BufferUtils.createIntBuffer(1);
+/*     */     
+/* 362 */     AL10.alSourceUnqueueBuffers(this.ALSource.get(0), localIntBuffer);
+/* 363 */     if (checkALError()) {
+/* 364 */       return false;
+/*     */     }
+/* 366 */     AL10.alBufferData(localIntBuffer.get(0), this.ALformat, this.bufferBuffer, this.sampleRate);
+/* 367 */     if (checkALError()) {
+/* 368 */       return false;
+/*     */     }
+/* 370 */     AL10.alSourceQueueBuffers(this.ALSource.get(0), localIntBuffer);
+/* 371 */     if (checkALError()) {
+/* 372 */       return false;
+/*     */     }
+/* 374 */     return true;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public int feedRawAudioData(byte[] paramArrayOfByte)
+/*     */   {
+/* 386 */     if (errorCheck(this.channelType != 1, "Raw audio data can only be fed to streaming sources."))
+/*     */     {
+/* 388 */       return -1;
+/*     */     }
+/* 390 */     ByteBuffer localByteBuffer = ByteBuffer.wrap(paramArrayOfByte, 0, paramArrayOfByte.length);
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/* 395 */     int i = AL10.alGetSourcei(this.ALSource.get(0), 4118);
+/*     */     IntBuffer localIntBuffer;
+/* 397 */     if (i > 0)
+/*     */     {
+/* 399 */       localIntBuffer = BufferUtils.createIntBuffer(i);
+/* 400 */       AL10.alGenBuffers(localIntBuffer);
+/* 401 */       if (errorCheck(checkALError(), "Error clearing stream buffers in method 'feedRawAudioData'"))
+/*     */       {
+/* 403 */         return -1; }
+/* 404 */       AL10.alSourceUnqueueBuffers(this.ALSource.get(0), localIntBuffer);
+/* 405 */       if (errorCheck(checkALError(), "Error unqueuing stream buffers in method 'feedRawAudioData'"))
+/*     */       {
+/* 407 */         return -1;
+/*     */       }
+/*     */     }
+/*     */     else {
+/* 411 */       localIntBuffer = BufferUtils.createIntBuffer(1);
+/* 412 */       AL10.alGenBuffers(localIntBuffer);
+/* 413 */       if (errorCheck(checkALError(), "Error generating stream buffers in method 'preLoadBuffers'"))
+/*     */       {
+/* 415 */         return -1;
+/*     */       }
+/*     */     }
+/* 418 */     AL10.alBufferData(localIntBuffer.get(0), this.ALformat, localByteBuffer, this.sampleRate);
+/* 419 */     if (checkALError()) {
+/* 420 */       return -1;
+/*     */     }
+/* 422 */     AL10.alSourceQueueBuffers(this.ALSource.get(0), localIntBuffer);
+/* 423 */     if (checkALError()) {
+/* 424 */       return -1;
+/*     */     }
+/* 426 */     if ((this.attachedSource != null) && (this.attachedSource.channel == this) && (this.attachedSource.active()))
+/*     */     {
+/*     */ 
+/*     */ 
+/* 430 */       if (!playing())
+/*     */       {
+/* 432 */         AL10.alSourcePlay(this.ALSource.get(0));
+/* 433 */         checkALError();
+/*     */       }
+/*     */     }
+/*     */     
+/* 437 */     return i;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public int buffersProcessed()
+/*     */   {
+/* 448 */     if (this.channelType != 1) {
+/* 449 */       return 0;
+/*     */     }
+/*     */     
+/* 452 */     int i = AL10.alGetSourcei(this.ALSource.get(0), 4118);
+/*     */     
+/*     */ 
+/*     */ 
+/* 456 */     if (checkALError()) {
+/* 457 */       return 0;
+/*     */     }
+/*     */     
+/* 460 */     return i;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void flush()
+/*     */   {
+/* 471 */     if (this.channelType != 1) {
+/* 472 */       return;
+/*     */     }
+/*     */     
+/* 475 */     int i = AL10.alGetSourcei(this.ALSource.get(0), 4117);
+/*     */     
+/*     */ 
+/* 478 */     if (checkALError()) {
+/* 479 */       return;
+/*     */     }
+/* 481 */     IntBuffer localIntBuffer = BufferUtils.createIntBuffer(1);
+/* 482 */     while (i > 0)
+/*     */     {
+/*     */       try
+/*     */       {
+/* 486 */         AL10.alSourceUnqueueBuffers(this.ALSource.get(0), localIntBuffer);
+/*     */       }
+/*     */       catch (Exception localException)
+/*     */       {
+/* 490 */         return;
+/*     */       }
+/* 492 */       if (checkALError())
+/* 493 */         return;
+/* 494 */       i--;
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void close()
+/*     */   {
+/*     */     try
+/*     */     {
+/* 506 */       AL10.alSourceStop(this.ALSource.get(0));
+/* 507 */       AL10.alGetError();
+/*     */     }
+/*     */     catch (Exception localException) {}
+/*     */     
+/*     */ 
+/* 512 */     if (this.channelType == 1) {
+/* 513 */       flush();
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void play()
+/*     */   {
+/* 523 */     AL10.alSourcePlay(this.ALSource.get(0));
+/* 524 */     checkALError();
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void pause()
+/*     */   {
+/* 533 */     AL10.alSourcePause(this.ALSource.get(0));
+/* 534 */     checkALError();
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void stop()
+/*     */   {
+/* 544 */     AL10.alSourceStop(this.ALSource.get(0));
+/* 545 */     checkALError();
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void rewind()
+/*     */   {
+/* 556 */     if (this.channelType == 1) {
+/* 557 */       return;
+/*     */     }
+/* 559 */     AL10.alSourceRewind(this.ALSource.get(0));
+/* 560 */     checkALError();
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public boolean playing()
+/*     */   {
+/* 573 */     int i = AL10.alGetSourcei(this.ALSource.get(0), 4112);
+/*     */     
+/* 575 */     if (checkALError()) {
+/* 576 */       return false;
+/*     */     }
+/* 578 */     return i == 4114;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   private boolean checkALError()
+/*     */   {
+/* 587 */     switch ()
+/*     */     {
+/*     */     case 0: 
+/* 590 */       return false;
+/*     */     case 40961: 
+/* 592 */       errorMessage("Invalid name parameter.");
+/* 593 */       return true;
+/*     */     case 40962: 
+/* 595 */       errorMessage("Invalid parameter.");
+/* 596 */       return true;
+/*     */     case 40963: 
+/* 598 */       errorMessage("Invalid enumerated parameter value.");
+/* 599 */       return true;
+/*     */     case 40964: 
+/* 601 */       errorMessage("Illegal call.");
+/* 602 */       return true;
+/*     */     case 40965: 
+/* 604 */       errorMessage("Unable to allocate memory.");
+/* 605 */       return true;
+/*     */     }
+/* 607 */     errorMessage("An unrecognized error occurred.");
+/* 608 */     return true;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\paulscode\sound\libraries\ChannelLWJGLOpenAL.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

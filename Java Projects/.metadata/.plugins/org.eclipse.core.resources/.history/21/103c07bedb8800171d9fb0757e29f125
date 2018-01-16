@@ -1,0 +1,29 @@
+package paulscode.sound;
+
+import java.net.URL;
+import javax.sound.sampled.AudioFormat;
+
+public abstract interface ICodec
+{
+  public abstract void reverseByteOrder(boolean paramBoolean);
+  
+  public abstract boolean initialize(URL paramURL);
+  
+  public abstract boolean initialized();
+  
+  public abstract SoundBuffer read();
+  
+  public abstract SoundBuffer readAll();
+  
+  public abstract boolean endOfStream();
+  
+  public abstract void cleanup();
+  
+  public abstract AudioFormat getAudioFormat();
+}
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\paulscode\sound\ICodec.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

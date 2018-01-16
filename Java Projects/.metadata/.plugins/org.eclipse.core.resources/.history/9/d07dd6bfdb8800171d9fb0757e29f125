@@ -1,0 +1,28 @@
+import java.util.List;
+
+public abstract interface nl
+{
+  public abstract String a();
+  
+  public abstract wt a(String paramString, boolean paramBoolean);
+  
+  public abstract List b();
+  
+  public abstract void c();
+  
+  public abstract ei b(String paramString);
+  
+  public abstract void c(String paramString);
+  
+  public abstract void a(String paramString1, String paramString2);
+  
+  public abstract boolean a(String paramString);
+  
+  public abstract boolean a(String paramString, yb paramyb);
+}
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\nl.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

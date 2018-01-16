@@ -1,0 +1,227 @@
+/*     */ import java.util.ArrayList;
+/*     */ import java.util.HashMap;
+/*     */ import java.util.List;
+/*     */ import java.util.Map;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class iu
+/*     */   extends hm
+/*     */ {
+/*     */   public int b;
+/*     */   public int c;
+/*     */   public byte d;
+/*     */   public byte e;
+/*  99 */   public byte[] f = new byte['䀀'];
+/*     */   public int g;
+/* 101 */   public List h = new ArrayList();
+/* 102 */   private Map j = new HashMap();
+/* 103 */   public List i = new ArrayList();
+/*     */   
+/*     */   public iu(String paramString) {
+/* 106 */     super(paramString);
+/*     */   }
+/*     */   
+/*     */   public void a(nu paramnu) {
+/* 110 */     this.d = paramnu.c("dimension");
+/* 111 */     this.b = paramnu.e("xCenter");
+/* 112 */     this.c = paramnu.e("zCenter");
+/* 113 */     this.e = paramnu.c("scale");
+/* 114 */     if (this.e < 0) this.e = 0;
+/* 115 */     if (this.e > 4) { this.e = 4;
+/*     */     }
+/* 117 */     int k = paramnu.d("width");
+/* 118 */     int m = paramnu.d("height");
+/* 119 */     if ((k == 128) && (m == 128)) {
+/* 120 */       this.f = paramnu.j("colors");
+/*     */     } else {
+/* 122 */       byte[] arrayOfByte = paramnu.j("colors");
+/* 123 */       this.f = new byte['䀀'];
+/* 124 */       int n = (128 - k) / 2;
+/* 125 */       int i1 = (128 - m) / 2;
+/* 126 */       for (int i2 = 0; i2 < m; i2++) {
+/* 127 */         int i3 = i2 + i1;
+/* 128 */         if ((i3 >= 0) || (i3 < 128))
+/* 129 */           for (int i4 = 0; i4 < k; i4++) {
+/* 130 */             int i5 = i4 + n;
+/* 131 */             if ((i5 >= 0) || (i5 < 128))
+/* 132 */               this.f[(i5 + i3 * 128)] = arrayOfByte[(i4 + i2 * k)];
+/*     */           }
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void b(nu paramnu) {
+/* 139 */     paramnu.a("dimension", this.d);
+/* 140 */     paramnu.a("xCenter", this.b);
+/* 141 */     paramnu.a("zCenter", this.c);
+/* 142 */     paramnu.a("scale", this.e);
+/* 143 */     paramnu.a("width", (short)128);
+/* 144 */     paramnu.a("height", (short)128);
+/* 145 */     paramnu.a("colors", this.f);
+/*     */   }
+/*     */   
+/*     */   public void a(gs paramgs, iz paramiz) {
+/* 149 */     if (!this.j.containsKey(paramgs)) {
+/* 150 */       si localsi1 = new si(this, paramgs);
+/* 151 */       this.j.put(paramgs, localsi1);
+/* 152 */       this.h.add(localsi1);
+/*     */     }
+/*     */     
+/* 155 */     this.i.clear();
+/* 156 */     for (int k = 0; k < this.h.size(); k++) {
+/* 157 */       si localsi2 = (si)this.h.get(k);
+/*     */       
+/* 159 */       if ((localsi2.a.be) || (!localsi2.a.c.c(paramiz))) {
+/* 160 */         this.j.remove(localsi2.a);
+/* 161 */         this.h.remove(localsi2);
+/*     */       } else {
+/* 163 */         float f1 = (float)(localsi2.a.aM - this.b) / (1 << this.e);
+/* 164 */         float f2 = (float)(localsi2.a.aO - this.c) / (1 << this.e);
+/* 165 */         int m = 64;
+/* 166 */         int n = 64;
+/* 167 */         if ((f1 >= -m) && (f2 >= -n) && (f1 <= m) && (f2 <= n)) {
+/* 168 */           byte b1 = 0;
+/* 169 */           byte b2 = (byte)(int)(f1 * 2.0F + 0.5D);
+/* 170 */           byte b3 = (byte)(int)(f2 * 2.0F + 0.5D);
+/* 171 */           byte b4 = (byte)(int)(paramgs.aS * 16.0F / 360.0F + 0.5D);
+/* 172 */           if (this.d < 0) {
+/* 173 */             int i1 = this.g / 10;
+/* 174 */             b4 = (byte)(i1 * i1 * 34187121 + i1 * 121 >> 15 & 0xF);
+/*     */           }
+/* 176 */           if (localsi2.a.m == this.d) {
+/* 177 */             this.i.add(new ax(this, b1, b2, b3, b4));
+/*     */           }
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void a(int paramInt1, int paramInt2, int paramInt3)
+/*     */   {
+/* 193 */     super.a();
+/* 194 */     for (int k = 0; k < this.h.size(); k++) {
+/* 195 */       si localsi = (si)this.h.get(k);
+/* 196 */       if ((localsi.b[paramInt1] < 0) || (localsi.b[paramInt1] > paramInt2)) localsi.b[paramInt1] = paramInt2;
+/* 197 */       if ((localsi.c[paramInt1] < 0) || (localsi.c[paramInt1] < paramInt3)) localsi.c[paramInt1] = paramInt3;
+/*     */     } }
+/*     */   
+/*     */   public void a(byte[] paramArrayOfByte) { int k;
+/*     */     int m;
+/* 202 */     if (paramArrayOfByte[0] == 0) {
+/* 203 */       k = paramArrayOfByte[1] & 0xFF;
+/* 204 */       m = paramArrayOfByte[2] & 0xFF;
+/* 205 */       for (int n = 0; n < paramArrayOfByte.length - 3; n++) {
+/* 206 */         this.f[((n + m) * 128 + k)] = paramArrayOfByte[(n + 3)];
+/*     */       }
+/* 208 */       a();
+/*     */     }
+/* 210 */     else if (paramArrayOfByte[0] == 1) {
+/* 211 */       this.i.clear();
+/* 212 */       for (k = 0; k < (paramArrayOfByte.length - 1) / 3; k++) {
+/* 213 */         m = (byte)(paramArrayOfByte[(k * 3 + 1)] % 16);
+/* 214 */         byte b1 = paramArrayOfByte[(k * 3 + 2)];
+/* 215 */         byte b2 = paramArrayOfByte[(k * 3 + 3)];
+/* 216 */         byte b3 = (byte)(paramArrayOfByte[(k * 3 + 1)] / 16);
+/* 217 */         this.i.add(new ax(this, m, b1, b2, b3));
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\iu.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

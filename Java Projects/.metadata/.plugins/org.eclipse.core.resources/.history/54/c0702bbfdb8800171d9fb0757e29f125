@@ -1,0 +1,116 @@
+/*     */ import java.util.ArrayList;
+/*     */ import java.util.Arrays;
+/*     */ import java.util.HashMap;
+/*     */ import java.util.List;
+/*     */ import java.util.Map;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class uv
+/*     */   implements cl
+/*     */ {
+/*     */   private lm a;
+/*  41 */   private Map b = new HashMap();
+/*  42 */   private List c = new ArrayList();
+/*     */   private fd d;
+/*     */   
+/*     */   public uv(fd paramfd) {
+/*  46 */     this.a = new li(paramfd, new byte[32768], 0, 0);
+/*     */     
+/*  48 */     this.d = paramfd;
+/*     */   }
+/*     */   
+/*     */   public boolean a(int paramInt1, int paramInt2) {
+/*  52 */     if (this != null) return true;
+/*  53 */     yy localyy = new yy(paramInt1, paramInt2);
+/*  54 */     return this.b.containsKey(localyy);
+/*     */   }
+/*     */   
+/*     */   public void d(int paramInt1, int paramInt2) {
+/*  58 */     lm locallm = b(paramInt1, paramInt2);
+/*  59 */     if (!locallm.h()) {
+/*  60 */       locallm.f();
+/*     */     }
+/*     */     
+/*  63 */     this.b.remove(new yy(paramInt1, paramInt2));
+/*  64 */     this.c.remove(locallm);
+/*     */   }
+/*     */   
+/*     */   public lm c(int paramInt1, int paramInt2) {
+/*  68 */     yy localyy = new yy(paramInt1, paramInt2);
+/*     */     
+/*  70 */     byte[] arrayOfByte = new byte[32768];
+/*     */     
+/*  72 */     lm locallm = new lm(this.d, arrayOfByte, paramInt1, paramInt2);
+/*  73 */     Arrays.fill(locallm.f.a, (byte)-1);
+/*  74 */     this.b.put(localyy, locallm);
+/*  75 */     locallm.c = true;
+/*     */     
+/*  77 */     return locallm;
+/*     */   }
+/*     */   
+/*     */   public lm b(int paramInt1, int paramInt2)
+/*     */   {
+/*  82 */     yy localyy = new yy(paramInt1, paramInt2);
+/*     */     
+/*  84 */     lm locallm = (lm)this.b.get(localyy);
+/*  85 */     if (locallm == null) {
+/*  86 */       return this.a;
+/*     */     }
+/*     */     
+/*  89 */     return locallm;
+/*     */   }
+/*     */   
+/*     */   public boolean a(boolean paramBoolean, yb paramyb) {
+/*  93 */     return true;
+/*     */   }
+/*     */   
+/*     */   public boolean a() {
+/*  97 */     return false;
+/*     */   }
+/*     */   
+/*     */   public boolean b() {
+/* 101 */     return false;
+/*     */   }
+/*     */   
+/*     */   public void a(cl paramcl, int paramInt1, int paramInt2) {}
+/*     */   
+/*     */   public String c()
+/*     */   {
+/* 108 */     return "MultiplayerChunkCache: " + this.b.size();
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\uv.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

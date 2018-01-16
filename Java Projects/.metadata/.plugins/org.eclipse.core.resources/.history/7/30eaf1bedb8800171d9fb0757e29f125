@@ -1,0 +1,59 @@
+/*    */ import net.minecraft.client.Minecraft;
+/*    */ import org.lwjgl.opengl.GL11;
+/*    */ 
+/*    */ 
+/*    */ public class vz
+/*    */   extends ke
+/*    */ {
+/*  8 */   public float i = 1.0F;
+/*  9 */   public boolean j = false;
+/* 10 */   private ht l = null;
+/*    */   
+/*    */   public vz(int paramInt1, int paramInt2, int paramInt3, ht paramht, String paramString, float paramFloat) {
+/* 13 */     super(paramInt1, paramInt2, paramInt3, 150, 20, paramString);
+/* 14 */     this.l = paramht;
+/* 15 */     this.i = paramFloat;
+/*    */   }
+/*    */   
+/*    */   protected int a(boolean paramBoolean) {
+/* 19 */     return 0;
+/*    */   }
+/*    */   
+/*    */   protected void b(Minecraft paramMinecraft, int paramInt1, int paramInt2) {
+/* 23 */     if (!this.h) return;
+/* 24 */     if (this.j) {
+/* 25 */       this.i = ((paramInt1 - (this.c + 4)) / (this.a - 8));
+/* 26 */       if (this.i < 0.0F) this.i = 0.0F;
+/* 27 */       if (this.i > 1.0F) this.i = 1.0F;
+/* 28 */       paramMinecraft.z.a(this.l, this.i);
+/* 29 */       this.e = paramMinecraft.z.c(this.l);
+/*    */     }
+/* 31 */     GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+/* 32 */     b(this.c + (int)(this.i * (this.a - 8)), this.d, 0, 66, 4, 20);
+/* 33 */     b(this.c + (int)(this.i * (this.a - 8)) + 4, this.d, 196, 66, 4, 20);
+/*    */   }
+/*    */   
+/*    */   public boolean c(Minecraft paramMinecraft, int paramInt1, int paramInt2) {
+/* 37 */     if (super.c(paramMinecraft, paramInt1, paramInt2)) {
+/* 38 */       this.i = ((paramInt1 - (this.c + 4)) / (this.a - 8));
+/* 39 */       if (this.i < 0.0F) this.i = 0.0F;
+/* 40 */       if (this.i > 1.0F) this.i = 1.0F;
+/* 41 */       paramMinecraft.z.a(this.l, this.i);
+/* 42 */       this.e = paramMinecraft.z.c(this.l);
+/* 43 */       this.j = true;
+/* 44 */       return true;
+/*    */     }
+/*    */     
+/* 47 */     return false;
+/*    */   }
+/*    */   
+/*    */   public void a(int paramInt1, int paramInt2) {
+/* 51 */     this.j = false;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\vz.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

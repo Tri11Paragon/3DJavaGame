@@ -1,0 +1,34 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class dd
+/*    */   extends rw
+/*    */ {
+/*    */   protected dd(int paramInt1, int paramInt2)
+/*    */   {
+/* 10 */     super(paramInt1, paramInt2, ln.e);
+/*    */   }
+/*    */   
+/*    */   protected ow a_() {
+/* 14 */     return new cy();
+/*    */   }
+/*    */   
+/*    */   public int a(int paramInt, Random paramRandom) {
+/* 18 */     return 0;
+/*    */   }
+/*    */   
+/*    */   public int a(Random paramRandom) {
+/* 22 */     return 0;
+/*    */   }
+/*    */   
+/*    */   public boolean c() {
+/* 26 */     return false;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\dd.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

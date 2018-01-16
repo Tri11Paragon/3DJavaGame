@@ -1,0 +1,78 @@
+/*    */ import java.io.DataInputStream;
+/*    */ import java.io.DataOutputStream;
+/*    */ 
+/*    */ public class wu
+/*    */   extends ki
+/*    */ {
+/*    */   public int a;
+/*    */   public int b;
+/*    */   public short[] c;
+/*    */   public byte[] d;
+/*    */   public byte[] e;
+/*    */   public int f;
+/*    */   
+/*    */   public wu()
+/*    */   {
+/* 16 */     this.k = true;
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public void a(DataInputStream paramDataInputStream)
+/*    */   {
+/* 40 */     this.a = paramDataInputStream.readInt();
+/* 41 */     this.b = paramDataInputStream.readInt();
+/*    */     
+/* 43 */     this.f = (paramDataInputStream.readShort() & 0xFFFF);
+/* 44 */     this.c = new short[this.f];
+/* 45 */     this.d = new byte[this.f];
+/* 46 */     this.e = new byte[this.f];
+/* 47 */     for (int i = 0; i < this.f; i++) {
+/* 48 */       this.c[i] = paramDataInputStream.readShort();
+/*    */     }
+/* 50 */     paramDataInputStream.readFully(this.d);
+/* 51 */     paramDataInputStream.readFully(this.e);
+/*    */   }
+/*    */   
+/*    */   public void a(DataOutputStream paramDataOutputStream) {
+/* 55 */     paramDataOutputStream.writeInt(this.a);
+/* 56 */     paramDataOutputStream.writeInt(this.b);
+/* 57 */     paramDataOutputStream.writeShort((short)this.f);
+/* 58 */     for (int i = 0; i < this.f; i++) {
+/* 59 */       paramDataOutputStream.writeShort(this.c[i]);
+/*    */     }
+/* 61 */     paramDataOutputStream.write(this.d);
+/* 62 */     paramDataOutputStream.write(this.e);
+/*    */   }
+/*    */   
+/*    */   public void a(ti paramti) {
+/* 66 */     paramti.a(this);
+/*    */   }
+/*    */   
+/*    */   public int a() {
+/* 70 */     return 10 + this.f * 4;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\wu.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

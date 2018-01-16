@@ -1,0 +1,44 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class bl
+/*    */   extends gm
+/*    */ {
+/*    */   public bl(int paramInt)
+/*    */   {
+/*  9 */     super(paramInt);
+/*    */     
+/* 11 */     d(1);
+/* 12 */     e(238);
+/*    */   }
+/*    */   
+/*    */   public boolean a(iz paramiz, int paramInt1, int paramInt2, int paramInt3, int paramInt4, ls paramls)
+/*    */   {
+/* 17 */     if ((paramInt1 == uu.L.bn) || (paramInt1 == uu.X.bn)) {
+/* 18 */       paramiz.a(1, paramls);
+/*    */     }
+/* 20 */     return super.a(paramiz, paramInt1, paramInt2, paramInt3, paramInt4, paramls);
+/*    */   }
+/*    */   
+/*    */   public boolean a(uu paramuu)
+/*    */   {
+/* 25 */     return paramuu.bn == uu.X.bn;
+/*    */   }
+/*    */   
+/*    */   public float a(iz paramiz, uu paramuu)
+/*    */   {
+/* 30 */     if ((paramuu.bn == uu.X.bn) || (paramuu.bn == uu.L.bn)) {
+/* 31 */       return 15.0F;
+/*    */     }
+/* 33 */     if (paramuu.bn == uu.ac.bn) {
+/* 34 */       return 5.0F;
+/*    */     }
+/* 36 */     return super.a(paramiz, paramuu);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\bl.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

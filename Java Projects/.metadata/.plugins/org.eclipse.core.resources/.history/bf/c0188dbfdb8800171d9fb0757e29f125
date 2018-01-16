@@ -1,0 +1,70 @@
+/*    */ import java.util.List;
+/*    */ import net.minecraft.client.Minecraft;
+/*    */ 
+/*    */ 
+/*    */ public class nj
+/*    */   extends da
+/*    */ {
+/*    */   private da i;
+/*  9 */   protected String a = "Video Settings";
+/*    */   
+/*    */   private kv j;
+/* 12 */   private static ht[] l = { ht.k, ht.e, ht.l, ht.i, ht.g, ht.f, ht.m, ht.h };
+/*    */   
+/*    */ 
+/*    */ 
+/*    */   public nj(da paramda, kv paramkv)
+/*    */   {
+/* 18 */     this.i = paramda;
+/* 19 */     this.j = paramkv;
+/*    */   }
+/*    */   
+/*    */   public void b()
+/*    */   {
+/* 24 */     nh localnh = nh.a();
+/* 25 */     this.a = localnh.a("options.videoTitle");
+/*    */     
+/* 27 */     int k = 0;
+/* 28 */     for (ht localht : l) {
+/* 29 */       if (!localht.a()) {
+/* 30 */         this.e.add(new ab(localht.c(), this.c / 2 - 155 + k % 2 * 160, this.d / 6 + 24 * (k >> 1), localht, this.j.c(localht)));
+/*    */       } else {
+/* 32 */         this.e.add(new vz(localht.c(), this.c / 2 - 155 + k % 2 * 160, this.d / 6 + 24 * (k >> 1), localht, this.j.c(localht), this.j.a(localht)));
+/*    */       }
+/* 34 */       k++;
+/*    */     }
+/*    */     
+/*    */ 
+/*    */ 
+/* 39 */     this.e.add(new ke(200, this.c / 2 - 100, this.d / 6 + 168, localnh.a("gui.done")));
+/*    */   }
+/*    */   
+/*    */   protected void a(ke paramke) {
+/* 43 */     if (!paramke.g) return;
+/* 44 */     if ((paramke.f < 100) && ((paramke instanceof ab))) {
+/* 45 */       this.j.a(((ab)paramke).a(), 1);
+/* 46 */       paramke.e = this.j.c(ht.a(paramke.f));
+/*    */     }
+/* 48 */     if (paramke.f == 200) {
+/* 49 */       this.b.z.b();
+/* 50 */       this.b.a(this.i);
+/*    */     }
+/*    */     
+/* 53 */     qq localqq = new qq(this.b.z, this.b.d, this.b.e);
+/* 54 */     int k = localqq.a();
+/* 55 */     int m = localqq.b();
+/* 56 */     a(this.b, k, m);
+/*    */   }
+/*    */   
+/*    */   public void a(int paramInt1, int paramInt2, float paramFloat) {
+/* 60 */     i();
+/* 61 */     a(this.g, this.a, this.c / 2, 20, 16777215);
+/* 62 */     super.a(paramInt1, paramInt2, paramFloat);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\nj.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

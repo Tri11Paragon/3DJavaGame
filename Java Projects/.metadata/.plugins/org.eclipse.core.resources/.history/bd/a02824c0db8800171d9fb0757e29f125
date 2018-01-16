@@ -1,0 +1,60 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class lr
+/*    */   extends uo
+/*    */ {
+/* 14 */   private boolean[] f = new boolean[10];
+/*    */   private kv g;
+/*    */   
+/*    */   public lr(kv paramkv) {
+/* 18 */     this.g = paramkv;
+/*    */   }
+/*    */   
+/*    */   public void a(int paramInt, boolean paramBoolean) {
+/* 22 */     int i = -1;
+/* 23 */     if (paramInt == this.g.m.b) i = 0;
+/* 24 */     if (paramInt == this.g.o.b) i = 1;
+/* 25 */     if (paramInt == this.g.n.b) i = 2;
+/* 26 */     if (paramInt == this.g.p.b) i = 3;
+/* 27 */     if (paramInt == this.g.q.b) i = 4;
+/* 28 */     if (paramInt == this.g.v.b) i = 5;
+/* 29 */     if (i >= 0) {
+/* 30 */       this.f[i] = paramBoolean;
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public void a() {
+/* 35 */     for (int i = 0; i < 10; i++) {
+/* 36 */       this.f[i] = false;
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public void a(gs paramgs) {
+/* 41 */     this.a = 0.0F;
+/* 42 */     this.b = 0.0F;
+/* 43 */     if (this.f[0] != 0) this.b += 1.0F;
+/* 44 */     if (this.f[1] != 0) this.b -= 1.0F;
+/* 45 */     if (this.f[2] != 0) this.a += 1.0F;
+/* 46 */     if (this.f[3] != 0) this.a -= 1.0F;
+/* 47 */     this.d = this.f[4];
+/* 48 */     this.e = this.f[5];
+/* 49 */     if (this.e) {
+/* 50 */       this.a = ((float)(this.a * 0.3D));
+/* 51 */       this.b = ((float)(this.b * 0.3D));
+/*    */     }
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\lr.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

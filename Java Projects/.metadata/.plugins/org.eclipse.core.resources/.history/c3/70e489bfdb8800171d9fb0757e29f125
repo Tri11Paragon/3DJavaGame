@@ -1,0 +1,164 @@
+/*     */ import java.util.Random;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class uw
+/*     */   extends ls
+/*     */   implements ff
+/*     */ {
+/*     */   public float a;
+/*     */   public float b;
+/*  19 */   private int c = 0;
+/*     */   
+/*     */   public uw(fd paramfd) {
+/*  22 */     super(paramfd);
+/*  23 */     this.O = "/mob/slime.png";
+/*  24 */     int i = 1 << this.bs.nextInt(3);
+/*  25 */     this.bf = 0.0F;
+/*  26 */     this.c = (this.bs.nextInt(20) + 10);
+/*  27 */     e(i);
+/*     */   }
+/*     */   
+/*     */   protected void b()
+/*     */   {
+/*  32 */     super.b();
+/*     */     
+/*  34 */     this.bD.a(16, new Byte((byte)1));
+/*     */   }
+/*     */   
+/*     */   public void e(int paramInt) {
+/*  38 */     this.bD.b(16, new Byte((byte)paramInt));
+/*  39 */     b(0.6F * paramInt, 0.6F * paramInt);
+/*  40 */     this.Y = (paramInt * paramInt);
+/*  41 */     e(this.aM, this.aN, this.aO);
+/*     */   }
+/*     */   
+/*     */   public int v() {
+/*  45 */     return this.bD.a(16);
+/*     */   }
+/*     */   
+/*     */   public void b(nu paramnu) {
+/*  49 */     super.b(paramnu);
+/*  50 */     paramnu.a("Size", v() - 1);
+/*     */   }
+/*     */   
+/*     */   public void a(nu paramnu) {
+/*  54 */     super.a(paramnu);
+/*  55 */     e(paramnu.e("Size") + 1);
+/*     */   }
+/*     */   
+/*     */   public void w_() {
+/*  59 */     this.b = this.a;
+/*  60 */     boolean bool = this.aX;
+/*  61 */     super.w_();
+/*  62 */     if ((this.aX) && (!bool)) {
+/*  63 */       int i = v();
+/*  64 */       for (int j = 0; j < i * 8; j++) {
+/*  65 */         float f1 = this.bs.nextFloat() * 3.1415927F * 2.0F;
+/*  66 */         float f2 = this.bs.nextFloat() * 0.5F + 0.5F;
+/*  67 */         float f3 = in.a(f1) * i * 0.5F * f2;
+/*  68 */         float f4 = in.b(f1) * i * 0.5F * f2;
+/*  69 */         this.aI.a("slime", this.aM + f3, this.aW.b, this.aO + f4, 0.0D, 0.0D, 0.0D);
+/*     */       }
+/*     */       
+/*  72 */       if (i > 2) {
+/*  73 */         this.aI.a(this, "mob.slime", k(), ((this.bs.nextFloat() - this.bs.nextFloat()) * 0.2F + 1.0F) / 0.8F);
+/*     */       }
+/*  75 */       this.a = -0.5F;
+/*     */     }
+/*  77 */     this.a *= 0.6F;
+/*     */   }
+/*     */   
+/*     */   protected void f_() {
+/*  81 */     X();
+/*  82 */     gs localgs = this.aI.a(this, 16.0D);
+/*  83 */     if (localgs != null) {
+/*  84 */       a(localgs, 10.0F, 20.0F);
+/*     */     }
+/*  86 */     if ((this.aX) && (this.c-- <= 0)) {
+/*  87 */       this.c = (this.bs.nextInt(20) + 10);
+/*  88 */       if (localgs != null) {
+/*  89 */         this.c /= 3;
+/*     */       }
+/*  91 */       this.az = true;
+/*  92 */       if (v() > 1) {
+/*  93 */         this.aI.a(this, "mob.slime", k(), ((this.bs.nextFloat() - this.bs.nextFloat()) * 0.2F + 1.0F) * 0.8F);
+/*     */       }
+/*     */       
+/*  96 */       this.a = 1.0F;
+/*  97 */       this.aw = (1.0F - this.bs.nextFloat() * 2.0F);
+/*  98 */       this.ax = (1 * v());
+/*     */     } else {
+/* 100 */       this.az = false;
+/* 101 */       if (this.aX) {
+/* 102 */         this.aw = (this.ax = 0.0F);
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void K() {
+/* 108 */     int i = v();
+/* 109 */     if ((!this.aI.B) && (i > 1) && (this.Y == 0)) {
+/* 110 */       for (int j = 0; j < 4; j++) {
+/* 111 */         float f1 = (j % 2 - 0.5F) * i / 4.0F;
+/* 112 */         float f2 = (j / 2 - 0.5F) * i / 4.0F;
+/* 113 */         uw localuw = new uw(this.aI);
+/* 114 */         localuw.e(i / 2);
+/* 115 */         localuw.c(this.aM + f1, this.aN + 0.5D, this.aO + f2, this.bs.nextFloat() * 360.0F, 0.0F);
+/* 116 */         this.aI.b(localuw);
+/*     */       }
+/*     */     }
+/* 119 */     super.K();
+/*     */   }
+/*     */   
+/*     */   public void b(gs paramgs) {
+/* 123 */     int i = v();
+/* 124 */     if ((i > 1) && 
+/* 125 */       (e(paramgs)) && (f(paramgs) < 0.6D * i) && 
+/* 126 */       (paramgs.a(this, i))) {
+/* 127 */       this.aI.a(this, "mob.slimeattack", 1.0F, (this.bs.nextFloat() - this.bs.nextFloat()) * 0.2F + 1.0F);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   protected String j_()
+/*     */   {
+/* 135 */     return "mob.slime";
+/*     */   }
+/*     */   
+/*     */   protected String i() {
+/* 139 */     return "mob.slime";
+/*     */   }
+/*     */   
+/*     */   protected int j() {
+/* 143 */     if (v() == 1) return gm.aK.bf;
+/* 144 */     return 0;
+/*     */   }
+/*     */   
+/*     */   public boolean d() {
+/* 148 */     lm locallm = this.aI.b(in.b(this.aM), in.b(this.aO));
+/* 149 */     if (((v() == 1) || (this.aI.q > 0)) && (this.bs.nextInt(10) == 0) && (locallm.a(987234911L).nextInt(10) == 0) && (this.aN < 16.0D)) {
+/* 150 */       return true;
+/*     */     }
+/* 152 */     return false;
+/*     */   }
+/*     */   
+/*     */   protected float k() {
+/* 156 */     return 0.6F;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\uw.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

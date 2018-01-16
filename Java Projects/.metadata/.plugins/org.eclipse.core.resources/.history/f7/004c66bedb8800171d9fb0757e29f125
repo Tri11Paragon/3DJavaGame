@@ -1,0 +1,139 @@
+/*     */ import java.awt.image.BufferedImage;
+/*     */ import java.io.IOException;
+/*     */ import javax.imageio.ImageIO;
+/*     */ import net.minecraft.client.Minecraft;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class av
+/*     */   extends aw
+/*     */ {
+/*     */   private Minecraft g;
+/*  15 */   private int[] h = new int['Ā'];
+/*     */   private double i;
+/*     */   private double j;
+/*     */   
+/*     */   public av(Minecraft paramMinecraft) {
+/*  20 */     super(gm.aO.a(0));
+/*  21 */     this.g = paramMinecraft;
+/*  22 */     this.f = 1;
+/*     */     try
+/*     */     {
+/*  25 */       BufferedImage localBufferedImage = ImageIO.read(Minecraft.class.getResource("/gui/items.png"));
+/*  26 */       int k = this.b % 16 * 16;
+/*  27 */       int m = this.b / 16 * 16;
+/*  28 */       localBufferedImage.getRGB(k, m, 16, 16, this.h, 0, 16);
+/*     */     } catch (IOException localIOException) {
+/*  30 */       localIOException.printStackTrace();
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a() {
+/*  35 */     for (int k = 0; k < 256; k++) {
+/*  36 */       int m = this.h[k] >> 24 & 0xFF;
+/*  37 */       int n = this.h[k] >> 16 & 0xFF;
+/*  38 */       int i1 = this.h[k] >> 8 & 0xFF;
+/*  39 */       int i2 = this.h[k] >> 0 & 0xFF;
+/*     */       
+/*  41 */       if (this.c) {
+/*  42 */         int i3 = (n * 30 + i1 * 59 + i2 * 11) / 100;
+/*  43 */         int i4 = (n * 30 + i1 * 70) / 100;
+/*  44 */         int i5 = (n * 30 + i2 * 70) / 100;
+/*     */         
+/*  46 */         n = i3;
+/*  47 */         i1 = i4;
+/*  48 */         i2 = i5;
+/*     */       }
+/*     */       
+/*  51 */       this.a[(k * 4 + 0)] = ((byte)n);
+/*  52 */       this.a[(k * 4 + 1)] = ((byte)i1);
+/*  53 */       this.a[(k * 4 + 2)] = ((byte)i2);
+/*  54 */       this.a[(k * 4 + 3)] = ((byte)m);
+/*     */     }
+/*     */     
+/*     */ 
+/*  58 */     double d1 = 0.0D;
+/*  59 */     if ((this.g.f != null) && (this.g.h != null)) {
+/*  60 */       br localbr = this.g.f.u();
+/*  61 */       double d3 = localbr.a - this.g.h.aM;
+/*  62 */       double d5 = localbr.c - this.g.h.aO;
+/*  63 */       d1 = (this.g.h.aS - 90.0F) * 3.141592653589793D / 180.0D - Math.atan2(d5, d3);
+/*  64 */       if (this.g.f.t.c) {
+/*  65 */         d1 = Math.random() * 3.1415927410125732D * 2.0D;
+/*     */       }
+/*     */     }
+/*     */     
+/*  69 */     double d2 = d1 - this.i;
+/*  70 */     while (d2 < -3.141592653589793D)
+/*  71 */       d2 += 6.283185307179586D;
+/*  72 */     while (d2 >= 3.141592653589793D)
+/*  73 */       d2 -= 6.283185307179586D;
+/*  74 */     if (d2 < -1.0D) d2 = -1.0D;
+/*  75 */     if (d2 > 1.0D) d2 = 1.0D;
+/*  76 */     this.j += d2 * 0.1D;
+/*  77 */     this.j *= 0.8D;
+/*     */     
+/*  79 */     this.i += this.j;
+/*  80 */     double d4 = Math.sin(this.i);
+/*  81 */     double d6 = Math.cos(this.i);
+/*     */     int i7;
+/*  83 */     int i8; int i9; int i10; int i11; int i12; int i13; int i14; int i15; int i16; for (int i6 = -4; i6 <= 4; i6++) {
+/*  84 */       i7 = (int)(8.5D + d6 * i6 * 0.3D);
+/*  85 */       i8 = (int)(7.5D - d4 * i6 * 0.3D * 0.5D);
+/*  86 */       i9 = i8 * 16 + i7;
+/*  87 */       i10 = 100;
+/*  88 */       i11 = 100;
+/*  89 */       i12 = 100;
+/*  90 */       i13 = 255;
+/*     */       
+/*  92 */       if (this.c) {
+/*  93 */         i14 = (i10 * 30 + i11 * 59 + i12 * 11) / 100;
+/*  94 */         i15 = (i10 * 30 + i11 * 70) / 100;
+/*  95 */         i16 = (i10 * 30 + i12 * 70) / 100;
+/*     */         
+/*  97 */         i10 = i14;
+/*  98 */         i11 = i15;
+/*  99 */         i12 = i16;
+/*     */       }
+/*     */       
+/* 102 */       this.a[(i9 * 4 + 0)] = ((byte)i10);
+/* 103 */       this.a[(i9 * 4 + 1)] = ((byte)i11);
+/* 104 */       this.a[(i9 * 4 + 2)] = ((byte)i12);
+/* 105 */       this.a[(i9 * 4 + 3)] = ((byte)i13);
+/*     */     }
+/*     */     
+/* 108 */     for (i6 = -8; i6 <= 16; i6++) {
+/* 109 */       i7 = (int)(8.5D + d4 * i6 * 0.3D);
+/* 110 */       i8 = (int)(7.5D + d6 * i6 * 0.3D * 0.5D);
+/* 111 */       i9 = i8 * 16 + i7;
+/* 112 */       i10 = i6 >= 0 ? 255 : 100;
+/* 113 */       i11 = i6 >= 0 ? 20 : 100;
+/* 114 */       i12 = i6 >= 0 ? 20 : 100;
+/* 115 */       i13 = 255;
+/*     */       
+/* 117 */       if (this.c) {
+/* 118 */         i14 = (i10 * 30 + i11 * 59 + i12 * 11) / 100;
+/* 119 */         i15 = (i10 * 30 + i11 * 70) / 100;
+/* 120 */         i16 = (i10 * 30 + i12 * 70) / 100;
+/*     */         
+/* 122 */         i10 = i14;
+/* 123 */         i11 = i15;
+/* 124 */         i12 = i16;
+/*     */       }
+/*     */       
+/* 127 */       this.a[(i9 * 4 + 0)] = ((byte)i10);
+/* 128 */       this.a[(i9 * 4 + 1)] = ((byte)i11);
+/* 129 */       this.a[(i9 * 4 + 2)] = ((byte)i12);
+/* 130 */       this.a[(i9 * 4 + 3)] = ((byte)i13);
+/*     */     }
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\av.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

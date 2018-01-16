@@ -1,0 +1,45 @@
+/*    */ import java.io.File;
+/*    */ import java.util.List;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class mx
+/*    */   extends fm
+/*    */ {
+/*    */   public mx(File paramFile, String paramString, boolean paramBoolean)
+/*    */   {
+/* 17 */     super(paramFile, paramString, paramBoolean);
+/*    */   }
+/*    */   
+/*    */ 
+/*    */   public bf a(xa paramxa)
+/*    */   {
+/* 23 */     File localFile1 = a();
+/*    */     
+/* 25 */     if ((paramxa instanceof wd)) {
+/* 26 */       File localFile2 = new File(localFile1, "DIM-1");
+/* 27 */       localFile2.mkdirs();
+/* 28 */       return new ld(localFile2);
+/*    */     }
+/*    */     
+/* 31 */     return new ld(localFile1);
+/*    */   }
+/*    */   
+/*    */   public void a(ei paramei, List paramList)
+/*    */   {
+/* 36 */     paramei.d(19132);
+/* 37 */     super.a(paramei, paramList);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\mx.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

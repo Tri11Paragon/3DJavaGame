@@ -1,0 +1,185 @@
+/*     */ import java.awt.Toolkit;
+/*     */ import java.awt.datatransfer.Clipboard;
+/*     */ import java.awt.datatransfer.DataFlavor;
+/*     */ import java.awt.datatransfer.Transferable;
+/*     */ import java.util.ArrayList;
+/*     */ import java.util.List;
+/*     */ import net.minecraft.client.Minecraft;
+/*     */ import org.lwjgl.input.Keyboard;
+/*     */ import org.lwjgl.input.Mouse;
+/*     */ import org.lwjgl.opengl.GL11;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class da
+/*     */   extends ub
+/*     */ {
+/*     */   protected Minecraft b;
+/*     */   public int c;
+/*     */   public int d;
+/*  24 */   protected List e = new ArrayList();
+/*  25 */   public boolean f = false;
+/*     */   protected sj g;
+/*     */   public du h;
+/*     */   
+/*     */   public void a(int paramInt1, int paramInt2, float paramFloat) {
+/*  30 */     for (int i = 0; i < this.e.size(); i++) {
+/*  31 */       ke localke = (ke)this.e.get(i);
+/*  32 */       localke.a(this.b, paramInt1, paramInt2);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   protected void a(char paramChar, int paramInt) {
+/*  37 */     if (paramInt == 1) {
+/*  38 */       this.b.a(null);
+/*  39 */       this.b.g();
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public static String d() {
+/*     */     try {
+/*  45 */       Transferable localTransferable = Toolkit.getDefaultToolkit().getSystemClipboard().getContents(null);
+/*  46 */       if ((localTransferable != null) && (localTransferable.isDataFlavorSupported(DataFlavor.stringFlavor))) {
+/*  47 */         return (String)localTransferable.getTransferData(DataFlavor.stringFlavor);
+/*     */       }
+/*     */     }
+/*     */     catch (Exception localException) {}
+/*     */     
+/*  52 */     return null;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*  63 */   private ke a = null;
+/*     */   
+/*     */   protected void a(int paramInt1, int paramInt2, int paramInt3) {
+/*  66 */     if (paramInt3 == 0) {
+/*  67 */       for (int i = 0; i < this.e.size(); i++) {
+/*  68 */         ke localke = (ke)this.e.get(i);
+/*  69 */         if (localke.c(this.b, paramInt1, paramInt2)) {
+/*  70 */           this.a = localke;
+/*  71 */           this.b.B.a("random.click", 1.0F, 1.0F);
+/*  72 */           a(localke);
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   protected void b(int paramInt1, int paramInt2, int paramInt3) {
+/*  79 */     if ((this.a != null) && (paramInt3 == 0)) {
+/*  80 */       this.a.a(paramInt1, paramInt2);
+/*  81 */       this.a = null;
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   protected void a(ke paramke) {}
+/*     */   
+/*     */   public void a(Minecraft paramMinecraft, int paramInt1, int paramInt2)
+/*     */   {
+/*  89 */     this.h = new du(paramMinecraft);
+/*  90 */     this.b = paramMinecraft;
+/*  91 */     this.g = paramMinecraft.q;
+/*  92 */     this.c = paramInt1;
+/*  93 */     this.d = paramInt2;
+/*  94 */     this.e.clear();
+/*  95 */     b();
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void b() {}
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   public void e()
+/*     */   {
+/* 107 */     while (Mouse.next()) {
+/* 108 */       f();
+/*     */     }
+/*     */     
+/* 111 */     while (Keyboard.next())
+/* 112 */       g();
+/*     */   }
+/*     */   
+/*     */   public void f() { int i;
+/*     */     int j;
+/* 117 */     if (Mouse.getEventButtonState()) {
+/* 118 */       i = Mouse.getEventX() * this.c / this.b.d;
+/* 119 */       j = this.d - Mouse.getEventY() * this.d / this.b.e - 1;
+/* 120 */       a(i, j, Mouse.getEventButton());
+/*     */     } else {
+/* 122 */       i = Mouse.getEventX() * this.c / this.b.d;
+/* 123 */       j = this.d - Mouse.getEventY() * this.d / this.b.e - 1;
+/* 124 */       b(i, j, Mouse.getEventButton());
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void g() {
+/* 129 */     if (Keyboard.getEventKeyState()) {
+/* 130 */       if (Keyboard.getEventKey() == 87) {
+/* 131 */         this.b.j();
+/* 132 */         return;
+/*     */       }
+/* 134 */       a(Keyboard.getEventCharacter(), Keyboard.getEventKey());
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   public void a() {}
+/*     */   
+/*     */   public void h() {}
+/*     */   
+/*     */   public void i()
+/*     */   {
+/* 145 */     a(0);
+/*     */   }
+/*     */   
+/*     */   public void a(int paramInt) {
+/* 149 */     if (this.b.f != null) {
+/* 150 */       a(0, 0, this.c, this.d, -1072689136, -804253680);
+/*     */     } else {
+/* 152 */       b(paramInt);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void b(int paramInt) {
+/* 157 */     GL11.glDisable(2896);
+/* 158 */     GL11.glDisable(2912);
+/* 159 */     nw localnw = nw.a;
+/* 160 */     GL11.glBindTexture(3553, this.b.p.b("/gui/background.png"));
+/* 161 */     GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+/* 162 */     float f1 = 32.0F;
+/* 163 */     localnw.b();
+/* 164 */     localnw.b(4210752);
+/* 165 */     localnw.a(0.0D, this.d, 0.0D, 0.0D, this.d / f1 + paramInt);
+/* 166 */     localnw.a(this.c, this.d, 0.0D, this.c / f1, this.d / f1 + paramInt);
+/* 167 */     localnw.a(this.c, 0.0D, 0.0D, this.c / f1, 0 + paramInt);
+/* 168 */     localnw.a(0.0D, 0.0D, 0.0D, 0.0D, 0 + paramInt);
+/* 169 */     localnw.a();
+/*     */   }
+/*     */   
+/*     */   public boolean c() {
+/* 173 */     return true;
+/*     */   }
+/*     */   
+/*     */   public void a(boolean paramBoolean, int paramInt) {}
+/*     */   
+/*     */   public void j() {}
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\da.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

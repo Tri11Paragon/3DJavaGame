@@ -1,0 +1,178 @@
+/*     */ import java.util.ArrayList;
+/*     */ import java.util.List;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class uk
+/*     */   extends ow
+/*     */ {
+/*     */   private int a;
+/*     */   private int b;
+/*     */   private int c;
+/*     */   private boolean i;
+/*     */   private boolean j;
+/*     */   private float k;
+/*     */   private float l;
+/*     */   
+/*     */   public uk() {}
+/*     */   
+/*     */   public uk(int paramInt1, int paramInt2, int paramInt3, boolean paramBoolean1, boolean paramBoolean2)
+/*     */   {
+/*  29 */     this.a = paramInt1;
+/*  30 */     this.b = paramInt2;
+/*  31 */     this.c = paramInt3;
+/*  32 */     this.i = paramBoolean1;
+/*  33 */     this.j = paramBoolean2;
+/*     */   }
+/*     */   
+/*     */   public int a() {
+/*  37 */     return this.a;
+/*     */   }
+/*     */   
+/*     */   public int e() {
+/*  41 */     return this.b;
+/*     */   }
+/*     */   
+/*     */   public boolean b() {
+/*  45 */     return this.i;
+/*     */   }
+/*     */   
+/*     */   public int d() {
+/*  49 */     return this.c;
+/*     */   }
+/*     */   
+/*     */   public boolean k() {
+/*  53 */     return this.j;
+/*     */   }
+/*     */   
+/*     */   public float a(float paramFloat) {
+/*  57 */     if (paramFloat > 1.0F) {
+/*  58 */       paramFloat = 1.0F;
+/*     */     }
+/*  60 */     return this.l + (this.k - this.l) * paramFloat;
+/*     */   }
+/*     */   
+/*     */   public float b(float paramFloat) {
+/*  64 */     if (this.i) {
+/*  65 */       return (a(paramFloat) - 1.0F) * wj.b[this.c];
+/*     */     }
+/*  67 */     return (1.0F - a(paramFloat)) * wj.b[this.c];
+/*     */   }
+/*     */   
+/*     */   public float c(float paramFloat)
+/*     */   {
+/*  72 */     if (this.i) {
+/*  73 */       return (a(paramFloat) - 1.0F) * wj.c[this.c];
+/*     */     }
+/*  75 */     return (1.0F - a(paramFloat)) * wj.c[this.c];
+/*     */   }
+/*     */   
+/*     */   public float d(float paramFloat)
+/*     */   {
+/*  80 */     if (this.i) {
+/*  81 */       return (a(paramFloat) - 1.0F) * wj.d[this.c];
+/*     */     }
+/*  83 */     return (1.0F - a(paramFloat)) * wj.d[this.c];
+/*     */   }
+/*     */   
+/*     */ 
+/*  87 */   private static List m = new ArrayList();
+/*     */   
+/*     */   private void a(float paramFloat1, float paramFloat2) {
+/*  90 */     if (!this.i)
+/*     */     {
+/*  92 */       paramFloat1 -= 1.0F;
+/*     */     } else {
+/*  94 */       paramFloat1 = 1.0F - paramFloat1;
+/*     */     }
+/*     */     
+/*  97 */     eq localeq = uu.ad.a(this.d, this.e, this.f, this.g, this.a, paramFloat1, this.c);
+/*     */     
+/*  99 */     if (localeq != null) {
+/* 100 */       List localList = this.d.b(null, localeq);
+/* 101 */       if (!localList.isEmpty()) {
+/* 102 */         m.addAll(localList);
+/*     */         
+/* 104 */         for (sn localsn : m)
+/*     */         {
+/* 106 */           localsn.b(paramFloat2 * wj.b[this.c], paramFloat2 * wj.c[this.c], paramFloat2 * wj.d[this.c]);
+/*     */         }
+/*     */         
+/*     */ 
+/*     */ 
+/* 111 */         m.clear();
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void l() {
+/* 117 */     if (this.l < 1.0F) {
+/* 118 */       this.l = (this.k = 1.0F);
+/* 119 */       this.d.p(this.e, this.f, this.g);
+/* 120 */       i();
+/* 121 */       if (this.d.a(this.e, this.f, this.g) == uu.ad.bn) {
+/* 122 */         this.d.b(this.e, this.f, this.g, this.a, this.b);
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void n_() {
+/* 128 */     this.l = this.k;
+/*     */     
+/* 130 */     if (this.l >= 1.0F) {
+/* 131 */       a(1.0F, 0.25F);
+/* 132 */       this.d.p(this.e, this.f, this.g);
+/* 133 */       i();
+/* 134 */       if (this.d.a(this.e, this.f, this.g) == uu.ad.bn)
+/* 135 */         this.d.b(this.e, this.f, this.g, this.a, this.b);
+/* 136 */       return;
+/*     */     }
+/*     */     
+/* 139 */     this.k += 0.5F;
+/* 140 */     if (this.k >= 1.0F) {
+/* 141 */       this.k = 1.0F;
+/*     */     }
+/*     */     
+/* 144 */     if (this.i) {
+/* 145 */       a(this.k, this.k - this.l + 0.0625F);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   public void a(nu paramnu)
+/*     */   {
+/* 153 */     super.a(paramnu);
+/*     */     
+/* 155 */     this.a = paramnu.e("blockId");
+/* 156 */     this.b = paramnu.e("blockData");
+/* 157 */     this.c = paramnu.e("facing");
+/* 158 */     this.l = (this.k = paramnu.g("progress"));
+/* 159 */     this.i = paramnu.m("extending");
+/*     */   }
+/*     */   
+/*     */   public void b(nu paramnu)
+/*     */   {
+/* 164 */     super.b(paramnu);
+/*     */     
+/* 166 */     paramnu.a("blockId", this.a);
+/* 167 */     paramnu.a("blockData", this.b);
+/* 168 */     paramnu.a("facing", this.c);
+/* 169 */     paramnu.a("progress", this.l);
+/* 170 */     paramnu.a("extending", this.i);
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\uk.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

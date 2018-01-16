@@ -1,0 +1,97 @@
+/*    */ import java.util.List;
+/*    */ import net.minecraft.client.Minecraft;
+/*    */ import org.lwjgl.opengl.GL11;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class ue
+/*    */   extends id
+/*    */ {
+/*    */   private float l;
+/*    */   private float m;
+/*    */   
+/*    */   public ue(gs paramgs)
+/*    */   {
+/* 15 */     super(paramgs.d);
+/* 16 */     this.f = true;
+/* 17 */     paramgs.a(ep.f, 1);
+/*    */   }
+/*    */   
+/*    */   public void b() {
+/* 21 */     this.e.clear();
+/*    */   }
+/*    */   
+/*    */   protected void k()
+/*    */   {
+/* 26 */     this.g.b("Crafting", 86, 16, 4210752);
+/*    */   }
+/*    */   
+/*    */ 
+/*    */   public void a(int paramInt1, int paramInt2, float paramFloat)
+/*    */   {
+/* 32 */     super.a(paramInt1, paramInt2, paramFloat);
+/* 33 */     this.l = paramInt1;
+/* 34 */     this.m = paramInt2;
+/*    */   }
+/*    */   
+/*    */   protected void a(float paramFloat) {
+/* 38 */     int i = this.b.p.b("/gui/inventory.png");
+/* 39 */     GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+/* 40 */     this.b.p.b(i);
+/* 41 */     int j = (this.c - this.a) / 2;
+/* 42 */     int k = (this.d - this.i) / 2;
+/* 43 */     b(j, k, 0, 0, this.a, this.i);
+/*    */     
+/* 45 */     GL11.glEnable(32826);
+/* 46 */     GL11.glEnable(2903);
+/*    */     
+/* 48 */     GL11.glPushMatrix();
+/* 49 */     GL11.glTranslatef(j + 51, k + 75, 50.0F);
+/* 50 */     float f1 = 30.0F;
+/* 51 */     GL11.glScalef(-f1, f1, f1);
+/* 52 */     GL11.glRotatef(180.0F, 0.0F, 0.0F, 1.0F);
+/*    */     
+/* 54 */     float f2 = this.b.h.H;
+/* 55 */     float f3 = this.b.h.aS;
+/* 56 */     float f4 = this.b.h.aT;
+/*    */     
+/* 58 */     float f5 = j + 51 - this.l;
+/* 59 */     float f6 = k + 75 - 50 - this.m;
+/*    */     
+/* 61 */     GL11.glRotatef(135.0F, 0.0F, 1.0F, 0.0F);
+/* 62 */     u.b();
+/* 63 */     GL11.glRotatef(-135.0F, 0.0F, 1.0F, 0.0F);
+/*    */     
+/* 65 */     GL11.glRotatef(-(float)Math.atan(f6 / 40.0F) * 20.0F, 1.0F, 0.0F, 0.0F);
+/*    */     
+/* 67 */     this.b.h.H = ((float)Math.atan(f5 / 40.0F) * 20.0F);
+/* 68 */     this.b.h.aS = ((float)Math.atan(f5 / 40.0F) * 40.0F);
+/* 69 */     this.b.h.aT = (-(float)Math.atan(f6 / 40.0F) * 20.0F);
+/* 70 */     this.b.h.bE = 1.0F;
+/* 71 */     GL11.glTranslatef(0.0F, this.b.h.bf, 0.0F);
+/* 72 */     th.a.i = 180.0F;
+/* 73 */     th.a.a(this.b.h, 0.0D, 0.0D, 0.0D, 0.0F, 1.0F);
+/* 74 */     this.b.h.bE = 0.0F;
+/* 75 */     this.b.h.H = f2;
+/* 76 */     this.b.h.aS = f3;
+/* 77 */     this.b.h.aT = f4;
+/* 78 */     GL11.glPopMatrix();
+/* 79 */     u.a();
+/* 80 */     GL11.glDisable(32826);
+/*    */   }
+/*    */   
+/*    */   protected void a(ke paramke) {
+/* 84 */     if (paramke.f == 0) {
+/* 85 */       this.b.a(new xm(this.b.I));
+/*    */     }
+/* 87 */     if (paramke.f == 1) {
+/* 88 */       this.b.a(new dv(this, this.b.I));
+/*    */     }
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ue.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

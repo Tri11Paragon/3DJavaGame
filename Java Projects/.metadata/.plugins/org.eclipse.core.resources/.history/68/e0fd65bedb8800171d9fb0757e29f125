@@ -1,0 +1,199 @@
+/*     */ import org.lwjgl.input.Keyboard;
+/*     */ 
+/*     */ public class TMIController implements _tmi_MgButtonHandler, _tmi_MgItemHandler
+/*     */ {
+/*   5 */   private id window = null;
+/*   6 */   private bb drawItems = null;
+/*   7 */   private TMIConfig config = TMIConfig.getInstance();
+/*   8 */   private TMIView view = null;
+/*     */   
+/*     */ 
+/*  11 */   long lastKeyPressTime = 0L;
+/*  12 */   long lastPrefsLoadTime = 0L;
+/*  13 */   long deleteAllWaitUntil = 0L;
+/*     */   
+/*     */   public static final long KEY_DELAY = 200L;
+/*     */   
+/*     */   public static final long PREFS_DELAY = 2000L;
+/*     */   private _tmi_MgCanvas canvas;
+/*     */   
+/*     */   public TMIController(id paramid, bb parambb)
+/*     */   {
+/*  22 */     this.window = paramid;
+/*  23 */     this.drawItems = parambb;
+/*  24 */     this.canvas = new _tmi_MgCanvas(this.window, this.drawItems);
+/*  25 */     this.view = new TMIView(this.canvas, this.config, this);
+/*     */   }
+/*     */   
+/*     */   public void onEnterFrame(int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+/*     */   {
+/*     */     try {
+/*  31 */       if (System.currentTimeMillis() - this.lastKeyPressTime > 200L) {
+/*  32 */         if (Keyboard.isKeyDown(24)) {
+/*  33 */           this.config.toggleEnabled();
+/*  34 */           TMIUtils.savePreferences(this.config);
+/*  35 */           this.lastKeyPressTime = System.currentTimeMillis();
+/*     */         }
+/*  37 */         TMIUtils.updateUnlimitedItems();
+/*     */       }
+/*     */       
+/*     */ 
+/*  41 */       if (System.currentTimeMillis() - this.lastPrefsLoadTime > 2000L) {
+/*  42 */         TMIUtils.loadPreferences(this.config);
+/*  43 */         if (this.lastPrefsLoadTime == 0L) {
+/*  44 */           TMIUtils.savePreferences(this.config);
+/*     */         }
+/*  46 */         TMIUtils.loadItems(this.config);
+/*  47 */         this.lastPrefsLoadTime = System.currentTimeMillis();
+/*     */       }
+/*     */       
+/*     */ 
+/*  51 */       if (this.config.isEnabled())
+/*     */       {
+/*  53 */         this.canvas.windowX = ((this.window.c - paramInt3) / 2);
+/*  54 */         this.canvas.windowY = ((this.window.d - paramInt4) / 2);
+/*     */         
+/*     */ 
+/*  57 */         this.canvas.drawText(this.canvas.windowX, 2, "TooManyItems 1.7.2 2011-07-01", 4539717);
+/*     */         
+/*     */ 
+/*  60 */         this.view.layout(this.window.c, this.window.d, paramInt3, paramInt4);
+/*  61 */         this.canvas.drawWidgets(paramInt1, paramInt2);
+/*  62 */         this.view.showToolTip(paramInt1, paramInt2);
+/*  63 */         this.canvas.hardSetFlatMode(false);
+/*     */       }
+/*     */     } catch (Exception localException) {
+/*  66 */       TMIUtils.safeReportException(localException);
+/*  67 */       disable();
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public boolean onClick(int paramInt1, int paramInt2, int paramInt3) {
+/*     */     try {
+/*  73 */       if (this.config.isEnabled())
+/*     */       {
+/*     */ 
+/*  76 */         this.canvas.sortByZOrder();
+/*  77 */         for (_tmi_MgWidget local_tmi_MgWidget : this.canvas.widgets) {
+/*  78 */           if (local_tmi_MgWidget.contains(paramInt1, paramInt2)) {
+/*  79 */             return local_tmi_MgWidget.click(paramInt1, paramInt2, paramInt3);
+/*     */           }
+/*     */         }
+/*     */       }
+/*     */     } catch (Exception localException) {
+/*  84 */       TMIUtils.safeReportException(localException);
+/*  85 */       disable();
+/*     */     }
+/*  87 */     return true;
+/*     */   }
+/*     */   
+/*     */   public boolean onButtonPress(Object paramObject) {
+/*     */     Object localObject;
+/*  92 */     if ((paramObject instanceof TMIStateButtonData))
+/*     */     {
+/*  94 */       localObject = (TMIStateButtonData)paramObject;
+/*  95 */       if (((TMIStateButtonData)localObject).action == 1)
+/*     */       {
+/*  97 */         this.config.clearState(((TMIStateButtonData)localObject).state);
+/*  98 */         TMIUtils.savePreferences(this.config);
+/*     */ 
+/*     */       }
+/* 101 */       else if (this.config.isStateSaved(((TMIStateButtonData)localObject).state)) {
+/* 102 */         this.config.loadState(((TMIStateButtonData)localObject).state);
+/* 103 */         TMIUtils.savePreferences(this.config);
+/*     */       } else {
+/* 105 */         this.config.saveState(((TMIStateButtonData)localObject).state);
+/* 106 */         TMIUtils.savePreferences(this.config);
+/*     */       }
+/*     */     }
+/* 109 */     else if ((paramObject instanceof String)) {
+/* 110 */       localObject = (String)paramObject;
+/* 111 */       if (((String)localObject).equals("next")) {
+/* 112 */         _tmi_MgItemPanel.page += 1;
+/* 113 */       } else if (((String)localObject).equals("prev")) {
+/* 114 */         _tmi_MgItemPanel.page -= 1;
+/* 115 */       } else if (((String)localObject).equals("trash")) {
+/* 116 */         if ((Keyboard.isKeyDown(54)) || (Keyboard.isKeyDown(42))) {
+/* 117 */           if (TMIUtils.getHeldItem() == null)
+/*     */           {
+/* 119 */             if (System.currentTimeMillis() > this.deleteAllWaitUntil) {
+/* 120 */               for (int i = 0; i < this.window.j.e.size(); i++) {
+/* 121 */                 gp localgp1 = (gp)this.window.j.e.get(i);
+/* 122 */                 localgp1.c((iz)null);
+/*     */               }
+/*     */             }
+/*     */           }
+/*     */           else {
+/* 127 */             iz localiz1 = TMIUtils.getHeldItem();
+/* 128 */             TMIUtils.deleteHeldItem();
+/* 129 */             for (int j = 0; j < this.window.j.e.size(); j++) {
+/* 130 */               gp localgp2 = (gp)this.window.j.e.get(j);
+/* 131 */               if (localgp2 != null) {
+/* 132 */                 iz localiz2 = localgp2.a();
+/* 133 */                 if ((localiz2 != null) && 
+/* 134 */                   (localiz2.c == localiz1.c) && (localiz2.i() == localiz1.i()))
+/* 135 */                   localgp2.c((iz)null);
+/*     */               }
+/*     */             }
+/* 138 */             this.deleteAllWaitUntil = (System.currentTimeMillis() + 1000L);
+/*     */           }
+/*     */         } else {
+/* 141 */           TMIUtils.deleteHeldItem();
+/*     */         }
+/*     */       }
+/*     */     }
+/* 145 */     return true;
+/*     */   }
+/*     */   
+/*     */   public boolean onItemEvent(iz paramiz, int paramInt)
+/*     */   {
+/* 150 */     if (paramInt == 0) {
+/* 151 */       if ((!TMIConfig.isMultiplayer()) && ((Keyboard.isKeyDown(42)) || (Keyboard.isKeyDown(54))))
+/*     */       {
+/* 153 */         gm localgm = gm.c[paramiz.c];
+/* 154 */         if (TMIConfig.isTool(localgm)) {
+/* 155 */           TMIUtils.giveStack(new iz(paramiz.c, 1, 33536), this.config, 1);
+/* 156 */         } else if (TMIConfig.canItemBeUnlimited(localgm)) {
+/* 157 */           TMIUtils.giveStack(paramiz, this.config, -100);
+/*     */         }
+/*     */         else {
+/* 160 */           TMIUtils.giveStack(paramiz, this.config);
+/*     */         }
+/*     */       }
+/*     */       else {
+/* 164 */         TMIUtils.giveStack(paramiz, this.config);
+/*     */       }
+/* 166 */     } else if (paramInt == 1)
+/*     */     {
+/* 168 */       TMIUtils.giveStack(paramiz, this.config, 1);
+/*     */     }
+/* 170 */     return true;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void onDestroy() {}
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public boolean isChest()
+/*     */   {
+/* 183 */     return this.window.j instanceof cd;
+/*     */   }
+/*     */   
+/*     */   public boolean isCrafting() {
+/* 187 */     return ((this.window.j instanceof aa)) || ((this.window.j instanceof it));
+/*     */   }
+/*     */   
+/*     */   public void disable() {
+/* 191 */     this.config.setEnabled(false);
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\TMIController.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

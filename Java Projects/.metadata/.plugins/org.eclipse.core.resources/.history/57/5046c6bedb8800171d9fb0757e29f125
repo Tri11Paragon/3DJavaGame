@@ -1,0 +1,25 @@
+/*    */ 
+/*    */ 
+/*    */ public class wc
+/*    */   extends dq
+/*    */ {
+/*  6 */   private static uu[] bk = { uu.v, uu.w, uu.F, uu.G, uu.aT, uu.aV, uu.aX, uu.aB };
+/*    */   
+/*    */ 
+/*    */   public wc(int paramInt, bu parambu)
+/*    */   {
+/* 11 */     super(paramInt, 1, parambu, bk);
+/*    */   }
+/*    */   
+/*    */   public boolean a(uu paramuu) {
+/* 15 */     if (paramuu == uu.aT) return true;
+/* 16 */     if (paramuu == uu.aV) return true;
+/* 17 */     return false;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\wc.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

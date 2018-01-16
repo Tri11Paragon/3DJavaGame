@@ -1,0 +1,139 @@
+/*     */ import net.minecraft.client.Minecraft;
+/*     */ import org.lwjgl.opengl.Display;
+/*     */ import org.lwjgl.opengl.GL11;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class mk
+/*     */   implements yb
+/*     */ {
+/*  13 */   private String a = "";
+/*     */   private Minecraft b;
+/*  15 */   private String c = "";
+/*  16 */   private long d = System.currentTimeMillis();
+/*  17 */   private boolean e = false;
+/*     */   
+/*     */   public mk(Minecraft paramMinecraft) {
+/*  20 */     this.b = paramMinecraft;
+/*     */   }
+/*     */   
+/*     */   public void a(String paramString) {
+/*  24 */     this.e = false;
+/*  25 */     c(paramString);
+/*     */   }
+/*     */   
+/*     */   public void b(String paramString) {
+/*  29 */     this.e = true;
+/*  30 */     c(this.c);
+/*     */   }
+/*     */   
+/*     */   public void c(String paramString) {
+/*  34 */     if (!this.b.J) {
+/*  35 */       if (this.e) return;
+/*  36 */       throw new xx();
+/*     */     }
+/*     */     
+/*  39 */     this.c = paramString;
+/*  40 */     qq localqq = new qq(this.b.z, this.b.d, this.b.e);
+/*     */     
+/*  42 */     GL11.glClear(256);
+/*  43 */     GL11.glMatrixMode(5889);
+/*  44 */     GL11.glLoadIdentity();
+/*  45 */     GL11.glOrtho(0.0D, localqq.a, localqq.b, 0.0D, 100.0D, 300.0D);
+/*  46 */     GL11.glMatrixMode(5888);
+/*  47 */     GL11.glLoadIdentity();
+/*  48 */     GL11.glTranslatef(0.0F, 0.0F, -200.0F);
+/*     */   }
+/*     */   
+/*     */   public void d(String paramString) {
+/*  52 */     if (!this.b.J) {
+/*  53 */       if (this.e) return;
+/*  54 */       throw new xx();
+/*     */     }
+/*     */     
+/*     */ 
+/*  58 */     this.d = 0L;
+/*  59 */     this.a = paramString;
+/*  60 */     a(-1);
+/*  61 */     this.d = 0L;
+/*     */   }
+/*     */   
+/*     */   public void a(int paramInt) {
+/*  65 */     if (!this.b.J) {
+/*  66 */       if (this.e) return;
+/*  67 */       throw new xx();
+/*     */     }
+/*     */     
+/*     */ 
+/*  71 */     long l = System.currentTimeMillis();
+/*  72 */     if (l - this.d < 20L) return;
+/*  73 */     this.d = l;
+/*     */     
+/*  75 */     qq localqq = new qq(this.b.z, this.b.d, this.b.e);
+/*  76 */     int i = localqq.a();
+/*  77 */     int j = localqq.b();
+/*     */     
+/*  79 */     GL11.glClear(256);
+/*  80 */     GL11.glMatrixMode(5889);
+/*  81 */     GL11.glLoadIdentity();
+/*  82 */     GL11.glOrtho(0.0D, localqq.a, localqq.b, 0.0D, 100.0D, 300.0D);
+/*  83 */     GL11.glMatrixMode(5888);
+/*  84 */     GL11.glLoadIdentity();
+/*  85 */     GL11.glTranslatef(0.0F, 0.0F, -200.0F);
+/*     */     
+/*  87 */     GL11.glClear(16640);
+/*     */     
+/*  89 */     nw localnw = nw.a;
+/*  90 */     int k = this.b.p.b("/gui/background.png");
+/*  91 */     GL11.glBindTexture(3553, k);
+/*  92 */     float f = 32.0F;
+/*  93 */     localnw.b();
+/*  94 */     localnw.b(4210752);
+/*  95 */     localnw.a(0.0D, j, 0.0D, 0.0D, j / f);
+/*  96 */     localnw.a(i, j, 0.0D, i / f, j / f);
+/*  97 */     localnw.a(i, 0.0D, 0.0D, i / f, 0.0D);
+/*  98 */     localnw.a(0.0D, 0.0D, 0.0D, 0.0D, 0.0D);
+/*  99 */     localnw.a();
+/*     */     
+/* 101 */     if (paramInt >= 0) {
+/* 102 */       int m = 100;
+/* 103 */       int n = 2;
+/* 104 */       int i1 = i / 2 - m / 2;
+/* 105 */       int i2 = j / 2 + 16;
+/*     */       
+/* 107 */       GL11.glDisable(3553);
+/* 108 */       localnw.b();
+/* 109 */       localnw.b(8421504);
+/* 110 */       localnw.a(i1, i2, 0.0D);
+/* 111 */       localnw.a(i1, i2 + n, 0.0D);
+/* 112 */       localnw.a(i1 + m, i2 + n, 0.0D);
+/* 113 */       localnw.a(i1 + m, i2, 0.0D);
+/*     */       
+/* 115 */       localnw.b(8454016);
+/* 116 */       localnw.a(i1, i2, 0.0D);
+/* 117 */       localnw.a(i1, i2 + n, 0.0D);
+/* 118 */       localnw.a(i1 + paramInt, i2 + n, 0.0D);
+/* 119 */       localnw.a(i1 + paramInt, i2, 0.0D);
+/* 120 */       localnw.a();
+/* 121 */       GL11.glEnable(3553);
+/*     */     }
+/*     */     
+/* 124 */     this.b.q.a(this.c, (i - this.b.q.a(this.c)) / 2, j / 2 - 4 - 16, 16777215);
+/* 125 */     this.b.q.a(this.a, (i - this.b.q.a(this.a)) / 2, j / 2 - 4 + 8, 16777215);
+/* 126 */     Display.update();
+/*     */     try
+/*     */     {
+/* 129 */       Thread.yield();
+/*     */     }
+/*     */     catch (Exception localException) {}
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\mk.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

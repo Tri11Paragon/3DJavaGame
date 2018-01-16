@@ -1,0 +1,69 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public enum iq
+/*    */ {
+/* 50 */   public static final int z = "SkullAndRoses".length();
+/*    */   public final String A;
+/*    */   public final int B;
+/*    */   public final int C;
+/*    */   public final int D;
+/*    */   public final int E;
+/*    */   
+/* 57 */   private iq(String paramString1, int paramInt2, int paramInt3, int paramInt4, int paramInt5) { this.A = paramString1;
+/* 58 */     this.B = paramInt2;
+/* 59 */     this.C = paramInt3;
+/* 60 */     this.D = paramInt4;
+/* 61 */     this.E = paramInt5;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\iq.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

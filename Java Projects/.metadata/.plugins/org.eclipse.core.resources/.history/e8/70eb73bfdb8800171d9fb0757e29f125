@@ -1,0 +1,66 @@
+/*    */ import java.io.DataInputStream;
+/*    */ import java.io.DataOutputStream;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class hq
+/*    */   extends ki
+/*    */ {
+/*    */   public int a;
+/*    */   public int b;
+/*    */   public iz c;
+/*    */   
+/*    */   public void a(ti paramti)
+/*    */   {
+/* 28 */     paramti.a(this);
+/*    */   }
+/*    */   
+/*    */   public void a(DataInputStream paramDataInputStream) {
+/* 32 */     this.a = paramDataInputStream.readByte();
+/* 33 */     this.b = paramDataInputStream.readShort();
+/* 34 */     int i = paramDataInputStream.readShort();
+/* 35 */     if (i >= 0) {
+/* 36 */       int j = paramDataInputStream.readByte();
+/* 37 */       int k = paramDataInputStream.readShort();
+/*    */       
+/* 39 */       this.c = new iz(i, j, k);
+/*    */     } else {
+/* 41 */       this.c = null;
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public void a(DataOutputStream paramDataOutputStream) {
+/* 46 */     paramDataOutputStream.writeByte(this.a);
+/* 47 */     paramDataOutputStream.writeShort(this.b);
+/* 48 */     if (this.c == null) {
+/* 49 */       paramDataOutputStream.writeShort(-1);
+/*    */     } else {
+/* 51 */       paramDataOutputStream.writeShort(this.c.c);
+/* 52 */       paramDataOutputStream.writeByte(this.c.a);
+/* 53 */       paramDataOutputStream.writeShort(this.c.i());
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public int a() {
+/* 58 */     return 8;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\hq.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

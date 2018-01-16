@@ -1,0 +1,43 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class ee
+/*    */   extends uu
+/*    */ {
+/*    */   public ee()
+/*    */   {
+/* 10 */     super(35, 64, ln.l);
+/*    */   }
+/*    */   
+/*    */   public int a(int paramInt1, int paramInt2)
+/*    */   {
+/* 15 */     if (paramInt2 == 0)
+/*    */     {
+/* 17 */       return this.bm;
+/*    */     }
+/*    */     
+/*    */ 
+/* 21 */     paramInt2 = paramInt2 & 0xF ^ 0xFFFFFFFF;
+/* 22 */     return 113 + ((paramInt2 & 0x8) >> 3) + (paramInt2 & 0x7) * 16;
+/*    */   }
+/*    */   
+/*    */   protected int b_(int paramInt)
+/*    */   {
+/* 27 */     return paramInt;
+/*    */   }
+/*    */   
+/*    */   public static int d(int paramInt) {
+/* 31 */     return (paramInt ^ 0xFFFFFFFF) & 0xF;
+/*    */   }
+/*    */   
+/*    */   public static int e(int paramInt) {
+/* 35 */     return (paramInt ^ 0xFFFFFFFF) & 0xF;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ee.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

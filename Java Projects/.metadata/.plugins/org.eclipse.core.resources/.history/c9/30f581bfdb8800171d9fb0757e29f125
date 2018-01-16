@@ -1,0 +1,106 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class fr
+/*    */   extends gz
+/*    */ {
+/*    */   public fr(fd paramfd)
+/*    */   {
+/* 14 */     super(paramfd);
+/* 15 */     this.O = "/mob/skeleton.png";
+/*    */   }
+/*    */   
+/*    */   protected String g()
+/*    */   {
+/* 20 */     return "mob.skeleton";
+/*    */   }
+/*    */   
+/*    */   protected String j_() {
+/* 24 */     return "mob.skeletonhurt";
+/*    */   }
+/*    */   
+/*    */   protected String i() {
+/* 28 */     return "mob.skeletonhurt";
+/*    */   }
+/*    */   
+/*    */   public void o()
+/*    */   {
+/* 33 */     if (this.aI.f()) {
+/* 34 */       float f = a(1.0F);
+/* 35 */       if ((f > 0.5F) && 
+/* 36 */         (this.aI.l(in.b(this.aM), in.b(this.aN), in.b(this.aO))) && (this.bs.nextFloat() * 30.0F < (f - 0.4F) * 2.0F)) {
+/* 37 */         this.bv = 300;
+/*    */       }
+/*    */     }
+/*    */     
+/*    */ 
+/* 42 */     super.o();
+/*    */   }
+/*    */   
+/*    */   protected void a(sn paramsn, float paramFloat) {
+/* 46 */     if (paramFloat < 10.0F) {
+/* 47 */       double d1 = paramsn.aM - this.aM;
+/* 48 */       double d2 = paramsn.aO - this.aO;
+/*    */       
+/* 50 */       if (this.ae == 0) {
+/* 51 */         sl localsl = new sl(this.aI, this);
+/* 52 */         localsl.aN += 1.399999976158142D;
+/*    */         
+/* 54 */         double d3 = paramsn.aN + paramsn.w() - 0.20000000298023224D - localsl.aN;
+/*    */         
+/* 56 */         float f = in.a(d1 * d1 + d2 * d2) * 0.2F;
+/*    */         
+/* 58 */         this.aI.a(this, "random.bow", 1.0F, 1.0F / (this.bs.nextFloat() * 0.4F + 0.8F));
+/* 59 */         this.aI.b(localsl);
+/* 60 */         localsl.a(d1, d3 + f, d2, 0.6F, 12.0F);
+/* 61 */         this.ae = 30;
+/*    */       }
+/* 63 */       this.aS = ((float)(Math.atan2(d2, d1) * 180.0D / 3.1415927410125732D) - 90.0F);
+/*    */       
+/* 65 */       this.e = true;
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public void b(nu paramnu) {
+/* 70 */     super.b(paramnu);
+/*    */   }
+/*    */   
+/*    */   public void a(nu paramnu) {
+/* 74 */     super.a(paramnu);
+/*    */   }
+/*    */   
+/*    */   protected int j() {
+/* 78 */     return gm.j.bf;
+/*    */   }
+/*    */   
+/*    */ 
+/*    */   protected void q()
+/*    */   {
+/* 84 */     int i = this.bs.nextInt(3);
+/* 85 */     for (int j = 0; j < i; j++) {
+/* 86 */       b(gm.j.bf, 1);
+/*    */     }
+/*    */     
+/* 89 */     i = this.bs.nextInt(3);
+/* 90 */     for (j = 0; j < i; j++) {
+/* 91 */       b(gm.aV.bf, 1);
+/*    */     }
+/*    */   }
+/*    */   
+/* 95 */   private static final iz a = new iz(gm.i, 1);
+/*    */   
+/*    */   public iz r_() {
+/* 98 */     return a;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\fr.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

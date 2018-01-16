@@ -1,0 +1,43 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class qq
+/*    */ {
+/*    */   private int d;
+/*    */   private int e;
+/*    */   public double a;
+/*    */   public double b;
+/*    */   public int c;
+/*    */   
+/*    */   public qq(kv paramkv, int paramInt1, int paramInt2)
+/*    */   {
+/* 15 */     this.d = paramInt1;
+/* 16 */     this.e = paramInt2;
+/* 17 */     this.c = 1;
+/*    */     
+/* 19 */     int i = paramkv.I;
+/* 20 */     if (i == 0) i = 1000;
+/* 21 */     while ((this.c < i) && (this.d / (this.c + 1) >= 320) && (this.e / (this.c + 1) >= 240)) {
+/* 22 */       this.c += 1;
+/*    */     }
+/* 24 */     this.a = (this.d / this.c);
+/* 25 */     this.b = (this.e / this.c);
+/* 26 */     this.d = ((int)Math.ceil(this.a));
+/* 27 */     this.e = ((int)Math.ceil(this.b));
+/*    */   }
+/*    */   
+/*    */   public int a() {
+/* 31 */     return this.d;
+/*    */   }
+/*    */   
+/*    */   public int b() {
+/* 35 */     return this.e;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\qq.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

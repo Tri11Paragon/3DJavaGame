@@ -1,0 +1,714 @@
+/*     */ package paulscode.sound;
+/*     */ 
+/*     */ import java.lang.reflect.InvocationTargetException;
+/*     */ import java.lang.reflect.Method;
+/*     */ import java.util.LinkedList;
+/*     */ import java.util.ListIterator;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class SoundSystemConfig
+/*     */ {
+/*  50 */   public static final Object THREAD_SYNC = new Object();
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static final int TYPE_NORMAL = 0;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static final int TYPE_STREAMING = 1;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static final int ATTENUATION_NONE = 0;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static final int ATTENUATION_ROLLOFF = 1;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static final int ATTENUATION_LINEAR = 2;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static final String EXTENSION_MIDI = ".*[mM][iI][dD][iI]?$";
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static final String PREFIX_URL = "^[hH][tT][tT][pP]://.*";
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 107 */   private static SoundSystemLogger logger = null;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   private static LinkedList libraries;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/* 117 */   private static LinkedList codecs = null;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 124 */   private static int numberNormalChannels = 28;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 130 */   private static int numberStreamingChannels = 4;
+/*     */   
+/*     */ 
+/*     */ 
+/* 134 */   private static float masterGain = 1.0F;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/* 139 */   private static int defaultAttenuationModel = 1;
+/*     */   
+/*     */ 
+/*     */ 
+/* 143 */   private static float defaultRolloffFactor = 0.03F;
+/*     */   
+/*     */ 
+/*     */ 
+/* 147 */   private static float defaultFadeDistance = 1000.0F;
+/*     */   
+/*     */ 
+/*     */ 
+/* 151 */   private static String soundFilesPackage = "Sounds/";
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/* 156 */   private static int streamingBufferSize = 131072;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 162 */   private static int numberStreamingBuffers = 3;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 168 */   private static int maxFileSize = 268435456;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/* 173 */   private static int fileChunkSize = 1048576;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 179 */   private static boolean midiCodec = false;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static void addLibrary(Class paramClass)
+/*     */   {
+/* 195 */     if (paramClass == null) throw new SoundSystemException("Parameter null in method 'addLibrary'", 2);
+/* 196 */     if (!Library.class.isAssignableFrom(paramClass)) { throw new SoundSystemException("The specified class does not extend class 'Library' in method 'addLibrary'");
+/*     */     }
+/* 198 */     if (libraries == null) { libraries = new LinkedList();
+/*     */     }
+/* 200 */     if (!libraries.contains(paramClass)) { libraries.add(paramClass);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static void removeLibrary(Class paramClass)
+/*     */   {
+/* 210 */     if ((libraries == null) || (paramClass == null)) { return;
+/*     */     }
+/* 212 */     libraries.remove(paramClass);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static LinkedList getLibraries()
+/*     */   {
+/* 222 */     return libraries;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static boolean libraryCompatible(Class paramClass)
+/*     */   {
+/* 234 */     if (paramClass == null) {
+/* 235 */       errorMessage("Parameter 'libraryClass' null in method'librayCompatible'");
+/* 236 */       return false;
+/*     */     }
+/* 238 */     if (!Library.class.isAssignableFrom(paramClass)) {
+/* 239 */       errorMessage("The specified class does not extend class 'Library' in method 'libraryCompatible'");
+/* 240 */       return false;
+/*     */     }
+/*     */     
+/* 243 */     Object localObject = runMethod(paramClass, "libraryCompatible", new Class[0], new Object[0]);
+/*     */     
+/* 245 */     if (localObject == null) {
+/* 246 */       errorMessage("Method 'Library.libraryCompatible' returned 'null' in method 'libraryCompatible'");
+/* 247 */       return false;
+/*     */     }
+/*     */     
+/* 250 */     return ((Boolean)localObject).booleanValue();
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static String getLibraryTitle(Class paramClass)
+/*     */   {
+/* 261 */     if (paramClass == null) {
+/* 262 */       errorMessage("Parameter 'libraryClass' null in method'getLibrayTitle'");
+/* 263 */       return null;
+/*     */     }
+/* 265 */     if (!Library.class.isAssignableFrom(paramClass)) {
+/* 266 */       errorMessage("The specified class does not extend class 'Library' in method 'getLibraryTitle'");
+/* 267 */       return null;
+/*     */     }
+/*     */     
+/* 270 */     Object localObject = runMethod(paramClass, "getTitle", new Class[0], new Object[0]);
+/* 271 */     if (localObject == null) {
+/* 272 */       errorMessage("Method 'Library.getTitle' returned 'null' in method 'getLibraryTitle'");
+/* 273 */       return null;
+/*     */     }
+/*     */     
+/* 276 */     return (String)localObject;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static String getLibraryDescription(Class paramClass)
+/*     */   {
+/* 287 */     if (paramClass == null) {
+/* 288 */       errorMessage("Parameter 'libraryClass' null in method'getLibrayDescription'");
+/* 289 */       return null;
+/*     */     }
+/* 291 */     if (!Library.class.isAssignableFrom(paramClass)) {
+/* 292 */       errorMessage("The specified class does not extend class 'Library' in method 'getLibraryDescription'");
+/* 293 */       return null;
+/*     */     }
+/*     */     
+/* 296 */     Object localObject = runMethod(paramClass, "getDescription", new Class[0], new Object[0]);
+/* 297 */     if (localObject == null) {
+/* 298 */       errorMessage("Method 'Library.getDescription' returned 'null' in method 'getLibraryDescription'");
+/* 299 */       return null;
+/*     */     }
+/*     */     
+/* 302 */     return (String)localObject;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static void setLogger(SoundSystemLogger paramSoundSystemLogger)
+/*     */   {
+/* 329 */     logger = paramSoundSystemLogger;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static SoundSystemLogger getLogger()
+/*     */   {
+/* 338 */     return logger;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static synchronized void setNumberNormalChannels(int paramInt)
+/*     */   {
+/* 356 */     numberNormalChannels = paramInt;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static synchronized int getNumberNormalChannels()
+/*     */   {
+/* 366 */     return numberNormalChannels;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static synchronized void setNumberStreamingChannels(int paramInt)
+/*     */   {
+/* 382 */     numberStreamingChannels = paramInt;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static synchronized int getNumberStreamingChannels()
+/*     */   {
+/* 391 */     return numberStreamingChannels;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static synchronized void setMasterGain(float paramFloat)
+/*     */   {
+/* 401 */     masterGain = paramFloat;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static synchronized float getMasterGain()
+/*     */   {
+/* 410 */     return masterGain;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static synchronized void setDefaultAttenuation(int paramInt)
+/*     */   {
+/* 421 */     defaultAttenuationModel = paramInt;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static synchronized int getDefaultAttenuation()
+/*     */   {
+/* 430 */     return defaultAttenuationModel;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static synchronized void setDefaultRolloff(float paramFloat)
+/*     */   {
+/* 440 */     defaultRolloffFactor = paramFloat;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static synchronized float getDefaultRolloff()
+/*     */   {
+/* 449 */     return defaultRolloffFactor;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static synchronized void setDefaultFadeDistance(float paramFloat)
+/*     */   {
+/* 459 */     defaultFadeDistance = paramFloat;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static synchronized float getDefaultFadeDistance()
+/*     */   {
+/* 468 */     return defaultFadeDistance;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static synchronized void setSoundFilesPackage(String paramString)
+/*     */   {
+/* 478 */     soundFilesPackage = paramString;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static synchronized String getSoundFilesPackage()
+/*     */   {
+/* 487 */     return soundFilesPackage;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static synchronized void setStreamingBufferSize(int paramInt)
+/*     */   {
+/* 497 */     streamingBufferSize = paramInt;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static synchronized int getStreamingBufferSize()
+/*     */   {
+/* 506 */     return streamingBufferSize;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static synchronized void setNumberStreamingBuffers(int paramInt)
+/*     */   {
+/* 518 */     numberStreamingBuffers = paramInt;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static synchronized int getNumberStreamingBuffers()
+/*     */   {
+/* 527 */     return numberStreamingBuffers;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static synchronized void setMaxFileSize(int paramInt)
+/*     */   {
+/* 539 */     maxFileSize = paramInt;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static synchronized int getMaxFileSize()
+/*     */   {
+/* 548 */     return maxFileSize;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static synchronized void setFileChunkSize(int paramInt)
+/*     */   {
+/* 559 */     fileChunkSize = paramInt;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static synchronized int getFileChunkSize()
+/*     */   {
+/* 569 */     return fileChunkSize;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static synchronized void setCodec(String paramString, Class paramClass)
+/*     */   {
+/* 582 */     if (paramString == null) throw new SoundSystemException("Parameter 'extension' null in method 'setCodec'.", 2);
+/* 583 */     if (paramClass == null) throw new SoundSystemException("Parameter 'iCodecClass' null in method 'setCodec'.", 2);
+/* 584 */     if (!ICodec.class.isAssignableFrom(paramClass)) { throw new SoundSystemException("The specified class does not implement interface 'ICodec' in method 'setCodec'", 3);
+/*     */     }
+/*     */     
+/* 587 */     if (codecs == null) { codecs = new LinkedList();
+/*     */     }
+/* 589 */     ListIterator localListIterator = codecs.listIterator();
+/*     */     
+/*     */ 
+/* 592 */     while (localListIterator.hasNext()) {
+/* 593 */       SoundSystemConfig.Codec localCodec = (SoundSystemConfig.Codec)localListIterator.next();
+/* 594 */       if (paramString.matches(localCodec.extensionRegX)) localListIterator.remove();
+/*     */     }
+/* 596 */     codecs.add(new SoundSystemConfig.Codec(paramString, paramClass));
+/*     */     
+/*     */ 
+/*     */ 
+/* 600 */     if (paramString.matches(".*[mM][iI][dD][iI]?$")) { midiCodec = true;
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static synchronized ICodec getCodec(String paramString)
+/*     */   {
+/* 612 */     if (codecs == null) { return null;
+/*     */     }
+/* 614 */     ListIterator localListIterator = codecs.listIterator();
+/*     */     
+/*     */ 
+/* 617 */     while (localListIterator.hasNext()) {
+/* 618 */       SoundSystemConfig.Codec localCodec = (SoundSystemConfig.Codec)localListIterator.next();
+/* 619 */       if (paramString.matches(localCodec.extensionRegX)) { return localCodec.getInstance();
+/*     */       }
+/*     */     }
+/* 622 */     return null;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public static boolean midiCodec()
+/*     */   {
+/* 632 */     return midiCodec;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   private static void errorMessage(String paramString)
+/*     */   {
+/* 648 */     if (logger != null) { logger.errorMessage("SoundSystemConfig", paramString, 0);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   private static Object runMethod(Class paramClass, String paramString, Class[] paramArrayOfClass, Object[] paramArrayOfObject)
+/*     */   {
+/* 668 */     Method localMethod = null;
+/*     */     try {
+/* 670 */       localMethod = paramClass.getMethod(paramString, paramArrayOfClass);
+/*     */     } catch (NoSuchMethodException localNoSuchMethodException) {
+/* 672 */       errorMessage("NoSuchMethodException thrown when attempting to call method '" + paramString + "' in " + "method 'runMethod'");
+/* 673 */       return null;
+/*     */     } catch (SecurityException localSecurityException) {
+/* 675 */       errorMessage("Access denied when attempting to call method '" + paramString + "' in method 'runMethod'");
+/* 676 */       return null;
+/*     */     } catch (NullPointerException localNullPointerException1) {
+/* 678 */       errorMessage("NullPointerException thrown when attempting to call method '" + paramString + "' in " + "method 'runMethod'");
+/* 679 */       return null;
+/*     */     }
+/* 681 */     if (localMethod == null) {
+/* 682 */       errorMessage("Method '" + paramString + "' not found for the class " + "specified in method 'runMethod'");
+/* 683 */       return null;
+/*     */     }
+/*     */     
+/* 686 */     Object localObject = null;
+/*     */     try {
+/* 688 */       localObject = localMethod.invoke(null, paramArrayOfObject);
+/*     */     } catch (IllegalAccessException localIllegalAccessException) {
+/* 690 */       errorMessage("IllegalAccessException thrown when attempting to invoke method '" + paramString + "' in " + "method 'runMethod'");
+/* 691 */       return null;
+/*     */     } catch (IllegalArgumentException localIllegalArgumentException) {
+/* 693 */       errorMessage("IllegalArgumentException thrown when attempting to invoke method '" + paramString + "' in " + "method 'runMethod'");
+/* 694 */       return null;
+/*     */     } catch (InvocationTargetException localInvocationTargetException) {
+/* 696 */       errorMessage("InvocationTargetException thrown while attempting to invoke method 'Library.getTitle' in method 'getLibraryTitle'");
+/* 697 */       return null;
+/*     */     } catch (NullPointerException localNullPointerException2) {
+/* 699 */       errorMessage("NullPointerException thrown when attempting to invoke method '" + paramString + "' in " + "method 'runMethod'");
+/* 700 */       return null;
+/*     */     } catch (ExceptionInInitializerError localExceptionInInitializerError) {
+/* 702 */       errorMessage("ExceptionInInitializerError thrown when attempting to invoke method '" + paramString + "' in " + "method 'runMethod'");
+/* 703 */       return null;
+/*     */     }
+/*     */     
+/* 706 */     return localObject;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\paulscode\sound\SoundSystemConfig.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

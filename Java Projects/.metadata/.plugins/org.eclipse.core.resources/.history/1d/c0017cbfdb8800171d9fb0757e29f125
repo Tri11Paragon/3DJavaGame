@@ -1,0 +1,31 @@
+/*    */ import net.minecraft.client.Minecraft;
+/*    */ 
+/*    */ public class mod_TooManyItems extends BaseMod
+/*    */ {
+/*  5 */   private long lastInvUpdate = 0L;
+/*    */   
+/*    */   public mod_TooManyItems() {
+/*  8 */     TMIConfig.isModloaderEnabled = true;
+/*  9 */     ModLoader.SetInGameHook(this, true, true);
+/* 10 */     TMIUtils.loadPreferences(TMIConfig.getInstance());
+/*    */   }
+/*    */   
+/*    */   public boolean OnTickInGame(Minecraft paramMinecraft) {
+/* 14 */     long l = System.currentTimeMillis();
+/* 15 */     if (l - this.lastInvUpdate > 250L) {
+/* 16 */       TMIUtils.updateUnlimitedItems();
+/* 17 */       this.lastInvUpdate = l;
+/*    */     }
+/* 19 */     return true;
+/*    */   }
+/*    */   
+/*    */   public String Version() {
+/* 23 */     return "1.7.2 2011-07-01";
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\mod_TooManyItems.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

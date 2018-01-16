@@ -1,0 +1,88 @@
+/*    */ import org.lwjgl.opengl.GL11;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class m
+/*    */   extends gv
+/*    */ {
+/* 10 */   private ko a = new il(2.0F);
+/*    */   
+/*    */   public m() {
+/* 13 */     super(new il(), 0.5F);
+/*    */   }
+/*    */   
+/*    */   protected void a(gb paramgb, float paramFloat) {
+/* 17 */     gb localgb = paramgb;
+/*    */     
+/* 19 */     float f1 = localgb.a_(paramFloat);
+/*    */     
+/* 21 */     float f2 = 1.0F + in.a(f1 * 100.0F) * f1 * 0.01F;
+/* 22 */     if (f1 < 0.0F) f1 = 0.0F;
+/* 23 */     if (f1 > 1.0F) f1 = 1.0F;
+/* 24 */     f1 *= f1;
+/* 25 */     f1 *= f1;
+/* 26 */     float f3 = (1.0F + f1 * 0.4F) * f2;
+/* 27 */     float f4 = (1.0F + f1 * 0.1F) / f2;
+/* 28 */     GL11.glScalef(f3, f4, f3);
+/*    */   }
+/*    */   
+/*    */   protected int a(gb paramgb, float paramFloat1, float paramFloat2) {
+/* 32 */     gb localgb = paramgb;
+/*    */     
+/* 34 */     float f = localgb.a_(paramFloat2);
+/*    */     
+/* 36 */     if ((int)(f * 10.0F) % 2 == 0) { return 0;
+/*    */     }
+/* 38 */     int i = (int)(f * 0.2F * 255.0F);
+/* 39 */     if (i < 0) i = 0;
+/* 40 */     if (i > 255) { i = 255;
+/*    */     }
+/* 42 */     int j = 255;
+/* 43 */     int k = 255;
+/* 44 */     int m = 255;
+/*    */     
+/* 46 */     return i << 24 | j << 16 | k << 8 | m;
+/*    */   }
+/*    */   
+/*    */   protected boolean a(gb paramgb, int paramInt, float paramFloat) {
+/* 50 */     if (paramgb.s()) {
+/* 51 */       if (paramInt == 1) {
+/* 52 */         float f1 = paramgb.bt + paramFloat;
+/* 53 */         a("/armor/power.png");
+/* 54 */         GL11.glMatrixMode(5890);
+/* 55 */         GL11.glLoadIdentity();
+/* 56 */         float f2 = f1 * 0.01F;
+/* 57 */         float f3 = f1 * 0.01F;
+/* 58 */         GL11.glTranslatef(f2, f3, 0.0F);
+/* 59 */         a(this.a);
+/* 60 */         GL11.glMatrixMode(5888);
+/* 61 */         GL11.glEnable(3042);
+/* 62 */         float f4 = 0.5F;
+/* 63 */         GL11.glColor4f(f4, f4, f4, 1.0F);
+/* 64 */         GL11.glDisable(2896);
+/* 65 */         GL11.glBlendFunc(1, 1);
+/* 66 */         return true;
+/*    */       }
+/* 68 */       if (paramInt == 2) {
+/* 69 */         GL11.glMatrixMode(5890);
+/* 70 */         GL11.glLoadIdentity();
+/* 71 */         GL11.glMatrixMode(5888);
+/* 72 */         GL11.glEnable(2896);
+/* 73 */         GL11.glDisable(3042);
+/*    */       }
+/*    */     }
+/* 76 */     return false;
+/*    */   }
+/*    */   
+/*    */   protected boolean b(gb paramgb, int paramInt, float paramFloat) {
+/* 80 */     return false;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\m.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

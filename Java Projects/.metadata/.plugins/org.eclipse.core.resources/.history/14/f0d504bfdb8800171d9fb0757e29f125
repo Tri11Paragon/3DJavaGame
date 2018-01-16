@@ -1,0 +1,393 @@
+/*     */ import java.util.List;
+/*     */ import java.util.Random;
+/*     */ import net.minecraft.client.Minecraft;
+/*     */ import org.lwjgl.input.Mouse;
+/*     */ import org.lwjgl.opengl.GL11;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class xm
+/*     */   extends da
+/*     */ {
+/*  35 */   private static final int s = ep.a * 24 - 112;
+/*  36 */   private static final int t = ep.b * 24 - 112;
+/*  37 */   private static final int u = ep.c * 24 - 77;
+/*  38 */   private static final int v = ep.d * 24 - 77;
+/*     */   
+/*     */ 
+/*     */ 
+/*  42 */   protected int a = 256;
+/*  43 */   protected int i = 202;
+/*  44 */   protected int j = 0;
+/*  45 */   protected int l = 0;
+/*     */   protected double m;
+/*     */   protected double n;
+/*     */   protected double o;
+/*     */   protected double p;
+/*     */   protected double q;
+/*  51 */   protected double r; private int w = 0;
+/*     */   private xi x;
+/*     */   
+/*     */   public xm(xi paramxi)
+/*     */   {
+/*  56 */     this.x = paramxi;
+/*  57 */     int k = 141;
+/*  58 */     int i1 = 141;
+/*     */     
+/*  60 */     this.m = (this.o = this.q = ep.f.a * 24 - k / 2 - 12);
+/*  61 */     this.n = (this.p = this.r = ep.f.b * 24 - i1 / 2);
+/*     */   }
+/*     */   
+/*     */   public void b()
+/*     */   {
+/*  66 */     this.e.clear();
+/*     */     
+/*  68 */     this.e.add(new ab(1, this.c / 2 + 24, this.d / 2 + 74, 80, 20, do.a("gui.done")));
+/*     */   }
+/*     */   
+/*     */   protected void a(ke paramke)
+/*     */   {
+/*  73 */     if (paramke.f == 1) {
+/*  74 */       this.b.a(null);
+/*  75 */       this.b.g();
+/*     */     }
+/*  77 */     super.a(paramke);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   protected void a(char paramChar, int paramInt)
+/*     */   {
+/*  83 */     if (paramInt == this.b.z.r.b) {
+/*  84 */       this.b.a(null);
+/*  85 */       this.b.g();
+/*     */     } else {
+/*  87 */       super.a(paramChar, paramInt);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(int paramInt1, int paramInt2, float paramFloat) {
+/*  92 */     if (Mouse.isButtonDown(0)) {
+/*  93 */       int k = (this.c - this.a) / 2;
+/*  94 */       int i1 = (this.d - this.i) / 2;
+/*     */       
+/*  96 */       int i2 = k + 8;
+/*  97 */       int i3 = i1 + 17;
+/*     */       
+/*  99 */       if (((this.w == 0) || (this.w == 1)) && 
+/* 100 */         (paramInt1 >= i2) && (paramInt1 < i2 + 224) && (paramInt2 >= i3) && (paramInt2 < i3 + 155)) {
+/* 101 */         if (this.w == 0) {
+/* 102 */           this.w = 1;
+/*     */         } else {
+/* 104 */           this.o -= paramInt1 - this.j;
+/* 105 */           this.p -= paramInt2 - this.l;
+/* 106 */           this.q = (this.m = this.o);
+/* 107 */           this.r = (this.n = this.p);
+/*     */         }
+/* 109 */         this.j = paramInt1;
+/* 110 */         this.l = paramInt2;
+/*     */       }
+/*     */       
+/*     */ 
+/* 114 */       if (this.q < s) this.q = s;
+/* 115 */       if (this.r < t) this.r = t;
+/* 116 */       if (this.q >= u) this.q = (u - 1);
+/* 117 */       if (this.r >= v) this.r = (v - 1);
+/*     */     } else {
+/* 119 */       this.w = 0;
+/*     */     }
+/*     */     
+/* 122 */     i();
+/*     */     
+/* 124 */     b(paramInt1, paramInt2, paramFloat);
+/*     */     
+/* 126 */     GL11.glDisable(2896);
+/* 127 */     GL11.glDisable(2929);
+/*     */     
+/* 129 */     k();
+/*     */     
+/* 131 */     GL11.glEnable(2896);
+/* 132 */     GL11.glEnable(2929);
+/*     */   }
+/*     */   
+/*     */   public void a()
+/*     */   {
+/* 137 */     this.m = this.o;
+/* 138 */     this.n = this.p;
+/*     */     
+/* 140 */     double d1 = this.q - this.o;
+/* 141 */     double d2 = this.r - this.p;
+/* 142 */     if (d1 * d1 + d2 * d2 < 4.0D) {
+/* 143 */       this.o += d1;
+/* 144 */       this.p += d2;
+/*     */     } else {
+/* 146 */       this.o += d1 * 0.85D;
+/* 147 */       this.p += d2 * 0.85D;
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   protected void k() {
+/* 152 */     int k = (this.c - this.a) / 2;
+/* 153 */     int i1 = (this.d - this.i) / 2;
+/* 154 */     this.g.b("Achievements", k + 15, i1 + 5, 4210752);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   protected void b(int paramInt1, int paramInt2, float paramFloat)
+/*     */   {
+/* 161 */     int k = in.b(this.m + (this.o - this.m) * paramFloat);
+/* 162 */     int i1 = in.b(this.n + (this.p - this.n) * paramFloat);
+/*     */     
+/* 164 */     if (k < s) k = s;
+/* 165 */     if (i1 < t) i1 = t;
+/* 166 */     if (k >= u) k = u - 1;
+/* 167 */     if (i1 >= v) { i1 = v - 1;
+/*     */     }
+/*     */     
+/* 170 */     int i2 = this.b.p.b("/terrain.png");
+/* 171 */     int i3 = this.b.p.b("/achievement/bg.png");
+/*     */     
+/* 173 */     int i4 = (this.c - this.a) / 2;
+/* 174 */     int i5 = (this.d - this.i) / 2;
+/*     */     
+/* 176 */     int i6 = i4 + 16;
+/* 177 */     int i7 = i5 + 17;
+/*     */     
+/* 179 */     this.k = 0.0F;
+/*     */     
+/* 181 */     GL11.glDepthFunc(518);
+/* 182 */     GL11.glPushMatrix();
+/* 183 */     GL11.glTranslatef(0.0F, 0.0F, -200.0F);
+/*     */     
+/*     */ 
+/* 186 */     GL11.glEnable(3553);
+/* 187 */     GL11.glDisable(2896);
+/* 188 */     GL11.glEnable(32826);
+/* 189 */     GL11.glEnable(2903);
+/*     */     
+/* 191 */     this.b.p.b(i2);
+/*     */     
+/* 193 */     int i8 = k + 288 >> 4;
+/* 194 */     int i9 = i1 + 288 >> 4;
+/* 195 */     int i10 = (k + 288) % 16;
+/* 196 */     int i11 = (i1 + 288) % 16;
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 204 */     Random localRandom = new Random();
+/*     */     
+/* 206 */     for (int i19 = 0; i19 * 16 - i11 < 155; i19++)
+/*     */     {
+/* 208 */       float f3 = 0.6F - (i9 + i19) / 25.0F * 0.3F;
+/* 209 */       GL11.glColor4f(f3, f3, f3, 1.0F);
+/*     */       
+/* 211 */       for (int i20 = 0; i20 * 16 - i10 < 224; i20++)
+/*     */       {
+/* 213 */         localRandom.setSeed(1234 + i8 + i20);
+/* 214 */         localRandom.nextInt();
+/* 215 */         int i21 = localRandom.nextInt(1 + i9 + i19) + (i9 + i19) / 2;
+/* 216 */         int i22 = uu.F.bm;
+/*     */         
+/* 218 */         if ((i21 > 37) || (i9 + i19 == 35)) {
+/* 219 */           i22 = uu.A.bm;
+/* 220 */         } else if (i21 == 22) {
+/* 221 */           if (localRandom.nextInt(2) == 0) {
+/* 222 */             i22 = uu.ax.bm;
+/*     */           } else {
+/* 224 */             i22 = uu.aO.bm;
+/*     */           }
+/* 226 */         } else if (i21 == 10) {
+/* 227 */           i22 = uu.I.bm;
+/* 228 */         } else if (i21 == 8) {
+/* 229 */           i22 = uu.J.bm;
+/* 230 */         } else if (i21 > 4) {
+/* 231 */           i22 = uu.u.bm;
+/* 232 */         } else if (i21 > 0) {
+/* 233 */           i22 = uu.w.bm;
+/*     */         }
+/*     */         
+/* 236 */         b(i6 + i20 * 16 - i10, i7 + i19 * 16 - i11, i22 % 16 << 4, i22 >> 4 << 4, 16, 16);
+/*     */       }
+/*     */     }
+/*     */     
+/*     */ 
+/* 241 */     GL11.glEnable(2929);
+/*     */     
+/*     */ 
+/* 244 */     GL11.glDepthFunc(515);
+/*     */     
+/* 246 */     GL11.glDisable(3553);
+/*     */     int i12;
+/* 248 */     int i13; int i18; for (i8 = 0; i8 < ep.e.size(); i8++) {
+/* 249 */       localObject2 = (ny)ep.e.get(i8);
+/* 250 */       if (((ny)localObject2).c != null)
+/*     */       {
+/* 252 */         i10 = ((ny)localObject2).a * 24 - k + 11 + i6;
+/* 253 */         i11 = ((ny)localObject2).b * 24 - i1 + 11 + i7;
+/*     */         
+/* 255 */         i12 = ((ny)localObject2).c.a * 24 - k + 11 + i6;
+/* 256 */         i13 = ((ny)localObject2).c.b * 24 - i1 + 11 + i7;
+/*     */         
+/* 258 */         int i14 = 0;
+/*     */         
+/* 260 */         boolean bool1 = this.x.a((ny)localObject2);
+/* 261 */         boolean bool2 = this.x.b((ny)localObject2);
+/*     */         
+/* 263 */         i18 = Math.sin(System.currentTimeMillis() % 600L / 600.0D * 3.141592653589793D * 2.0D) > 0.6D ? 255 : 130;
+/* 264 */         if (bool1) { i14 = -9408400;
+/* 265 */         } else if (bool2) i14 = 65280 + (i18 << 24); else {
+/* 266 */           i14 = -16777216;
+/*     */         }
+/* 268 */         a(i10, i12, i11, i14);
+/* 269 */         b(i12, i11, i13, i14);
+/*     */       }
+/*     */     }
+/* 272 */     Object localObject1 = null;
+/* 273 */     Object localObject2 = new bb();
+/*     */     
+/* 275 */     GL11.glPushMatrix();
+/* 276 */     GL11.glRotatef(180.0F, 1.0F, 0.0F, 0.0F);
+/* 277 */     u.b();
+/* 278 */     GL11.glPopMatrix();
+/* 279 */     GL11.glDisable(2896);
+/* 280 */     GL11.glEnable(32826);
+/* 281 */     GL11.glEnable(2903);
+/*     */     Object localObject4;
+/* 283 */     int i15; int i16; for (i10 = 0; i10 < ep.e.size(); i10++) {
+/* 284 */       localObject4 = (ny)ep.e.get(i10);
+/*     */       
+/* 286 */       i12 = ((ny)localObject4).a * 24 - k;
+/* 287 */       i13 = ((ny)localObject4).b * 24 - i1;
+/*     */       
+/* 289 */       if ((i12 >= -24) && (i13 >= -24) && (i12 <= 224) && (i13 <= 155)) {
+/*     */         float f1;
+/* 291 */         if (this.x.a((ny)localObject4)) {
+/* 292 */           f1 = 1.0F;
+/* 293 */           GL11.glColor4f(f1, f1, f1, 1.0F);
+/* 294 */         } else if (this.x.b((ny)localObject4)) {
+/* 295 */           f1 = Math.sin(System.currentTimeMillis() % 600L / 600.0D * 3.141592653589793D * 2.0D) < 0.6D ? 0.6F : 0.8F;
+/* 296 */           GL11.glColor4f(f1, f1, f1, 1.0F);
+/*     */         } else {
+/* 298 */           f1 = 0.3F;
+/* 299 */           GL11.glColor4f(f1, f1, f1, 1.0F);
+/*     */         }
+/*     */         
+/* 302 */         this.b.p.b(i3);
+/* 303 */         i15 = i6 + i12;
+/* 304 */         i16 = i7 + i13;
+/* 305 */         if (((ny)localObject4).f()) {
+/* 306 */           b(i15 - 2, i16 - 2, 26, 202, 26, 26);
+/*     */         } else {
+/* 308 */           b(i15 - 2, i16 - 2, 0, 202, 26, 26);
+/*     */         }
+/*     */         
+/* 311 */         if (!this.x.b((ny)localObject4)) {
+/* 312 */           float f2 = 0.1F;
+/* 313 */           GL11.glColor4f(f2, f2, f2, 1.0F);
+/* 314 */           ((bb)localObject2).a = false;
+/*     */         }
+/* 316 */         GL11.glEnable(2896);
+/* 317 */         GL11.glEnable(2884);
+/* 318 */         ((bb)localObject2).a(this.b.q, this.b.p, ((ny)localObject4).d, i15 + 3, i16 + 3);
+/* 319 */         GL11.glDisable(2896);
+/* 320 */         if (!this.x.b((ny)localObject4)) {
+/* 321 */           ((bb)localObject2).a = true;
+/*     */         }
+/* 323 */         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+/*     */         
+/*     */ 
+/* 326 */         if ((paramInt1 >= i6) && (paramInt2 >= i7) && (paramInt1 < i6 + 224) && (paramInt2 < i7 + 155) && (paramInt1 >= i15) && (paramInt1 <= i15 + 22) && (paramInt2 >= i16) && (paramInt2 <= i16 + 22)) {
+/* 327 */           localObject1 = localObject4;
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */     
+/* 332 */     GL11.glDisable(2929);
+/* 333 */     GL11.glEnable(3042);
+/* 334 */     GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+/* 335 */     this.b.p.b(i3);
+/* 336 */     b(i4, i5, 0, 0, this.a, this.i);
+/*     */     
+/*     */ 
+/* 339 */     GL11.glPopMatrix();
+/*     */     
+/* 341 */     this.k = 0.0F;
+/* 342 */     GL11.glDepthFunc(515);
+/*     */     
+/* 344 */     GL11.glDisable(2929);
+/* 345 */     GL11.glEnable(3553);
+/* 346 */     super.a(paramInt1, paramInt2, paramFloat);
+/*     */     
+/* 348 */     if (localObject1 != null) {
+/* 349 */       Object localObject3 = localObject1;
+/* 350 */       localObject4 = ((ny)localObject3).f;
+/* 351 */       String str1 = ((ny)localObject3).e();
+/*     */       
+/* 353 */       i13 = paramInt1 + 12;
+/* 354 */       i15 = paramInt2 - 4;
+/*     */       
+/* 356 */       if (this.x.b((ny)localObject3)) {
+/* 357 */         i16 = Math.max(this.g.a((String)localObject4), 120);
+/* 358 */         int i17 = this.g.a(str1, i16);
+/* 359 */         if (this.x.a((ny)localObject3)) {
+/* 360 */           i17 += 12;
+/*     */         }
+/* 362 */         a(i13 - 3, i15 - 3, i13 + i16 + 3, i15 + i17 + 3 + 12, -1073741824, -1073741824);
+/*     */         
+/* 364 */         this.g.a(str1, i13, i15 + 12, i16, -6250336);
+/* 365 */         if (this.x.a((ny)localObject3)) {
+/* 366 */           this.g.a(do.a("achievement.taken"), i13, i15 + i17 + 4, -7302913);
+/*     */         }
+/*     */       } else {
+/* 369 */         i16 = Math.max(this.g.a((String)localObject4), 120);
+/* 370 */         String str2 = do.a("achievement.requires", new Object[] { ((ny)localObject3).c.f });
+/* 371 */         i18 = this.g.a(str2, i16);
+/* 372 */         a(i13 - 3, i15 - 3, i13 + i16 + 3, i15 + i18 + 12 + 3, -1073741824, -1073741824);
+/* 373 */         this.g.a(str2, i13, i15 + 12, i16, -9416624);
+/*     */       }
+/* 375 */       this.g.a((String)localObject4, i13, i15, ((ny)localObject3).f() ? -8355776 : this.x.b((ny)localObject3) ? -1 : ((ny)localObject3).f() ? -128 : -8355712);
+/*     */     }
+/*     */     
+/*     */ 
+/* 379 */     GL11.glEnable(2929);
+/* 380 */     GL11.glEnable(2896);
+/* 381 */     u.a();
+/*     */   }
+/*     */   
+/*     */   public boolean c() {
+/* 385 */     return true;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\xm.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,209 @@
+/*     */ import java.util.Random;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class xq
+/*     */   extends rw
+/*     */ {
+/*  23 */   private Random a = new Random();
+/*     */   
+/*     */   protected xq(int paramInt) {
+/*  26 */     super(paramInt, ln.e);
+/*  27 */     this.bm = 45;
+/*     */   }
+/*     */   
+/*     */   public int e() {
+/*  31 */     return 4;
+/*     */   }
+/*     */   
+/*     */   public int a(int paramInt, Random paramRandom) {
+/*  35 */     return uu.Q.bn;
+/*     */   }
+/*     */   
+/*     */   public void c(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/*  39 */     super.c(paramfd, paramInt1, paramInt2, paramInt3);
+/*  40 */     h(paramfd, paramInt1, paramInt2, paramInt3);
+/*     */   }
+/*     */   
+/*     */   private void h(fd paramfd, int paramInt1, int paramInt2, int paramInt3)
+/*     */   {
+/*  45 */     if (paramfd.B) {
+/*  46 */       return;
+/*     */     }
+/*     */     
+/*  49 */     int i = paramfd.a(paramInt1, paramInt2, paramInt3 - 1);
+/*  50 */     int j = paramfd.a(paramInt1, paramInt2, paramInt3 + 1);
+/*  51 */     int k = paramfd.a(paramInt1 - 1, paramInt2, paramInt3);
+/*  52 */     int m = paramfd.a(paramInt1 + 1, paramInt2, paramInt3);
+/*     */     
+/*  54 */     int n = 3;
+/*  55 */     if ((uu.o[i] != 0) && (uu.o[j] == 0)) n = 3;
+/*  56 */     if ((uu.o[j] != 0) && (uu.o[i] == 0)) n = 2;
+/*  57 */     if ((uu.o[k] != 0) && (uu.o[m] == 0)) n = 5;
+/*  58 */     if ((uu.o[m] != 0) && (uu.o[k] == 0)) n = 4;
+/*  59 */     paramfd.d(paramInt1, paramInt2, paramInt3, n);
+/*     */   }
+/*     */   
+/*     */   public int a(xp paramxp, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/*  63 */     if (paramInt4 == 1) return this.bm + 17;
+/*  64 */     if (paramInt4 == 0) { return this.bm + 17;
+/*     */     }
+/*  66 */     int i = paramxp.e(paramInt1, paramInt2, paramInt3);
+/*     */     
+/*  68 */     if (paramInt4 != i) return this.bm;
+/*  69 */     return this.bm + 1;
+/*     */   }
+/*     */   
+/*     */   public int a(int paramInt) {
+/*  73 */     if (paramInt == 1) return this.bm + 17;
+/*  74 */     if (paramInt == 0) return this.bm + 17;
+/*  75 */     if (paramInt == 3) return this.bm + 1;
+/*  76 */     return this.bm;
+/*     */   }
+/*     */   
+/*     */   public boolean a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, gs paramgs) {
+/*  80 */     if (paramfd.B) {
+/*  81 */       return true;
+/*     */     }
+/*  83 */     az localaz = (az)paramfd.b(paramInt1, paramInt2, paramInt3);
+/*  84 */     paramgs.a(localaz);
+/*     */     
+/*  86 */     return true;
+/*     */   }
+/*     */   
+/*     */   private void c(fd paramfd, int paramInt1, int paramInt2, int paramInt3, Random paramRandom) {
+/*  90 */     int i = paramfd.e(paramInt1, paramInt2, paramInt3);
+/*     */     
+/*     */ 
+/*     */ 
+/*  94 */     int j = 0;int k = 0;
+/*  95 */     if (i == 3) {
+/*  96 */       k = 1;
+/*  97 */     } else if (i == 2) {
+/*  98 */       k = -1;
+/*  99 */     } else if (i == 5) {
+/* 100 */       j = 1;
+/*     */     } else {
+/* 102 */       j = -1;
+/*     */     }
+/*     */     
+/* 105 */     az localaz = (az)paramfd.b(paramInt1, paramInt2, paramInt3);
+/* 106 */     iz localiz = localaz.b();
+/* 107 */     double d1 = paramInt1 + j * 0.6D + 0.5D;
+/* 108 */     double d2 = paramInt2 + 0.5D;
+/* 109 */     double d3 = paramInt3 + k * 0.6D + 0.5D;
+/* 110 */     if (localiz == null) {
+/* 111 */       paramfd.e(1001, paramInt1, paramInt2, paramInt3, 0);
+/*     */     } else { Object localObject;
+/* 113 */       if (localiz.c == gm.j.bf) {
+/* 114 */         localObject = new sl(paramfd, d1, d2, d3);
+/* 115 */         ((sl)localObject).a(j, 0.10000000149011612D, k, 1.1F, 6.0F);
+/* 116 */         ((sl)localObject).a = true;
+/* 117 */         paramfd.b((sn)localObject);
+/* 118 */         paramfd.e(1002, paramInt1, paramInt2, paramInt3, 0);
+/* 119 */       } else if (localiz.c == gm.aN.bf) {
+/* 120 */         localObject = new vv(paramfd, d1, d2, d3);
+/* 121 */         ((vv)localObject).a(j, 0.10000000149011612D, k, 1.1F, 6.0F);
+/* 122 */         paramfd.b((sn)localObject);
+/* 123 */         paramfd.e(1002, paramInt1, paramInt2, paramInt3, 0);
+/* 124 */       } else if (localiz.c == gm.aB.bf) {
+/* 125 */         localObject = new by(paramfd, d1, d2, d3);
+/* 126 */         ((by)localObject).a(j, 0.10000000149011612D, k, 1.1F, 6.0F);
+/* 127 */         paramfd.b((sn)localObject);
+/* 128 */         paramfd.e(1002, paramInt1, paramInt2, paramInt3, 0);
+/*     */       } else {
+/* 130 */         localObject = new hl(paramfd, d1, d2 - 0.3D, d3, localiz);
+/*     */         
+/* 132 */         double d4 = paramRandom.nextDouble() * 0.1D + 0.2D;
+/* 133 */         ((hl)localObject).aP = (j * d4);
+/* 134 */         ((hl)localObject).aQ = 0.20000000298023224D;
+/* 135 */         ((hl)localObject).aR = (k * d4);
+/*     */         
+/* 137 */         localObject.aP += paramRandom.nextGaussian() * 0.007499999832361937D * 6.0D;
+/* 138 */         localObject.aQ += paramRandom.nextGaussian() * 0.007499999832361937D * 6.0D;
+/* 139 */         localObject.aR += paramRandom.nextGaussian() * 0.007499999832361937D * 6.0D;
+/*     */         
+/* 141 */         paramfd.b((sn)localObject);
+/* 142 */         paramfd.e(1000, paramInt1, paramInt2, paramInt3, 0);
+/*     */       }
+/* 144 */       paramfd.e(2000, paramInt1, paramInt2, paramInt3, j + 1 + (k + 1) * 3);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void b(fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+/*     */   {
+/* 150 */     if ((paramInt4 > 0) && (uu.m[paramInt4].f())) {
+/* 151 */       int i = (paramfd.s(paramInt1, paramInt2, paramInt3)) || (paramfd.s(paramInt1, paramInt2 + 1, paramInt3)) ? 1 : 0;
+/* 152 */       if (i != 0) {
+/* 153 */         paramfd.c(paramInt1, paramInt2, paramInt3, this.bn, e());
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, Random paramRandom)
+/*     */   {
+/* 160 */     if ((paramfd.s(paramInt1, paramInt2, paramInt3)) || (paramfd.s(paramInt1, paramInt2 + 1, paramInt3))) {
+/* 161 */       c(paramfd, paramInt1, paramInt2, paramInt3, paramRandom);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   protected ow a_() {
+/* 166 */     return new az();
+/*     */   }
+/*     */   
+/*     */   public void a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, ls paramls) {
+/* 170 */     int i = in.b(paramls.aS * 4.0F / 360.0F + 0.5D) & 0x3;
+/*     */     
+/* 172 */     if (i == 0) paramfd.d(paramInt1, paramInt2, paramInt3, 2);
+/* 173 */     if (i == 1) paramfd.d(paramInt1, paramInt2, paramInt3, 5);
+/* 174 */     if (i == 2) paramfd.d(paramInt1, paramInt2, paramInt3, 3);
+/* 175 */     if (i == 3) paramfd.d(paramInt1, paramInt2, paramInt3, 4);
+/*     */   }
+/*     */   
+/*     */   public void b(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/* 179 */     az localaz = (az)paramfd.b(paramInt1, paramInt2, paramInt3);
+/* 180 */     for (int i = 0; i < localaz.a(); i++) {
+/* 181 */       iz localiz = localaz.f_(i);
+/* 182 */       if (localiz != null) {
+/* 183 */         float f1 = this.a.nextFloat() * 0.8F + 0.1F;
+/* 184 */         float f2 = this.a.nextFloat() * 0.8F + 0.1F;
+/* 185 */         float f3 = this.a.nextFloat() * 0.8F + 0.1F;
+/*     */         
+/* 187 */         while (localiz.a > 0) {
+/* 188 */           int j = this.a.nextInt(21) + 10;
+/* 189 */           if (j > localiz.a) j = localiz.a;
+/* 190 */           localiz.a -= j;
+/*     */           
+/* 192 */           hl localhl = new hl(paramfd, paramInt1 + f1, paramInt2 + f2, paramInt3 + f3, new iz(localiz.c, j, localiz.i()));
+/* 193 */           float f4 = 0.05F;
+/* 194 */           localhl.aP = ((float)this.a.nextGaussian() * f4);
+/* 195 */           localhl.aQ = ((float)this.a.nextGaussian() * f4 + 0.2F);
+/* 196 */           localhl.aR = ((float)this.a.nextGaussian() * f4);
+/* 197 */           paramfd.b(localhl);
+/*     */         }
+/*     */       }
+/*     */     }
+/* 201 */     super.b(paramfd, paramInt1, paramInt2, paramInt3);
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\xq.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

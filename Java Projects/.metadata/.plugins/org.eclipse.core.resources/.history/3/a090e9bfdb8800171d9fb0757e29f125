@@ -1,0 +1,201 @@
+/*     */ import org.lwjgl.opengl.GL11;
+/*     */ 
+/*     */ public class o extends ko
+/*     */ {
+/*     */   public ps a;
+/*     */   public ps b;
+/*     */   public ps c;
+/*     */   public ps d;
+/*     */   public ps e;
+/*     */   public ps f;
+/*     */   ps g;
+/*     */   ps h;
+/*     */   ps i;
+/*     */   ps j;
+/*     */   ps k;
+/*     */   
+/*     */   public o()
+/*     */   {
+/*  19 */     float f1 = 0.0F;
+/*     */     
+/*  21 */     float f2 = 13.5F;
+/*     */     
+/*  23 */     this.a = new ps(0, 0);
+/*  24 */     this.a.a(-3.0F, -3.0F, -2.0F, 6, 6, 4, f1);
+/*  25 */     this.a.a(-1.0F, f2, -7.0F);
+/*     */     
+/*  27 */     this.b = new ps(18, 14);
+/*  28 */     this.b.a(-4.0F, -2.0F, -3.0F, 6, 9, 6, f1);
+/*  29 */     this.b.a(0.0F, 14.0F, 2.0F);
+/*     */     
+/*  31 */     this.k = new ps(21, 0);
+/*  32 */     this.k.a(-4.0F, -3.0F, -3.0F, 8, 6, 7, f1);
+/*  33 */     this.k.a(-1.0F, 14.0F, 2.0F);
+/*     */     
+/*  35 */     this.c = new ps(0, 18);
+/*  36 */     this.c.a(-1.0F, 0.0F, -1.0F, 2, 8, 2, f1);
+/*  37 */     this.c.a(-2.5F, 16.0F, 7.0F);
+/*     */     
+/*  39 */     this.d = new ps(0, 18);
+/*  40 */     this.d.a(-1.0F, 0.0F, -1.0F, 2, 8, 2, f1);
+/*  41 */     this.d.a(0.5F, 16.0F, 7.0F);
+/*     */     
+/*  43 */     this.e = new ps(0, 18);
+/*  44 */     this.e.a(-1.0F, 0.0F, -1.0F, 2, 8, 2, f1);
+/*  45 */     this.e.a(-2.5F, 16.0F, -4.0F);
+/*     */     
+/*  47 */     this.f = new ps(0, 18);
+/*  48 */     this.f.a(-1.0F, 0.0F, -1.0F, 2, 8, 2, f1);
+/*  49 */     this.f.a(0.5F, 16.0F, -4.0F);
+/*     */     
+/*  51 */     this.j = new ps(9, 18);
+/*  52 */     this.j.a(-1.0F, 0.0F, -1.0F, 2, 8, 2, f1);
+/*  53 */     this.j.a(-1.0F, 12.0F, 8.0F);
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*  59 */     this.g = new ps(16, 14);
+/*  60 */     this.g.a(-3.0F, -5.0F, 0.0F, 2, 2, 1, f1);
+/*  61 */     this.g.a(-1.0F, f2, -7.0F);
+/*     */     
+/*  63 */     this.h = new ps(16, 14);
+/*  64 */     this.h.a(1.0F, -5.0F, 0.0F, 2, 2, 1, f1);
+/*  65 */     this.h.a(-1.0F, f2, -7.0F);
+/*     */     
+/*  67 */     this.i = new ps(0, 10);
+/*  68 */     this.i.a(-2.0F, 0.0F, -5.0F, 3, 3, 4, f1);
+/*  69 */     this.i.a(-0.5F, f2, -7.0F);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void a(float paramFloat1, float paramFloat2, float paramFloat3, float paramFloat4, float paramFloat5, float paramFloat6)
+/*     */   {
+/*  92 */     super.a(paramFloat1, paramFloat2, paramFloat3, paramFloat4, paramFloat5, paramFloat6);
+/*  93 */     b(paramFloat1, paramFloat2, paramFloat3, paramFloat4, paramFloat5, paramFloat6);
+/*  94 */     this.a.b(paramFloat6);
+/*  95 */     this.b.a(paramFloat6);
+/*  96 */     this.c.a(paramFloat6);
+/*  97 */     this.d.a(paramFloat6);
+/*  98 */     this.e.a(paramFloat6);
+/*  99 */     this.f.a(paramFloat6);
+/*     */     
+/* 101 */     this.g.b(paramFloat6);
+/* 102 */     this.h.b(paramFloat6);
+/* 103 */     this.i.b(paramFloat6);
+/* 104 */     this.j.b(paramFloat6);
+/*     */     
+/* 106 */     this.k.a(paramFloat6);
+/*     */   }
+/*     */   
+/*     */   public void a(ls paramls, float paramFloat1, float paramFloat2, float paramFloat3)
+/*     */   {
+/* 111 */     gi localgi = (gi)paramls;
+/*     */     
+/* 113 */     if (localgi.C()) {
+/* 114 */       this.j.e = 0.0F;
+/*     */     } else {
+/* 116 */       this.j.e = (in.b(paramFloat1 * 0.6662F) * 1.4F * paramFloat2);
+/*     */     }
+/*     */     
+/* 119 */     if (localgi.B()) {
+/* 120 */       this.k.a(-1.0F, 16.0F, -3.0F);
+/* 121 */       this.k.d = 1.2566371F;
+/* 122 */       this.k.e = 0.0F;
+/*     */       
+/* 124 */       this.b.a(0.0F, 18.0F, 0.0F);
+/* 125 */       this.b.d = 0.7853982F;
+/*     */       
+/* 127 */       this.j.a(-1.0F, 21.0F, 6.0F);
+/*     */       
+/* 129 */       this.c.a(-2.5F, 22.0F, 2.0F);
+/* 130 */       this.c.d = 4.712389F;
+/* 131 */       this.d.a(0.5F, 22.0F, 2.0F);
+/* 132 */       this.d.d = 4.712389F;
+/*     */       
+/* 134 */       this.e.d = 5.811947F;
+/* 135 */       this.e.a(-2.49F, 17.0F, -4.0F);
+/* 136 */       this.f.d = 5.811947F;
+/* 137 */       this.f.a(0.51F, 17.0F, -4.0F);
+/*     */     } else {
+/* 139 */       this.b.a(0.0F, 14.0F, 2.0F);
+/* 140 */       this.b.d = 1.5707964F;
+/*     */       
+/* 142 */       this.k.a(-1.0F, 14.0F, -3.0F);
+/* 143 */       this.k.d = this.b.d;
+/*     */       
+/* 145 */       this.j.a(-1.0F, 12.0F, 8.0F);
+/*     */       
+/* 147 */       this.c.a(-2.5F, 16.0F, 7.0F);
+/* 148 */       this.d.a(0.5F, 16.0F, 7.0F);
+/* 149 */       this.e.a(-2.5F, 16.0F, -4.0F);
+/* 150 */       this.f.a(0.5F, 16.0F, -4.0F);
+/*     */       
+/*     */ 
+/* 153 */       this.c.d = (in.b(paramFloat1 * 0.6662F) * 1.4F * paramFloat2);
+/* 154 */       this.d.d = (in.b(paramFloat1 * 0.6662F + 3.1415927F) * 1.4F * paramFloat2);
+/* 155 */       this.e.d = (in.b(paramFloat1 * 0.6662F + 3.1415927F) * 1.4F * paramFloat2);
+/* 156 */       this.f.d = (in.b(paramFloat1 * 0.6662F) * 1.4F * paramFloat2);
+/*     */     }
+/*     */     
+/*     */ 
+/* 160 */     float f1 = localgi.c(paramFloat3) + localgi.a(paramFloat3, 0.0F);
+/*     */     
+/* 162 */     this.a.f = f1;
+/* 163 */     this.g.f = f1;
+/* 164 */     this.h.f = f1;
+/* 165 */     this.i.f = f1;
+/*     */     
+/*     */ 
+/* 168 */     this.k.f = localgi.a(paramFloat3, -0.08F);
+/* 169 */     this.b.f = localgi.a(paramFloat3, -0.16F);
+/* 170 */     this.j.f = localgi.a(paramFloat3, -0.2F);
+/*     */     
+/* 172 */     if (localgi.v()) {
+/* 173 */       float f2 = localgi.a(paramFloat3) * localgi.b_(paramFloat3);
+/* 174 */       GL11.glColor3f(f2, f2, f2);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void b(float paramFloat1, float paramFloat2, float paramFloat3, float paramFloat4, float paramFloat5, float paramFloat6)
+/*     */   {
+/* 180 */     super.b(paramFloat1, paramFloat2, paramFloat3, paramFloat4, paramFloat5, paramFloat6);
+/* 181 */     this.a.d = (paramFloat5 / 57.295776F);
+/* 182 */     this.a.e = (paramFloat4 / 57.295776F);
+/*     */     
+/* 184 */     this.g.e = this.a.e;
+/* 185 */     this.g.d = this.a.d;
+/*     */     
+/* 187 */     this.h.e = this.a.e;
+/* 188 */     this.h.d = this.a.d;
+/*     */     
+/* 190 */     this.i.e = this.a.e;
+/* 191 */     this.i.d = this.a.d;
+/*     */     
+/* 193 */     this.j.d = paramFloat3;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\o.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

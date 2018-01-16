@@ -1,0 +1,57 @@
+/*    */ import java.util.List;
+/*    */ import net.minecraft.client.Minecraft;
+/*    */ 
+/*    */ 
+/*    */ public class ex
+/*    */   extends da
+/*    */ {
+/*    */   private String a;
+/*    */   private String i;
+/*    */   
+/*    */   public ex(String paramString1, String paramString2, Object... paramVarArgs)
+/*    */   {
+/* 13 */     nh localnh = nh.a();
+/*    */     
+/* 15 */     this.a = localnh.a(paramString1);
+/* 16 */     if (paramVarArgs != null) {
+/* 17 */       this.i = localnh.a(paramString2, paramVarArgs);
+/*    */     } else {
+/* 19 */       this.i = localnh.a(paramString2);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */ 
+/*    */   public void a() {}
+/*    */   
+/*    */ 
+/*    */   protected void a(char paramChar, int paramInt) {}
+/*    */   
+/*    */   public void b()
+/*    */   {
+/* 31 */     nh localnh = nh.a();
+/*    */     
+/* 33 */     this.e.clear();
+/* 34 */     this.e.add(new ke(0, this.c / 2 - 100, this.d / 4 + 120 + 12, localnh.a("gui.toMenu")));
+/*    */   }
+/*    */   
+/*    */   protected void a(ke paramke) {
+/* 38 */     if (paramke.f == 0) {
+/* 39 */       this.b.a(new fu());
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public void a(int paramInt1, int paramInt2, float paramFloat) {
+/* 44 */     i();
+/*    */     
+/* 46 */     a(this.g, this.a, this.c / 2, this.d / 2 - 50, 16777215);
+/* 47 */     a(this.g, this.i, this.c / 2, this.d / 2 - 10, 16777215);
+/*    */     
+/* 49 */     super.a(paramInt1, paramInt2, paramFloat);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ex.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

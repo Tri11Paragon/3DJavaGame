@@ -1,0 +1,44 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class sf
+/*    */   extends pg
+/*    */ {
+/*    */   public boolean a(fd paramfd, Random paramRandom, int paramInt1, int paramInt2, int paramInt3)
+/*    */   {
+/* 10 */     if (!paramfd.d(paramInt1, paramInt2, paramInt3)) return false;
+/* 11 */     if (paramfd.a(paramInt1, paramInt2 + 1, paramInt3) != uu.bc.bn) return false;
+/* 12 */     paramfd.f(paramInt1, paramInt2, paramInt3, uu.be.bn);
+/*    */     
+/* 14 */     for (int i = 0; i < 1500; i++) {
+/* 15 */       int j = paramInt1 + paramRandom.nextInt(8) - paramRandom.nextInt(8);
+/* 16 */       int k = paramInt2 - paramRandom.nextInt(12);
+/* 17 */       int m = paramInt3 + paramRandom.nextInt(8) - paramRandom.nextInt(8);
+/* 18 */       if (paramfd.a(j, k, m) == 0)
+/*    */       {
+/* 20 */         int n = 0;
+/* 21 */         for (int i1 = 0; i1 < 6; i1++) {
+/* 22 */           int i2 = 0;
+/* 23 */           if (i1 == 0) i2 = paramfd.a(j - 1, k, m);
+/* 24 */           if (i1 == 1) i2 = paramfd.a(j + 1, k, m);
+/* 25 */           if (i1 == 2) i2 = paramfd.a(j, k - 1, m);
+/* 26 */           if (i1 == 3) i2 = paramfd.a(j, k + 1, m);
+/* 27 */           if (i1 == 4) i2 = paramfd.a(j, k, m - 1);
+/* 28 */           if (i1 == 5) { i2 = paramfd.a(j, k, m + 1);
+/*    */           }
+/* 30 */           if (i2 == uu.be.bn) { n++;
+/*    */           }
+/*    */         }
+/* 33 */         if (n == 1) paramfd.f(j, k, m, uu.be.bn);
+/*    */       }
+/*    */     }
+/* 36 */     return true;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\sf.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

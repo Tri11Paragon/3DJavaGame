@@ -1,0 +1,174 @@
+/*     */ import java.util.List;
+/*     */ import java.util.Random;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class bp
+/*     */   extends wq
+/*     */   implements ff
+/*     */ {
+/*  16 */   public int a = 0;
+/*     */   public double b;
+/*  18 */   public double c; public double d; private sn g = null;
+/*  19 */   private int h = 0;
+/*  20 */   public int e = 0;
+/*  21 */   public int f = 0;
+/*     */   
+/*     */   public bp(fd paramfd) {
+/*  24 */     super(paramfd);
+/*  25 */     this.O = "/mob/ghast.png";
+/*  26 */     b(4.0F, 4.0F);
+/*  27 */     this.bC = true;
+/*     */   }
+/*     */   
+/*     */   protected void b()
+/*     */   {
+/*  32 */     super.b();
+/*     */     
+/*  34 */     this.bD.a(16, Byte.valueOf((byte)0));
+/*     */   }
+/*     */   
+/*     */   public void w_() {
+/*  38 */     super.w_();
+/*  39 */     int i = this.bD.a(16);
+/*  40 */     this.O = (i == 1 ? "/mob/ghast_fire.png" : "/mob/ghast.png");
+/*     */   }
+/*     */   
+/*     */   protected void f_() {
+/*  44 */     if ((!this.aI.B) && (this.aI.q == 0)) K();
+/*  45 */     X();
+/*     */     
+/*  47 */     this.e = this.f;
+/*  48 */     double d1 = this.b - this.aM;
+/*  49 */     double d2 = this.c - this.aN;
+/*  50 */     double d3 = this.d - this.aO;
+/*     */     
+/*  52 */     double d4 = in.a(d1 * d1 + d2 * d2 + d3 * d3);
+/*     */     
+/*  54 */     if ((d4 < 1.0D) || (d4 > 60.0D)) {
+/*  55 */       this.b = (this.aM + (this.bs.nextFloat() * 2.0F - 1.0F) * 16.0F);
+/*  56 */       this.c = (this.aN + (this.bs.nextFloat() * 2.0F - 1.0F) * 16.0F);
+/*  57 */       this.d = (this.aO + (this.bs.nextFloat() * 2.0F - 1.0F) * 16.0F);
+/*     */     }
+/*     */     
+/*  60 */     if (this.a-- <= 0) {
+/*  61 */       this.a += this.bs.nextInt(5) + 2;
+/*     */       
+/*  63 */       if (a(this.b, this.c, this.d, d4)) {
+/*  64 */         this.aP += d1 / d4 * 0.1D;
+/*  65 */         this.aQ += d2 / d4 * 0.1D;
+/*  66 */         this.aR += d3 / d4 * 0.1D;
+/*     */       } else {
+/*  68 */         this.b = this.aM;
+/*  69 */         this.c = this.aN;
+/*  70 */         this.d = this.aO;
+/*     */       }
+/*     */     }
+/*     */     
+/*  74 */     if ((this.g != null) && (this.g.be)) this.g = null;
+/*  75 */     if ((this.g == null) || (this.h-- <= 0)) {
+/*  76 */       this.g = this.aI.a(this, 100.0D);
+/*  77 */       if (this.g != null) {
+/*  78 */         this.h = 20;
+/*     */       }
+/*     */     }
+/*     */     
+/*  82 */     double d5 = 64.0D;
+/*  83 */     if ((this.g != null) && (this.g.g(this) < d5 * d5)) {
+/*  84 */       double d6 = this.g.aM - this.aM;
+/*  85 */       double d7 = this.g.aW.b + this.g.bh / 2.0F - (this.aN + this.bh / 2.0F);
+/*  86 */       double d8 = this.g.aO - this.aO;
+/*  87 */       this.H = (this.aS = -(float)Math.atan2(d6, d8) * 180.0F / 3.1415927F);
+/*     */       
+/*  89 */       if (e(this.g)) {
+/*  90 */         if (this.f == 10) {
+/*  91 */           this.aI.a(this, "mob.ghast.charge", k(), (this.bs.nextFloat() - this.bs.nextFloat()) * 0.2F + 1.0F);
+/*     */         }
+/*  93 */         this.f += 1;
+/*  94 */         if (this.f == 20) {
+/*  95 */           this.aI.a(this, "mob.ghast.fireball", k(), (this.bs.nextFloat() - this.bs.nextFloat()) * 0.2F + 1.0F);
+/*  96 */           cf localcf = new cf(this.aI, this, d6, d7, d8);
+/*  97 */           double d9 = 4.0D;
+/*  98 */           bt localbt = f(1.0F);
+/*  99 */           localcf.aM = (this.aM + localbt.a * d9);
+/* 100 */           localcf.aN = (this.aN + this.bh / 2.0F + 0.5D);
+/* 101 */           localcf.aO = (this.aO + localbt.c * d9);
+/* 102 */           this.aI.b(localcf);
+/* 103 */           this.f = -40;
+/*     */         }
+/*     */       }
+/* 106 */       else if (this.f > 0) { this.f -= 1;
+/*     */       }
+/*     */     } else {
+/* 109 */       this.H = (this.aS = -(float)Math.atan2(this.aP, this.aR) * 180.0F / 3.1415927F);
+/* 110 */       if (this.f > 0) { this.f -= 1;
+/*     */       }
+/*     */     }
+/* 113 */     if (!this.aI.B) {
+/* 114 */       int i = this.bD.a(16);
+/* 115 */       byte b1 = (byte)(this.f > 10 ? 1 : 0);
+/* 116 */       if (i != b1) {
+/* 117 */         this.bD.b(16, Byte.valueOf(b1));
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   private boolean a(double paramDouble1, double paramDouble2, double paramDouble3, double paramDouble4) {
+/* 123 */     double d1 = (this.b - this.aM) / paramDouble4;
+/* 124 */     double d2 = (this.c - this.aN) / paramDouble4;
+/* 125 */     double d3 = (this.d - this.aO) / paramDouble4;
+/*     */     
+/* 127 */     eq localeq = this.aW.d();
+/* 128 */     for (int i = 1; i < paramDouble4; i++)
+/*     */     {
+/* 130 */       localeq.d(d1, d2, d3);
+/* 131 */       if (this.aI.a(this, localeq).size() > 0) { return false;
+/*     */       }
+/*     */     }
+/*     */     
+/* 135 */     return true;
+/*     */   }
+/*     */   
+/*     */   protected String g() {
+/* 139 */     return "mob.ghast.moan";
+/*     */   }
+/*     */   
+/*     */   protected String j_() {
+/* 143 */     return "mob.ghast.scream";
+/*     */   }
+/*     */   
+/*     */   protected String i() {
+/* 147 */     return "mob.ghast.death";
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   protected int j()
+/*     */   {
+/* 154 */     return gm.K.bf;
+/*     */   }
+/*     */   
+/*     */   protected float k() {
+/* 158 */     return 10.0F;
+/*     */   }
+/*     */   
+/*     */   public boolean d() {
+/* 162 */     return (this.bs.nextInt(20) == 0) && (super.d()) && (this.aI.q > 0);
+/*     */   }
+/*     */   
+/*     */   public int l() {
+/* 166 */     return 1;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\bp.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

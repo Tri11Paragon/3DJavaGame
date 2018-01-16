@@ -1,0 +1,63 @@
+/*    */ import net.minecraft.client.Minecraft;
+/*    */ import org.lwjgl.opengl.GL11;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class hp
+/*    */   extends id
+/*    */ {
+/*    */   private lw l;
+/*    */   private lw m;
+/* 11 */   private int n = 0;
+/*    */   
+/*    */   public hp(lw paramlw1, lw paramlw2) {
+/* 14 */     super(new cd(paramlw1, paramlw2));
+/* 15 */     this.l = paramlw1;
+/* 16 */     this.m = paramlw2;
+/* 17 */     this.f = false;
+/*    */     
+/* 19 */     int i = 222;
+/* 20 */     int j = i - 108;
+/* 21 */     this.n = (paramlw2.a() / 9);
+/*    */     
+/* 23 */     this.i = (j + this.n * 18);
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   protected void k()
+/*    */   {
+/* 44 */     this.g.b(this.m.c(), 8, 6, 4210752);
+/* 45 */     this.g.b(this.l.c(), 8, this.i - 96 + 2, 4210752);
+/*    */   }
+/*    */   
+/*    */   protected void a(float paramFloat) {
+/* 49 */     int i = this.b.p.b("/gui/container.png");
+/* 50 */     GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+/* 51 */     this.b.p.b(i);
+/* 52 */     int j = (this.c - this.a) / 2;
+/* 53 */     int k = (this.d - this.i) / 2;
+/* 54 */     b(j, k, 0, 0, this.a, this.n * 18 + 17);
+/* 55 */     b(j, k + this.n * 18 + 17, 0, 126, this.a, 96);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\hp.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

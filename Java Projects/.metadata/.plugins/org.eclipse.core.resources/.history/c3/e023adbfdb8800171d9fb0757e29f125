@@ -1,0 +1,25 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class uo
+/*    */ {
+/*  7 */   public float a = 0.0F;
+/*  8 */   public float b = 0.0F;
+/*    */   
+/* 10 */   public boolean c = false;
+/* 11 */   public boolean d = false;
+/* 12 */   public boolean e = false;
+/*    */   
+/*    */   public void a(gs paramgs) {}
+/*    */   
+/*    */   public void a() {}
+/*    */   
+/*    */   public void a(int paramInt, boolean paramBoolean) {}
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\uo.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

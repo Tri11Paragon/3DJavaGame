@@ -1,0 +1,37 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class rl
+/*    */   extends gm
+/*    */ {
+/*    */   public int a;
+/*    */   
+/*    */   public rl(int paramInt1, int paramInt2)
+/*    */   {
+/* 12 */     super(paramInt1);
+/* 13 */     this.bg = 1;
+/* 14 */     this.a = paramInt2;
+/*    */   }
+/*    */   
+/*    */ 
+/*    */   public boolean a(iz paramiz, gs paramgs, fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+/*    */   {
+/* 20 */     int i = paramfd.a(paramInt1, paramInt2, paramInt3);
+/*    */     
+/* 22 */     if (pc.d(i)) {
+/* 23 */       if (!paramfd.B) {
+/* 24 */         paramfd.b(new yl(paramfd, paramInt1 + 0.5F, paramInt2 + 0.5F, paramInt3 + 0.5F, this.a));
+/*    */       }
+/* 26 */       paramiz.a -= 1;
+/* 27 */       return true;
+/*    */     }
+/* 29 */     return false;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\rl.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

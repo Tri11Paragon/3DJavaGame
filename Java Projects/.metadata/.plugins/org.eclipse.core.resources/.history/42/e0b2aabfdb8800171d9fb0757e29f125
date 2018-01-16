@@ -1,0 +1,58 @@
+/*    */ 
+/*    */ 
+/*    */ public class d
+/*    */ {
+/*    */   public final int a;
+/*    */   public final int b;
+/*    */   public final int c;
+/*    */   private final int j;
+/*  9 */   int d = -1;
+/*    */   float e;
+/*    */   float f;
+/* 12 */   float g; d h; public boolean i = false;
+/*    */   
+/*    */   public d(int paramInt1, int paramInt2, int paramInt3) {
+/* 15 */     this.a = paramInt1;
+/* 16 */     this.b = paramInt2;
+/* 17 */     this.c = paramInt3;
+/*    */     
+/* 19 */     this.j = a(paramInt1, paramInt2, paramInt3);
+/*    */   }
+/*    */   
+/*    */   public static int a(int paramInt1, int paramInt2, int paramInt3) {
+/* 23 */     return paramInt2 & 0xFF | (paramInt1 & 0x7FFF) << 8 | (paramInt3 & 0x7FFF) << 24 | (paramInt1 < 0 ? Integer.MIN_VALUE : 0) | (paramInt3 < 0 ? 32768 : 0);
+/*    */   }
+/*    */   
+/*    */   public float a(d paramd) {
+/* 27 */     float f1 = paramd.a - this.a;
+/* 28 */     float f2 = paramd.b - this.b;
+/* 29 */     float f3 = paramd.c - this.c;
+/* 30 */     return in.c(f1 * f1 + f2 * f2 + f3 * f3);
+/*    */   }
+/*    */   
+/*    */   public boolean equals(Object paramObject) {
+/* 34 */     if ((paramObject instanceof d)) {
+/* 35 */       d locald = (d)paramObject;
+/* 36 */       return (this.j == locald.j) && (this.a == locald.a) && (this.b == locald.b) && (this.c == locald.c);
+/*    */     }
+/* 38 */     return false;
+/*    */   }
+/*    */   
+/*    */   public int hashCode() {
+/* 42 */     return this.j;
+/*    */   }
+/*    */   
+/*    */   public boolean a() {
+/* 46 */     return this.d >= 0;
+/*    */   }
+/*    */   
+/*    */   public String toString() {
+/* 50 */     return this.a + ", " + this.b + ", " + this.c;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\d.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

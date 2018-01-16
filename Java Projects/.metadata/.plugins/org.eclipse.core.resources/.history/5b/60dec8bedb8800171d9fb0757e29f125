@@ -1,0 +1,52 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class ks
+/*    */   extends uu
+/*    */ {
+/*    */   protected ks(int paramInt)
+/*    */   {
+/* 11 */     super(paramInt, ln.d);
+/* 12 */     this.bm = 26;
+/*    */   }
+/*    */   
+/*    */   public int a(xp paramxp, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/* 16 */     if (paramInt4 == 1) return this.bm - 1;
+/* 17 */     if (paramInt4 == 0) { return this.bm - 1;
+/*    */     }
+/* 19 */     int i = paramxp.a(paramInt1, paramInt2, paramInt3 - 1);
+/* 20 */     int j = paramxp.a(paramInt1, paramInt2, paramInt3 + 1);
+/* 21 */     int k = paramxp.a(paramInt1 - 1, paramInt2, paramInt3);
+/* 22 */     int m = paramxp.a(paramInt1 + 1, paramInt2, paramInt3);
+/*    */     
+/* 24 */     int n = 3;
+/* 25 */     if ((uu.o[i] != 0) && (uu.o[j] == 0)) n = 3;
+/* 26 */     if ((uu.o[j] != 0) && (uu.o[i] == 0)) n = 2;
+/* 27 */     if ((uu.o[k] != 0) && (uu.o[m] == 0)) n = 5;
+/* 28 */     if ((uu.o[m] != 0) && (uu.o[k] == 0)) n = 4;
+/* 29 */     return paramInt4 == n ? this.bm + 1 : this.bm;
+/*    */   }
+/*    */   
+/*    */   public int a(int paramInt) {
+/* 33 */     if (paramInt == 1) return this.bm - 1;
+/* 34 */     if (paramInt == 0) return this.bm - 1;
+/* 35 */     if (paramInt == 3) return this.bm + 1;
+/* 36 */     return this.bm;
+/*    */   }
+/*    */   
+/*    */   public boolean a(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/* 40 */     return true;
+/*    */   }
+/*    */   
+/*    */   public void a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, Random paramRandom) {
+/* 44 */     paramfd.f(paramInt1, paramInt2, paramInt3, 0);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ks.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

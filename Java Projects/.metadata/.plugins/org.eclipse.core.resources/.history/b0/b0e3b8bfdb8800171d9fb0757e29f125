@@ -1,0 +1,56 @@
+/*    */ import java.util.List;
+/*    */ import net.minecraft.client.Minecraft;
+/*    */ 
+/*    */ public class ch extends da
+/*    */ {
+/*    */   public void b()
+/*    */   {
+/*  8 */     this.e.clear();
+/*  9 */     this.e.add(new ke(1, this.c / 2 - 100, this.d / 4 + 72, "Respawn"));
+/* 10 */     this.e.add(new ke(2, this.c / 2 - 100, this.d / 4 + 96, "Title menu"));
+/*    */     
+/* 12 */     if (this.b.k == null) {
+/* 13 */       ((ke)this.e.get(1)).g = false;
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   protected void a(char paramChar, int paramInt) {}
+/*    */   
+/*    */   protected void a(ke paramke)
+/*    */   {
+/* 21 */     if ((paramke.f != 0) || 
+/*    */     
+/*    */ 
+/* 24 */       (paramke.f == 1)) {
+/* 25 */       this.b.h.p_();
+/* 26 */       this.b.a(null);
+/*    */     }
+/*    */     
+/* 29 */     if (paramke.f == 2) {
+/* 30 */       this.b.a(null);
+/* 31 */       this.b.a(new fu());
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public void a(int paramInt1, int paramInt2, float paramFloat) {
+/* 36 */     a(0, 0, this.c, this.d, 1615855616, -1602211792);
+/*    */     
+/* 38 */     org.lwjgl.opengl.GL11.glPushMatrix();
+/* 39 */     org.lwjgl.opengl.GL11.glScalef(2.0F, 2.0F, 2.0F);
+/* 40 */     a(this.g, "Game over!", this.c / 2 / 2, 30, 16777215);
+/* 41 */     org.lwjgl.opengl.GL11.glPopMatrix();
+/* 42 */     a(this.g, "Score: &e" + this.b.h.C(), this.c / 2, 100, 16777215);
+/*    */     
+/* 44 */     super.a(paramInt1, paramInt2, paramFloat);
+/*    */   }
+/*    */   
+/*    */   public boolean c() {
+/* 48 */     return false;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ch.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

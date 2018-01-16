@@ -1,0 +1,35 @@
+/*    */ 
+/*    */ 
+/*    */ public class ib
+/*    */ {
+/*    */   public bt a;
+/*    */   public float b;
+/*    */   public float c;
+/*    */   
+/*    */   public ib(float paramFloat1, float paramFloat2, float paramFloat3, float paramFloat4, float paramFloat5)
+/*    */   {
+/* 11 */     this(bt.a(paramFloat1, paramFloat2, paramFloat3), paramFloat4, paramFloat5);
+/*    */   }
+/*    */   
+/*    */   public ib a(float paramFloat1, float paramFloat2) {
+/* 15 */     return new ib(this, paramFloat1, paramFloat2);
+/*    */   }
+/*    */   
+/*    */   public ib(ib paramib, float paramFloat1, float paramFloat2) {
+/* 19 */     this.a = paramib.a;
+/* 20 */     this.b = paramFloat1;
+/* 21 */     this.c = paramFloat2;
+/*    */   }
+/*    */   
+/*    */   public ib(bt parambt, float paramFloat1, float paramFloat2) {
+/* 25 */     this.a = parambt;
+/* 26 */     this.b = paramFloat1;
+/* 27 */     this.c = paramFloat2;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ib.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

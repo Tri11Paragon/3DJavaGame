@@ -1,0 +1,49 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public enum lk
+/*    */ {
+/*    */   private final Class d;
+/*    */   private final int e;
+/*    */   private final ln f;
+/*    */   private final boolean g;
+/*    */   
+/*    */   private lk(Class paramClass, int paramInt1, ln paramln, boolean paramBoolean)
+/*    */   {
+/* 22 */     this.d = paramClass;
+/* 23 */     this.e = paramInt1;
+/* 24 */     this.f = paramln;
+/* 25 */     this.g = paramBoolean;
+/*    */   }
+/*    */   
+/*    */   public Class a() {
+/* 29 */     return this.d;
+/*    */   }
+/*    */   
+/*    */   public int b() {
+/* 33 */     return this.e;
+/*    */   }
+/*    */   
+/*    */   public ln c() {
+/* 37 */     return this.f;
+/*    */   }
+/*    */   
+/*    */   public boolean d() {
+/* 41 */     return this.g;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\lk.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

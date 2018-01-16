@@ -1,0 +1,22 @@
+/*    */ import org.lwjgl.opengl.GL11;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class mb
+/*    */   extends bw
+/*    */ {
+/*    */   public void a(sn paramsn, double paramDouble1, double paramDouble2, double paramDouble3, float paramFloat1, float paramFloat2)
+/*    */   {
+/* 12 */     GL11.glPushMatrix();
+/* 13 */     a(paramsn.aW, paramDouble1 - paramsn.bl, paramDouble2 - paramsn.bm, paramDouble3 - paramsn.bn);
+/* 14 */     GL11.glPopMatrix();
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\mb.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,55 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class dq
+/*    */   extends gm
+/*    */ {
+/*    */   private uu[] bk;
+/*  8 */   private float bl = 4.0F;
+/*    */   
+/*    */   private int bm;
+/*    */   protected bu a;
+/*    */   
+/*    */   protected dq(int paramInt1, int paramInt2, bu parambu, uu[] paramArrayOfuu)
+/*    */   {
+/* 15 */     super(paramInt1);
+/* 16 */     this.a = parambu;
+/* 17 */     this.bk = paramArrayOfuu;
+/* 18 */     this.bg = 1;
+/* 19 */     e(parambu.a());
+/* 20 */     this.bl = parambu.b();
+/* 21 */     this.bm = (paramInt2 + parambu.c());
+/*    */   }
+/*    */   
+/*    */   public float a(iz paramiz, uu paramuu) {
+/* 25 */     for (int i = 0; i < this.bk.length; i++)
+/* 26 */       if (this.bk[i] == paramuu) return this.bl;
+/* 27 */     return 1.0F;
+/*    */   }
+/*    */   
+/*    */   public boolean a(iz paramiz, ls paramls1, ls paramls2)
+/*    */   {
+/* 32 */     paramiz.a(2, paramls2);
+/* 33 */     return true;
+/*    */   }
+/*    */   
+/*    */   public boolean a(iz paramiz, int paramInt1, int paramInt2, int paramInt3, int paramInt4, ls paramls)
+/*    */   {
+/* 38 */     paramiz.a(1, paramls);
+/* 39 */     return true;
+/*    */   }
+/*    */   
+/*    */   public int a(sn paramsn) {
+/* 43 */     return this.bm;
+/*    */   }
+/*    */   
+/*    */   public boolean b() {
+/* 47 */     return true;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\dq.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

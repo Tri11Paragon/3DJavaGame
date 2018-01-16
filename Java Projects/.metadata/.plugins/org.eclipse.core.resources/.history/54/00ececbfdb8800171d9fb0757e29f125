@@ -1,0 +1,75 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class hu
+/*    */   extends gm
+/*    */ {
+/*    */   private ln a;
+/*    */   
+/*    */   public hu(int paramInt, ln paramln)
+/*    */   {
+/* 14 */     super(paramInt);
+/* 15 */     this.a = paramln;
+/* 16 */     this.bg = 1;
+/*    */   }
+/*    */   
+/*    */   public boolean a(iz paramiz, gs paramgs, fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/* 20 */     if (paramInt4 != 1) return false;
+/* 21 */     paramInt2++;
+/*    */     
+/*    */     uu localuu;
+/*    */     
+/* 25 */     if (this.a == ln.d) localuu = uu.aF; else {
+/* 26 */       localuu = uu.aM;
+/*    */     }
+/* 28 */     if (!localuu.a(paramfd, paramInt1, paramInt2, paramInt3)) { return false;
+/*    */     }
+/* 30 */     int i = in.b((paramgs.aS + 180.0F) * 4.0F / 360.0F - 0.5D) & 0x3;
+/*    */     
+/* 32 */     int j = 0;
+/* 33 */     int k = 0;
+/* 34 */     if (i == 0) k = 1;
+/* 35 */     if (i == 1) j = -1;
+/* 36 */     if (i == 2) k = -1;
+/* 37 */     if (i == 3) { j = 1;
+/*    */     }
+/*    */     
+/* 40 */     int m = (paramfd.h(paramInt1 - j, paramInt2, paramInt3 - k) ? 1 : 0) + (paramfd.h(paramInt1 - j, paramInt2 + 1, paramInt3 - k) ? 1 : 0);
+/* 41 */     int n = (paramfd.h(paramInt1 + j, paramInt2, paramInt3 + k) ? 1 : 0) + (paramfd.h(paramInt1 + j, paramInt2 + 1, paramInt3 + k) ? 1 : 0);
+/*    */     
+/* 43 */     int i1 = (paramfd.a(paramInt1 - j, paramInt2, paramInt3 - k) == localuu.bn) || (paramfd.a(paramInt1 - j, paramInt2 + 1, paramInt3 - k) == localuu.bn) ? 1 : 0;
+/* 44 */     int i2 = (paramfd.a(paramInt1 + j, paramInt2, paramInt3 + k) == localuu.bn) || (paramfd.a(paramInt1 + j, paramInt2 + 1, paramInt3 + k) == localuu.bn) ? 1 : 0;
+/*    */     
+/* 46 */     int i3 = 0;
+/* 47 */     if ((i1 != 0) && (i2 == 0)) { i3 = 1;
+/* 48 */     } else if (n > m) { i3 = 1;
+/*    */     }
+/* 50 */     if (i3 != 0) {
+/* 51 */       i = i - 1 & 0x3;
+/* 52 */       i += 4;
+/*    */     }
+/*    */     
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/* 59 */     paramfd.o = true;
+/* 60 */     paramfd.b(paramInt1, paramInt2, paramInt3, localuu.bn, i);
+/* 61 */     paramfd.b(paramInt1, paramInt2 + 1, paramInt3, localuu.bn, i + 8);
+/* 62 */     paramfd.o = false;
+/* 63 */     paramfd.i(paramInt1, paramInt2, paramInt3, localuu.bn);
+/* 64 */     paramfd.i(paramInt1, paramInt2 + 1, paramInt3, localuu.bn);
+/*    */     
+/* 66 */     paramiz.a -= 1;
+/* 67 */     return true;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\hu.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

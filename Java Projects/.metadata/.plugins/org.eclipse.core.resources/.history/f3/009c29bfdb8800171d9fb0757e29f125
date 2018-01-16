@@ -1,0 +1,329 @@
+/*     */ import net.minecraft.client.Minecraft;
+/*     */ import org.lwjgl.opengl.GL11;
+/*     */ 
+/*     */ public abstract class id extends da
+/*     */ {
+/*   6 */   private static bb l = new bb();
+/*   7 */   protected int a = 176;
+/*   8 */   protected int i = 166;
+/*     */   public dw j;
+/*  10 */   private TMIController tmi = null;
+/*     */   
+/*     */   public id(dw paramdw) {
+/*  13 */     this.j = paramdw;
+/*     */     
+/*     */ 
+/*  16 */     this.tmi = new TMIController(this, l);
+/*  17 */     TMICompatibility.disableCompetingMods();
+/*     */   }
+/*     */   
+/*     */   public void b() {
+/*  21 */     super.b();
+/*  22 */     this.b.h.e = this.j;
+/*     */   }
+/*     */   
+/*     */   public void a(int paramInt1, int paramInt2, float paramFloat)
+/*     */   {
+/*  27 */     i();
+/*  28 */     int k = (this.c - this.a) / 2;
+/*  29 */     int m = (this.d - this.i) / 2;
+/*  30 */     a(paramFloat);
+/*  31 */     GL11.glPushMatrix();
+/*  32 */     GL11.glRotatef(120.0F, 1.0F, 0.0F, 0.0F);
+/*  33 */     u.b();
+/*  34 */     GL11.glPopMatrix();
+/*  35 */     GL11.glPushMatrix();
+/*  36 */     GL11.glTranslatef(k, m, 0.0F);
+/*  37 */     GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+/*  38 */     GL11.glEnable(32826);
+/*     */     
+/*     */ 
+/*  41 */     this.tmi.onEnterFrame(paramInt1, paramInt2, this.a, this.i);
+/*     */     
+/*  43 */     Object localObject1 = null;
+/*     */     Object localObject2;
+/*     */     int n;
+/*  46 */     int i1; for (int i2 = 0; i2 < this.j.e.size(); i2++) {
+/*  47 */       localObject2 = (gp)this.j.e.get(i2);
+/*  48 */       a((gp)localObject2);
+/*  49 */       if (a((gp)localObject2, paramInt1, paramInt2)) {
+/*  50 */         localObject1 = localObject2;
+/*  51 */         GL11.glDisable(2896);
+/*  52 */         GL11.glDisable(2929);
+/*  53 */         n = ((gp)localObject2).b;
+/*  54 */         i1 = ((gp)localObject2).c;
+/*  55 */         a(n, i1, n + 16, i1 + 16, -2130706433, -2130706433);
+/*  56 */         GL11.glEnable(2896);
+/*  57 */         GL11.glEnable(2929);
+/*     */       }
+/*     */     }
+/*     */     
+/*  61 */     ix localix = this.b.h.c;
+/*  62 */     if (localix.i() != null)
+/*     */     {
+/*  64 */       localObject2 = TMIUtils.getValidItem(localix.i());
+/*     */       
+/*  66 */       GL11.glTranslatef(0.0F, 0.0F, 32.0F);
+/*  67 */       l.a(this.g, this.b.p, localix.i(), paramInt1 - k - 8, paramInt2 - m - 8);
+/*  68 */       l.b(this.g, this.b.p, localix.i(), paramInt1 - k - 8, paramInt2 - m - 8);
+/*     */     }
+/*     */     
+/*  71 */     GL11.glDisable(32826);
+/*  72 */     u.a();
+/*  73 */     GL11.glDisable(2896);
+/*  74 */     GL11.glDisable(2929);
+/*  75 */     k();
+/*  76 */     if ((localix.i() == null) && (localObject1 != null) && (((gp)localObject1).b()))
+/*     */     {
+/*  78 */       localObject2 = TMIUtils.getValidItemDisplayName(((gp)localObject1).a());
+/*  79 */       if (((String)localObject2).length() > 0) {
+/*  80 */         n = paramInt1 - k + 12;
+/*  81 */         i1 = paramInt2 - m - 12;
+/*  82 */         int i3 = this.g.a((String)localObject2);
+/*  83 */         a(n - 3, i1 - 3, n + i3 + 3, i1 + 8 + 3, -1073741824, -1073741824);
+/*  84 */         this.g.a((String)localObject2, n, i1, -1);
+/*     */       }
+/*     */     }
+/*     */     
+/*  88 */     GL11.glPopMatrix();
+/*  89 */     super.a(paramInt1, paramInt2, paramFloat);
+/*  90 */     GL11.glEnable(2896);
+/*  91 */     GL11.glEnable(2929);
+/*     */   }
+/*     */   
+/*     */   protected void k() {}
+/*     */   
+/*     */   protected abstract void a(float paramFloat);
+/*     */   
+/*     */   private void a(gp paramgp)
+/*     */   {
+/* 100 */     int k = paramgp.b;
+/* 101 */     int m = paramgp.c;
+/* 102 */     iz localiz = paramgp.a();
+/* 103 */     if (localiz == null) {
+/* 104 */       int n = paramgp.e();
+/* 105 */       if (n >= 0) {
+/* 106 */         GL11.glDisable(2896);
+/* 107 */         this.b.p.b(this.b.p.b("/gui/items.png"));
+/* 108 */         b(k, m, n % 16 * 16, n / 16 * 16, 16, 16);
+/* 109 */         GL11.glEnable(2896);
+/* 110 */         return;
+/*     */       }
+/*     */     }
+/*     */     
+/*     */ 
+/* 115 */     localiz = TMIUtils.getValidItem(localiz);
+/*     */     
+/* 117 */     l.a(this.g, this.b.p, localiz, k, m);
+/* 118 */     l.b(this.g, this.b.p, localiz, k, m);
+/*     */   }
+/*     */   
+/*     */   private gp a(int paramInt1, int paramInt2) {
+/* 122 */     for (int k = 0; k < this.j.e.size(); k++) {
+/* 123 */       gp localgp = (gp)this.j.e.get(k);
+/* 124 */       if (a(localgp, paramInt1, paramInt2)) {
+/* 125 */         return localgp;
+/*     */       }
+/*     */     }
+/*     */     
+/* 129 */     return null;
+/*     */   }
+/*     */   
+/*     */   private boolean a(gp paramgp, int paramInt1, int paramInt2) {
+/* 133 */     int k = (this.c - this.a) / 2;
+/* 134 */     int m = (this.d - this.i) / 2;
+/* 135 */     paramInt1 -= k;
+/* 136 */     paramInt2 -= m;
+/* 137 */     return (paramInt1 >= paramgp.b - 1) && (paramInt1 < paramgp.b + 16 + 1) && (paramInt2 >= paramgp.c - 1) && (paramInt2 < paramgp.c + 16 + 1);
+/*     */   }
+/*     */   
+/*     */   protected void a(int paramInt1, int paramInt2, int paramInt3) {
+/* 141 */     super.a(paramInt1, paramInt2, paramInt3);
+/* 142 */     if (paramInt3 >= 0) {
+/* 143 */       gp localgp = a(paramInt1, paramInt2);
+/* 144 */       int k = (this.c - this.a) / 2;
+/* 145 */       int m = (this.d - this.i) / 2;
+/*     */       
+/*     */ 
+/* 148 */       if (!this.tmi.onClick(paramInt1, paramInt2, paramInt3)) {
+/* 149 */         return;
+/*     */       }
+/*     */       
+/* 152 */       int n = (paramInt1 < k) || (paramInt2 < m) || (paramInt1 >= k + this.a) || (paramInt2 >= m + this.i) ? 1 : 0;
+/* 153 */       int i1 = -1;
+/* 154 */       if (localgp != null) {
+/* 155 */         i1 = localgp.a;
+/*     */       }
+/*     */       
+/* 158 */       if (n != 0) {
+/* 159 */         i1 = 64537;
+/*     */         
+/*     */ 
+/* 162 */         iz localiz = TMIUtils.getHeldItem();
+/* 163 */         if ((localiz != null) && ((localiz.a < 0) || (localiz.a > 64))) {
+/* 164 */           localiz.a = 1;
+/*     */         }
+/*     */       }
+/*     */       
+/*     */ 
+/* 169 */       boolean bool = (i1 != 64537) && ((org.lwjgl.input.Keyboard.isKeyDown(42)) || (org.lwjgl.input.Keyboard.isKeyDown(54)));
+/*     */       
+/*     */ 
+/* 172 */       if (!TMICompatibility.callConvenientInventoryHandler(i1, paramInt3, bool, this.b, this.j))
+/*     */       {
+/* 174 */         if ((i1 == 0) && (paramInt3 == 1) && (this.tmi.isCrafting()))
+/*     */         {
+/* 176 */           for (int i2 = 0; i2 < 64; i2++)
+/*     */           {
+/* 178 */             this.b.c.a(this.j.f, i1, 0, bool, this.b.h);
+/*     */           }
+/* 180 */         } else if (i1 != -1)
+/*     */         {
+/* 182 */           if ((this.tmi.isChest()) && (i1 >= 0) && (!TMIConfig.isMultiplayer()) && ((org.lwjgl.input.Keyboard.isKeyDown(42)) || (org.lwjgl.input.Keyboard.isKeyDown(54))) && (TMIUtils.getHeldItem() != null) && (TMIUtils.isValidItem(TMIUtils.getHeldItem())))
+/*     */           {
+/*     */             try
+/*     */             {
+/* 186 */               fastTransfer(i1, paramInt3);
+/*     */             } catch (Exception localException) {
+/* 188 */               TMIUtils.safeReportException(localException);
+/*     */             }
+/*     */           } else {
+/* 191 */             this.b.c.a(this.j.f, i1, paramInt3, bool, this.b.h);
+/*     */           }
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   private void fastTransfer(int paramInt1, int paramInt2)
+/*     */   {
+/* 206 */     iz localiz1 = TMIUtils.getHeldItem();
+/*     */     
+/*     */ 
+/* 209 */     this.b.c.a(this.j.f, paramInt1, paramInt2, false, this.b.h);
+/*     */     
+/*     */ 
+/* 212 */     int k = this.j.d.size() - 36;
+/*     */     
+/*     */ 
+/* 215 */     int m = paramInt1 < k ? 1 : 0;
+/*     */     
+/*     */ 
+/*     */ 
+/* 219 */     int n = 0;
+/* 220 */     int i1 = k;
+/* 221 */     int i2 = k - 1;
+/* 222 */     int i3 = this.j.d.size();
+/* 223 */     if (m != 0) {
+/* 224 */       n = k;
+/* 225 */       i1 = this.j.d.size();
+/* 226 */       i2 = -1;
+/* 227 */       i3 = k;
+/*     */     }
+/*     */     
+/*     */ 
+/* 231 */     int i4 = 1;
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/* 236 */     while ((n < i1) && (i2 < i3)) {
+/* 237 */       gp localgp1 = (gp)this.j.e.get(n);
+/* 238 */       if (localgp1 != null) {
+/* 239 */         iz localiz2 = localgp1.a();
+/* 240 */         if ((localiz2 != null) && (localiz2.c == localiz1.c) && (localiz2.i() == localiz1.i()))
+/*     */         {
+/*     */           gp localgp2;
+/* 243 */           if (i4 != 0) {
+/* 244 */             localgp2 = (gp)this.j.e.get(paramInt1);
+/*     */           } else {
+/* 246 */             localgp2 = (gp)this.j.e.get(i2);
+/*     */           }
+/*     */           
+/* 249 */           if (localgp2 == null) {
+/* 250 */             i2++;
+/* 251 */             i4 = 0;
+/* 252 */             continue;
+/*     */           }
+/* 254 */           iz localiz3 = localgp2.a();
+/* 255 */           if (localiz3 == null)
+/*     */           {
+/*     */ 
+/* 258 */             localgp2.c(localiz2);
+/* 259 */             localgp1.c((iz)null);
+/* 260 */           } else if ((localiz3.c == localiz2.c) && (localiz3.i() == localiz2.i()))
+/*     */           {
+/* 262 */             int i5 = localiz2.a + localiz3.a;
+/* 263 */             int i6 = gm.c[localiz2.c].d();
+/* 264 */             int i7 = i5 - i6;
+/* 265 */             if (i7 > 0)
+/*     */             {
+/* 267 */               localiz3.a = i6;
+/* 268 */               localiz2.a = i7;
+/* 269 */               i2++;
+/* 270 */               i4 = 0;
+/* 271 */               continue;
+/*     */             }
+/*     */             
+/* 274 */             localiz3.a = i5;
+/* 275 */             localgp1.c((iz)null);
+/*     */           }
+/*     */           else
+/*     */           {
+/* 279 */             i2++;
+/* 280 */             i4 = 0;
+/* 281 */             continue;
+/*     */           }
+/*     */         }
+/*     */       }
+/*     */       
+/* 286 */       n++;
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   protected void b(int paramInt1, int paramInt2, int paramInt3) {
+/* 291 */     if (paramInt3 == 0) {}
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   protected void a(char paramChar, int paramInt)
+/*     */   {
+/* 298 */     if ((paramInt == 1) || (paramInt == this.b.z.r.b)) {
+/* 299 */       this.b.h.r();
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   public void h()
+/*     */   {
+/*     */     
+/*     */     
+/* 308 */     if (this.b.h != null) {
+/* 309 */       this.b.c.a(this.j.f, this.b.h);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public boolean c() {
+/* 314 */     return false;
+/*     */   }
+/*     */   
+/*     */   public void a() {
+/* 318 */     super.a();
+/* 319 */     if ((!this.b.h.W()) || (this.b.h.be)) {
+/* 320 */       this.b.h.r();
+/*     */     }
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\id.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

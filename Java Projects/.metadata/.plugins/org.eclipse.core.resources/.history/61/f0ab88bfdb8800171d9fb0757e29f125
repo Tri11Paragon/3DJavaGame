@@ -1,0 +1,70 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class kw
+/*    */ {
+/*  8 */   private static Random s = new Random();
+/*    */   
+/*    */   public double a;
+/*    */   
+/*    */   public double b;
+/*    */   
+/*    */   public double c;
+/*    */   
+/*    */   public double d;
+/*    */   
+/*    */   public double e;
+/*    */   
+/*    */   public double f;
+/*    */   
+/*    */   public double g;
+/*    */   public boolean h;
+/*    */   public int i;
+/*    */   public int j;
+/*    */   public double k;
+/*    */   public double l;
+/*    */   public double m;
+/*    */   public double n;
+/*    */   public double o;
+/*    */   public double p;
+/*    */   public double q;
+/*    */   public double r;
+/*    */   
+/*    */   public void a(du paramdu)
+/*    */   {
+/* 37 */     this.a += this.e;
+/* 38 */     this.b += this.f;
+/*    */     
+/* 40 */     this.e *= this.g;
+/* 41 */     this.f *= this.g;
+/*    */     
+/* 43 */     this.f += 0.1D;
+/* 44 */     if (++this.i > this.j) b();
+/* 45 */     this.n = (2.0D - this.i / this.j * 2.0D);
+/* 46 */     if (this.n > 1.0D) this.n = 1.0D;
+/* 47 */     this.n *= this.n;
+/* 48 */     this.n *= 0.5D;
+/*    */   }
+/*    */   
+/*    */   public void a() {
+/* 52 */     this.o = this.k;
+/* 53 */     this.p = this.l;
+/* 54 */     this.q = this.m;
+/* 55 */     this.r = this.n;
+/*    */     
+/* 57 */     this.c = this.a;
+/* 58 */     this.d = this.b;
+/*    */   }
+/*    */   
+/*    */   public void b() {
+/* 62 */     this.h = true;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\kw.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

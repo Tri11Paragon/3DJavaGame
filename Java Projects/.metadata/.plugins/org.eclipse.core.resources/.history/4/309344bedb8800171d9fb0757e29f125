@@ -1,0 +1,451 @@
+/*     */ package com.jcraft.jorbis;
+/*     */ 
+/*     */ import com.jcraft.jogg.Buffer;
+/*     */ import in;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ class StaticCodeBook
+/*     */ {
+/*     */   int dim;
+/*     */   int entries;
+/*     */   int[] lengthlist;
+/*     */   int maptype;
+/*     */   int q_min;
+/*     */   int q_delta;
+/*     */   int q_quant;
+/*     */   int q_sequencep;
+/*     */   int[] quantlist;
+/*     */   static final int VQ_FEXP = 10;
+/*     */   static final int VQ_FMAN = 21;
+/*     */   static final int VQ_FEXP_BIAS = 768;
+/*     */   
+/*     */   int pack(Buffer paramBuffer)
+/*     */   {
+/*  64 */     int j = 0;
+/*     */     
+/*  66 */     paramBuffer.write(5653314, 24);
+/*  67 */     paramBuffer.write(this.dim, 16);
+/*  68 */     paramBuffer.write(this.entries, 24);
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*  73 */     for (int i = 1; i < this.entries; i++) {
+/*  74 */       if (this.lengthlist[i] < this.lengthlist[(i - 1)])
+/*     */         break;
+/*     */     }
+/*  77 */     if (i == this.entries)
+/*  78 */       j = 1;
+/*     */     int k;
+/*  80 */     if (j != 0)
+/*     */     {
+/*     */ 
+/*     */ 
+/*     */ 
+/*  85 */       k = 0;
+/*  86 */       paramBuffer.write(1, 1);
+/*  87 */       paramBuffer.write(this.lengthlist[0] - 1, 5);
+/*     */       
+/*  89 */       for (i = 1; i < this.entries; i++) {
+/*  90 */         int m = this.lengthlist[i];
+/*  91 */         int n = this.lengthlist[(i - 1)];
+/*  92 */         if (m > n) {
+/*  93 */           for (int i1 = n; i1 < m; i1++) {
+/*  94 */             paramBuffer.write(i - k, Util.ilog(this.entries - k));
+/*  95 */             k = i;
+/*     */           }
+/*     */         }
+/*     */       }
+/*  99 */       paramBuffer.write(i - k, Util.ilog(this.entries - k));
+/*     */ 
+/*     */     }
+/*     */     else
+/*     */     {
+/* 104 */       paramBuffer.write(0, 1);
+/*     */       
+/*     */ 
+/*     */ 
+/*     */ 
+/* 109 */       for (i = 0; i < this.entries; i++) {
+/* 110 */         if (this.lengthlist[i] == 0) {
+/*     */           break;
+/*     */         }
+/*     */       }
+/* 114 */       if (i == this.entries) {
+/* 115 */         paramBuffer.write(0, 1);
+/* 116 */         for (i = 0; i < this.entries; i++) {
+/* 117 */           paramBuffer.write(this.lengthlist[i] - 1, 5);
+/*     */         }
+/*     */       }
+/*     */       
+/* 121 */       paramBuffer.write(1, 1);
+/* 122 */       for (i = 0; i < this.entries; i++) {
+/* 123 */         if (this.lengthlist[i] == 0) {
+/* 124 */           paramBuffer.write(0, 1);
+/*     */         }
+/*     */         else {
+/* 127 */           paramBuffer.write(1, 1);
+/* 128 */           paramBuffer.write(this.lengthlist[i] - 1, 5);
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/* 136 */     paramBuffer.write(this.maptype, 4);
+/* 137 */     switch (this.maptype)
+/*     */     {
+/*     */     case 0: 
+/*     */       break;
+/*     */     
+/*     */ 
+/*     */     case 1: 
+/*     */     case 2: 
+/* 145 */       if (this.quantlist == null)
+/*     */       {
+/* 147 */         return -1;
+/*     */       }
+/*     */       
+/*     */ 
+/* 151 */       paramBuffer.write(this.q_min, 32);
+/* 152 */       paramBuffer.write(this.q_delta, 32);
+/* 153 */       paramBuffer.write(this.q_quant - 1, 4);
+/* 154 */       paramBuffer.write(this.q_sequencep, 1);
+/*     */       
+/*     */ 
+/* 157 */       k = 0;
+/* 158 */       switch (this.maptype)
+/*     */       {
+/*     */ 
+/*     */       case 1: 
+/* 162 */         k = maptype1_quantvals();
+/* 163 */         break;
+/*     */       
+/*     */       case 2: 
+/* 166 */         k = this.entries * this.dim;
+/*     */       }
+/*     */       
+/*     */       
+/*     */ 
+/* 171 */       for (i = 0; i < k; i++) {
+/* 172 */         paramBuffer.write(Math.abs(this.quantlist[i]), this.q_quant);
+/*     */       }
+/*     */       
+/* 175 */       break;
+/*     */     
+/*     */     default: 
+/* 178 */       return -1;
+/*     */     }
+/* 180 */     return 0;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   int unpack(Buffer paramBuffer)
+/*     */   {
+/* 190 */     if (paramBuffer.read(24) != 5653314)
+/*     */     {
+/* 192 */       clear();
+/* 193 */       return -1;
+/*     */     }
+/*     */     
+/*     */ 
+/* 197 */     this.dim = paramBuffer.read(16);
+/* 198 */     this.entries = paramBuffer.read(24);
+/* 199 */     if (this.entries == -1)
+/*     */     {
+/* 201 */       clear();
+/* 202 */       return -1;
+/*     */     }
+/*     */     int i;
+/*     */     int j;
+/* 206 */     switch (paramBuffer.read(1))
+/*     */     {
+/*     */     case 0: 
+/* 209 */       this.lengthlist = new int[this.entries];
+/*     */       
+/*     */ 
+/* 212 */       if (paramBuffer.read(1) != 0)
+/*     */       {
+/*     */ 
+/* 215 */         for (i = 0; i < this.entries; i++) {
+/* 216 */           if (paramBuffer.read(1) != 0) {
+/* 217 */             j = paramBuffer.read(5);
+/* 218 */             if (j == -1)
+/*     */             {
+/* 220 */               clear();
+/* 221 */               return -1;
+/*     */             }
+/* 223 */             this.lengthlist[i] = (j + 1);
+/*     */           }
+/*     */           else {
+/* 226 */             this.lengthlist[i] = 0;
+/*     */           }
+/*     */         }
+/*     */       }
+/*     */       
+/*     */ 
+/* 232 */       for (i = 0; i < this.entries;) {
+/* 233 */         j = paramBuffer.read(5);
+/* 234 */         if (j == -1)
+/*     */         {
+/* 236 */           clear();
+/* 237 */           return -1;
+/*     */         }
+/* 239 */         this.lengthlist[i] = (j + 1);i++; continue;
+/*     */         
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 246 */         j = paramBuffer.read(5) + 1;
+/* 247 */         this.lengthlist = new int[this.entries];
+/*     */         
+/* 249 */         for (i = 0; i < this.entries;) {
+/* 250 */           int k = paramBuffer.read(Util.ilog(this.entries - i));
+/* 251 */           if (k == -1)
+/*     */           {
+/* 253 */             clear();
+/* 254 */             return -1;
+/*     */           }
+/* 256 */           for (int m = 0; m < k; i++) {
+/* 257 */             this.lengthlist[i] = j;m++;
+/*     */           }
+/* 259 */           j++;
+/*     */         }
+/*     */         
+/* 262 */         break;
+/*     */         
+/*     */ 
+/* 265 */         return -1;
+/*     */       }
+/*     */     }
+/*     */     
+/* 269 */     switch (this.maptype = paramBuffer.read(4))
+/*     */     {
+/*     */     case 0: 
+/*     */       break;
+/*     */     
+/*     */ 
+/*     */     case 1: 
+/*     */     case 2: 
+/* 277 */       this.q_min = paramBuffer.read(32);
+/* 278 */       this.q_delta = paramBuffer.read(32);
+/* 279 */       this.q_quant = (paramBuffer.read(4) + 1);
+/* 280 */       this.q_sequencep = paramBuffer.read(1);
+/*     */       
+/*     */ 
+/* 283 */       j = 0;
+/* 284 */       switch (this.maptype) {
+/*     */       case 1: 
+/* 286 */         j = maptype1_quantvals();
+/* 287 */         break;
+/*     */       case 2: 
+/* 289 */         j = this.entries * this.dim;
+/*     */       }
+/*     */       
+/*     */       
+/*     */ 
+/* 294 */       this.quantlist = new int[j];
+/* 295 */       for (i = 0; i < j; i++) {
+/* 296 */         this.quantlist[i] = paramBuffer.read(this.q_quant);
+/*     */       }
+/* 298 */       if (this.quantlist[(j - 1)] == -1)
+/*     */       {
+/* 300 */         clear();
+/* 301 */         return -1;
+/*     */       }
+/*     */       
+/* 304 */       break;
+/*     */     
+/*     */     default: 
+/* 307 */       clear();
+/* 308 */       return -1;
+/*     */     }
+/*     */     
+/* 311 */     return 0;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   private int maptype1_quantvals()
+/*     */   {
+/* 322 */     int i = in.b(Math.pow(this.entries, 1.0D / this.dim));
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */     for (;;)
+/*     */     {
+/* 330 */       int j = 1;
+/* 331 */       int k = 1;
+/* 332 */       for (int m = 0; m < this.dim; m++) {
+/* 333 */         j *= i;
+/* 334 */         k *= (i + 1);
+/*     */       }
+/* 336 */       if ((j <= this.entries) && (k > this.entries)) {
+/* 337 */         return i;
+/*     */       }
+/*     */       
+/* 340 */       if (j > this.entries) {
+/* 341 */         i--;
+/*     */       }
+/*     */       else {
+/* 344 */         i++;
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   void clear() {}
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   float[] unquantize()
+/*     */   {
+/* 360 */     if ((this.maptype == 1) || (this.maptype == 2))
+/*     */     {
+/* 362 */       float f1 = float32_unpack(this.q_min);
+/* 363 */       float f2 = float32_unpack(this.q_delta);
+/* 364 */       float[] arrayOfFloat = new float[this.entries * this.dim];
+/*     */       int j;
+/*     */       float f3;
+/*     */       int k;
+/* 368 */       switch (this.maptype)
+/*     */       {
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */       case 1: 
+/* 376 */         int i = maptype1_quantvals();
+/* 377 */         for (j = 0; j < this.entries; j++) {
+/* 378 */           f3 = 0.0F;
+/* 379 */           k = 1;
+/* 380 */           for (int m = 0; m < this.dim; m++) {
+/* 381 */             int n = j / k % i;
+/* 382 */             float f5 = this.quantlist[n];
+/* 383 */             f5 = Math.abs(f5) * f2 + f1 + f3;
+/* 384 */             if (this.q_sequencep != 0)
+/* 385 */               f3 = f5;
+/* 386 */             arrayOfFloat[(j * this.dim + m)] = f5;
+/* 387 */             k *= i;
+/*     */           }
+/*     */         }
+/* 390 */         break;
+/*     */       case 2: 
+/* 392 */         for (j = 0; j < this.entries; j++) {
+/* 393 */           f3 = 0.0F;
+/* 394 */           for (k = 0; k < this.dim; k++) {
+/* 395 */             float f4 = this.quantlist[(j * this.dim + k)];
+/*     */             
+/* 397 */             f4 = Math.abs(f4) * f2 + f1 + f3;
+/* 398 */             if (this.q_sequencep != 0)
+/* 399 */               f3 = f4;
+/* 400 */             arrayOfFloat[(j * this.dim + k)] = f4;
+/*     */           }
+/*     */         }
+/*     */       }
+/*     */       
+/*     */       
+/* 406 */       return arrayOfFloat;
+/*     */     }
+/* 408 */     return null;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   static long float32_pack(float paramFloat)
+/*     */   {
+/* 421 */     int i = 0;
+/*     */     
+/*     */ 
+/* 424 */     if (paramFloat < 0.0F) {
+/* 425 */       i = Integer.MIN_VALUE;
+/* 426 */       paramFloat = -paramFloat;
+/*     */     }
+/* 428 */     int j = in.b(Math.log(paramFloat) / Math.log(2.0D));
+/* 429 */     int k = (int)Math.rint(Math.pow(paramFloat, 20 - j));
+/* 430 */     j = j + 768 << 21;
+/* 431 */     return i | j | k;
+/*     */   }
+/*     */   
+/*     */   static float float32_unpack(int paramInt) {
+/* 435 */     float f1 = paramInt & 0x1FFFFF;
+/* 436 */     float f2 = (paramInt & 0x7FE00000) >>> 21;
+/* 437 */     if ((paramInt & 0x80000000) != 0)
+/* 438 */       f1 = -f1;
+/* 439 */     return ldexp(f1, (int)f2 - 20 - 768);
+/*     */   }
+/*     */   
+/*     */   static float ldexp(float paramFloat, int paramInt) {
+/* 443 */     return (float)(paramFloat * Math.pow(2.0D, paramInt));
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\com\jcraft\jorbis\StaticCodeBook.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,225 @@
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class jx
+/*     */ {
+/*     */   private transient wm[] a;
+/*     */   private transient int b;
+/*     */   private int c;
+/*     */   private final float d;
+/*     */   private volatile transient int e;
+/*     */   
+/*     */   public jx()
+/*     */   {
+/*  18 */     this.d = 0.75F;
+/*  19 */     this.c = 12;
+/*  20 */     this.a = new wm[16];
+/*     */   }
+/*     */   
+/*     */   private static int e(int paramInt) {
+/*  24 */     paramInt ^= paramInt >>> 20 ^ paramInt >>> 12;
+/*  25 */     return paramInt ^ paramInt >>> 7 ^ paramInt >>> 4;
+/*     */   }
+/*     */   
+/*     */   private static int a(int paramInt1, int paramInt2) {
+/*  29 */     return paramInt1 & paramInt2 - 1;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public Object a(int paramInt)
+/*     */   {
+/*  41 */     int i = e(paramInt);
+/*  42 */     for (wm localwm = this.a[a(i, this.a.length)]; localwm != null; localwm = localwm.c) {
+/*  43 */       if (localwm.a == paramInt) return localwm.b;
+/*     */     }
+/*  45 */     return null;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void a(int paramInt, Object paramObject)
+/*     */   {
+/*  61 */     int i = e(paramInt);
+/*  62 */     int j = a(i, this.a.length);
+/*  63 */     for (wm localwm = this.a[j]; localwm != null; localwm = localwm.c) {
+/*  64 */       if (localwm.a == paramInt) {
+/*  65 */         localwm.b = paramObject;
+/*     */       }
+/*     */     }
+/*     */     
+/*  69 */     this.e += 1;
+/*  70 */     a(i, paramInt, paramObject, j);
+/*     */   }
+/*     */   
+/*     */   private void f(int paramInt)
+/*     */   {
+/*  75 */     wm[] arrayOfwm1 = this.a;
+/*  76 */     int i = arrayOfwm1.length;
+/*  77 */     if (i == 1073741824) {
+/*  78 */       this.c = Integer.MAX_VALUE;
+/*  79 */       return;
+/*     */     }
+/*     */     
+/*  82 */     wm[] arrayOfwm2 = new wm[paramInt];
+/*  83 */     a(arrayOfwm2);
+/*  84 */     this.a = arrayOfwm2;
+/*  85 */     this.c = ((int)(paramInt * this.d));
+/*     */   }
+/*     */   
+/*     */   private void a(wm[] paramArrayOfwm) {
+/*  89 */     wm[] arrayOfwm = this.a;
+/*  90 */     int i = paramArrayOfwm.length;
+/*  91 */     for (int j = 0; j < arrayOfwm.length; j++) {
+/*  92 */       Object localObject = arrayOfwm[j];
+/*  93 */       if (localObject != null) {
+/*  94 */         arrayOfwm[j] = null;
+/*     */         do {
+/*  96 */           wm localwm = ((wm)localObject).c;
+/*  97 */           int k = a(((wm)localObject).d, i);
+/*  98 */           ((wm)localObject).c = paramArrayOfwm[k];
+/*  99 */           paramArrayOfwm[k] = localObject;
+/* 100 */           localObject = localwm;
+/* 101 */         } while (localObject != null);
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public Object b(int paramInt) {
+/* 107 */     wm localwm = c(paramInt);
+/* 108 */     return localwm == null ? null : localwm.b;
+/*     */   }
+/*     */   
+/*     */   final wm c(int paramInt) {
+/* 112 */     int i = e(paramInt);
+/* 113 */     int j = a(i, this.a.length);
+/* 114 */     Object localObject1 = this.a[j];
+/* 115 */     Object localObject2 = localObject1;
+/*     */     
+/* 117 */     while (localObject2 != null) {
+/* 118 */       wm localwm = ((wm)localObject2).c;
+/* 119 */       if (((wm)localObject2).a == paramInt) {
+/* 120 */         this.e += 1;
+/* 121 */         this.b -= 1;
+/* 122 */         if (localObject1 == localObject2) this.a[j] = localwm; else
+/* 123 */           ((wm)localObject1).c = localwm;
+/* 124 */         return (wm)localObject2;
+/*     */       }
+/* 126 */       localObject1 = localObject2;
+/* 127 */       localObject2 = localwm;
+/*     */     }
+/*     */     
+/* 130 */     return (wm)localObject2;
+/*     */   }
+/*     */   
+/*     */   public void a() {
+/* 134 */     this.e += 1;
+/* 135 */     wm[] arrayOfwm = this.a;
+/* 136 */     for (int i = 0; i < arrayOfwm.length; i++)
+/* 137 */       arrayOfwm[i] = null;
+/* 138 */     this.b = 0;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   private void a(int paramInt1, int paramInt2, Object paramObject, int paramInt3)
+/*     */   {
+/* 215 */     wm localwm = this.a[paramInt3];
+/* 216 */     this.a[paramInt3] = new wm(paramInt1, paramInt2, paramObject, localwm);
+/* 217 */     if (this.b++ >= this.c) f(2 * this.a.length);
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\jx.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

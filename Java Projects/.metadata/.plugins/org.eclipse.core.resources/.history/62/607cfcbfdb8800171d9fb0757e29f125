@@ -1,0 +1,127 @@
+/*     */ import java.util.Random;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class az
+/*     */   extends ow
+/*     */   implements lw
+/*     */ {
+/*  13 */   private iz[] a = new iz[9];
+/*  14 */   private Random b = new Random();
+/*     */   
+/*     */   public int a() {
+/*  17 */     return 9;
+/*     */   }
+/*     */   
+/*     */   public iz f_(int paramInt) {
+/*  21 */     return this.a[paramInt];
+/*     */   }
+/*     */   
+/*     */   public iz a(int paramInt1, int paramInt2) {
+/*  25 */     if (this.a[paramInt1] != null) {
+/*  26 */       if (this.a[paramInt1].a <= paramInt2) {
+/*  27 */         localiz = this.a[paramInt1];
+/*  28 */         this.a[paramInt1] = null;
+/*  29 */         y_();
+/*  30 */         return localiz;
+/*     */       }
+/*  32 */       iz localiz = this.a[paramInt1].a(paramInt2);
+/*  33 */       if (this.a[paramInt1].a == 0) this.a[paramInt1] = null;
+/*  34 */       y_();
+/*  35 */       return localiz;
+/*     */     }
+/*     */     
+/*  38 */     return null;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public iz b()
+/*     */   {
+/*  58 */     int i = -1;
+/*  59 */     int j = 1;
+/*  60 */     for (int k = 0; k < this.a.length; k++) {
+/*  61 */       if ((this.a[k] != null) && (this.b.nextInt(j++) == 0)) {
+/*  62 */         i = k;
+/*     */       }
+/*     */     }
+/*     */     
+/*  66 */     if (i >= 0) {
+/*  67 */       return a(i, 1);
+/*     */     }
+/*  69 */     return null;
+/*     */   }
+/*     */   
+/*     */   public void a(int paramInt, iz paramiz) {
+/*  73 */     this.a[paramInt] = paramiz;
+/*  74 */     if ((paramiz != null) && (paramiz.a > d())) paramiz.a = d();
+/*  75 */     y_();
+/*     */   }
+/*     */   
+/*     */   public String c() {
+/*  79 */     return "Trap";
+/*     */   }
+/*     */   
+/*     */   public void a(nu paramnu)
+/*     */   {
+/*  84 */     super.a(paramnu);
+/*  85 */     sp localsp = paramnu.l("Items");
+/*  86 */     this.a = new iz[a()];
+/*  87 */     for (int i = 0; i < localsp.c(); i++) {
+/*  88 */       nu localnu = (nu)localsp.a(i);
+/*  89 */       int j = localnu.c("Slot") & 0xFF;
+/*  90 */       if ((j >= 0) && (j < this.a.length)) this.a[j] = new iz(localnu);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void b(nu paramnu) {
+/*  95 */     super.b(paramnu);
+/*  96 */     sp localsp = new sp();
+/*     */     
+/*  98 */     for (int i = 0; i < this.a.length; i++) {
+/*  99 */       if (this.a[i] != null) {
+/* 100 */         nu localnu = new nu();
+/* 101 */         localnu.a("Slot", (byte)i);
+/* 102 */         this.a[i].a(localnu);
+/* 103 */         localsp.a(localnu);
+/*     */       }
+/*     */     }
+/* 106 */     paramnu.a("Items", localsp);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */   public int d()
+/*     */   {
+/* 113 */     return 64;
+/*     */   }
+/*     */   
+/*     */   public boolean a_(gs paramgs) {
+/* 117 */     if (this.d.b(this.e, this.f, this.g) != this) return false;
+/* 118 */     if (paramgs.g(this.e + 0.5D, this.f + 0.5D, this.g + 0.5D) > 64.0D) return false;
+/* 119 */     return true;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\az.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

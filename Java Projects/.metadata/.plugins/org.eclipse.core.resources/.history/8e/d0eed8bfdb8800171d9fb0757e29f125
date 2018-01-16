@@ -1,0 +1,120 @@
+/*     */ 
+/*     */ public class xz
+/*     */   extends gs
+/*     */ {
+/*     */   private int b;
+/*     */   private double bN;
+/*     */   private double bO;
+/*     */   private double bP;
+/*     */   private double bQ;
+/*     */   private double bR;
+/*     */   
+/*     */   public xz(fd paramfd, String paramString)
+/*     */   {
+/*  14 */     super(paramfd);
+/*  15 */     this.l = paramString;
+/*     */     
+/*  17 */     this.bf = 0.0F;
+/*  18 */     this.bp = 0.0F;
+/*  19 */     if ((paramString != null) && (paramString.length() > 0)) {
+/*  20 */       this.bA = ("http://s3.amazonaws.com/MinecraftSkins/" + paramString + ".png");
+/*     */     }
+/*  22 */     this.bq = true;
+/*     */     
+/*  24 */     this.x = 0.25F;
+/*     */     
+/*  26 */     this.aE = 10.0D;
+/*     */   }
+/*     */   
+/*     */   protected void E()
+/*     */   {
+/*  31 */     this.bf = 0.0F;
+/*     */   }
+/*     */   
+/*     */   public boolean a(sn paramsn, int paramInt) {
+/*  35 */     return true;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void a(double paramDouble1, double paramDouble2, double paramDouble3, float paramFloat1, float paramFloat2, int paramInt)
+/*     */   {
+/*  43 */     this.bN = paramDouble1;
+/*  44 */     this.bO = paramDouble2;
+/*  45 */     this.bP = paramDouble3;
+/*  46 */     this.bQ = paramFloat1;
+/*  47 */     this.bR = paramFloat2;
+/*     */     
+/*  49 */     this.b = paramInt;
+/*     */   }
+/*     */   
+/*  52 */   float a = 0.0F;
+/*     */   
+/*     */   public void w_() {
+/*  55 */     this.x = 0.0F;
+/*  56 */     super.w_();
+/*     */     
+/*  58 */     this.ak = this.al;
+/*  59 */     double d1 = this.aM - this.aJ;
+/*  60 */     double d2 = this.aO - this.aL;
+/*  61 */     float f = in.a(d1 * d1 + d2 * d2) * 4.0F;
+/*  62 */     if (f > 1.0F) f = 1.0F;
+/*  63 */     this.al += (f - this.al) * 0.4F;
+/*  64 */     this.am += this.al;
+/*     */   }
+/*     */   
+/*     */   public float x_() {
+/*  68 */     return 0.0F;
+/*     */   }
+/*     */   
+/*     */   public void o() {
+/*  72 */     super.f_();
+/*  73 */     if (this.b > 0) {
+/*  74 */       double d1 = this.aM + (this.bN - this.aM) / this.b;
+/*  75 */       double d2 = this.aN + (this.bO - this.aN) / this.b;
+/*  76 */       double d3 = this.aO + (this.bP - this.aO) / this.b;
+/*     */       
+/*  78 */       double d4 = this.bQ - this.aS;
+/*  79 */       while (d4 < -180.0D)
+/*  80 */         d4 += 360.0D;
+/*  81 */       while (d4 >= 180.0D) {
+/*  82 */         d4 -= 360.0D;
+/*     */       }
+/*  84 */       this.aS = ((float)(this.aS + d4 / this.b));
+/*  85 */       this.aT = ((float)(this.aT + (this.bR - this.aT) / this.b));
+/*     */       
+/*  87 */       this.b -= 1;
+/*  88 */       e(d1, d2, d3);
+/*  89 */       c(this.aS, this.aT);
+/*     */     }
+/*  91 */     this.h = this.i;
+/*     */     
+/*  93 */     float f1 = in.a(this.aP * this.aP + this.aR * this.aR);
+/*  94 */     float f2 = (float)Math.atan(-this.aQ * 0.20000000298023224D) * 15.0F;
+/*  95 */     if (f1 > 0.1F) f1 = 0.1F;
+/*  96 */     if ((!this.aX) || (this.Y <= 0)) f1 = 0.0F;
+/*  97 */     if ((this.aX) || (this.Y <= 0)) f2 = 0.0F;
+/*  98 */     this.i += (f1 - this.i) * 0.4F;
+/*  99 */     this.ag += (f2 - this.ag) * 0.8F;
+/*     */   }
+/*     */   
+/*     */   public void c(int paramInt1, int paramInt2, int paramInt3)
+/*     */   {
+/* 104 */     iz localiz = null;
+/* 105 */     if (paramInt2 >= 0) localiz = new iz(paramInt2, 1, paramInt3);
+/* 106 */     if (paramInt1 == 0) {
+/* 107 */       this.c.a[this.c.c] = localiz;
+/*     */     } else {
+/* 109 */       this.c.b[(paramInt1 - 1)] = localiz;
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void v() {}
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\xz.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

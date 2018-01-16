@@ -1,0 +1,55 @@
+/*    */ import java.io.DataInputStream;
+/*    */ import java.io.DataOutputStream;
+/*    */ 
+/*    */ 
+/*    */ public class nz
+/*    */   extends ki
+/*    */ {
+/*    */   public int a;
+/*    */   public String b;
+/*    */   public long c;
+/*    */   public byte d;
+/*    */   
+/*    */   public nz() {}
+/*    */   
+/*    */   public nz(String paramString, int paramInt)
+/*    */   {
+/* 17 */     this.b = paramString;
+/* 18 */     this.a = paramInt;
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public void a(DataInputStream paramDataInputStream)
+/*    */   {
+/* 29 */     this.a = paramDataInputStream.readInt();
+/* 30 */     this.b = a(paramDataInputStream, 16);
+/* 31 */     this.c = paramDataInputStream.readLong();
+/* 32 */     this.d = paramDataInputStream.readByte();
+/*    */   }
+/*    */   
+/*    */   public void a(DataOutputStream paramDataOutputStream) {
+/* 36 */     paramDataOutputStream.writeInt(this.a);
+/* 37 */     a(this.b, paramDataOutputStream);
+/* 38 */     paramDataOutputStream.writeLong(this.c);
+/* 39 */     paramDataOutputStream.writeByte(this.d);
+/*    */   }
+/*    */   
+/*    */   public void a(ti paramti) {
+/* 43 */     paramti.a(this);
+/*    */   }
+/*    */   
+/*    */   public int a() {
+/* 47 */     return 4 + this.b.length() + 4 + 5;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\nz.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

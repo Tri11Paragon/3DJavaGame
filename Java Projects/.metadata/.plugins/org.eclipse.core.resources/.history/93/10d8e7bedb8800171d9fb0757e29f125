@@ -1,0 +1,33 @@
+/*    */ import java.awt.Canvas;
+/*    */ import net.minecraft.client.MinecraftApplet;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class r
+/*    */   extends Canvas
+/*    */ {
+/*    */   public r(MinecraftApplet paramMinecraftApplet) {}
+/*    */   
+/*    */   public synchronized void addNotify()
+/*    */   {
+/* 19 */     super.addNotify();
+/* 20 */     this.a.a();
+/*    */   }
+/*    */   
+/*    */   public synchronized void removeNotify() {
+/* 24 */     this.a.b();
+/* 25 */     super.removeNotify();
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\r.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

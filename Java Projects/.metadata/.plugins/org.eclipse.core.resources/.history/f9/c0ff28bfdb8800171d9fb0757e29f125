@@ -1,0 +1,70 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class ms
+/*    */   extends pg
+/*    */ {
+/*    */   private int a;
+/*    */   private int b;
+/*    */   
+/*    */   public ms(int paramInt)
+/*    */   {
+/* 15 */     this.a = uu.aX.bn;
+/* 16 */     this.b = paramInt;
+/*    */   }
+/*    */   
+/*    */   public boolean a(fd paramfd, Random paramRandom, int paramInt1, int paramInt2, int paramInt3) {
+/* 20 */     if (paramfd.f(paramInt1, paramInt2, paramInt3) != ln.g) { return false;
+/*    */     }
+/* 22 */     float f = paramRandom.nextFloat() * 3.1415927F;
+/*    */     
+/* 24 */     double d1 = paramInt1 + 8 + in.a(f) * this.b / 8.0F;
+/* 25 */     double d2 = paramInt1 + 8 - in.a(f) * this.b / 8.0F;
+/* 26 */     double d3 = paramInt3 + 8 + in.b(f) * this.b / 8.0F;
+/* 27 */     double d4 = paramInt3 + 8 - in.b(f) * this.b / 8.0F;
+/*    */     
+/* 29 */     double d5 = paramInt2 + paramRandom.nextInt(3) + 2;
+/* 30 */     double d6 = paramInt2 + paramRandom.nextInt(3) + 2;
+/*    */     
+/* 32 */     for (int i = 0; i <= this.b; i++) {
+/* 33 */       double d7 = d1 + (d2 - d1) * i / this.b;
+/* 34 */       double d8 = d5 + (d6 - d5) * i / this.b;
+/* 35 */       double d9 = d3 + (d4 - d3) * i / this.b;
+/*    */       
+/* 37 */       double d10 = paramRandom.nextDouble() * this.b / 16.0D;
+/* 38 */       double d11 = (in.a(i * 3.1415927F / this.b) + 1.0F) * d10 + 1.0D;
+/* 39 */       double d12 = (in.a(i * 3.1415927F / this.b) + 1.0F) * d10 + 1.0D;
+/*    */       
+/* 41 */       int j = in.b(d7 - d11 / 2.0D);
+/* 42 */       int k = in.b(d7 + d11 / 2.0D);
+/* 43 */       int m = in.b(d8 - d12 / 2.0D);
+/* 44 */       int n = in.b(d8 + d12 / 2.0D);
+/* 45 */       int i1 = in.b(d9 - d11 / 2.0D);
+/* 46 */       int i2 = in.b(d9 + d11 / 2.0D);
+/*    */       
+/* 48 */       for (int i3 = j; i3 <= k; i3++) {
+/* 49 */         for (int i4 = m; i4 <= n; i4++) {
+/* 50 */           for (int i5 = i1; i5 <= i2; i5++) {
+/* 51 */             double d13 = (i3 + 0.5D - d7) / (d11 / 2.0D);
+/* 52 */             double d14 = (i4 + 0.5D - d8) / (d12 / 2.0D);
+/* 53 */             double d15 = (i5 + 0.5D - d9) / (d11 / 2.0D);
+/* 54 */             if (d13 * d13 + d14 * d14 + d15 * d15 < 1.0D) {
+/* 55 */               int i6 = paramfd.a(i3, i4, i5);
+/* 56 */               if (i6 == uu.F.bn) paramfd.c(i3, i4, i5, this.a);
+/*    */             }
+/*    */           }
+/*    */         }
+/*    */       }
+/*    */     }
+/* 62 */     return true;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ms.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

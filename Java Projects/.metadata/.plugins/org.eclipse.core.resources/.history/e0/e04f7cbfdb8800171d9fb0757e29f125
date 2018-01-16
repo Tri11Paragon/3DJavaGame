@@ -1,0 +1,22 @@
+/*    */ 
+/*    */ public class tw
+/*    */   extends vr
+/*    */ {
+/*    */   private final int a;
+/*    */   
+/*    */   public tw(int paramInt1, String paramString, int paramInt2)
+/*    */   {
+/*  9 */     super(paramInt1, paramString);
+/* 10 */     this.a = paramInt2;
+/*    */   }
+/*    */   
+/*    */   public int a() {
+/* 14 */     return this.a;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\tw.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

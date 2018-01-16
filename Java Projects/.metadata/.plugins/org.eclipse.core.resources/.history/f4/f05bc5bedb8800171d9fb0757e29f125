@@ -1,0 +1,75 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class wq
+/*    */   extends ls
+/*    */ {
+/*    */   public wq(fd paramfd)
+/*    */   {
+/*  9 */     super(paramfd);
+/*    */   }
+/*    */   
+/*    */   protected void b(float paramFloat) {}
+/*    */   
+/*    */   public void a_(float paramFloat1, float paramFloat2)
+/*    */   {
+/* 16 */     if (ag()) {
+/* 17 */       a(paramFloat1, paramFloat2, 0.02F);
+/* 18 */       b(this.aP, this.aQ, this.aR);
+/*    */       
+/* 20 */       this.aP *= 0.800000011920929D;
+/* 21 */       this.aQ *= 0.800000011920929D;
+/* 22 */       this.aR *= 0.800000011920929D;
+/* 23 */     } else if (ah()) {
+/* 24 */       a(paramFloat1, paramFloat2, 0.02F);
+/* 25 */       b(this.aP, this.aQ, this.aR);
+/* 26 */       this.aP *= 0.5D;
+/* 27 */       this.aQ *= 0.5D;
+/* 28 */       this.aR *= 0.5D;
+/*    */     } else {
+/* 30 */       float f1 = 0.91F;
+/* 31 */       if (this.aX) {
+/* 32 */         f1 = 0.54600006F;
+/* 33 */         int i = this.aI.a(in.b(this.aM), in.b(this.aW.b) - 1, in.b(this.aO));
+/* 34 */         if (i > 0) {
+/* 35 */           f1 = uu.m[i].bB * 0.91F;
+/*    */         }
+/*    */       }
+/*    */       
+/* 39 */       float f2 = 0.16277136F / (f1 * f1 * f1);
+/* 40 */       a(paramFloat1, paramFloat2, this.aX ? 0.1F * f2 : 0.02F);
+/*    */       
+/* 42 */       f1 = 0.91F;
+/* 43 */       if (this.aX) {
+/* 44 */         f1 = 0.54600006F;
+/* 45 */         int j = this.aI.a(in.b(this.aM), in.b(this.aW.b) - 1, in.b(this.aO));
+/* 46 */         if (j > 0) {
+/* 47 */           f1 = uu.m[j].bB * 0.91F;
+/*    */         }
+/*    */       }
+/*    */       
+/* 51 */       b(this.aP, this.aQ, this.aR);
+/*    */       
+/* 53 */       this.aP *= f1;
+/* 54 */       this.aQ *= f1;
+/* 55 */       this.aR *= f1;
+/*    */     }
+/* 57 */     this.ak = this.al;
+/* 58 */     double d1 = this.aM - this.aJ;
+/* 59 */     double d2 = this.aO - this.aL;
+/* 60 */     float f3 = in.a(d1 * d1 + d2 * d2) * 4.0F;
+/* 61 */     if (f3 > 1.0F) f3 = 1.0F;
+/* 62 */     this.al += (f3 - this.al) * 0.4F;
+/* 63 */     this.am += this.al;
+/*    */   }
+/*    */   
+/*    */   public boolean p() {
+/* 67 */     return false;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\wq.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,141 @@
+/*     */ import java.util.Random;
+/*     */ 
+/*     */ public class xv
+/*     */ {
+/*     */   private ug e;
+/*     */   private ug f;
+/*     */   private ug g;
+/*     */   public double[] a;
+/*     */   public double[] b;
+/*     */   public double[] c;
+/*     */   public kd[] d;
+/*     */   
+/*     */   protected xv() {}
+/*     */   
+/*     */   public xv(fd paramfd)
+/*     */   {
+/*  17 */     this.e = new ug(new Random(paramfd.s() * 9871L), 4);
+/*  18 */     this.f = new ug(new Random(paramfd.s() * 39811L), 4);
+/*  19 */     this.g = new ug(new Random(paramfd.s() * 543321L), 2);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public kd a(yy paramyy)
+/*     */   {
+/*  35 */     return a(paramyy.a << 4, paramyy.b << 4);
+/*     */   }
+/*     */   
+/*     */   public kd a(int paramInt1, int paramInt2) {
+/*  39 */     return a(paramInt1, paramInt2, 1, 1)[0];
+/*     */   }
+/*     */   
+/*     */   public double b(int paramInt1, int paramInt2) {
+/*  43 */     this.a = this.e.a(this.a, paramInt1, paramInt2, 1, 1, 0.02500000037252903D, 0.02500000037252903D, 0.5D);
+/*  44 */     return this.a[0];
+/*     */   }
+/*     */   
+/*     */   public kd[] a(int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/*  48 */     this.d = a(this.d, paramInt1, paramInt2, paramInt3, paramInt4);
+/*  49 */     return this.d;
+/*     */   }
+/*     */   
+/*     */   public double[] a(double[] paramArrayOfDouble, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/*  53 */     if ((paramArrayOfDouble == null) || (paramArrayOfDouble.length < paramInt3 * paramInt4)) {
+/*  54 */       paramArrayOfDouble = new double[paramInt3 * paramInt4];
+/*     */     }
+/*     */     
+/*  57 */     paramArrayOfDouble = this.e.a(paramArrayOfDouble, paramInt1, paramInt2, paramInt3, paramInt4, 0.02500000037252903D, 0.02500000037252903D, 0.25D);
+/*  58 */     this.c = this.g.a(this.c, paramInt1, paramInt2, paramInt3, paramInt4, 0.25D, 0.25D, 0.5882352941176471D);
+/*     */     
+/*  60 */     int i = 0;
+/*  61 */     for (int j = 0; j < paramInt3; j++) {
+/*  62 */       for (int k = 0; k < paramInt4; k++) {
+/*  63 */         double d1 = this.c[i] * 1.1D + 0.5D;
+/*     */         
+/*  65 */         double d2 = 0.01D;
+/*  66 */         double d3 = 1.0D - d2;
+/*  67 */         double d4 = (paramArrayOfDouble[i] * 0.15D + 0.7D) * d3 + d1 * d2;
+/*  68 */         d4 = 1.0D - (1.0D - d4) * (1.0D - d4);
+/*     */         
+/*  70 */         if (d4 < 0.0D) d4 = 0.0D;
+/*  71 */         if (d4 > 1.0D) { d4 = 1.0D;
+/*     */         }
+/*  73 */         paramArrayOfDouble[i] = d4;
+/*  74 */         i++;
+/*     */       }
+/*     */     }
+/*     */     
+/*     */ 
+/*     */ 
+/*  80 */     return paramArrayOfDouble;
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public kd[] a(kd[] paramArrayOfkd, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+/*     */   {
+/*  93 */     if ((paramArrayOfkd == null) || (paramArrayOfkd.length < paramInt3 * paramInt4)) {
+/*  94 */       paramArrayOfkd = new kd[paramInt3 * paramInt4];
+/*     */     }
+/*     */     
+/*  97 */     this.a = this.e.a(this.a, paramInt1, paramInt2, paramInt3, paramInt3, 0.02500000037252903D, 0.02500000037252903D, 0.25D);
+/*  98 */     this.b = this.f.a(this.b, paramInt1, paramInt2, paramInt3, paramInt3, 0.05000000074505806D, 0.05000000074505806D, 0.3333333333333333D);
+/*  99 */     this.c = this.g.a(this.c, paramInt1, paramInt2, paramInt3, paramInt3, 0.25D, 0.25D, 0.5882352941176471D);
+/*     */     
+/* 101 */     int i = 0;
+/* 102 */     for (int j = 0; j < paramInt3; j++) {
+/* 103 */       for (int k = 0; k < paramInt4; k++)
+/*     */       {
+/*     */ 
+/*     */ 
+/*     */ 
+/* 108 */         double d1 = this.c[i] * 1.1D + 0.5D;
+/*     */         
+/* 110 */         double d2 = 0.01D;
+/* 111 */         double d3 = 1.0D - d2;
+/* 112 */         double d4 = (this.a[i] * 0.15D + 0.7D) * d3 + d1 * d2;
+/* 113 */         d2 = 0.002D;
+/* 114 */         d3 = 1.0D - d2;
+/* 115 */         double d5 = (this.b[i] * 0.15D + 0.5D) * d3 + d1 * d2;
+/* 116 */         d4 = 1.0D - (1.0D - d4) * (1.0D - d4);
+/*     */         
+/*     */ 
+/* 119 */         if (d4 < 0.0D) d4 = 0.0D;
+/* 120 */         if (d5 < 0.0D) d5 = 0.0D;
+/* 121 */         if (d4 > 1.0D) d4 = 1.0D;
+/* 122 */         if (d5 > 1.0D) { d5 = 1.0D;
+/*     */         }
+/* 124 */         this.a[i] = d4;
+/* 125 */         this.b[i] = d5;
+/*     */         
+/* 127 */         paramArrayOfkd[(i++)] = kd.a(d4, d5);
+/*     */       }
+/*     */     }
+/*     */     
+/*     */ 
+/*     */ 
+/* 133 */     return paramArrayOfkd;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\xv.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

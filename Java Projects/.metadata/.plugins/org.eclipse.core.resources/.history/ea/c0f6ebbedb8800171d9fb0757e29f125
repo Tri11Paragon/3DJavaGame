@@ -1,0 +1,121 @@
+/*     */ import java.awt.image.BufferedImage;
+/*     */ import org.lwjgl.opengl.GL11;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class iy
+/*     */ {
+/*  18 */   private int[] a = new int['䀀'];
+/*     */   private int b;
+/*     */   private kv c;
+/*     */   private sj d;
+/*     */   
+/*     */   public iy(sj paramsj, kv paramkv, ji paramji) {
+/*  24 */     this.c = paramkv;
+/*  25 */     this.d = paramsj;
+/*  26 */     this.b = paramji.a(new BufferedImage(128, 128, 2));
+/*  27 */     for (int i = 0; i < 16384; i++) {
+/*  28 */       this.a[i] = 0;
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void a(gs paramgs, ji paramji, iu paramiu) {
+/*  33 */     for (int i = 0; i < 16384; i++) {
+/*  34 */       j = paramiu.f[i];
+/*  35 */       if (j / 4 == 0) {
+/*  36 */         this.a[i] = ((i + i / 128 & 0x1) * 8 + 16 << 24);
+/*     */       } else {
+/*  38 */         int k = dx.a[(j / 4)].p;
+/*  39 */         int m = j & 0x3;
+/*     */         
+/*  41 */         int n = 220;
+/*  42 */         if (m == 2) n = 255;
+/*  43 */         if (m == 0) { n = 180;
+/*     */         }
+/*  45 */         int i1 = (k >> 16 & 0xFF) * n / 255;
+/*  46 */         int i2 = (k >> 8 & 0xFF) * n / 255;
+/*  47 */         int i3 = (k & 0xFF) * n / 255;
+/*     */         
+/*  49 */         if (this.c.g) {
+/*  50 */           int i4 = (i1 * 30 + i2 * 59 + i3 * 11) / 100;
+/*  51 */           int i5 = (i1 * 30 + i2 * 70) / 100;
+/*  52 */           int i6 = (i1 * 30 + i3 * 70) / 100;
+/*     */           
+/*  54 */           i1 = i4;
+/*  55 */           i2 = i5;
+/*  56 */           i3 = i6;
+/*     */         }
+/*     */         
+/*  59 */         this.a[i] = (0xFF000000 | i1 << 16 | i2 << 8 | i3);
+/*     */       }
+/*     */     }
+/*     */     
+/*  63 */     paramji.a(this.a, 128, 128, this.b);
+/*     */     
+/*  65 */     i = 0;
+/*  66 */     int j = 0;
+/*  67 */     nw localnw = nw.a;
+/*     */     
+/*  69 */     float f1 = 0.0F;
+/*     */     
+/*  71 */     GL11.glBindTexture(3553, this.b);
+/*  72 */     GL11.glEnable(3042);
+/*  73 */     GL11.glDisable(3008);
+/*  74 */     localnw.b();
+/*  75 */     localnw.a(i + 0 + f1, j + 128 - f1, -0.009999999776482582D, 0.0D, 1.0D);
+/*  76 */     localnw.a(i + 128 - f1, j + 128 - f1, -0.009999999776482582D, 1.0D, 1.0D);
+/*  77 */     localnw.a(i + 128 - f1, j + 0 + f1, -0.009999999776482582D, 1.0D, 0.0D);
+/*  78 */     localnw.a(i + 0 + f1, j + 0 + f1, -0.009999999776482582D, 0.0D, 0.0D);
+/*  79 */     localnw.a();
+/*  80 */     GL11.glEnable(3008);
+/*  81 */     GL11.glDisable(3042);
+/*     */     
+/*     */ 
+/*  84 */     paramji.b(paramji.b("/misc/mapicons.png"));
+/*     */     
+/*  86 */     for (ax localax : paramiu.i) {
+/*  87 */       GL11.glPushMatrix();
+/*  88 */       GL11.glTranslatef(i + localax.b / 2.0F + 64.0F, j + localax.c / 2.0F + 64.0F, -0.02F);
+/*  89 */       GL11.glRotatef(localax.d * 360 / 16.0F, 0.0F, 0.0F, 1.0F);
+/*  90 */       GL11.glScalef(4.0F, 4.0F, 3.0F);
+/*  91 */       GL11.glTranslatef(-0.125F, 0.125F, 0.0F);
+/*     */       
+/*  93 */       float f2 = (localax.a % 4 + 0) / 4.0F;
+/*  94 */       float f3 = (localax.a / 4 + 0) / 4.0F;
+/*  95 */       float f4 = (localax.a % 4 + 1) / 4.0F;
+/*  96 */       float f5 = (localax.a / 4 + 1) / 4.0F;
+/*     */       
+/*  98 */       localnw.b();
+/*  99 */       localnw.a(-1.0D, 1.0D, 0.0D, f2, f3);
+/* 100 */       localnw.a(1.0D, 1.0D, 0.0D, f4, f3);
+/* 101 */       localnw.a(1.0D, -1.0D, 0.0D, f4, f5);
+/* 102 */       localnw.a(-1.0D, -1.0D, 0.0D, f2, f5);
+/* 103 */       localnw.a();
+/* 104 */       GL11.glPopMatrix();
+/*     */     }
+/*     */     
+/*     */ 
+/* 108 */     GL11.glPushMatrix();
+/*     */     
+/* 110 */     GL11.glTranslatef(0.0F, 0.0F, -0.04F);
+/* 111 */     GL11.glScalef(1.0F, 1.0F, 1.0F);
+/* 112 */     this.d.b(paramiu.a, i, j, -16777216);
+/* 113 */     GL11.glPopMatrix();
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\iy.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

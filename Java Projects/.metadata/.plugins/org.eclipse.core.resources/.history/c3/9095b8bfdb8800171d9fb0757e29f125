@@ -1,0 +1,31 @@
+/*    */ 
+/*    */ public class yy
+/*    */ {
+/*    */   public final int a;
+/*    */   public final int b;
+/*    */   
+/*    */   public yy(int paramInt1, int paramInt2)
+/*    */   {
+/*  9 */     this.a = paramInt1;
+/* 10 */     this.b = paramInt2;
+/*    */   }
+/*    */   
+/*    */   public static int a(int paramInt1, int paramInt2) {
+/* 14 */     return (paramInt1 < 0 ? Integer.MIN_VALUE : 0) | (paramInt1 & 0x7FFF) << 16 | (paramInt2 < 0 ? 32768 : 0) | paramInt2 & 0x7FFF;
+/*    */   }
+/*    */   
+/*    */   public int hashCode() {
+/* 18 */     return a(this.a, this.b);
+/*    */   }
+/*    */   
+/*    */   public boolean equals(Object paramObject) {
+/* 22 */     yy localyy = (yy)paramObject;
+/* 23 */     return (localyy.a == this.a) && (localyy.b == this.b);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\yy.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

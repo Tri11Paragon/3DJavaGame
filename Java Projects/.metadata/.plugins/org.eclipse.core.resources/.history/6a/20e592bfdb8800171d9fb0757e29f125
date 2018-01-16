@@ -1,0 +1,253 @@
+/*     */ import java.util.Random;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class ur
+/*     */ {
+/*  10 */   private Random a = new Random();
+/*     */   
+/*     */   public void a(fd paramfd, sn paramsn) {
+/*  13 */     if (b(paramfd, paramsn)) {
+/*  14 */       return;
+/*     */     }
+/*     */     
+/*  17 */     c(paramfd, paramsn);
+/*  18 */     b(paramfd, paramsn);
+/*     */   }
+/*     */   
+/*     */   public boolean b(fd paramfd, sn paramsn)
+/*     */   {
+/*  23 */     int i = 128;
+/*  24 */     double d1 = -1.0D;
+/*  25 */     int j = 0;
+/*  26 */     double d2 = 0;
+/*  27 */     int k = 0;
+/*     */     
+/*  29 */     int m = in.b(paramsn.aM);
+/*  30 */     int n = in.b(paramsn.aO);
+/*     */     double d3;
+/*  32 */     double d8; for (int i1 = m - i; i1 <= m + i; i1++) {
+/*  33 */       d3 = i1 + 0.5D - paramsn.aM;
+/*  34 */       for (int i3 = n - i; i3 <= n + i; i3++) {
+/*  35 */         double d5 = i3 + 0.5D - paramsn.aO;
+/*  36 */         for (double d7 = 127; d7 >= 0; d7--) {
+/*  37 */           if (paramfd.a(i1, d7, i3) == uu.bf.bn) {
+/*  38 */             while (paramfd.a(i1, d7 - 1, i3) == uu.bf.bn) {
+/*  39 */               d7--;
+/*     */             }
+/*     */             
+/*  42 */             d8 = d7 + 0.5D - paramsn.aN;
+/*  43 */             double d9 = d3 * d3 + d8 * d8 + d5 * d5;
+/*  44 */             if ((d1 < 0.0D) || (d9 < d1)) {
+/*  45 */               d1 = d9;
+/*  46 */               j = i1;
+/*  47 */               d2 = d7;
+/*  48 */               k = i3;
+/*     */             }
+/*     */           }
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */     
+/*  55 */     if (d1 >= 0.0D) {
+/*  56 */       i1 = j;
+/*  57 */       d3 = d2;
+/*  58 */       int i2 = k;
+/*     */       
+/*  60 */       double d4 = i1 + 0.5D;
+/*  61 */       double d6 = d3 + 0.5D;
+/*  62 */       d8 = i2 + 0.5D;
+/*     */       
+/*  64 */       if (paramfd.a(i1 - 1, d3, i2) == uu.bf.bn) d4 -= 0.5D;
+/*  65 */       if (paramfd.a(i1 + 1, d3, i2) == uu.bf.bn) { d4 += 0.5D;
+/*     */       }
+/*  67 */       if (paramfd.a(i1, d3, i2 - 1) == uu.bf.bn) d8 -= 0.5D;
+/*  68 */       if (paramfd.a(i1, d3, i2 + 1) == uu.bf.bn) { d8 += 0.5D;
+/*     */       }
+/*  70 */       paramsn.c(d4, d6, d8, paramsn.aS, 0.0F);
+/*  71 */       paramsn.aP = (paramsn.aQ = paramsn.aR = 0.0D);
+/*  72 */       return true;
+/*     */     }
+/*     */     
+/*  75 */     return false;
+/*     */   }
+/*     */   
+/*     */   public boolean c(fd paramfd, sn paramsn) {
+/*  79 */     int i = 16;
+/*  80 */     double d1 = -1.0D;
+/*     */     
+/*  82 */     double d2 = in.b(paramsn.aM);
+/*  83 */     int j = in.b(paramsn.aN);
+/*  84 */     int k = in.b(paramsn.aO);
+/*     */     
+/*  86 */     double d3 = d2;
+/*  87 */     int m = j;
+/*  88 */     int n = k;
+/*  89 */     double d4 = 0;
+/*     */     
+/*  91 */     int i1 = this.a.nextInt(4);
+/*     */     double d7;
+/*     */     int i7;
+/*  94 */     int i8; int i9; int i13; int i17; int i18; for (double d5 = d2 - i; d5 <= d2 + i; d5++) {
+/*  95 */       d6 = d5 + 0.5D - paramsn.aM;
+/*  96 */       for (i3 = k - i; i3 <= k + i; i3++) {
+/*  97 */         d7 = i3 + 0.5D - paramsn.aO;
+/*  98 */         label418: for (i6 = 127; i6 >= 0; i6--) {
+/*  99 */           if (paramfd.d(d5, i6, i3)) {
+/* 100 */             while ((i6 > 0) && (paramfd.d(d5, i6 - 1, i3))) {
+/* 101 */               i6--;
+/*     */             }
+/*     */             
+/* 104 */             for (i7 = i1; i7 < i1 + 4; i7++) {
+/* 105 */               i8 = i7 % 2;
+/* 106 */               i9 = 1 - i8;
+/*     */               
+/* 108 */               if (i7 % 4 >= 2) {
+/* 109 */                 i8 = -i8;
+/* 110 */                 i9 = -i9;
+/*     */               }
+/*     */               
+/*     */ 
+/* 114 */               for (int i10 = 0; i10 < 3; i10++) {
+/* 115 */                 for (i13 = 0; i13 < 4; i13++) {
+/* 116 */                   for (int i14 = -1; i14 < 4; i14++) {
+/* 117 */                     i17 = d5 + (i13 - 1) * i8 + i10 * i9;
+/* 118 */                     i18 = i6 + i14;
+/* 119 */                     int i19 = i3 + (i13 - 1) * i9 - i10 * i8;
+/*     */                     
+/* 121 */                     if (((i14 < 0) && (!paramfd.f(i17, i18, i19).a())) || (
+/* 122 */                       (i14 >= 0) && (!paramfd.d(i17, i18, i19))))
+/*     */                       break label418;
+/*     */                   }
+/*     */                 }
+/*     */               }
+/* 127 */               double d8 = i6 + 0.5D - paramsn.aN;
+/* 128 */               double d10 = d6 * d6 + d8 * d8 + d7 * d7;
+/* 129 */               if ((d1 < 0.0D) || (d10 < d1)) {
+/* 130 */                 d1 = d10;
+/* 131 */                 d3 = d5;
+/* 132 */                 m = i6;
+/* 133 */                 n = i3;
+/* 134 */                 d4 = i7 % 4;
+/*     */               }
+/*     */             }
+/*     */           }
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */     
+/* 142 */     if (d1 < 0.0D) {
+/* 143 */       for (d5 = d2 - i; d5 <= d2 + i; d5++) {
+/* 144 */         d6 = d5 + 0.5D - paramsn.aM;
+/* 145 */         for (i3 = k - i; i3 <= k + i; i3++) {
+/* 146 */           d7 = i3 + 0.5D - paramsn.aO;
+/* 147 */           label751: for (i6 = 127; i6 >= 0; i6--) {
+/* 148 */             if (paramfd.d(d5, i6, i3)) {
+/* 149 */               while (paramfd.d(d5, i6 - 1, i3)) {
+/* 150 */                 i6--;
+/*     */               }
+/*     */               
+/* 153 */               for (i7 = i1; i7 < i1 + 2; i7++) {
+/* 154 */                 i8 = i7 % 2;
+/* 155 */                 i9 = 1 - i8;
+/* 156 */                 for (int i11 = 0; i11 < 4; i11++) {
+/* 157 */                   for (i13 = -1; i13 < 4; i13++) {
+/* 158 */                     int i15 = d5 + (i11 - 1) * i8;
+/* 159 */                     i17 = i6 + i13;
+/* 160 */                     i18 = i3 + (i11 - 1) * i9;
+/*     */                     
+/* 162 */                     if (((i13 < 0) && (!paramfd.f(i15, i17, i18).a())) || (
+/* 163 */                       (i13 >= 0) && (!paramfd.d(i15, i17, i18))))
+/*     */                       break label751;
+/*     */                   }
+/*     */                 }
+/* 167 */                 double d9 = i6 + 0.5D - paramsn.aN;
+/* 168 */                 double d11 = d6 * d6 + d9 * d9 + d7 * d7;
+/* 169 */                 if ((d1 < 0.0D) || (d11 < d1)) {
+/* 170 */                   d1 = d11;
+/* 171 */                   d3 = d5;
+/* 172 */                   m = i6;
+/* 173 */                   n = i3;
+/* 174 */                   d4 = i7 % 2;
+/*     */                 }
+/*     */               }
+/*     */             }
+/*     */           }
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */     
+/*     */ 
+/*     */ 
+/* 185 */     d5 = d4;
+/*     */     
+/* 187 */     double d6 = d3;
+/* 188 */     int i2 = m;
+/* 189 */     int i3 = n;
+/*     */     
+/* 191 */     int i4 = d5 % 2;
+/* 192 */     int i5 = 1 - i4;
+/*     */     
+/* 194 */     if (d5 % 4 >= 2) {
+/* 195 */       i4 = -i4;
+/* 196 */       i5 = -i5;
+/*     */     }
+/*     */     int i12;
+/*     */     int i16;
+/* 200 */     if (d1 < 0.0D) {
+/* 201 */       if (m < 70) m = 70;
+/* 202 */       if (m > 118) m = 118;
+/* 203 */       i2 = m;
+/*     */       
+/* 205 */       for (i6 = -1; i6 <= 1; i6++) {
+/* 206 */         for (i7 = 1; i7 < 3; i7++) {
+/* 207 */           for (i8 = -1; i8 < 3; i8++) {
+/* 208 */             i9 = d6 + (i7 - 1) * i4 + i6 * i5;
+/* 209 */             i12 = i2 + i8;
+/* 210 */             i13 = i3 + (i7 - 1) * i5 - i6 * i4;
+/*     */             
+/* 212 */             i16 = i8 < 0 ? 1 : 0;
+/*     */             
+/* 214 */             paramfd.f(i9, i12, i13, i16 != 0 ? uu.aq.bn : 0);
+/*     */           }
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */     
+/* 220 */     for (int i6 = 0; i6 < 4; i6++) {
+/* 221 */       paramfd.o = true;
+/* 222 */       for (i7 = 0; i7 < 4; i7++) {
+/* 223 */         for (i8 = -1; i8 < 4; i8++) {
+/* 224 */           i9 = d6 + (i7 - 1) * i4;
+/* 225 */           i12 = i2 + i8;
+/* 226 */           i13 = i3 + (i7 - 1) * i5;
+/*     */           
+/* 228 */           i16 = (i7 == 0) || (i7 == 3) || (i8 == -1) || (i8 == 3) ? 1 : 0;
+/* 229 */           paramfd.f(i9, i12, i13, i16 != 0 ? uu.aq.bn : uu.bf.bn);
+/*     */         }
+/*     */       }
+/* 232 */       paramfd.o = false;
+/*     */       
+/* 234 */       for (i7 = 0; i7 < 4; i7++) {
+/* 235 */         for (i8 = -1; i8 < 4; i8++) {
+/* 236 */           i9 = d6 + (i7 - 1) * i4;
+/* 237 */           i12 = i2 + i8;
+/* 238 */           i13 = i3 + (i7 - 1) * i5;
+/*     */           
+/* 240 */           paramfd.i(i9, i12, i13, paramfd.a(i9, i12, i13));
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */     
+/* 245 */     return true;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ur.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

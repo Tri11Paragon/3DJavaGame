@@ -1,0 +1,46 @@
+/*    */ public class qy
+/*    */   implements Comparable
+/*    */ {
+/*  4 */   private static long f = 0L;
+/*    */   public int a;
+/*    */   public int b;
+/*  7 */   public int c; public int d; public long e; private long g = f++;
+/*    */   
+/*    */   public qy(int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/* 10 */     this.a = paramInt1;
+/* 11 */     this.b = paramInt2;
+/* 12 */     this.c = paramInt3;
+/* 13 */     this.d = paramInt4;
+/*    */   }
+/*    */   
+/*    */   public boolean equals(Object paramObject) {
+/* 17 */     if ((paramObject instanceof qy)) {
+/* 18 */       qy localqy = (qy)paramObject;
+/* 19 */       return (this.a == localqy.a) && (this.b == localqy.b) && (this.c == localqy.c) && (this.d == localqy.d);
+/*    */     }
+/* 21 */     return false;
+/*    */   }
+/*    */   
+/*    */   public int hashCode() {
+/* 25 */     return (this.a * 128 * 1024 + this.c * 128 + this.b) * 256 + this.d;
+/*    */   }
+/*    */   
+/*    */   public qy a(long paramLong) {
+/* 29 */     this.e = paramLong;
+/* 30 */     return this;
+/*    */   }
+/*    */   
+/*    */   public int a(qy paramqy) {
+/* 34 */     if (this.e < paramqy.e) return -1;
+/* 35 */     if (this.e > paramqy.e) return 1;
+/* 36 */     if (this.g < paramqy.g) return -1;
+/* 37 */     if (this.g > paramqy.g) return 1;
+/* 38 */     return 0;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\qy.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

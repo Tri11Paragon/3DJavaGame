@@ -1,0 +1,57 @@
+/*    */ import java.net.MalformedURLException;
+/*    */ import java.util.List;
+/*    */ import java.util.Map;
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ public class hr
+/*    */ {
+/*  8 */   private Random c = new Random();
+/*    */   
+/* 10 */   private Map d = new java.util.HashMap();
+/* 11 */   private List e = new java.util.ArrayList();
+/*    */   
+/* 13 */   public int a = 0;
+/* 14 */   public boolean b = true;
+/*    */   
+/*    */   public bh a(String paramString, java.io.File paramFile) {
+/*    */     try {
+/* 18 */       String str = paramString;
+/* 19 */       paramString = paramString.substring(0, paramString.indexOf("."));
+/* 20 */       if (this.b) {
+/* 21 */         while (Character.isDigit(paramString.charAt(paramString.length() - 1))) {
+/* 22 */           paramString = paramString.substring(0, paramString.length() - 1);
+/*    */         }
+/*    */       }
+/* 25 */       paramString = paramString.replaceAll("/", ".");
+/*    */       
+/* 27 */       if (!this.d.containsKey(paramString)) {
+/* 28 */         this.d.put(paramString, new java.util.ArrayList());
+/*    */       }
+/* 30 */       bh localbh = new bh(str, paramFile.toURI().toURL());
+/* 31 */       ((List)this.d.get(paramString)).add(localbh);
+/* 32 */       this.e.add(localbh);
+/* 33 */       this.a += 1;
+/* 34 */       return localbh;
+/*    */     } catch (MalformedURLException localMalformedURLException) {
+/* 36 */       localMalformedURLException.printStackTrace();
+/* 37 */       throw new RuntimeException(localMalformedURLException);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public bh a(String paramString) {
+/* 42 */     List localList = (List)this.d.get(paramString);
+/* 43 */     if (localList == null) return null;
+/* 44 */     return (bh)localList.get(this.c.nextInt(localList.size()));
+/*    */   }
+/*    */   
+/*    */   public bh a() {
+/* 48 */     if (this.e.size() == 0) return null;
+/* 49 */     return (bh)this.e.get(this.c.nextInt(this.e.size()));
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\hr.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

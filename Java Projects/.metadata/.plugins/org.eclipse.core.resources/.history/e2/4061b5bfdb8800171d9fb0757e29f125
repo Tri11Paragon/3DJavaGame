@@ -1,0 +1,59 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class fc
+/*    */   extends uu
+/*    */ {
+/*    */   private boolean a;
+/*    */   
+/*    */   protected fc(int paramInt1, int paramInt2, boolean paramBoolean)
+/*    */   {
+/* 12 */     super(paramInt1, ln.x);
+/* 13 */     this.bm = paramInt2;
+/* 14 */     b(true);
+/* 15 */     this.a = paramBoolean;
+/*    */   }
+/*    */   
+/*    */   public int a(int paramInt1, int paramInt2) {
+/* 19 */     if (paramInt1 == 1) return this.bm;
+/* 20 */     if (paramInt1 == 0) { return this.bm;
+/*    */     }
+/* 22 */     int i = this.bm + 1 + 16;
+/* 23 */     if (this.a) { i++;
+/*    */     }
+/* 25 */     if ((paramInt2 == 2) && (paramInt1 == 2)) return i;
+/* 26 */     if ((paramInt2 == 3) && (paramInt1 == 5)) return i;
+/* 27 */     if ((paramInt2 == 0) && (paramInt1 == 3)) return i;
+/* 28 */     if ((paramInt2 == 1) && (paramInt1 == 4)) { return i;
+/*    */     }
+/* 30 */     return this.bm + 16;
+/*    */   }
+/*    */   
+/*    */   public int a(int paramInt) {
+/* 34 */     if (paramInt == 1) return this.bm;
+/* 35 */     if (paramInt == 0) return this.bm;
+/* 36 */     if (paramInt == 3) return this.bm + 1 + 16;
+/* 37 */     return this.bm + 16;
+/*    */   }
+/*    */   
+/*    */   public void c(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/* 41 */     super.c(paramfd, paramInt1, paramInt2, paramInt3);
+/*    */   }
+/*    */   
+/*    */   public boolean a(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/* 45 */     int i = paramfd.a(paramInt1, paramInt2, paramInt3);
+/* 46 */     return ((i == 0) || (uu.m[i].bA.g())) && (paramfd.h(paramInt1, paramInt2 - 1, paramInt3));
+/*    */   }
+/*    */   
+/*    */   public void a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, ls paramls) {
+/* 50 */     int i = in.b(paramls.aS * 4.0F / 360.0F + 2.5D) & 0x3;
+/* 51 */     paramfd.d(paramInt1, paramInt2, paramInt3, i);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\fc.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

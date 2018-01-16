@@ -1,0 +1,29 @@
+/*    */ import org.lwjgl.opengl.GL11;
+/*    */ 
+/*    */ 
+/*    */ public class pq
+/*    */   extends gv
+/*    */ {
+/*    */   public pq()
+/*    */   {
+/*  9 */     super(new lo(), 0.5F);
+/*    */   }
+/*    */   
+/*    */   protected void a(bp parambp, float paramFloat) {
+/* 13 */     bp localbp = parambp;
+/*    */     
+/* 15 */     float f1 = (localbp.e + (localbp.f - localbp.e) * paramFloat) / 20.0F;
+/* 16 */     if (f1 < 0.0F) f1 = 0.0F;
+/* 17 */     f1 = 1.0F / (f1 * f1 * f1 * f1 * f1 * 2.0F + 1.0F);
+/* 18 */     float f2 = (8.0F + f1) / 2.0F;
+/* 19 */     float f3 = (8.0F + 1.0F / f1) / 2.0F;
+/* 20 */     GL11.glScalef(f3, f2, f3);
+/* 21 */     GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\pq.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

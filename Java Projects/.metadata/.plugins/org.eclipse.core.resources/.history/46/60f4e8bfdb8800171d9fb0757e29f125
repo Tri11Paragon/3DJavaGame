@@ -1,0 +1,160 @@
+/*     */ import java.util.List;
+/*     */ import java.util.Random;
+/*     */ import net.minecraft.client.Minecraft;
+/*     */ import org.lwjgl.input.Keyboard;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class fj
+/*     */   extends da
+/*     */ {
+/*     */   private da a;
+/*     */   private ro i;
+/*     */   private ro j;
+/*     */   private String l;
+/*     */   private boolean m;
+/*     */   
+/*     */   public fj(da paramda)
+/*     */   {
+/*  23 */     this.a = paramda;
+/*     */   }
+/*     */   
+/*     */   public void a() {
+/*  27 */     this.i.b();
+/*  28 */     this.j.b();
+/*     */   }
+/*     */   
+/*     */   public void b()
+/*     */   {
+/*  33 */     nh localnh = nh.a();
+/*     */     
+/*  35 */     Keyboard.enableRepeatEvents(true);
+/*  36 */     this.e.clear();
+/*  37 */     this.e.add(new ke(0, this.c / 2 - 100, this.d / 4 + 96 + 12, localnh.a("selectWorld.create")));
+/*  38 */     this.e.add(new ke(1, this.c / 2 - 100, this.d / 4 + 120 + 12, localnh.a("gui.cancel")));
+/*     */     
+/*  40 */     this.i = new ro(this, this.g, this.c / 2 - 100, 60, 200, 20, localnh.a("selectWorld.newWorld"));
+/*  41 */     this.i.a = true;
+/*  42 */     this.i.a(32);
+/*     */     
+/*  44 */     this.j = new ro(this, this.g, this.c / 2 - 100, 116, 200, 20, "");
+/*     */     
+/*  46 */     k();
+/*     */   }
+/*     */   
+/*     */   private void k() {
+/*  50 */     this.l = this.i.a().trim();
+/*     */     
+/*  52 */     for (char c : fp.b) {
+/*  53 */       this.l = this.l.replace(c, '_');
+/*     */     }
+/*     */     
+/*  56 */     if (in.a(this.l)) {
+/*  57 */       this.l = "World";
+/*     */     }
+/*  59 */     this.l = a(this.b.c(), this.l);
+/*     */   }
+/*     */   
+/*     */   public static String a(nl paramnl, String paramString) {
+/*  63 */     while (paramnl.b(paramString) != null) {
+/*  64 */       paramString = paramString + "-";
+/*     */     }
+/*  66 */     return paramString;
+/*     */   }
+/*     */   
+/*     */   public void h() {
+/*  70 */     Keyboard.enableRepeatEvents(false);
+/*     */   }
+/*     */   
+/*     */   protected void a(ke paramke) {
+/*  74 */     if (!paramke.g) return;
+/*  75 */     if (paramke.f == 1) {
+/*  76 */       this.b.a(this.a);
+/*  77 */     } else if (paramke.f == 0)
+/*     */     {
+/*  79 */       this.b.a(null);
+/*  80 */       if (this.m) return;
+/*  81 */       this.m = true;
+/*     */       
+/*  83 */       long l1 = new Random().nextLong();
+/*  84 */       String str = this.j.a();
+/*     */       
+/*  86 */       if (!in.a(str)) {
+/*     */         try
+/*     */         {
+/*  89 */           long l2 = Long.parseLong(str);
+/*  90 */           if (l2 != 0L) {
+/*  91 */             l1 = l2;
+/*     */           }
+/*     */         }
+/*     */         catch (NumberFormatException localNumberFormatException) {
+/*  95 */           l1 = str.hashCode();
+/*     */         }
+/*     */       }
+/*     */       
+/*  99 */       this.b.c = new os(this.b);
+/* 100 */       this.b.a(this.l, this.i.a(), l1);
+/* 101 */       this.b.a(null);
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   protected void a(char paramChar, int paramInt) {
+/* 106 */     if (this.i.a) this.i.a(paramChar, paramInt); else {
+/* 107 */       this.j.a(paramChar, paramInt);
+/*     */     }
+/* 109 */     if (paramChar == '\r') {
+/* 110 */       a((ke)this.e.get(0));
+/*     */     }
+/* 112 */     ((ke)this.e.get(0)).g = (this.i.a().length() > 0);
+/*     */     
+/* 114 */     k();
+/*     */   }
+/*     */   
+/*     */   protected void a(int paramInt1, int paramInt2, int paramInt3)
+/*     */   {
+/* 119 */     super.a(paramInt1, paramInt2, paramInt3);
+/*     */     
+/* 121 */     this.i.a(paramInt1, paramInt2, paramInt3);
+/* 122 */     this.j.a(paramInt1, paramInt2, paramInt3);
+/*     */   }
+/*     */   
+/*     */   public void a(int paramInt1, int paramInt2, float paramFloat)
+/*     */   {
+/* 127 */     nh localnh = nh.a();
+/*     */     
+/*     */ 
+/* 130 */     i();
+/*     */     
+/* 132 */     a(this.g, localnh.a("selectWorld.create"), this.c / 2, this.d / 4 - 60 + 20, 16777215);
+/* 133 */     b(this.g, localnh.a("selectWorld.enterName"), this.c / 2 - 100, 47, 10526880);
+/* 134 */     b(this.g, localnh.a("selectWorld.resultFolder") + " " + this.l, this.c / 2 - 100, 85, 10526880);
+/*     */     
+/* 136 */     b(this.g, localnh.a("selectWorld.enterSeed"), this.c / 2 - 100, 104, 10526880);
+/* 137 */     b(this.g, localnh.a("selectWorld.seedInfo"), this.c / 2 - 100, 140, 10526880);
+/*     */     
+/* 139 */     this.i.c();
+/* 140 */     this.j.c();
+/*     */     
+/* 142 */     super.a(paramInt1, paramInt2, paramFloat);
+/*     */   }
+/*     */   
+/*     */   public void j() {
+/* 146 */     if (this.i.a) {
+/* 147 */       this.i.a(false);
+/* 148 */       this.j.a(true);
+/*     */     } else {
+/* 150 */       this.i.a(true);
+/* 151 */       this.j.a(false);
+/*     */     }
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\fj.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,358 @@
+/*     */ import java.awt.Canvas;
+/*     */ import java.awt.Color;
+/*     */ import java.awt.FontMetrics;
+/*     */ import java.awt.Graphics;
+/*     */ import java.awt.Graphics2D;
+/*     */ import java.awt.Rectangle;
+/*     */ import java.awt.RenderingHints;
+/*     */ import java.awt.event.KeyEvent;
+/*     */ import java.awt.event.KeyListener;
+/*     */ import java.awt.event.MouseEvent;
+/*     */ import java.awt.event.MouseListener;
+/*     */ import java.awt.event.MouseMotionListener;
+/*     */ import java.awt.geom.AffineTransform;
+/*     */ import java.awt.image.BufferStrategy;
+/*     */ import java.io.File;
+/*     */ import java.util.Collections;
+/*     */ import java.util.LinkedList;
+/*     */ import java.util.List;
+/*     */ import java.util.Random;
+/*     */ 
+/*     */ public class bd
+/*     */   extends Canvas
+/*     */   implements KeyListener, MouseListener, MouseMotionListener, Runnable
+/*     */ {
+/*  25 */   private int a = 0;
+/*  26 */   private int b = 2;
+/*  27 */   private boolean c = true;
+/*     */   
+/*     */   private fd d;
+/*     */   
+/*     */   private File e;
+/*  32 */   private boolean f = true;
+/*     */   
+/*  34 */   private List g = Collections.synchronizedList(new LinkedList());
+/*  35 */   private re[][] h = new re[64][64];
+/*     */   private int i;
+/*     */   private int j;
+/*     */   
+/*  39 */   public File a() { if (this.e == null) this.e = a("minecraft");
+/*  40 */     return this.e;
+/*     */   }
+/*     */   
+/*     */   public File a(String paramString) {
+/*  44 */     String str1 = System.getProperty("user.home", ".");
+/*     */     File localFile;
+/*  46 */     switch (tu.a[e().ordinal()]) {
+/*     */     case 1: 
+/*     */     case 2: 
+/*  49 */       localFile = new File(str1, '.' + paramString + '/');
+/*  50 */       break;
+/*     */     case 3: 
+/*  52 */       String str2 = System.getenv("APPDATA");
+/*  53 */       if (str2 != null) localFile = new File(str2, "." + paramString + '/'); else
+/*  54 */         localFile = new File(str1, '.' + paramString + '/');
+/*  55 */       break;
+/*     */     case 4: 
+/*  57 */       localFile = new File(str1, "Library/Application Support/" + paramString);
+/*  58 */       break;
+/*     */     default: 
+/*  60 */       localFile = new File(str1, paramString + '/');
+/*     */     }
+/*  62 */     if ((!localFile.exists()) && (!localFile.mkdirs())) throw new RuntimeException("The working directory could not be created: " + localFile);
+/*  63 */     return localFile;
+/*     */   }
+/*     */   
+/*     */   private static jn e() {
+/*  67 */     String str = System.getProperty("os.name").toLowerCase();
+/*  68 */     if (str.contains("win")) return jn.c;
+/*  69 */     if (str.contains("mac")) return jn.d;
+/*  70 */     if (str.contains("solaris")) return jn.b;
+/*  71 */     if (str.contains("sunos")) return jn.b;
+/*  72 */     if (str.contains("linux")) return jn.a;
+/*  73 */     if (str.contains("unix")) return jn.a;
+/*  74 */     return jn.e;
+/*     */   }
+/*     */   
+/*     */   public bd() {
+/*  78 */     this.e = a();
+/*     */     
+/*  80 */     for (int m = 0; m < 64; m++) {
+/*  81 */       for (int n = 0; n < 64; n++) {
+/*  82 */         this.h[m][n] = new re(null, m, n);
+/*     */       }
+/*     */     }
+/*  85 */     addMouseListener(this);
+/*  86 */     addMouseMotionListener(this);
+/*  87 */     addKeyListener(this);
+/*  88 */     setFocusable(true);
+/*  89 */     requestFocus();
+/*  90 */     setBackground(Color.red);
+/*     */   }
+/*     */   
+/*     */   public void b(String paramString) {
+/*  94 */     this.i = (this.j = 0);
+/*  95 */     this.d = new fd(new fm(new File(this.e, "saves"), paramString, false), paramString, new Random().nextLong());
+/*     */     
+/*  97 */     this.d.f = 0;
+/*     */     
+/*  99 */     synchronized (this.g) {
+/* 100 */       this.g.clear();
+/*     */       
+/* 102 */       for (int m = 0; m < 64; m++) {
+/* 103 */         for (int n = 0; n < 64; n++) {
+/* 104 */           this.h[m][n].a(this.d, m, n);
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   private void a(int paramInt) {
+/* 111 */     synchronized (this.g) {
+/* 112 */       this.d.f = paramInt;
+/* 113 */       this.g.clear();
+/*     */       
+/* 115 */       for (int m = 0; m < 64; m++) {
+/* 116 */         for (int n = 0; n < 64; n++)
+/* 117 */           this.h[m][n].a(this.d, m, n);
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void b() {
+/* 123 */     new tx(this).start();
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 135 */     for (int m = 0; m < 8; m++) {
+/* 136 */       new Thread(this).start();
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   public void c() {
+/* 141 */     this.f = false;
+/*     */   }
+/*     */   
+/*     */   private re a(int paramInt1, int paramInt2) {
+/* 145 */     int m = paramInt1 & 0x3F;
+/* 146 */     int n = paramInt2 & 0x3F;
+/* 147 */     re localre = this.h[m][n];
+/* 148 */     if ((localre.c == paramInt1) && (localre.d == paramInt2)) {
+/* 149 */       return localre;
+/*     */     }
+/* 151 */     synchronized (this.g) {
+/* 152 */       this.g.remove(localre);
+/*     */     }
+/* 154 */     localre.a(paramInt1, paramInt2);
+/* 155 */     return localre;
+/*     */   }
+/*     */   
+/*     */   public void run()
+/*     */   {
+/* 160 */     un localun = new un();
+/*     */     
+/* 162 */     while (this.f) {
+/* 163 */       re localre = null;
+/* 164 */       synchronized (this.g) {
+/* 165 */         if (this.g.size() > 0) {
+/* 166 */           localre = (re)this.g.remove(0);
+/*     */         }
+/*     */       }
+/*     */       
+/* 170 */       if (localre != null) {
+/* 171 */         if (this.a - localre.g < 2) {
+/* 172 */           localun.a(localre);
+/* 173 */           repaint();
+/*     */         } else {
+/* 175 */           localre.h = false;
+/*     */         }
+/*     */       }
+/*     */       try {
+/* 179 */         Thread.sleep(2L);
+/*     */       } catch (InterruptedException localInterruptedException) {
+/* 181 */         localInterruptedException.printStackTrace();
+/*     */       }
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   public void update(Graphics paramGraphics) {}
+/*     */   
+/*     */   public void paint(Graphics paramGraphics) {}
+/*     */   
+/*     */   public void d()
+/*     */   {
+/* 193 */     BufferStrategy localBufferStrategy = getBufferStrategy();
+/* 194 */     if (localBufferStrategy == null) {
+/* 195 */       createBufferStrategy(2);
+/* 196 */       return;
+/*     */     }
+/* 198 */     a((Graphics2D)localBufferStrategy.getDrawGraphics());
+/* 199 */     localBufferStrategy.show();
+/*     */   }
+/*     */   
+/*     */   public void a(Graphics2D paramGraphics2D) {
+/* 203 */     this.a += 1;
+/*     */     
+/* 205 */     AffineTransform localAffineTransform = paramGraphics2D.getTransform();
+/* 206 */     paramGraphics2D.setClip(0, 0, getWidth(), getHeight());
+/* 207 */     paramGraphics2D.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_NEAREST_NEIGHBOR);
+/*     */     
+/* 209 */     paramGraphics2D.translate(getWidth() / 2, getHeight() / 2);
+/* 210 */     paramGraphics2D.scale(this.b, this.b);
+/* 211 */     paramGraphics2D.translate(this.i, this.j);
+/* 212 */     if (this.d != null) {
+/* 213 */       localObject = this.d.u();
+/* 214 */       paramGraphics2D.translate(-(((br)localObject).a + ((br)localObject).c), -(-((br)localObject).a + ((br)localObject).c) + 64);
+/*     */     }
+/* 216 */     Object localObject = paramGraphics2D.getClipBounds();
+/* 217 */     paramGraphics2D.setColor(new Color(-15724512));
+/* 218 */     paramGraphics2D.fillRect(((Rectangle)localObject).x, ((Rectangle)localObject).y, ((Rectangle)localObject).width, ((Rectangle)localObject).height);
+/*     */     
+/* 220 */     int m = 16;
+/*     */     
+/* 222 */     int n = 3;
+/* 223 */     int i1 = ((Rectangle)localObject).x / m / 2 - 2 - n;
+/* 224 */     int i2 = (((Rectangle)localObject).x + ((Rectangle)localObject).width) / m / 2 + 1 + n;
+/* 225 */     int i3 = ((Rectangle)localObject).y / m - 1 - n * 2;
+/* 226 */     int i4 = (((Rectangle)localObject).y + ((Rectangle)localObject).height + 16 + 128) / m + 1 + n * 2;
+/*     */     
+/* 228 */     for (int i5 = i3; i5 <= i4; i5++) {
+/* 229 */       for (int i6 = i1; i6 <= i2; i6++) {
+/* 230 */         int i7 = i6 - (i5 >> 1);
+/* 231 */         int i8 = i6 + (i5 + 1 >> 1);
+/* 232 */         re localre = a(i7, i8);
+/* 233 */         localre.g = this.a;
+/* 234 */         if (!localre.e) {
+/* 235 */           if (!localre.h) {
+/* 236 */             localre.h = true;
+/* 237 */             this.g.add(localre);
+/*     */           }
+/*     */         } else {
+/* 240 */           localre.h = false;
+/* 241 */           if (!localre.f) {
+/* 242 */             int i9 = i6 * m * 2 + (i5 & 0x1) * m;
+/* 243 */             int i10 = i5 * m - 128 - 16;
+/*     */             
+/* 245 */             paramGraphics2D.drawImage(localre.a, i9, i10, null);
+/*     */           }
+/*     */         }
+/*     */       }
+/*     */     }
+/*     */     
+/* 251 */     if (this.c) {
+/* 252 */       paramGraphics2D.setTransform(localAffineTransform);
+/* 253 */       i5 = getHeight() - 32 - 4;
+/* 254 */       paramGraphics2D.setColor(new Color(Integer.MIN_VALUE, true));
+/*     */       
+/*     */ 
+/* 257 */       paramGraphics2D.fillRect(4, getHeight() - 32 - 4, getWidth() - 8, 32);
+/*     */       
+/* 259 */       paramGraphics2D.setColor(Color.WHITE);
+/*     */       
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 267 */       String str = "F1 - F5: load levels   |   0-9: Set time of day   |   Space: return to spawn   |   Double click: zoom   |   Escape: hide this text";
+/* 268 */       paramGraphics2D.drawString(str, getWidth() / 2 - paramGraphics2D.getFontMetrics().stringWidth(str) / 2, i5 + 20);
+/*     */     }
+/*     */     
+/* 271 */     paramGraphics2D.dispose();
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   private int k;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   private int l;
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void mouseDragged(MouseEvent paramMouseEvent)
+/*     */   {
+/* 291 */     int m = paramMouseEvent.getX() / this.b;
+/* 292 */     int n = paramMouseEvent.getY() / this.b;
+/* 293 */     this.i += m - this.k;
+/* 294 */     this.j += n - this.l;
+/* 295 */     this.k = m;
+/* 296 */     this.l = n;
+/* 297 */     repaint();
+/*     */   }
+/*     */   
+/*     */   public void mouseMoved(MouseEvent paramMouseEvent) {}
+/*     */   
+/*     */   public void mouseClicked(MouseEvent paramMouseEvent)
+/*     */   {
+/* 304 */     if (paramMouseEvent.getClickCount() == 2) {
+/* 305 */       this.b = (3 - this.b);
+/* 306 */       repaint();
+/*     */     }
+/*     */   }
+/*     */   
+/*     */ 
+/*     */   public void mouseEntered(MouseEvent paramMouseEvent) {}
+/*     */   
+/*     */   public void mouseExited(MouseEvent paramMouseEvent) {}
+/*     */   
+/*     */   public void mousePressed(MouseEvent paramMouseEvent)
+/*     */   {
+/* 317 */     int m = paramMouseEvent.getX() / this.b;
+/* 318 */     int n = paramMouseEvent.getY() / this.b;
+/* 319 */     this.k = m;
+/* 320 */     this.l = n;
+/*     */   }
+/*     */   
+/*     */   public void mouseReleased(MouseEvent paramMouseEvent) {}
+/*     */   
+/*     */   public void keyPressed(KeyEvent paramKeyEvent)
+/*     */   {
+/* 327 */     if (paramKeyEvent.getKeyCode() == 48) a(11);
+/* 328 */     if (paramKeyEvent.getKeyCode() == 49) a(10);
+/* 329 */     if (paramKeyEvent.getKeyCode() == 50) a(9);
+/* 330 */     if (paramKeyEvent.getKeyCode() == 51) a(7);
+/* 331 */     if (paramKeyEvent.getKeyCode() == 52) a(6);
+/* 332 */     if (paramKeyEvent.getKeyCode() == 53) a(5);
+/* 333 */     if (paramKeyEvent.getKeyCode() == 54) a(3);
+/* 334 */     if (paramKeyEvent.getKeyCode() == 55) a(2);
+/* 335 */     if (paramKeyEvent.getKeyCode() == 56) a(1);
+/* 336 */     if (paramKeyEvent.getKeyCode() == 57) { a(0);
+/*     */     }
+/* 338 */     if (paramKeyEvent.getKeyCode() == 112) b("World1");
+/* 339 */     if (paramKeyEvent.getKeyCode() == 113) b("World2");
+/* 340 */     if (paramKeyEvent.getKeyCode() == 114) b("World3");
+/* 341 */     if (paramKeyEvent.getKeyCode() == 115) b("World4");
+/* 342 */     if (paramKeyEvent.getKeyCode() == 116) { b("World5");
+/*     */     }
+/* 344 */     if (paramKeyEvent.getKeyCode() == 32) this.i = (this.j = 0);
+/* 345 */     if (paramKeyEvent.getKeyCode() == 27) this.c = (!this.c);
+/* 346 */     repaint();
+/*     */   }
+/*     */   
+/*     */   public void keyReleased(KeyEvent paramKeyEvent) {}
+/*     */   
+/*     */   public void keyTyped(KeyEvent paramKeyEvent) {}
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\bd.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

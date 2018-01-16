@@ -1,0 +1,48 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class xo
+/*    */   extends pg
+/*    */ {
+/*    */   private int a;
+/*    */   
+/*    */   public xo(int paramInt)
+/*    */   {
+/* 12 */     this.a = paramInt;
+/*    */   }
+/*    */   
+/*    */   public boolean a(fd paramfd, Random paramRandom, int paramInt1, int paramInt2, int paramInt3) {
+/* 16 */     if (paramfd.a(paramInt1, paramInt2 + 1, paramInt3) != uu.u.bn) return false;
+/* 17 */     if (paramfd.a(paramInt1, paramInt2 - 1, paramInt3) != uu.u.bn) { return false;
+/*    */     }
+/* 19 */     if ((paramfd.a(paramInt1, paramInt2, paramInt3) != 0) && (paramfd.a(paramInt1, paramInt2, paramInt3) != uu.u.bn)) { return false;
+/*    */     }
+/* 21 */     int i = 0;
+/* 22 */     if (paramfd.a(paramInt1 - 1, paramInt2, paramInt3) == uu.u.bn) i++;
+/* 23 */     if (paramfd.a(paramInt1 + 1, paramInt2, paramInt3) == uu.u.bn) i++;
+/* 24 */     if (paramfd.a(paramInt1, paramInt2, paramInt3 - 1) == uu.u.bn) i++;
+/* 25 */     if (paramfd.a(paramInt1, paramInt2, paramInt3 + 1) == uu.u.bn) { i++;
+/*    */     }
+/* 27 */     int j = 0;
+/* 28 */     if (paramfd.d(paramInt1 - 1, paramInt2, paramInt3)) j++;
+/* 29 */     if (paramfd.d(paramInt1 + 1, paramInt2, paramInt3)) j++;
+/* 30 */     if (paramfd.d(paramInt1, paramInt2, paramInt3 - 1)) j++;
+/* 31 */     if (paramfd.d(paramInt1, paramInt2, paramInt3 + 1)) { j++;
+/*    */     }
+/* 33 */     if ((i == 3) && (j == 1)) {
+/* 34 */       paramfd.f(paramInt1, paramInt2, paramInt3, this.a);
+/* 35 */       paramfd.a = true;
+/* 36 */       uu.m[this.a].a(paramfd, paramInt1, paramInt2, paramInt3, paramRandom);
+/* 37 */       paramfd.a = false;
+/*    */     }
+/*    */     
+/* 40 */     return true;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\xo.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,83 @@
+/*    */ import java.util.List;
+/*    */ 
+/*    */ 
+/*    */ public class ny
+/*    */   extends vr
+/*    */ {
+/*    */   public final int a;
+/*    */   public final int b;
+/*    */   public final ny c;
+/*    */   private final String l;
+/*    */   private gt m;
+/*    */   public final iz d;
+/*    */   private boolean n;
+/*    */   
+/*    */   public ny(int paramInt1, String paramString, int paramInt2, int paramInt3, gm paramgm, ny paramny)
+/*    */   {
+/* 17 */     this(paramInt1, paramString, paramInt2, paramInt3, new iz(paramgm), paramny);
+/*    */   }
+/*    */   
+/*    */   public ny(int paramInt1, String paramString, int paramInt2, int paramInt3, uu paramuu, ny paramny) {
+/* 21 */     this(paramInt1, paramString, paramInt2, paramInt3, new iz(paramuu), paramny);
+/*    */   }
+/*    */   
+/*    */   public ny(int paramInt1, String paramString, int paramInt2, int paramInt3, iz paramiz, ny paramny) {
+/* 25 */     super(5242880 + paramInt1, do.a("achievement." + paramString));
+/* 26 */     this.d = paramiz;
+/*    */     
+/* 28 */     this.l = do.a("achievement." + paramString + ".desc");
+/* 29 */     this.a = paramInt2;
+/* 30 */     this.b = paramInt3;
+/*    */     
+/* 32 */     if (paramInt2 < ep.a) ep.a = paramInt2;
+/* 33 */     if (paramInt3 < ep.b) ep.b = paramInt3;
+/* 34 */     if (paramInt2 > ep.c) ep.c = paramInt2;
+/* 35 */     if (paramInt3 > ep.d) ep.d = paramInt3;
+/* 36 */     this.c = paramny;
+/*    */   }
+/*    */   
+/*    */   public ny a() {
+/* 40 */     this.g = true;
+/* 41 */     return this;
+/*    */   }
+/*    */   
+/*    */   public ny b() {
+/* 45 */     this.n = true;
+/* 46 */     return this;
+/*    */   }
+/*    */   
+/*    */   public ny c()
+/*    */   {
+/* 51 */     super.g();
+/*    */     
+/* 53 */     ep.e.add(this);
+/*    */     
+/* 55 */     return this;
+/*    */   }
+/*    */   
+/*    */   public boolean d() {
+/* 59 */     return true;
+/*    */   }
+/*    */   
+/*    */   public String e() {
+/* 63 */     if (this.m != null) {
+/* 64 */       return this.m.a(this.l);
+/*    */     }
+/* 66 */     return this.l;
+/*    */   }
+/*    */   
+/*    */   public ny a(gt paramgt) {
+/* 70 */     this.m = paramgt;
+/* 71 */     return this;
+/*    */   }
+/*    */   
+/*    */   public boolean f() {
+/* 75 */     return this.n;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ny.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

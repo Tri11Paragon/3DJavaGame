@@ -1,0 +1,29 @@
+/*    */ package net.minecraft.isom;
+/*    */ 
+/*    */ import bd;
+/*    */ import java.applet.Applet;
+/*    */ import java.awt.BorderLayout;
+/*    */ 
+/*    */ public class IsomPreviewApplet extends Applet
+/*    */ {
+/*  9 */   private bd a = new bd();
+/*    */   
+/*    */   public IsomPreviewApplet() {
+/* 12 */     setLayout(new BorderLayout());
+/* 13 */     add(this.a, "Center");
+/*    */   }
+/*    */   
+/*    */   public void start() {
+/* 17 */     this.a.b();
+/*    */   }
+/*    */   
+/*    */   public void stop() {
+/* 21 */     this.a.c();
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\net\minecraft\isom\IsomPreviewApplet.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

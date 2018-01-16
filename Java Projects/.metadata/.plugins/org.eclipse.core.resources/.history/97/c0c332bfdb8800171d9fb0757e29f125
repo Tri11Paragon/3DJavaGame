@@ -1,0 +1,29 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class wx
+/*    */   extends pg
+/*    */ {
+/*    */   public boolean a(fd paramfd, Random paramRandom, int paramInt1, int paramInt2, int paramInt3)
+/*    */   {
+/* 10 */     for (int i = 0; i < 64; i++) {
+/* 11 */       int j = paramInt1 + paramRandom.nextInt(8) - paramRandom.nextInt(8);
+/* 12 */       int k = paramInt2 + paramRandom.nextInt(4) - paramRandom.nextInt(4);
+/* 13 */       int m = paramInt3 + paramRandom.nextInt(8) - paramRandom.nextInt(8);
+/* 14 */       if ((paramfd.d(j, k, m)) && (paramfd.a(j, k - 1, m) == uu.v.bn) && 
+/* 15 */         (uu.bb.a(paramfd, j, k, m))) {
+/* 16 */         paramfd.a(j, k, m, uu.bb.bn, paramRandom.nextInt(4));
+/*    */       }
+/*    */     }
+/*    */     
+/*    */ 
+/* 21 */     return true;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\wx.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,197 @@
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class sk
+/*     */   extends ow
+/*     */   implements lw
+/*     */ {
+/*  15 */   private iz[] i = new iz[3];
+/*  16 */   public int a = 0;
+/*  17 */   public int b = 0;
+/*  18 */   public int c = 0;
+/*     */   
+/*     */   public int a() {
+/*  21 */     return this.i.length;
+/*     */   }
+/*     */   
+/*     */   public iz f_(int paramInt) {
+/*  25 */     return this.i[paramInt];
+/*     */   }
+/*     */   
+/*     */   public iz a(int paramInt1, int paramInt2) {
+/*  29 */     if (this.i[paramInt1] != null) {
+/*  30 */       if (this.i[paramInt1].a <= paramInt2) {
+/*  31 */         localiz = this.i[paramInt1];
+/*  32 */         this.i[paramInt1] = null;
+/*  33 */         return localiz;
+/*     */       }
+/*  35 */       iz localiz = this.i[paramInt1].a(paramInt2);
+/*  36 */       if (this.i[paramInt1].a == 0) this.i[paramInt1] = null;
+/*  37 */       return localiz;
+/*     */     }
+/*     */     
+/*  40 */     return null;
+/*     */   }
+/*     */   
+/*     */   public void a(int paramInt, iz paramiz) {
+/*  44 */     this.i[paramInt] = paramiz;
+/*  45 */     if ((paramiz != null) && (paramiz.a > d())) paramiz.a = d();
+/*     */   }
+/*     */   
+/*     */   public String c() {
+/*  49 */     return "Furnace";
+/*     */   }
+/*     */   
+/*     */   public void a(nu paramnu)
+/*     */   {
+/*  54 */     super.a(paramnu);
+/*  55 */     sp localsp = paramnu.l("Items");
+/*  56 */     this.i = new iz[a()];
+/*  57 */     for (int j = 0; j < localsp.c(); j++) {
+/*  58 */       nu localnu = (nu)localsp.a(j);
+/*  59 */       int k = localnu.c("Slot");
+/*  60 */       if ((k >= 0) && (k < this.i.length)) { this.i[k] = new iz(localnu);
+/*     */       }
+/*     */     }
+/*  63 */     this.a = paramnu.d("BurnTime");
+/*  64 */     this.c = paramnu.d("CookTime");
+/*  65 */     this.b = a(this.i[1]);
+/*     */   }
+/*     */   
+/*     */   public void b(nu paramnu) {
+/*  69 */     super.b(paramnu);
+/*  70 */     paramnu.a("BurnTime", (short)this.a);
+/*  71 */     paramnu.a("CookTime", (short)this.c);
+/*  72 */     sp localsp = new sp();
+/*     */     
+/*  74 */     for (int j = 0; j < this.i.length; j++) {
+/*  75 */       if (this.i[j] != null) {
+/*  76 */         nu localnu = new nu();
+/*  77 */         localnu.a("Slot", (byte)j);
+/*  78 */         this.i[j].a(localnu);
+/*  79 */         localsp.a(localnu);
+/*     */       }
+/*     */     }
+/*  82 */     paramnu.a("Items", localsp);
+/*     */   }
+/*     */   
+/*     */   public int d() {
+/*  86 */     return 64;
+/*     */   }
+/*     */   
+/*     */   public int b(int paramInt) {
+/*  90 */     return this.c * paramInt / 200;
+/*     */   }
+/*     */   
+/*     */   public int c(int paramInt) {
+/*  94 */     if (this.b == 0) this.b = 200;
+/*  95 */     return this.a * paramInt / this.b;
+/*     */   }
+/*     */   
+/*     */   public boolean b() {
+/*  99 */     return this.a > 0;
+/*     */   }
+/*     */   
+/*     */   public void n_() {
+/* 103 */     int j = this.a > 0 ? 1 : 0;
+/* 104 */     int k = 0;
+/* 105 */     if (this.a > 0) {
+/* 106 */       this.a -= 1;
+/*     */     }
+/*     */     
+/*     */ 
+/*     */ 
+/* 111 */     if (!this.d.B) {
+/* 112 */       if ((this.a == 0) && (l())) {
+/* 113 */         this.b = (this.a = a(this.i[1]));
+/* 114 */         if (this.a > 0) {
+/* 115 */           k = 1;
+/* 116 */           if (this.i[1] != null) {
+/* 117 */             this.i[1].a -= 1;
+/* 118 */             if (this.i[1].a == 0) { this.i[1] = null;
+/*     */             }
+/*     */           }
+/*     */         }
+/*     */       }
+/* 123 */       if ((b()) && (l())) {
+/* 124 */         this.c += 1;
+/* 125 */         if (this.c == 200) {
+/* 126 */           this.c = 0;
+/* 127 */           k();
+/* 128 */           k = 1;
+/*     */         }
+/*     */       } else {
+/* 131 */         this.c = 0;
+/*     */       }
+/*     */       
+/* 134 */       if (j != (this.a > 0 ? 1 : 0)) {
+/* 135 */         k = 1;
+/* 136 */         tc.a(this.a > 0, this.d, this.e, this.f, this.g);
+/*     */       }
+/*     */     }
+/*     */     
+/* 140 */     if (k != 0) y_();
+/*     */   }
+/*     */   
+/*     */   private boolean l() {
+/* 144 */     if (this.i[0] == null) return false;
+/* 145 */     iz localiz = ey.a().a(this.i[0].a().bf);
+/* 146 */     if (localiz == null) return false;
+/* 147 */     if (this.i[2] == null) return true;
+/* 148 */     if (!this.i[2].a(localiz)) return false;
+/* 149 */     if ((this.i[2].a < d()) && (this.i[2].a < this.i[2].c())) return true;
+/* 150 */     if (this.i[2].a < localiz.c()) return true;
+/* 151 */     return false;
+/*     */   }
+/*     */   
+/*     */   public void k() {
+/* 155 */     if (!l()) { return;
+/*     */     }
+/* 157 */     iz localiz = ey.a().a(this.i[0].a().bf);
+/* 158 */     if (this.i[2] == null) { this.i[2] = localiz.k();
+/* 159 */     } else if (this.i[2].c == localiz.c) { this.i[2].a += 1;
+/*     */     }
+/* 161 */     this.i[0].a -= 1;
+/* 162 */     if (this.i[0].a <= 0) this.i[0] = null;
+/*     */   }
+/*     */   
+/*     */   private int a(iz paramiz) {
+/* 166 */     if (paramiz == null) return 0;
+/* 167 */     int j = paramiz.a().bf;
+/*     */     
+/* 169 */     if ((j < 256) && (uu.m[j].bA == ln.d)) {
+/* 170 */       return 300;
+/*     */     }
+/*     */     
+/* 173 */     if (j == gm.B.bf) {
+/* 174 */       return 100;
+/*     */     }
+/*     */     
+/* 177 */     if (j == gm.k.bf) { return 1600;
+/*     */     }
+/* 179 */     if (j == gm.aw.bf) { return 20000;
+/*     */     }
+/* 181 */     if (j == uu.z.bn) { return 100;
+/*     */     }
+/* 183 */     return 0;
+/*     */   }
+/*     */   
+/*     */   public boolean a_(gs paramgs) {
+/* 187 */     if (this.d.b(this.e, this.f, this.g) != this) return false;
+/* 188 */     if (paramgs.g(this.e + 0.5D, this.f + 0.5D, this.g + 0.5D) > 64.0D) return false;
+/* 189 */     return true;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\sk.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

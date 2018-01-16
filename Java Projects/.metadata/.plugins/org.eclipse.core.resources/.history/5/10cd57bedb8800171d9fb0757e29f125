@@ -1,0 +1,48 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ final class pn
+/*    */ {
+/*    */   private lb a;
+/*    */   private lb b;
+/*    */   
+/*    */   static pn a()
+/*    */   {
+/* 22 */     return new pn();
+/*    */   }
+/*    */   
+/*    */   pn a(lb paramlb) {
+/* 26 */     this.a = paramlb;
+/* 27 */     return this;
+/*    */   }
+/*    */   
+/*    */   pn b(lb paramlb) {
+/* 31 */     this.b = paramlb;
+/* 32 */     return this;
+/*    */   }
+/*    */   
+/*    */   qa b() {
+/* 36 */     return (qa)this.a.b();
+/*    */   }
+/*    */   
+/*    */   gu c() {
+/* 40 */     return this.b.b();
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\pn.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

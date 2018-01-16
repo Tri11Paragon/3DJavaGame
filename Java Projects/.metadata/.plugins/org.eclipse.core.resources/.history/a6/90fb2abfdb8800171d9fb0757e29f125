@@ -1,0 +1,53 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class lv
+/*    */   extends gm
+/*    */ {
+/*    */   private int a;
+/*    */   
+/*    */   public lv(int paramInt, uu paramuu)
+/*    */   {
+/* 11 */     super(paramInt);
+/* 12 */     this.a = paramuu.bn;
+/*    */   }
+/*    */   
+/*    */   public boolean a(iz paramiz, gs paramgs, fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/* 16 */     if (paramfd.a(paramInt1, paramInt2, paramInt3) == uu.aT.bn) {
+/* 17 */       paramInt4 = 0;
+/*    */     } else {
+/* 19 */       if (paramInt4 == 0) paramInt2--;
+/* 20 */       if (paramInt4 == 1) paramInt2++;
+/* 21 */       if (paramInt4 == 2) paramInt3--;
+/* 22 */       if (paramInt4 == 3) paramInt3++;
+/* 23 */       if (paramInt4 == 4) paramInt1--;
+/* 24 */       if (paramInt4 == 5) { paramInt1++;
+/*    */       }
+/*    */     }
+/* 27 */     if (paramiz.a == 0) { return false;
+/*    */     }
+/*    */     
+/* 30 */     if (paramfd.a(this.a, paramInt1, paramInt2, paramInt3, false, paramInt4)) {
+/* 31 */       uu localuu = uu.m[this.a];
+/* 32 */       if (paramfd.f(paramInt1, paramInt2, paramInt3, this.a)) {
+/* 33 */         uu.m[this.a].e(paramfd, paramInt1, paramInt2, paramInt3, paramInt4);
+/* 34 */         uu.m[this.a].a(paramfd, paramInt1, paramInt2, paramInt3, paramgs);
+/* 35 */         paramfd.a(paramInt1 + 0.5F, paramInt2 + 0.5F, paramInt3 + 0.5F, localuu.by.d(), (localuu.by.b() + 1.0F) / 2.0F, localuu.by.c() * 0.8F);
+/* 36 */         paramiz.a -= 1;
+/*    */       }
+/*    */     }
+/*    */     
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/* 45 */     return true;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\lv.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

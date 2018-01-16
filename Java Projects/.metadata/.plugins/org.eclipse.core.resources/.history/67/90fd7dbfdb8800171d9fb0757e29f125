@@ -1,0 +1,77 @@
+/*    */ import java.util.HashMap;
+/*    */ import java.util.List;
+/*    */ import java.util.Map;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ final class kr
+/*    */   extends qe
+/*    */ {
+/*    */   private final Map a;
+/*    */   
+/*    */   kr(Map paramMap)
+/*    */   {
+/* 22 */     this.a = new HashMap(paramMap);
+/*    */   }
+/*    */   
+/*    */   public Map c() {
+/* 26 */     return new HashMap(this.a);
+/*    */   }
+/*    */   
+/*    */   public at a() {
+/* 30 */     return at.a;
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public String b()
+/*    */   {
+/* 38 */     throw new IllegalStateException("Attempt to get text on a JsonNode without text.");
+/*    */   }
+/*    */   
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */   public List d()
+/*    */   {
+/* 50 */     throw new IllegalStateException("Attempt to get elements on a JsonNode without elements.");
+/*    */   }
+/*    */   
+/*    */   public boolean equals(Object paramObject)
+/*    */   {
+/* 55 */     if (this == paramObject) return true;
+/* 56 */     if ((paramObject == null) || (getClass() != paramObject.getClass())) { return false;
+/*    */     }
+/* 58 */     kr localkr = (kr)paramObject;
+/* 59 */     return this.a.equals(localkr.a);
+/*    */   }
+/*    */   
+/*    */   public int hashCode()
+/*    */   {
+/* 64 */     return this.a.hashCode();
+/*    */   }
+/*    */   
+/*    */   public String toString()
+/*    */   {
+/* 69 */     return "JsonObject fields:[" + this.a + "]";
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\kr.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,15 @@
+package com.jcraft.jorbis;
+
+class InfoMode
+{
+  int blockflag;
+  int windowtype;
+  int transformtype;
+  int mapping;
+}
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\com\jcraft\jorbis\InfoMode.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

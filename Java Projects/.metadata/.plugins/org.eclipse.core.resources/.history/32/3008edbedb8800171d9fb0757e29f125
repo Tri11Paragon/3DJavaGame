@@ -1,0 +1,30 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ final class oc
+/*    */   implements lb
+/*    */ {
+/*    */   private final gu a;
+/*    */   
+/*    */   oc(String paramString)
+/*    */   {
+/* 18 */     this.a = ol.b(paramString);
+/*    */   }
+/*    */   
+/*    */   public gu b() {
+/* 22 */     return this.a;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\oc.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

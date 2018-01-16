@@ -1,0 +1,25 @@
+/*    */ import java.util.Random;
+/*    */ 
+/*    */ 
+/*    */ public class mo
+/*    */   extends gm
+/*    */ {
+/*    */   public mo(int paramInt)
+/*    */   {
+/*  9 */     super(paramInt);
+/* 10 */     this.bg = 16;
+/*    */   }
+/*    */   
+/*    */   public iz a(iz paramiz, fd paramfd, gs paramgs) {
+/* 14 */     paramiz.a -= 1;
+/* 15 */     paramfd.a(paramgs, "random.bow", 0.5F, 0.4F / (b.nextFloat() * 0.4F + 0.8F));
+/* 16 */     if (!paramfd.B) paramfd.b(new vv(paramfd, paramgs));
+/* 17 */     return paramiz;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\mo.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

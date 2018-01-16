@@ -1,0 +1,505 @@
+/*     */ import java.io.PrintStream;
+/*     */ import java.util.ArrayList;
+/*     */ import java.util.Collections;
+/*     */ import java.util.HashMap;
+/*     */ import java.util.List;
+/*     */ import java.util.Map;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class hk
+/*     */ {
+/*  13 */   private static final hk a = new hk();
+/*  14 */   private List b = new ArrayList();
+/*     */   
+/*     */   public static final hk a() {
+/*  17 */     return a;
+/*     */   }
+/*     */   
+/*     */   private hk() {
+/*  21 */     new ha().a(this);
+/*  22 */     new xc().a(this);
+/*  23 */     new tp().a(this);
+/*  24 */     new od().a(this);
+/*  25 */     new jy().a(this);
+/*  26 */     new z().a(this);
+/*  27 */     new ng().a(this);
+/*     */     
+/*  29 */     a(new iz(gm.aI, 3), new Object[] { "###", Character.valueOf('#'), gm.aH });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*  34 */     a(new iz(gm.aJ, 1), new Object[] { "#", "#", "#", Character.valueOf('#'), gm.aI });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*  41 */     a(new iz(uu.ba, 2), new Object[] { "###", "###", Character.valueOf('#'), gm.B });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*  47 */     a(new iz(uu.aZ, 1), new Object[] { "###", "#X#", "###", Character.valueOf('#'), uu.y, Character.valueOf('X'), gm.l });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*  54 */     a(new iz(uu.S, 1), new Object[] { "###", "#X#", "###", Character.valueOf('#'), uu.y, Character.valueOf('X'), gm.aA });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*  61 */     a(new iz(uu.ao, 1), new Object[] { "###", "XXX", "###", Character.valueOf('#'), uu.y, Character.valueOf('X'), gm.aJ });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*  68 */     a(new iz(uu.aV, 1), new Object[] { "##", "##", Character.valueOf('#'), gm.aB });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*  74 */     a(new iz(uu.aX, 1), new Object[] { "##", "##", Character.valueOf('#'), gm.aG });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*  80 */     a(new iz(uu.am, 1), new Object[] { "##", "##", Character.valueOf('#'), gm.aF });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*  86 */     a(new iz(uu.be, 1), new Object[] { "##", "##", Character.valueOf('#'), gm.aR });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*  92 */     a(new iz(uu.ac, 1), new Object[] { "##", "##", Character.valueOf('#'), gm.I });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*  98 */     a(new iz(uu.an, 1), new Object[] { "X#X", "#X#", "X#X", Character.valueOf('X'), gm.K, Character.valueOf('#'), uu.F });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 106 */     a(new iz(uu.al, 3, 3), new Object[] { "###", Character.valueOf('#'), uu.x });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/* 111 */     a(new iz(uu.al, 3, 0), new Object[] { "###", Character.valueOf('#'), uu.u });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/* 116 */     a(new iz(uu.al, 3, 1), new Object[] { "###", Character.valueOf('#'), uu.R });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/* 121 */     a(new iz(uu.al, 3, 2), new Object[] { "###", Character.valueOf('#'), uu.y });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/* 126 */     a(new iz(uu.aG, 2), new Object[] { "# #", "###", "# #", Character.valueOf('#'), gm.B });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 133 */     a(new iz(gm.at, 1), new Object[] { "##", "##", "##", Character.valueOf('#'), uu.y });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 140 */     a(new iz(uu.bl, 2), new Object[] { "###", "###", Character.valueOf('#'), uu.y });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 146 */     a(new iz(gm.az, 1), new Object[] { "##", "##", "##", Character.valueOf('#'), gm.m });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 153 */     a(new iz(gm.as, 1), new Object[] { "###", "###", " X ", Character.valueOf('#'), uu.y, Character.valueOf('X'), gm.B });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 160 */     a(new iz(gm.aX, 1), new Object[] { "AAA", "BEB", "CCC", Character.valueOf('A'), gm.aE, Character.valueOf('B'), gm.aW, Character.valueOf('C'), gm.R, Character.valueOf('E'), gm.aN });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 169 */     a(new iz(gm.aW, 1), new Object[] { "#", Character.valueOf('#'), gm.aH });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/* 174 */     a(new iz(uu.y, 4), new Object[] { "#", Character.valueOf('#'), uu.K });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/* 179 */     a(new iz(gm.B, 4), new Object[] { "#", "#", Character.valueOf('#'), uu.y });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 186 */     a(new iz(uu.ar, 4), new Object[] { "X", "#", Character.valueOf('X'), gm.k, Character.valueOf('#'), gm.B });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 193 */     a(new iz(uu.ar, 4), new Object[] { "X", "#", Character.valueOf('X'), new iz(gm.k, 1, 1), Character.valueOf('#'), gm.B });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 200 */     a(new iz(gm.C, 4), new Object[] { "# #", " # ", Character.valueOf('#'), uu.y });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 206 */     a(new iz(uu.aH, 16), new Object[] { "X X", "X#X", "X X", Character.valueOf('X'), gm.m, Character.valueOf('#'), gm.B });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 214 */     a(new iz(uu.U, 6), new Object[] { "X X", "X#X", "XRX", Character.valueOf('X'), gm.n, Character.valueOf('R'), gm.aA, Character.valueOf('#'), gm.B });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 223 */     a(new iz(uu.V, 6), new Object[] { "X X", "X#X", "XRX", Character.valueOf('X'), gm.m, Character.valueOf('R'), gm.aA, Character.valueOf('#'), uu.aL });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 232 */     a(new iz(gm.ax, 1), new Object[] { "# #", "###", Character.valueOf('#'), gm.m });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 238 */     a(new iz(uu.bg, 1), new Object[] { "A", "B", Character.valueOf('A'), uu.bb, Character.valueOf('B'), uu.ar });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 244 */     a(new iz(gm.aL, 1), new Object[] { "A", "B", Character.valueOf('A'), uu.av, Character.valueOf('B'), gm.ax });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 250 */     a(new iz(gm.aM, 1), new Object[] { "A", "B", Character.valueOf('A'), uu.aC, Character.valueOf('B'), gm.ax });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 256 */     a(new iz(gm.aC, 1), new Object[] { "# #", "###", Character.valueOf('#'), uu.y });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 262 */     a(new iz(gm.au, 1), new Object[] { "# #", " # ", Character.valueOf('#'), gm.m });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 268 */     a(new iz(gm.g, 1), new Object[] { "A ", " B", Character.valueOf('A'), gm.m, Character.valueOf('B'), gm.an });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 274 */     a(new iz(gm.S, 1), new Object[] { "###", Character.valueOf('#'), gm.R });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/* 279 */     a(new iz(uu.au, 4), new Object[] { "#  ", "## ", "###", Character.valueOf('#'), uu.y });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 286 */     a(new iz(gm.aP, 1), new Object[] { "  #", " #X", "# X", Character.valueOf('#'), gm.B, Character.valueOf('X'), gm.I });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 293 */     a(new iz(uu.aI, 4), new Object[] { "#  ", "## ", "###", Character.valueOf('#'), uu.x });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 300 */     a(new iz(gm.aq, 1), new Object[] { "###", "#X#", "###", Character.valueOf('#'), gm.B, Character.valueOf('X'), uu.ac });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 307 */     a(new iz(gm.ar, 1), new Object[] { "###", "#X#", "###", Character.valueOf('#'), uu.ai, Character.valueOf('X'), gm.h });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 314 */     a(new iz(uu.aK, 1), new Object[] { "X", "#", Character.valueOf('#'), uu.x, Character.valueOf('X'), gm.B });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 320 */     a(new iz(uu.aR, 1), new Object[] { "X", "#", Character.valueOf('#'), gm.B, Character.valueOf('X'), gm.aA });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 326 */     a(new iz(gm.aZ, 1), new Object[] { "#X#", "III", Character.valueOf('#'), uu.aR, Character.valueOf('X'), gm.aA, Character.valueOf('I'), uu.u });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 333 */     a(new iz(gm.aQ, 1), new Object[] { " # ", "#X#", " # ", Character.valueOf('#'), gm.n, Character.valueOf('X'), gm.aA });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 340 */     a(new iz(gm.aO, 1), new Object[] { " # ", "#X#", " # ", Character.valueOf('#'), gm.m, Character.valueOf('X'), gm.aA });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 347 */     a(new iz(gm.bb, 1), new Object[] { "###", "#X#", "###", Character.valueOf('#'), gm.aI, Character.valueOf('X'), gm.aO });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 354 */     a(new iz(uu.aS, 1), new Object[] { "#", "#", Character.valueOf('#'), uu.u });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 361 */     a(new iz(uu.aL, 1), new Object[] { "##", Character.valueOf('#'), uu.u });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/* 366 */     a(new iz(uu.aN, 1), new Object[] { "##", Character.valueOf('#'), uu.y });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/* 371 */     a(new iz(uu.Q, 1), new Object[] { "###", "#X#", "#R#", Character.valueOf('#'), uu.x, Character.valueOf('X'), gm.i, Character.valueOf('R'), gm.aA });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 378 */     a(new iz(uu.aa, 1), new Object[] { "TTT", "#X#", "#R#", Character.valueOf('#'), uu.x, Character.valueOf('X'), gm.m, Character.valueOf('R'), gm.aA, Character.valueOf('T'), uu.y });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 385 */     a(new iz(uu.W, 1), new Object[] { "S", "P", Character.valueOf('S'), gm.aK, Character.valueOf('P'), uu.aa });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 392 */     a(new iz(gm.aY, 1), new Object[] { "###", "XXX", Character.valueOf('#'), uu.ac, Character.valueOf('X'), uu.y });
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 399 */     Collections.sort(this.b, new ky(this));
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 416 */     System.out.println(this.b.size() + " recipes");
+/*     */   }
+/*     */   
+/*     */   void a(iz paramiz, Object... paramVarArgs) {
+/* 420 */     String str = "";
+/* 421 */     int i = 0;
+/* 422 */     int j = 0;
+/* 423 */     int k = 0;
+/*     */     Object localObject3;
+/* 425 */     if ((paramVarArgs[i] instanceof String[])) {
+/* 426 */       localObject1 = (String[])paramVarArgs[(i++)];
+/* 427 */       for (int m = 0; m < localObject1.length; m++) {
+/* 428 */         localObject3 = localObject1[m];
+/* 429 */         k++;
+/* 430 */         j = ((String)localObject3).length();
+/* 431 */         str = str + (String)localObject3;
+/*     */       }
+/*     */     } else {
+/* 434 */       while ((paramVarArgs[i] instanceof String)) {
+/* 435 */         localObject1 = (String)paramVarArgs[(i++)];
+/* 436 */         k++;
+/* 437 */         j = ((String)localObject1).length();
+/* 438 */         str = str + (String)localObject1;
+/*     */       }
+/*     */     }
+/*     */     
+/* 442 */     Object localObject1 = new HashMap();
+/* 443 */     for (; i < paramVarArgs.length; i += 2) {
+/* 444 */       localObject2 = (Character)paramVarArgs[i];
+/* 445 */       localObject3 = null;
+/* 446 */       if ((paramVarArgs[(i + 1)] instanceof gm)) {
+/* 447 */         localObject3 = new iz((gm)paramVarArgs[(i + 1)]);
+/* 448 */       } else if ((paramVarArgs[(i + 1)] instanceof uu)) {
+/* 449 */         localObject3 = new iz((uu)paramVarArgs[(i + 1)], 1, -1);
+/* 450 */       } else if ((paramVarArgs[(i + 1)] instanceof iz)) {
+/* 451 */         localObject3 = (iz)paramVarArgs[(i + 1)];
+/*     */       }
+/* 453 */       ((Map)localObject1).put(localObject2, localObject3);
+/*     */     }
+/*     */     
+/* 456 */     Object localObject2 = new iz[j * k];
+/*     */     
+/* 458 */     for (int n = 0; n < j * k; n++) {
+/* 459 */       char c = str.charAt(n);
+/* 460 */       if (((Map)localObject1).containsKey(Character.valueOf(c))) {
+/* 461 */         localObject2[n] = ((iz)((Map)localObject1).get(Character.valueOf(c))).k();
+/*     */       } else {
+/* 463 */         localObject2[n] = null;
+/*     */       }
+/*     */     }
+/* 466 */     this.b.add(new is(j, k, (iz[])localObject2, paramiz));
+/*     */   }
+/*     */   
+/*     */   void b(iz paramiz, Object... paramVarArgs)
+/*     */   {
+/* 471 */     ArrayList localArrayList = new ArrayList();
+/*     */     
+/* 473 */     for (Object localObject : paramVarArgs) {
+/* 474 */       if ((localObject instanceof iz)) {
+/* 475 */         localArrayList.add(((iz)localObject).k());
+/* 476 */       } else if ((localObject instanceof gm)) {
+/* 477 */         localArrayList.add(new iz((gm)localObject));
+/* 478 */       } else if ((localObject instanceof uu)) {
+/* 479 */         localArrayList.add(new iz((uu)localObject));
+/*     */       } else {
+/* 481 */         throw new RuntimeException("Invalid shapeless recipy!");
+/*     */       }
+/*     */     }
+/*     */     
+/* 485 */     this.b.add(new tt(paramiz, localArrayList));
+/*     */   }
+/*     */   
+/*     */   public iz a(mq parammq) {
+/* 489 */     for (int i = 0; i < this.b.size(); i++) {
+/* 490 */       dt localdt = (dt)this.b.get(i);
+/* 491 */       if (localdt.a(parammq)) return localdt.b(parammq);
+/*     */     }
+/* 493 */     return null;
+/*     */   }
+/*     */   
+/*     */   public List b() {
+/* 497 */     return this.b;
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\hk.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

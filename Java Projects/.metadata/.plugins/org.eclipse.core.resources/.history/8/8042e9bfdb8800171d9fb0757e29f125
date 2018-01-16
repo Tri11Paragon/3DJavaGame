@@ -1,0 +1,124 @@
+/*     */ import java.util.List;
+/*     */ import net.minecraft.client.Minecraft;
+/*     */ import org.lwjgl.input.Keyboard;
+/*     */ 
+/*     */ 
+/*     */ public class lq
+/*     */   extends da
+/*     */ {
+/*     */   private da a;
+/*     */   private ro i;
+/*     */   
+/*     */   public lq(da paramda)
+/*     */   {
+/*  14 */     this.a = paramda;
+/*     */   }
+/*     */   
+/*     */   public void a() {
+/*  18 */     this.i.b();
+/*     */   }
+/*     */   
+/*     */   public void b()
+/*     */   {
+/*  23 */     nh localnh = nh.a();
+/*     */     
+/*  25 */     Keyboard.enableRepeatEvents(true);
+/*  26 */     this.e.clear();
+/*  27 */     this.e.add(new ke(0, this.c / 2 - 100, this.d / 4 + 96 + 12, localnh.a("multiplayer.connect")));
+/*  28 */     this.e.add(new ke(1, this.c / 2 - 100, this.d / 4 + 120 + 12, localnh.a("gui.cancel")));
+/*  29 */     String str = this.b.z.C.replaceAll("_", ":");
+/*  30 */     ((ke)this.e.get(0)).g = (str.length() > 0);
+/*     */     
+/*  32 */     this.i = new ro(this, this.g, this.c / 2 - 100, this.d / 4 - 10 + 50 + 18, 200, 20, str);
+/*  33 */     this.i.a = true;
+/*  34 */     this.i.a(128);
+/*     */   }
+/*     */   
+/*     */   public void h() {
+/*  38 */     Keyboard.enableRepeatEvents(false);
+/*     */   }
+/*     */   
+/*     */   protected void a(ke paramke) {
+/*  42 */     if (!paramke.g) return;
+/*  43 */     if (paramke.f == 1) {
+/*  44 */       this.b.a(this.a);
+/*  45 */     } else if (paramke.f == 0) {
+/*  46 */       String str1 = this.i.a().trim();
+/*     */       
+/*  48 */       this.b.z.C = str1.replaceAll(":", "_");
+/*  49 */       this.b.z.b();
+/*     */       
+/*  51 */       String[] arrayOfString = str1.split(":");
+/*  52 */       if (str1.startsWith("[")) {
+/*  53 */         int j = str1.indexOf("]");
+/*  54 */         if (j > 0) {
+/*  55 */           String str2 = str1.substring(1, j);
+/*  56 */           String str3 = str1.substring(j + 1).trim();
+/*  57 */           if ((str3.startsWith(":")) && (str3.length() > 0)) {
+/*  58 */             str3 = str3.substring(1);
+/*  59 */             arrayOfString = new String[2];
+/*  60 */             arrayOfString[0] = str2;
+/*  61 */             arrayOfString[1] = str3;
+/*     */           } else {
+/*  63 */             arrayOfString = new String[1];
+/*  64 */             arrayOfString[0] = str2;
+/*     */           }
+/*     */         }
+/*     */       }
+/*     */       
+/*  69 */       if (arrayOfString.length > 2) {
+/*  70 */         arrayOfString = new String[1];
+/*  71 */         arrayOfString[0] = str1;
+/*     */       }
+/*     */       
+/*  74 */       this.b.a(new vx(this.b, arrayOfString[0], arrayOfString.length > 1 ? a(arrayOfString[1], 25565) : 25565));
+/*     */     }
+/*     */   }
+/*     */   
+/*     */   private int a(String paramString, int paramInt) {
+/*     */     try {
+/*  80 */       return Integer.parseInt(paramString.trim());
+/*     */     }
+/*     */     catch (Exception localException) {}
+/*  83 */     return paramInt;
+/*     */   }
+/*     */   
+/*     */   protected void a(char paramChar, int paramInt) {
+/*  87 */     this.i.a(paramChar, paramInt);
+/*     */     
+/*  89 */     if (paramChar == '\r') {
+/*  90 */       a((ke)this.e.get(0));
+/*     */     }
+/*  92 */     ((ke)this.e.get(0)).g = (this.i.a().length() > 0);
+/*     */   }
+/*     */   
+/*     */   protected void a(int paramInt1, int paramInt2, int paramInt3)
+/*     */   {
+/*  97 */     super.a(paramInt1, paramInt2, paramInt3);
+/*     */     
+/*  99 */     this.i.a(paramInt1, paramInt2, paramInt3);
+/*     */   }
+/*     */   
+/*     */   public void a(int paramInt1, int paramInt2, float paramFloat)
+/*     */   {
+/* 104 */     nh localnh = nh.a();
+/*     */     
+/*     */ 
+/* 107 */     i();
+/*     */     
+/* 109 */     a(this.g, localnh.a("multiplayer.title"), this.c / 2, this.d / 4 - 60 + 20, 16777215);
+/* 110 */     b(this.g, localnh.a("multiplayer.info1"), this.c / 2 - 140, this.d / 4 - 60 + 60 + 0, 10526880);
+/* 111 */     b(this.g, localnh.a("multiplayer.info2"), this.c / 2 - 140, this.d / 4 - 60 + 60 + 9, 10526880);
+/* 112 */     b(this.g, localnh.a("multiplayer.ipinfo"), this.c / 2 - 140, this.d / 4 - 60 + 60 + 36, 10526880);
+/*     */     
+/* 114 */     this.i.c();
+/*     */     
+/* 116 */     super.a(paramInt1, paramInt2, paramFloat);
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\lq.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

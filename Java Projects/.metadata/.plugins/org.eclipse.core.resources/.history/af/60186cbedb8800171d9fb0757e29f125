@@ -1,0 +1,234 @@
+/*     */ import java.io.DataInputStream;
+/*     */ import java.io.DataOutputStream;
+/*     */ import java.io.EOFException;
+/*     */ import java.io.IOException;
+/*     */ import java.io.PrintStream;
+/*     */ import java.util.HashMap;
+/*     */ import java.util.HashSet;
+/*     */ import java.util.Map;
+/*     */ import java.util.Set;
+/*     */ 
+/*     */ public abstract class ki
+/*     */ {
+/*  13 */   private static Map a = new HashMap();
+/*  14 */   private static Map b = new HashMap();
+/*     */   
+/*  16 */   private static Set c = new HashSet();
+/*  17 */   private static Set d = new HashSet();
+/*     */   public final long j;
+/*     */   
+/*  20 */   static void a(int paramInt, boolean paramBoolean1, boolean paramBoolean2, Class paramClass) { if (a.containsKey(Integer.valueOf(paramInt))) throw new IllegalArgumentException("Duplicate packet id:" + paramInt);
+/*  21 */     if (b.containsKey(paramClass)) throw new IllegalArgumentException("Duplicate packet class:" + paramClass);
+/*  22 */     a.put(Integer.valueOf(paramInt), paramClass);
+/*  23 */     b.put(paramClass, Integer.valueOf(paramInt));
+/*     */     
+/*  25 */     if (paramBoolean1) {
+/*  26 */       c.add(Integer.valueOf(paramInt));
+/*     */     }
+/*  28 */     if (paramBoolean2)
+/*  29 */       d.add(Integer.valueOf(paramInt));
+/*     */   }
+/*     */   
+/*     */   public boolean k;
+/*     */   static {
+/*  34 */     a(0, true, true, lz.class);
+/*  35 */     a(1, true, true, nz.class);
+/*  36 */     a(2, true, true, mp.class);
+/*  37 */     a(3, true, true, pe.class);
+/*  38 */     a(4, true, false, hg.class);
+/*  39 */     a(5, true, false, s.class);
+/*  40 */     a(6, true, false, rc.class);
+/*  41 */     a(7, false, true, a.class);
+/*  42 */     a(8, true, false, eu.class);
+/*  43 */     a(9, true, true, ox.class);
+/*     */     
+/*  45 */     a(10, true, true, ig.class);
+/*  46 */     a(11, true, true, af.class);
+/*  47 */     a(12, true, true, vh.class);
+/*  48 */     a(13, true, true, ev.class);
+/*  49 */     a(14, false, true, jv.class);
+/*  50 */     a(15, false, true, gx.class);
+/*  51 */     a(16, false, true, ho.class);
+/*  52 */     a(17, true, false, jz.class);
+/*  53 */     a(18, true, true, nm.class);
+/*  54 */     a(19, false, true, ts.class);
+/*     */     
+/*  56 */     a(20, true, false, mf.class);
+/*  57 */     a(21, true, false, nd.class);
+/*  58 */     a(22, true, false, di.class);
+/*  59 */     a(23, true, false, so.class);
+/*  60 */     a(24, true, false, jm.class);
+/*  61 */     a(25, true, false, vt.class);
+/*  62 */     a(27, false, true, ql.class);
+/*  63 */     a(28, true, false, gj.class);
+/*  64 */     a(29, true, false, rv.class);
+/*     */     
+/*  66 */     a(30, true, false, uh.class);
+/*  67 */     a(31, true, false, sv.class);
+/*  68 */     a(32, true, false, sb.class);
+/*  69 */     a(33, true, false, pz.class);
+/*  70 */     a(34, true, false, rg.class);
+/*     */     
+/*  72 */     a(38, true, false, jf.class);
+/*  73 */     a(39, true, false, ns.class);
+/*  74 */     a(40, true, false, ux.class);
+/*     */     
+/*  76 */     a(50, true, false, se.class);
+/*  77 */     a(51, true, false, ef.class);
+/*  78 */     a(52, true, false, wu.class);
+/*  79 */     a(53, true, false, tv.class);
+/*  80 */     a(54, true, false, vw.class);
+/*     */     
+/*  82 */     a(60, true, false, rm.class);
+/*  83 */     a(61, true, false, fn.class);
+/*     */     
+/*  85 */     a(70, true, false, ca.class);
+/*  86 */     a(71, true, false, fa.class);
+/*     */     
+/*  88 */     a(100, true, false, iw.class);
+/*  89 */     a(101, true, true, mn.class);
+/*  90 */     a(102, false, true, qs.class);
+/*  91 */     a(103, true, false, hq.class);
+/*  92 */     a(104, true, false, kb.class);
+/*  93 */     a(105, true, false, mv.class);
+/*  94 */     a(106, true, true, oj.class);
+/*     */     
+/*  96 */     a(130, true, true, ui.class);
+/*  97 */     a(131, true, false, ai.class);
+/*     */     
+/*  99 */     a(200, true, false, of.class);
+/* 100 */     a(255, true, true, yr.class);
+/*     */   }
+/*     */   
+/*     */   public static ki a(int paramInt)
+/*     */   {
+/*     */     try
+/*     */     {
+/* 107 */       Class localClass = (Class)a.get(Integer.valueOf(paramInt));
+/* 108 */       if (localClass == null) return null;
+/* 109 */       return (ki)localClass.newInstance();
+/*     */     } catch (Exception localException) {
+/* 111 */       localException.printStackTrace();
+/* 112 */       System.out.println("Skipping packet with id " + paramInt); }
+/* 113 */     return null;
+/*     */   }
+/*     */   
+/*     */   public final int c()
+/*     */   {
+/* 118 */     return ((Integer)b.get(getClass())).intValue();
+/*     */   }
+/*     */   
+/*     */   public ki()
+/*     */   {
+/* 103 */     this.j = System.currentTimeMillis();
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 121 */     this.k = false; }
+/*     */   
+/* 123 */   private static HashMap e = new HashMap();
+/* 124 */   private static int f = 0;
+/*     */   
+/*     */   public static ki a(DataInputStream paramDataInputStream, boolean paramBoolean) {
+/* 127 */     int i = 0;
+/* 128 */     ki localki = null;
+/*     */     try
+/*     */     {
+/* 131 */       i = paramDataInputStream.read();
+/* 132 */       if (i == -1) { return null;
+/*     */       }
+/* 134 */       if (((paramBoolean) && (!d.contains(Integer.valueOf(i)))) || ((!paramBoolean) && (!c.contains(Integer.valueOf(i))))) {
+/* 135 */         throw new IOException("Bad packet id " + i);
+/*     */       }
+/*     */       
+/* 138 */       localki = a(i);
+/* 139 */       if (localki == null) { throw new IOException("Bad packet id " + i);
+/*     */       }
+/* 141 */       localki.a(paramDataInputStream);
+/*     */     }
+/*     */     catch (EOFException localEOFException) {
+/* 144 */       System.out.println("Reached end of stream");
+/* 145 */       return null;
+/*     */     }
+/*     */     
+/* 148 */     nv localnv = (nv)e.get(Integer.valueOf(i));
+/* 149 */     if (localnv == null) {
+/* 150 */       localnv = new nv(null);
+/* 151 */       e.put(Integer.valueOf(i), localnv);
+/*     */     }
+/* 153 */     localnv.a(localki.a());
+/*     */     
+/* 155 */     f += 1;
+/* 156 */     if (f % 1000 == 0) {}
+/*     */     
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/* 165 */     return localki;
+/*     */   }
+/*     */   
+/*     */   public static void a(ki paramki, DataOutputStream paramDataOutputStream) {
+/* 169 */     paramDataOutputStream.write(paramki.c());
+/* 170 */     paramki.a(paramDataOutputStream);
+/*     */   }
+/*     */   
+/*     */   public static void a(String paramString, DataOutputStream paramDataOutputStream)
+/*     */   {
+/* 175 */     if (paramString.length() > 32767) {
+/* 176 */       throw new IOException("String too big");
+/*     */     }
+/*     */     
+/* 179 */     paramDataOutputStream.writeShort(paramString.length());
+/* 180 */     paramDataOutputStream.writeChars(paramString);
+/*     */   }
+/*     */   
+/*     */   public static String a(DataInputStream paramDataInputStream, int paramInt)
+/*     */   {
+/* 185 */     int i = paramDataInputStream.readShort();
+/* 186 */     if (i > paramInt) {
+/* 187 */       throw new IOException("Received string length longer than maximum allowed (" + i + " > " + paramInt + ")");
+/*     */     }
+/* 189 */     if (i < 0) {
+/* 190 */       throw new IOException("Received string length is less than zero! Weird string!");
+/*     */     }
+/*     */     
+/* 193 */     StringBuilder localStringBuilder = new StringBuilder();
+/* 194 */     for (int m = 0; m < i; m++) {
+/* 195 */       localStringBuilder.append(paramDataInputStream.readChar());
+/*     */     }
+/*     */     
+/* 198 */     return localStringBuilder.toString();
+/*     */   }
+/*     */   
+/*     */   public abstract void a(DataInputStream paramDataInputStream);
+/*     */   
+/*     */   public abstract void a(DataOutputStream paramDataOutputStream);
+/*     */   
+/*     */   public abstract void a(ti paramti);
+/*     */   
+/*     */   public abstract int a();
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ki.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

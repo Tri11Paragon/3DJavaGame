@@ -1,0 +1,31 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class ax
+/*    */ {
+/*    */   public byte a;
+/*    */   public byte b;
+/*    */   public byte c;
+/*    */   public byte d;
+/*    */   
+/*    */   public ax(iu paramiu, byte paramByte1, byte paramByte2, byte paramByte3, byte paramByte4)
+/*    */   {
+/* 20 */     this.a = paramByte1;
+/* 21 */     this.b = paramByte2;
+/* 22 */     this.c = paramByte3;
+/* 23 */     this.d = paramByte4;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ax.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

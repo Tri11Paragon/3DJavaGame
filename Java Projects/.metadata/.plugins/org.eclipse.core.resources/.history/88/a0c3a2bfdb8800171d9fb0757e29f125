@@ -1,0 +1,35 @@
+/*    */ 
+/*    */ 
+/*    */ public class jh
+/*    */ {
+/*  5 */   private static int[] a = new int[65536];
+/*    */   
+/*    */   public static void a(int[] paramArrayOfInt) {
+/*  8 */     a = paramArrayOfInt;
+/*    */   }
+/*    */   
+/*    */   public static int a(double paramDouble1, double paramDouble2) {
+/* 12 */     paramDouble2 *= paramDouble1;
+/* 13 */     int i = (int)((1.0D - paramDouble1) * 255.0D);
+/* 14 */     int j = (int)((1.0D - paramDouble2) * 255.0D);
+/* 15 */     return a[(j << 8 | i)];
+/*    */   }
+/*    */   
+/*    */   public static int a() {
+/* 19 */     return 6396257;
+/*    */   }
+/*    */   
+/*    */   public static int b() {
+/* 23 */     return 8431445;
+/*    */   }
+/*    */   
+/*    */   public static int c() {
+/* 27 */     return 4764952;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\jh.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

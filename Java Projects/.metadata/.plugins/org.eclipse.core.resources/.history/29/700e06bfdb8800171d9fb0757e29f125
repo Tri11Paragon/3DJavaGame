@@ -1,0 +1,36 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class vq
+/*    */   extends gp
+/*    */ {
+/*    */   private gs d;
+/*    */   
+/*    */   public vq(gs paramgs, lw paramlw, int paramInt1, int paramInt2, int paramInt3)
+/*    */   {
+/* 14 */     super(paramlw, paramInt1, paramInt2, paramInt3);
+/*    */     
+/* 16 */     this.d = paramgs;
+/*    */   }
+/*    */   
+/*    */   public boolean b(iz paramiz) {
+/* 20 */     return false;
+/*    */   }
+/*    */   
+/*    */   public void a(iz paramiz)
+/*    */   {
+/* 25 */     paramiz.b(this.d.aI, this.d);
+/* 26 */     if (paramiz.c == gm.m.bf) this.d.a(ep.k, 1);
+/* 27 */     if (paramiz.c == gm.aT.bf) this.d.a(ep.p, 1);
+/* 28 */     super.a(paramiz);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\vq.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

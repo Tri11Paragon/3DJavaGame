@@ -1,0 +1,225 @@
+/*     */ import java.util.ArrayList;
+/*     */ import java.util.Random;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class ss
+/*     */   extends uu
+/*     */ {
+/*     */   private uu a;
+/*     */   
+/*     */   protected ss(int paramInt, uu paramuu)
+/*     */   {
+/*  15 */     super(paramInt, paramuu.bm, paramuu.bA);
+/*  16 */     this.a = paramuu;
+/*  17 */     c(paramuu.bo);
+/*  18 */     b(paramuu.bp / 3.0F);
+/*  19 */     a(paramuu.by);
+/*  20 */     g(255);
+/*     */   }
+/*     */   
+/*     */   public void a(xp paramxp, int paramInt1, int paramInt2, int paramInt3) {
+/*  24 */     a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+/*     */   }
+/*     */   
+/*     */   public eq e(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/*  28 */     return super.e(paramfd, paramInt1, paramInt2, paramInt3);
+/*     */   }
+/*     */   
+/*     */   public boolean c()
+/*     */   {
+/*  33 */     return false;
+/*     */   }
+/*     */   
+/*     */   public boolean d() {
+/*  37 */     return false;
+/*     */   }
+/*     */   
+/*     */   public int b() {
+/*  41 */     return 10;
+/*     */   }
+/*     */   
+/*     */   public boolean b(xp paramxp, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/*  45 */     return super.b(paramxp, paramInt1, paramInt2, paramInt3, paramInt4);
+/*     */   }
+/*     */   
+/*     */   public void a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, eq parameq, ArrayList paramArrayList) {
+/*  49 */     int i = paramfd.e(paramInt1, paramInt2, paramInt3);
+/*  50 */     if (i == 0) {
+/*  51 */       a(0.0F, 0.0F, 0.0F, 0.5F, 0.5F, 1.0F);
+/*  52 */       super.a(paramfd, paramInt1, paramInt2, paramInt3, parameq, paramArrayList);
+/*  53 */       a(0.5F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+/*  54 */       super.a(paramfd, paramInt1, paramInt2, paramInt3, parameq, paramArrayList);
+/*  55 */     } else if (i == 1) {
+/*  56 */       a(0.0F, 0.0F, 0.0F, 0.5F, 1.0F, 1.0F);
+/*  57 */       super.a(paramfd, paramInt1, paramInt2, paramInt3, parameq, paramArrayList);
+/*  58 */       a(0.5F, 0.0F, 0.0F, 1.0F, 0.5F, 1.0F);
+/*  59 */       super.a(paramfd, paramInt1, paramInt2, paramInt3, parameq, paramArrayList);
+/*  60 */     } else if (i == 2) {
+/*  61 */       a(0.0F, 0.0F, 0.0F, 1.0F, 0.5F, 0.5F);
+/*  62 */       super.a(paramfd, paramInt1, paramInt2, paramInt3, parameq, paramArrayList);
+/*  63 */       a(0.0F, 0.0F, 0.5F, 1.0F, 1.0F, 1.0F);
+/*  64 */       super.a(paramfd, paramInt1, paramInt2, paramInt3, parameq, paramArrayList);
+/*  65 */     } else if (i == 3) {
+/*  66 */       a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.5F);
+/*  67 */       super.a(paramfd, paramInt1, paramInt2, paramInt3, parameq, paramArrayList);
+/*  68 */       a(0.0F, 0.0F, 0.5F, 1.0F, 0.5F, 1.0F);
+/*  69 */       super.a(paramfd, paramInt1, paramInt2, paramInt3, parameq, paramArrayList);
+/*     */     }
+/*  71 */     a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void b(fd paramfd, int paramInt1, int paramInt2, int paramInt3, Random paramRandom)
+/*     */   {
+/* 111 */     this.a.b(paramfd, paramInt1, paramInt2, paramInt3, paramRandom);
+/*     */   }
+/*     */   
+/*     */   public void b(fd paramfd, int paramInt1, int paramInt2, int paramInt3, gs paramgs) {
+/* 115 */     this.a.b(paramfd, paramInt1, paramInt2, paramInt3, paramgs);
+/*     */   }
+/*     */   
+/*     */   public void c(fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/* 119 */     this.a.c(paramfd, paramInt1, paramInt2, paramInt3, paramInt4);
+/*     */   }
+/*     */   
+/*     */   public float d(xp paramxp, int paramInt1, int paramInt2, int paramInt3) {
+/* 123 */     return this.a.d(paramxp, paramInt1, paramInt2, paramInt3);
+/*     */   }
+/*     */   
+/*     */   public float a(sn paramsn) {
+/* 127 */     return this.a.a(paramsn);
+/*     */   }
+/*     */   
+/*     */   public int b_() {
+/* 131 */     return this.a.b_();
+/*     */   }
+/*     */   
+/*     */   public int a(int paramInt, Random paramRandom) {
+/* 135 */     return this.a.a(paramInt, paramRandom);
+/*     */   }
+/*     */   
+/*     */   public int a(Random paramRandom) {
+/* 139 */     return this.a.a(paramRandom);
+/*     */   }
+/*     */   
+/*     */   public int a(int paramInt1, int paramInt2) {
+/* 143 */     return this.a.a(paramInt1, paramInt2);
+/*     */   }
+/*     */   
+/*     */   public int a(int paramInt) {
+/* 147 */     return this.a.a(paramInt);
+/*     */   }
+/*     */   
+/*     */   public int a(xp paramxp, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+/* 151 */     return this.a.a(paramxp, paramInt1, paramInt2, paramInt3, paramInt4);
+/*     */   }
+/*     */   
+/*     */   public int e() {
+/* 155 */     return this.a.e();
+/*     */   }
+/*     */   
+/*     */   public eq f(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/* 159 */     return this.a.f(paramfd, paramInt1, paramInt2, paramInt3);
+/*     */   }
+/*     */   
+/*     */   public void a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, sn paramsn, bt parambt) {
+/* 163 */     this.a.a(paramfd, paramInt1, paramInt2, paramInt3, paramsn, parambt);
+/*     */   }
+/*     */   
+/*     */   public boolean v_() {
+/* 167 */     return this.a.v_();
+/*     */   }
+/*     */   
+/*     */   public boolean a(int paramInt, boolean paramBoolean) {
+/* 171 */     return this.a.a(paramInt, paramBoolean);
+/*     */   }
+/*     */   
+/*     */   public boolean a(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/* 175 */     return this.a.a(paramfd, paramInt1, paramInt2, paramInt3);
+/*     */   }
+/*     */   
+/*     */   public void c(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/* 179 */     b(paramfd, paramInt1, paramInt2, paramInt3, 0);
+/* 180 */     this.a.c(paramfd, paramInt1, paramInt2, paramInt3);
+/*     */   }
+/*     */   
+/*     */   public void b(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/* 184 */     this.a.b(paramfd, paramInt1, paramInt2, paramInt3);
+/*     */   }
+/*     */   
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   public void a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, int paramInt4, float paramFloat)
+/*     */   {
+/* 192 */     this.a.a(paramfd, paramInt1, paramInt2, paramInt3, paramInt4, paramFloat);
+/*     */   }
+/*     */   
+/*     */   public void b(fd paramfd, int paramInt1, int paramInt2, int paramInt3, sn paramsn) {
+/* 196 */     this.a.b(paramfd, paramInt1, paramInt2, paramInt3, paramsn);
+/*     */   }
+/*     */   
+/*     */   public void a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, Random paramRandom) {
+/* 200 */     this.a.a(paramfd, paramInt1, paramInt2, paramInt3, paramRandom);
+/*     */   }
+/*     */   
+/*     */   public boolean a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, gs paramgs) {
+/* 204 */     return this.a.a(paramfd, paramInt1, paramInt2, paramInt3, paramgs);
+/*     */   }
+/*     */   
+/*     */   public void d(fd paramfd, int paramInt1, int paramInt2, int paramInt3) {
+/* 208 */     this.a.d(paramfd, paramInt1, paramInt2, paramInt3);
+/*     */   }
+/*     */   
+/*     */   public void a(fd paramfd, int paramInt1, int paramInt2, int paramInt3, ls paramls) {
+/* 212 */     int i = in.b(paramls.aS * 4.0F / 360.0F + 0.5D) & 0x3;
+/*     */     
+/* 214 */     if (i == 0) paramfd.d(paramInt1, paramInt2, paramInt3, 2);
+/* 215 */     if (i == 1) paramfd.d(paramInt1, paramInt2, paramInt3, 1);
+/* 216 */     if (i == 2) paramfd.d(paramInt1, paramInt2, paramInt3, 3);
+/* 217 */     if (i == 3) paramfd.d(paramInt1, paramInt2, paramInt3, 0);
+/*     */   }
+/*     */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ss.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

@@ -1,0 +1,56 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public final class ao
+/*    */   extends ad
+/*    */ {
+/* 20 */   private static final ml a = new el();
+/*    */   
+/*    */   static ao a(mz parammz, Object[] paramArrayOfObject, qe paramqe) {
+/* 23 */     return new ao(parammz, paramArrayOfObject, paramqe);
+/*    */   }
+/*    */   
+/*    */   private ao(mz parammz, Object[] paramArrayOfObject, qe paramqe) {
+/* 27 */     super(b(parammz, paramArrayOfObject, paramqe));
+/*    */   }
+/*    */   
+/*    */   private static String b(mz parammz, Object[] paramArrayOfObject, qe paramqe) {
+/* 31 */     return "Failed to find " + parammz.a.toString() + " at [" + mz.a(parammz.b) + "] while resolving [" + a(paramArrayOfObject) + "] in " + a.a(paramqe) + ".";
+/*    */   }
+/*    */   
+/*    */   private static String a(Object[] paramArrayOfObject) {
+/* 35 */     StringBuilder localStringBuilder = new StringBuilder();
+/* 36 */     int i = 1;
+/* 37 */     for (Object localObject : paramArrayOfObject) {
+/* 38 */       if (i == 0) {
+/* 39 */         localStringBuilder.append(".");
+/*    */       }
+/* 41 */       i = 0;
+/* 42 */       if ((localObject instanceof String)) {
+/* 43 */         localStringBuilder.append("\"").append(localObject).append("\"");
+/*    */       } else {
+/* 45 */         localStringBuilder.append(localObject);
+/*    */       }
+/*    */     }
+/* 48 */     return localStringBuilder.toString();
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\ao.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

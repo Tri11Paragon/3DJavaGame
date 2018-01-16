@@ -1,0 +1,70 @@
+/*    */ import java.util.List;
+/*    */ import net.minecraft.client.Minecraft;
+/*    */ import org.lwjgl.input.Keyboard;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class gh
+/*    */   extends gc
+/*    */ {
+/*    */   public void b()
+/*    */   {
+/* 21 */     Keyboard.enableRepeatEvents(true);
+/*    */     
+/* 23 */     nh localnh = nh.a();
+/*    */     
+/* 25 */     this.e.add(new ke(1, this.c / 2 - 100, this.d - 40, localnh.a("multiplayer.stopSleeping")));
+/*    */   }
+/*    */   
+/*    */   public void h() {
+/* 29 */     Keyboard.enableRepeatEvents(false);
+/*    */   }
+/*    */   
+/*    */   protected void a(char paramChar, int paramInt) {
+/* 33 */     if (paramInt == 1) {
+/* 34 */       k();
+/* 35 */     } else if (paramInt == 28) {
+/* 36 */       String str = this.a.trim();
+/* 37 */       if (str.length() > 0) {
+/* 38 */         this.b.h.a(this.a.trim());
+/*    */       }
+/* 40 */       this.a = "";
+/*    */     } else {
+/* 42 */       super.a(paramChar, paramInt);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   public void a(int paramInt1, int paramInt2, float paramFloat) {
+/* 47 */     super.a(paramInt1, paramInt2, paramFloat);
+/*    */   }
+/*    */   
+/*    */   protected void a(ke paramke) {
+/* 51 */     if (paramke.f == 1) {
+/* 52 */       k();
+/*    */     } else {
+/* 54 */       super.a(paramke);
+/*    */     }
+/*    */   }
+/*    */   
+/*    */   private void k() {
+/* 59 */     if ((this.b.h instanceof tk)) {
+/* 60 */       nb localnb = ((tk)this.b.h).bN;
+/* 61 */       localnb.b(new ts(this.b.h, 3));
+/*    */     }
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\gh.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */

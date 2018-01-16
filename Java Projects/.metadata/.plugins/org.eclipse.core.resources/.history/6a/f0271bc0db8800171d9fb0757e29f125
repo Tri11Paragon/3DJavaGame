@@ -1,0 +1,45 @@
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class x
+/*    */   extends da
+/*    */ {
+/*  7 */   private int a = 0;
+/*    */   
+/*    */ 
+/*    */ 
+/*    */   public void a()
+/*    */   {
+/* 13 */     this.a += 1;
+/*    */   }
+/*    */   
+/*    */ 
+/*    */   public void b() {}
+/*    */   
+/*    */ 
+/*    */   protected void a(ke paramke) {}
+/*    */   
+/*    */   protected void a(char paramChar, int paramInt) {}
+/*    */   
+/*    */   public void a(int paramInt1, int paramInt2, float paramFloat)
+/*    */   {
+/* 26 */     i();
+/*    */     
+/* 28 */     a(this.g, "Out of memory!", this.c / 2, this.d / 4 - 60 + 20, 16777215);
+/* 29 */     b(this.g, "Minecraft has run out of memory.", this.c / 2 - 140, this.d / 4 - 60 + 60 + 0, 10526880);
+/* 30 */     b(this.g, "This could be caused by a bug in the game or by the", this.c / 2 - 140, this.d / 4 - 60 + 60 + 18, 10526880);
+/* 31 */     b(this.g, "Java Virtual Machine not being allocated enough", this.c / 2 - 140, this.d / 4 - 60 + 60 + 27, 10526880);
+/* 32 */     b(this.g, "memory. If you are playing in a web browser, try", this.c / 2 - 140, this.d / 4 - 60 + 60 + 36, 10526880);
+/* 33 */     b(this.g, "downloading the game and playing it offline.", this.c / 2 - 140, this.d / 4 - 60 + 60 + 45, 10526880);
+/* 34 */     b(this.g, "To prevent level corruption, the current game has quit.", this.c / 2 - 140, this.d / 4 - 60 + 60 + 63, 10526880);
+/* 35 */     b(this.g, "Please restart the game.", this.c / 2 - 140, this.d / 4 - 60 + 60 + 81, 10526880);
+/*    */     
+/* 37 */     super.a(paramInt1, paramInt2, paramFloat);
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\Brett\AppData\Roaming\.minecraft\versions\b1.7.3_HACKS\b1.7.3_HACKS.jar!\x.class
+ * Java compiler version: 5 (49.0)
+ * JD-Core Version:       0.7.1
+ */
