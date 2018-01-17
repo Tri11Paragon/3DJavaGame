@@ -71,8 +71,15 @@ public class MainGameLoop {
 		 */
 		Terrain terrain = new Terrain(0,-1,loader, texturePack, blendMap, "heightmap");
 		World world = new World(terrain);
-		Light theSun = new Light(new Vector3f(20000,20000,2000),new Vector3f(1,1,1));
-		
+		float su = 0.4f;
+		float po = 1.0f;
+		Light theSun = new Light(new Vector3f(0,1000,-7000),new Vector3f(su,su,su));
+		Light pointLight = new Light(new Vector3f(20,20,-20),new Vector3f(po,po,po), new Vector3f(1,0.01f,0.002f));
+		//Light theSun2 = new Light(new Vector3f(-20000,20000,-2000),new Vector3f(0,0,1));
+		List<Light> lights = new ArrayList<Light>();
+		lights.add(theSun);
+		lights.add(pointLight);
+		//lights.add(theSun2);
 		/**
 		 * Add the GUIs to the GUI list for rendering.
 		 * Passing by value might not be the best
@@ -92,7 +99,7 @@ public class MainGameLoop {
 		
 		TexturedModel staticModel = new TexturedModel(treeModel,new ModelTexture(loader.loadTexture("tree")));
 		
-		RawModel sheep = OBJLoader.loadObjModel("sheep", loader); 
+		RawModel sheep = OBJLoader.loadObjModel("goodsheep", loader); 
 		
 		TexturedModel sheepModel = new TexturedModel(sheep,new ModelTexture(loader.loadTexture("white")));
 		
@@ -102,7 +109,7 @@ public class MainGameLoop {
 			float posZ = random.nextFloat() * -600;
 			world.addEntityLivingToWorld(new EntityLiving(staticModel, new Vector3f(posX,terrain.getHeightOfTerrain(posX, posZ),posZ),0,0,0,3, new Vector3f(random.nextFloat(),random.nextFloat(),random.nextFloat()), false));
 		}
-		EntityLiving testEntity = new EntityLiving(sheepModel, new Vector3f(250, 20, -250),0,0,0,3, new Vector3f(0,0,1), true);
+		EntityLiving testEntity = new EntityLiving(sheepModel, new Vector3f(0, 1, 0),0,0,0,3, new Vector3f(0,0,1), true);
 		testEntity.addComponent(new BounceComponent(1.35f, 70, 100.0f));
 		testEntity.addComponent(new BreedingComponent(world, 20));
 		testEntity.addComponent(new RandomLookComponent(10, 10));
@@ -126,7 +133,7 @@ public class MainGameLoop {
 						
 						for (int i = 0; i < world.getEntityLivingList().size(); i++) {
 							EntityLiving entity = world.getEntityLivingList().get(i);
-							entity.update(terrain);
+							//entity.update(terrain);
 						}
 						
 						long currentFrameTime = getCurrentTime();
@@ -163,7 +170,7 @@ public class MainGameLoop {
 			} catch (ConcurrentModificationException e) {
 				
 			}
-			renderer.render(theSun, camera);
+			renderer.render(lights, camera);
 			guiRenderer.render(guis);
 			DisplayManager.updateDisplay();
 			

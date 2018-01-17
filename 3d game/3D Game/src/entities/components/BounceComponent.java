@@ -45,4 +45,34 @@ public class BounceComponent extends ComponentBase {
 		}
 		return;
 	}
+
+	public float getCooldown() {
+		return cooldown;
+	}
+
+	public float getBounceHeight() {
+		return bounceHeight;
+	}
+
+	public float getRange() {
+		return range;
+	}
+
+	public float getCurr() {
+		return curr;
+	}
+
+	public float getUpwardsSpeed() {
+		return upwardsSpeed;
+	}
+
+	public float getMoveAtX() {
+		return moveAtX;
+	}
+
+	public static float getGravity() {
+		return GRAVITY;
+	}
+	
+	
 }

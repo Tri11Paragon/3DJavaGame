@@ -21,4 +21,14 @@ public class RandomLookComponent extends ComponentBase {
 		}
 	}
 
+	public float getChance() {
+		return chance;
+	}
+
+	public float getAmount() {
+		return amount;
+	}
+	
+	
+
 }

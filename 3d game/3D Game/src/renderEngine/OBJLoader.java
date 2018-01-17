@@ -65,11 +65,12 @@ public class OBJLoader {
 				String[] vertex1 = currentLine[1].split("/");
 				String[] vertex2 = currentLine[2].split("/");
 				String[] vertex3 = currentLine[3].split("/");
-				
-				processVertex(vertex1,indices,textures,normals,textureArray,normalsArray);
-				processVertex(vertex2,indices,textures,normals,textureArray,normalsArray);
-				processVertex(vertex3,indices,textures,normals,textureArray,normalsArray);
-				line = reader.readLine();
+				try {
+					processVertex(vertex1,indices,textures,normals,textureArray,normalsArray);
+					processVertex(vertex2,indices,textures,normals,textureArray,normalsArray);
+					processVertex(vertex3,indices,textures,normals,textureArray,normalsArray);
+					line = reader.readLine();
+				} catch (NumberFormatException e) {}
 			}
 			reader.close();
 
@@ -97,15 +98,19 @@ public class OBJLoader {
 	private static void processVertex(String[] vertexData, List<Integer> indices,
 			List<Vector2f> textures, List<Vector3f> normals, float[] textureArray,
 			float[] normalsArray) {
-		int currentVertexPointer = Integer.parseInt(vertexData[0]) - 1;
-		indices.add(currentVertexPointer);
-		Vector2f currentTex = textures.get(Integer.parseInt(vertexData[1])-1);
-		textureArray[currentVertexPointer*2] = currentTex.x;
-		textureArray[currentVertexPointer*2+1] = 1 - currentTex.y;
-		Vector3f currentNorm = normals.get(Integer.parseInt(vertexData[2])-1);
-		normalsArray[currentVertexPointer*3] = currentNorm.x;
-		normalsArray[currentVertexPointer*3+1] = currentNorm.y;
-		normalsArray[currentVertexPointer*3+2] = currentNorm.z;	
+		try {
+			int currentVertexPointer = Integer.parseInt(vertexData[0]) - 1;
+			indices.add(currentVertexPointer);
+			Vector2f currentTex = textures.get(Integer.parseInt(vertexData[1])-1);
+			textureArray[currentVertexPointer*2] = currentTex.x;
+			textureArray[currentVertexPointer*2+1] = 1 - currentTex.y;
+			Vector3f currentNorm = normals.get(Integer.parseInt(vertexData[2])-1);
+			normalsArray[currentVertexPointer*3] = currentNorm.x;
+			normalsArray[currentVertexPointer*3+1] = currentNorm.y;
+			normalsArray[currentVertexPointer*3+2] = currentNorm.z;	
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
