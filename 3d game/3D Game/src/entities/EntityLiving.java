@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.lwjgl.util.vector.Vector3f;
 
+import engineTester.MainGameLoop;
 import entities.components.ComponentBase;
 import entities.components.GeneBase;
 import models.TexturedModel;
@@ -21,10 +22,23 @@ public class EntityLiving extends Entity {
 	float scale;
 	public boolean isOnGround;
 	private boolean allowUpdate;
+	private boolean allowGravity;
 	
 	public List<ComponentBase> componentsArrtibsList = new ArrayList<ComponentBase>();
 	public List<GeneBase> genes = new ArrayList<GeneBase>();
 	private List<TranslationMatrix> translationMatrixList = new ArrayList<TranslationMatrix>();
+	
+	public EntityLiving(TexturedModel model, Vector3f position, float rotX, float rotY, float rotZ, float scale, Vector3f entityColor, boolean allowUpdate, boolean allowGravity) {
+		super(model, position, rotX, rotY, rotZ, scale, entityColor);
+		this.model = model;
+		this.position = position;
+		this.rotX = rotX;
+		this.rotY = rotY;
+		this.rotZ = rotZ;
+		this.scale = scale;
+		this.allowUpdate = allowUpdate;
+		this.allowGravity = allowGravity;
+	}
 	
 	public EntityLiving(TexturedModel model, Vector3f position, float rotX, float rotY, float rotZ, float scale, Vector3f entityColor, boolean allowUpdate) {
 		super(model, position, rotX, rotY, rotZ, scale, entityColor);
@@ -37,18 +51,6 @@ public class EntityLiving extends Entity {
 		this.allowUpdate = allowUpdate;
 	}
 	
-	public EntityLiving(TexturedModel model, Vector3f position, float rotX, float rotY, float rotZ, float scale, Vector3f entityColor, boolean allowUpdate, List<ComponentBase> bases) {
-		super(model, position, rotX, rotY, rotZ, scale, entityColor);
-		this.model = model;
-		this.position = position;
-		this.rotX = rotX;
-		this.rotY = rotY;
-		this.rotZ = rotZ;
-		this.scale = scale;
-		this.allowUpdate = allowUpdate;
-		componentsArrtibsList.addAll(bases);
-	}
-	
 	public void update(Terrain terrain) {
 		if (allowUpdate) {
 			for (ComponentBase base : componentsArrtibsList) {
@@ -58,6 +60,9 @@ public class EntityLiving extends Entity {
 				doTranslation();
 			}
 			doTerrainCollision(terrain);
+		}
+		if (allowGravity) {
+			
 		}
 	}
 	
@@ -94,7 +99,7 @@ public class EntityLiving extends Entity {
 		float deltaSpeed = translationMatrixList.get(0).getDeltaSpeed();
 		Vector3f distace = Maths.distanceABS(startPos, endPos);
 		Vector3f amountToTranslate = new Vector3f(distace.x / deltaSpeed, distace.y / deltaSpeed, distace.z / deltaSpeed);
-		this.translate(amountToTranslate.x, amountToTranslate.y, amountToTranslate.z);
+		this.translate(amountToTranslate.x * MainGameLoop.getDeltaPhy(), amountToTranslate.y* MainGameLoop.getDeltaPhy(), amountToTranslate.z* MainGameLoop.getDeltaPhy());
 		if (this.getPosition() == endPos) {
 			translationMatrixList.remove(0);
 		}

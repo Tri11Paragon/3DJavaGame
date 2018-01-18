@@ -1,5 +1,6 @@
 package entities.components;
 
+import engineTester.MainGameLoop;
 import entities.EntityLiving;
 import renderEngine.DisplayManager;
 import toolbox.Maths;
@@ -11,7 +12,7 @@ public class BounceComponent extends ComponentBase {
 	private float range;
 	private float curr;
 	float upwardsSpeed = 0;
-	float moveAtX = 15.5f;
+	float moveAtX = 25.5f;
 	
 	public static final float GRAVITY = -500;
 	
@@ -24,10 +25,14 @@ public class BounceComponent extends ComponentBase {
 
 	@Override
 	public void update(EntityLiving entity) {
-		upwardsSpeed += GRAVITY * DisplayManager.getDelta();
-		float dx = (float) -(Math.sin(Math.toRadians(entity.getRotY())));
-		float dz = (float) (Math.cos(Math.toRadians(entity.getRotY())));
-		float delta = DisplayManager.getDelta();
+		upwardsSpeed += GRAVITY * MainGameLoop.getDeltaPhy();
+		float dx = (float) -(Math.sin(Math.toRadians(-entity.getRotY())));
+		float dz = (float) (Math.cos(Math.toRadians(-entity.getRotY())));
+		float delta = MainGameLoop.getDeltaPhy();
+		if (delta == 0.000f) { delta = 0.001f; }
+		if (delta == 0.001f) { delta = 0.016f; }
+		if (delta > 0.032) { delta = 0.016f; }
+		System.out.println(delta);
 		if (!entity.isOnGround) {
 			entity.increasePosition(dx * delta * moveAtX, 0, dz * delta * moveAtX);
 		}
@@ -73,6 +78,5 @@ public class BounceComponent extends ComponentBase {
 	public static float getGravity() {
 		return GRAVITY;
 	}
-	
 	
 }

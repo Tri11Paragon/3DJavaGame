@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Random;
 import models.RawModel;
 import models.TexturedModel;
+import objConverter.ModelData;
+import objConverter.OBJFileLoader;
 
 import org.lwjgl.Sys;
 import org.lwjgl.opengl.Display;
@@ -22,13 +24,11 @@ import terrains.World;
 import textures.ModelTexture;
 import textures.TerrainTexture;
 import textures.TerrainTexturePack;
-import toolbox.TimeChecker;
 import entities.EntityLiving;
 import entities.EntityLivingSheep;
 import entities.Light;
 import entities.StaticFirst1st;
 import entities.components.BounceComponent;
-import entities.components.BreedingComponent;
 import entities.components.RandomLookComponent;
 import guis.GuiRenderer;
 import guis.GuiTexture;
@@ -50,7 +50,7 @@ public class MainGameLoop {
 		 */
 		MasterSettingsLocationList.loadSettings();
 		Loader loader = new Loader();
-		MasterRenderer renderer = new MasterRenderer();
+		MasterRenderer renderer = new MasterRenderer(loader);
 		GuiRenderer guiRenderer = new GuiRenderer(loader);
 		StaticFirst1st camera = new StaticFirst1st();
 		
@@ -69,11 +69,11 @@ public class MainGameLoop {
 		/**
 		 * Time to setup the terrain.
 		 */
-		Terrain terrain = new Terrain(0,-1,loader, texturePack, blendMap, "heightmap");
+		Terrain terrain = new Terrain(0,-1,loader, texturePack, blendMap, "heightmaps/SmallSarnia");
 		World world = new World(terrain);
-		float su = 0.4f;
+		float su = 1.1f;
 		float po = 1.0f;
-		Light theSun = new Light(new Vector3f(0,1000,-7000),new Vector3f(su,su,su));
+		Light theSun = new Light(new Vector3f(0,1000,-2000),new Vector3f(su,su,su));
 		Light pointLight = new Light(new Vector3f(20,20,-20),new Vector3f(po,po,po), new Vector3f(1,0.01f,0.002f));
 		//Light theSun2 = new Light(new Vector3f(-20000,20000,-2000),new Vector3f(0,0,1));
 		List<Light> lights = new ArrayList<Light>();
@@ -99,7 +99,8 @@ public class MainGameLoop {
 		
 		TexturedModel staticModel = new TexturedModel(treeModel,new ModelTexture(loader.loadTexture("tree")));
 		
-		RawModel sheep = OBJLoader.loadObjModel("goodsheep", loader); 
+		ModelData data = OBJFileLoader.loadOBJ("bettersheep");
+		RawModel sheep = loader.loadToVAO(data.getVertices(), data.getTextureCoords(), data.getNormals(), data.getIndices());
 		
 		TexturedModel sheepModel = new TexturedModel(sheep,new ModelTexture(loader.loadTexture("white")));
 		
@@ -107,18 +108,21 @@ public class MainGameLoop {
 		for(int i=0;i<500;i++){
 			float posX = random.nextFloat()*800;
 			float posZ = random.nextFloat() * -600;
-			world.addEntityLivingToWorld(new EntityLiving(staticModel, new Vector3f(posX,terrain.getHeightOfTerrain(posX, posZ),posZ),0,0,0,3, new Vector3f(random.nextFloat(),random.nextFloat(),random.nextFloat()), false));
+			EntityLiving worldTree = new EntityLiving(staticModel, new Vector3f(posX,terrain.getHeightOfTerrain(posX, posZ),posZ),0,0,0,3, new Vector3f(random.nextFloat(),random.nextFloat(),random.nextFloat()), false);
+			//worldTree.addComponent(new BounceComponent(1.35f, 70, 100.0f));
+			world.addEntityLivingToWorld(worldTree);
+			
 		}
-		EntityLiving testEntity = new EntityLiving(sheepModel, new Vector3f(0, 1, 0),0,0,0,3, new Vector3f(0,0,1), true);
-		testEntity.addComponent(new BounceComponent(1.35f, 70, 100.0f));
-		testEntity.addComponent(new BreedingComponent(world, 20));
-		testEntity.addComponent(new RandomLookComponent(10, 10));
+		EntityLiving testEntity = new EntityLivingSheep(sheepModel, new Vector3f(0, 1, 0),0,0,0,3, new Vector3f(1f,1,1), true, world, new BounceComponent(1.35f, 70, 100.0f));
+		testEntity.addComponent(new BounceComponent(1.35f, 70, 25.0f));
+		//testEntity.addComponent(new BreedingComponent(world, 20));
+		testEntity.addComponent(new RandomLookComponent(25, 25));
 		world.addEntityLivingToWorld(testEntity);
 		
-		EntityLiving testEntity1 = new EntityLiving(sheepModel, new Vector3f(250, 20, -250),0,0,0,3, new Vector3f(1,0,0), true);
-		testEntity1.addComponent(new BounceComponent(1.35f, 70, 100.0f));
-		testEntity1.addComponent(new BreedingComponent(world, 20));
-		testEntity1.addComponent(new RandomLookComponent(10, 10));
+		EntityLiving testEntity1 = new EntityLivingSheep(sheepModel, new Vector3f(250, 20, -250),0,0,0,3, new Vector3f(1f,0,0), true, world, new BounceComponent(1.35f, 70, 100.0f));
+		testEntity1.addComponent(new BounceComponent(1.35f, 70, 25.0f));
+		//testEntity1.addComponent(new BreedingComponent(world, 20));
+		testEntity1.addComponent(new RandomLookComponent(25, 25));
 		world.addEntityLivingToWorld(testEntity1);
 		
 		/**
@@ -130,28 +134,34 @@ public class MainGameLoop {
 			new Thread(new Runnable() { 
 				public void run() {
 					while (!Display.isCloseRequested()) {
+						try {
 						
-						for (int i = 0; i < world.getEntityLivingList().size(); i++) {
-							EntityLiving entity = world.getEntityLivingList().get(i);
-							//entity.update(terrain);
-						}
-						
-						long currentFrameTime = getCurrentTime();
-						deltaThreadPhy = (currentFrameTime - lastFrameTimePhy)/1000f;
-						lastFrameTimePhy = currentFrameTime;
-						threadPhyFps = 1 / getDeltaPhy();
-						float time = 1000 / MasterSettingsLocationList.PhysicsFps; time = time / 1000;
-						float sleepTime = time - getDeltaPhy();
-						long totalSleepTime = (long)Math.abs((sleepTime * 1000));
-						if (totalSleepTime > (1000 / MasterSettingsLocationList.PhysicsFps)) totalSleepTime = (1000 / MasterSettingsLocationList.PhysicsFps);
-						//System.out.println("Physics: " + totalSleepTime);
-						
-						if (threadMainFps < threadPhyFps) {
-							try {
-								Thread.sleep(totalSleepTime);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
+							for (int i = 0; i < world.getEntityLivingList().size(); i++) {
+								EntityLiving entity = world.getEntityLivingList().get(i);
+								entity.update(terrain);
 							}
+							
+							long currentFrameTime = getCurrentTime();
+							deltaThreadPhy = (currentFrameTime - lastFrameTimePhy)/1000f;
+							if (deltaThreadPhy > 0.032) { deltaThreadPhy = 0.016f; }
+							lastFrameTimePhy = currentFrameTime;
+							threadPhyFps = 1 / getDeltaPhy();
+							float time = 1000 / MasterSettingsLocationList.PhysicsFps; time = time / 1000;
+							float sleepTime = time - getDeltaPhy();
+							long totalSleepTime = (long)Math.abs((sleepTime * 1000));
+							if (totalSleepTime > (1000 / MasterSettingsLocationList.PhysicsFps)) totalSleepTime = (1000 / MasterSettingsLocationList.PhysicsFps);
+							//System.out.println("Physics: " + deltaThreadPhy + " ; Render: " + DisplayManager.getDelta());
+							
+							if (threadMainFps < threadPhyFps) {
+								try {
+									Thread.sleep(totalSleepTime);
+								} catch (InterruptedException e) {
+									e.printStackTrace();
+									System.out.println("ERROR HERE");
+								}
+							}
+						} catch (Exception e) {
+							e.printStackTrace();
 						}
 						
 					}

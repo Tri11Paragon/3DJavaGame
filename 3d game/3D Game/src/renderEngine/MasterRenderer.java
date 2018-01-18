@@ -13,6 +13,7 @@ import org.lwjgl.util.vector.Matrix4f;
 
 import shaders.StaticShader;
 import shaders.TerrainShader;
+import skybox.SkyboxRenderer;
 import terrains.Terrain;
 import entities.Camera;
 import entities.Entity;
@@ -36,12 +37,24 @@ public class MasterRenderer {
 	private Map<TexturedModel,List<Entity>> entities = new HashMap<TexturedModel,List<Entity>>();
 	private List<Terrain> terrains = new ArrayList<Terrain>();
 	
+	private SkyboxRenderer skyboxRenderer;
+	
 	public MasterRenderer(){
 		GL11.glEnable(GL11.GL_CULL_FACE);
 		GL11.glCullFace(GL11.GL_BACK);
 		createProjectionMatrix();
 		renderer = new EntityRenderer(shader,projectionMatrix);
 		terrainRenderer = new TerrainRenderer(terrainShader,projectionMatrix);
+	}
+	
+	
+	public MasterRenderer(Loader loader){
+		GL11.glEnable(GL11.GL_CULL_FACE);
+		GL11.glCullFace(GL11.GL_BACK);
+		createProjectionMatrix();
+		renderer = new EntityRenderer(shader,projectionMatrix);
+		terrainRenderer = new TerrainRenderer(terrainShader,projectionMatrix);
+		skyboxRenderer = new SkyboxRenderer(loader, projectionMatrix);
 	}
 	
 	public void render(List<Light> lights,Camera camera){
@@ -56,6 +69,7 @@ public class MasterRenderer {
 		terrainShader.loadViewMatrix(camera);
 		terrainRenderer.render(terrains);
 		terrainShader.stop();
+		skyboxRenderer.render(camera);
 		terrains.clear();
 		entities.clear();
 	}
