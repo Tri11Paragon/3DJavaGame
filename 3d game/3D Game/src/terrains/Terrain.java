@@ -158,6 +158,10 @@ public class Terrain {
 	public float getZ() {
 		return z;
 	}
+	
+	public Vector3f getPosition() {
+		return new Vector3f(x, 0, z);
+	}
 
 	public RawModel getModel() {
 		return model;

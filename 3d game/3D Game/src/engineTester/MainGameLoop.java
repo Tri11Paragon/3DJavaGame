@@ -96,8 +96,10 @@ public class MainGameLoop {
 		 * built into the terrain mesh.
 		 */
 		RawModel treeModel = OBJLoader.loadObjModel("tree", loader); 
+		RawModel arcModel = OBJLoader.loadObjModel("arch", loader); 
 		
 		TexturedModel staticModel = new TexturedModel(treeModel,new ModelTexture(loader.loadTexture("tree")));
+		TexturedModel arcStaticModel = new TexturedModel(arcModel,new ModelTexture(loader.loadTexture("white")));
 		
 		ModelData data = OBJFileLoader.loadOBJ("bettersheep");
 		RawModel sheep = loader.loadToVAO(data.getVertices(), data.getTextureCoords(), data.getNormals(), data.getIndices());
@@ -108,18 +110,20 @@ public class MainGameLoop {
 		for(int i=0;i<500;i++){
 			float posX = random.nextFloat()*800;
 			float posZ = random.nextFloat() * -600;
-			EntityLiving worldTree = new EntityLiving(staticModel, new Vector3f(posX,terrain.getHeightOfTerrain(posX, posZ),posZ),0,0,0,3, new Vector3f(random.nextFloat(),random.nextFloat(),random.nextFloat()), false);
+			EntityLiving worldTree = new EntityLiving("Tree: " + i, staticModel, new Vector3f(posX,terrain.getHeightOfTerrain(posX, posZ),posZ),0,0,0,7, new Vector3f(random.nextFloat(),random.nextFloat(),random.nextFloat()), false, false, true);
 			//worldTree.addComponent(new BounceComponent(1.35f, 70, 100.0f));
 			world.addEntityLivingToWorld(worldTree);
 			
 		}
-		EntityLiving testEntity = new EntityLivingSheep(sheepModel, new Vector3f(0, 1, 0),0,0,0,3, new Vector3f(1f,1,1), true, world, new BounceComponent(1.35f, 70, 100.0f));
+		EntityLiving arch = new EntityLiving("arch", arcStaticModel, new Vector3f(270, terrain.getHeightOfTerrain(270, -270), -270), 0, 0, 0, 3, new Vector3f(0,0,0), false, false, false);
+		world.addEntityLivingToWorld(arch);
+		EntityLiving testEntity = new EntityLivingSheep("Sheep 1", sheepModel, new Vector3f(25, 20, -25),0,0,0,3, new Vector3f(1f,0,0), true, true, true, world);
 		testEntity.addComponent(new BounceComponent(1.35f, 70, 25.0f));
 		//testEntity.addComponent(new BreedingComponent(world, 20));
 		testEntity.addComponent(new RandomLookComponent(25, 25));
 		world.addEntityLivingToWorld(testEntity);
 		
-		EntityLiving testEntity1 = new EntityLivingSheep(sheepModel, new Vector3f(250, 20, -250),0,0,0,3, new Vector3f(1f,0,0), true, world, new BounceComponent(1.35f, 70, 100.0f));
+		EntityLiving testEntity1 = new EntityLivingSheep("Sheep 2", sheepModel, new Vector3f(250, 20, -250),0,0,0,3, new Vector3f(1f,0,0), true, true, true, world);
 		testEntity1.addComponent(new BounceComponent(1.35f, 70, 25.0f));
 		//testEntity1.addComponent(new BreedingComponent(world, 20));
 		testEntity1.addComponent(new RandomLookComponent(25, 25));
@@ -138,7 +142,7 @@ public class MainGameLoop {
 						
 							for (int i = 0; i < world.getEntityLivingList().size(); i++) {
 								EntityLiving entity = world.getEntityLivingList().get(i);
-								entity.update(terrain);
+								entity.update(world);
 							}
 							
 							long currentFrameTime = getCurrentTime();
@@ -150,7 +154,7 @@ public class MainGameLoop {
 							float sleepTime = time - getDeltaPhy();
 							long totalSleepTime = (long)Math.abs((sleepTime * 1000));
 							if (totalSleepTime > (1000 / MasterSettingsLocationList.PhysicsFps)) totalSleepTime = (1000 / MasterSettingsLocationList.PhysicsFps);
-							//System.out.println("Physics: " + deltaThreadPhy + " ; Render: " + DisplayManager.getDelta());
+							System.out.println("Physics: " + totalSleepTime);
 							
 							if (threadMainFps < threadPhyFps) {
 								try {

@@ -32,7 +32,6 @@ public class BounceComponent extends ComponentBase {
 		if (delta == 0.000f) { delta = 0.001f; }
 		if (delta == 0.001f) { delta = 0.016f; }
 		if (delta > 0.032) { delta = 0.016f; }
-		System.out.println(delta);
 		if (!entity.isOnGround) {
 			entity.increasePosition(dx * delta * moveAtX, 0, dz * delta * moveAtX);
 		}

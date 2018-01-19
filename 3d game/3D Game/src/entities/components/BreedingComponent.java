@@ -53,8 +53,8 @@ public class BreedingComponent extends ComponentBase {
 		Vector3f entityColor = calculateChildColor(entity, entities.get(0));
 		List<GeneBase> entityGenes = calcualteChildGenes(entity, entities.get(0));
 		Vector3f entityPos = new Vector3f(entity.getPosition().x, entity.getPosition().y, entity.getPosition().z);
-		EntityLiving entityLiving = new EntityLiving(entity.getModel(), entityPos, 
-				entity.getRotX(), entity.getRotY(), entity.getRotZ(), entity.getScale(), entityColor, true);
+		EntityLiving entityLiving = new EntityLiving("Baby Sheep", entity.getModel(), entityPos, 
+				entity.getRotX(), entity.getRotY(), entity.getRotZ(), entity.getScale(), entityColor, true, true, true);
 		entityLiving.addAllComponent(entity.getComponent());
 		//entityLiving.addComponent(new BounceComponent( 1.35f, 70, 100.0f));
 		//entityLiving.addComponent(new RandomLookComponent( 10, 10));

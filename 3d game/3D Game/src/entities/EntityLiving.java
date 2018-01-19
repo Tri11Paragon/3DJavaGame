@@ -10,6 +10,7 @@ import entities.components.ComponentBase;
 import entities.components.GeneBase;
 import models.TexturedModel;
 import terrains.Terrain;
+import terrains.World;
 import toolbox.Maths;
 import toolbox.TranslationMatrix;
 
@@ -23,12 +24,15 @@ public class EntityLiving extends Entity {
 	public boolean isOnGround;
 	private boolean allowUpdate;
 	private boolean allowGravity;
+	private String entityName;
+	private boolean allowCollision;
 	
 	public List<ComponentBase> componentsArrtibsList = new ArrayList<ComponentBase>();
 	public List<GeneBase> genes = new ArrayList<GeneBase>();
 	private List<TranslationMatrix> translationMatrixList = new ArrayList<TranslationMatrix>();
 	
-	public EntityLiving(TexturedModel model, Vector3f position, float rotX, float rotY, float rotZ, float scale, Vector3f entityColor, boolean allowUpdate, boolean allowGravity) {
+	public EntityLiving(String entityName,TexturedModel model, Vector3f position, float rotX, float rotY, float rotZ, float scale,
+			 			Vector3f entityColor, boolean allowUpdate, boolean allowGravity, boolean allowCollision) {
 		super(model, position, rotX, rotY, rotZ, scale, entityColor);
 		this.model = model;
 		this.position = position;
@@ -38,20 +42,11 @@ public class EntityLiving extends Entity {
 		this.scale = scale;
 		this.allowUpdate = allowUpdate;
 		this.allowGravity = allowGravity;
+		this.entityName = entityName;
+		this.allowCollision = allowCollision;
 	}
 	
-	public EntityLiving(TexturedModel model, Vector3f position, float rotX, float rotY, float rotZ, float scale, Vector3f entityColor, boolean allowUpdate) {
-		super(model, position, rotX, rotY, rotZ, scale, entityColor);
-		this.model = model;
-		this.position = position;
-		this.rotX = rotX;
-		this.rotY = rotY;
-		this.rotZ = rotZ;
-		this.scale = scale;
-		this.allowUpdate = allowUpdate;
-	}
-	
-	public void update(Terrain terrain) {
+	public void update(World world) {
 		if (allowUpdate) {
 			for (ComponentBase base : componentsArrtibsList) {
 				base.update(this);
@@ -59,9 +54,22 @@ public class EntityLiving extends Entity {
 			if (translationMatrixList.size() > 0) {
 				doTranslation();
 			}
-			doTerrainCollision(terrain);
+			Terrain ter = world.getCurrentTerrain(getPosition().x, getPosition().z);
+			if (ter != null) {doTerrainCollision(ter);} else { this.position.x = ((world.getTerrain().size() * world.getWorldSize())/2);
+			this.position.z = -((world.getTerrain().size() * world.getWorldSize())/2);}
+			
+			//doEntityCollision(world);
 		}
 		if (allowGravity) {
+			
+		}
+	}
+	int o = 0;
+	public void doEntityCollision(World world) {
+		o++;
+		o %= 25;
+		if (o == 24 ) {
+			List<EntityLiving> localEntities = world.getLivingEntitiesInRange(this.position.x, this.position.y, this.position.z, 2);
 			
 		}
 	}
@@ -149,6 +157,13 @@ public class EntityLiving extends Entity {
 
 	public void setAllowUpdate(boolean allowUpdate) {
 		this.allowUpdate = allowUpdate;
+	}
+	
+	public String getName() {
+		return entityName;
+	}
+	public boolean allowCollision() {
+		return allowCollision;
 	}
 	
 }
