@@ -111,7 +111,7 @@ public class Terrain {
 				indices[pointer++] = bottomRight;
 			}
 		}
-		return loader.loadToVAO(vertices, textureCoords, normals, indices);
+		return loader.loadToVAO(vertices, textureCoords, normals, indices, heightMap + ":TERRAIN");
 	}
 	
 	private float getHeight(int x, int y, BufferedImage image) {

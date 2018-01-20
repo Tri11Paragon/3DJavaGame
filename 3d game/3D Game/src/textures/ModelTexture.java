@@ -6,9 +6,11 @@ public class ModelTexture {
 	
 	private float shineDamper = 1;
 	private float reflectivity = 0;
+	private String textureName;
 	
-	public ModelTexture(int texture){
+	public ModelTexture(int texture, String textureName){
 		this.textureID = texture;
+		this.textureName = textureName;
 	}
 	
 	public int getID(){
@@ -30,7 +32,9 @@ public class ModelTexture {
 	public void setReflectivity(float reflectivity) {
 		this.reflectivity = reflectivity;
 	}
-	
+	public String getTextureName() {
+		return textureName;
+	}
 	
 
 }

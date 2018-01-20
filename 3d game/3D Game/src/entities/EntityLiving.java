@@ -174,4 +174,11 @@ public class EntityLiving extends Entity {
 		return allowCollision;
 	}
 	
+	public TexturedModel getModel() {
+		return model;
+	}
+	public boolean getAllowGravity() {
+		return allowGravity;
+	}
+	
 }

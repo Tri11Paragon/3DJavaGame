@@ -6,8 +6,8 @@ import org.lwjgl.util.vector.Vector3f;
 
 import entities.EntityLiving;
 import entities.EntityLivingSheep;
+import loaders.MasterSettingsLocationList;
 import renderEngine.DisplayManager;
-import settings.MasterSettingsLocationList;
 import terrains.World;
 import toolbox.Maths;
 

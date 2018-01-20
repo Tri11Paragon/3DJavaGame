@@ -1,4 +1,4 @@
-package settings;
+package loaders;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -44,9 +44,4 @@ public class SettingsLoader {
 			e.printStackTrace();
 		}
 	}
-	
-	public static boolean loadSettingBool(String path) {
-		return false;
-	}
-	
 }

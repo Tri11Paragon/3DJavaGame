@@ -1,4 +1,4 @@
-package settings;
+package loaders;
 
 public class MasterSettingsLocationList {
 	

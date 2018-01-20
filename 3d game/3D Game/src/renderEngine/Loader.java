@@ -22,8 +22,8 @@ import org.newdawn.slick.opengl.TextureLoader;
 
 import de.matthiasmann.twl.utils.PNGDecoder;
 import de.matthiasmann.twl.utils.PNGDecoder.Format;
+import loaders.SettingsLoader;
 import models.RawModel;
-import settings.SettingsLoader;
 import textures.TextureData;
 
 public class Loader {
@@ -32,28 +32,28 @@ public class Loader {
 	private List<Integer> vbos = new ArrayList<Integer>();
 	private List<Integer> textures = new ArrayList<Integer>();
 	
-	public RawModel loadToVAO(float[] positions,float[] textureCoords,float[] normals,int[] indices){
+	public RawModel loadToVAO(float[] positions,float[] textureCoords,float[] normals,int[] indices, String modelName){
 		int vaoID = createVAO();
 		bindIndicesBuffer(indices);
 		storeDataInAttributeList(0,3,positions);
 		storeDataInAttributeList(1,2,textureCoords);
 		storeDataInAttributeList(2,3,normals);
 		unbindVAO();
-		return new RawModel(vaoID,indices.length);
+		return new RawModel(vaoID,indices.length, modelName);
 	}
 	
-	public RawModel loadToVAO(float[] positions) {
+	public RawModel loadToVAO(float[] positions, String modelName) {
 		int vaoID = createVAO();
 		this.storeDataInAttributeList(0, 2, positions);
 		unbindVAO();
-		return new RawModel(vaoID, positions.length/2);
+		return new RawModel(vaoID, positions.length/2, modelName);
 		
 	}
-	public RawModel loadToVAO(float[] positions, int dimensions) {
+	public RawModel loadToVAO(float[] positions, int dimensions, String modelName) {
 		int vaoID = createVAO();
 		this.storeDataInAttributeList(0, dimensions, positions);
 		unbindVAO();
-		return new RawModel(vaoID, positions.length/dimensions);
+		return new RawModel(vaoID, positions.length/dimensions, modelName);
 		
 	}
 	

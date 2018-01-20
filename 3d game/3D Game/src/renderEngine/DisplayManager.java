@@ -11,7 +11,10 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL13;
 import org.lwjgl.opengl.PixelFormat;
 
-import settings.SettingsLoader;
+import guis.GuiRenderer;
+import loaders.SettingsLoader;
+import loaders.WorldLoader;
+import terrains.World;
 
 public class DisplayManager {
 	
@@ -43,7 +46,7 @@ public class DisplayManager {
 		lastFrameTime = getCurrentTime();
 	}
 	
-	public static void updateDisplay(){
+	public static void updateDisplay(GuiRenderer render, MasterRenderer renderer, Loader loader, World world){
 		
 		Display.sync(FPS_CAP);
 		Display.update();
@@ -55,7 +58,7 @@ public class DisplayManager {
 			if(Keyboard.getEventKeyState()) {
 				
 				if (Keyboard.isKeyDown(Keyboard.KEY_ESCAPE)) {
-					closeDisplay();
+					closeDisplay(render, renderer, loader, world);
 				}
 				
 				if(Keyboard.isKeyDown(Keyboard.KEY_E) && Mouse.isGrabbed()) {
@@ -74,8 +77,12 @@ public class DisplayManager {
 		return delta;
 	}
 	
-	public static void closeDisplay(){
+	public static void closeDisplay(GuiRenderer render, MasterRenderer renderer, Loader loader, World world){
 		
+		WorldLoader.saveEntities("worlds/base.WORLDSAVE", world);
+		render.cleanUp();
+		renderer.cleanUp();
+		loader.cleanUp();
 		Display.destroy();
 		System.exit(0);
 		

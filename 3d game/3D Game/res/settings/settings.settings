@@ -13,7 +13,7 @@ s ENABLEASF true
 s ASFLEVEL 4
 # don't like anisotropic filtering? Use mipmaping insted? Don't enable both, its a waste of GPU resources. 
 # THIS IS USEFUL IF YOUR GPU DOES NOT SUPPORT ANISOTROPIC FILTERING
-s USEMIPMAP false
+s USEMIPMAP true
 
 
 end;
