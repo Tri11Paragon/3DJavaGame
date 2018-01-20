@@ -1,0 +1,19 @@
+# This is a comment it will not be counted as code. It is also printed to console.
+# SAVE11NOW337
+
+# enable anti-aliasing?
+s ENABLEAA true
+# this can be 2, 4, or 8. No more. Errors will happen.
+s MSAA 2
+# leave this alone unless you know what you are doing. Display is created with "new PixelFormat().withSamples(SettingsLoader.MSAA).withDepthBits(SettingsLoader.DEPTHBUFFERBITS)"
+s BUFFERBITS 4
+# use anisotropic filtering?
+s ENABLEASF true
+# anisotropic filtering level.
+s ASFLEVEL 4
+# don't like anisotropic filtering? Use mipmaping insted? Don't enable both, its a waste of GPU resources. 
+# THIS IS USEFUL IF YOUR GPU DOES NOT SUPPORT ANISOTROPIC FILTERING
+s USEMIPMAP false
+
+
+end;

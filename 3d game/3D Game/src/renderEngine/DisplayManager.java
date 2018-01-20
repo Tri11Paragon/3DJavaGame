@@ -11,6 +11,8 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL13;
 import org.lwjgl.opengl.PixelFormat;
 
+import settings.SettingsLoader;
+
 public class DisplayManager {
 	
 	private static final int WIDTH = 1280;
@@ -28,9 +30,10 @@ public class DisplayManager {
 		
 		try {
 			Display.setDisplayMode(new DisplayMode(WIDTH,HEIGHT));
-			Display.create(new PixelFormat().withSamples(4).withDepthBits(8), attribs);
+			Display.create(new PixelFormat().withSamples(SettingsLoader.MSAA).withDepthBits(SettingsLoader.DEPTHBUFFERBITS), attribs);
 			Display.setTitle(name);
-			GL11.glEnable(GL13.GL_MULTISAMPLE);
+			if (SettingsLoader.ENABLEAA)
+				GL11.glEnable(GL13.GL_MULTISAMPLE);
 		} catch (LWJGLException e) {
 			e.printStackTrace();
 		}

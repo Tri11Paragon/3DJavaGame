@@ -19,6 +19,7 @@ import renderEngine.Loader;
 import renderEngine.MasterRenderer;
 import renderEngine.OBJLoader;
 import settings.MasterSettingsLocationList;
+import settings.SettingsLoader;
 import terrains.Terrain;
 import terrains.World;
 import textures.ModelTexture;
@@ -43,6 +44,8 @@ public class MainGameLoop {
 	
 	public static void main(String[] args) {
 
+		SettingsLoader.loadSettingsFile();
+		
 		DisplayManager.createDisplay();
 		
 		/**
@@ -154,7 +157,7 @@ public class MainGameLoop {
 							float sleepTime = time - getDeltaPhy();
 							long totalSleepTime = (long)Math.abs((sleepTime * 1000));
 							if (totalSleepTime > (1000 / MasterSettingsLocationList.PhysicsFps)) totalSleepTime = (1000 / MasterSettingsLocationList.PhysicsFps);
-							System.out.println("Physics: " + totalSleepTime);
+							//System.out.println("Physics: " + totalSleepTime);
 							
 							if (threadMainFps < threadPhyFps) {
 								try {

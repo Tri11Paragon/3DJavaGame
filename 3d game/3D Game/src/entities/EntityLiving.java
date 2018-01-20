@@ -46,6 +46,10 @@ public class EntityLiving extends Entity {
 		this.allowCollision = allowCollision;
 	}
 	
+	public void specialRender() {
+		
+	}
+	
 	public void update(World world) {
 		if (allowUpdate) {
 			for (ComponentBase base : componentsArrtibsList) {
@@ -64,6 +68,10 @@ public class EntityLiving extends Entity {
 			
 		}
 	}
+	public void physics(World world) {
+		
+	}
+	
 	int o = 0;
 	public void doEntityCollision(World world) {
 		o++;
